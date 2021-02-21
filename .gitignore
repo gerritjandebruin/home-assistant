@@ -1,0 +1,22 @@
+# Ignore folders.
+.cloud
+.storage
+.vscode
+blueprints
+deps
+notebooks/bokeh-examples
+notebooks/home-assistant
+
+# Database
+*.db
+
+# Logs
+*.log
+*.log.bk
+
+# Python
+*__pycache*
+*.ipynb_checkpoints
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+secrets.yaml

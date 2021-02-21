@@ -1,0 +1,162 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+zha:
+  zigpy_config:
+    network:
+      channel: !secret zigbee_channel
+    ota:
+      ikea_provider: true
+notify:
+  - name: everyone
+    platform: group
+    services:
+    - service: mobile_app_iphone_van_mirjam
+    - service: mobile_app_nokia_7_2
+climate:
+  - platform: generic_thermostat
+    name: attic
+    heater: switch.heater
+    target_sensor: sensor.attic_temperature
+    target_temp: 20
+    initial_hvac_mode: 'off'
+  - platform: generic_thermostat
+    name: bathroom
+    heater: switch.heater
+    target_sensor: sensor.bathroom_temperature
+    target_temp: 20
+    initial_hvac_mode: 'off'
+  - platform: generic_thermostat
+    name: bedroom
+    heater: switch.heater
+    target_sensor: sensor.bedroom_temperature
+    target_temp: 20
+    initial_hvac_mode: 'off'
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret influxdb_password
+  max_retries: 3
+  measurement_attr: entity_id
+logger:
+  default: info
+#   logs:
+#     homeassistant.core: debug
+#     homeassistant.components.zha: debug
+#     bellows.zigbee.application: debug
+#     bellows.ezsp: debug
+#     zigpy: debug
+#     zigpy_cc: debug
+#     zigpy_deconz.zigbee.application: debug
+#     zigpy_deconz.api: debug
+#     zigpy_xbee.zigbee.application: debug
+#     zigpy_xbee.api: debug
+#     zigpy_zigate: debug
+#     zigpy_znp: debug
+#     zhaquirks: debug
+homeassistant:
+  customize:
+    sensor.bedroom_mold:
+      icon: mdi:bacteria
+    sensor.attic_mold:
+      icon: mdi:bacteria
+    sensor.lounge_mold:
+      icon: mdi:bacteria
+    sensor.bathroom_mold:
+      icon: mdi:bacteria
+    sensor.shed_mold:
+      icon: mdi:bacteria
+    sensor.guestroom_mold:
+      icon: mdi:bacteria
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.2.0/25
+    - type: homeassistant
+recorder:
+  purge_keep_days: 366
+# device_tracker:
+#   - platform: nmap_tracker
+#     hosts: 192.168.2.0/24
+#     interval_seconds: 60
+sensor:
+  - platform: growatt_server
+    username: !secret growatt_user
+    password: !secret growatt_password
+  - platform: template
+    sensors:
+      outside_temperature:
+        friendly_name: "outside temperature"
+        unit_of_measurement: "°C"
+        value_template: "{{ state_attr('weather.home', 'temperature')}}"
+        device_class: temperature
+      outside_humidity:
+        friendly_name: "outside humidity"
+        unit_of_measurement: "%"
+        value_template: "{{ state_attr('weather.home', 'humidity')}}"
+        device_class: humidity
+      outside_airpressure:
+        friendly_name: "outside pressure"
+        unit_of_measurement: "hPa"
+        value_template: "{{ state_attr('weather.home', 'pressure')}}"
+        device_class: humidity
+  - platform: systemmonitor
+    resources:
+      - type: disk_free
+        arg: /home
+      - type: memory_use_percent
+      - type: processor_use
+      - type: last_boot
+  # - platform: afvalwijzer
+  #   provider: mijnafvalwijzer        # (required, default = mijnafvalwijzer) either choose mijnafvalwijzer, rova or afvalstoffendienstkalender
+  #   postal_code: !secret postal_code # (required, default = '')
+  #   street_number: !secret street_number # (required, default = '')
+  #   include_date_today: true         # (optional, default = false) to take or not to take Today into account in the next pickup.
+  #   default_label: Geen              # (optional, default = Geen) label if no date found
+  - platform: mold_indicator
+    name:                   bedroom_mold
+    indoor_temp_sensor:     sensor.bedroom_temperature
+    indoor_humidity_sensor: sensor.bedroom_humidity
+    outdoor_temp_sensor:    sensor.outside_temperature
+    calibration_factor:     1.6
+  - platform: mold_indicator
+    indoor_temp_sensor:     sensor.attic_temperature
+    indoor_humidity_sensor: sensor.attic_humidity
+    outdoor_temp_sensor:    sensor.outside_temperature
+    calibration_factor:     1.5
+    name:                   attic_mold
+  - platform: mold_indicator
+    indoor_temp_sensor:     sensor.bathroom_temperature
+    indoor_humidity_sensor: sensor.bathroom_humidity
+    outdoor_temp_sensor:    sensor.outside_temperature
+    calibration_factor:     1.5
+    name:                   bathroom_mold
+  - platform: mold_indicator
+    indoor_temp_sensor:     sensor.guestroom_temperature
+    indoor_humidity_sensor: sensor.guestroom_humidity
+    outdoor_temp_sensor:    sensor.outside_temperature
+    calibration_factor:     1.6
+    name:                   guestroom_mold
+  - platform: mold_indicator
+    indoor_temp_sensor:     sensor.shed_temperature
+    indoor_humidity_sensor: sensor.shed_humidity
+    outdoor_temp_sensor:    sensor.outside_temperature
+    calibration_factor:     1.0
+    name:                   shed_mold
+  - platform: mold_indicator
+    indoor_temp_sensor:     sensor.lounge_temperature
+    indoor_humidity_sensor: sensor.lounge_humidity
+    outdoor_temp_sensor:    sensor.outside_temperature
+    calibration_factor:     1.8
+    name:                   lounge_mold
+shell_command:
+  backup_logs: cp /config/home-assistant.log /config/home-assistant.log.bk
+tts:
+  - platform: google_translate
+
+light groups: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
