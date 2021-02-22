@@ -67,6 +67,8 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 [ ] Add some screenshots to this repo.
 [ ] Auto detect when cycling home, so that lights can be turned on automatically?
 [ ] Make doorbell working again.
+[ ] Add some info about Docker images/ addons used.
+[ ] Move from Keepass to Bitwarden
 [ ] Add section about experiences on some devices.
 [ ] Add pipeline tests to this repo.
 [ ] Learn how to write own Python code for visualizations in Lovelace. This could help to see how much each lamp was on in the past $x$ days.
