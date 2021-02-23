@@ -61,18 +61,18 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 - Total costs (ignoring prices in brackets): €889 
 
 ## Plans
-[ ] Add bike shed controls to frontend.
-[ ] Add button to control lights in bike shed.
-[ ] Add Home Assistant app to my Nokia 7.2.
-[ ] Add some screenshots to this repo.
-[ ] Auto detect when cycling home, so that lights can be turned on automatically?
-[ ] Make doorbell working again.
-[ ] Add some info about Docker images/ addons used.
-[ ] Move from Keepass to Bitwarden
-[ ] Add section about experiences on some devices.
-[ ] Add pipeline tests to this repo.
-[ ] Learn how to write own Python code for visualizations in Lovelace. This could help to see how much each lamp was on in the past $x$ days.
-[ ] Add doorsensor to bathroom.
-[ ] Make this as well for our boat!
+- [ ] Add bike shed controls to frontend.
+- [ ] Add button to control lights in bike shed.
+- [ ] Add Home Assistant app to my Nokia 7.2.
+- [ ] Add some screenshots to this repo.
+- [ ] Auto detect when cycling home, so that lights can be turned on automatically?
+- [ ] Make doorbell working again.
+- [ ] Add some info about Docker images/ addons used.
+- [ ] Move from Keepass to Bitwarden
+- [ ] Add section about experiences on some devices.
+- [ ] Add pipeline tests to this repo.
+- [ ] Learn how to write own Python code for visualizations in Lovelace. This could help to see how much each lamp was on in the past $x$ days.
+- [ ] Add doorsensor to bathroom.
+- [ ] Make this as well for our boat!
 
 [^1] This claim needs still some verification. At least the corridor Utrecht - Amsterdam/ Schiphol/ Den Haag/ Rotterdam/ Leiden/ Amersfoort/ Baarn is running at this place. That makes more than one train per minute.
