@@ -1,6 +1,7 @@
 # Ignore folders.
 .cloud
-.storage
+.storage/*
+!.storage/lovelace
 .vscode
 blueprints
 deps
