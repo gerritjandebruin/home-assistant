@@ -1,4 +1,3 @@
-
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 zha:
@@ -11,27 +10,27 @@ notify:
   - name: everyone
     platform: group
     services:
-    - service: mobile_app_iphone_van_mirjam
-    - service: mobile_app_nokia_7_2
+      - service: mobile_app_iphone_van_mirjam
+      - service: mobile_app_nokia_7_2
 climate:
   - platform: generic_thermostat
     name: attic
     heater: switch.heater
     target_sensor: sensor.attic_temperature
     target_temp: 20
-    initial_hvac_mode: 'off'
+    initial_hvac_mode: "off"
   - platform: generic_thermostat
     name: bathroom
     heater: switch.heater
     target_sensor: sensor.bathroom_temperature
     target_temp: 20
-    initial_hvac_mode: 'off'
+    initial_hvac_mode: "off"
   - platform: generic_thermostat
     name: bedroom
     heater: switch.heater
     target_sensor: sensor.bedroom_temperature
     target_temp: 20
-    initial_hvac_mode: 'off'
+    initial_hvac_mode: "off"
 influxdb:
   host: a0d7b954-influxdb
   port: 8086
@@ -116,47 +115,44 @@ sensor:
   #   include_date_today: true         # (optional, default = false) to take or not to take Today into account in the next pickup.
   #   default_label: Geen              # (optional, default = Geen) label if no date found
   - platform: mold_indicator
-    name:                   bedroom_mold
-    indoor_temp_sensor:     sensor.bedroom_temperature
+    name: bedroom_mold
+    indoor_temp_sensor: sensor.bedroom_temperature
     indoor_humidity_sensor: sensor.bedroom_humidity
-    outdoor_temp_sensor:    sensor.outside_temperature
-    calibration_factor:     1.6
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.6
   - platform: mold_indicator
-    indoor_temp_sensor:     sensor.attic_temperature
+    indoor_temp_sensor: sensor.attic_temperature
     indoor_humidity_sensor: sensor.attic_humidity
-    outdoor_temp_sensor:    sensor.outside_temperature
-    calibration_factor:     1.5
-    name:                   attic_mold
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.5
+    name: attic_mold
   - platform: mold_indicator
-    indoor_temp_sensor:     sensor.bathroom_temperature
+    indoor_temp_sensor: sensor.bathroom_temperature
     indoor_humidity_sensor: sensor.bathroom_humidity
-    outdoor_temp_sensor:    sensor.outside_temperature
-    calibration_factor:     1.5
-    name:                   bathroom_mold
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.5
+    name: bathroom_mold
   - platform: mold_indicator
-    indoor_temp_sensor:     sensor.guestroom_temperature
+    indoor_temp_sensor: sensor.guestroom_temperature
     indoor_humidity_sensor: sensor.guestroom_humidity
-    outdoor_temp_sensor:    sensor.outside_temperature
-    calibration_factor:     1.6
-    name:                   guestroom_mold
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.6
+    name: guestroom_mold
   - platform: mold_indicator
-    indoor_temp_sensor:     sensor.shed_temperature
+    indoor_temp_sensor: sensor.shed_temperature
     indoor_humidity_sensor: sensor.shed_humidity
-    outdoor_temp_sensor:    sensor.outside_temperature
-    calibration_factor:     1.0
-    name:                   shed_mold
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.0
+    name: shed_mold
   - platform: mold_indicator
-    indoor_temp_sensor:     sensor.lounge_temperature
+    indoor_temp_sensor: sensor.lounge_temperature
     indoor_humidity_sensor: sensor.lounge_humidity
-    outdoor_temp_sensor:    sensor.outside_temperature
-    calibration_factor:     1.8
-    name:                   lounge_mold
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.8
+    name: lounge_mold
 shell_command:
   backup_logs: cp /config/home-assistant.log /config/home-assistant.log.bk
 tts:
   - platform: google_translate
 
-light groups: !include groups.yaml
 automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
