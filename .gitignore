@@ -5,7 +5,7 @@
 .storage/auth*
 .storage/core.config
 .storage/core.config_entries
-.storage/core.device_registry
+# .storage/core.device_registry
 .storage/core.restore_state
 .storage/core.uuid
 .storage/frontend.user_data_76446e7c5b7c42f5bc1233034aa7e006
