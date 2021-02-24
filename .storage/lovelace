@@ -398,7 +398,26 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "input_boolean.bright"
+                                    "entity": "input_boolean.bright",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "type": "section"
+                                },
+                                {
+                                    "entity": "light.shed",
+                                    "secondary_info": "last-changed",
+                                    "toggle": true,
+                                    "icon": "mdi:garage"
+                                },
+                                {
+                                    "entity": "switch.bike_light",
+                                    "secondary_info": "last-changed",
+                                    "icon": "mdi:bicycle"
+                                },
+                                {
+                                    "entity": "switch.bike_socket",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
                                     "type": "section"
@@ -421,12 +440,6 @@
                                     "secondary_info": "last-changed",
                                     "toggle": true,
                                     "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entity": "light.shed",
-                                    "secondary_info": "last-changed",
-                                    "toggle": true,
-                                    "icon": "mdi:garage"
                                 },
                                 {
                                     "entity": "light.hall",
@@ -805,6 +818,7 @@
                                 "sensor.bedroom_remote_gj_battery",
                                 "sensor.bedroom_remote_m_battery",
                                 "sensor.bedroom_thermometer_battery",
+                                "sensor.bike_battery",
                                 "sensor.corridor_battery",
                                 "sensor.hall_battery",
                                 "sensor.kitchen_battery",
@@ -839,10 +853,10 @@
                             "entity": "binary_sensor.bathroom_overpowering"
                         },
                         {
-                            "entity": "binary_sensor.bike_channel_1_overpowering"
+                            "entity": "binary_sensor.bike_light_overpowering"
                         },
                         {
-                            "entity": "binary_sensor.bike_channel_2_overpowering"
+                            "entity": "binary_sensor.bike_socket_overpowering"
                         },
                         {
                             "entity": "binary_sensor.toilet_overpowering"
@@ -1237,6 +1251,12 @@
                                 {
                                     "entity": "light.attic",
                                     "name": "Attic"
+                                },
+                                {
+                                    "entity": "switch.bike_light"
+                                },
+                                {
+                                    "entity": "switch.bike_socket"
                                 }
                             ],
                             "hours_to_show": 24,
@@ -1269,39 +1289,6 @@
                                     "secondary_info": "last-changed"
                                 }
                             ]
-                        }
-                    ]
-                },
-                {
-                    "title": "Temp",
-                    "path": "temp",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "button",
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "entity": "switch.bike_channel_1"
-                        },
-                        {
-                            "type": "button",
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "entity": "switch.bike_channel_2"
-                        },
-                        {
-                            "type": "gauge",
-                            "entity": "sensor.bike_channel_1_power",
-                            "min": 0,
-                            "max": 100
-                        },
-                        {
-                            "type": "gauge",
-                            "entity": "sensor.bike_channel_2_power",
-                            "min": 0,
-                            "max": 100
                         }
                     ]
                 }
