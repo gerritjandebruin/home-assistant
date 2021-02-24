@@ -700,3 +700,29 @@
     data: {}
     entity_id: switch.bathroom
   mode: single
+- id: '1614112596198'
+  alias: Bike
+  description: When it is dark and there is motion, put on the lights in the bike
+    shed. Else, put off.
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.bike_on_off
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.hall_illuminance
+        below: '10'
+      - condition: state
+        entity_id: binary_sensor.bike_on_off
+        state: 'on'
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        entity_id: switch.bike_channel_1
+    default:
+    - service: switch.turn_off
+      data: {}
+      entity_id: switch.bike_channel_1
+  mode: single
