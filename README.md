@@ -61,7 +61,7 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 - Total costs (ignoring prices in brackets): €889 
 
 ## Plans
-- [ ] Add bike shed controls to frontend.
+- [x] Add bike shed controls to frontend.
 - [ ] Add button to control lights in bike shed.
 - [ ] Add Home Assistant app to my Nokia 7.2.
 - [ ] Add some screenshots to this repo.
