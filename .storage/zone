@@ -1,0 +1,26 @@
+{
+    "version": 1,
+    "key": "zone",
+    "data": {
+        "items": [
+            {
+                "name": "TNO",
+                "icon": "mdi:map-marker",
+                "latitude": 52.02788791665386,
+                "longitude": 4.341101646423341,
+                "passive": false,
+                "radius": 279.56344961734493,
+                "id": "tno"
+            },
+            {
+                "name": "UL",
+                "icon": "mdi:map-marker",
+                "latitude": 52.16766743840997,
+                "longitude": 4.45873260498047,
+                "passive": false,
+                "radius": 619.3248854064304,
+                "id": "ul"
+            }
+        ]
+    }
+}

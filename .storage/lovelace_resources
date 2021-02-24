@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js",
+                "type": "module",
+                "id": "93159c7aed05449d84dc8feafdbf1f2b"
+            },
+            {
+                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js",
+                "type": "module",
+                "id": "37881659e94545bba2f6b869ed37b5be"
+            }
+        ]
+    }
+}

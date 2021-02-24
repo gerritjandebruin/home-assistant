@@ -1,8 +1,20 @@
-# Ignore folders.
-.cloud
-.storage/*
-!.storage/lovelace
+# IDE config
 .vscode
+
+# Ignore files
+.storage/auth*
+.storage/core.config
+.storage/core.config_entries
+.storage/core.device_registry
+.storage/core.restore_state
+.storage/core.uuid
+.storage/frontend.user_data_76446e7c5b7c42f5bc1233034aa7e006
+.storage/google_assistant
+.storage/hassio
+.storage/mobile_app
+.storage/zha.storage
+.storage/hacs*
+
 blueprints
 deps
 notebooks/bokeh-examples

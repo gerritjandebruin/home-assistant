@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "key": "person",
+    "data": {
+        "items": [
+            {
+                "name": "Gerrit-Jan",
+                "user_id": "76446e7c5b7c42f5bc1233034aa7e006",
+                "device_trackers": [],
+                "id": "gerrit_jan",
+                "picture": null
+            },
+            {
+                "name": "Mirjam",
+                "device_trackers": [
+                    "device_tracker.iphone_van_mirjam",
+                    "device_tracker.46_4d_5a_58_cf_aa",
+                    "device_tracker.58_a0_23_a5_b4_9b"
+                ],
+                "user_id": null,
+                "picture": null,
+                "id": "mirjam"
+            }
+        ]
+    }
+}
