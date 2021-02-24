@@ -720,9 +720,9 @@
       sequence:
       - service: switch.turn_on
         data: {}
-        entity_id: switch.bike_channel_1
+        entity_id: switch.bike_light
     default:
     - service: switch.turn_off
       data: {}
-      entity_id: switch.bike_channel_1
+      entity_id: switch.bike_light
   mode: single
