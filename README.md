@@ -62,7 +62,7 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 
 ## Plans
 - [x] Add bike shed controls to frontend.
-- [ ] Add button to control lights in bike shed.
+- [x] Add button to control lights in bike shed.
 - [ ] Add Home Assistant app to my Nokia 7.2.
 - [ ] Add some screenshots to this repo.
 - [ ] Auto detect when cycling home, so that lights can be turned on automatically?
