@@ -3900,6 +3900,23 @@
                 "unit_of_measurement": null,
                 "original_name": "Nokia 7.2 Battery Health",
                 "original_icon": "mdi:battery-heart-variant"
+            },
+            {
+                "entity_id": "sensor.ikea_of_sweden_tradfri_on_off_switch_28705bfe_power",
+                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
+                "device_id": "9eadf9239ebb9bc268ad74c2eae0602d",
+                "area_id": null,
+                "unique_id": "5c:02:72:ff:fe:5b:70:28-1-1",
+                "platform": "zha",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "IKEA of Sweden TRADFRI on/off switch 28705bfe power",
+                "original_icon": null
             }
         ]
     }
