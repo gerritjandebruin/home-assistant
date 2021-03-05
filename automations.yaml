@@ -126,25 +126,12 @@
         entity_id: binary_sensor.kitchen_on_off
         state: 'on'
       sequence:
-      - choose:
-        - conditions:
-          - condition: state
-            entity_id: input_boolean.bright
-            state: 'on'
-          sequence:
           - service: light.turn_on
-            entity_id: light.kitchen
             data:
-              brightness_pct: 100
-        - conditions:
-          - condition: state
-            entity_id: input_boolean.bright
-            state: 'off'
-          sequence:
-          - service: light.turn_on
+          brightness_pct: '{{ 100 if is_state(''input_boolean.bright'', ''on'') else
+            50 }}'
+        target:
             entity_id: light.kitchen
-            data:
-              brightness_pct: 50
     default:
     - service: light.turn_off
       entity_id: light.kitchen
