@@ -13,9 +13,7 @@
             {
                 "name": "Mirjam",
                 "device_trackers": [
-                    "device_tracker.iphone_van_mirjam",
-                    "device_tracker.46_4d_5a_58_cf_aa",
-                    "device_tracker.58_a0_23_a5_b4_9b"
+                    "device_tracker.iphone_van_mirjam"
                 ],
                 "user_id": null,
                 "picture": null,
