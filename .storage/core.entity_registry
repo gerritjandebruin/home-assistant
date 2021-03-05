@@ -1088,7 +1088,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "%",
-                "original_name": "Synology CPU Load (Other)",
+                "original_name": "Synology CPU Utilization (Other)",
                 "original_icon": "mdi:chip"
             },
             {
@@ -1105,7 +1105,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "%",
-                "original_name": "Synology CPU Load (User)",
+                "original_name": "Synology CPU Utilization (User)",
                 "original_icon": "mdi:chip"
             },
             {
@@ -1122,7 +1122,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "%",
-                "original_name": "Synology CPU Load (System)",
+                "original_name": "Synology CPU Utilization (System)",
                 "original_icon": "mdi:chip"
             },
             {
@@ -1139,7 +1139,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "%",
-                "original_name": "Synology CPU Load (Total)",
+                "original_name": "Synology CPU Utilization (Total)",
                 "original_icon": "mdi:chip"
             },
             {
@@ -1155,8 +1155,8 @@
                 "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
-                "unit_of_measurement": "%",
-                "original_name": "Synology CPU Load (1 min)",
+                "unit_of_measurement": "load",
+                "original_name": "Synology CPU Load Averarge (1 min)",
                 "original_icon": "mdi:chip"
             },
             {
@@ -1172,8 +1172,8 @@
                 "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
-                "unit_of_measurement": "%",
-                "original_name": "Synology CPU Load (5 min)",
+                "unit_of_measurement": "load",
+                "original_name": "Synology CPU Load Averarge (5 min)",
                 "original_icon": "mdi:chip"
             },
             {
@@ -1189,8 +1189,8 @@
                 "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
-                "unit_of_measurement": "%",
-                "original_name": "Synology CPU Load (15 min)",
+                "unit_of_measurement": "load",
+                "original_name": "Synology CPU Load Averarge (15 min)",
                 "original_icon": "mdi:chip"
             },
             {
@@ -1819,7 +1819,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "Shed notification",
+                "original_name": "Shed temperature notification",
                 "original_icon": null
             },
             {
@@ -2012,7 +2012,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "shelly1pm-F4CFA2E50FB6 Firmware update",
+                "original_name": "shelly1pm-F4CFA2E50FB6 Firmware Update",
                 "original_icon": "mdi:update"
             },
             {
@@ -2216,7 +2216,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "shellyswitch25-8CAAB561E13F Firmware update",
+                "original_name": "shellyswitch25-8CAAB561E13F Firmware Update",
                 "original_icon": "mdi:update"
             },
             {
@@ -2973,7 +2973,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "shelly Firmware update",
+                "original_name": "shelly Firmware Update",
                 "original_icon": "mdi:update"
             },
             {
@@ -3622,7 +3622,7 @@
                 "name": "Bike occupancy",
                 "icon": "mdi:bicycle",
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "motion",
                 "unit_of_measurement": null,
@@ -3639,7 +3639,7 @@
                 "name": "Bike battery",
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
@@ -3656,11 +3656,11 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "Bike",
+                "original_name": "Bike motion",
                 "original_icon": null
             },
             {

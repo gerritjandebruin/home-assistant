@@ -5,8 +5,8 @@
         "devices": [
             {
                 "config_entries": [
-                    "0056e9d517d611ebb46265d0140cc59d",
-                    "84ac75a4a5468aadefab02897fc02dd0"
+                    "84ac75a4a5468aadefab02897fc02dd0",
+                    "0056e9d517d611ebb46265d0140cc59d"
                 ],
                 "connections": [
                     [
@@ -103,8 +103,8 @@
             },
             {
                 "config_entries": [
-                    "0056e9d517d611ebb46265d0140cc59d",
-                    "84ac75a4a5468aadefab02897fc02dd0"
+                    "84ac75a4a5468aadefab02897fc02dd0",
+                    "0056e9d517d611ebb46265d0140cc59d"
                 ],
                 "connections": [
                     [
