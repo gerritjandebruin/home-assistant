@@ -1307,6 +1307,28 @@
                 "area_id": null,
                 "name_by_user": "Bike",
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "7a61e4ae7adf6466df3b1ee381636ace"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "c3b0e83d2496d9ea"
+                    ]
+                ],
+                "manufacturer": "HMD Global",
+                "model": "Nokia 7.2",
+                "name": "Nokia 7.2",
+                "sw_version": "29",
+                "entry_type": null,
+                "id": "8a7285025d5d2d51987663c78edf86e7",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
             }
         ],
         "deleted_devices": [
@@ -1365,18 +1387,6 @@
                 ],
                 "id": "0e4e7db1ec6429422312219435f7d0f3",
                 "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mobile_app",
-                        "c3b0e83d2496d9ea"
-                    ]
-                ],
-                "id": "8a7285025d5d2d51987663c78edf86e7",
-                "orphaned_timestamp": 1613646309.4758654
             }
         ]
     }

@@ -1018,9 +1018,6 @@
                                 },
                                 {
                                     "entity": "person.mirjam"
-                                },
-                                {
-                                    "entity": "device_tracker.nokia_7_2"
                                 }
                             ],
                             "hours_to_show": 168,
