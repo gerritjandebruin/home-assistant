@@ -294,8 +294,9 @@
     data: {}
   mode: single
 - id: '1610482084579'
-  alias: Shed notification
-  description: ''
+  alias: Shed temperature notification
+  description: When it becomes too warm in the shed, notify that the beer should be
+    moved to the fridge!
   trigger:
   - platform: numeric_state
     entity_id: sensor.shed_temperature
