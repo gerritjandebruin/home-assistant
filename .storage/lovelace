@@ -938,12 +938,12 @@
                                     "name": "Bathroom"
                                 },
                                 {
-                                    "entity": "sensor.bike_channel_1_power",
-                                    "name": "Bike1"
+                                    "entity": "sensor.bike_light_power",
+                                    "name": "Bike light"
                                 },
                                 {
-                                    "entity": "sensor.bike_channel_2_power",
-                                    "name": "Bike2"
+                                    "entity": "sensor.bike_socket_power",
+                                    "name": "Bike socket"
                                 },
                                 {
                                     "entity": "sensor.toilet_power",

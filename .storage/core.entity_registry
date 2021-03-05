@@ -3800,6 +3800,23 @@
                 "original_icon": null
             },
             {
+                "entity_id": "automation.bike_button",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "1614152225581",
+                "platform": "automation",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Bike button",
+                "original_icon": null
+            },
+            {
                 "entity_id": "device_tracker.nokia_7_2",
                 "config_entry_id": "7a61e4ae7adf6466df3b1ee381636ace",
                 "device_id": "8a7285025d5d2d51987663c78edf86e7",

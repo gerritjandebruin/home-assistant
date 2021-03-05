@@ -689,9 +689,9 @@
     entity_id: switch.bathroom
   mode: single
 - id: '1614112596198'
-  alias: Bike
+  alias: Bike motion
   description: When it is dark and there is motion, put on the lights in the bike
-    shed. Else, put off.
+    shed. Else, put off. Note that this automation can be turned off by  automation.bike_button.
   trigger:
   - platform: state
     entity_id: binary_sensor.bike_on_off
@@ -701,16 +701,51 @@
     - conditions:
       - condition: numeric_state
         entity_id: sensor.hall_illuminance
-        below: '10'
+        below: 10
       - condition: state
         entity_id: binary_sensor.bike_on_off
         state: 'on'
       sequence:
       - service: switch.turn_on
-        data: {}
         entity_id: switch.bike_light
     default:
     - service: switch.turn_off
-      data: {}
       entity_id: switch.bike_light
   mode: single
+- id: '1614152225581'
+  alias: Bike button
+  description: When the on button is pressed, put the lights on and disable the motion
+    sensor. When the off button is pressed, put the lights off and enable the motion
+    sensor after 60 seconds.
+  trigger:
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: 9eadf9239ebb9bc268ad74c2eae0602d
+  condition: []
+  action:
+  - variables:
+      command: '{{ trigger.event.data.command }}'
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ command == ''on'' }}'
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.bike_light
+      - service: automation.turn_off
+        entity_id: automation.bike_motion
+    - conditions:
+      - condition: template
+        value_template: '{{ command == ''off'' }}'
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.bike_light
+      - delay:
+          hours: 0
+          minutes: 1
+          seconds: 0
+          milliseconds: 0
+      - service: automation.turn_on
+        entity_id: automation.bike_motion
+  mode: restart
