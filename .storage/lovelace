@@ -519,6 +519,10 @@
                                     "toggle": true
                                 },
                                 {
+                                    "entity": "light.terrace",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
                                     "type": "section"
                                 },
                                 {
