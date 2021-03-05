@@ -1229,33 +1229,6 @@
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "5c:02:72:ff:fe:5b:70:28"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "5c:02:72:ff:fe:5b:70:28"
-                    ]
-                ],
-                "manufacturer": "IKEA of Sweden",
-                "model": "TRADFRI on/off switch",
-                "name": "IKEA of Sweden TRADFRI on/off switch",
-                "sw_version": "0x22010631",
-                "entry_type": null,
-                "id": "9eadf9239ebb9bc268ad74c2eae0602d",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": "Radiator button",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
                     "86e02a91d2f68eab1a8e3cded0e181d5"
                 ],
                 "connections": [
@@ -1329,6 +1302,33 @@
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "5c:02:72:ff:fe:5b:70:28"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "5c:02:72:ff:fe:5b:70:28"
+                    ]
+                ],
+                "manufacturer": "IKEA of Sweden",
+                "model": "TRADFRI on/off switch",
+                "name": "IKEA of Sweden TRADFRI on/off switch",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "9eadf9239ebb9bc268ad74c2eae0602d",
+                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
             }
         ],
         "deleted_devices": [
@@ -1386,6 +1386,25 @@
                     ]
                 ],
                 "id": "0e4e7db1ec6429422312219435f7d0f3",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:17:88:01:09:07:74:18"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:17:88:01:09:07:74:18"
+                    ]
+                ],
+                "id": "605c136aa75dca74653540a33efda3c2",
                 "orphaned_timestamp": null
             }
         ]
