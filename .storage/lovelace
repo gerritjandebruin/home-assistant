@@ -67,14 +67,6 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "binary_sensor.kitchen_on_off",
-                                            "style": {
-                                                "left": "40%",
-                                                "top": "25%"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
                                             "entity": "light.hall",
                                             "image": "/local/hall.jpg",
                                             "state_filter": {
@@ -133,6 +125,20 @@
                                             "type": "image"
                                         },
                                         {
+                                            "entity": "binary_sensor.bathroom_on_off",
+                                            "state_image": {
+                                                "off": "/local/door-closed.jpg",
+                                                "on": "/local/door-open.jpg"
+                                            },
+                                            "style": {
+                                                "left": "35%",
+                                                "top": "20%",
+                                                "transform": "rotate(90deg)",
+                                                "width": "10%"
+                                            },
+                                            "type": "image"
+                                        },
+                                        {
                                             "entity": "binary_sensor.pantry_on_off",
                                             "state_image": {
                                                 "off": "/local/door-closed.jpg",
@@ -144,6 +150,14 @@
                                                 "width": "8%"
                                             },
                                             "type": "image"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.kitchen_on_off",
+                                            "style": {
+                                                "left": "40%",
+                                                "top": "25%"
+                                            },
+                                            "type": "state-icon"
                                         }
                                     ],
                                     "image": "local/floor-0.jpg",
@@ -817,7 +831,8 @@
                             },
                             "entities": [
                                 "sensor.attic_thermometer_battery",
-                                "sensor.bathroom_battery",
+                                "sensor.bathroom_thermometer_battery",
+                                "sensor.bathroom_on_off_battery",
                                 "sensor.bedroom_remote_battery",
                                 "sensor.bedroom_remote_gj_battery",
                                 "sensor.bedroom_remote_m_battery",

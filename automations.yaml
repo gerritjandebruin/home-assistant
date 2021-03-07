@@ -126,12 +126,12 @@
         entity_id: binary_sensor.kitchen_on_off
         state: 'on'
       sequence:
-          - service: light.turn_on
-            data:
-              brightness_pct: '{{ 100 if is_state(''input_boolean.bright'', ''on'') else
+      - service: light.turn_on
+        data:
+          brightness_pct: '{{ 100 if is_state(''input_boolean.bright'', ''on'') else
             50 }}'
-            target:
-              entity_id: light.kitchen
+        target:
+          entity_id: light.kitchen
     default:
     - service: light.turn_off
       entity_id: light.kitchen
@@ -673,20 +673,54 @@
   mode: single
 - id: '1613720614532'
   alias: Bathroom
-  description: ''
+  description: Put light on when door is opened. Put off when closed for 10 minutes.
+    Put off when nothing has changed for 30 minutes.
   trigger:
   - platform: state
     entity_id: switch.bathroom
     to: 'on'
     for: 00:30:00
+  - platform: state
+    entity_id: binary_sensor.bathroom_on_off
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.bathroom_on_off
+    to: 'off'
+    for: 00:10:00
   condition:
   - condition: state
     entity_id: climate.bathroom
     state: 'off'
   action:
-  - service: switch.turn_off
-    data: {}
-    entity_id: switch.bathroom
+  - choose:
+    - alias: Presumed forgotten to switch light off
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.bathroom_on_off
+        state:
+        - 'on'
+        - 'off'
+        for: 00:30:00
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.bathroom
+    - alias: Presumed people in bathroom
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.bathroom_on_off
+        state: 'on'
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.bathroom
+    - alias: Presumed empty bathroom
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.bathroom_on_off
+        state: 'off'
+        for: 00:10:00
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.bathroom
   mode: single
 - id: '1614112596198'
   alias: Bike motion

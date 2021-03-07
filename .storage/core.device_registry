@@ -1329,6 +1329,33 @@
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:15:8d:00:06:59:d1:c7"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:15:8d:00:06:59:d1:c7"
+                    ]
+                ],
+                "manufacturer": "LUMI",
+                "model": "lumi.sensor_magnet.aq2",
+                "name": "LUMI lumi.sensor_magnet.aq2",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "f24581febab429724251dc0538cc97da",
+                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "area_id": null,
+                "name_by_user": "Bathroom door",
+                "disabled_by": null
             }
         ],
         "deleted_devices": [
