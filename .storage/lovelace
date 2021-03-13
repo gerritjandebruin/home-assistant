@@ -843,7 +843,8 @@
                                 "sensor.kitchen_battery",
                                 "sensor.shed_on_off_battery",
                                 "sensor.shed_temperature_battery",
-                                "sensor.toilet_battery"
+                                "sensor.toilet_battery",
+                                "sensor.walk_in_closet_battery"
                             ],
                             "state_filter": [
                                 {
