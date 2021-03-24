@@ -1197,6 +1197,10 @@
                             "hours_to_show": 168,
                             "refresh_interval": 0,
                             "title": "CPU"
+                        },
+                        {
+                            "type": "entity",
+                            "entity": "sensor.home_assistant_v2_db"
                         }
                     ]
                 },

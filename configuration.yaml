@@ -60,6 +60,8 @@ logger:
 #     zigpy_znp: debug
 #     zhaquirks: debug
 homeassistant:
+  allowlist_external_dirs:
+    - "/config/"
   customize:
     sensor.bedroom_mold:
       icon: mdi:bacteria
@@ -85,6 +87,9 @@ recorder:
 #     hosts: 192.168.2.0/24
 #     interval_seconds: 60
 sensor:
+  - platform: filesize
+    file_paths:
+      - /config/home-assistant_v2.db
   - platform: growatt_server
     username: !secret growatt_user
     password: !secret growatt_password
