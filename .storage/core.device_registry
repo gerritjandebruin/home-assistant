@@ -5,8 +5,8 @@
         "devices": [
             {
                 "config_entries": [
-                    "0056e9d517d611ebb46265d0140cc59d",
-                    "84ac75a4a5468aadefab02897fc02dd0"
+                    "84ac75a4a5468aadefab02897fc02dd0",
+                    "0056e9d517d611ebb46265d0140cc59d"
                 ],
                 "connections": [
                     [
@@ -103,8 +103,8 @@
             },
             {
                 "config_entries": [
-                    "0056e9d517d611ebb46265d0140cc59d",
-                    "84ac75a4a5468aadefab02897fc02dd0"
+                    "84ac75a4a5468aadefab02897fc02dd0",
+                    "0056e9d517d611ebb46265d0140cc59d"
                 ],
                 "connections": [
                     [
@@ -1099,28 +1099,6 @@
             },
             {
                 "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "deurbel"
-                    ]
-                ],
-                "manufacturer": "KIKA",
-                "model": "ACDB-6600AC",
-                "name": "Deurbel",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "e26414fa8b56045c92691e2bb4882dda",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": "Doorbell",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
                     "850bf9a1c05f345748e9765e31162796"
                 ],
                 "connections": [
@@ -1356,6 +1334,28 @@
                 "area_id": null,
                 "name_by_user": "Bathroom door",
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "Doorbell"
+                    ]
+                ],
+                "manufacturer": "KAKU",
+                "model": "ACDB-7000A",
+                "name": "Doorbell",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "a2d14b364fcb91e32e1beb4b017485a0",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
             }
         ],
         "deleted_devices": [
@@ -1395,20 +1395,6 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "doorbell"
-                    ]
-                ],
-                "id": "00a670d9a519980a790548083d7a9cf5",
-                "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
                         "test"
                     ]
                 ],
@@ -1432,6 +1418,34 @@
                     ]
                 ],
                 "id": "605c136aa75dca74653540a33efda3c2",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "deurbel"
+                    ]
+                ],
+                "id": "e26414fa8b56045c92691e2bb4882dda",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "doorbell"
+                    ]
+                ],
+                "id": "00a670d9a519980a790548083d7a9cf5",
                 "orphaned_timestamp": null
             }
         ]

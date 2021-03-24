@@ -252,10 +252,10 @@
   trigger:
   - platform: device
     domain: mqtt
-    device_id: e26414fa8b56045c92691e2bb4882dda
+    device_id: a2d14b364fcb91e32e1beb4b017485a0
     type: button_short_press
-    subtype: button
-    discovery_id: Doorbell
+    subtype: button_1
+    discovery_id: 3575 power
   condition: []
   action:
   - service: notify.everyone
@@ -263,7 +263,9 @@
       title: Doorbell
       message: Doorbell was pressed!
   - service: light.turn_on
-    entity_id: light.hall
+    data: {}
+    target:
+      entity_id: light.hall
   - repeat:
       count: '4'
       sequence:
