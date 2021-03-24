@@ -31,7 +31,7 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 |-------------------|-------------------|---------------------------------------------|----------------------------------------------------------------------------------------------|--------|------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | Control outlet    | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €10    | 1    | [ikea.com](https://www.ikea.com/nl/en/p/tradfri-wireless-control-outlet-90356166/)                                                            |
 | Dimmer            | Philips           | Hue                                         | Zigbee                                                                                       | €20    | 1    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_philips-hue-white-ambiance-starterkit-inclusief-dimmer-switch-e27-1522070.html)         |
-| Door sensor       | Aqara             |                                             | Zigbee                                                                                       | €35    | 4    | [aliexpress.com](https://aliexpress.com/item/4001241581941.html)                                                                              |
+| Door sensor       | Aqara             |                                             | Zigbee                                                                                       | €44    | 5    | [aliexpress.com](https://aliexpress.com/item/4001241581941.html)                                                                              |
 | Doorbell          | KIKA              | ACDB-6600AC                                 | RTL-SDR / MQTT                                                                               | €25    | 1    | [gamma.nl](https://www.gamma.nl/assortiment/klikaanklikuit-deurbel-set-acdb-6600ac/p/B413295)                                                 |
 | Heater            | EUROM             | CK2003 Turbo 2000W                          | via outlet                                                                                   | (€29)  | 1    | [hornbach.nl](https://www.hornbach.nl/shop/EUROM-Convectorkachel-CK2003-Turbo-2000-Watt/8438008/artikel.html)                                 |
 | LED + 200W power  |                   | 24V RGB/ White spectrum 19W/m IP67 960lmn/m | via driver                                                                                   | €188   | 10m  | [led-gigant.nl](https://www.led-gigant.nl/product/24volt-rgbww-led-strip-ip66/)                                                               |
@@ -42,8 +42,8 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 | Light bulb        | Philips           | Hue E14 Ambiance White spectrum             | Zigbee                                                                                       | €45    | 2    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_philips-hue-ambiance-2-pack-wit-1502337.html)                                           |
 | Light bulb        | Philips           | Hue E27 Ambiance White spectrum             | Zigbee                                                                                       | €130   | 3    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_philips-hue-white-ambiance-starterkit-inclusief-dimmer-switch-e27-1522070.html)         |
 | Light bulb        | Philips           | Hue E27 Filament Dimmable 7W                | Zigbee                                                                                       | €20    | 1    | [gamma.nl](https://www.gamma.nl/assortiment/philips-hue-filament-led-lamp-e27-7w/p/B128025)                                                   |
-| Mobile phone      | Apple             | iPhone                                      | [iOS app](https://apps.apple.com/nl/app/home-assistant/id1099568401)                         | -      | 1    |                                                                                                                                               |                 
-| Motion sensor     | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €26    | 2    | [ikea.com](https://www.ikea.com/nl/nl/p/tradfri-draadloze-bewegingssensor-wit-70429913/)                                                      |
+| Mobile phone      | Apple             | iPhone                                      | [iOS app](https://apps.apple.com/nl/app/home-assistant/id1099568401)                         | -      | 1    |                                                                                                                             |                 
+| Motion sensor     | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €39    | 3    | [ikea.com](https://www.ikea.com/nl/nl/p/tradfri-draadloze-bewegingssensor-wit-70429913/)                                                      |
 | Motion sensor     | Philips           | Hue, w/ thermometer                         | Zigbee                                                                                       | €40    | 1    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_philips-hue-bewegingssensor-1522068.html)                                               |
 | NAS               | Synology          | DS216play                                   | [API](https://github.com/home-assistant/core/tree/dev/homeassistant/components/synology_dsm) | (€250) | 1    | [tweakers.net](https://tweakers.net/pricewatch/461480/synology-diskstation-ds216play.html)                                                    |
 | Printer           | Canon             | MG3650S                                     | IPP (WLAN)                                                                                   | (€74)  | 1    | [Canon.nl](https://www.canon.nl/printers/pixma-mg3650s/)                                                                                      |
@@ -58,14 +58,21 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 | Wireless dimmer   | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €14    | 2    | [ikea.com](https://www.ikea.com/nl/en/p/tradfri-wireless-dimmer-white-70408595/)                                                              |
 | Zigbee controller | Texas Instruments | CC2531                                      | [ZHA](https://www.home-assistant.io/integrations/zha/)                                       | €10    | 1    | [tweakers.net](https://tweakers.net/aanbod/2522130/cc2531-zigbee-usb-stick-zigbee2mqtt-met-antenne.html)                                      |
 
-- Total costs (ignoring prices in brackets): €889 
+- Total costs (ignoring prices in brackets): €911 
+
+## Software
+!(img/software.PNG)
+
+Most notably, the "RTL_433 to MQTT bridge" is used together with a simple RTL-SDR receiver to capture the 433 MHz signal from the KIKA doorbell.
+
+## Screenshots
+See the `img/` directory!
 
 ## Plans
 - [x] Add bike shed controls to frontend.
 - [x] Add button to control lights in bike shed.
 - [x] Add Home Assistant app to my Nokia 7.2.
-- [ ] Add some screenshots to this repo.
-- [ ] Auto detect when cycling home, so that lights can be turned on automatically?
+- [x] Add some screenshots to this repo.
 - [ ] Make doorbell working again.
 - [ ] Add some info about Docker images/ addons used.
 - [ ] Move from Keepass to Bitwarden
