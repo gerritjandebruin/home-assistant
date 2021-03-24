@@ -42,6 +42,7 @@ influxdb:
   exclude:
     domains:
       - automation
+      - persistent_notification
 logger:
   default: info
 #   logs:
