@@ -21,9 +21,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "31.5%",
-                                                "top": "51.4%",
-                                                "width": "12%"
+                                                "left": "17%",
+                                                "top": "42.5%",
+                                                "width": "24%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -40,9 +40,9 @@
                                                 "unavailable": "brightnes(60%)"
                                             },
                                             "style": {
-                                                "left": "37%",
-                                                "top": "12%",
-                                                "width": "23%"
+                                                "left": "27%",
+                                                "top": "9%",
+                                                "width": "46%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -57,9 +57,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "36.6%",
-                                                "top": "31.3%",
-                                                "width": "21%"
+                                                "left": "27%",
+                                                "top": "25.5%",
+                                                "width": "39%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -75,9 +75,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "31.4%",
-                                                "top": "82%",
-                                                "width": "11%"
+                                                "left": "17%",
+                                                "top": "67.5%",
+                                                "width": "22%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -87,8 +87,8 @@
                                         {
                                             "entity": "binary_sensor.hall_on_off",
                                             "style": {
-                                                "left": "31.5%",
-                                                "top": "68%"
+                                                "left": "17%",
+                                                "top": "60%"
                                             },
                                             "type": "state-icon"
                                         },
@@ -101,9 +101,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "61%",
-                                                "top": "7%",
-                                                "width": "26%"
+                                                "left": "73%",
+                                                "top": "5%",
+                                                "width": "47%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -117,10 +117,10 @@
                                                 "on": "/local/door-open.jpg"
                                             },
                                             "style": {
-                                                "left": "58%",
-                                                "top": "11%",
+                                                "left": "64%",
+                                                "top": "8%",
                                                 "transform": "rotate(90deg)",
-                                                "width": "8%"
+                                                "width": "14%"
                                             },
                                             "type": "image"
                                         },
@@ -131,10 +131,10 @@
                                                 "on": "/local/door-open.jpg"
                                             },
                                             "style": {
-                                                "left": "35%",
-                                                "top": "20%",
+                                                "left": "25%",
+                                                "top": "16%",
                                                 "transform": "rotate(90deg)",
-                                                "width": "10%"
+                                                "width": "16%"
                                             },
                                             "type": "image"
                                         },
@@ -145,17 +145,17 @@
                                                 "on": "/local/door-open.jpg"
                                             },
                                             "style": {
-                                                "left": "39.4%",
-                                                "top": "54%",
-                                                "width": "8%"
+                                                "left": "34%",
+                                                "top": "45%",
+                                                "width": "16%"
                                             },
                                             "type": "image"
                                         },
                                         {
                                             "entity": "binary_sensor.kitchen_on_off",
                                             "style": {
-                                                "left": "40%",
-                                                "top": "25%"
+                                                "left": "35%",
+                                                "top": "30%"
                                             },
                                             "type": "state-icon"
                                         }
@@ -1297,19 +1297,6 @@
                             ],
                             "hours_to_show": 24,
                             "title": "Motion & door"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "person.gerrit_jan",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "person.mirjam",
-                                    "secondary_info": "last-changed"
-                                }
-                            ]
                         }
                     ]
                 }

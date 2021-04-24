@@ -50,7 +50,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "shelly",
-                "sw_version": "20210115-103820/v1.9.4@e2732e05",
+                "sw_version": "20210323-105928/v1.10.1-gf276b51",
                 "entry_type": null,
                 "id": "3396514f188811ebb18c5f4e3e6696c1",
                 "via_device_id": null,
@@ -997,7 +997,7 @@
                 "manufacturer": "Synology",
                 "model": "DS216play",
                 "name": "Synology NAS",
-                "sw_version": "DSM 6.2.3-25426 Update 3",
+                "sw_version": "DSM 6.2.4-25556 Update 1",
                 "entry_type": null,
                 "id": "953c91864067f38764af450c5f41be7c",
                 "via_device_id": null,
@@ -1066,7 +1066,7 @@
                 "manufacturer": "Synology",
                 "model": "DS216play",
                 "name": "Synology NAS (Volume 2 - SHR without disk protect)",
-                "sw_version": "DSM 6.2.3-25426 Update 3",
+                "sw_version": "DSM 6.2.4-25556 Update 1",
                 "entry_type": null,
                 "id": "0ba8b62ca732fcd1819a3e32c79f631c",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
@@ -1089,7 +1089,7 @@
                 "manufacturer": "Synology",
                 "model": "DS216play",
                 "name": "Synology NAS (Volume 1 - SHR without disk protect)",
-                "sw_version": "DSM 6.2.3-25426 Update 3",
+                "sw_version": "DSM 6.2.4-25556 Update 1",
                 "entry_type": null,
                 "id": "0313f799af7698516edee819b8f272c9",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
@@ -1170,7 +1170,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 2.5",
                 "name": "shellyswitch25-8CAAB561E13F",
-                "sw_version": "20210115-103025/v1.9.4@e2732e05",
+                "sw_version": "20210323-104714/v1.10.1-gf276b51",
                 "entry_type": null,
                 "id": "663b87c1fa016b28463175ae19183722",
                 "via_device_id": null,
@@ -1224,7 +1224,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "shelly1pm-F4CFA2E50FB6",
-                "sw_version": "20210115-103820/v1.9.4@e2732e05",
+                "sw_version": "20210323-105928/v1.10.1-gf276b51",
                 "entry_type": null,
                 "id": "975aeee16d3e74fb7be938acf75275d8",
                 "via_device_id": null,
@@ -1353,6 +1353,319 @@
                 "entry_type": null,
                 "id": "a2d14b364fcb91e32e1beb4b017485a0",
                 "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_check_config"
+                    ]
+                ],
+                "manufacturer": "core",
+                "model": "Home Assistant Add-on",
+                "name": "Check Home Assistant configuration",
+                "sw_version": "3.6.0",
+                "entry_type": "service",
+                "id": "35120953a64b54abd43dd788ee77dcdc",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_samba"
+                    ]
+                ],
+                "manufacturer": "core",
+                "model": "Home Assistant Add-on",
+                "name": "Samba share",
+                "sw_version": "9.3.1",
+                "entry_type": "service",
+                "id": "296802a1096d919ee20765ef0bb39fe8",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_vscode"
+                    ]
+                ],
+                "manufacturer": "a0d7b954",
+                "model": "Home Assistant Add-on",
+                "name": "Visual Studio Code",
+                "sw_version": "3.3.0",
+                "entry_type": "service",
+                "id": "ab74923a63a75b0391ee0b074018c77a",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_ssh"
+                    ]
+                ],
+                "manufacturer": "core",
+                "model": "Home Assistant Add-on",
+                "name": "Terminal & SSH",
+                "sw_version": "9.1.0",
+                "entry_type": "service",
+                "id": "066220f5f57b83f30e30d03987e1f2df",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_spotify"
+                    ]
+                ],
+                "manufacturer": "a0d7b954",
+                "model": "Home Assistant Add-on",
+                "name": "Spotify Connect",
+                "sw_version": "0.8.2",
+                "entry_type": "service",
+                "id": "cf52919079aa78851a7fa118a22a1bd1",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_grafana"
+                    ]
+                ],
+                "manufacturer": "a0d7b954",
+                "model": "Home Assistant Add-on",
+                "name": "Grafana",
+                "sw_version": "6.3.2",
+                "entry_type": "service",
+                "id": "f7f8bd1308cff7e610ba87b6009d3b85",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_portainer"
+                    ]
+                ],
+                "manufacturer": "a0d7b954",
+                "model": "Home Assistant Add-on",
+                "name": "Portainer",
+                "sw_version": "1.4.0",
+                "entry_type": "service",
+                "id": "a13661badff4fe010bb3ffc795b93df1",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_influxdb"
+                    ]
+                ],
+                "manufacturer": "a0d7b954",
+                "model": "Home Assistant Add-on",
+                "name": "InfluxDB",
+                "sw_version": "4.0.6",
+                "entry_type": "service",
+                "id": "b28137196acda31f40287f38243d701f",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_jupyterlablite"
+                    ]
+                ],
+                "manufacturer": "a0d7b954",
+                "model": "Home Assistant Add-on",
+                "name": "JupyterLab",
+                "sw_version": "0.5.0",
+                "entry_type": "service",
+                "id": "c2053bd9d787aba62b8be63b65e4ae3d",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "cebe7a76_hassio_google_drive_backup"
+                    ]
+                ],
+                "manufacturer": "cebe7a76",
+                "model": "Home Assistant Add-on",
+                "name": "Home Assistant Google Drive Backup",
+                "sw_version": "0.103.1",
+                "entry_type": "service",
+                "id": "8a6bd578779a03f07dc67b1460feccda",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "local_rtl4332mqtt"
+                    ]
+                ],
+                "manufacturer": "local",
+                "model": "Home Assistant Add-on",
+                "name": "RTL_433 to MQTT Bridge - KAKU ACDB-7000A",
+                "sw_version": "0.3.5",
+                "entry_type": "service",
+                "id": "f2afcd8d519553f10b653c50b9d103e2",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_mosquitto"
+                    ]
+                ],
+                "manufacturer": "core",
+                "model": "Home Assistant Add-on",
+                "name": "Mosquitto broker",
+                "sw_version": "5.1.1",
+                "entry_type": "service",
+                "id": "96206c4519d6359364c9c6372245b011",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "OS"
+                    ]
+                ],
+                "manufacturer": "Home Assistant",
+                "model": "Home Assistant Operating System",
+                "name": "Home Assistant Operating System",
+                "sw_version": "5.13",
+                "entry_type": "service",
+                "id": "e4e5b0eae14ee9fb26007f467c37beed",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "58:8e:81:ff:fe:29:72:80"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "58:8e:81:ff:fe:29:72:80"
+                    ]
+                ],
+                "manufacturer": "IKEA of Sweden",
+                "model": "TRADFRI motion sensor",
+                "name": "IKEA of Sweden TRADFRI motion sensor",
+                "sw_version": "0x20022623",
+                "entry_type": null,
+                "id": "4fc9337cacb054e80826f4bb581a7f21",
+                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null
