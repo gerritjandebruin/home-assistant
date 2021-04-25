@@ -5,8 +5,8 @@
         "devices": [
             {
                 "config_entries": [
-                    "84ac75a4a5468aadefab02897fc02dd0",
-                    "0056e9d517d611ebb46265d0140cc59d"
+                    "0056e9d517d611ebb46265d0140cc59d",
+                    "84ac75a4a5468aadefab02897fc02dd0"
                 ],
                 "connections": [
                     [
@@ -103,8 +103,8 @@
             },
             {
                 "config_entries": [
-                    "84ac75a4a5468aadefab02897fc02dd0",
-                    "0056e9d517d611ebb46265d0140cc59d"
+                    "0056e9d517d611ebb46265d0140cc59d",
+                    "84ac75a4a5468aadefab02897fc02dd0"
                 ],
                 "connections": [
                     [
@@ -909,33 +909,6 @@
                 "connections": [
                     [
                         "zigbee",
-                        "58:8e:81:ff:fe:29:72:80"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "58:8e:81:ff:fe:29:72:80"
-                    ]
-                ],
-                "manufacturer": "IKEA of Sweden",
-                "model": "TRADFRI motion sensor",
-                "name": "IKEA of Sweden TRADFRI motion sensor",
-                "sw_version": "0x20022623",
-                "entry_type": null,
-                "id": "4fc9337cacb054e80826f4bb581a7f21",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": "Kitchen motion",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -1256,7 +1229,7 @@
                 "id": "811fd532a4a1bdde606177e29af0ec97",
                 "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
                 "area_id": null,
-                "name_by_user": "Bike",
+                "name_by_user": "Kitchen",
                 "disabled_by": null
             },
             {
