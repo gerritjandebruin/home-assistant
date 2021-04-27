@@ -676,53 +676,73 @@
 - id: '1613720614532'
   alias: Bathroom
   description: Put light on when door is opened. Put off when closed for 10 minutes.
-    Put off when nothing has changed for 30 minutes.
+    Put off when nothing has changed for 30 minutes, except when showering.
   trigger:
   - platform: state
-    entity_id: switch.bathroom
-    to: 'on'
+    entity_id: binary_sensor.bathroom_on_off
+    to: 'off'
     for: 00:30:00
   - platform: state
     entity_id: binary_sensor.bathroom_on_off
     to: 'on'
   - platform: state
     entity_id: binary_sensor.bathroom_on_off
-    to: 'off'
+    to: 'on'
     for: 00:10:00
-  condition:
-  - condition: state
-    entity_id: climate.bathroom
-    state: 'off'
+  - platform: numeric_state
+    entity_id: sensor.bathroom_humidity
+    below: '80'
+    for: 00:00:05
+  condition: []
   action:
   - choose:
-    - alias: Presumed forgotten to switch light off
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.bathroom_on_off
-        state:
-        - 'on'
-        - 'off'
-        for: 00:30:00
-      sequence:
-      - service: switch.turn_off
-        entity_id: switch.bathroom
-    - alias: Presumed people in bathroom
+    - alias: Presumed forgotten to switch light off while door open
       conditions:
       - condition: state
         entity_id: binary_sensor.bathroom_on_off
         state: 'on'
-      sequence:
-      - service: switch.turn_on
-        entity_id: switch.bathroom
-    - alias: Presumed empty bathroom
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.bathroom_on_off
-        state: 'off'
         for: 00:10:00
       sequence:
       - service: switch.turn_off
         entity_id: switch.bathroom
+    - alias: Presumed forgotten to switch light off while door closed
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.bathroom_on_off
+        state: 'off'
+        for: 00:30:00
+      - condition: numeric_state
+        entity_id: sensor.bathroom_humidity
+        below: '80'
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.bathroom
+    - alias: Presumed showering
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.bathroom_on_off
+        state: 'off'
+        for: 00:30:00
+      - condition: numeric_state
+        entity_id: sensor.bathroom_humidity
+        above: '80'
+      sequence:
+      - service: notify.mobile_app_nokia_7_2
+        data:
+          title: Shower detected!
+      - service: switch.toggle
+        entity_id: switch.bathroom
+      - delay: 00:00:01
+      - service: switch.toggle
+        entity_id: switch.bathroom
+      - wait_for_trigger:
+        - platform: state
+          entity_id: binary_sensor.bathroom_on_off
+          to: 'on'
+        - platform: numeric_state
+          entity_id: sensor.bathroom_humidity
+          below: '80'
+        continue_on_timeout: true
   mode: single
 - id: '1614112596198'
   alias: Bike motion
