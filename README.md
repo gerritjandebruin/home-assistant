@@ -61,7 +61,7 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 - Total costs (ignoring prices in brackets): €911 
 
 ## Software
-!(img/software.PNG)
+![software](img/software.PNG)
 
 Most notably, the "RTL_433 to MQTT bridge" is used together with a simple RTL-SDR receiver to capture the 433 MHz signal from the KIKA doorbell.
 
