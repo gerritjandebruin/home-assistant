@@ -1914,7 +1914,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "shelly1pm-F4CFA2E50FB6",
+                "original_name": "Badkamer schakelaar",
                 "original_icon": null
             },
             {
@@ -1931,7 +1931,7 @@
                 "supported_features": 0,
                 "device_class": "energy",
                 "unit_of_measurement": "kWh",
-                "original_name": "shelly1pm-F4CFA2E50FB6 Energy",
+                "original_name": "Badkamer schakelaar Energy",
                 "original_icon": null
             },
             {
@@ -1948,7 +1948,7 @@
                 "supported_features": 0,
                 "device_class": "problem",
                 "unit_of_measurement": null,
-                "original_name": "shelly1pm-F4CFA2E50FB6 Overheating",
+                "original_name": "Badkamer schakelaar Overheating",
                 "original_icon": null
             },
             {
@@ -1965,7 +1965,7 @@
                 "supported_features": 0,
                 "device_class": "problem",
                 "unit_of_measurement": null,
-                "original_name": "shelly1pm-F4CFA2E50FB6 Overpowering",
+                "original_name": "Badkamer schakelaar Overpowering",
                 "original_icon": null
             },
             {
@@ -1982,7 +1982,7 @@
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "shelly1pm-F4CFA2E50FB6 Device Temperature",
+                "original_name": "Badkamer schakelaar Device Temperature",
                 "original_icon": null
             },
             {
@@ -1999,7 +1999,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "shelly1pm-F4CFA2E50FB6 Firmware Update",
+                "original_name": "Badkamer schakelaar Firmware Update",
                 "original_icon": "mdi:update"
             },
             {
@@ -2016,7 +2016,7 @@
                 "supported_features": 0,
                 "device_class": "power",
                 "unit_of_measurement": null,
-                "original_name": "shelly1pm-F4CFA2E50FB6 Input",
+                "original_name": "Badkamer schakelaar Input",
                 "original_icon": null
             },
             {
@@ -2033,7 +2033,7 @@
                 "supported_features": 0,
                 "device_class": "signal_strength",
                 "unit_of_measurement": "dB",
-                "original_name": "shelly1pm-F4CFA2E50FB6 RSSI",
+                "original_name": "Badkamer schakelaar RSSI",
                 "original_icon": null
             },
             {
@@ -2050,7 +2050,7 @@
                 "supported_features": 0,
                 "device_class": "connectivity",
                 "unit_of_measurement": null,
-                "original_name": "shelly1pm-F4CFA2E50FB6 Cloud",
+                "original_name": "Badkamer schakelaar Cloud",
                 "original_icon": null
             },
             {
@@ -2067,7 +2067,7 @@
                 "supported_features": 0,
                 "device_class": "timestamp",
                 "unit_of_measurement": null,
-                "original_name": "shelly1pm-F4CFA2E50FB6 Uptime",
+                "original_name": "Badkamer schakelaar Uptime",
                 "original_icon": null
             },
             {
@@ -2101,7 +2101,7 @@
                 "supported_features": 0,
                 "device_class": "power",
                 "unit_of_measurement": "W",
-                "original_name": "shelly1pm-F4CFA2E50FB6 Power",
+                "original_name": "Badkamer schakelaar Power",
                 "original_icon": null
             },
             {
