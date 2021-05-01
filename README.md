@@ -10,7 +10,7 @@ If you have any questions regarding my set-up or smarthomes in general, feel fre
 
 ## The house
 The house is situated in Utrecht in a district called [New-England, Utrecht](https://nl.wikipedia.org/wiki/Nieuw_Engeland,_Thomas_%C3%A0_Kempisplantsoen_en_omgeving).
-More specifically, I live at the Cremerstraat, a beautiful street with sights over the most busy railroad track in the Netherlands and only a ten-minute walk from the city center.[^1]
+More specifically, I live at the Cremerstraat, a beautiful street with sights over the most busy railroad track in the Netherlands and only a ten-minute walk from the city center.<sup>1</sup>
 The house was build around 1910 and had originally a ground level and one floor.
 Over the years, toilets, bathroom, second floor (2017), a roof terrace (2020) and a bike shed (2020) were added.
 
@@ -84,4 +84,4 @@ See the `img/` directory!
 
 ![boat](img/hapiness.JPG)
 
-[^1] This claim needs still some verification. At least the corridor Utrecht - Amsterdam/ Schiphol/ Den Haag/ Rotterdam/ Leiden/ Amersfoort/ Baarn is running at this place. That makes more than one train per minute.
+<sup>1</sup> This claim needs still some verification. At least the corridor Utrecht - Amsterdam/ Schiphol/ Den Haag/ Rotterdam/ Leiden/ Amersfoort/ Baarn is running at this place. That makes more than one train per minute.
