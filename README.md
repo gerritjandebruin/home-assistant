@@ -82,4 +82,6 @@ See the `img/` directory!
 - [x] Add doorsensor to bathroom.
 - [ ] Make this as well for our boat!
 
+![boat](img/hapiness.JPG)
+
 [^1] This claim needs still some verification. At least the corridor Utrecht - Amsterdam/ Schiphol/ Den Haag/ Rotterdam/ Leiden/ Amersfoort/ Baarn is running at this place. That makes more than one train per minute.
