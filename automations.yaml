@@ -743,6 +743,14 @@
           entity_id: sensor.bathroom_humidity
           below: '80'
         continue_on_timeout: true
+    - alias: Door opened
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.bathroom_on_off
+        state: 'on'
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.bathroom
   mode: single
 - id: '1614112596198'
   alias: Bike motion
