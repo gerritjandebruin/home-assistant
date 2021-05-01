@@ -64,6 +64,7 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 ![software](img/software.PNG)
 
 Most notably, the "RTL_433 to MQTT bridge" is used together with a simple RTL-SDR receiver to capture the 433 MHz signal from the KIKA doorbell.
+This add-on is provided in https://github.com/gerritjandebruin/home-assistant-kaku-doorbell.
 
 ## Screenshots
 See the `img/` directory!
