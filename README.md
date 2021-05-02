@@ -10,7 +10,7 @@ If you have any questions regarding my set-up or smarthomes in general, feel fre
 
 ## The house
 The house is situated in Utrecht in a district called [New-England, Utrecht](https://nl.wikipedia.org/wiki/Nieuw_Engeland,_Thomas_%C3%A0_Kempisplantsoen_en_omgeving).
-More specifically, I live at the Cremerstraat, a beautiful street with sights over the most busy railroad track in the Netherlands and only a ten-minute walk from the city center.[^1]
+More specifically, I live at the Cremerstraat, a beautiful street with sights over the most busy railroad track in the Netherlands and only a ten-minute walk from the city center.<sup>1</sup>
 The house was build around 1910 and had originally a ground level and one floor.
 Over the years, toilets, bathroom, second floor (2017), a roof terrace (2020) and a bike shed (2020) were added.
 
@@ -61,25 +61,32 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 - Total costs (ignoring prices in brackets): €911 
 
 ## Software
-!(img/software.PNG)
+![software](img/software.PNG)
 
 Most notably, the "RTL_433 to MQTT bridge" is used together with a simple RTL-SDR receiver to capture the 433 MHz signal from the KIKA doorbell.
+This add-on is provided in https://github.com/gerritjandebruin/home-assistant-kaku-doorbell.
+
+Grafana is used to create this (among others) this cool dashboard.
+https://grafana.nieuw-engeland.nl/api/hassio_ingress/oeWOgZuwtaX47_fzPYy3S15XMvx87simyZc6dG8mj6o/d/a9NUH8xGk/solar-panels?orgId=1&from=1604242079565&to=1619876879565
 
 ## Screenshots
 See the `img/` directory!
+
+![map](img/map.PNG)
 
 ## Plans
 - [x] Add bike shed controls to frontend.
 - [x] Add button to control lights in bike shed.
 - [x] Add Home Assistant app to my Nokia 7.2.
 - [x] Add some screenshots to this repo.
-- [ ] Make doorbell working again.
-- [ ] Add some info about Docker images/ addons used.
-- [ ] Move from Keepass to Bitwarden
+- [x] Make doorbell working again.
+- [x] Add some info about Docker images/ addons used.
 - [ ] Add section about experiences on some devices.
 - [ ] Add pipeline tests to this repo.
 - [ ] Learn how to write own Python code for visualizations in Lovelace. This could help to see how much each lamp was on in the past $x$ days.
-- [ ] Add doorsensor to bathroom.
+- [x] Add doorsensor to bathroom.
 - [ ] Make this as well for our boat!
 
-[^1] This claim needs still some verification. At least the corridor Utrecht - Amsterdam/ Schiphol/ Den Haag/ Rotterdam/ Leiden/ Amersfoort/ Baarn is running at this place. That makes more than one train per minute.
+![boat](img/hapiness.JPG)
+
+<sup>1</sup> This claim needs still some verification. At least the corridor Utrecht - Amsterdam/ Schiphol/ Den Haag/ Rotterdam/ Leiden/ Amersfoort/ Baarn is running at this place. That makes more than one train per minute.
