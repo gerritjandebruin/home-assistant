@@ -13,6 +13,24 @@
                                 {
                                     "elements": [
                                         {
+                                            "entity": "switch.bike_light",
+                                            "image": "/local/bike.jpg",
+                                            "state_filter": {
+                                                "off": "brightness(60%)",
+                                                "on": "brightness(100%)",
+                                                "unavailable": "brightness(60%)"
+                                            },
+                                            "style": {
+                                                "left": "63%",
+                                                "top": "95%",
+                                                "width": "26%"
+                                            },
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "image"
+                                        },
+                                        {
                                             "entity": "light.pantry",
                                             "image": "/local/pantry.jpg",
                                             "state_filter": {
@@ -21,9 +39,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "17%",
-                                                "top": "42.5%",
-                                                "width": "24%"
+                                                "left": "32%",
+                                                "top": "40%",
+                                                "width": "14%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -40,9 +58,9 @@
                                                 "unavailable": "brightnes(60%)"
                                             },
                                             "style": {
-                                                "left": "27%",
-                                                "top": "9%",
-                                                "width": "46%"
+                                                "left": "37%",
+                                                "top": "10%",
+                                                "width": "28%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -57,9 +75,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "27%",
-                                                "top": "25.5%",
-                                                "width": "39%"
+                                                "left": "37%",
+                                                "top": "26%",
+                                                "width": "22%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -75,9 +93,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "17%",
-                                                "top": "67.5%",
-                                                "width": "22%"
+                                                "left": "31%",
+                                                "top": "67%",
+                                                "width": "12%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -87,7 +105,7 @@
                                         {
                                             "entity": "binary_sensor.hall_on_off",
                                             "style": {
-                                                "left": "17%",
+                                                "left": "30%",
                                                 "top": "60%"
                                             },
                                             "type": "state-icon"
@@ -101,9 +119,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "73%",
+                                                "left": "64%",
                                                 "top": "5%",
-                                                "width": "47%"
+                                                "width": "27%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -117,10 +135,10 @@
                                                 "on": "/local/door-open.jpg"
                                             },
                                             "style": {
-                                                "left": "64%",
+                                                "left": "60%",
                                                 "top": "8%",
                                                 "transform": "rotate(90deg)",
-                                                "width": "14%"
+                                                "width": "8%"
                                             },
                                             "type": "image"
                                         },
@@ -131,10 +149,10 @@
                                                 "on": "/local/door-open.jpg"
                                             },
                                             "style": {
-                                                "left": "25%",
-                                                "top": "16%",
-                                                "transform": "rotate(90deg)",
-                                                "width": "16%"
+                                                "left": "37%",
+                                                "top": "15%",
+                                                "transform": "rotate(270deg)",
+                                                "width": "8%"
                                             },
                                             "type": "image"
                                         },
@@ -145,17 +163,25 @@
                                                 "on": "/local/door-open.jpg"
                                             },
                                             "style": {
-                                                "left": "34%",
-                                                "top": "45%",
-                                                "width": "16%"
+                                                "left": "40%",
+                                                "top": "44%",
+                                                "width": "8%"
                                             },
                                             "type": "image"
                                         },
                                         {
                                             "entity": "binary_sensor.kitchen_on_off",
                                             "style": {
-                                                "left": "35%",
-                                                "top": "30%"
+                                                "left": "40%",
+                                                "top": "25%"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.bike_on_off",
+                                            "style": {
+                                                "left": "60%",
+                                                "top": "95%"
                                             },
                                             "type": "state-icon"
                                         }
@@ -166,6 +192,24 @@
                                 {
                                     "elements": [
                                         {
+                                            "entity": "light.terrace",
+                                            "style": {
+                                                "left": "34%",
+                                                "top": "31%",
+                                                "width": "34%"
+                                            },
+                                            "state_filter": {
+                                                "off": "brightness(60%)",
+                                                "on": "brightness(100%)",
+                                                "unavailable": "brightness(60%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "image",
+                                            "image": "local/terrace.jpg"
+                                        },
+                                        {
                                             "entity": "light.corridor",
                                             "image": "/local/corridor.jpg",
                                             "state_filter": {
@@ -174,9 +218,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "28%",
-                                                "top": "31%",
-                                                "width": "35%"
+                                                "left": "32%",
+                                                "top": "58%",
+                                                "width": "27%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -192,9 +236,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "67%",
-                                                "top": "53%",
-                                                "width": "41%"
+                                                "left": "62%",
+                                                "top": "71%",
+                                                "width": "33%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -210,9 +254,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "50%",
-                                                "top": "79%",
-                                                "width": "80%"
+                                                "left": "48%",
+                                                "top": "87%",
+                                                "width": "63%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -228,9 +272,9 @@
                                                 "unavailable": "brightness(60%)"
                                             },
                                             "style": {
-                                                "left": "20%",
-                                                "top": "53%",
-                                                "width": "19%"
+                                                "left": "25%",
+                                                "top": "71%",
+                                                "width": "15%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -244,9 +288,9 @@
                                                 "on": "/local/door-open.jpg"
                                             },
                                             "style": {
-                                                "left": "32%",
-                                                "top": "53%",
-                                                "width": "13%"
+                                                "left": "34%",
+                                                "top": "72%",
+                                                "width": "8%"
                                             },
                                             "type": "image"
                                         },
@@ -257,25 +301,25 @@
                                                 "on": "/local/door-open.jpg"
                                             },
                                             "style": {
-                                                "left": "50%",
-                                                "top": "53%",
-                                                "width": "13%"
+                                                "left": "49%",
+                                                "top": "71%",
+                                                "width": "8%"
                                             },
                                             "type": "image"
                                         },
                                         {
                                             "entity": "binary_sensor.corridor_on_off",
                                             "style": {
-                                                "left": "40%",
-                                                "top": "7%"
+                                                "left": "30%",
+                                                "top": "45%"
                                             },
                                             "type": "state-icon"
                                         },
                                         {
                                             "entity": "light.walk_in_closet_1",
                                             "style": {
-                                                "left": "56%",
-                                                "top": "50%"
+                                                "left": "54%",
+                                                "top": "70%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -285,8 +329,8 @@
                                         {
                                             "entity": "light.walk_in_closet_2",
                                             "style": {
-                                                "left": "56%",
-                                                "top": "55%"
+                                                "left": "54%",
+                                                "top": "72%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -296,8 +340,8 @@
                                         {
                                             "entity": "light.bedroom_1",
                                             "style": {
-                                                "left": "87%",
-                                                "top": "65%"
+                                                "left": "72%",
+                                                "top": "80%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -307,8 +351,8 @@
                                         {
                                             "entity": "light.bedroom_2",
                                             "style": {
-                                                "left": "87%",
-                                                "top": "72%"
+                                                "left": "72%",
+                                                "top": "84%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -318,8 +362,8 @@
                                         {
                                             "entity": "light.bedroom_3",
                                             "style": {
-                                                "left": "87%",
-                                                "top": "79%"
+                                                "left": "72%",
+                                                "top": "88%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -329,8 +373,8 @@
                                         {
                                             "entity": "light.bedroom_4",
                                             "style": {
-                                                "left": "87%",
-                                                "top": "86%"
+                                                "left": "72%",
+                                                "top": "92%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -340,8 +384,8 @@
                                         {
                                             "entity": "light.bedroom_5",
                                             "style": {
-                                                "left": "87%",
-                                                "top": "93%"
+                                                "left": "72%",
+                                                "top": "96%"
                                             },
                                             "tap_action": {
                                                 "action": "toggle"
@@ -591,11 +635,11 @@
                                 },
                                 {
                                     "entity": "sensor.bedroom_temperature",
-                                    "name": "Bedroom"
+                                    "name": "Koelkast keuken"
                                 },
                                 {
                                     "entity": "sensor.guestroom_temperature",
-                                    "name": "Guestroom"
+                                    "name": "Koelkast terras"
                                 },
                                 {
                                     "entity": "sensor.attic_temperature",
@@ -603,7 +647,7 @@
                                 },
                                 {
                                     "entity": "sensor.shed_temperature",
-                                    "name": "Shed"
+                                    "name": "Vriezer"
                                 },
                                 {
                                     "entity": "sensor.outside_temperature",

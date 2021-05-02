@@ -765,7 +765,7 @@
     - conditions:
       - condition: numeric_state
         entity_id: sensor.hall_illuminance
-        below: 10
+        below: '10'
       - condition: state
         entity_id: binary_sensor.bike_on_off
         state: 'on'
