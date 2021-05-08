@@ -79,7 +79,9 @@ homeassistant:
     - type: trusted_networks
       trusted_networks:
         - 192.168.2.0/25
-    - type: homeassistant
+http:
+  ssl_certificate: /ssl/cert.pem
+  ssl_key: /ssl/privkey.pem
 recorder:
   purge_keep_days: 366
 # device_tracker:
