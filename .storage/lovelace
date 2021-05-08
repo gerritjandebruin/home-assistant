@@ -610,10 +610,6 @@
                                 {
                                     "type": "thermostat",
                                     "entity": "climate.attic"
-                                },
-                                {
-                                    "type": "thermostat",
-                                    "entity": "climate.bedroom"
                                 }
                             ]
                         },
@@ -635,7 +631,7 @@
                                 },
                                 {
                                     "entity": "sensor.bedroom_temperature",
-                                    "name": "Koelkast keuken"
+                                    "name": "Bedroom"
                                 },
                                 {
                                     "entity": "sensor.guestroom_temperature",
@@ -685,18 +681,6 @@
                                         "red": 90
                                     },
                                     "name": "Bathroom"
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bedroom_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    },
-                                    "name": "Bedroom"
                                 },
                                 {
                                     "type": "gauge",
@@ -792,18 +776,6 @@
                                     "min": 0,
                                     "max": 100,
                                     "name": "Bathroom",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bedroom_humidity",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Bedroom",
                                     "severity": {
                                         "green": 0,
                                         "yellow": 60,
