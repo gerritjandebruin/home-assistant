@@ -5,8 +5,8 @@
         "devices": [
             {
                 "config_entries": [
-                    "84ac75a4a5468aadefab02897fc02dd0",
-                    "0056e9d517d611ebb46265d0140cc59d"
+                    "0056e9d517d611ebb46265d0140cc59d",
+                    "84ac75a4a5468aadefab02897fc02dd0"
                 ],
                 "connections": [
                     [
@@ -103,8 +103,8 @@
             },
             {
                 "config_entries": [
-                    "84ac75a4a5468aadefab02897fc02dd0",
-                    "0056e9d517d611ebb46265d0140cc59d"
+                    "0056e9d517d611ebb46265d0140cc59d",
+                    "84ac75a4a5468aadefab02897fc02dd0"
                 ],
                 "connections": [
                     [
@@ -1077,33 +1077,6 @@
                 "connections": [
                     [
                         "zigbee",
-                        "00:12:4b:00:22:2f:93:e7"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "00:12:4b:00:22:2f:93:e7"
-                    ]
-                ],
-                "manufacturer": "GLEDOPTO",
-                "model": "GL-C-007",
-                "name": "GLEDOPTO GL-C-007",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "87a3633a241147297526da69cec2e2b5",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": "Terrace",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -1669,6 +1642,28 @@
                 "area_id": null,
                 "name_by_user": "Bike",
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "9c27cb4e49995fce3445f3eea38cfb29"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "0a050590bb7cdce1"
+                    ]
+                ],
+                "manufacturer": "samsung",
+                "model": "SM-A520F",
+                "name": "Samsung ",
+                "sw_version": "26",
+                "entry_type": null,
+                "id": "0df8fdadc80fd3ce3944d5e75dbbf232",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
             }
         ],
         "deleted_devices": [
@@ -1759,6 +1754,25 @@
                     ]
                 ],
                 "id": "00a670d9a519980a790548083d7a9cf5",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:12:4b:00:22:2f:93:e7"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:12:4b:00:22:2f:93:e7"
+                    ]
+                ],
+                "id": "87a3633a241147297526da69cec2e2b5",
                 "orphaned_timestamp": null
             }
         ]
