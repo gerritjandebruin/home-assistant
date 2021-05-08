@@ -5,8 +5,8 @@
         "devices": [
             {
                 "config_entries": [
-                    "0056e9d517d611ebb46265d0140cc59d",
-                    "84ac75a4a5468aadefab02897fc02dd0"
+                    "84ac75a4a5468aadefab02897fc02dd0",
+                    "0056e9d517d611ebb46265d0140cc59d"
                 ],
                 "connections": [
                     [
@@ -103,8 +103,8 @@
             },
             {
                 "config_entries": [
-                    "0056e9d517d611ebb46265d0140cc59d",
-                    "84ac75a4a5468aadefab02897fc02dd0"
+                    "84ac75a4a5468aadefab02897fc02dd0",
+                    "0056e9d517d611ebb46265d0140cc59d"
                 ],
                 "connections": [
                     [
@@ -1344,7 +1344,7 @@
                 "manufacturer": "core",
                 "model": "Home Assistant Add-on",
                 "name": "Check Home Assistant configuration",
-                "sw_version": "3.7.0",
+                "sw_version": "3.7.1",
                 "entry_type": "service",
                 "id": "35120953a64b54abd43dd788ee77dcdc",
                 "via_device_id": null,
@@ -1388,7 +1388,7 @@
                 "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "Visual Studio Code",
-                "sw_version": "3.3.0",
+                "sw_version": "3.3.1",
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
                 "via_device_id": null,
@@ -1410,7 +1410,7 @@
                 "manufacturer": "core",
                 "model": "Home Assistant Add-on",
                 "name": "Terminal & SSH",
-                "sw_version": "9.1.0",
+                "sw_version": "9.1.1",
                 "entry_type": "service",
                 "id": "066220f5f57b83f30e30d03987e1f2df",
                 "via_device_id": null,
@@ -1476,7 +1476,7 @@
                 "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "Portainer",
-                "sw_version": "1.4.0",
+                "sw_version": "1.5.0",
                 "entry_type": "service",
                 "id": "a13661badff4fe010bb3ffc795b93df1",
                 "via_device_id": null,

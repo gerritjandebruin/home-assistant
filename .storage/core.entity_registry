@@ -2032,7 +2032,7 @@
                 "capabilities": {},
                 "supported_features": 0,
                 "device_class": "signal_strength",
-                "unit_of_measurement": "dB",
+                "unit_of_measurement": "dBm",
                 "original_name": "Badkamer schakelaar RSSI",
                 "original_icon": null
             },
@@ -2168,7 +2168,7 @@
                 "capabilities": {},
                 "supported_features": 0,
                 "device_class": "signal_strength",
-                "unit_of_measurement": "dB",
+                "unit_of_measurement": "dBm",
                 "original_name": "shellyswitch25-8CAAB561E13F RSSI",
                 "original_icon": null
             },
@@ -2916,7 +2916,7 @@
                 "capabilities": {},
                 "supported_features": 0,
                 "device_class": "signal_strength",
-                "unit_of_measurement": "dB",
+                "unit_of_measurement": "dBm",
                 "original_name": "shelly RSSI",
                 "original_icon": null
             },
@@ -4627,7 +4627,7 @@
                 "name": "Bike on_off",
                 "icon": "hass:bicycle",
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "motion",
                 "unit_of_measurement": null,
@@ -4644,11 +4644,28 @@
                 "name": "Bike power",
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": "battery",
                 "unit_of_measurement": "%",
                 "original_name": "IKEA of Sweden TRADFRI motion sensor 8d1d9ffe power",
+                "original_icon": null
+            },
+            {
+                "entity_id": "automation.vriezer_wordt_warm",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "1620223984388",
+                "platform": "automation",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Vriezer wordt warm",
                 "original_icon": null
             }
         ]
