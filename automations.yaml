@@ -813,3 +813,16 @@
       - service: automation.turn_on
         entity_id: automation.bike_motion
   mode: restart
+- id: '1620223984388'
+  alias: Vriezer wordt warm
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shed_temperature
+    above: '-15'
+  condition: []
+  action:
+  - service: notify.everyone
+    data:
+      message: Have a look at the fridge in the shed, it is unfreezing!
+  mode: single
