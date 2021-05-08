@@ -22,6 +22,8 @@ notebooks/home-assistant
 
 # Database
 *.db
+*.db-wal
+*.db-shm
 
 # Logs
 *.log
