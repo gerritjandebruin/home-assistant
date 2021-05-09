@@ -1,4 +1,4 @@
-# Smarthome Cremerboulevard
+<h1 class="hidden"> Smarthome Cremerboulevard</h1>
 
 <p class="hidden">This repository contains the set-up of my smart home, featured by the open-source project [Home Assistant](https://www.home-assistant.io/).</p>
 
