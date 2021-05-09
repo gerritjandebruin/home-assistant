@@ -3,24 +3,24 @@
 <p class="hidden">This repository contains the set-up of my smart home, featured by the open-source project [Home Assistant](https://www.home-assistant.io/).</p>
 
 The full configuration till what it is today, took around one year of hobby time.
-This is mainly because over time new devices were added.
+This is mainly because we increased the number of devices over time.
 <!-- I feel it is a steady situation and I expect that not much devices will be added in foreseeable future. -->
 Hence, it is a good time to put the code on Github and do some version control.
 
-If you have any questions regarding my set-up or smarthomes in general, feel free to [contact](mailto:gerritjandebruin@gmail.com) or use the [issue](https://github.com/gerritjandebruin/home-assistant/issues/new) functionality!
+If you have any questions about my set-up or smarthomes in general, feel free to [contact](mailto:gerritjandebruin@gmail.com) or use the [issue](https://github.com/gerritjandebruin/home-assistant/issues/new) functionality!
 
 ## The house
 The house is situated in Utrecht in a district called [New-England, Utrecht](https://nl.wikipedia.org/wiki/Nieuw_Engeland,_Thomas_%C3%A0_Kempisplantsoen_en_omgeving).
-More specifically, I live at the Cremerstraat, a beautiful street with sights over the most busy railroad track in the Netherlands and only a ten-minute walk from the city center.<sup>1</sup>
-The house was build around 1910 and had originally a ground level and one floor.
-Over the years, toilets, bathroom, second floor (2017), a roof terrace (2020) and a bike shed (2020) were added.
+More specifically, we live at the Cremerstraat, a beautiful street with sights over the most busy railroad track in the Netherlands and only a ten-minute walk from the city center.<sup>1</sup>
+The house was built around 1910 and had originally a ground level and one floor.
+Over the years, toilets, bathroom, second floor (2017), a roof terrace (2020) and a bike shed (2020) were added to the house.
 
 ![](www/aerial-1930.jpg)
 Aerial photo of Utrecht around 1930. The arrow marks our street. On the right, we observe the Dom tower, which can be seen from the house as well. [Het Utrechts Archief](https://hetutrechtsarchief.nl/collectie/2C8CA0EEF8605EE4B7786F7C60876957).
 
 ## Devices
-The following table will provide the devices used by the home automation.
-When buying new devices, I try to optimize the following:
+The following table provides the devices used by the home automation.
+When buying new devices, I try to keep the following matters into consideration:
 * Limit the number of different manufacturers. This helps when later replacing devices and to get more reproducible readings.
 * Money. I am not willing to spend too much extra money for just little value.
 * Protocol, I try to stick to Zigbee as much as possible. Zigbee provides good coverage while not interfering with the WiFi and hence internet via laptops/ mobile phones.
@@ -65,29 +65,28 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 ## Hardware experiences
 ### LED
 We bought a LED strip + power supply + driver for both the bike shed and roof terrace at led-gigant.nl.
-The LED at the bike shed was easy to install, since we only had to cut but not to join any strips. 
+The LED at the bike shed was easy to install since we only had to cut but not to join any strips. 
 The controlling of this light strip is done by a Shelly, which are great drivers as they are easy to install and just work out-of-box on WiFi.
 
-The installation of the LED at the roof terrace was way harder and took us several weeks!
+The installation of the LED at the roof terrace was harder and took us several weeks!
 Since our roof terrace is 4*2 meters, we needed 10m of LED strips (4+2+4 for three sides).
 The LED strips were delivered as two 5m long strips, so we had to cut and reconnect them.
-We did totally not expect that this would be so hard.
+We did not expect that this would be so hard.
 Since these strips are RGBWW, 5 strands needed to be connected at each joint.
-We bought some [non-solder connections](https://www.led-gigant.nl/led/led-accessoires/led-strip-connectors/) from Led-gigant.nl but we did not get them to work on all five strands simultanously.
-Hence, we need to solder the connections, which is really hard given that the strands are only 1-2mm apart.
+We bought some [non-solder connections](https://www.led-gigant.nl/led/led-accessoires/led-strip-connectors/) from Led-gigant.nl but we did not get them to work on all five strands simultaneously.
+Hence, we need to solder the connections, which is hard given that the strands are only 1-2mm apart.
 
 ### IKEA
-The IKEA devices are all of good quality, especially for the low price they are sold.
+The IKEA devices are all good quality, especially for the low price they are sold.
 Lights are good and the remotes all work very well.
-The motion sensor reports motion very fast, maybe even a bit too fast.
-Especially on warmer days (>20 degrees Celsius), it triggers sometimes at random.
+The motion sensor reports motion fast, maybe even a bit too fast; especially on warmer days (>20 degrees Celsius), it triggers sometimes at random.
 Major drawback is the difficulty to pair them; the only thing which works for the lights is by manually powercycle them.
 As the IKEA manual is not very accurate on how to this, I used the instructions from [IKEA Switzerland](https://www.youtube.com/watch?v=mJm9YpPrGzk) (especially see the comment of Jon B.).
 
 ### Vegtrug
 I like the idea of a flower sensor very much, so that is the reason I paid this relatively expensive gadget.
 I will use it to monitor a citrus plant that is not doing so well :)
-Is is a pity that it does not work on Zigbee, so for the moment I monitor this device via the Vegtug app.
+It is a pity that it does not work on Zigbee, so for the moment I monitor this device via the Vegtug app.
 This worked only on Android 8 and not on Android 10 for some reason.
 The provided database of over 6000 flowers looks impressive!
 
@@ -117,18 +116,18 @@ See the `img/` directory!
 ![map](img/map.PNG)
 
 ## Plans
-- [x] Add bike shed controls to frontend.
-- [x] Add button to control lights in bike shed.
-- [x] Add Home Assistant app to my Nokia 7.2.
-- [x] Add some screenshots to this repo.
-- [x] Make doorbell working again.
-- [x] Add some info about Docker images/ addons used.
-- [ ] Add flower sensor to Home Assistant
-- [ ] Add section about experiences on some devices.
-- [ ] Add pipeline tests to this repo.
-- [ ] Learn how to write own Python code for visualizations in Lovelace. This could help to see how much each lamp was on in the past $x$ days.
-- [x] Add doorsensor to bathroom.
-- [ ] Make this as well for our boat!
+- [x]  Add bike shed controls to frontend.
+- [x]  Add button to control lights in bike shed.
+- [x]  Add Home Assistant app to my Nokia 7.2.
+- [x]  Add some screenshots to this repo.
+- [x]  Make doorbell working again.
+- [x]  Add some info about Docker images/ addons used.
+- [ ]  Add flower sensor to Home Assistant
+- [ ]  Add section about experiences on some devices.
+- [ ]  Add pipeline tests to this repo.
+- [ ]  Learn how to write own Python code for visualizations in Lovelace. This could help to see how much each lamp was on in the past $x$ days.
+- [x]  Add doorsensor to bathroom.
+- [ ]  Make this as well for our boat!
 
 ![boat](img/hapiness.JPG)
 
