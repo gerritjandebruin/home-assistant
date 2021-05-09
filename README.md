@@ -1,12 +1,11 @@
 # Smarthome Cremerboulevard
 
-<p class="hidden">
-This repository contains the set-up of my smart home, featured by the open-source project [Home Assistant](https://www.home-assistant.io/).
+<p class="hidden">This repository contains the set-up of my smart home, featured by the open-source project [Home Assistant](https://www.home-assistant.io/).</p>
+
 The full configuration till what it is today, took around one year of hobby time.
 This is mainly because over time new devices were added.
 I feel it is a steady situation and I expect that not much devices will be added in foreseeable future.
 Hence, it is a good time to put the code on Github and do some version control.
-</p>
 
 <p class="hidden">
 If you have any questions regarding my set-up or smarthomes in general, feel free to [contact](mailto:gerritjandebruin@gmail.com) or use the [issue](https://github.com/gerritjandebruin/home-assistant/issues/new) functionality!
