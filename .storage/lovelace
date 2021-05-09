@@ -577,10 +577,6 @@
                                     "toggle": true
                                 },
                                 {
-                                    "entity": "light.terrace",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
                                     "type": "section"
                                 },
                                 {
@@ -868,126 +864,29 @@
                                     "value": 30
                                 }
                             ]
-                        }
-                    ]
-                },
-                {
-                    "title": "Shelly",
-                    "path": "shelly",
-                    "icon": "mdi:electric-switch",
-                    "badges": [
-                        {
-                            "entity": "binary_sensor.bathroom_overheating"
-                        },
-                        {
-                            "entity": "binary_sensor.bike_overheating"
-                        },
-                        {
-                            "entity": "binary_sensor.toilet_overheating"
-                        },
-                        {
-                            "entity": "binary_sensor.bathroom_overpowering"
-                        },
-                        {
-                            "entity": "binary_sensor.bike_light_overpowering"
-                        },
-                        {
-                            "entity": "binary_sensor.bike_socket_overpowering"
-                        },
-                        {
-                            "entity": "binary_sensor.toilet_overpowering"
-                        },
-                        {
-                            "entity": "binary_sensor.bathroom_firmware_update"
-                        },
-                        {
-                            "entity": "binary_sensor.bike_firmware_update"
-                        },
-                        {
-                            "entity": "binary_sensor.toilet_firmware_update"
-                        }
-                    ],
-                    "cards": [
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.toilet_device_temperature",
-                                    "name": "Toilet"
-                                },
-                                {
-                                    "entity": "sensor.bathroom_device_temperature",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bike_device_temperature",
-                                    "name": "Bike"
-                                }
-                            ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0,
-                            "title": "Device temperature"
                         },
                         {
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "sensor.bathroom_uptime",
-                                    "name": "Bathroom"
+                                    "entity": "sensor.samsung_batterij_laadstatus"
                                 },
                                 {
-                                    "entity": "sensor.bike_uptime",
-                                    "name": "Bike"
+                                    "entity": "sensor.samsung_batterijniveau"
                                 },
                                 {
-                                    "entity": "sensor.toilet_uptime",
-                                    "name": "Toilet"
+                                    "entity": "sensor.samsung_bluetooth_verbinding"
+                                },
+                                {
+                                    "entity": "sensor.samsung_laatste_herstart"
+                                },
+                                {
+                                    "entity": "sensor.samsung_batterijstatus"
+                                },
+                                {
+                                    "entity": "sensor.samsung_type_oplader"
                                 }
-                            ],
-                            "title": "Uptime"
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.bathroom_rssi",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bike_rssi",
-                                    "name": "Bike"
-                                },
-                                {
-                                    "entity": "sensor.toilet_rssi",
-                                    "name": "Toilet"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
-                            "title": "RSSI"
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.bathroom_power",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bike_light_power",
-                                    "name": "Bike light"
-                                },
-                                {
-                                    "entity": "sensor.bike_socket_power",
-                                    "name": "Bike socket"
-                                },
-                                {
-                                    "entity": "sensor.toilet_power",
-                                    "name": "Toilet"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
+                            ]
                         }
                     ]
                 },
@@ -1217,6 +1116,126 @@
                         {
                             "type": "entity",
                             "entity": "sensor.home_assistant_v2_db"
+                        }
+                    ]
+                },
+                {
+                    "title": "Shelly",
+                    "path": "shelly",
+                    "icon": "mdi:electric-switch",
+                    "badges": [
+                        {
+                            "entity": "binary_sensor.bathroom_overheating"
+                        },
+                        {
+                            "entity": "binary_sensor.bike_overheating"
+                        },
+                        {
+                            "entity": "binary_sensor.toilet_overheating"
+                        },
+                        {
+                            "entity": "binary_sensor.bathroom_overpowering"
+                        },
+                        {
+                            "entity": "binary_sensor.bike_light_overpowering"
+                        },
+                        {
+                            "entity": "binary_sensor.bike_socket_overpowering"
+                        },
+                        {
+                            "entity": "binary_sensor.toilet_overpowering"
+                        },
+                        {
+                            "entity": "binary_sensor.bathroom_firmware_update"
+                        },
+                        {
+                            "entity": "binary_sensor.bike_firmware_update"
+                        },
+                        {
+                            "entity": "binary_sensor.toilet_firmware_update"
+                        }
+                    ],
+                    "cards": [
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.toilet_device_temperature",
+                                    "name": "Toilet"
+                                },
+                                {
+                                    "entity": "sensor.bathroom_device_temperature",
+                                    "name": "Bathroom"
+                                },
+                                {
+                                    "entity": "sensor.bike_device_temperature",
+                                    "name": "Bike"
+                                }
+                            ],
+                            "hours_to_show": 168,
+                            "refresh_interval": 0,
+                            "title": "Device temperature"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.bathroom_uptime",
+                                    "name": "Bathroom"
+                                },
+                                {
+                                    "entity": "sensor.bike_uptime",
+                                    "name": "Bike"
+                                },
+                                {
+                                    "entity": "sensor.toilet_uptime",
+                                    "name": "Toilet"
+                                }
+                            ],
+                            "title": "Uptime"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.bathroom_rssi",
+                                    "name": "Bathroom"
+                                },
+                                {
+                                    "entity": "sensor.bike_rssi",
+                                    "name": "Bike"
+                                },
+                                {
+                                    "entity": "sensor.toilet_rssi",
+                                    "name": "Toilet"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "title": "RSSI"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.bathroom_power",
+                                    "name": "Bathroom"
+                                },
+                                {
+                                    "entity": "sensor.bike_light_power",
+                                    "name": "Bike light"
+                                },
+                                {
+                                    "entity": "sensor.bike_socket_power",
+                                    "name": "Bike socket"
+                                },
+                                {
+                                    "entity": "sensor.toilet_power",
+                                    "name": "Toilet"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
                         }
                     ]
                 },
