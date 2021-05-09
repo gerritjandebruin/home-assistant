@@ -76,12 +76,16 @@ homeassistant:
     sensor.guestroom_mold:
       icon: mdi:bacteria
   auth_providers:
+    - type: homeassistant
     - type: trusted_networks
       trusted_networks:
         - 192.168.2.0/25
+
 http:
   ssl_certificate: /ssl/cert.pem
   ssl_key: /ssl/privkey.pem
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
 recorder:
   purge_keep_days: 366
 # device_tracker:
