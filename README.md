@@ -4,12 +4,10 @@
 
 The full configuration till what it is today, took around one year of hobby time.
 This is mainly because over time new devices were added.
-I feel it is a steady situation and I expect that not much devices will be added in foreseeable future.
+<!-- I feel it is a steady situation and I expect that not much devices will be added in foreseeable future. -->
 Hence, it is a good time to put the code on Github and do some version control.
 
-<p class="hidden">
 If you have any questions regarding my set-up or smarthomes in general, feel free to [contact](mailto:gerritjandebruin@gmail.com) or use the [issue](https://github.com/gerritjandebruin/home-assistant/issues/new) functionality!
-</p>
 
 ## The house
 The house is situated in Utrecht in a district called [New-England, Utrecht](https://nl.wikipedia.org/wiki/Nieuw_Engeland,_Thomas_%C3%A0_Kempisplantsoen_en_omgeving).
@@ -18,7 +16,7 @@ The house was build around 1910 and had originally a ground level and one floor.
 Over the years, toilets, bathroom, second floor (2017), a roof terrace (2020) and a bike shed (2020) were added.
 
 ![](www/aerial-1930.jpg)
-Aerial photo of Utrecht around 1930. The arrow marks our street. On the right, we observe the Dom tower, which can be seen from the house as well. [Source](https://hetutrechtsarchief.nl/collectie/2C8CA0EEF8605EE4B7786F7C60876957).
+Aerial photo of Utrecht around 1930. The arrow marks our street. On the right, we observe the Dom tower, which can be seen from the house as well. [Het Utrechts Archief](https://hetutrechtsarchief.nl/collectie/2C8CA0EEF8605EE4B7786F7C60876957).
 
 ## Devices
 The following table will provide the devices used by the home automation.
@@ -75,7 +73,7 @@ Since our roof terrace is 4*2 meters, we needed 10m of LED strips (4+2+4 for thr
 The LED strips were delivered as two 5m long strips, so we had to cut and reconnect them.
 We did totally not expect that this would be so hard.
 Since these strips are RGBWW, 5 strands needed to be connected at each joint.
-Led-gigant.nl delivered some connectors for this (https://www.led-gigant.nl/led/led-accessoires/led-strip-connectors/) but we did not get them to work on all five strands simultanously.
+We bought some [non-solder connections](https://www.led-gigant.nl/led/led-accessoires/led-strip-connectors/) from Led-gigant.nl but we did not get them to work on all five strands simultanously.
 Hence, we need to solder the connections, which is really hard given that the strands are only 1-2mm apart.
 
 ### IKEA
@@ -84,7 +82,7 @@ Lights are good and the remotes all work very well.
 The motion sensor reports motion very fast, maybe even a bit too fast.
 Especially on warmer days (>20 degrees Celsius), it triggers sometimes at random.
 Major drawback is the difficulty to pair them; the only thing which works for the lights is by manually powercycle them.
-As the IKEA manual is not very accurate on how to this, I used the instructions at https://www.youtube.com/watch?v=mJm9YpPrGzk (especially see the commend of Jon B.).
+As the IKEA manual is not very accurate on how to this, I used the instructions from [IKEA Switzerland](https://www.youtube.com/watch?v=mJm9YpPrGzk) (especially see the comment of Jon B.).
 
 ### Vegtrug
 I like the idea of a flower sensor very much, so that is the reason I paid this relatively expensive gadget.
@@ -109,10 +107,9 @@ Feel free to ask more experiences by opening an [issue](https://github.com/gerri
 ![software](img/software.PNG)
 
 Most notably, the "RTL_433 to MQTT bridge" is used together with a simple RTL-SDR receiver to capture the 433 MHz signal from the KIKA doorbell.
-This add-on is provided in https://github.com/gerritjandebruin/home-assistant-kaku-doorbell.
+This add-on is provided in <https://github.com/gerritjandebruin/home-assistant-kaku-doorbell>.
 
-Grafana is used to create this (among others) this cool dashboard.
-https://grafana.nieuw-engeland.nl/api/hassio_ingress/oeWOgZuwtaX47_fzPYy3S15XMvx87simyZc6dG8mj6o/d/a9NUH8xGk/solar-panels?orgId=1&from=1604242079565&to=1619876879565
+Grafana is used to create this (among others) this [cool dashboard](https://grafana.nieuw-engeland.nl/api/hassio_ingress/oeWOgZuwtaX47_fzPYy3S15XMvx87simyZc6dG8mj6o/d/a9NUH8xGk/solar-panels?orgId=1&from=1604242079565&to=1619876879565).
 
 ## Screenshots
 See the `img/` directory!
