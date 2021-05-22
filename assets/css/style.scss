@@ -1,5 +1,10 @@
+---
+---
+
 @import "{{ site.theme }}";
 
 .main-content {
   max-width: 80rem;
 }
+
+.hidden {visibility: hidden;}
