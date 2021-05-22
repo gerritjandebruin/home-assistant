@@ -1637,6 +1637,33 @@
                 "area_id": null,
                 "name_by_user": "guestroom",
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:15:8d:00:05:43:ba:85"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:15:8d:00:05:43:ba:85"
+                    ]
+                ],
+                "manufacturer": "LUMI",
+                "model": "lumi.weather",
+                "name": "LUMI lumi.weather",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "edfd6fdec0ba0f861d77c2e02e08a729",
+                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "area_id": null,
+                "name_by_user": "Bedroom thermometer",
+                "disabled_by": null
             }
         ],
         "deleted_devices": [
@@ -1746,25 +1773,6 @@
                     ]
                 ],
                 "id": "87a3633a241147297526da69cec2e2b5",
-                "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "00:15:8d:00:05:43:ba:85"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "00:15:8d:00:05:43:ba:85"
-                    ]
-                ],
-                "id": "edfd6fdec0ba0f861d77c2e02e08a729",
                 "orphaned_timestamp": null
             },
             {

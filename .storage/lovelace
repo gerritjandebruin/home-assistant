@@ -643,7 +643,7 @@
                                 },
                                 {
                                     "entity": "sensor.shed_temperature",
-                                    "name": "Vriezer"
+                                    "name": "Shed"
                                 },
                                 {
                                     "entity": "sensor.outside_temperature",
@@ -712,6 +712,18 @@
                                     "min": 0,
                                     "max": 100,
                                     "name": "Shed",
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 70,
+                                        "red": 90
+                                    }
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.bedroom_mold",
+                                    "min": 0,
+                                    "max": 100,
+                                    "name": "Bedroom",
                                     "severity": {
                                         "green": 0,
                                         "yellow": 70,
