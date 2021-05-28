@@ -4455,23 +4455,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "automation.vriezer_wordt_warm",
-                "config_entry_id": null,
-                "device_id": null,
-                "area_id": null,
-                "unique_id": "1620223984388",
-                "platform": "automation",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Vriezer wordt warm",
-                "original_icon": null
-            },
-            {
                 "entity_id": "device_tracker.samsung",
                 "config_entry_id": "9c27cb4e49995fce3445f3eea38cfb29",
                 "device_id": "0df8fdadc80fd3ce3944d5e75dbbf232",
