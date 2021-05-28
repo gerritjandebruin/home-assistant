@@ -13,6 +13,23 @@
                                 {
                                     "elements": [
                                         {
+                                            "entity": "switch.lounge",
+                                            "image": "/local/lounge.jpg",
+                                            "state_filter": {
+                                                "off": "brightness(60%)",
+                                                "on": "brightness(100%)"
+                                            },
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "image",
+                                            "style": {
+                                                "left": "55%",
+                                                "width": "42%",
+                                                "top": "71%"
+                                            }
+                                        },
+                                        {
                                             "entity": "switch.bike_light",
                                             "image": "/local/bike.jpg",
                                             "state_filter": {
@@ -479,6 +496,35 @@
                                 },
                                 {
                                     "type": "section"
+                                },
+                                {
+                                    "entity": "switch.lounge",
+                                    "icon": "mdi:seat",
+                                    "secondary_info": "last-changed",
+                                    "toggle": true,
+                                    "type": "custom:multiple-entity-row",
+                                    "entities": [
+                                        {
+                                            "name": false,
+                                            "state_color": true,
+                                            "entity": "script.1622183688699",
+                                            "icon": true,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "script.1622183688699"
+                                            }
+                                        },
+                                        {
+                                            "name": false,
+                                            "state_color": true,
+                                            "entity": "script.1622183720081",
+                                            "icon": true,
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "script.1622183720081"
+                                            }
+                                        }
+                                    ]
                                 },
                                 {
                                     "entity": "switch.bathroom",

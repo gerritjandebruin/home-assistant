@@ -1,0 +1,42 @@
+'1622183688699':
+  alias: Lounge fade 2
+  sequence:
+  - type: turn_off
+    device_id: a9c1ea637f003a57f1abb222312e4d02
+    entity_id: switch.lounge
+    domain: switch
+  - repeat:
+      count: '05'
+      sequence:
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 0
+          milliseconds: 300
+      - type: toggle
+        device_id: a9c1ea637f003a57f1abb222312e4d02
+        entity_id: switch.lounge
+        domain: switch
+  mode: single
+  icon: mdi:brightness-7
+'1622183720081':
+  alias: Lounge fade 1
+  sequence:
+  - type: turn_off
+    device_id: a9c1ea637f003a57f1abb222312e4d02
+    entity_id: switch.lounge
+    domain: switch
+  - repeat:
+      count: '03'
+      sequence:
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 0
+          milliseconds: 300
+      - type: toggle
+        device_id: a9c1ea637f003a57f1abb222312e4d02
+        entity_id: switch.lounge
+        domain: switch
+  mode: single
+  icon: mdi:brightness-6

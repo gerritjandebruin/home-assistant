@@ -1664,6 +1664,33 @@
                 "area_id": null,
                 "name_by_user": "Bedroom thermometer",
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "0c38a9e0681b2be8973784253da6df86"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "e0:98:06:a9:de:cc"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "shelly",
+                        "E09806A9DECC"
+                    ]
+                ],
+                "manufacturer": "Shelly",
+                "model": "Shelly 1PM",
+                "name": "shelly1pm-E09806A9DECC",
+                "sw_version": "20210429-101828/v1.10.4-g3f94cd7",
+                "entry_type": null,
+                "id": "a9c1ea637f003a57f1abb222312e4d02",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": "lounge",
+                "disabled_by": null
             }
         ],
         "deleted_devices": [

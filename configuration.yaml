@@ -170,4 +170,5 @@ shell_command:
 tts:
   - platform: google_translate
 
+script: !include scripts.yaml
 automation: !include automations.yaml

@@ -4950,6 +4950,50 @@
                 "unit_of_measurement": "\u00b0C",
                 "original_name": "LUMI lumi.weather 85ba4305 temperature",
                 "original_icon": null
+            },
+            {
+                "entity_id": "switch.lounge",
+                "config_entry_id": "0c38a9e0681b2be8973784253da6df86",
+                "device_id": "a9c1ea637f003a57f1abb222312e4d02",
+                "area_id": null,
+                "unique_id": "E09806A9DECC-relay_0",
+                "platform": "shelly",
+                "name": "lounge",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "shelly1pm-E09806A9DECC",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.lounge_energy",
+                "config_entry_id": "0c38a9e0681b2be8973784253da6df86",
+                "device_id": "a9c1ea637f003a57f1abb222312e4d02",
+                "area_id": null,
+                "unique_id": "E09806A9DECC-relay_0-energy",
+                "platform": "shelly",
+                "name": "lounge Energy",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "energy",
+                "unit_of_measurement": "kWh",
+                "original_name": "shelly1pm-E09806A9DECC Energy",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.lounge_overheating",
+                "config_entry_id": "0c38a9e0681b2be8973784253da6df86",
+                "device_id": "a9c1ea637f003a57f1abb222312e4d02",
+                "area_id": null,
+                "unique_id": "E09806A9DECC-device-overtemp",
+                "platform": "shelly",
+                "name": "lounge Overheating",
+                "icon": null,
             }
         ]
     }
