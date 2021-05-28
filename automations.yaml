@@ -681,7 +681,7 @@
   - platform: state
     entity_id: binary_sensor.bathroom_on_off
     to: 'off'
-    for: 00:30:00
+    for: 00:10:00
   - platform: state
     entity_id: binary_sensor.bathroom_on_off
     to: 'on'
@@ -710,7 +710,7 @@
       - condition: state
         entity_id: binary_sensor.bathroom_on_off
         state: 'off'
-        for: 00:30:00
+        for: 00:10:00
       - condition: numeric_state
         entity_id: sensor.bathroom_humidity
         below: '80'
@@ -722,7 +722,7 @@
       - condition: state
         entity_id: binary_sensor.bathroom_on_off
         state: 'off'
-        for: 00:30:00
+        for: 00:10:00
       - condition: numeric_state
         entity_id: sensor.bathroom_humidity
         above: '80'
