@@ -754,18 +754,6 @@
                                 },
                                 {
                                     "type": "gauge",
-                                    "entity": "sensor.shed_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Shed",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
                                     "entity": "sensor.bedroom_mold",
                                     "min": 0,
                                     "max": 100,
@@ -875,20 +863,15 @@
                                         "yellow": 60,
                                         "red": 80
                                     }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.shed_humidity",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Shed",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
                                 }
                             ]
+                        },
+                        {
+                            "type": "weather-forecast",
+                            "entity": "weather.home"
+                        },
+                        {
+                            "type": "custom:sun-card"
                         }
                     ]
                 },
@@ -899,33 +882,30 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "entity-filter",
+                            "type": "custom:auto-entities",
                             "card": {
-                                "title": "Battery low"
+                                "type": "entities",
+                                "title": "Battery below 50%"
                             },
-                            "entities": [
-                                "sensor.attic_thermometer_battery",
-                                "sensor.bathroom_thermometer_battery",
-                                "sensor.bathroom_on_off_battery",
-                                "sensor.bedroom_remote_battery",
-                                "sensor.bedroom_remote_gj_battery",
-                                "sensor.bedroom_remote_m_battery",
-                                "sensor.bedroom_thermometer_battery",
-                                "sensor.bike_battery",
-                                "sensor.corridor_battery",
-                                "sensor.hall_battery",
-                                "sensor.kitchen_battery",
-                                "sensor.shed_on_off_battery",
-                                "sensor.shed_temperature_battery",
-                                "sensor.toilet_battery",
-                                "sensor.walk_in_closet_battery"
-                            ],
-                            "state_filter": [
-                                {
-                                    "operator": "<",
-                                    "value": 30
-                                }
-                            ]
+                            "sort": {
+                                "method": "state",
+                                "numeric": true
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.*battery",
+                                        "options": {
+                                            "type": "custom:battery-entity-row"
+                                        }
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "state": ">50"
+                                    }
+                                ]
+                            }
                         },
                         {
                             "type": "entities",

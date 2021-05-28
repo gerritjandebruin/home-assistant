@@ -12,6 +12,16 @@
                 "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js",
                 "type": "module",
                 "id": "37881659e94545bba2f6b869ed37b5be"
+            },
+            {
+                "url": "/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js",
+                "type": "module",
+                "id": "726a8f25aba84bc4acb50129f9856b5d"
+            },
+            {
+                "url": "/hacsfiles/lovelace-battery-entity-row/battery-entity-row.js",
+                "type": "module",
+                "id": "cdff997124ba4dec8765cf55f4f6d72d"
             }
         ]
     }
