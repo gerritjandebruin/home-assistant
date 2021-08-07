@@ -252,37 +252,48 @@
   trigger:
   - platform: device
     domain: mqtt
-    device_id: a2d14b364fcb91e32e1beb4b017485a0
-    type: button_short_press
+    device_id: 7d29b13a22bfcac506404176745e1c19
+    type: action
     subtype: button_1
-    discovery_id: 3575 power
+    discovery_id: test1234
   condition: []
   action:
   - service: notify.everyone
     data:
-      title: Doorbell
-      message: Doorbell was pressed!
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id: light.hall
-  - repeat:
-      count: '4'
-      sequence:
-      - service: light.toggle
-        entity_id:
-        - light.kitchen
-        - light.corridor
-        - light.attic
-        - light.bedroom_2
-      - delay: '.5'
-      - service: light.toggle
-        entity_id:
-        - light.kitchen
-        - light.corridor
-        - light.attic
-        - light.bedroom_2
-      - delay: '1'
+      message: Doorbell!
+      data:
+        group: doorbell
+        icon_url: /local/doorbell.png
+  - type: turn_on
+    device_id: e5e042113928b8a047bd60336981e1e6
+    entity_id: light.hall
+    domain: light
+    brightness_pct: 100
+  - device_id: 7a91e3fddeccb47006fec80014891153
+    domain: light
+    entity_id: light.shed
+    type: flash
+  - device_id: 60bfe7a8e3f01ab889642012e4ea1141
+    domain: light
+    entity_id: light.attic
+    type: flash
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: e5e042113928b8a047bd60336981e1e6
+    entity_id: light.hall
+    domain: light
+  - type: turn_off
+    device_id: 60bfe7a8e3f01ab889642012e4ea1141
+    entity_id: light.attic
+    domain: light
+  - type: turn_off
+    device_id: 7a91e3fddeccb47006fec80014891153
+    entity_id: light.shed
+    domain: light
   mode: single
 - id: '1610012660685'
   alias: Back-up log
