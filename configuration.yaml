@@ -10,7 +10,7 @@ notify:
   - name: everyone
     platform: group
     services:
-      - service: mobile_app_iphone_van_mirjam
+      - service: mobile_app_samsung
       - service: mobile_app_nokia_7_2
 climate:
   - platform: generic_thermostat
@@ -44,8 +44,9 @@ influxdb:
       - automation
       - persistent_notification
 logger:
-  default: info
-#   logs:
+  default: debug
+  logs:
+    homeassistant.components.mqtt: debug
 #     homeassistant.core: debug
 #     homeassistant.components.zha: debug
 #     bellows.zigbee.application: debug
@@ -79,7 +80,7 @@ homeassistant:
     - type: homeassistant
     - type: trusted_networks
       trusted_networks:
-        - 192.168.2.0/25
+        - 192.168.1.0/25
 
 http:
   ssl_certificate: /ssl/cert.pem
@@ -88,10 +89,6 @@ http:
   login_attempts_threshold: 3
 recorder:
   purge_keep_days: 366
-# device_tracker:
-#   - platform: nmap_tracker
-#     hosts: 192.168.2.0/24
-#     interval_seconds: 60
 sensor:
   - platform: filesize
     file_paths:
