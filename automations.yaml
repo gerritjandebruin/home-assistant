@@ -255,7 +255,7 @@
     device_id: 7d29b13a22bfcac506404176745e1c19
     type: action
     subtype: button_1
-    discovery_id: test1234
+    discovery_id: doorbell
   condition: []
   action:
   - service: notify.everyone
