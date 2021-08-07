@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "key": "esphome.47825f84c2c0a790968cf23ec9649c86",
+    "data": {
+        "device_info": {
+            "uses_password": false,
+            "name": "test",
+            "mac_address": "7C:9E:BD:F3:E4:A8",
+            "compilation_time": "Aug  1 2021, 10:31:23",
+            "model": "Espressif ESP32 Dev Module",
+            "has_deep_sleep": false,
+            "esphome_version": "1.20.3",
+            "project_name": "",
+            "project_version": ""
+        },
+        "services": [],
+        "api_version": {
+            "major": 1,
+            "minor": 5
+        },
+        "sensor": [
+            {
+                "object_id": "water",
+                "key": 2654748154,
+                "name": "Water\"",
+                "unique_id": "testsensorwater",
+                "icon": "",
+                "device_class": "voltage",
+                "unit_of_measurement": "V",
+                "accuracy_decimals": 2,
+                "force_update": false,
+                "state_class": 1
+            }
+        ],
+        "text_sensor": [],
+        "binary_sensor": []
+    }
+}

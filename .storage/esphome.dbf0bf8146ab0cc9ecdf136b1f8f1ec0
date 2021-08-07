@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "key": "esphome.dbf0bf8146ab0cc9ecdf136b1f8f1ec0",
+    "data": {
+        "device_info": {
+            "uses_password": false,
+            "name": "test",
+            "mac_address": "7C:9E:BD:F3:E4:A8",
+            "compilation_time": "Jun 29 2021, 09:43:53",
+            "model": "Espressif ESP32 Dev Module",
+            "has_deep_sleep": false,
+            "esphome_version": "1.19.4"
+        },
+        "services": [],
+        "sensor": [
+            {
+                "object_id": "esp32_hall_sensor",
+                "key": 3251961963,
+                "name": "ESP32 Hall Sensor",
+                "unique_id": "7c9ebdf3e4a8-hall",
+                "icon": "mdi:magnet",
+                "device_class": "",
+                "unit_of_measurement": "\u00b5T",
+                "accuracy_decimals": 1,
+                "force_update": false,
+                "state_class": 1
+            }
+        ],
+        "text_sensor": []
+    }
+}
