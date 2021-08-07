@@ -5,8 +5,7 @@
         "devices": [
             {
                 "config_entries": [
-                    "0056e9d517d611ebb46265d0140cc59d",
-                    "84ac75a4a5468aadefab02897fc02dd0"
+                    "0056e9d517d611ebb46265d0140cc59d"
                 ],
                 "connections": [
                     [
@@ -33,7 +32,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba"
+                    "33699060188811ebb707e7caa407dbba",
+                    "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
                     [
@@ -49,8 +49,8 @@
                 ],
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
-                "name": "shelly",
-                "sw_version": "20210429-101828/v1.10.4-g3f94cd7",
+                "name": "Toilet",
+                "sw_version": "20210727-202339/v1.11.2-g25b6953",
                 "entry_type": null,
                 "id": "3396514f188811ebb18c5f4e3e6696c1",
                 "via_device_id": null,
@@ -81,30 +81,7 @@
             },
             {
                 "config_entries": [
-                    "3a6031fce6de3b54f0f8a2b4e3534a47"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "ipp",
-                        "00000000-0000-1000-8000-349F7B09BFC6"
-                    ]
-                ],
-                "manufacturer": "Canon",
-                "model": "MG3600 series",
-                "name": "Canon MG3600 series",
-                "sw_version": "2.0",
-                "entry_type": null,
-                "id": "5be8407b5bd0fede7a4d4c73b15bc1d3",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": "Printer",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "0056e9d517d611ebb46265d0140cc59d",
-                    "84ac75a4a5468aadefab02897fc02dd0"
+                    "0056e9d517d611ebb46265d0140cc59d"
                 ],
                 "connections": [
                     [
@@ -143,7 +120,7 @@
                 "manufacturer": "Apple",
                 "model": "iPhone8,4",
                 "name": "iPhone van Mirjam",
-                "sw_version": "14.5.1",
+                "sw_version": "14.6",
                 "entry_type": null,
                 "id": "3025f3748b889e39c55af1f0fdf9ff59",
                 "via_device_id": null,
@@ -165,7 +142,7 @@
                 "manufacturer": "hacs.xyz",
                 "model": "",
                 "name": "HACS",
-                "sw_version": "1.12.4",
+                "sw_version": "1.13.2",
                 "entry_type": "service",
                 "id": "d4dfeb3faac3b7d65ca316e4fef1a2b1",
                 "via_device_id": null,
@@ -190,8 +167,8 @@
                     ]
                 ],
                 "manufacturer": "Texas Instruments",
-                "model": "CC2531, Z-Stack Home 1.2",
-                "name": "Texas Instruments CC2531, Z-Stack Home 1.2",
+                "model": "CC2531, Z-Stack Home 1.2 (build 20190608)",
+                "name": "Texas Instruments CC2531, Z-Stack Home 1.2 (build 20190608)",
                 "sw_version": null,
                 "entry_type": null,
                 "id": "c15d99dd43ef70761cc96f0f3d892367",
@@ -904,147 +881,6 @@
             },
             {
                 "config_entries": [
-                    "77f7550a854e7320bacf2af7b0e08bf3"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "synology_dsm",
-                        "1590NEN364303"
-                    ]
-                ],
-                "manufacturer": "Synology",
-                "model": "DS216play",
-                "name": "Synology NAS",
-                "sw_version": "DSM 6.2.4-25556 Update 1",
-                "entry_type": null,
-                "id": "953c91864067f38764af450c5f41be7c",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "77f7550a854e7320bacf2af7b0e08bf3"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "synology_dsm",
-                        "1590NEN364303",
-                        "sda"
-                    ]
-                ],
-                "manufacturer": "WDC     ",
-                "model": "WD30EFRX-68EUZN0",
-                "name": "Synology NAS (Drive 1 - SATA)",
-                "sw_version": "82.00A82",
-                "entry_type": null,
-                "id": "85927e6fc408b6dac1ffebfe6bd78fe8",
-                "via_device_id": "953c91864067f38764af450c5f41be7c",
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "77f7550a854e7320bacf2af7b0e08bf3"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "synology_dsm",
-                        "1590NEN364303",
-                        "sdb"
-                    ]
-                ],
-                "manufacturer": "TOSHIBA ",
-                "model": "MQ01ABF050",
-                "name": "Synology NAS (Drive 2 - SATA)",
-                "sw_version": "AM002J",
-                "entry_type": null,
-                "id": "a51b48c16bf9dbf5819ad4487b5ae986",
-                "via_device_id": "953c91864067f38764af450c5f41be7c",
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "77f7550a854e7320bacf2af7b0e08bf3"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "synology_dsm",
-                        "1590NEN364303",
-                        "volume_2"
-                    ]
-                ],
-                "manufacturer": "Synology",
-                "model": "DS216play",
-                "name": "Synology NAS (Volume 2 - SHR without disk protect)",
-                "sw_version": "DSM 6.2.4-25556 Update 1",
-                "entry_type": null,
-                "id": "0ba8b62ca732fcd1819a3e32c79f631c",
-                "via_device_id": "953c91864067f38764af450c5f41be7c",
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "77f7550a854e7320bacf2af7b0e08bf3"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "synology_dsm",
-                        "1590NEN364303",
-                        "volume_1"
-                    ]
-                ],
-                "manufacturer": "Synology",
-                "model": "DS216play",
-                "name": "Synology NAS (Volume 1 - SHR without disk protect)",
-                "sw_version": "DSM 6.2.4-25556 Update 1",
-                "entry_type": null,
-                "id": "0313f799af7698516edee819b8f272c9",
-                "via_device_id": "953c91864067f38764af450c5f41be7c",
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "00:15:8d:00:05:42:51:2d"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "00:15:8d:00:05:42:51:2d"
-                    ]
-                ],
-                "manufacturer": "LUMI",
-                "model": "lumi.sensor_magnet.aq2",
-                "name": "LUMI lumi.sensor_magnet.aq2",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "b3c874782468351d90c0ebe2fac89018",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": "Shed door",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
                     "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
@@ -1099,6 +935,7 @@
             },
             {
                 "config_entries": [
+                    "33699060188811ebb707e7caa407dbba",
                     "86e02a91d2f68eab1a8e3cded0e181d5"
                 ],
                 "connections": [
@@ -1115,7 +952,7 @@
                 ],
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
-                "name": "Badkamer schakelaar",
+                "name": "Bathroom",
                 "sw_version": "20210429-101828/v1.10.4-g3f94cd7",
                 "entry_type": null,
                 "id": "975aeee16d3e74fb7be938acf75275d8",
@@ -1229,28 +1066,6 @@
             },
             {
                 "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "Doorbell"
-                    ]
-                ],
-                "manufacturer": "KAKU",
-                "model": "ACDB-7000A",
-                "name": "Doorbell",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "a2d14b364fcb91e32e1beb4b017485a0",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
                     "50f97953fcb6fa9a7b0f9c8040ffb15c"
                 ],
                 "connections": [],
@@ -1260,34 +1075,12 @@
                         "core_check_config"
                     ]
                 ],
-                "manufacturer": "core",
+                "manufacturer": "Official add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Check Home Assistant configuration",
-                "sw_version": "3.7.1",
+                "sw_version": "3.8.0",
                 "entry_type": "service",
                 "id": "35120953a64b54abd43dd788ee77dcdc",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hassio",
-                        "core_samba"
-                    ]
-                ],
-                "manufacturer": "core",
-                "model": "Home Assistant Add-on",
-                "name": "Samba share",
-                "sw_version": "9.5.0",
-                "entry_type": "service",
-                "id": "296802a1096d919ee20765ef0bb39fe8",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -1304,10 +1097,10 @@
                         "a0d7b954_vscode"
                     ]
                 ],
-                "manufacturer": "a0d7b954",
+                "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Visual Studio Code",
-                "sw_version": "3.4.1",
+                "sw_version": "3.6.1",
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
                 "via_device_id": null,
@@ -1326,7 +1119,7 @@
                         "core_ssh"
                     ]
                 ],
-                "manufacturer": "core",
+                "manufacturer": "Official add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Terminal & SSH",
                 "sw_version": "9.1.3",
@@ -1348,10 +1141,10 @@
                         "a0d7b954_spotify"
                     ]
                 ],
-                "manufacturer": "a0d7b954",
+                "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Spotify Connect",
-                "sw_version": "0.8.2",
+                "sw_version": "0.9.0",
                 "entry_type": "service",
                 "id": "cf52919079aa78851a7fa118a22a1bd1",
                 "via_device_id": null,
@@ -1370,10 +1163,10 @@
                         "a0d7b954_grafana"
                     ]
                 ],
-                "manufacturer": "a0d7b954",
+                "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Grafana",
-                "sw_version": "6.3.5",
+                "sw_version": "7.0.4",
                 "entry_type": "service",
                 "id": "f7f8bd1308cff7e610ba87b6009d3b85",
                 "via_device_id": null,
@@ -1392,10 +1185,10 @@
                         "a0d7b954_portainer"
                     ]
                 ],
-                "manufacturer": "a0d7b954",
+                "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Portainer",
-                "sw_version": "1.5.0",
+                "sw_version": "1.5.1",
                 "entry_type": "service",
                 "id": "a13661badff4fe010bb3ffc795b93df1",
                 "via_device_id": null,
@@ -1414,7 +1207,7 @@
                         "a0d7b954_influxdb"
                     ]
                 ],
-                "manufacturer": "a0d7b954",
+                "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "InfluxDB",
                 "sw_version": "4.1.1",
@@ -1436,7 +1229,7 @@
                         "a0d7b954_jupyterlablite"
                     ]
                 ],
-                "manufacturer": "a0d7b954",
+                "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "JupyterLab",
                 "sw_version": "0.5.0",
@@ -1458,7 +1251,7 @@
                         "cebe7a76_hassio_google_drive_backup"
                     ]
                 ],
-                "manufacturer": "cebe7a76",
+                "manufacturer": "Home Assistant Google Drive Backup Repository",
                 "model": "Home Assistant Add-on",
                 "name": "Home Assistant Google Drive Backup",
                 "sw_version": "0.104.3",
@@ -1477,32 +1270,10 @@
                 "identifiers": [
                     [
                         "hassio",
-                        "local_rtl4332mqtt"
-                    ]
-                ],
-                "manufacturer": "local",
-                "model": "Home Assistant Add-on",
-                "name": "RTL_433 to MQTT Bridge - KAKU ACDB-7000A",
-                "sw_version": "0.3.5",
-                "entry_type": "service",
-                "id": "f2afcd8d519553f10b653c50b9d103e2",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hassio",
                         "core_mosquitto"
                     ]
                 ],
-                "manufacturer": "core",
+                "manufacturer": "Official add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Mosquitto broker",
                 "sw_version": "6.0.1",
@@ -1527,7 +1298,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
-                "sw_version": "5.13",
+                "sw_version": "6.2",
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
                 "via_device_id": null,
@@ -1667,7 +1438,8 @@
             },
             {
                 "config_entries": [
-                    "0c38a9e0681b2be8973784253da6df86"
+                    "70e683081b2cb3b8cbea7313bcef72bb",
+                    "86e02a91d2f68eab1a8e3cded0e181d5"
                 ],
                 "connections": [
                     [
@@ -1690,6 +1462,319 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": "lounge",
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_esphome"
+                    ]
+                ],
+                "manufacturer": "Home Assistant Community Add-ons",
+                "model": "Home Assistant Add-on",
+                "name": "ESPHome",
+                "sw_version": "1.20.4",
+                "entry_type": "service",
+                "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "47825f84c2c0a790968cf23ec9649c86"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "7c:9e:bd:f3:e4:a8"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "espressif",
+                "model": "Espressif ESP32 Dev Module",
+                "name": "test",
+                "sw_version": "1.20.3 (Aug  1 2021, 10:31:23)",
+                "entry_type": null,
+                "id": "06ba9e3d94196ad9f563032b5cc7f223",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "ee52aa5af8c3cb40b6212bd2224f4d82"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "ipp",
+                        "00000000-0000-1000-8000-349F7B09BFC6"
+                    ]
+                ],
+                "manufacturer": "Canon",
+                "model": "MG3600 series",
+                "name": "Canon MG3600 series",
+                "sw_version": "2.0",
+                "entry_type": null,
+                "id": "5be8407b5bd0fede7a4d4c73b15bc1d3",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": "Printer",
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "d74f3abc9ba4d6c23c71ae4d3a6e9b0a"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "synology_dsm",
+                        "1590NEN364303"
+                    ]
+                ],
+                "manufacturer": "Synology",
+                "model": "DS216play",
+                "name": "Synology NAS",
+                "sw_version": "DSM 7.0-41890",
+                "entry_type": null,
+                "id": "953c91864067f38764af450c5f41be7c",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "d74f3abc9ba4d6c23c71ae4d3a6e9b0a"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "synology_dsm",
+                        "1590NEN364303_sda"
+                    ]
+                ],
+                "manufacturer": "WDC     ",
+                "model": "WD30EFRX-68EUZN0",
+                "name": "Synology NAS (Drive 1 - SATA)",
+                "sw_version": "82.00A82",
+                "entry_type": null,
+                "id": "85927e6fc408b6dac1ffebfe6bd78fe8",
+                "via_device_id": "953c91864067f38764af450c5f41be7c",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "d74f3abc9ba4d6c23c71ae4d3a6e9b0a"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "synology_dsm",
+                        "1590NEN364303_sdb"
+                    ]
+                ],
+                "manufacturer": "TOSHIBA ",
+                "model": "MQ01ABF050",
+                "name": "Synology NAS (Drive 2 - SATA)",
+                "sw_version": "AM002J",
+                "entry_type": null,
+                "id": "a51b48c16bf9dbf5819ad4487b5ae986",
+                "via_device_id": "953c91864067f38764af450c5f41be7c",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "d74f3abc9ba4d6c23c71ae4d3a6e9b0a"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "synology_dsm",
+                        "1590NEN364303_volume_2"
+                    ]
+                ],
+                "manufacturer": "Synology",
+                "model": "DS216play",
+                "name": "Synology NAS (Volume 2 - SHR without disk protect)",
+                "sw_version": "DSM 7.0-41890",
+                "entry_type": null,
+                "id": "0ba8b62ca732fcd1819a3e32c79f631c",
+                "via_device_id": "953c91864067f38764af450c5f41be7c",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "d74f3abc9ba4d6c23c71ae4d3a6e9b0a"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "synology_dsm",
+                        "1590NEN364303_volume_1"
+                    ]
+                ],
+                "manufacturer": "Synology",
+                "model": "DS216play",
+                "name": "Synology NAS (Volume 1 - SHR without disk protect)",
+                "sw_version": "DSM 7.0-41890",
+                "entry_type": null,
+                "id": "0313f799af7698516edee819b8f272c9",
+                "via_device_id": "953c91864067f38764af450c5f41be7c",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "adf8936a04606243f0dc49dc838639a8"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "synology_dsm",
+                        "14B0MPN441227"
+                    ]
+                ],
+                "manufacturer": "Synology",
+                "model": "DS215j",
+                "name": "Synology NAS",
+                "sw_version": "DSM 7.0-41890",
+                "entry_type": null,
+                "id": "f60bca79adc6481f671953981e38f1b2",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "adf8936a04606243f0dc49dc838639a8"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "synology_dsm",
+                        "14B0MPN441227_sdb"
+                    ]
+                ],
+                "manufacturer": "Seagate",
+                "model": "ST2000DL003-9VT166",
+                "name": "Synology NAS (Drive 2 - SATA)",
+                "sw_version": "CC45",
+                "entry_type": null,
+                "id": "255faf83b503d8c218fcfe6d92388a03",
+                "via_device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "adf8936a04606243f0dc49dc838639a8"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "synology_dsm",
+                        "14B0MPN441227_volume_2"
+                    ]
+                ],
+                "manufacturer": "Synology",
+                "model": "DS215j",
+                "name": "Synology NAS (Volume 2 - SHR without disk protect)",
+                "sw_version": "DSM 7.0-41890",
+                "entry_type": null,
+                "id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
+                "via_device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "fa35deda57d1990b231b04ae6e5d49a1"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "4318efca80eb09ff"
+                    ]
+                ],
+                "manufacturer": "samsung",
+                "model": "SM-A520F",
+                "name": "Samsung ",
+                "sw_version": "26",
+                "entry_type": null,
+                "id": "3ca4294e6c19aa5bdc5be879fca5947f",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:15:8d:00:05:42:51:2d"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:15:8d:00:05:42:51:2d"
+                    ]
+                ],
+                "manufacturer": "LUMI",
+                "model": "lumi.sensor_magnet.aq2",
+                "name": "LUMI lumi.sensor_magnet.aq2",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "b3c874782468351d90c0ebe2fac89018",
+                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "area_id": null,
+                "name_by_user": "Shed door",
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "30755554"
+                    ]
+                ],
+                "manufacturer": "KlikAanKlikUit",
+                "model": "ACDB-6600AC",
+                "name": "Doorbell",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "7d29b13a22bfcac506404176745e1c19",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
                 "disabled_by": null
             }
         ],
@@ -1822,21 +1907,60 @@
                 "orphaned_timestamp": null
             },
             {
-                "config_entries": [],
-                "connections": [
-                    [
-                        "mac",
-                        "84:cc:a8:b1:63:40"
-                    ]
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
                 ],
+                "connections": [],
                 "identifiers": [
                     [
-                        "shelly",
-                        "84CCA8B16340"
+                        "hassio",
+                        "core_samba"
                     ]
                 ],
-                "id": "ef0f7864a2af7f2b4d1f9a60d6876ec2",
-                "orphaned_timestamp": 1621608859.8562214
+                "id": "296802a1096d919ee20765ef0bb39fe8",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "local_rtl4332mqtt"
+                    ]
+                ],
+                "id": "f2afcd8d519553f10b653c50b9d103e2",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_nginx_proxy"
+                    ]
+                ],
+                "id": "c051687f952f7927afb771e1e4fcb9c6",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "Doorbell"
+                    ]
+                ],
+                "id": "a2d14b364fcb91e32e1beb4b017485a0",
+                "orphaned_timestamp": null
             }
         ]
     }
