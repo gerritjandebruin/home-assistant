@@ -12,11 +12,11 @@ api:
 ota:
   password: "593793858af0e798e136217482f1c685"
 
-sensor:
-  - platform: adc
+# Example configuration entry
+switch:
+  - platform: gpio
     pin: 32
-    name: Water"
-    update_interval: 1s
+    name: "Relais"
 
 wifi:
   ssid: "de Bruin beneden 2.4GHz"
