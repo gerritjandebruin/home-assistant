@@ -906,29 +906,6 @@
                                     }
                                 ]
                             }
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.samsung_batterij_laadstatus"
-                                },
-                                {
-                                    "entity": "sensor.samsung_batterijniveau"
-                                },
-                                {
-                                    "entity": "sensor.samsung_bluetooth_verbinding"
-                                },
-                                {
-                                    "entity": "sensor.samsung_laatste_herstart"
-                                },
-                                {
-                                    "entity": "sensor.samsung_batterijstatus"
-                                },
-                                {
-                                    "entity": "sensor.samsung_type_oplader"
-                                }
-                            ]
                         }
                     ]
                 },
@@ -946,10 +923,10 @@
                                     "name": "Sent"
                                 }
                             ],
-                            "hours_to_show": 80,
                             "refresh_interval": 0,
                             "title": "Internet",
-                            "type": "history-graph"
+                            "type": "history-graph",
+                            "hours_to_show": 168
                         },
                         {
                             "type": "glance",
@@ -1042,8 +1019,8 @@
                                 }
                             ],
                             "title": "LAN",
-                            "hours_to_show": 168,
-                            "refresh_interval": 0
+                            "refresh_interval": 0,
+                            "hours_to_show": 168
                         },
                         {
                             "type": "history-graph",
@@ -1092,7 +1069,7 @@
                                     "entity": "sensor.synology_temperature"
                                 }
                             ],
-                            "hours_to_show": 24,
+                            "hours_to_show": 168,
                             "refresh_interval": 0,
                             "title": "Device temperature"
                         }
@@ -1129,9 +1106,9 @@
                                     "entity": "sensor.disk_free_home"
                                 }
                             ],
-                            "hours_to_show": 168,
                             "refresh_interval": 0,
-                            "title": "Disk free"
+                            "title": "Disk free",
+                            "hours_to_show": 8760
                         },
                         {
                             "type": "history-graph",
@@ -1252,7 +1229,7 @@
                                     "name": "Toilet"
                                 }
                             ],
-                            "hours_to_show": 24,
+                            "hours_to_show": 168,
                             "refresh_interval": 0,
                             "title": "RSSI"
                         },
