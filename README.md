@@ -106,7 +106,7 @@ Feel free to ask more experiences by opening an [issue](https://github.com/gerri
 ![software](img/software.PNG)
 
 Most notably, the "RTL_433 to MQTT bridge" is used together with a simple RTL-SDR receiver to capture the 433 MHz signal from the KIKA doorbell.
-This add-on is provided in <https://github.com/gerritjandebruin/home-assistant-kaku-doorbell>.
+This add-on is provided in <https://github.com/gerritjandebruin/ha-rtl>.
 
 Grafana is used to create this (among others) this [cool dashboard](https://grafana.nieuw-engeland.nl/api/hassio_ingress/oeWOgZuwtaX47_fzPYy3S15XMvx87simyZc6dG8mj6o/d/a9NUH8xGk/solar-panels?orgId=1&from=1604242079565&to=1619876879565).
 
