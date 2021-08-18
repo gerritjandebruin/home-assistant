@@ -73,7 +73,7 @@ http:
   ip_ban_enabled: true
   login_attempts_threshold: 3
 recorder:
-  purge_keep_days: 366
+  purge_keep_days: 800
 sensor:
   - platform: filesize
     file_paths:
