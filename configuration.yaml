@@ -14,19 +14,19 @@ notify:
       - service: mobile_app_nokia_7_2
 climate:
   - platform: generic_thermostat
-    name: attic
+    name: Attic climate
     heater: switch.heater
     target_sensor: sensor.attic_temperature
     target_temp: 20
     initial_hvac_mode: "off"
   - platform: generic_thermostat
-    name: bathroom
+    name: Bathroom climate
     heater: switch.heater
     target_sensor: sensor.bathroom_temperature
     target_temp: 20
     initial_hvac_mode: "off"
   - platform: generic_thermostat
-    name: bedroom
+    name: Bedroom climate
     heater: switch.heater
     target_sensor: sensor.bedroom_temperature
     target_temp: 20
