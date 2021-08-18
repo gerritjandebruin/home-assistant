@@ -18,21 +18,17 @@
             "major": 1,
             "minor": 5
         },
-        "sensor": [
-            {
-                "object_id": "water",
-                "key": 2654748154,
-                "name": "Water\"",
-                "unique_id": "testsensorwater",
-                "icon": "",
-                "device_class": "voltage",
-                "unit_of_measurement": "V",
-                "accuracy_decimals": 2,
-                "force_update": false,
-                "state_class": 1
-            }
-        ],
+        "sensor": [],
         "text_sensor": [],
-        "binary_sensor": []
+        "switch": [
+            {
+                "object_id": "relais",
+                "key": 659979631,
+                "name": "Relais",
+                "unique_id": "testswitchrelais",
+                "icon": "",
+                "assumed_state": false
+            }
+        ]
     }
 }
