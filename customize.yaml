@@ -1,0 +1,4 @@
+sensor.attic_mold:
+  friendly_name: Attic mold
+sensor.bathroom_mold:
+  friendly_name: Bathroom mold
