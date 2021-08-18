@@ -32,8 +32,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -101,28 +101,6 @@
                 "sw_version": null,
                 "entry_type": null,
                 "id": "1ffcbb71ca41bace393903f55ec056d2",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "d8a2546700e681d922d99c3cc0c94755"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mobile_app",
-                        "6AB1D01C-E2AB-410B-8BCB-6F730E595F16"
-                    ]
-                ],
-                "manufacturer": "Apple",
-                "model": "iPhone8,4",
-                "name": "iPhone van Mirjam",
-                "sw_version": "14.6",
-                "entry_type": null,
-                "id": "3025f3748b889e39c55af1f0fdf9ff59",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -508,60 +486,6 @@
                 "connections": [
                     [
                         "zigbee",
-                        "00:15:8d:00:05:88:96:12"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "00:15:8d:00:05:88:96:12"
-                    ]
-                ],
-                "manufacturer": "LUMI",
-                "model": "lumi.weather",
-                "name": "LUMI lumi.weather",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "bced05f348c2cf2bb5563f18a8acc533",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": "Shed temperature",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "bc:33:ac:ff:fe:9b:34:a0"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "bc:33:ac:ff:fe:9b:34:a0"
-                    ]
-                ],
-                "manufacturer": "IKEA of Sweden",
-                "model": "TRADFRI on/off switch",
-                "name": "IKEA of Sweden TRADFRI on/off switch",
-                "sw_version": "0x22010631",
-                "entry_type": null,
-                "id": "b0027c50d2f7ecc24c83a1a47819c346",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": "Bedroom remote M",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -935,8 +859,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "86e02a91d2f68eab1a8e3cded0e181d5"
+                    "86e02a91d2f68eab1a8e3cded0e181d5",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -953,7 +877,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "Bathroom",
-                "sw_version": "20210429-101828/v1.10.4-g3f94cd7",
+                "sw_version": "20210727-202339/v1.11.2-g25b6953",
                 "entry_type": null,
                 "id": "975aeee16d3e74fb7be938acf75275d8",
                 "via_device_id": null,
@@ -1100,7 +1024,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Visual Studio Code",
-                "sw_version": "3.6.1",
+                "sw_version": "3.6.2",
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
                 "via_device_id": null,
@@ -1166,7 +1090,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Grafana",
-                "sw_version": "7.0.4",
+                "sw_version": "7.1.0",
                 "entry_type": "service",
                 "id": "f7f8bd1308cff7e610ba87b6009d3b85",
                 "via_device_id": null,
@@ -1188,7 +1112,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Portainer",
-                "sw_version": "1.5.1",
+                "sw_version": "1.5.2",
                 "entry_type": "service",
                 "id": "a13661badff4fe010bb3ffc795b93df1",
                 "via_device_id": null,
@@ -1210,7 +1134,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "InfluxDB",
-                "sw_version": "4.1.1",
+                "sw_version": "4.2.1",
                 "entry_type": "service",
                 "id": "b28137196acda31f40287f38243d701f",
                 "via_device_id": null,
@@ -1335,28 +1259,6 @@
             },
             {
                 "config_entries": [
-                    "9c27cb4e49995fce3445f3eea38cfb29"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mobile_app",
-                        "0a050590bb7cdce1"
-                    ]
-                ],
-                "manufacturer": "samsung",
-                "model": "SM-A520F",
-                "name": "Samsung ",
-                "sw_version": "26",
-                "entry_type": null,
-                "id": "0df8fdadc80fd3ce3944d5e75dbbf232",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
                     "8f0e56bd4d02b9aba699f3dc0f413f54"
                 ],
                 "connections": [
@@ -1406,7 +1308,7 @@
                 "id": "2a0aba87f2b3e08dc200b46471cc3759",
                 "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
                 "area_id": null,
-                "name_by_user": "guestroom",
+                "name_by_user": "Guestroom",
                 "disabled_by": null
             },
             {
@@ -1438,8 +1340,8 @@
             },
             {
                 "config_entries": [
-                    "70e683081b2cb3b8cbea7313bcef72bb",
-                    "86e02a91d2f68eab1a8e3cded0e181d5"
+                    "86e02a91d2f68eab1a8e3cded0e181d5",
+                    "70e683081b2cb3b8cbea7313bcef72bb"
                 ],
                 "connections": [
                     [
@@ -1456,7 +1358,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "shelly1pm-E09806A9DECC",
-                "sw_version": "20210429-101828/v1.10.4-g3f94cd7",
+                "sw_version": "20210727-202339/v1.11.2-g25b6953",
                 "entry_type": null,
                 "id": "a9c1ea637f003a57f1abb222312e4d02",
                 "via_device_id": null,
@@ -1478,7 +1380,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "1.20.4",
+                "sw_version": "2021.8.0",
                 "entry_type": "service",
                 "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
                 "via_device_id": null,
@@ -1500,7 +1402,7 @@
                 "manufacturer": "espressif",
                 "model": "Espressif ESP32 Dev Module",
                 "name": "test",
-                "sw_version": "1.20.3 (Aug  1 2021, 10:31:23)",
+                "sw_version": "1.20.4 (Aug 15 2021, 21:42:44)",
                 "entry_type": null,
                 "id": "06ba9e3d94196ad9f563032b5cc7f223",
                 "via_device_id": null,
@@ -1757,13 +1659,62 @@
             },
             {
                 "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:15:8d:00:05:88:96:12"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:15:8d:00:05:88:96:12"
+                    ]
+                ],
+                "manufacturer": "LUMI",
+                "model": "lumi.weather",
+                "name": "LUMI lumi.weather",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "bced05f348c2cf2bb5563f18a8acc533",
+                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "area_id": null,
+                "name_by_user": "Shed temperature",
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "local_doorbell"
+                    ]
+                ],
+                "manufacturer": "Local add-ons",
+                "model": "Home Assistant Add-on",
+                "name": "Doorbell",
+                "sw_version": "1.0.71",
+                "entry_type": "service",
+                "id": "af79db4d99418a394270ed993c449c92",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
                     "5f406ac278c3b2036080c757726ec016"
                 ],
                 "connections": [],
                 "identifiers": [
                     [
                         "mqtt",
-                        "30755554"
+                        "doorbell"
                     ]
                 ],
                 "manufacturer": "KlikAanKlikUit",
@@ -1771,7 +1722,7 @@
                 "name": "Doorbell",
                 "sw_version": null,
                 "entry_type": null,
-                "id": "7d29b13a22bfcac506404176745e1c19",
+                "id": "00a670d9a519980a790548083d7a9cf5",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -1852,20 +1803,6 @@
                     ]
                 ],
                 "id": "e26414fa8b56045c92691e2bb4882dda",
-                "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "doorbell"
-                    ]
-                ],
-                "id": "00a670d9a519980a790548083d7a9cf5",
                 "orphaned_timestamp": null
             },
             {
@@ -1960,6 +1897,77 @@
                     ]
                 ],
                 "id": "a2d14b364fcb91e32e1beb4b017485a0",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "6AB1D01C-E2AB-410B-8BCB-6F730E595F16"
+                    ]
+                ],
+                "id": "3025f3748b889e39c55af1f0fdf9ff59",
+                "orphaned_timestamp": 1628370842.1469324
+            },
+            {
+                "config_entries": [],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "0a050590bb7cdce1"
+                    ]
+                ],
+                "id": "0df8fdadc80fd3ce3944d5e75dbbf232",
+                "orphaned_timestamp": 1628370847.1711965
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "bc:33:ac:ff:fe:9b:34:a0"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "bc:33:ac:ff:fe:9b:34:a0"
+                    ]
+                ],
+                "id": "b0027c50d2f7ecc24c83a1a47819c346",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "local_hello_world"
+                    ]
+                ],
+                "id": "38ede878923edd176a953e4af5aed49b",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "30755554"
+                    ]
+                ],
+                "id": "7d29b13a22bfcac506404176745e1c19",
                 "orphaned_timestamp": null
             }
         ]
