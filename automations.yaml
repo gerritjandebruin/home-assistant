@@ -328,7 +328,7 @@
 - id: '1612890416638'
   alias: Sleeping room
   description: Handle one IKEA five-button remote (https://www.ikea.com/nl/nl/p/tradfri-afstandsbediening-30443124/)
-    and two buttons (https://www.ikea.com/ca/en/p/tradfri-wireless-dimmer-white-10408598/).
+    and one buttons (https://www.ikea.com/ca/en/p/tradfri-wireless-dimmer-white-10408598/).
   trigger:
   - platform: event
     event_type: zha_event
@@ -338,10 +338,6 @@
     event_type: zha_event
     event_data:
       device_id: 5a9933c449a2a8068f6012de36a6e91d
-  - platform: event
-    event_type: zha_event
-    event_data:
-      device_id: b0027c50d2f7ecc24c83a1a47819c346
   condition: []
   action:
   - variables:
@@ -352,22 +348,16 @@
       args: '{{ trigger.event.data.args }}'
       ikea_remote: '{{ ''5a9933c449a2a8068f6012de36a6e91d'' }}'
       ikea_button_gj: '{{ ''ef6cce96c0aff37b73773be4f1a30e2f'' }}'
-      ikea_button_m: '{{ ''b0027c50d2f7ecc24c83a1a47819c346'' }}'
   - choose:
     - conditions:
       - '{{ device_id == ikea_remote }}'
       - '{{ command == ''toggle'' }}'
-      - '{{ cluster_id == 6 }}'
-      - '{{ endpoint_id == 1 }}'
       sequence:
       - service: light.toggle
         entity_id: light.bedroom
     - conditions:
       - '{{ device_id == ikea_remote }}'
       - '{{ command == ''step_with_on_off'' }}'
-      - '{{ cluster_id == 8 }}'
-      - '{{ endpoint_id == 1 }}'
-      - '{{ args == [0, 43, 5] }}'
       sequence:
       - service: light.turn_on
         entity_id: light.bedroom
@@ -376,9 +366,6 @@
     - conditions:
       - '{{ device_id == ikea_remote }}'
       - '{{ command == ''move_with_on_off'' }}'
-      - '{{ cluster_id == 8 }}'
-      - '{{ endpoint_id == 1 }}'
-      - '{{ args == [0, 84] }}'
       sequence:
       - service: light.turn_on
         entity_id: light.bedroom
@@ -387,34 +374,22 @@
     - conditions:
       - '{{ device_id == ikea_remote }}'
       - '{{ command == ''step'' }}'
-      - '{{ cluster_id == 8 }}'
-      - '{{ endpoint_id == 1 }}'
-      - '{{ args == [1, 43, 5] }}'
       sequence:
       - service: light.turn_on
         entity_id: light.bedroom
         data:
           brightness_step_pct: -20
     - conditions:
-      - '{{ cluster_id == 8 }}'
-      - '{{ endpoint_id == 1 }}'
       - condition: or
         conditions:
         - condition: and
           conditions:
           - '{{ device_id == ikea_remote }}'
           - '{{ command == ''move'' }}'
-          - '{{ args == [1, 84] }}'
         - condition: and
           conditions:
           - '{{ device_id == ikea_button_gj }}'
           - '{{ command == ''move_with_on_off'' }}'
-          - '{{ args == [0, 83] }}'
-        - condition: and
-          conditions:
-          - '{{ device_id == ikea_button_m }}'
-          - '{{ command == ''move_with_on_off'' }}'
-          - '{{ args == [0, 83] }}'
       sequence:
       - service: light.turn_on
         entity_id: light.bedroom
@@ -423,9 +398,6 @@
     - conditions:
       - '{{ device_id == ikea_remote }}'
       - '{{ command == ''press'' }}'
-      - '{{ cluster_id == 5 }}'
-      - '{{ endpoint_id == 1 }}'
-      - '{{ args == [257, 13, 0] }}'
       sequence:
       - service: light.turn_on
         entity_id: light.bedroom
@@ -434,9 +406,6 @@
     - conditions:
       - '{{ device_id == ikea_remote }}'
       - '{{ command == ''hold'' }}'
-      - '{{ cluster_id == 5 }}'
-      - '{{ endpoint_id == 1 }}'
-      - '{{ args == [3329, 0] }}'
       sequence:
       - service: light.turn_on
         entity_id: light.bedroom
@@ -445,9 +414,6 @@
     - conditions:
       - '{{ device_id == ikea_remote }}'
       - '{{ command == ''press'' }}'
-      - '{{ cluster_id == 5 }}'
-      - '{{ endpoint_id == 1 }}'
-      - '{{ args == [256, 13, 0] }}'
       sequence:
       - service: light.turn_on
         entity_id: light.bedroom
@@ -456,30 +422,19 @@
     - conditions:
       - '{{ device_id == ikea_remote }}'
       - '{{ command == ''hold'' }}'
-      - '{{ cluster_id == 5 }}'
-      - '{{ endpoint_id == 1 }}'
-      - '{{ args == [3328, 0] }}'
       sequence:
       - service: light.turn_on
         entity_id: light.bedroom
         data:
           color_temp: 454
     - conditions:
-      - condition: or
-        conditions:
-        - '{{ device_id == ikea_button_gj }}'
-        - '{{ device_id == ikea_button_m }}'
+      - '{{ device_id == ikea_button_gj }}'
       - '{{ command == ''move'' }}'
-      - '{{ cluster_id == 8 }}'
-      - '{{ endpoint_id == 1 }}'
-      - '{{args == [1, 83] }}'
       sequence:
       - service: light.turn_off
         entity_id: light.bedroom
     - conditions:
       - '{{ device_id == ikea_button_gj }}'
-      - '{{ cluster_id == 6 }}'
-      - '{{ endpoint_id == 1 }}'
       sequence:
       - choose:
         - conditions:
@@ -490,21 +445,6 @@
         default:
         - service: light.turn_off
           entity_id: light.bedroom_1
-    - conditions:
-      - '{{ device_id == ikea_button_m }}'
-      - '{{ cluster_id == 6 }}'
-      - '{{ endpoint_id == 1 }}'
-      sequence:
-      - choose:
-        - conditions:
-          - condition: template
-            value_template: '{{ command == ''on'' }}'
-          sequence:
-          - service: light.turn_on
-            entity_id: light.bedroom_5
-        default:
-        - service: light.turn_off
-          entity_id: light.bedroom_5
   mode: queued
   max: 25
 - id: '1612988672846'
@@ -649,21 +589,6 @@
       - service: climate.turn_off
         entity_id: climate.radiator_attic
     default: []
-  mode: single
-- id: '1613142961491'
-  alias: Heater
-  description: Auto turn off the heater at certain times, to make sure it is not unintenionally
-    long turned on.
-  trigger:
-  - platform: time
-    at: '21:00:00'
-  - platform: time
-    at: '23:59:59'
-  condition: []
-  action:
-  - service: climate.turn_off
-    data: {}
-    entity_id: climate.attic
   mode: single
 - id: '1613577759701'
   alias: Bright
@@ -824,3 +749,42 @@
       - service: automation.turn_on
         entity_id: automation.bike_motion
   mode: restart
+- id: '1629321154907'
+  alias: Terrace
+  description: Control roof terrace LEDs with IKEA remote button.
+  trigger:
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: b0027c50d2f7ecc24c83a1a47819c346
+  condition: []
+  action:
+  - variables:
+      command: '{{ trigger.event.data.command }}'
+  - choose:
+    - conditions:
+      - '{{ command == ''on'' }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.terrace
+    - conditions:
+      - '{{ command == ''off'' }}'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.terrace
+    - conditions:
+      - '{{ command == ''move'' }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.terrace
+        data:
+          brightness_step: -1
+    - conditions:
+      - '{{ command == ''move with on_off'' }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.terrace
+        data:
+          brightness_step: 1
+  mode: queued
+  max: 25
