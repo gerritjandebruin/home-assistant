@@ -646,16 +646,36 @@
                     "badges": [],
                     "cards": [
                         {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.growatt_total_output_power"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "title": "Solar panels"
+                        },
+                        {
                             "type": "grid",
-                            "title": "Heater",
+                            "title": "Energy generated",
                             "cards": [
                                 {
-                                    "type": "thermostat",
-                                    "entity": "climate.bathroom"
+                                    "type": "gauge",
+                                    "entity": "sensor.growatt_total_output_power",
+                                    "min": 0,
+                                    "max": 2920,
+                                    "name": "Current"
                                 },
                                 {
-                                    "type": "thermostat",
-                                    "entity": "climate.attic"
+                                    "type": "entity",
+                                    "entity": "sensor.growatt_total_energy_today",
+                                    "name": "Today"
+                                },
+                                {
+                                    "type": "entity",
+                                    "entity": "sensor.growatt_total_lifetime_energy_output",
+                                    "name": "Total"
                                 }
                             ]
                         },
@@ -699,6 +719,10 @@
                             "title": "Temperature",
                             "state_color": true,
                             "columns": 4
+                        },
+                        {
+                            "type": "weather-forecast",
+                            "entity": "weather.home"
                         },
                         {
                             "type": "grid",
@@ -767,40 +791,6 @@
                             ]
                         },
                         {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.growatt_total_output_power"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
-                            "title": "Solar panels"
-                        },
-                        {
-                            "type": "grid",
-                            "title": "Energy generated",
-                            "cards": [
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.growatt_total_output_power",
-                                    "min": 0,
-                                    "max": 2920,
-                                    "name": "Current"
-                                },
-                                {
-                                    "type": "entity",
-                                    "entity": "sensor.growatt_total_energy_today",
-                                    "name": "Today"
-                                },
-                                {
-                                    "type": "entity",
-                                    "entity": "sensor.growatt_total_lifetime_energy_output",
-                                    "name": "Total"
-                                }
-                            ]
-                        },
-                        {
                             "type": "grid",
                             "title": "Humidity",
                             "cards": [
@@ -865,10 +855,6 @@
                                     }
                                 }
                             ]
-                        },
-                        {
-                            "type": "weather-forecast",
-                            "entity": "weather.home"
                         },
                         {
                             "type": "custom:sun-card"
