@@ -1727,6 +1727,33 @@
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "bc:33:ac:ff:fe:9b:34:a0"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "bc:33:ac:ff:fe:9b:34:a0"
+                    ]
+                ],
+                "manufacturer": "IKEA of Sweden",
+                "model": "TRADFRI on/off switch",
+                "name": "IKEA of Sweden TRADFRI on/off switch",
+                "sw_version": "0x22010631",
+                "entry_type": null,
+                "id": "b0027c50d2f7ecc24c83a1a47819c346",
+                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "area_id": null,
+                "name_by_user": "Terrace",
+                "disabled_by": null
             }
         ],
         "deleted_devices": [
@@ -1922,25 +1949,6 @@
                 ],
                 "id": "0df8fdadc80fd3ce3944d5e75dbbf232",
                 "orphaned_timestamp": 1628370847.1711965
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "bc:33:ac:ff:fe:9b:34:a0"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "bc:33:ac:ff:fe:9b:34:a0"
-                    ]
-                ],
-                "id": "b0027c50d2f7ecc24c83a1a47819c346",
-                "orphaned_timestamp": null
             },
             {
                 "config_entries": [
