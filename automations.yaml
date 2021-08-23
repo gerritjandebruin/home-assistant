@@ -252,10 +252,10 @@
   trigger:
   - platform: device
     domain: mqtt
-    device_id: 7d29b13a22bfcac506404176745e1c19
+    device_id: 8a682e970222e80c81b8e04a40d466b5
     type: action
     subtype: button_1
-    discovery_id: doorbell
+    discovery_id: rtl433
   condition: []
   action:
   - service: notify.everyone

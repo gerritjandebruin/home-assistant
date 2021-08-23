@@ -859,8 +859,8 @@
             },
             {
                 "config_entries": [
-                    "86e02a91d2f68eab1a8e3cded0e181d5",
-                    "33699060188811ebb707e7caa407dbba"
+                    "33699060188811ebb707e7caa407dbba",
+                    "86e02a91d2f68eab1a8e3cded0e181d5"
                 ],
                 "connections": [
                     [
@@ -1040,35 +1040,13 @@
                 "identifiers": [
                     [
                         "hassio",
-                        "core_ssh"
-                    ]
-                ],
-                "manufacturer": "Official add-ons",
-                "model": "Home Assistant Add-on",
-                "name": "Terminal & SSH",
-                "sw_version": "9.1.3",
-                "entry_type": "service",
-                "id": "066220f5f57b83f30e30d03987e1f2df",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hassio",
                         "a0d7b954_spotify"
                     ]
                 ],
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Spotify Connect",
-                "sw_version": "0.9.0",
+                "sw_version": "0.9.1",
                 "entry_type": "service",
                 "id": "cf52919079aa78851a7fa118a22a1bd1",
                 "via_device_id": null,
@@ -1090,7 +1068,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Grafana",
-                "sw_version": "7.1.0",
+                "sw_version": "7.2.0",
                 "entry_type": "service",
                 "id": "f7f8bd1308cff7e610ba87b6009d3b85",
                 "via_device_id": null,
@@ -1112,7 +1090,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Portainer",
-                "sw_version": "1.5.2",
+                "sw_version": "2.0.0",
                 "entry_type": "service",
                 "id": "a13661badff4fe010bb3ffc795b93df1",
                 "via_device_id": null,
@@ -1340,8 +1318,8 @@
             },
             {
                 "config_entries": [
-                    "86e02a91d2f68eab1a8e3cded0e181d5",
-                    "70e683081b2cb3b8cbea7313bcef72bb"
+                    "70e683081b2cb3b8cbea7313bcef72bb",
+                    "86e02a91d2f68eab1a8e3cded0e181d5"
                 ],
                 "connections": [
                     [
@@ -1686,50 +1664,6 @@
             },
             {
                 "config_entries": [
-                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hassio",
-                        "local_doorbell"
-                    ]
-                ],
-                "manufacturer": "Local add-ons",
-                "model": "Home Assistant Add-on",
-                "name": "Doorbell",
-                "sw_version": "1.0.71",
-                "entry_type": "service",
-                "id": "af79db4d99418a394270ed993c449c92",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "doorbell"
-                    ]
-                ],
-                "manufacturer": "KlikAanKlikUit",
-                "model": "ACDB-6600AC",
-                "name": "Doorbell",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "00a670d9a519980a790548083d7a9cf5",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
                     "850bf9a1c05f345748e9765e31162796"
                 ],
                 "connections": [
@@ -1753,6 +1687,94 @@
                 "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
                 "area_id": null,
                 "name_by_user": "Terrace",
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_ssh"
+                    ]
+                ],
+                "manufacturer": "Home Assistant Community Add-ons",
+                "model": "Home Assistant Add-on",
+                "name": "SSH & Web Terminal",
+                "sw_version": "9.0.1",
+                "entry_type": "service",
+                "id": "dc599c9c099cbc5efd2cdbee6aff7750",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "local_ha-rtl"
+                    ]
+                ],
+                "manufacturer": "Local add-ons",
+                "model": "Home Assistant Add-on",
+                "name": "ha-rtl",
+                "sw_version": "1.1.2dev11",
+                "entry_type": "service",
+                "id": "339b126bc1ff7b969dbe5afced9dff8e",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "device1"
+                    ]
+                ],
+                "manufacturer": "manufacturer1",
+                "model": "model1",
+                "name": "device1",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "8a682e970222e80c81b8e04a40d466b5",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "device2"
+                    ]
+                ],
+                "manufacturer": "manufacturer2",
+                "model": "model2",
+                "name": "device2",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "4393797aaf4fc587a0635c7bcf091975",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
                 "disabled_by": null
             }
         ],
@@ -1976,6 +1998,104 @@
                     ]
                 ],
                 "id": "7d29b13a22bfcac506404176745e1c19",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "local_doorbell"
+                    ]
+                ],
+                "id": "af79db4d99418a394270ed993c449c92",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "28809773_HA-RTL"
+                    ]
+                ],
+                "id": "4b1eaf3cb63235f9452f5fdfb06bd9c2",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "local_HA-RTL"
+                    ]
+                ],
+                "id": "ee90ce215547b48bcd58030ad46ff7d2",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_ssh"
+                    ]
+                ],
+                "id": "066220f5f57b83f30e30d03987e1f2df",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "null"
+                    ]
+                ],
+                "id": "46cbe0a54c77f6875eed6590d9cc4f89",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "doorbell"
+                    ]
+                ],
+                "id": "00a670d9a519980a790548083d7a9cf5",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "rtl433"
+                    ]
+                ],
+                "id": "79ff302733b26ef330b68c020ceedad2",
                 "orphaned_timestamp": null
             }
         ]
