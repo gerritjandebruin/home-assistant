@@ -120,7 +120,7 @@
                 "manufacturer": "hacs.xyz",
                 "model": "",
                 "name": "HACS",
-                "sw_version": "1.13.2",
+                "sw_version": "1.15.2",
                 "entry_type": "service",
                 "id": "d4dfeb3faac3b7d65ca316e4fef1a2b1",
                 "via_device_id": null,
@@ -859,8 +859,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "86e02a91d2f68eab1a8e3cded0e181d5"
+                    "86e02a91d2f68eab1a8e3cded0e181d5",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -1153,7 +1153,7 @@
                         "cebe7a76_hassio_google_drive_backup"
                     ]
                 ],
-                "manufacturer": "Home Assistant Google Drive Backup Repository",
+                "manufacturer": "cebe7a76",
                 "model": "Home Assistant Add-on",
                 "name": "Home Assistant Google Drive Backup",
                 "sw_version": "0.104.3",
@@ -1318,8 +1318,8 @@
             },
             {
                 "config_entries": [
-                    "70e683081b2cb3b8cbea7313bcef72bb",
-                    "86e02a91d2f68eab1a8e3cded0e181d5"
+                    "86e02a91d2f68eab1a8e3cded0e181d5",
+                    "70e683081b2cb3b8cbea7313bcef72bb"
                 ],
                 "connections": [
                     [
@@ -1358,7 +1358,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2021.8.0",
+                "sw_version": "2021.8.2",
                 "entry_type": "service",
                 "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
                 "via_device_id": null,
@@ -1725,7 +1725,7 @@
                 "manufacturer": "Local add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ha-rtl",
-                "sw_version": "1.1.2dev11",
+                "sw_version": "1.1.2dev51",
                 "entry_type": "service",
                 "id": "339b126bc1ff7b969dbe5afced9dff8e",
                 "via_device_id": null,

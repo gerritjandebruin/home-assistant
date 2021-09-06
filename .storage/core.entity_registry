@@ -15,7 +15,7 @@
                 "disabled_by": null,
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Updater",
                 "original_icon": null
@@ -217,7 +217,9 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": {},
+                "capabilities": {
+                    "state_class": "measurement"
+                },
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "ms",
@@ -234,7 +236,9 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": {},
+                "capabilities": {
+                    "state_class": "measurement"
+                },
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "Mbit/s",
@@ -251,7 +255,9 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": {},
+                "capabilities": {
+                    "state_class": "measurement"
+                },
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "Mbit/s",
@@ -404,7 +410,9 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": {},
+                "capabilities": {
+                    "state_class": "total_increasing"
+                },
                 "supported_features": 0,
                 "device_class": "energy",
                 "unit_of_measurement": "kWh",
@@ -745,7 +753,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "measurement"
+                    "state_class": "total_increasing"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -818,7 +826,7 @@
                 "disabled_by": null,
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Bathroom Firmware Update",
                 "original_icon": "mdi:update"
@@ -943,7 +951,7 @@
                 "disabled_by": null,
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "shellyswitch25-8CAAB561E13F Firmware Update",
                 "original_icon": "mdi:update"
@@ -1485,7 +1493,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "measurement"
+                    "state_class": "total_increasing"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -1558,7 +1566,7 @@
                 "disabled_by": null,
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Toilet Firmware Update",
                 "original_icon": "mdi:update"
@@ -2194,7 +2202,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "measurement"
+                    "state_class": "total_increasing"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -2232,7 +2240,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "measurement"
+                    "state_class": "total_increasing"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -2515,7 +2523,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Check Home Assistant configuration: Update Available",
                 "original_icon": null
@@ -2532,7 +2540,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Visual Studio Code: Update Available",
                 "original_icon": null
@@ -2549,7 +2557,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Spotify Connect: Update Available",
                 "original_icon": null
@@ -2566,7 +2574,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Grafana: Update Available",
                 "original_icon": null
@@ -2583,7 +2591,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Portainer: Update Available",
                 "original_icon": null
@@ -2600,7 +2608,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "InfluxDB: Update Available",
                 "original_icon": null
@@ -2617,7 +2625,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "JupyterLab: Update Available",
                 "original_icon": null
@@ -2634,7 +2642,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Home Assistant Google Drive Backup: Update Available",
                 "original_icon": null
@@ -2651,7 +2659,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Mosquitto broker: Update Available",
                 "original_icon": null
@@ -2668,7 +2676,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "Home Assistant Operating System: Update Available",
                 "original_icon": null
@@ -3100,7 +3108,7 @@
                         "rgbw"
                     ]
                 },
-                "supported_features": 0,
+                "supported_features": 32,
                 "device_class": null,
                 "unit_of_measurement": null,
                 "original_name": "shellyrgbw2-DEC502",
@@ -3152,7 +3160,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "shellyrgbw2-DEC502 Firmware Update",
                 "original_icon": "mdi:update"
@@ -3185,7 +3193,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "measurement"
+                    "state_class": "total_increasing"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -3412,7 +3420,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "ESPHome: Update Available",
                 "original_icon": null
@@ -3533,7 +3541,7 @@
                 "disabled_by": null,
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "nieuw-engeland Update available",
                 "original_icon": "mdi:update"
@@ -3882,7 +3890,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "kB/s",
-                "original_name": "nieuw-engeland Network Up",
+                "original_name": "nieuw-engeland Upload Throughput",
                 "original_icon": "mdi:upload"
             },
             {
@@ -3901,7 +3909,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "kB/s",
-                "original_name": "nieuw-engeland Network Down",
+                "original_name": "nieuw-engeland Download Throughput",
                 "original_icon": "mdi:download"
             },
             {
@@ -4287,7 +4295,7 @@
                 "disabled_by": null,
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "augustinuserf Update available",
                 "original_icon": "mdi:update"
@@ -4602,7 +4610,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "kB/s",
-                "original_name": "augustinuserf Network Up",
+                "original_name": "augustinuserf Upload Throughput",
                 "original_icon": "mdi:upload"
             },
             {
@@ -4621,7 +4629,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "kB/s",
-                "original_name": "augustinuserf Network Down",
+                "original_name": "augustinuserf Download Throughput",
                 "original_icon": "mdi:download"
             },
             {
@@ -4865,7 +4873,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "shelly1pm-E09806A9DECC Firmware Update",
                 "original_icon": "mdi:update"
@@ -4953,7 +4961,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "measurement"
+                    "state_class": "total_increasing"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -5454,7 +5462,7 @@
                 "disabled_by": "integration",
                 "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "SSH & Web Terminal: Update Available",
                 "original_icon": null
@@ -5503,9 +5511,9 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": "integration",
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
-                "device_class": null,
+                "device_class": "update",
                 "unit_of_measurement": null,
                 "original_name": "ha-rtl: Update Available",
                 "original_icon": null
@@ -5520,7 +5528,7 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": "integration",
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
@@ -5537,11 +5545,357 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": "integration",
-                "capabilities": null,
+                "capabilities": {},
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
                 "original_name": "ha-rtl: Newest Version",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_energy_today",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_energy_today",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "energy",
+                "unit_of_measurement": "kWh",
+                "original_name": "DCF3A3103X Energy today",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_lifetime_energy_output",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_energy_total",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "total_increasing"
+                },
+                "supported_features": 0,
+                "device_class": "energy",
+                "unit_of_measurement": "kWh",
+                "original_name": "DCF3A3103X Lifetime energy output",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_lifetime_total_energy_input_1",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_energy_total_input_1",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "total_increasing"
+                },
+                "supported_features": 0,
+                "device_class": "energy",
+                "unit_of_measurement": "kWh",
+                "original_name": "DCF3A3103X Lifetime total energy input 1",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_input_1_voltage",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_voltage_input_1",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "voltage",
+                "unit_of_measurement": "V",
+                "original_name": "DCF3A3103X Input 1 voltage",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_input_1_amperage",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_amperage_input_1",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "current",
+                "unit_of_measurement": "A",
+                "original_name": "DCF3A3103X Input 1 Amperage",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_input_1_wattage",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_wattage_input_1",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "power",
+                "unit_of_measurement": "W",
+                "original_name": "DCF3A3103X Input 1 Wattage",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_lifetime_total_energy_input_2",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_energy_total_input_2",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "total_increasing"
+                },
+                "supported_features": 0,
+                "device_class": "energy",
+                "unit_of_measurement": "kWh",
+                "original_name": "DCF3A3103X Lifetime total energy input 2",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_input_2_voltage",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_voltage_input_2",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "voltage",
+                "unit_of_measurement": "V",
+                "original_name": "DCF3A3103X Input 2 voltage",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_input_2_amperage",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_amperage_input_2",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "current",
+                "unit_of_measurement": "A",
+                "original_name": "DCF3A3103X Input 2 Amperage",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_input_2_wattage",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_wattage_input_2",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "power",
+                "unit_of_measurement": "W",
+                "original_name": "DCF3A3103X Input 2 Wattage",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_internal_wattage",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_internal_wattage",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "power",
+                "unit_of_measurement": "W",
+                "original_name": "DCF3A3103X Internal wattage",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_reactive_voltage",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_reactive_voltage",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "voltage",
+                "unit_of_measurement": "V",
+                "original_name": "DCF3A3103X Reactive voltage",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_ac_frequency",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_frequency",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "Hz",
+                "original_name": "DCF3A3103X AC frequency",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_output_power",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_current_wattage",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "power",
+                "unit_of_measurement": "W",
+                "original_name": "DCF3A3103X Output power",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_temperature_1",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_temperature_1",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "DCF3A3103X Temperature 1",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_temperature_2",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_temperature_2",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "DCF3A3103X Temperature 2",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_temperature_3",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_temperature_3",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "DCF3A3103X Temperature 3",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_temperature_4",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_temperature_4",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "DCF3A3103X Temperature 4",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_temperature_5",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_temperature_5",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "DCF3A3103X Temperature 5",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "binary_sensor.experiabox_v10_wan_status",
+                "config_entry_id": "0056e9d517d611ebb46265d0140cc59d",
+                "device_id": "065dc52c17d611eb86065165d3ec7694",
+                "area_id": null,
+                "unique_id": "uuid:20809696-105a-3721-e8b8-34dab7d452b8_wanstatus",
+                "platform": "upnp",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": null,
+                "supported_features": 0,
+                "device_class": "connectivity",
+                "unit_of_measurement": null,
+                "original_name": "ExperiaBox-V10 wan status",
                 "original_icon": null
             }
         ]
