@@ -32,8 +32,8 @@
             },
             {
                 "config_entries": [
-                    "a2df955e7cc746d71d223c05a7e35f53",
-                    "33699060188811ebb707e7caa407dbba"
+                    "33699060188811ebb707e7caa407dbba",
+                    "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
                     [
@@ -859,8 +859,8 @@
             },
             {
                 "config_entries": [
-                    "86e02a91d2f68eab1a8e3cded0e181d5",
-                    "33699060188811ebb707e7caa407dbba"
+                    "33699060188811ebb707e7caa407dbba",
+                    "86e02a91d2f68eab1a8e3cded0e181d5"
                 ],
                 "connections": [
                     [
@@ -1368,28 +1368,6 @@
             },
             {
                 "config_entries": [
-                    "47825f84c2c0a790968cf23ec9649c86"
-                ],
-                "connections": [
-                    [
-                        "mac",
-                        "7c:9e:bd:f3:e4:a8"
-                    ]
-                ],
-                "identifiers": [],
-                "manufacturer": "espressif",
-                "model": "Espressif ESP32 Dev Module",
-                "name": "test",
-                "sw_version": "1.20.4 (Aug 15 2021, 21:42:44)",
-                "entry_type": null,
-                "id": "06ba9e3d94196ad9f563032b5cc7f223",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
                     "ee52aa5af8c3cb40b6212bd2224f4d82"
                 ],
                 "connections": [],
@@ -1725,53 +1703,9 @@
                 "manufacturer": "Local add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ha-rtl",
-                "sw_version": "1.1.2dev51",
+                "sw_version": "2.0.1dev9",
                 "entry_type": "service",
                 "id": "339b126bc1ff7b969dbe5afced9dff8e",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "device1"
-                    ]
-                ],
-                "manufacturer": "manufacturer1",
-                "model": "model1",
-                "name": "device1",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "8a682e970222e80c81b8e04a40d466b5",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "device2"
-                    ]
-                ],
-                "manufacturer": "manufacturer2",
-                "model": "model2",
-                "name": "device2",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "4393797aaf4fc587a0635c7bcf091975",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -1949,30 +1883,6 @@
                 "orphaned_timestamp": null
             },
             {
-                "config_entries": [],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mobile_app",
-                        "6AB1D01C-E2AB-410B-8BCB-6F730E595F16"
-                    ]
-                ],
-                "id": "3025f3748b889e39c55af1f0fdf9ff59",
-                "orphaned_timestamp": 1628370842.1469324
-            },
-            {
-                "config_entries": [],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mobile_app",
-                        "0a050590bb7cdce1"
-                    ]
-                ],
-                "id": "0df8fdadc80fd3ce3944d5e75dbbf232",
-                "orphaned_timestamp": 1628370847.1711965
-            },
-            {
                 "config_entries": [
                     "50f97953fcb6fa9a7b0f9c8040ffb15c"
                 ],
@@ -2097,6 +2007,46 @@
                 ],
                 "id": "79ff302733b26ef330b68c020ceedad2",
                 "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "device1"
+                    ]
+                ],
+                "id": "8a682e970222e80c81b8e04a40d466b5",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "device2"
+                    ]
+                ],
+                "id": "4393797aaf4fc587a0635c7bcf091975",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [],
+                "connections": [
+                    [
+                        "mac",
+                        "7c:9e:bd:f3:e4:a8"
+                    ]
+                ],
+                "identifiers": [],
+                "id": "06ba9e3d94196ad9f563032b5cc7f223",
+                "orphaned_timestamp": 1631085144.953494
             }
         ]
     }
