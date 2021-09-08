@@ -45,6 +45,7 @@ influxdb:
       - persistent_notification
 logger:
   default: info
+  homeassistant.components.mqtt: debug
 homeassistant:
   allowlist_external_dirs:
     - "/config/"
@@ -105,12 +106,6 @@ sensor:
       - type: memory_use_percent
       - type: processor_use
       - type: last_boot
-  # - platform: afvalwijzer
-  #   provider: mijnafvalwijzer        # (required, default = mijnafvalwijzer) either choose mijnafvalwijzer, rova or afvalstoffendienstkalender
-  #   postal_code: !secret postal_code # (required, default = '')
-  #   street_number: !secret street_number # (required, default = '')
-  #   include_date_today: true         # (optional, default = false) to take or not to take Today into account in the next pickup.
-  #   default_label: Geen              # (optional, default = Geen) label if no date found
   - platform: mold_indicator
     name: bedroom_mold
     indoor_temp_sensor: sensor.bedroom_temperature
