@@ -1224,27 +1224,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "light.walk_in_closet_1",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "218a489b443bb8a6b2557da751191456",
-                "area_id": null,
-                "unique_id": "14:b4:57:ff:fe:3d:91:b0-1",
-                "platform": "zha",
-                "name": "Walk in closet light 1",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "supported_color_modes": [
-                        "brightness"
-                    ]
-                },
-                "supported_features": 41,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI bulb GU10 WW 400lm b0913dfe level, on_off",
-                "original_icon": null
-            },
-            {
                 "entity_id": "light.walk_in_closet_2",
                 "config_entry_id": "850bf9a1c05f345748e9765e31162796",
                 "device_id": "b7723d2de806e40a54a918e2ace0ec6b",
