@@ -32,8 +32,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -832,8 +832,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "86e02a91d2f68eab1a8e3cded0e181d5"
+                    "86e02a91d2f68eab1a8e3cded0e181d5",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -1676,9 +1676,31 @@
                 "manufacturer": "Local add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ha-rtl",
-                "sw_version": "2.0.1dev9",
+                "sw_version": "2.1.0",
                 "entry_type": "service",
                 "id": "339b126bc1ff7b969dbe5afced9dff8e",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "doorbell"
+                    ]
+                ],
+                "manufacturer": "Gamma",
+                "model": "7000ac",
+                "name": "KiKa Doorbell",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "00a670d9a519980a790548083d7a9cf5",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
@@ -1961,38 +1983,10 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "doorbell"
-                    ]
-                ],
-                "id": "00a670d9a519980a790548083d7a9cf5",
-                "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
                         "rtl433"
                     ]
                 ],
                 "id": "79ff302733b26ef330b68c020ceedad2",
-                "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "device1"
-                    ]
-                ],
-                "id": "8a682e970222e80c81b8e04a40d466b5",
                 "orphaned_timestamp": null
             },
             {
@@ -2020,6 +2014,53 @@
                 "identifiers": [],
                 "id": "06ba9e3d94196ad9f563032b5cc7f223",
                 "orphaned_timestamp": 1631085144.953494
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "device3"
+                    ]
+                ],
+                "id": "3ad87e41ff8e010e345ec7c9a8195ca1",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "850bf9a1c05f345748e9765e31162796"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "14:b4:57:ff:fe:3d:91:b0"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "14:b4:57:ff:fe:3d:91:b0"
+                    ]
+                ],
+                "id": "218a489b443bb8a6b2557da751191456",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "device1"
+                    ]
+                ],
+                "id": "8a682e970222e80c81b8e04a40d466b5",
+                "orphaned_timestamp": null
             }
         ]
     }
