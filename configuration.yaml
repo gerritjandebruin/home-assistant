@@ -43,9 +43,6 @@ influxdb:
     domains:
       - automation
       - persistent_notification
-logger:
-  default: info
-  homeassistant.components.mqtt: debug
 homeassistant:
   allowlist_external_dirs:
     - "/config/"
