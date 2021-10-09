@@ -1,810 +1,859 @@
-- id: "1603830298349"
+- id: '1603830298349'
   alias: Walk in closet
-  description:
-    "When the door of the walk-in closet is opened, put the light on. Put
+  description: 'When the door of the walk-in closet is opened, put the light on. Put
     it off when the door is closed. When the door is opened for ten minutes, it is
-    presumably forgotten. In that case, the lights are turned off. "
+    presumably forgotten. In that case, the lights are turned off. '
   trigger:
-    - platform: state
-      entity_id: binary_sensor.walk_in_closet_on_off
-    - platform: state
-      entity_id: binary_sensor.walk_in_closet_on_off
-      for: 00:10:00
-      to: "on"
+  - platform: state
+    entity_id: binary_sensor.walk_in_closet_door
+  - platform: state
+    entity_id: binary_sensor.walk_in_closet_door
+    for: 00:10:00
+    to: 'on'
   condition: []
   action:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.walk_in_closet_on_off
-              state: "off"
-          sequence:
-            - service: light.turn_off
-              data: {}
-              entity_id:
-                - light.walk_in_closet_1
-                - light.walk_in_closet_2
-      default:
-        - service: light.turn_on
-          data: {}
-          entity_id:
-            - light.walk_in_closet_1
-            - light.walk_in_closet_2
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.walk_in_closet_door
+        state: 'off'
+      sequence:
+      - service: light.turn_off
+        target:
+          area_id: walk_in_closet
+    default:
+    - service: light.turn_on
+      target:
+        area_id: walk_in_closet
   mode: single
-- id: "1603830622083"
+- id: '1603830622083'
   alias: Hall and corridor
-  description:
-    Triggers when there is movement in the hall at ground level or first
+  description: Triggers when there is movement in the hall at ground level or first
     floor. When it freezes, warn with a blue light. Brightness is adapted to the desired
     level. Because the IKEA sensor at the corridor is slow in going to the cleared
     state, have a 10m wait before the Philips sensor at the hall is allowed to clear.
   trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.hall_on_off
-        - binary_sensor.corridor_on_off
-    - platform: state
-      entity_id: binary_sensor.hall_on_off
-      for: 00:10:00
-      to: "off"
+  - platform: state
+    entity_id:
+    - binary_sensor.hall_motion
+    - binary_sensor.corridor_motion
+  - platform: state
+    entity_id: binary_sensor.hall_motion
+    for: 00:10:00
+    to: 'off'
   condition: []
   action:
-    - choose:
+  - choose:
+    - alias: No movement
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.hall_motion
+        state: 'off'
+        for: 00:10:00
+      - condition: state
+        entity_id: binary_sensor.corridor_motion
+        state: 'off'
+      sequence:
+      - service: light.turn_off
+        entity_id:
+        - light.hall
+        - light.corridor
+    - alias: Dark
+      conditions:
+      - condition: numeric_state
+        entity_id: sensor.hall_light
+        below: 20
+      sequence:
+      - choose:
         - conditions:
-            - condition: state
-              entity_id: binary_sensor.hall_on_off
-              state: "off"
-              for: 00:10:00
-            - condition: state
-              entity_id: binary_sensor.corridor_on_off
-              state: "off"
+          - condition: state
+            entity_id: input_boolean.bright
+            state: 'on'
           sequence:
-            - service: light.turn_off
-              entity_id:
-                - light.hall
-                - light.corridor
-        - conditions:
-            - condition: numeric_state
-              entity_id: sensor.hall_illuminance
-              below: 20
-          sequence:
-            - choose:
-                - conditions:
-                    - condition: state
-                      entity_id: input_boolean.bright
-                      state: "on"
-                  sequence:
-                    - service: light.turn_on
-                      entity_id:
-                        - light.hall
-                        - light.corridor
-                      data:
-                        brightness_pct: 100
-                        color_temp: 380
-              default:
-                - service: light.turn_on
-                  entity_id:
-                    - light.corridor
-                    - light.hall
-                  data:
-                    brightness_pct: 50
-                    color_temp: 454
-      default:
-        - service: light.turn_off
-          entity_id:
-            - light.corridor
+          - service: light.turn_on
+            entity_id:
             - light.hall
-    - choose:
-        - conditions:
-            - condition: numeric_state
-              entity_id: sensor.outside_temperature
-              below: "0"
-            - condition: state
-              entity_id: light.hall
-              state: "on"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.hall
-              data:
-                color_temp: 153
+            - light.corridor
+            data:
+              brightness_pct: 100
+              color_temp: 380
+        default:
+        - service: light.turn_on
+          entity_id:
+          - light.corridor
+          - light.hall
+          data:
+            brightness_pct: 50
+            color_temp: 454
+    default:
+    - service: light.turn_off
+      entity_id:
+      - light.corridor
+      - light.hall
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.outside_temperature
+        below: '0'
+      - condition: state
+        entity_id: light.hall
+        state: 'on'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.hall
+        data:
+          color_temp: 153
   mode: queued
   max: 5
-- id: "1603831020194"
+- id: '1603831020194'
   alias: Kitchen
-  description:
-    Triggers when there is movement in the kitchen. Only activate light
+  description: Triggers when there is movement in the kitchen. Only activate light
     when there is less than 20 lux measured in the hall at ground level. Brightness
     is adapted to the desired level.
   trigger:
-    - platform: state
-      entity_id: binary_sensor.kitchen_on_off
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion
+    attribute: 'on'
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
   condition: []
   action:
-    - choose:
-        - conditions:
-            - condition: numeric_state
-              entity_id: sensor.hall_illuminance
-              below: "20"
-            - condition: state
-              entity_id: binary_sensor.kitchen_on_off
-              state: "on"
-          sequence:
-            - service: light.turn_on
-              data:
-                brightness_pct:
-                  "{{ 100 if is_state('input_boolean.bright', 'on') else
-                  50 }}"
-              target:
-                entity_id: light.kitchen
-      default:
-        - service: light.turn_off
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.hall_light
+        below: '20'
+      - condition: state
+        entity_id: binary_sensor.kitchen_motion
+        state: 'on'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness_pct: '{{ 100 if is_state(''input_boolean.bright'', ''on'') else
+            50 }}'
+        target:
           entity_id: light.kitchen
+    default:
+    - service: light.turn_off
+      entity_id: light.kitchen
   mode: single
-- id: "1605426186449"
+- id: '1605426186449'
   alias: Attic motion
-  description:
-    Put the light at the second floor on when there is movement in the
+  description: Put the light at the second floor on when there is movement in the
     hallway at ground level or first floor. Do so only if there is insufficient light.
   trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.hall_on_off
-        - binary_sensor.corridor_on_off
-    - platform: state
-      entity_id: binary_sensor.hall_on_off
-      to: "off"
-      for: 00:10:00
-    - platform: time_pattern
-      minutes: "0"
+  - platform: state
+    entity_id:
+    - binary_sensor.hall_motion
+    - binary_sensor.corridor_motion
+  - platform: state
+    entity_id: binary_sensor.hall_motion
+    to: 'off'
+    for: 00:10:00
+  - platform: time_pattern
+    minutes: '0'
   condition: []
   action:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.hall_on_off
-              state: "off"
-              for: 00:10:00
-            - condition: state
-              entity_id: binary_sensor.corridor_on_off
-              state: "off"
-          sequence:
-            - service: light.turn_off
-              entity_id: light.attic
-        - conditions:
-            - condition: numeric_state
-              entity_id: sensor.hall_illuminance
-              below: "20"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.attic
-      default:
-        - service: light.turn_off
-          entity_id: light.attic
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.hall_motion
+        state: 'off'
+        for: 00:10:00
+      - condition: state
+        entity_id: binary_sensor.corridor_motion
+        state: 'off'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.attic
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.hall_light
+        below: '20'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.attic
+    default:
+    - service: light.turn_off
+      entity_id: light.attic
   mode: queued
   max: 5
-- id: "1608134139962"
+- id: '1608134139962'
   alias: Shed
-  description:
-    Put the light in the shed on when the door is opened and it is dark.
+  description: Put the light in the shed on when the door is opened and it is dark.
     Put it off when the door is closed for longer than two minutes. If the door is
     closed, the user is reminded of this automation by a brief flash.
   trigger:
-    - platform: state
-      entity_id: binary_sensor.shed_on_off
-    - platform: state
-      entity_id: binary_sensor.shed_on_off
-      for: 00:02:00
-      to: "off"
+  - platform: state
+    entity_id: binary_sensor.shed_door
+  - platform: state
+    entity_id: binary_sensor.shed_door
+    for: 00:02:00
+    to: 'off'
   condition: []
   action:
-    - choose:
-        - conditions:
-            - condition: numeric_state
-              entity_id: sensor.hall_illuminance
-              below: "20"
-            - condition: state
-              entity_id: binary_sensor.shed_on_off
-              state: "on"
-          sequence:
-            - service: light.turn_on
-              data: {}
-              entity_id: light.shed
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.shed_on_off
-              state: "off"
-              for: 00:02:00
-          sequence:
-            - service: light.turn_off
-              data: {}
-              entity_id: light.shed
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.shed_on_off
-              state: "off"
-          sequence:
-            - service: light.turn_on
-              data:
-                flash: short
-              entity_id: light.shed
-      default: []
+  - choose:
+    - alias: Dark and door opened
+      conditions:
+      - condition: numeric_state
+        entity_id: sensor.hall_light
+        below: '20'
+      - condition: state
+        entity_id: binary_sensor.shed_door
+        state: 'on'
+      sequence:
+      - service: light.turn_on
+        data: {}
+        entity_id: light.shed
+    - alias: Door closed for two minutes
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.shed_door
+        state: 'off'
+        for: 00:02:00
+      sequence:
+      - service: light.turn_off
+        data: {}
+        entity_id: light.shed
+    - alias: Door closed
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.shed_door
+        state: 'off'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.shed
+        data:
+          flash: short
+    default: []
   mode: single
-- id: "1609859784666"
+- id: '1609859784666'
   alias: Sleeping room notification
-  description:
-    Remind to ventilate the sleeping room when there is a high probability
+  description: Remind to ventilate the sleeping room when there is a high probability
     on mold.
   trigger:
-    - platform: time
-      at: "12:00:00"
+  - platform: time
+    at: '12:00:00'
   condition:
-    - condition: numeric_state
-      entity_id: sensor.bedroom_mold
-      above: "80"
+  - condition: numeric_state
+    entity_id: sensor.bedroom_mold
+    above: '80'
   action:
-    - service: notify.mobile_app_nokia_7_2
+  - service: notify.mobile_app_nokia_7_2
+    data:
+      message: 'Sleeping room should be ventilated, predicted probability on mold:
+        {{states.sensor.bedroom_mold.state_with_unit}}.'
       data:
-        message:
-          "Sleeping room should be ventilated, predicted probability on mold:
-          {{states.sensor.bedroom_mold.state_with_unit}}."
-        data:
-          clickAction: /lovelace/thermometer
-          tag: bedroom
-          apns_headers:
-            apns-collapse-id: bedroom
+        clickAction: /lovelace/thermometer
+        tag: bedroom
+        apns_headers:
+          apns-collapse-id: bedroom
   mode: single
-- id: "1609974870568"
+- id: '1609974870568'
   alias: Doorbell
-  description:
-    Flash lights and notify when the doorbell is detected by the RTL_433
+  description: Flash lights and notify when the doorbell is detected by the RTL_433
     extension.
   trigger:
-    - platform: device
-      domain: mqtt
-      device_id: 8a682e970222e80c81b8e04a40d466b5
-      type: action
-      subtype: button_1
-      discovery_id: rtl433
+  - platform: device
+    domain: mqtt
+    device_id: 8a682e970222e80c81b8e04a40d466b5
+    type: action
+    subtype: button_1
+    discovery_id: rtl433
   condition: []
   action:
-    - service: notify.everyone
+  - service: notify.everyone
+    data:
+      message: Doorbell!
       data:
-        message: Doorbell!
-        data:
-          group: doorbell
-          icon_url: /local/doorbell.png
-    - type: turn_on
-      device_id: e5e042113928b8a047bd60336981e1e6
-      entity_id: light.hall
-      domain: light
+        group: doorbell
+        icon_url: /local/doorbell.png
+  - service: light.turn_on
+    target:
+      entity_id:
+      - light.hall
+      - light.shed
+      - light.attic
+    data:
       brightness_pct: 100
-    - device_id: 7a91e3fddeccb47006fec80014891153
-      domain: light
-      entity_id: light.shed
-      type: flash
-    - device_id: 60bfe7a8e3f01ab889642012e4ea1141
-      domain: light
-      entity_id: light.attic
-      type: flash
-    - delay:
-        hours: 0
-        minutes: 5
-        seconds: 0
-        milliseconds: 0
-    - type: turn_off
-      device_id: e5e042113928b8a047bd60336981e1e6
-      entity_id: light.hall
-      domain: light
-    - type: turn_off
-      device_id: 60bfe7a8e3f01ab889642012e4ea1141
-      entity_id: light.attic
-      domain: light
-    - type: turn_off
-      device_id: 7a91e3fddeccb47006fec80014891153
-      entity_id: light.shed
-      domain: light
+      flash: short
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    target:
+      entity_id:
+      - light.hall
+      - light.attic
+      - light.shed
   mode: single
-- id: "1610012660685"
+- id: '1610012660685'
   alias: Back-up log
   description: Store log just before Home Assistant is rebooted.
   trigger:
-    - platform: homeassistant
-      event: shutdown
+  - platform: homeassistant
+    event: shutdown
   condition: []
   action:
-    - service: shell_command.backup_logs
-      data: {}
+  - service: shell_command.backup_logs
+    data: {}
   mode: single
-- id: "1610482084579"
+- id: '1610482084579'
   alias: Shed temperature notification
-  description:
-    When it becomes too warm in the shed, notify that the beer should be
+  description: When it becomes too warm in the shed, notify that the beer should be
     moved to the fridge!
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.shed_temperature
-      above: "10"
+  - platform: numeric_state
+    entity_id: sensor.shed_thermometer
+    above: '10'
   condition: []
   action:
-    - service: notify.mobile_app_nokia_7_2
+  - service: notify.mobile_app_nokia_7_2
+    data:
+      message: The shed is {{states.sensor.shed_thermometer.state_with_unit}}.
       data:
-        message: The shed is {{states.sensor.shed_temperature.state_with_unit}}.
-        data:
-          clickAction: /lovelace/thermometer
-          tag: shed
-          apns_headers:
-            apns-collapse-id: shed
+        clickAction: /lovelace/thermometer
+        tag: shed
+        apns_headers:
+          apns-collapse-id: shed
   mode: single
-- id: "1612890416638"
-  alias: Sleeping room
-  description:
-    Handle one IKEA five-button remote (https://www.ikea.com/nl/nl/p/tradfri-afstandsbediening-30443124/)
-    and one buttons (https://www.ikea.com/ca/en/p/tradfri-wireless-dimmer-white-10408598/).
+- id: '1612890416638'
+  alias: Bedroom control
+  description: 'Handle bedroom control (https://www.ikea.com/nl/nl/p/tradfri-afstandsbediening-30443124/) '
   trigger:
-    - platform: event
-      event_type: zha_event
-      event_data:
-        device_id: ef6cce96c0aff37b73773be4f1a30e2f
-    - platform: event
-      event_type: zha_event
-      event_data:
-        device_id: 5a9933c449a2a8068f6012de36a6e91d
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: bedroom_control
   condition: []
   action:
-    - variables:
-        device_id: "{{ trigger.event.data.device_id }}"
-        command: "{{ trigger.event.data.command }}"
-        cluster_id: "{{ trigger.event.data.cluster_id }}"
-        endpoint_id: "{{ trigger.event.data.endpoint_id }}"
-        args: "{{ trigger.event.data.args }}"
-        ikea_remote: "{{ '5a9933c449a2a8068f6012de36a6e91d' }}"
-        ikea_button_gj: "{{ 'ef6cce96c0aff37b73773be4f1a30e2f' }}"
-    - choose:
-        - conditions:
-            - "{{ device_id == ikea_remote }}"
-            - "{{ command == 'toggle' }}"
-          sequence:
-            - service: light.toggle
-              entity_id: light.bedroom
-        - conditions:
-            - "{{ device_id == ikea_remote }}"
-            - "{{ command == 'step_with_on_off' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.bedroom
-              data:
-                brightness_step_pct: 20
-        - conditions:
-            - "{{ device_id == ikea_remote }}"
-            - "{{ command == 'move_with_on_off' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.bedroom
-              data:
-                brightness_pct: 100
-        - conditions:
-            - "{{ device_id == ikea_remote }}"
-            - "{{ command == 'step' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.bedroom
-              data:
-                brightness_step_pct: -20
-        - conditions:
-            - condition: or
-              conditions:
-                - condition: and
-                  conditions:
-                    - "{{ device_id == ikea_remote }}"
-                    - "{{ command == 'move' }}"
-                - condition: and
-                  conditions:
-                    - "{{ device_id == ikea_button_gj }}"
-                    - "{{ command == 'move_with_on_off' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.bedroom
-              data:
-                brightness_pct: 1
-        - conditions:
-            - "{{ device_id == ikea_remote }}"
-            - "{{ command == 'press' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.bedroom
-              data:
-                color_temp: '"{{ state_attr(''light.bedroom_3'', ''color_temp'') - 100}}"'
-        - conditions:
-            - "{{ device_id == ikea_remote }}"
-            - "{{ command == 'hold' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.bedroom
-              data:
-                color_temp: 254
-        - conditions:
-            - "{{ device_id == ikea_remote }}"
-            - "{{ command == 'press' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.bedroom
-              data:
-                color_temp: '"{{ state_attr(''light.bedroom_3'', ''color_temp'') + 100 }}"'
-        - conditions:
-            - "{{ device_id == ikea_remote }}"
-            - "{{ command == 'hold' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.bedroom
-              data:
-                color_temp: 454
-        - conditions:
-            - "{{ device_id == ikea_button_gj }}"
-            - "{{ command == 'move' }}"
-          sequence:
-            - service: light.turn_off
-              entity_id: light.bedroom
-        - conditions:
-            - "{{ device_id == ikea_button_gj }}"
-          sequence:
-            - choose:
-                # IF
-                - conditions:
-                    - "{{ command == 'on' }}"
-                  sequence:
-                    - service: light.turn_on
-                      target:
-                        entity_id: light.bedroom_1
-                # ELIF
-                - conditions:
-                    - "{{ command == 'off' }}"
-                  sequence:
-                    - service: light.turn_off
-                      entity_id: light.bedroom_1
+  - variables:
+      event: '{{ trigger.event.data.event }}'
+  - choose:
+    - alias: Toggle
+      conditions:
+      - condition: template
+        value_template: '{{ event == 1002 }}'
+      sequence:
+      - service: light.toggle
+        target:
+          area_id: bedroom
+    - alias: Brightness up hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 2001 }}'
+      sequence:
+      - service: light.turn_on
+        target:
+          area_id: bedroom
+        data:
+          brightness_pct: 100
+          color_temp: 395
+    - alias: Brightness up
+      conditions:
+      - condition: template
+        value_template: '{{ event == 2002 }}'
+      sequence:
+      - service: light.turn_on
+        target:
+          area_id: bedroom
+        data:
+          brightness_step_pct: 20
+    - alias: Brightness down hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 3001 }}'
+      sequence:
+      - service: light.turn_on
+        target:
+          area_id: bedroom
+        data:
+          brightness_pct: 1
+          color_temp: 140
+    - alias: Brightness down
+      conditions:
+      - condition: template
+        value_template: '{{ event == 3002 }}'
+      sequence:
+      - service: light.turn_on
+        target:
+          area_id: bedroom
+        data:
+          brightness_step_pct: -20
+    - alias: Color down
+      conditions:
+      - condition: template
+        value_template: '{{ event == 4002 }}'
+      sequence:
+      - service: light.turn_on
+        target:
+          area_id: bedroom
+        data:
+          color_temp: 140
+    - alias: Color down
+      conditions:
+      - condition: template
+        value_template: '{{ event == 5002 }}'
+      sequence:
+      - service: light.turn_on
+        target:
+          area_id: bedroom
+        data:
+          color_temp: 395
   mode: queued
   max: 25
-- id: "1612988672846"
+- id: '1612988672846'
   alias: Toilet
   description: Switch the toilet light when the door is opened.
   trigger:
-    - platform: state
-      entity_id: binary_sensor.toilet_on_off
-    - platform: state
-      entity_id: binary_sensor.toilet_on_off
-      for: 00:05:00
-    - platform: time_pattern
-      minutes: "0"
+  - platform: state
+    entity_id: binary_sensor.toilet_door
+  - platform: state
+    entity_id: binary_sensor.toilet_door
+    for: 00:05:00
+  - platform: time_pattern
+    minutes: '0'
   condition: []
   action:
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.toilet_on_off
-              state: "off"
-              for: 00:05:00
-          sequence:
-            - service: switch.turn_off
-              entity_id: switch.toilet
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.toilet_on_off
-              state: "on"
-              for: 00:05:00
-          sequence:
-            - service: switch.turn_off
-              entity_id: switch.toilet
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.toilet_on_off
-              state: "on"
-          sequence:
-            - service: switch.turn_on
-              data: {}
-              entity_id: switch.toilet
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.toilet_door
+        state: 'off'
+        for: 00:05:00
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.toilet
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.toilet_door
+        state: 'on'
+        for: 00:05:00
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.toilet
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.toilet_door
+        state: 'on'
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        entity_id: switch.toilet
   mode: single
-- id: "1612988850571"
+- id: '1612988850571'
   alias: Pantry
   description: Switch the light in the pantry when the door is opened or closed.
   trigger:
-    - platform: state
-      entity_id: binary_sensor.pantry_on_off
-    - platform: state
-      entity_id: binary_sensor.pantry_on_off
-      for: 00:10:00
-      to: "on"
+  - platform: state
+    entity_id: binary_sensor.pantry_door
+  - platform: state
+    entity_id: binary_sensor.pantry_door
+    for: 00:10:00
+    to: 'on'
   condition: []
   action:
-    - choose:
-        - conditions:
-            condition: or
-            conditions:
-              - condition: state
-                entity_id: binary_sensor.pantry_on_off
-                for: 00:10:00
-                state: "on"
-              - condition: state
-                entity_id: binary_sensor.pantry_on_off
-                state: "off"
-          sequence:
-            - service: light.turn_off
-              entity_id: light.pantry
-      default:
-        - service: light.turn_on
-          entity_id: light.pantry
+  - choose:
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.pantry_door
+          for: 00:10:00
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.pantry_door
+          state: 'off'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.pantry
+    default:
+    - service: light.turn_on
+      entity_id: light.pantry
   mode: single
-- id: "1612991117230"
+- id: '1612991117230'
   alias: Attic remote
-  description:
-    Handles all the events for the attic from a Philips remote. It controls
+  description: Handles all the events for the attic from a Philips remote. It controls
     one light (short press) and one heater (long press).
   trigger:
-    - platform: event
-      event_type: zha_event
-      event_data:
-        device_id: d2d1de274ba99aa61fa79c7b3f8e64c1
-        endpoint_id: 2
-        cluster_id: 64512
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: attic_remote
   condition: []
   action:
-    - variables:
-        command: "{{ trigger.event.data.command }}"
-    - choose:
-        - conditions:
-            - "{{ command == 'on_press' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.attic
-            - service: automation.turn_off
-              data: {}
-              entity_id: automation.attic_motion
-        - conditions:
-            - "{{ command == 'off_press' }}"
-          sequence:
-            - service: light.turn_off
-              entity_id: light.attic
-            - service: automation.turn_on
-              data: {}
-              entity_id: automation.attic_motion
-        - conditions:
-            - "{{ command == 'up_press' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.attic
-              data:
-                brightness_step_pct: 20
-        - conditions:
-            - "{{ command == 'down_press' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.attic
-              data:
-                brightness_step_pct: -20
-        - conditions:
-            - "{{ command == 'up_long_release' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.attic
-              data:
-                brighness_pct: 100
-                color_temp: 300
-        - conditions:
-            - "{{ command == 'down_long_relase' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.attic
-              data:
-                brightness_pct: 0
-                color_temp: 454
-        - conditions:
-            - "{{ command == 'on_long_release' }}"
-          sequence:
-            - service: climate.turn_on
-              entity_id: climate.radiator_attic
-        - conditions:
-            - "{{ command == 'off_long_release' }}"
-          sequence:
-            - service: climate.turn_off
-              entity_id: climate.radiator_attic
-      default: []
+  - variables:
+      event: '{{ trigger.event.data.event }}'
+  - choose:
+    - alias: 'On'
+      conditions:
+      - condition: template
+        value_template: '{{ event == 1000 }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.attic
+      - service: automation.turn_off
+        entity_id: automation.attic_motion
+    - alias: 'Off'
+      conditions:
+      - condition: template
+        value_template: '{{ event == 4000 }}'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.attic
+      - service: automation.turn_on
+        entity_id: automation.attic_motion
+    - alias: Up
+      conditions:
+      - condition: template
+        value_template: '{{ event == 2002 }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.attic
+        data:
+          brightness_step_pct: 20
+    - alias: Down
+      conditions:
+      - condition: template
+        value_template: '{{ event == 3002 }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.attic
+        data:
+          brightness_step_pct: -20
+    - alias: Up hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 2001 }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.attic
+        data:
+          brighness_pct: 100
+          color_temp: 300
+    - alias: Down hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 3001 }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.attic
+        data:
+          brightness_pct: 0
+          color_temp: 454
+    - alias: On hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 1001 }}'
+      sequence:
+      - service: climate.turn_on
+        entity_id: climate.radiator_attic
+    - alias: Off hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 4001 }}'
+      sequence:
+      - service: climate.turn_off
+        entity_id: climate.radiator_attic
+    default: []
   mode: single
-- id: "1613577759701"
+- id: '1613577759701'
   alias: Bright
-  description: ""
+  description: ''
   trigger:
-    - platform: time_pattern
-      minutes: /5
+  - platform: time_pattern
+    minutes: /5
   condition: []
   action:
-    - choose:
-        - conditions:
-            - condition: template
-              value_template: "{{ state_attr('sun.sun', 'elevation') < -6 }}"
-          sequence:
-            - service: input_boolean.turn_off
-              entity_id: input_boolean.bright
-      default:
-        - service: input_boolean.turn_on
-          entity_id: input_boolean.bright
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ state_attr(''sun.sun'', ''elevation'') < -6 }}'
+      sequence:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.bright
+    default:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.bright
   mode: single
-- id: "1613720614532"
+- id: '1613720614532'
   alias: Bathroom
-  description:
-    Put light on when door is opened. Put off when closed for 10 minutes.
+  description: Put light on when door is opened. Put off when closed for 10 minutes.
     Put off when nothing has changed for 30 minutes, except when showering.
   trigger:
-    - platform: state
-      entity_id: binary_sensor.bathroom_on_off
-      to: "off"
-      for: 00:10:00
-    - platform: state
-      entity_id: binary_sensor.bathroom_on_off
-      to: "on"
-    - platform: state
-      entity_id: binary_sensor.bathroom_on_off
-      to: "on"
-      for: 00:10:00
-    - platform: numeric_state
-      entity_id: sensor.bathroom_humidity
-      below: "80"
-      for: 00:00:05
+  - platform: state
+    entity_id: binary_sensor.bathroom_door
+    to: 'off'
+    for: 00:10:00
+    id: door long closed
+  - platform: state
+    entity_id: binary_sensor.bathroom_door
+    to: 'on'
+    id: door opened
+  - platform: state
+    entity_id: binary_sensor.bathroom_door
+    to: 'on'
+    for: 00:10:00
+    id: door long opened
+  - platform: numeric_state
+    entity_id: sensor.bathroom_humidity
+    below: '80'
+    for: 00:00:05
+    id: low humidity
   condition: []
   action:
-    - choose:
-        - alias: Presumed forgotten to switch light off while door open
-          conditions:
-            - condition: state
-              entity_id: binary_sensor.bathroom_on_off
-              state: "on"
-              for: 00:10:00
-          sequence:
-            - service: switch.turn_off
-              entity_id: switch.bathroom
-        - alias: Presumed forgotten to switch light off while door closed
-          conditions:
-            - condition: state
-              entity_id: binary_sensor.bathroom_on_off
-              state: "off"
-              for: 00:10:00
-            - condition: numeric_state
-              entity_id: sensor.bathroom_humidity
-              below: "80"
-          sequence:
-            - service: switch.turn_off
-              entity_id: switch.bathroom
-        - alias: Presumed showering
-          conditions:
-            - condition: state
-              entity_id: binary_sensor.bathroom_on_off
-              state: "off"
-              for: 00:10:00
-            - condition: numeric_state
-              entity_id: sensor.bathroom_humidity
-              above: "80"
-          sequence:
-            - service: notify.mobile_app_nokia_7_2
-              data:
-                title: Shower detected!
-            - service: switch.toggle
-              entity_id: switch.bathroom
-            - delay: 00:00:01
-            - service: switch.toggle
-              entity_id: switch.bathroom
-            - wait_for_trigger:
-                - platform: state
-                  entity_id: binary_sensor.bathroom_on_off
-                  to: "on"
-                - platform: numeric_state
-                  entity_id: sensor.bathroom_humidity
-                  below: "80"
-              continue_on_timeout: true
-        - alias: Door opened
-          conditions:
-            - condition: state
-              entity_id: binary_sensor.bathroom_on_off
-              state: "on"
-          sequence:
-            - service: switch.turn_on
-              entity_id: switch.bathroom
+  - choose:
+    - alias: Presumed forgotten to switch light off while door open
+      conditions:
+      - condition: trigger
+        id: door long opened
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.bathroom
+    - alias: Presumed forgotten to switch light off while door closed
+      conditions:
+      - condition: trigger
+        id: door long closed
+      - condition: numeric_state
+        entity_id: sensor.bathroom_humidity
+        below: '80'
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.bathroom
+    - alias: Presumed showering
+      conditions:
+      - condition: trigger
+        id: door long closed
+      - condition: numeric_state
+        entity_id: sensor.bathroom_humidity
+        above: '80'
+      sequence:
+      - service: notify.mobile_app_nokia_7_2
+        data:
+          title: Shower detected!
+      - service: switch.toggle
+        entity_id: switch.bathroom
+      - delay: 00:00:01
+      - service: switch.toggle
+        entity_id: switch.bathroom
+      - wait_for_trigger:
+        - platform: numeric_state
+          entity_id: sensor.bathroom_humidity
+          below: '80'
+        timeout:
+          minutes: 60
+    - alias: Door opened
+      conditions:
+      - condition: trigger
+        id: door opened
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.bathroom
   mode: single
-- id: "1614112596198"
+- id: '1614112596198'
   alias: Bike motion
-  description:
-    When it is dark and there is motion, put on the lights in the bike
+  description: When it is dark and there is motion, put on the lights in the bike
     shed. Else, put off. Note that this automation can be turned off by  automation.bike_button.
   trigger:
-    - platform: state
-      entity_id: binary_sensor.bike_on_off
+  - platform: state
+    entity_id: binary_sensor.bike_motion
   condition: []
   action:
-    - choose:
-        - conditions:
-            - condition: numeric_state
-              entity_id: sensor.hall_illuminance
-              below: "10"
-            - condition: state
-              entity_id: binary_sensor.bike_on_off
-              state: "on"
-          sequence:
-            - service: switch.turn_on
-              entity_id: switch.bike_light
-      default:
-        - service: switch.turn_off
-          entity_id: switch.bike_light
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.hall_light
+        below: '10'
+      - condition: state
+        entity_id: binary_sensor.bike_motion
+        state: 'on'
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.bike_light
+    default:
+    - service: switch.turn_off
+      entity_id: switch.bike_light
   mode: single
-- id: "1614152225581"
+- id: '1614152225581'
   alias: Bike button
-  description:
-    When the on button is pressed, put the lights on and disable the motion
+  description: When the on button is pressed, put the lights on and disable the motion
     sensor. When the off button is pressed, put the lights off and enable the motion
     sensor after 60 seconds.
   trigger:
-    - platform: event
-      event_type: zha_event
-      event_data:
-        device_id: 9eadf9239ebb9bc268ad74c2eae0602d
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: bike_switch
   condition: []
   action:
-    - variables:
-        command: "{{ trigger.event.data.command }}"
-    - choose:
-        - conditions:
-            - condition: template
-              value_template: "{{ command == 'on' }}"
-          sequence:
-            - service: switch.turn_on
-              entity_id: switch.bike_light
-            - service: automation.turn_off
-              entity_id: automation.bike_motion
-        - conditions:
-            - condition: template
-              value_template: "{{ command == 'off' }}"
-          sequence:
-            - service: switch.turn_off
-              entity_id: switch.bike_light
-            - delay:
-                hours: 0
-                minutes: 1
-                seconds: 0
-                milliseconds: 0
-            - service: automation.turn_on
-              entity_id: automation.bike_motion
+  - variables:
+      event: '{{ trigger.event.data.event }}'
+  - choose:
+    - alias: 'On'
+      conditions:
+      - condition: template
+        value_template: '{{ event == 1002 }}'
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.bike_light
+      - service: automation.turn_off
+        entity_id: automation.bike_motion
+    - alias: On hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 1001 }}'
+      sequence:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.lounge
+      - service: light.turn_on
+        target:
+          entity_id:
+          - light.hall
+          - light.kitchen
+    - alias: 'Off'
+      conditions:
+      - condition: template
+        value_template: '{{ event == 2002 }}'
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.bike_light
+      - delay:
+          minutes: 1
+      - service: automation.turn_on
+        entity_id: automation.bike_motion
+    - alias: Off hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 2001 }}'
+      sequence:
+      - service: switch.turn_off
+        entity_id: all
+      - service: light.turn_off
+        entity_id: all
   mode: restart
-- id: "1629321154907"
+- id: '1629321154907'
   alias: Terrace
   description: Control roof terrace LEDs with IKEA remote button.
   trigger:
-    - platform: event
-      event_type: zha_event
-      event_data:
-        device_id: b0027c50d2f7ecc24c83a1a47819c346
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: terrace_switch
   condition: []
   action:
-    - variables:
-        command: "{{ trigger.event.data.command }}"
-    - choose:
-        - conditions:
-            - "{{ command == 'on' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.terrace
-        - conditions:
-            - "{{ command == 'off' }}"
-          sequence:
-            - service: light.turn_off
-              entity_id: light.terrace
-        - conditions:
-            - "{{ command == 'move' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.terrace
-              data:
-                brightness_step: -1
-        - conditions:
-            - "{{ command == 'move with on_off' }}"
-          sequence:
-            - service: light.turn_on
-              entity_id: light.terrace
-              data:
-                brightness_step: 1
+  - variables:
+      event: '{{ trigger.event.data.event }}'
+  - choose:
+    - alias: 'On'
+      conditions:
+      - condition: template
+        value_template: '{{ event == 1002 }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.terrace
+    - alias: 'Off'
+      conditions:
+      - condition: template
+        value_template: '{{ event == 2002 }}'
+      sequence:
+      - service: light.turn_off
+        entity_id: light.terrace
+    - alias: On hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 1001 }}'
+      sequence:
+      - service: light.turn_on
+        entity_id: light.terrace
+        data:
+          rgbw_color: 255, 255, 255, 255
+      - service: automation.turn_on
+        target:
+          entity_id:
+          - automation.attic_motion
+          - automation.hall_corridor
+    - alias: Off hold
+      conditions:
+      - condition: template
+        value_template: '{{ event == 2001 }}'
+      sequence:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.corridor
+          - light.hall
+          - light.kitchen
+          - light.attic
+          area_id:
+          - bedroom
+      - service: automation.turn_off
+        target:
+          entity_id:
+          - automation.attic_motion
+          - automation.hall_corridor
   mode: queued
   max: 25
+- id: '1633606615304'
+  alias: Bedroom switch
+  description: ''
+  trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: bedroom_switch
+  condition: []
+  action:
+  - choose:
+    - alias: Hold up
+      conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event == 1001 }}'
+      sequence:
+      - service: light.turn_on
+        target:
+          area_id: bedroom
+        data:
+          brightness_pct: 1
+          color_temp: 650
+    - alias: Up
+      conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event == 1002 }}'
+      sequence:
+      - service: light.turn_on
+        target:
+          entity_id: light.bedroom_1
+        data:
+          brightness_pct: 1
+          color_temp: 650
+    - alias: Hold down
+      conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event == 2001 }}'
+      sequence:
+      - service: light.turn_off
+        target:
+          entity_id: all
+      - service: switch.turn_off
+        target:
+          entity_id: all
+    - alias: Down
+      conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.event == 2002 }}'
+      sequence:
+      - service: light.turn_off
+        target:
+          area_id: bedroom
+    default: []
+  mode: single

@@ -1,4 +1,12 @@
 sensor.attic_mold:
   friendly_name: Attic mold
+  icon: mdi:bacteria
 sensor.bathroom_mold:
   friendly_name: Bathroom mold
+  icon: mdi:bacteria
+sensor.lounge_mold:
+  icon: mdi:bacteria
+sensor.shed_mold:
+  icon: mdi:bacteria
+sensor.guestroom_mold:
+  icon: mdi:bacteria

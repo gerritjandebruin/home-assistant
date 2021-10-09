@@ -120,7 +120,7 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "binary_sensor.hall_on_off",
+                                            "entity": "binary_sensor.hall_motion",
                                             "style": {
                                                 "left": "30%",
                                                 "top": "60%"
@@ -146,7 +146,7 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "binary_sensor.shed_on_off",
+                                            "entity": "binary_sensor.shed_door",
                                             "state_image": {
                                                 "off": "/local/door-closed.jpg",
                                                 "on": "/local/door-open.jpg"
@@ -160,7 +160,7 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "binary_sensor.bathroom_on_off",
+                                            "entity": "binary_sensor.bathroom_door",
                                             "state_image": {
                                                 "off": "/local/door-closed.jpg",
                                                 "on": "/local/door-open.jpg"
@@ -174,7 +174,7 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "binary_sensor.pantry_on_off",
+                                            "entity": "binary_sensor.pantry_door",
                                             "state_image": {
                                                 "off": "/local/door-closed.jpg",
                                                 "on": "/local/door-open.jpg"
@@ -187,7 +187,7 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "binary_sensor.kitchen_on_off",
+                                            "entity": "binary_sensor.kitchen_motion",
                                             "style": {
                                                 "left": "40%",
                                                 "top": "25%"
@@ -195,7 +195,7 @@
                                             "type": "state-icon"
                                         },
                                         {
-                                            "entity": "binary_sensor.bike_on_off",
+                                            "entity": "binary_sensor.bike_motion",
                                             "style": {
                                                 "left": "60%",
                                                 "top": "95%"
@@ -245,7 +245,7 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "light.walk_in_closet",
+                                            "entity": "light.walk_in_closet_1",
                                             "image": "/local/walk-in-closet.jpg",
                                             "state_filter": {
                                                 "off": "brightness(60%)",
@@ -258,12 +258,16 @@
                                                 "width": "33%"
                                             },
                                             "tap_action": {
-                                                "action": "toggle"
+                                                "action": "call-service",
+                                                "service": "light.toggle",
+                                                "service_data": {
+                                                    "area_id": "walk_in_closet"
+                                                }
                                             },
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "light.bedroom",
+                                            "entity": "light.bedroom_1",
                                             "image": "/local/bedroom.jpg",
                                             "state_filter": {
                                                 "off": "brightness(60%)",
@@ -276,7 +280,11 @@
                                                 "width": "63%"
                                             },
                                             "tap_action": {
-                                                "action": "toggle"
+                                                "action": "call-service",
+                                                "service": "light.toggle",
+                                                "service_data": {
+                                                    "area_id": "bedroom"
+                                                }
                                             },
                                             "type": "image"
                                         },
@@ -299,7 +307,7 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "binary_sensor.toilet_on_off",
+                                            "entity": "binary_sensor.toilet_door",
                                             "state_image": {
                                                 "off": "/local/door-closed.jpg",
                                                 "on": "/local/door-open.jpg"
@@ -312,7 +320,7 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "binary_sensor.walk_in_closet_on_off",
+                                            "entity": "binary_sensor.walk_in_closet_door",
                                             "state_image": {
                                                 "off": "/local/door-closed.jpg",
                                                 "on": "/local/door-open.jpg"
@@ -325,7 +333,7 @@
                                             "type": "image"
                                         },
                                         {
-                                            "entity": "binary_sensor.corridor_on_off",
+                                            "entity": "binary_sensor.corridor_motion",
                                             "style": {
                                                 "left": "30%",
                                                 "top": "45%"
@@ -584,7 +592,7 @@
                                             "toggle": true
                                         }
                                     ],
-                                    "entity": "light.bedroom",
+                                    "entity": "light.bedroom_1",
                                     "icon": "mdi:bed",
                                     "secondary_info": "last-changed",
                                     "toggle": true,
@@ -603,7 +611,7 @@
                                             "toggle": true
                                         }
                                     ],
-                                    "entity": "light.walk_in_closet",
+                                    "entity": "light.walk_in_closet_1",
                                     "name": "Walk in closet",
                                     "icon": "mdi:wardrobe",
                                     "secondary_info": "last-changed",
@@ -684,36 +692,48 @@
                             "show_icon": false,
                             "entities": [
                                 {
-                                    "entity": "sensor.hall_temperature",
-                                    "name": "Hall"
+                                    "entity": "sensor.outside_temperature",
+                                    "name": "Outside"
                                 },
                                 {
-                                    "entity": "sensor.lounge_temperature",
-                                    "name": "Lounge"
-                                },
-                                {
-                                    "entity": "sensor.bathroom_temperature",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_temperature",
-                                    "name": "Bedroom"
-                                },
-                                {
-                                    "entity": "sensor.guestroom_temperature",
-                                    "name": "Guest"
-                                },
-                                {
-                                    "entity": "sensor.attic_temperature",
+                                    "entity": "sensor.attic_thermometer",
                                     "name": "Attic"
                                 },
                                 {
-                                    "entity": "sensor.shed_temperature",
+                                    "entity": "sensor.bathroom_thermometer",
+                                    "name": "Bathroom"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_thermometer",
+                                    "name": "Bedroom"
+                                },
+                                {
+                                    "entity": "sensor.guestroom_thermometer",
+                                    "name": "Guestroom"
+                                },
+                                {
+                                    "entity": "sensor.hall_thermometer",
+                                    "name": "Hall"
+                                },
+                                {
+                                    "entity": "sensor.lounge_thermometer",
+                                    "name": "Lounge"
+                                },
+                                {
+                                    "entity": "sensor.pantry_thermometer",
+                                    "name": "Pantry"
+                                },
+                                {
+                                    "entity": "sensor.shed_thermometer",
                                     "name": "Shed"
                                 },
                                 {
-                                    "entity": "sensor.outside_temperature",
-                                    "name": "Outside"
+                                    "entity": "sensor.toilet_thermometer",
+                                    "name": "Toilet"
+                                },
+                                {
+                                    "entity": "sensor.walk_in_closet_thermometer",
+                                    "name": "Walk in closet"
                                 }
                             ],
                             "title": "Temperature",
@@ -853,6 +873,12 @@
                                         "yellow": 60,
                                         "red": 80
                                     }
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.bedroom_humidity",
+                                    "min": 0,
+                                    "max": 100
                                 }
                             ]
                         },
@@ -880,7 +906,7 @@
                             "filter": {
                                 "include": [
                                     {
-                                        "entity_id": "sensor.*battery",
+                                        "entity_id": "sensor.*battery_level",
                                         "options": {
                                             "type": "custom:battery-entity-row"
                                         }
@@ -1012,12 +1038,8 @@
                             "type": "history-graph",
                             "entities": [
                                 {
-                                    "entity": "sensor.synology_cpu_load_user",
+                                    "entity": "sensor.synology_cpu_load_average_15_min",
                                     "name": "User"
-                                },
-                                {
-                                    "entity": "sensor.synology_cpu_load_total",
-                                    "name": "Total"
                                 }
                             ],
                             "hours_to_show": 168,

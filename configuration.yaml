@@ -1,11 +1,5 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-zha:
-  zigpy_config:
-    network:
-      channel: !secret zigbee_channel
-    ota:
-      ikea_provider: true
 notify:
   - name: everyone
     platform: group
@@ -16,19 +10,19 @@ climate:
   - platform: generic_thermostat
     name: Attic climate
     heater: switch.heater
-    target_sensor: sensor.attic_temperature
+    target_sensor: sensor.attic_thermometer
     target_temp: 20
     initial_hvac_mode: "off"
   - platform: generic_thermostat
     name: Bathroom climate
     heater: switch.heater
-    target_sensor: sensor.bathroom_temperature
+    target_sensor: sensor.bathroom_thermometer
     target_temp: 20
     initial_hvac_mode: "off"
   - platform: generic_thermostat
     name: Bedroom climate
     heater: switch.heater
-    target_sensor: sensor.bedroom_temperature
+    target_sensor: sensor.bedroom_thermometer
     target_temp: 20
     initial_hvac_mode: "off"
 influxdb:
@@ -46,25 +40,11 @@ influxdb:
 homeassistant:
   allowlist_external_dirs:
     - "/config/"
-  customize:
-    sensor.bedroom_mold:
-      icon: mdi:bacteria
-    sensor.attic_mold:
-      icon: mdi:bacteria
-    sensor.lounge_mold:
-      icon: mdi:bacteria
-    sensor.bathroom_mold:
-      icon: mdi:bacteria
-    sensor.shed_mold:
-      icon: mdi:bacteria
-    sensor.guestroom_mold:
-      icon: mdi:bacteria
   auth_providers:
     - type: homeassistant
     - type: trusted_networks
       trusted_networks:
         - 192.168.1.0/25
-
 http:
   ssl_certificate: /ssl/cert.pem
   ssl_key: /ssl/privkey.pem
@@ -76,9 +56,6 @@ sensor:
   - platform: filesize
     file_paths:
       - /config/home-assistant_v2.db
-  - platform: growatt_server
-    username: !secret growatt_user
-    password: !secret growatt_password
   - platform: template
     sensors:
       outside_temperature:
@@ -105,36 +82,36 @@ sensor:
       - type: last_boot
   - platform: mold_indicator
     name: bedroom_mold
-    indoor_temp_sensor: sensor.bedroom_temperature
+    indoor_temp_sensor: sensor.bedroom_thermometer
     indoor_humidity_sensor: sensor.bedroom_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.6
   - platform: mold_indicator
-    indoor_temp_sensor: sensor.attic_temperature
+    indoor_temp_sensor: sensor.attic_thermometer
     indoor_humidity_sensor: sensor.attic_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.5
     name: attic_mold
   - platform: mold_indicator
-    indoor_temp_sensor: sensor.bathroom_temperature
+    indoor_temp_sensor: sensor.bathroom_thermometer
     indoor_humidity_sensor: sensor.bathroom_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.5
     name: bathroom_mold
   - platform: mold_indicator
-    indoor_temp_sensor: sensor.guestroom_temperature
+    indoor_temp_sensor: sensor.guestroom_thermometer
     indoor_humidity_sensor: sensor.guestroom_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.6
     name: guestroom_mold
   - platform: mold_indicator
-    indoor_temp_sensor: sensor.shed_temperature
+    indoor_temp_sensor: sensor.shed_thermometer
     indoor_humidity_sensor: sensor.shed_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.0
     name: shed_mold
   - platform: mold_indicator
-    indoor_temp_sensor: sensor.lounge_temperature
+    indoor_temp_sensor: sensor.lounge_thermometer
     indoor_humidity_sensor: sensor.lounge_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.8
