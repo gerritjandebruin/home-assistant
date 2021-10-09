@@ -1,0 +1,45 @@
+esphome:
+  name: voltmeter
+  platform: ESP32
+  board: esp32dev
+
+# Enable logging
+logger:
+
+# Voltmeter
+sensor:
+  - platform: adc
+    pin: 32
+    name: "Voltmeter"
+    update_interval: 1ms
+    attenuation: 2.5db
+    filters:
+    - median:
+        window_size: 100
+        send_every: 100
+    device_class: voltage
+    
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "2a4d238f2f1429b74a198217f6969e68"
+
+wifi:
+  ssid: "de Bruin beneden 2.4GHz"
+  password: "79CD7C7DA6C9"
+
+  manual_ip:
+    static_ip: 192.168.1.221
+    gateway: 192.168.1.254
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Voltmeter Fallback Hotspot"
+    password: "FxtxXIE9wPJN"
+
+
+
+captive_portal:

@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "key": "esphome.1e3e54cb7e19f4265b03c77d30e03915",
+    "data": {
+        "device_info": {
+            "uses_password": false,
+            "name": "voltmeter",
+            "mac_address": "7C:9E:BD:F3:E4:A8",
+            "compilation_time": "Sep 13 2021, 14:46:58",
+            "model": "Espressif ESP32 Dev Module",
+            "has_deep_sleep": false,
+            "esphome_version": "2021.8.2",
+            "project_name": "",
+            "project_version": ""
+        },
+        "services": [],
+        "api_version": {
+            "major": 1,
+            "minor": 6
+        },
+        "switch": [],
+        "sensor": [
+            {
+                "object_id": "voltmeter",
+                "key": 1949798151,
+                "name": "Voltmeter",
+                "unique_id": "voltmetersensorvoltmeter",
+                "disabled_by_default": false,
+                "icon": "",
+                "device_class": "voltage",
+                "unit_of_measurement": "V",
+                "accuracy_decimals": 2,
+                "force_update": false,
+                "state_class": 1,
+                "last_reset_type": 0
+            }
+        ],
+        "text_sensor": []
+    }
+}

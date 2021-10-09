@@ -32,8 +32,8 @@
             },
             {
                 "config_entries": [
-                    "a2df955e7cc746d71d223c05a7e35f53",
-                    "33699060188811ebb707e7caa407dbba"
+                    "33699060188811ebb707e7caa407dbba",
+                    "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
                     [
@@ -50,7 +50,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "Toilet",
-                "sw_version": "20210727-202339/v1.11.2-g25b6953",
+                "sw_version": "20210909-145919/v1.11.4-DNSfix-ge6b2f6d",
                 "entry_type": null,
                 "id": "3396514f188811ebb18c5f4e3e6696c1",
                 "via_device_id": null,
@@ -130,34 +130,7 @@
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "00:12:4b:00:18:df:2c:b5"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "00:12:4b:00:18:df:2c:b5"
-                    ]
-                ],
-                "manufacturer": "Texas Instruments",
-                "model": "CC2531, Z-Stack Home 1.2 (build 20190608)",
-                "name": "Texas Instruments CC2531, Z-Stack Home 1.2 (build 20190608)",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "c15d99dd43ef70761cc96f0f3d892367",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -168,23 +141,27 @@
                 "identifiers": [
                     [
                         "zha",
+                        "00:17:88:01:04:85:91:62"
+                    ],
+                    [
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
                 "manufacturer": "Philips",
                 "model": "LTW010",
-                "name": "Philips LTW010",
-                "sw_version": null,
+                "name": "Attic",
+                "sw_version": "1.50.2_r30933",
                 "entry_type": null,
                 "id": "60bfe7a8e3f01ab889642012e4ea1141",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Attic light",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -194,24 +171,28 @@
                 ],
                 "identifiers": [
                     [
+                        "deconz",
+                        "00:15:8d:00:05:1e:0e:0c"
+                    ],
+                    [
                         "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.weather",
-                "name": "LUMI lumi.weather",
-                "sw_version": null,
+                "name": "Attic Sensor",
+                "sw_version": "20191205",
                 "entry_type": null,
                 "id": "08779d5418a838c9e8d8eb3f24718953",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Attic thermometer",
+                "name_by_user": "Attic sensor",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -221,24 +202,28 @@
                 ],
                 "identifiers": [
                     [
+                        "deconz",
+                        "00:15:8d:00:05:8c:a6:fa"
+                    ],
+                    [
                         "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.weather",
-                "name": "LUMI lumi.weather",
+                "name": "Bathroom Sensor",
                 "sw_version": null,
                 "entry_type": null,
                 "id": "6eb5caeb5106cd5a570e512d885fc0e3",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Bathroom thermometer",
+                "name_by_user": "Bathroom sensor",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -249,23 +234,27 @@
                 "identifiers": [
                     [
                         "zha",
+                        "bc:33:ac:ff:fe:47:a5:45"
+                    ],
+                    [
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
                 "manufacturer": "_TZ2000_a476raq2",
                 "model": "TS0201",
-                "name": "_TZ2000_a476raq2 TS0201",
+                "name": "Humidity 26",
                 "sw_version": null,
                 "entry_type": null,
                 "id": "e8b69dbd01f21f6ad380e73c2402b821",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Lounge thermometer",
+                "name_by_user": "Lounge sensor",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -276,23 +265,27 @@
                 "identifiers": [
                     [
                         "zha",
+                        "00:17:88:01:04:ec:e0:aa"
+                    ],
+                    [
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
                 "manufacturer": "Philips",
                 "model": "RWL021",
-                "name": "Philips RWL021",
-                "sw_version": "0x42006f9d",
+                "name": "Attic remote",
+                "sw_version": "6.1.1.28573",
                 "entry_type": null,
                 "id": "d2d1de274ba99aa61fa79c7b3f8e64c1",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Attic remote",
+                "name_by_user": "Attic switch",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -304,22 +297,26 @@
                     [
                         "zha",
                         "00:17:88:01:04:1b:3a:9a"
+                    ],
+                    [
+                        "deconz",
+                        "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
                 "manufacturer": "Philips",
                 "model": "LTW012",
-                "name": "Philips LTW012",
-                "sw_version": null,
+                "name": "Corridor light",
+                "sw_version": "1.50.2_r30933",
                 "entry_type": null,
                 "id": "f2ceb1b5e47a5d6ab7b9f694b357cc42",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Corridor light",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -331,22 +328,26 @@
                     [
                         "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
+                    ],
+                    [
+                        "deconz",
+                        "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI motion sensor",
-                "name": "IKEA of Sweden TRADFRI motion sensor",
-                "sw_version": "0x20022623",
+                "name": "Corridor Motion sensor",
+                "sw_version": "2.0.022",
                 "entry_type": null,
                 "id": "f0557193b49cd30a72b37ed875ced7b6",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Corridor motion",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -355,6 +356,10 @@
                     ]
                 ],
                 "identifiers": [
+                    [
+                        "deconz",
+                        "14:b4:57:ff:fe:4a:5b:fc"
+                    ],
                     [
                         "zha",
                         "14:b4:57:ff:fe:4a:5b:fc"
@@ -362,18 +367,18 @@
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI bulb GU10 WW 400lm",
-                "name": "IKEA of Sweden TRADFRI bulb GU10 WW 400lm",
-                "sw_version": "0x23050631",
+                "name": "Walk_in_closet light 2",
+                "sw_version": "2.3.050",
                 "entry_type": null,
                 "id": "b7723d2de806e40a54a918e2ace0ec6b",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": "walk_in_closet",
                 "name_by_user": "Walk in closet light 2",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -385,22 +390,26 @@
                     [
                         "zha",
                         "00:15:8d:00:04:60:7b:09"
+                    ],
+                    [
+                        "deconz",
+                        "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.sensor_magnet.aq2",
-                "name": "LUMI lumi.sensor_magnet.aq2",
+                "name": "Walk_in_closet OpenClose",
                 "sw_version": null,
                 "entry_type": null,
                 "id": "2d6dfb759f39e16dea755338b1f3188e",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Walk in closet",
+                "name_by_user": "Walk in closet door",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -410,24 +419,28 @@
                 ],
                 "identifiers": [
                     [
+                        "deconz",
+                        "00:15:8d:00:05:42:67:5e"
+                    ],
+                    [
                         "zha",
                         "00:15:8d:00:05:42:67:5e"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.sensor_magnet.aq2",
-                "name": "LUMI lumi.sensor_magnet.aq2",
-                "sw_version": null,
+                "name": "Toilet OpenClose",
+                "sw_version": "20161128",
                 "entry_type": null,
                 "id": "51fb2dd677fc2b08b7cd63bf90894249",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Toilet door",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -439,22 +452,26 @@
                     [
                         "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
+                    ],
+                    [
+                        "deconz",
+                        "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI remote control",
-                "name": "IKEA of Sweden TRADFRI remote control",
-                "sw_version": "0x23014631",
+                "name": "Bedroom control",
+                "sw_version": "2.3.014",
                 "entry_type": null,
                 "id": "5a9933c449a2a8068f6012de36a6e91d",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Bedroom remote",
+                "name_by_user": "Bedroom control",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -463,6 +480,10 @@
                     ]
                 ],
                 "identifiers": [
+                    [
+                        "deconz",
+                        "84:2e:14:ff:fe:47:9f:72"
+                    ],
                     [
                         "zha",
                         "84:2e:14:ff:fe:47:9f:72"
@@ -470,18 +491,18 @@
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI on/off switch",
-                "name": "IKEA of Sweden TRADFRI on/off switch",
-                "sw_version": "0x22010631",
+                "name": "Bedroom switch",
+                "sw_version": "2.2.010",
                 "entry_type": null,
                 "id": "ef6cce96c0aff37b73773be4f1a30e2f",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Bedroom remote GJ",
+                "name_by_user": "Bedroom switch",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -491,24 +512,28 @@
                 ],
                 "identifiers": [
                     [
+                        "deconz",
+                        "00:0d:6f:ff:fe:a0:5f:4b"
+                    ],
+                    [
                         "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI bulb GU10 WS 400lm",
-                "name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm",
-                "sw_version": "0x20029623",
+                "name": "Bedroom light 1",
+                "sw_version": "2.0.029",
                 "entry_type": null,
                 "id": "6783c5c5d415efc8d8ee992bcede1f16",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": "bedroom",
                 "name_by_user": "Bedroom light 1",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -520,22 +545,26 @@
                     [
                         "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
+                    ],
+                    [
+                        "deconz",
+                        "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI bulb GU10 WS 400lm",
-                "name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm",
-                "sw_version": "0x20029623",
+                "name": "Bedroom light 2",
+                "sw_version": "2.0.029",
                 "entry_type": null,
                 "id": "5c6125df50aeff0acb2509f14b0fe122",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": "bedroom",
                 "name_by_user": "Bedroom light 2",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -547,22 +576,26 @@
                     [
                         "zha",
                         "00:0d:6f:ff:fe:be:3c:1e"
+                    ],
+                    [
+                        "deconz",
+                        "00:0d:6f:ff:fe:be:3c:1e"
                     ]
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI bulb GU10 WS 400lm",
-                "name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm",
-                "sw_version": "0x20029623",
+                "name": "Bedroom light 3",
+                "sw_version": "2.0.029",
                 "entry_type": null,
                 "id": "648c5c6e37a271d466d4c10608d51e6c",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": "bedroom",
                 "name_by_user": "Bedroom light 3",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -574,22 +607,26 @@
                     [
                         "zha",
                         "14:b4:57:ff:fe:34:0c:70"
+                    ],
+                    [
+                        "deconz",
+                        "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI bulb GU10 WS 400lm",
-                "name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm",
-                "sw_version": "0x20029623",
+                "name": "Bedroom light 4",
+                "sw_version": "2.0.029",
                 "entry_type": null,
                 "id": "63daa83622c7e18147725c9a8e1a9b4e",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": "bedroom",
                 "name_by_user": "Bedroom light 4",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -598,6 +635,10 @@
                     ]
                 ],
                 "identifiers": [
+                    [
+                        "deconz",
+                        "14:b4:57:ff:fe:3d:0b:00"
+                    ],
                     [
                         "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
@@ -605,18 +646,18 @@
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI bulb GU10 WS 400lm",
-                "name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm",
-                "sw_version": "0x20029623",
+                "name": "Bedroom light 5",
+                "sw_version": "2.0.029",
                 "entry_type": null,
                 "id": "a86d85dac77c6830cc859999c74e41da",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": "bedroom",
                 "name_by_user": "Bedroom light 5",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -628,22 +669,26 @@
                     [
                         "zha",
                         "00:17:88:01:04:1b:3a:91"
+                    ],
+                    [
+                        "deconz",
+                        "00:17:88:01:04:1b:3a:91"
                     ]
                 ],
                 "manufacturer": "Philips",
                 "model": "LTW012",
-                "name": "Philips LTW012",
-                "sw_version": null,
+                "name": "Hallway light",
+                "sw_version": "1.50.2_r30933",
                 "entry_type": null,
                 "id": "e5e042113928b8a047bd60336981e1e6",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Hall light",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -654,23 +699,27 @@
                 "identifiers": [
                     [
                         "zha",
+                        "00:17:88:01:04:b5:54:7d"
+                    ],
+                    [
+                        "deconz",
                         "00:17:88:01:04:b5:54:7d"
                     ]
                 ],
                 "manufacturer": "Philips",
                 "model": "SML001",
-                "name": "Philips SML001",
-                "sw_version": "0x42006bb7",
+                "name": "Hallway Motion Sensor",
+                "sw_version": "6.1.1.27575",
                 "entry_type": null,
                 "id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Hall thermometer",
+                "name_by_user": "Hall sensor",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -682,22 +731,26 @@
                     [
                         "zha",
                         "00:17:88:01:04:86:57:92"
+                    ],
+                    [
+                        "deconz",
+                        "00:17:88:01:04:86:57:92"
                     ]
                 ],
                 "manufacturer": "Philips",
                 "model": "LTW010",
-                "name": "Philips LTW010",
-                "sw_version": null,
+                "name": "Pantry light",
+                "sw_version": "1.50.2_r30933",
                 "entry_type": null,
                 "id": "7017f2fdaf015f8b5a86121921ed8ac8",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Pantry light",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -709,22 +762,26 @@
                     [
                         "zha",
                         "00:15:8d:00:04:5d:45:8e"
+                    ],
+                    [
+                        "deconz",
+                        "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.sensor_magnet.aq2",
-                "name": "LUMI lumi.sensor_magnet.aq2",
-                "sw_version": null,
+                "name": "Pantry OpenClose",
+                "sw_version": "20161128",
                 "entry_type": null,
                 "id": "b8bb92a8be279ee84529cbd0037afbc5",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Pantry door",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -736,22 +793,26 @@
                     [
                         "zha",
                         "00:17:88:01:08:16:da:da"
+                    ],
+                    [
+                        "deconz",
+                        "00:17:88:01:08:16:da:da"
                     ]
                 ],
                 "manufacturer": "Philips",
                 "model": "LWA004",
-                "name": "Philips LWA004",
-                "sw_version": "0x01001504",
+                "name": "Kitchen light",
+                "sw_version": "1.65.9_hB3217DF4",
                 "entry_type": null,
                 "id": "b0ddce550f02cbf0799d40d240ab435c",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Kitchen light",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -763,15 +824,19 @@
                     [
                         "zha",
                         "00:17:88:01:09:3b:93:57"
+                    ],
+                    [
+                        "deconz",
+                        "00:17:88:01:09:3b:93:57"
                     ]
                 ],
                 "manufacturer": "Philips",
                 "model": "LTA001",
-                "name": "Philips LTA001",
-                "sw_version": "0x01000d00",
+                "name": "Shed light",
+                "sw_version": "1.53.3_r27175",
                 "entry_type": null,
                 "id": "7a91e3fddeccb47006fec80014891153",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Shed light",
                 "disabled_by": null
@@ -795,39 +860,12 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 2.5",
                 "name": "shellyswitch25-8CAAB561E13F",
-                "sw_version": "20210429-100559/v1.10.4-g3f94cd7",
+                "sw_version": "20210909-144331/v1.11.4-DNSfix-ge6b2f6d",
                 "entry_type": null,
                 "id": "663b87c1fa016b28463175ae19183722",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": "Bike",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "bc:33:ac:ff:fe:5b:6a:3a"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "bc:33:ac:ff:fe:5b:6a:3a"
-                    ]
-                ],
-                "manufacturer": "IKEA of Sweden",
-                "model": "TRADFRI control outlet",
-                "name": "IKEA of Sweden TRADFRI control outlet",
-                "sw_version": "0x20024623",
-                "entry_type": null,
-                "id": "29eda50f7d23f3fb9bd2eede6084a931",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": "Radiator",
                 "disabled_by": null
             },
             {
@@ -850,7 +888,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "Bathroom",
-                "sw_version": "20210727-202339/v1.11.2-g25b6953",
+                "sw_version": "20210909-145919/v1.11.4-DNSfix-ge6b2f6d",
                 "entry_type": null,
                 "id": "975aeee16d3e74fb7be938acf75275d8",
                 "via_device_id": null,
@@ -860,7 +898,7 @@
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -872,17 +910,21 @@
                     [
                         "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
+                    ],
+                    [
+                        "deconz",
+                        "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI motion sensor",
-                "name": "IKEA of Sweden TRADFRI motion sensor",
-                "sw_version": "0x20022623",
+                "name": "Kitchen motion sensor",
+                "sw_version": "2.0.022",
                 "entry_type": null,
                 "id": "811fd532a4a1bdde606177e29af0ec97",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Kitchen",
+                "name_by_user": "Kitchen motion",
                 "disabled_by": null
             },
             {
@@ -909,34 +951,7 @@
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "5c:02:72:ff:fe:5b:70:28"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "5c:02:72:ff:fe:5b:70:28"
-                    ]
-                ],
-                "manufacturer": "IKEA of Sweden",
-                "model": "TRADFRI on/off switch",
-                "name": "IKEA of Sweden TRADFRI on/off switch",
-                "sw_version": "0x22010631",
-                "entry_type": null,
-                "id": "9eadf9239ebb9bc268ad74c2eae0602d",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -945,6 +960,10 @@
                     ]
                 ],
                 "identifiers": [
+                    [
+                        "deconz",
+                        "00:15:8d:00:06:59:d1:c7"
+                    ],
                     [
                         "zha",
                         "00:15:8d:00:06:59:d1:c7"
@@ -952,11 +971,11 @@
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.sensor_magnet.aq2",
-                "name": "LUMI lumi.sensor_magnet.aq2",
+                "name": "Bathroom OpenClose",
                 "sw_version": null,
                 "entry_type": null,
                 "id": "f24581febab429724251dc0538cc97da",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Bathroom door",
                 "disabled_by": null
@@ -975,7 +994,7 @@
                 "manufacturer": "Official add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Check Home Assistant configuration",
-                "sw_version": "3.8.0",
+                "sw_version": "3.9.0",
                 "entry_type": "service",
                 "id": "35120953a64b54abd43dd788ee77dcdc",
                 "via_device_id": null,
@@ -1173,39 +1192,12 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
-                "sw_version": "6.2",
+                "sw_version": "6.4",
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "5c:02:72:ff:fe:9f:1d:8d"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "5c:02:72:ff:fe:9f:1d:8d"
-                    ]
-                ],
-                "manufacturer": "IKEA of Sweden",
-                "model": "TRADFRI motion sensor",
-                "name": "IKEA of Sweden TRADFRI motion sensor",
-                "sw_version": "0x20022623",
-                "entry_type": null,
-                "id": "92f92740112aad1de8eac8a6c9ebb5bd",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "name_by_user": "Bike",
                 "disabled_by": null
             },
             {
@@ -1227,7 +1219,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly RGBW2",
                 "name": "shellyrgbw2-DEC502",
-                "sw_version": "20210429-101438/v1.10.4-g3f94cd7",
+                "sw_version": "20210909-145215/v1.11.4-DNSfix-ge6b2f6d",
                 "entry_type": null,
                 "id": "a9f1fc5ca682b5534d1e91820b492b08",
                 "via_device_id": null,
@@ -1237,7 +1229,7 @@
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -1249,22 +1241,26 @@
                     [
                         "zha",
                         "00:15:8d:00:05:88:bb:99"
+                    ],
+                    [
+                        "deconz",
+                        "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.weather",
-                "name": "LUMI lumi.weather",
-                "sw_version": null,
+                "name": "Guestroom Sensor",
+                "sw_version": "20191205",
                 "entry_type": null,
                 "id": "2a0aba87f2b3e08dc200b46471cc3759",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Guestroom",
+                "name_by_user": "Guestroom sensor",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -1274,19 +1270,23 @@
                 ],
                 "identifiers": [
                     [
+                        "deconz",
+                        "00:15:8d:00:05:43:ba:85"
+                    ],
+                    [
                         "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.weather",
-                "name": "LUMI lumi.weather",
-                "sw_version": null,
+                "name": "Bedroom Sensor",
+                "sw_version": "20191205",
                 "entry_type": null,
                 "id": "edfd6fdec0ba0f861d77c2e02e08a729",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Bedroom thermometer",
+                "name_by_user": "Bedroom sensor",
                 "disabled_by": null
             },
             {
@@ -1309,7 +1309,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "shelly1pm-E09806A9DECC",
-                "sw_version": "20210727-202339/v1.11.2-g25b6953",
+                "sw_version": "20210909-145919/v1.11.4-DNSfix-ge6b2f6d",
                 "entry_type": null,
                 "id": "a9c1ea637f003a57f1abb222312e4d02",
                 "via_device_id": null,
@@ -1331,7 +1331,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2021.8.2",
+                "sw_version": "2021.9.3",
                 "entry_type": "service",
                 "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
                 "via_device_id": null,
@@ -1490,7 +1490,7 @@
                 "id": "f60bca79adc6481f671953981e38f1b2",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Augustinuserf NAS",
                 "disabled_by": null
             },
             {
@@ -1512,7 +1512,7 @@
                 "id": "255faf83b503d8c218fcfe6d92388a03",
                 "via_device_id": "f60bca79adc6481f671953981e38f1b2",
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Augustinuserf Drive 2",
                 "disabled_by": null
             },
             {
@@ -1534,7 +1534,7 @@
                 "id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
                 "via_device_id": "f60bca79adc6481f671953981e38f1b2",
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Augustinuserf Volume 2",
                 "disabled_by": null
             },
             {
@@ -1561,7 +1561,7 @@
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -1573,22 +1573,26 @@
                     [
                         "zha",
                         "00:15:8d:00:05:42:51:2d"
+                    ],
+                    [
+                        "deconz",
+                        "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.sensor_magnet.aq2",
-                "name": "LUMI lumi.sensor_magnet.aq2",
+                "name": "Shed OpenClose",
                 "sw_version": null,
                 "entry_type": null,
                 "id": "b3c874782468351d90c0ebe2fac89018",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Shed door",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -1599,23 +1603,27 @@
                 "identifiers": [
                     [
                         "zha",
+                        "00:15:8d:00:05:88:96:12"
+                    ],
+                    [
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.weather",
-                "name": "LUMI lumi.weather",
-                "sw_version": null,
+                "name": "Shed Sensor",
+                "sw_version": "20191205",
                 "entry_type": null,
                 "id": "bced05f348c2cf2bb5563f18a8acc533",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
-                "name_by_user": "Shed temperature",
+                "name_by_user": "Shed sensor",
                 "disabled_by": null
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
                     [
@@ -1627,15 +1635,19 @@
                     [
                         "zha",
                         "bc:33:ac:ff:fe:9b:34:a0"
+                    ],
+                    [
+                        "deconz",
+                        "bc:33:ac:ff:fe:9b:34:a0"
                     ]
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI on/off switch",
-                "name": "IKEA of Sweden TRADFRI on/off switch",
-                "sw_version": "0x22010631",
+                "name": "Terrace switch",
+                "sw_version": "2.2.010",
                 "entry_type": null,
                 "id": "b0027c50d2f7ecc24c83a1a47819c346",
-                "via_device_id": "c15d99dd43ef70761cc96f0f3d892367",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Terrace",
                 "disabled_by": null
@@ -1705,6 +1717,339 @@
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "1e3e54cb7e19f4265b03c77d30e03915"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "7c:9e:bd:f3:e4:a8"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "espressif",
+                "model": "Espressif ESP32 Dev Module",
+                "name": "voltmeter",
+                "sw_version": "2021.8.2 (Sep 13 2021, 14:46:58)",
+                "entry_type": null,
+                "id": "06ba9e3d94196ad9f563032b5cc7f223",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_deconz"
+                    ]
+                ],
+                "manufacturer": "Official add-ons",
+                "model": "Home Assistant Add-on",
+                "name": "deCONZ",
+                "sw_version": "6.10.0",
+                "entry_type": "service",
+                "id": "9ef7d945e29f22eb90425330572c2a88",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "02:42:ac:1e:21:06"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": null,
+                "model": null,
+                "name": null,
+                "sw_version": null,
+                "entry_type": null,
+                "id": "f256d101283e4199fe669f3baec74564",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": "user"
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "00212E07666F"
+                    ]
+                ],
+                "manufacturer": "Dresden Elektronik",
+                "model": "deCONZ",
+                "name": "Phoscon-GW",
+                "sw_version": "2.12.6",
+                "entry_type": null,
+                "id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "00212E07666F-/groups/1"
+                    ]
+                ],
+                "manufacturer": "Dresden Elektronik",
+                "model": "deCONZ group",
+                "name": "Attic",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "04a2ef1712d45cedf5fb4d3a093bfe14",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": "user"
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:21:2e:ff:ff:07:66:6f"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "00:21:2e:ff:ff:07:66:6f"
+                    ]
+                ],
+                "manufacturer": "Philips",
+                "model": "PHDL00",
+                "name": "Daylight",
+                "sw_version": "1.0",
+                "entry_type": null,
+                "id": "d29decaa03828459039ca71481204f5c",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "14:b4:57:ff:fe:3d:91:b0"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "14:b4:57:ff:fe:3d:91:b0"
+                    ]
+                ],
+                "manufacturer": "IKEA of Sweden",
+                "model": "TRADFRI bulb GU10 WW 400lm",
+                "name": "Walk_in_closet light 1",
+                "sw_version": "2.3.050",
+                "entry_type": null,
+                "id": "218a489b443bb8a6b2557da751191456",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": "walk_in_closet",
+                "name_by_user": "Walk in closet light 1",
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "00212E07666F-/groups/5"
+                    ]
+                ],
+                "manufacturer": "Dresden Elektronik",
+                "model": "deCONZ group",
+                "name": "Corridor",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "34ebee3aeb8808424aac9bcc37fcbf11",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": "user"
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "00212E07666F-/groups/6"
+                    ]
+                ],
+                "manufacturer": "Dresden Elektronik",
+                "model": "deCONZ group",
+                "name": "Walk_in_closet",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "bf3e7029ce4857708e50e3238e841910",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": null,
+                "name_by_user": "Walk in closet",
+                "disabled_by": "user"
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "5c:02:72:ff:fe:5b:70:28"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "5c:02:72:ff:fe:5b:70:28"
+                    ]
+                ],
+                "manufacturer": "IKEA of Sweden",
+                "model": "TRADFRI on/off switch",
+                "name": "Bike switch",
+                "sw_version": "2.2.010",
+                "entry_type": null,
+                "id": "9eadf9239ebb9bc268ad74c2eae0602d",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": null,
+                "name_by_user": "Bike switch",
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "5c:02:72:ff:fe:9f:1d:8d"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "5c:02:72:ff:fe:9f:1d:8d"
+                    ]
+                ],
+                "manufacturer": "IKEA of Sweden",
+                "model": "TRADFRI motion sensor",
+                "name": "Bike motion sensor",
+                "sw_version": "2.0.022",
+                "entry_type": null,
+                "id": "92f92740112aad1de8eac8a6c9ebb5bd",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": null,
+                "name_by_user": "Bike motion",
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "5f7896b6188911eba3f5978aad92ea24"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "speedtestdotnet",
+                        "5f7896b6188911eba3f5978aad92ea24"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "SpeedTest",
+                "sw_version": null,
+                "entry_type": "service",
+                "id": "0eec4a3cfac48ce623d89fe7937ee387",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "02:42:ac:1e:21:04"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": null,
+                "model": null,
+                "name": null,
+                "sw_version": null,
+                "entry_type": null,
+                "id": "91861b524cc0eda533fbb5b7784a4c73",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "bc:33:ac:ff:fe:5b:6a:3a"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "bc:33:ac:ff:fe:5b:6a:3a"
+                    ]
+                ],
+                "manufacturer": "IKEA of Sweden",
+                "model": "TRADFRI control outlet",
+                "name": "Heater plug",
+                "sw_version": "2.0.024",
+                "entry_type": null,
+                "id": "29eda50f7d23f3fb9bd2eede6084a931",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": null,
+                "name_by_user": "Heater",
+                "disabled_by": null
             }
         ],
         "deleted_devices": [
@@ -1751,9 +2096,7 @@
                 "orphaned_timestamp": null
             },
             {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
+                "config_entries": [],
                 "connections": [
                     [
                         "zigbee",
@@ -1767,7 +2110,7 @@
                     ]
                 ],
                 "id": "605c136aa75dca74653540a33efda3c2",
-                "orphaned_timestamp": null
+                "orphaned_timestamp": 1633522218.974642
             },
             {
                 "config_entries": [
@@ -1784,9 +2127,7 @@
                 "orphaned_timestamp": null
             },
             {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
+                "config_entries": [],
                 "connections": [
                     [
                         "zigbee",
@@ -1800,12 +2141,10 @@
                     ]
                 ],
                 "id": "87a3633a241147297526da69cec2e2b5",
-                "orphaned_timestamp": null
+                "orphaned_timestamp": 1633522218.974642
             },
             {
-                "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
+                "config_entries": [],
                 "connections": [
                     [
                         "zigbee",
@@ -1819,7 +2158,7 @@
                     ]
                 ],
                 "id": "4fc9337cacb054e80826f4bb581a7f21",
-                "orphaned_timestamp": null
+                "orphaned_timestamp": 1633522218.974642
             },
             {
                 "config_entries": [
@@ -2004,18 +2343,6 @@
                 "orphaned_timestamp": null
             },
             {
-                "config_entries": [],
-                "connections": [
-                    [
-                        "mac",
-                        "7c:9e:bd:f3:e4:a8"
-                    ]
-                ],
-                "identifiers": [],
-                "id": "06ba9e3d94196ad9f563032b5cc7f223",
-                "orphaned_timestamp": 1631085144.953494
-            },
-            {
                 "config_entries": [
                     "5f406ac278c3b2036080c757726ec016"
                 ],
@@ -2031,25 +2358,6 @@
             },
             {
                 "config_entries": [
-                    "850bf9a1c05f345748e9765e31162796"
-                ],
-                "connections": [
-                    [
-                        "zigbee",
-                        "14:b4:57:ff:fe:3d:91:b0"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "14:b4:57:ff:fe:3d:91:b0"
-                    ]
-                ],
-                "id": "218a489b443bb8a6b2557da751191456",
-                "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [
                     "5f406ac278c3b2036080c757726ec016"
                 ],
                 "connections": [],
@@ -2061,6 +2369,23 @@
                 ],
                 "id": "8a682e970222e80c81b8e04a40d466b5",
                 "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:12:4b:00:18:df:2c:b5"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:12:4b:00:18:df:2c:b5"
+                    ]
+                ],
+                "id": "c15d99dd43ef70761cc96f0f3d892367",
+                "orphaned_timestamp": 1633522218.974642
             }
         ]
     }

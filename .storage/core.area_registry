@@ -2,6 +2,15 @@
     "version": 1,
     "key": "core.area_registry",
     "data": {
-        "areas": []
+        "areas": [
+            {
+                "name": "Bedroom",
+                "id": "bedroom"
+            },
+            {
+                "name": "Walk in closet",
+                "id": "walk_in_closet"
+            }
+        ]
     }
 }

@@ -210,7 +210,7 @@
             {
                 "entity_id": "sensor.speedtest_ping",
                 "config_entry_id": "5f7896b6188911eba3f5978aad92ea24",
-                "device_id": null,
+                "device_id": "0eec4a3cfac48ce623d89fe7937ee387",
                 "area_id": null,
                 "unique_id": "ping",
                 "platform": "speedtestdotnet",
@@ -229,7 +229,7 @@
             {
                 "entity_id": "sensor.speedtest_download",
                 "config_entry_id": "5f7896b6188911eba3f5978aad92ea24",
-                "device_id": null,
+                "device_id": "0eec4a3cfac48ce623d89fe7937ee387",
                 "area_id": null,
                 "unique_id": "download",
                 "platform": "speedtestdotnet",
@@ -248,7 +248,7 @@
             {
                 "entity_id": "sensor.speedtest_upload",
                 "config_entry_id": "5f7896b6188911eba3f5978aad92ea24",
-                "device_id": null,
+                "device_id": "0eec4a3cfac48ce623d89fe7937ee387",
                 "area_id": null,
                 "unique_id": "upload",
                 "platform": "speedtestdotnet",
@@ -274,7 +274,9 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": {},
+                "capabilities": {
+                    "state_class": "total"
+                },
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "GiB",
@@ -291,7 +293,9 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": {},
+                "capabilities": {
+                    "state_class": "total"
+                },
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "%",
@@ -308,11 +312,13 @@
                 "name": null,
                 "icon": null,
                 "disabled_by": null,
-                "capabilities": {},
+                "capabilities": {
+                    "state_class": "total"
+                },
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "%",
-                "original_name": "Processor use (percent)",
+                "original_name": "Processor use",
                 "original_icon": "mdi:cpu-64-bit"
             },
             {
@@ -411,7 +417,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "total_increasing"
+                    "state_class": "total"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -471,23 +477,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "binary_sensor.toilet_on_off",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "51fb2dd677fc2b08b7cd63bf90894249",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:42:67:5e-1-6",
-                "platform": "zha",
-                "name": "Toilet on_off",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "opening",
-                "unit_of_measurement": null,
-                "original_name": "LUMI lumi.sensor_magnet.aq2 5e674205 on_off",
-                "original_icon": null
-            },
-            {
                 "entity_id": "person.mirjam",
                 "config_entry_id": null,
                 "device_id": null,
@@ -537,23 +526,6 @@
                 "unit_of_measurement": null,
                 "original_name": "UL",
                 "original_icon": "mdi:map-marker"
-            },
-            {
-                "entity_id": "binary_sensor.gang_on_off_disabled",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:b5:54:7d-1-6",
-                "platform": "zha",
-                "name": "Hall thermometer on_off",
-                "icon": null,
-                "disabled_by": "user",
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "motion",
-                "unit_of_measurement": null,
-                "original_name": "Philips SML001 7d54b504 on_off",
-                "original_icon": null
             },
             {
                 "entity_id": "automation.back_up_log",
@@ -1061,25 +1033,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "sensor.attic_remote_power",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "d2d1de274ba99aa61fa79c7b3f8e64c1",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:ec:e0:aa-2-1",
-                "platform": "zha",
-                "name": "Attic remote power",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "Philips RWL021 aae0ec04 power",
-                "original_icon": null
-            },
-            {
                 "entity_id": "input_boolean.bright",
                 "config_entry_id": null,
                 "device_id": null,
@@ -1114,65 +1067,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "light.hall",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "e5e042113928b8a047bd60336981e1e6",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:1b:3a:91-11",
-                "platform": "zha",
-                "name": "Hall light",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 153,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Philips LTW012 913a1b04 level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.hall_illuminance",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:b5:54:7d-2-1024",
-                "platform": "zha",
-                "name": "Hallway illuminance",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "illuminance",
-                "unit_of_measurement": "lx",
-                "original_name": "Philips SML001 7d54b504 illuminance",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.hall_temperature",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:b5:54:7d-2-1026",
-                "platform": "zha",
-                "name": "Hall temperature",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "Philips SML001 7d54b504 temperature",
-                "original_icon": null
-            },
-            {
                 "entity_id": "automation.hall_corridor",
                 "config_entry_id": null,
                 "device_id": null,
@@ -1187,242 +1081,6 @@
                 "device_class": null,
                 "unit_of_measurement": null,
                 "original_name": "Hall and corridor",
-                "original_icon": null
-            },
-            {
-                "entity_id": "binary_sensor.hall_on_off",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:b5:54:7d-2-1030",
-                "platform": "zha",
-                "name": "Hall occupancy",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "occupancy",
-                "unit_of_measurement": null,
-                "original_name": "Philips SML001 7d54b504 occupancy",
-                "original_icon": null
-            },
-            {
-                "entity_id": "binary_sensor.walk_in_closet_on_off",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "2d6dfb759f39e16dea755338b1f3188e",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:04:60:7b:09-1-6",
-                "platform": "zha",
-                "name": "Walk in closet on_off",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "opening",
-                "unit_of_measurement": null,
-                "original_name": "LUMI lumi.sensor_magnet.aq2 097b6004 on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.walk_in_closet_2",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "b7723d2de806e40a54a918e2ace0ec6b",
-                "area_id": null,
-                "unique_id": "14:b4:57:ff:fe:4a:5b:fc-1",
-                "platform": "zha",
-                "name": "Walk in closet light 2",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "supported_color_modes": [
-                        "brightness"
-                    ]
-                },
-                "supported_features": 41,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI bulb GU10 WW 400lm fc5b4afe level, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.walk_in_closet_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "2d6dfb759f39e16dea755338b1f3188e",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:04:60:7b:09-1-1",
-                "platform": "zha",
-                "name": "Walk in closet power",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.sensor_magnet.aq2 097b6004 power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.hall_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:b5:54:7d-2-1",
-                "platform": "zha",
-                "name": "Hallway power",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "Philips SML001 7d54b504 power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.kitchen",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "b0ddce550f02cbf0799d40d240ab435c",
-                "area_id": null,
-                "unique_id": "00:17:88:01:08:16:da:da-11",
-                "platform": "zha",
-                "name": "Kitchen light",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "supported_color_modes": [
-                        "brightness"
-                    ]
-                },
-                "supported_features": 41,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Philips LWA004 dada1608 level, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.walk_in_closet",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "unique_id": "light_zha_group_0x0002",
-                "platform": "zha",
-                "name": "Walk in closet",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "supported_color_modes": [
-                        "brightness"
-                    ]
-                },
-                "supported_features": 41,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Inloopkast_zha_group_0x0002",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.corridor",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "f2ceb1b5e47a5d6ab7b9f694b357cc42",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:1b:3a:9a-11",
-                "platform": "zha",
-                "name": "Corridor light",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 153,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Philips LTW012 9a3a1b04 level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "binary_sensor.corridor_on_off",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "f0557193b49cd30a72b37ed875ced7b6",
-                "area_id": null,
-                "unique_id": "cc:cc:cc:ff:fe:99:47:8d-1-6",
-                "platform": "zha",
-                "name": "Corridor occupancy",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "motion",
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI motion sensor 8d4799fe on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.corridor_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "f0557193b49cd30a72b37ed875ced7b6",
-                "area_id": null,
-                "unique_id": "cc:cc:cc:ff:fe:99:47:8d-1-1",
-                "platform": "zha",
-                "name": "Corridor battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "IKEA of Sweden TRADFRI motion sensor 8d4799fe power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.shed",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "7a91e3fddeccb47006fec80014891153",
-                "area_id": null,
-                "unique_id": "00:17:88:01:09:3b:93:57-11",
-                "platform": "zha",
-                "name": "Shed light",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 153,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Philips LTA001 57933b09 level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.toilet_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "51fb2dd677fc2b08b7cd63bf90894249",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:42:67:5e-1-1",
-                "platform": "zha",
-                "name": "Toilet battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.sensor_magnet.aq2 5e674205 power",
                 "original_icon": null
             },
             {
@@ -1604,126 +1262,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "light.pantry",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "7017f2fdaf015f8b5a86121921ed8ac8",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:86:57:92-11",
-                "platform": "zha",
-                "name": "Pantry light",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 153,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Philips LTW010 92578604 level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.attic",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "60bfe7a8e3f01ab889642012e4ea1141",
-                "area_id": null,
-                "unique_id": "00:17:88:01:04:85:91:62-11",
-                "platform": "zha",
-                "name": "Attic light",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 153,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Philips LTW010 62918504 level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bathroom_humidity",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "6eb5caeb5106cd5a570e512d885fc0e3",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:8c:a6:fa-1-1029",
-                "platform": "zha",
-                "name": "Bathroom humidity",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "humidity",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather faa68c05 humidity",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bathroom_pressure",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "6eb5caeb5106cd5a570e512d885fc0e3",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:8c:a6:fa-1-1027",
-                "platform": "zha",
-                "name": "Bathroom pressure",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "pressure",
-                "unit_of_measurement": "hPa",
-                "original_name": "LUMI lumi.weather faa68c05 pressure",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bathroom_temperature",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "6eb5caeb5106cd5a570e512d885fc0e3",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:8c:a6:fa-1-1026",
-                "platform": "zha",
-                "name": "Bathroom temperature",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "LUMI lumi.weather faa68c05 temperature",
-                "original_icon": null
-            },
-            {
-                "entity_id": "automation.bedroom",
-                "config_entry_id": null,
-                "device_id": null,
-                "area_id": null,
-                "unique_id": "1612890416638",
-                "platform": "automation",
-                "name": "Bedroom",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Sleeping room",
-                "original_icon": null
-            },
-            {
                 "entity_id": "automation.bedroom_notification",
                 "config_entry_id": null,
                 "device_id": null,
@@ -1738,368 +1276,6 @@
                 "device_class": null,
                 "unit_of_measurement": null,
                 "original_name": "Sleeping room notification",
-                "original_icon": null
-            },
-            {
-                "entity_id": "binary_sensor.pantry_on_off",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "b8bb92a8be279ee84529cbd0037afbc5",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:04:5d:45:8e-1-6",
-                "platform": "zha",
-                "name": "Pantry occupancy",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "opening",
-                "unit_of_measurement": null,
-                "original_name": "LUMI lumi.sensor_magnet.aq2 8e455d04 on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.bedroom",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "c15d99dd43ef70761cc96f0f3d892367",
-                "area_id": null,
-                "unique_id": "light_zha_group_0x0003",
-                "platform": "zha",
-                "name": "Bedroom",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 250,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "Slaapkamer_zha_group_0x0003",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.bedroom_1",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "6783c5c5d415efc8d8ee992bcede1f16",
-                "area_id": null,
-                "unique_id": "00:0d:6f:ff:fe:a0:5f:4b-1",
-                "platform": "zha",
-                "name": "Bedroom 1",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 250,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm 4b5fa0fe level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.bedroom_2",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "5c6125df50aeff0acb2509f14b0fe122",
-                "area_id": null,
-                "unique_id": "14:b4:57:ff:fe:32:6e:3c-1",
-                "platform": "zha",
-                "name": "Bedroom 2",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 250,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm 3c6e32fe level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.bedroom_3",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "648c5c6e37a271d466d4c10608d51e6c",
-                "area_id": null,
-                "unique_id": "00:0d:6f:ff:fe:be:3c:1e-1",
-                "platform": "zha",
-                "name": "Bedroom 3",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 250,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm 1e3cbefe level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.bedroom_4",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "63daa83622c7e18147725c9a8e1a9b4e",
-                "area_id": null,
-                "unique_id": "14:b4:57:ff:fe:34:0c:70-1",
-                "platform": "zha",
-                "name": "Bedroom 4",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 250,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm 700c34fe level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "light.bedroom_5",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "a86d85dac77c6830cc859999c74e41da",
-                "area_id": null,
-                "unique_id": "14:b4:57:ff:fe:3d:0b:00-1",
-                "platform": "zha",
-                "name": "Bedroom 5",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "min_mireds": 250,
-                    "max_mireds": 454,
-                    "supported_color_modes": [
-                        "color_temp"
-                    ]
-                },
-                "supported_features": 43,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI bulb GU10 WS 400lm 000b3dfe level, light_color, on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bedroom_remote_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "5a9933c449a2a8068f6012de36a6e91d",
-                "area_id": null,
-                "unique_id": "14:b4:57:ff:fe:3f:e3:43-1-1",
-                "platform": "zha",
-                "name": "Bedroom remote battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "IKEA of Sweden TRADFRI remote control 43e33ffe power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bedroom_remote_gj_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "ef6cce96c0aff37b73773be4f1a30e2f",
-                "area_id": null,
-                "unique_id": "84:2e:14:ff:fe:47:9f:72-1-1",
-                "platform": "zha",
-                "name": "Bedroom remote GJ battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "IKEA of Sweden TRADFRI on/off switch 729f47fe power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.pantry_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "b8bb92a8be279ee84529cbd0037afbc5",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:04:5d:45:8e-1-1",
-                "platform": "zha",
-                "name": "Pantry battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.sensor_magnet.aq2 8e455d04 power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.lounge_humidity",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "e8b69dbd01f21f6ad380e73c2402b821",
-                "area_id": null,
-                "unique_id": "bc:33:ac:ff:fe:47:a5:45-1-1029",
-                "platform": "zha",
-                "name": "Lounge humidity",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "humidity",
-                "unit_of_measurement": "%",
-                "original_name": "_TZ2000_a476raq2 TS0201 45a547fe humidity",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.lounge_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "e8b69dbd01f21f6ad380e73c2402b821",
-                "area_id": null,
-                "unique_id": "bc:33:ac:ff:fe:47:a5:45-1-1",
-                "platform": "zha",
-                "name": "Lounge battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "_TZ2000_a476raq2 TS0201 45a547fe power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.lounge_temperature",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "e8b69dbd01f21f6ad380e73c2402b821",
-                "area_id": null,
-                "unique_id": "bc:33:ac:ff:fe:47:a5:45-1-1026",
-                "platform": "zha",
-                "name": "Lounge temperature",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "_TZ2000_a476raq2 TS0201 45a547fe temperature",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.attic_humidity",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "08779d5418a838c9e8d8eb3f24718953",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:1e:0e:0c-1-1029",
-                "platform": "zha",
-                "name": "Attic humidity",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "humidity",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather 0c0e1e05 humidity",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.attic_thermometer_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "08779d5418a838c9e8d8eb3f24718953",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:1e:0e:0c-1-1",
-                "platform": "zha",
-                "name": "Attic thermometer battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather 0c0e1e05 power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.attic_pressure",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "08779d5418a838c9e8d8eb3f24718953",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:1e:0e:0c-1-1027",
-                "platform": "zha",
-                "name": "Attic pressure",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "pressure",
-                "unit_of_measurement": "hPa",
-                "original_name": "LUMI lumi.weather 0c0e1e05 pressure",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.attic_temperature",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "08779d5418a838c9e8d8eb3f24718953",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:1e:0e:0c-1-1026",
-                "platform": "zha",
-                "name": "Attic temperature",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "LUMI lumi.weather 0c0e1e05 temperature",
-                "original_icon": null
-            },
-            {
-                "entity_id": "switch.heater",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "29eda50f7d23f3fb9bd2eede6084a931",
-                "area_id": null,
-                "unique_id": "bc:33:ac:ff:fe:5b:6a:3a-1",
-                "platform": "zha",
-                "name": "Heater",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI control outlet 3a6a5bfe on_off",
                 "original_icon": null
             },
             {
@@ -2398,80 +1574,6 @@
                 "unit_of_measurement": null,
                 "original_name": "Nokia 7.2 Battery Health",
                 "original_icon": "mdi:battery-heart-variant"
-            },
-            {
-                "entity_id": "sensor.ikea_of_sweden_tradfri_on_off_switch_28705bfe_power",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "9eadf9239ebb9bc268ad74c2eae0602d",
-                "area_id": null,
-                "unique_id": "5c:02:72:ff:fe:5b:70:28-1-1",
-                "platform": "zha",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "IKEA of Sweden TRADFRI on/off switch 28705bfe power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "binary_sensor.bathroom_on_off",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "f24581febab429724251dc0538cc97da",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:06:59:d1:c7-1-6",
-                "platform": "zha",
-                "name": "Bathroom door on_off",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "opening",
-                "unit_of_measurement": null,
-                "original_name": "LUMI lumi.sensor_magnet.aq2 c7d15906 on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bathroom_on_off_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "f24581febab429724251dc0538cc97da",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:06:59:d1:c7-1-1",
-                "platform": "zha",
-                "name": "Bathroom door battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.sensor_magnet.aq2 c7d15906 power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bathroom_thermometer_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "6eb5caeb5106cd5a570e512d885fc0e3",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:8c:a6:fa-1-1",
-                "platform": "zha",
-                "name": "Bathroom thermometer battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather faa68c05 power",
-                "original_icon": null
             },
             {
                 "entity_id": "sensor.nokia_7_2_battery_temperature",
@@ -3001,78 +2103,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "sensor.kitchen_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "811fd532a4a1bdde606177e29af0ec97",
-                "area_id": null,
-                "unique_id": "5c:02:72:ff:fe:8c:c3:a9-1-1",
-                "platform": "zha",
-                "name": "Kitchen battery",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "IKEA of Sweden TRADFRI motion sensor a9c38cfe power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "binary_sensor.kitchen_on_off",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "811fd532a4a1bdde606177e29af0ec97",
-                "area_id": null,
-                "unique_id": "5c:02:72:ff:fe:8c:c3:a9-1-6",
-                "platform": "zha",
-                "name": "Kitchen occupancy",
-                "icon": "mdi:food",
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "motion",
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI motion sensor a9c38cfe on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "binary_sensor.bike_on_off",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "92f92740112aad1de8eac8a6c9ebb5bd",
-                "area_id": null,
-                "unique_id": "5c:02:72:ff:fe:9f:1d:8d-1-6",
-                "platform": "zha",
-                "name": "Bike on_off",
-                "icon": "hass:bicycle",
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "motion",
-                "unit_of_measurement": null,
-                "original_name": "IKEA of Sweden TRADFRI motion sensor 8d1d9ffe on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bike_power",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "92f92740112aad1de8eac8a6c9ebb5bd",
-                "area_id": null,
-                "unique_id": "5c:02:72:ff:fe:9f:1d:8d-1-1",
-                "platform": "zha",
-                "name": "Bike power",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "IKEA of Sweden TRADFRI motion sensor 8d1d9ffe power",
-                "original_icon": null
-            },
-            {
                 "entity_id": "light.terrace",
                 "config_entry_id": "8f0e56bd4d02b9aba699f3dc0f413f54",
                 "device_id": "a9f1fc5ca682b5534d1e91820b492b08",
@@ -3083,11 +2113,17 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
+                    "effect_list": [
+                        "Off",
+                        "Meteor Shower",
+                        "Gradual Change",
+                        "Flash"
+                    ],
                     "supported_color_modes": [
                         "rgbw"
                     ]
                 },
-                "supported_features": 32,
+                "supported_features": 36,
                 "device_class": null,
                 "unit_of_measurement": null,
                 "original_name": "shellyrgbw2-DEC502",
@@ -3236,158 +2272,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "sensor.guestroom_humidity",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "2a0aba87f2b3e08dc200b46471cc3759",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:88:bb:99-1-1029",
-                "platform": "zha",
-                "name": "Guestroom humidity",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "humidity",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather 99bb8805 humidity",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.guestroom_power",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "2a0aba87f2b3e08dc200b46471cc3759",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:88:bb:99-1-1",
-                "platform": "zha",
-                "name": "Guestroom power",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather 99bb8805 power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.guestroom_pressure",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "2a0aba87f2b3e08dc200b46471cc3759",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:88:bb:99-1-1027",
-                "platform": "zha",
-                "name": "Guestroom pressure",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "pressure",
-                "unit_of_measurement": "hPa",
-                "original_name": "LUMI lumi.weather 99bb8805 pressure",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.guestroom_temperature",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "2a0aba87f2b3e08dc200b46471cc3759",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:88:bb:99-1-1026",
-                "platform": "zha",
-                "name": "Guestroom temperature",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "LUMI lumi.weather 99bb8805 temperature",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bedroom_humidity",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "edfd6fdec0ba0f861d77c2e02e08a729",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:43:ba:85-1-1029",
-                "platform": "zha",
-                "name": "Bedroom humidity",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "humidity",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather 85ba4305 humidity",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bedroom_power",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "edfd6fdec0ba0f861d77c2e02e08a729",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:43:ba:85-1-1",
-                "platform": "zha",
-                "name": "Bedroom power",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather 85ba4305 power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bedroom_pressure",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "edfd6fdec0ba0f861d77c2e02e08a729",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:43:ba:85-1-1027",
-                "platform": "zha",
-                "name": "Bedroom pressure",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "pressure",
-                "unit_of_measurement": "hPa",
-                "original_name": "LUMI lumi.weather 85ba4305 pressure",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.bedroom_temperature",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "edfd6fdec0ba0f861d77c2e02e08a729",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:43:ba:85-1-1026",
-                "platform": "zha",
-                "name": "Bedroom temperature",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "LUMI lumi.weather 85ba4305 temperature",
-                "original_icon": null
-            },
-            {
                 "entity_id": "binary_sensor.esphome_update_available",
                 "config_entry_id": "50f97953fcb6fa9a7b0f9c8040ffb15c",
                 "device_id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
@@ -3520,7 +2404,7 @@
                 "supported_features": 0,
                 "device_class": "safety",
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Drive 1 Exceeded Max Bad Sectors",
+                "original_name": "nieuw-engeland Exceeded Max Bad Sectors",
                 "original_icon": null
             },
             {
@@ -3537,7 +2421,7 @@
                 "supported_features": 0,
                 "device_class": "safety",
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Drive 1 Below Min Remaining Life",
+                "original_name": "nieuw-engeland Below Min Remaining Life",
                 "original_icon": null
             },
             {
@@ -3554,7 +2438,7 @@
                 "supported_features": 0,
                 "device_class": "safety",
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Drive 2 Exceeded Max Bad Sectors",
+                "original_name": "nieuw-engeland Exceeded Max Bad Sectors",
                 "original_icon": null
             },
             {
@@ -3571,7 +2455,7 @@
                 "supported_features": 0,
                 "device_class": "safety",
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Drive 2 Below Min Remaining Life",
+                "original_name": "nieuw-engeland Below Min Remaining Life",
                 "original_icon": null
             },
             {
@@ -3886,7 +2770,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Volume 2 Status",
+                "original_name": "nieuw-engeland Status",
                 "original_icon": "mdi:checkbox-marked-circle-outline"
             },
             {
@@ -3905,7 +2789,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "TB",
-                "original_name": "nieuw-engeland Volume 2 Total Size",
+                "original_name": "nieuw-engeland Total Size",
                 "original_icon": "mdi:chart-pie"
             },
             {
@@ -3924,7 +2808,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "TB",
-                "original_name": "nieuw-engeland Volume 2 Used Space",
+                "original_name": "nieuw-engeland Used Space",
                 "original_icon": "mdi:chart-pie"
             },
             {
@@ -3941,7 +2825,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "%",
-                "original_name": "nieuw-engeland Volume 2 Volume Used",
+                "original_name": "nieuw-engeland Volume Used",
                 "original_icon": "mdi:chart-pie"
             },
             {
@@ -3958,7 +2842,7 @@
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "nieuw-engeland Volume 2 Average Disk Temp",
+                "original_name": "nieuw-engeland Average Disk Temp",
                 "original_icon": null
             },
             {
@@ -3975,7 +2859,7 @@
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "nieuw-engeland Volume 2 Maximum Disk Temp",
+                "original_name": "nieuw-engeland Maximum Disk Temp",
                 "original_icon": null
             },
             {
@@ -3992,7 +2876,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Volume 1 Status",
+                "original_name": "nieuw-engeland Status",
                 "original_icon": "mdi:checkbox-marked-circle-outline"
             },
             {
@@ -4011,7 +2895,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "TB",
-                "original_name": "nieuw-engeland Volume 1 Total Size",
+                "original_name": "nieuw-engeland Total Size",
                 "original_icon": "mdi:chart-pie"
             },
             {
@@ -4030,7 +2914,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "TB",
-                "original_name": "nieuw-engeland Volume 1 Used Space",
+                "original_name": "nieuw-engeland Used Space",
                 "original_icon": "mdi:chart-pie"
             },
             {
@@ -4047,7 +2931,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "%",
-                "original_name": "nieuw-engeland Volume 1 Volume Used",
+                "original_name": "nieuw-engeland Volume Used",
                 "original_icon": "mdi:chart-pie"
             },
             {
@@ -4064,7 +2948,7 @@
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "nieuw-engeland Volume 1 Average Disk Temp",
+                "original_name": "nieuw-engeland Average Disk Temp",
                 "original_icon": null
             },
             {
@@ -4081,7 +2965,7 @@
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "nieuw-engeland Volume 1 Maximum Disk Temp",
+                "original_name": "nieuw-engeland Maximum Disk Temp",
                 "original_icon": null
             },
             {
@@ -4098,7 +2982,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Drive 1 Status (Smart)",
+                "original_name": "nieuw-engeland Status (Smart)",
                 "original_icon": "mdi:checkbox-marked-circle-outline"
             },
             {
@@ -4115,7 +2999,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Drive 1 Status",
+                "original_name": "nieuw-engeland Status",
                 "original_icon": "mdi:checkbox-marked-circle-outline"
             },
             {
@@ -4134,7 +3018,7 @@
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "nieuw-engeland Drive 1 Temperature",
+                "original_name": "nieuw-engeland Temperature",
                 "original_icon": null
             },
             {
@@ -4151,7 +3035,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Drive 2 Status (Smart)",
+                "original_name": "nieuw-engeland Status (Smart)",
                 "original_icon": "mdi:checkbox-marked-circle-outline"
             },
             {
@@ -4168,7 +3052,7 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "nieuw-engeland Drive 2 Status",
+                "original_name": "nieuw-engeland Status",
                 "original_icon": "mdi:checkbox-marked-circle-outline"
             },
             {
@@ -4187,7 +3071,7 @@
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "nieuw-engeland Drive 2 Temperature",
+                "original_name": "nieuw-engeland Temperature",
                 "original_icon": null
             },
             {
@@ -4227,74 +3111,6 @@
                 "original_icon": null
             },
             {
-                "entity_id": "binary_sensor.synology_security_status_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.SecurityScan.Status:status",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "safety",
-                "unit_of_measurement": null,
-                "original_name": "augustinuserf Security status",
-                "original_icon": null
-            },
-            {
-                "entity_id": "binary_sensor.synology_update_available_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.Upgrade:update_available",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "update",
-                "unit_of_measurement": null,
-                "original_name": "augustinuserf Update available",
-                "original_icon": "mdi:update"
-            },
-            {
-                "entity_id": "binary_sensor.synology_drive_2_exceeded_max_bad_sectors_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "255faf83b503d8c218fcfe6d92388a03",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:disk_exceed_bad_sector_thr_sdb",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "safety",
-                "unit_of_measurement": null,
-                "original_name": "augustinuserf Drive 2 Exceeded Max Bad Sectors",
-                "original_icon": null
-            },
-            {
-                "entity_id": "binary_sensor.synology_drive_2_below_min_remaining_life_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "255faf83b503d8c218fcfe6d92388a03",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:disk_below_remain_life_thr_sdb",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "safety",
-                "unit_of_measurement": null,
-                "original_name": "augustinuserf Drive 2 Below Min Remaining Life",
-                "original_icon": null
-            },
-            {
                 "entity_id": "sensor.synology_cpu_utilization_other_2",
                 "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
                 "device_id": "f60bca79adc6481f671953981e38f1b2",
@@ -4311,25 +3127,6 @@
                 "device_class": null,
                 "unit_of_measurement": "%",
                 "original_name": "augustinuserf CPU Utilization (Other)",
-                "original_icon": "mdi:chip"
-            },
-            {
-                "entity_id": "sensor.synology_cpu_utilization_user_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:cpu_user_load",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "%",
-                "original_name": "augustinuserf CPU Utilization (User)",
                 "original_icon": "mdi:chip"
             },
             {
@@ -4352,25 +3149,6 @@
                 "original_icon": "mdi:chip"
             },
             {
-                "entity_id": "sensor.synology_cpu_utilization_total_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:cpu_total_load",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "%",
-                "original_name": "augustinuserf CPU Utilization (Total)",
-                "original_icon": "mdi:chip"
-            },
-            {
                 "entity_id": "sensor.synology_cpu_load_average_1_min_2",
                 "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
                 "device_id": "f60bca79adc6481f671953981e38f1b2",
@@ -4386,59 +3164,6 @@
                 "unit_of_measurement": "load",
                 "original_name": "augustinuserf CPU Load Average (1 min)",
                 "original_icon": "mdi:chip"
-            },
-            {
-                "entity_id": "sensor.synology_cpu_load_average_5_min_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:cpu_5min_load",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "load",
-                "original_name": "augustinuserf CPU Load Average (5 min)",
-                "original_icon": "mdi:chip"
-            },
-            {
-                "entity_id": "sensor.synology_cpu_load_average_15_min_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:cpu_15min_load",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "load",
-                "original_name": "augustinuserf CPU Load Average (15 min)",
-                "original_icon": "mdi:chip"
-            },
-            {
-                "entity_id": "sensor.synology_memory_usage_real_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_real_usage",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "%",
-                "original_name": "augustinuserf Memory Usage (Real)",
-                "original_icon": "mdi:memory"
             },
             {
                 "entity_id": "sensor.synology_memory_size_2",
@@ -4479,137 +3204,6 @@
                 "original_icon": "mdi:memory"
             },
             {
-                "entity_id": "sensor.synology_memory_available_swap_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_available_swap",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "MB",
-                "original_name": "augustinuserf Memory Available (Swap)",
-                "original_icon": "mdi:memory"
-            },
-            {
-                "entity_id": "sensor.synology_memory_available_real_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_available_real",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "MB",
-                "original_name": "augustinuserf Memory Available (Real)",
-                "original_icon": "mdi:memory"
-            },
-            {
-                "entity_id": "sensor.synology_memory_total_swap_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_total_swap",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "MB",
-                "original_name": "augustinuserf Memory Total (Swap)",
-                "original_icon": "mdi:memory"
-            },
-            {
-                "entity_id": "sensor.synology_memory_total_real_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_total_real",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "MB",
-                "original_name": "augustinuserf Memory Total (Real)",
-                "original_icon": "mdi:memory"
-            },
-            {
-                "entity_id": "sensor.synology_network_up_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:network_up",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "kB/s",
-                "original_name": "augustinuserf Upload Throughput",
-                "original_icon": "mdi:upload"
-            },
-            {
-                "entity_id": "sensor.synology_network_down_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:network_down",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "kB/s",
-                "original_name": "augustinuserf Download Throughput",
-                "original_icon": "mdi:download"
-            },
-            {
-                "entity_id": "sensor.synology_volume_2_status_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:volume_status_volume_2",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "augustinuserf Volume 2 Status",
-                "original_icon": "mdi:checkbox-marked-circle-outline"
-            },
-            {
                 "entity_id": "sensor.synology_volume_2_total_size_2",
                 "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
                 "device_id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
@@ -4625,61 +3219,8 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": "TB",
-                "original_name": "augustinuserf Volume 2 Total Size",
+                "original_name": "augustinuserf Total Size",
                 "original_icon": "mdi:chart-pie"
-            },
-            {
-                "entity_id": "sensor.synology_volume_2_used_space_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:volume_size_used_volume_2",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "TB",
-                "original_name": "augustinuserf Volume 2 Used Space",
-                "original_icon": "mdi:chart-pie"
-            },
-            {
-                "entity_id": "sensor.synology_volume_2_volume_used_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:volume_percentage_used_volume_2",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": "%",
-                "original_name": "augustinuserf Volume 2 Volume Used",
-                "original_icon": "mdi:chart-pie"
-            },
-            {
-                "entity_id": "sensor.synology_volume_2_average_disk_temp_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:volume_disk_temp_avg_volume_2",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "augustinuserf Volume 2 Average Disk Temp",
-                "original_icon": null
             },
             {
                 "entity_id": "sensor.synology_volume_2_maximum_disk_temp_2",
@@ -4695,7 +3236,7 @@
                 "supported_features": 0,
                 "device_class": "temperature",
                 "unit_of_measurement": "\u00b0C",
-                "original_name": "augustinuserf Volume 2 Maximum Disk Temp",
+                "original_name": "augustinuserf Maximum Disk Temp",
                 "original_icon": null
             },
             {
@@ -4712,63 +3253,8 @@
                 "supported_features": 0,
                 "device_class": null,
                 "unit_of_measurement": null,
-                "original_name": "augustinuserf Drive 2 Status (Smart)",
+                "original_name": "augustinuserf Status (Smart)",
                 "original_icon": "mdi:checkbox-marked-circle-outline"
-            },
-            {
-                "entity_id": "sensor.synology_drive_2_status_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "255faf83b503d8c218fcfe6d92388a03",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:disk_status_sdb",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": null,
-                "unit_of_measurement": null,
-                "original_name": "augustinuserf Drive 2 Status",
-                "original_icon": "mdi:checkbox-marked-circle-outline"
-            },
-            {
-                "entity_id": "sensor.synology_drive_2_temperature_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "255faf83b503d8c218fcfe6d92388a03",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:disk_temp_sdb",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "augustinuserf Drive 2 Temperature",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.synology_temperature_2",
-                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
-                "device_id": "f60bca79adc6481f671953981e38f1b2",
-                "area_id": null,
-                "unique_id": "14B0MPN441227_SYNO.DSM.Info:temperature",
-                "platform": "synology_dsm",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "augustinuserf temperature",
-                "original_icon": null
             },
             {
                 "entity_id": "sensor.synology_last_boot_2",
@@ -5136,118 +3622,6 @@
                 "original_icon": "mdi:battery"
             },
             {
-                "entity_id": "binary_sensor.shed_on_off",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "b3c874782468351d90c0ebe2fac89018",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:42:51:2d-1-6",
-                "platform": "zha",
-                "name": "Shed door on_off",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {},
-                "supported_features": 0,
-                "device_class": "opening",
-                "unit_of_measurement": null,
-                "original_name": "LUMI lumi.sensor_magnet.aq2 2d514205 on_off",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.shed_on_off_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "b3c874782468351d90c0ebe2fac89018",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:42:51:2d-1-1",
-                "platform": "zha",
-                "name": "Shed door power",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.sensor_magnet.aq2 2d514205 power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.shed_humidity",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "bced05f348c2cf2bb5563f18a8acc533",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:88:96:12-1-1029",
-                "platform": "zha",
-                "name": "Shed humidity",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "humidity",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather 12968805 humidity",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.shed_temperature_battery",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "bced05f348c2cf2bb5563f18a8acc533",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:88:96:12-1-1",
-                "platform": "zha",
-                "name": "Shed temperature power",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "LUMI lumi.weather 12968805 power",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.shed_pressure",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "bced05f348c2cf2bb5563f18a8acc533",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:88:96:12-1-1027",
-                "platform": "zha",
-                "name": "Shed temperature pressure",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "pressure",
-                "unit_of_measurement": "hPa",
-                "original_name": "LUMI lumi.weather 12968805 pressure",
-                "original_icon": null
-            },
-            {
-                "entity_id": "sensor.shed_temperature",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "bced05f348c2cf2bb5563f18a8acc533",
-                "area_id": null,
-                "unique_id": "00:15:8d:00:05:88:96:12-1-1026",
-                "platform": "zha",
-                "name": "Shed temperature temperature",
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "temperature",
-                "unit_of_measurement": "\u00b0C",
-                "original_name": "LUMI lumi.weather 12968805 temperature",
-                "original_icon": null
-            },
-            {
                 "entity_id": "binary_sensor.nokia_7_2_high_accuracy_mode",
                 "config_entry_id": "7a61e4ae7adf6466df3b1ee381636ace",
                 "device_id": "8a7285025d5d2d51987663c78edf86e7",
@@ -5263,25 +3637,6 @@
                 "unit_of_measurement": null,
                 "original_name": "Nokia 7.2 High Accuracy Mode",
                 "original_icon": "mdi:crosshairs-gps"
-            },
-            {
-                "entity_id": "sensor.ikea_of_sweden_tradfri_on_off_switch_a0349bfe_power",
-                "config_entry_id": "850bf9a1c05f345748e9765e31162796",
-                "device_id": "b0027c50d2f7ecc24c83a1a47819c346",
-                "area_id": null,
-                "unique_id": "bc:33:ac:ff:fe:9b:34:a0-1-1",
-                "platform": "zha",
-                "name": null,
-                "icon": null,
-                "disabled_by": null,
-                "capabilities": {
-                    "state_class": "measurement"
-                },
-                "supported_features": 0,
-                "device_class": "battery",
-                "unit_of_measurement": "%",
-                "original_name": "IKEA of Sweden TRADFRI on/off switch a0349bfe power",
-                "original_icon": null
             },
             {
                 "entity_id": "automation.terrace",
@@ -5430,7 +3785,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "total_increasing"
+                    "state_class": "total"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -5449,7 +3804,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "total_increasing"
+                    "state_class": "total"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -5519,7 +3874,7 @@
                 "icon": null,
                 "disabled_by": null,
                 "capabilities": {
-                    "state_class": "total_increasing"
+                    "state_class": "total"
                 },
                 "supported_features": 0,
                 "device_class": "energy",
@@ -5746,6 +4101,2006 @@
                 "device_class": "connectivity",
                 "unit_of_measurement": null,
                 "original_name": "ExperiaBox-V10 wan status",
+                "original_icon": null
+            },
+            {
+                "entity_id": "switch.relais",
+                "config_entry_id": "1e3e54cb7e19f4265b03c77d30e03915",
+                "device_id": "06ba9e3d94196ad9f563032b5cc7f223",
+                "area_id": null,
+                "unique_id": "testswitchrelais",
+                "platform": "esphome",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Relais",
+                "original_icon": ""
+            },
+            {
+                "entity_id": "sensor.voltmeter",
+                "config_entry_id": "1e3e54cb7e19f4265b03c77d30e03915",
+                "device_id": "06ba9e3d94196ad9f563032b5cc7f223",
+                "area_id": null,
+                "unique_id": "voltmetersensorvoltmeter",
+                "platform": "esphome",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "voltage",
+                "unit_of_measurement": "V",
+                "original_name": "Voltmeter",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.deconz_update_available",
+                "config_entry_id": "50f97953fcb6fa9a7b0f9c8040ffb15c",
+                "device_id": "9ef7d945e29f22eb90425330572c2a88",
+                "area_id": null,
+                "unique_id": "core_deconz_update_available",
+                "platform": "hassio",
+                "name": null,
+                "icon": null,
+                "disabled_by": "integration",
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "update",
+                "unit_of_measurement": null,
+                "original_name": "deCONZ: Update Available",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.deconz_version",
+                "config_entry_id": "50f97953fcb6fa9a7b0f9c8040ffb15c",
+                "device_id": "9ef7d945e29f22eb90425330572c2a88",
+                "area_id": null,
+                "unique_id": "core_deconz_version",
+                "platform": "hassio",
+                "name": null,
+                "icon": null,
+                "disabled_by": "integration",
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "deCONZ: Version",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.deconz_newest_version",
+                "config_entry_id": "50f97953fcb6fa9a7b0f9c8040ffb15c",
+                "device_id": "9ef7d945e29f22eb90425330572c2a88",
+                "area_id": null,
+                "unique_id": "core_deconz_version_latest",
+                "platform": "hassio",
+                "name": null,
+                "icon": null,
+                "disabled_by": "integration",
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "deCONZ: Newest Version",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.daylight",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "d29decaa03828459039ca71481204f5c",
+                "area_id": null,
+                "unique_id": "00:21:2e:ff:ff:07:66:6f-01",
+                "platform": "deconz",
+                "name": null,
+                "icon": null,
+                "disabled_by": "integration",
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Daylight",
+                "original_icon": "mdi:white-balance-sunny"
+            },
+            {
+                "entity_id": "sensor.bedroom_sensor_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "edfd6fdec0ba0f861d77c2e02e08a729",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:43:ba:85-battery",
+                "platform": "deconz",
+                "name": "Bedroom sensor battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Bedroom Sensor Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.attic",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "60bfe7a8e3f01ab889642012e4ea1141",
+                "area_id": null,
+                "unique_id": "00:17:88:01:04:85:91:62-0b",
+                "platform": "deconz",
+                "name": "Attic light",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 153,
+                    "max_mireds": 454,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Attic",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.attic_switch",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "d2d1de274ba99aa61fa79c7b3f8e64c1",
+                "area_id": null,
+                "unique_id": "00:17:88:01:04:ec:e0:aa-battery",
+                "platform": "deconz",
+                "name": "Attic switch battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Attic remote Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.attic_humidity",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "08779d5418a838c9e8d8eb3f24718953",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:1e:0e:0c-01-0405",
+                "platform": "deconz",
+                "name": "Attic humidity",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "humidity",
+                "unit_of_measurement": "%",
+                "original_name": "Attic Sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.attic_pressure",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "08779d5418a838c9e8d8eb3f24718953",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:1e:0e:0c-01-0403",
+                "platform": "deconz",
+                "name": "Attic pressure",
+                "icon": null,
+                "disabled_by": "user",
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "pressure",
+                "unit_of_measurement": "hPa",
+                "original_name": "Attic Sensor",
+                "original_icon": "mdi:gauge"
+            },
+            {
+                "entity_id": "sensor.attic_sensor_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "08779d5418a838c9e8d8eb3f24718953",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:1e:0e:0c-battery",
+                "platform": "deconz",
+                "name": "Attic sensor battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Attic Sensor Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.bathroom_openclose_temperature",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "f24581febab429724251dc0538cc97da",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:06:59:d1:c7-temperature",
+                "platform": "deconz",
+                "name": null,
+                "icon": null,
+                "disabled_by": "user",
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Bathroom OpenClose Temperature",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.bathroom_humidity",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "6eb5caeb5106cd5a570e512d885fc0e3",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:8c:a6:fa-01-0405",
+                "platform": "deconz",
+                "name": "Bathroom humidity",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "humidity",
+                "unit_of_measurement": "%",
+                "original_name": "Bathroom Sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.bathroom_pressure",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "6eb5caeb5106cd5a570e512d885fc0e3",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:8c:a6:fa-01-0403",
+                "platform": "deconz",
+                "name": "Bathroom pressure",
+                "icon": null,
+                "disabled_by": "user",
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "pressure",
+                "unit_of_measurement": "hPa",
+                "original_name": "Bathroom Sensor",
+                "original_icon": "mdi:gauge"
+            },
+            {
+                "entity_id": "light.bedroom_1",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "6783c5c5d415efc8d8ee992bcede1f16",
+                "area_id": null,
+                "unique_id": "00:0d:6f:ff:fe:a0:5f:4b-01",
+                "platform": "deconz",
+                "name": "Bedroom light 1",
+                "icon": "mdi:lightbulb",
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 140,
+                    "max_mireds": 650,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Bedroom light 1",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.bedroom_2",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "5c6125df50aeff0acb2509f14b0fe122",
+                "area_id": null,
+                "unique_id": "14:b4:57:ff:fe:32:6e:3c-01",
+                "platform": "deconz",
+                "name": "Bedroom light 2",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 140,
+                    "max_mireds": 650,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Bedroom light 2",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.bedroom_3",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "648c5c6e37a271d466d4c10608d51e6c",
+                "area_id": null,
+                "unique_id": "00:0d:6f:ff:fe:be:3c:1e-01",
+                "platform": "deconz",
+                "name": "Bedroom light 3",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 140,
+                    "max_mireds": 650,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Bedroom light 3",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.bedroom_4",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "63daa83622c7e18147725c9a8e1a9b4e",
+                "area_id": null,
+                "unique_id": "14:b4:57:ff:fe:34:0c:70-01",
+                "platform": "deconz",
+                "name": "Bedroom light 4",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 140,
+                    "max_mireds": 650,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Bedroom light 4",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.bedroom_5",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "a86d85dac77c6830cc859999c74e41da",
+                "area_id": null,
+                "unique_id": "14:b4:57:ff:fe:3d:0b:00-01",
+                "platform": "deconz",
+                "name": "Bedroom light 5",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 140,
+                    "max_mireds": 650,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Bedroom light 5",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.bedroom_control_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "5a9933c449a2a8068f6012de36a6e91d",
+                "area_id": null,
+                "unique_id": "14:b4:57:ff:fe:3f:e3:43-battery",
+                "platform": "deconz",
+                "name": "Bedroom control battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Bedroom control Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.bedroom_switch_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "ef6cce96c0aff37b73773be4f1a30e2f",
+                "area_id": null,
+                "unique_id": "84:2e:14:ff:fe:47:9f:72-battery",
+                "platform": "deconz",
+                "name": "Bedroom switch battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Bedroom switch Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.bedroom_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "edfd6fdec0ba0f861d77c2e02e08a729",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:43:ba:85-01-0402",
+                "platform": "deconz",
+                "name": "Bedroom thermometer",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Bedroom Sensor",
+                "original_icon": "mdi:thermometer"
+            },
+            {
+                "entity_id": "sensor.attic_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "08779d5418a838c9e8d8eb3f24718953",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:1e:0e:0c-01-0402",
+                "platform": "deconz",
+                "name": "Attic thermometer",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Attic Sensor",
+                "original_icon": "mdi:thermometer"
+            },
+            {
+                "entity_id": "sensor.bathroom_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "6eb5caeb5106cd5a570e512d885fc0e3",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:8c:a6:fa-01-0402",
+                "platform": "deconz",
+                "name": "Bathroom thermometer",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Bathroom Sensor",
+                "original_icon": "mdi:thermometer"
+            },
+            {
+                "entity_id": "sensor.bedroom_pressure",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "edfd6fdec0ba0f861d77c2e02e08a729",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:43:ba:85-01-0403",
+                "platform": "deconz",
+                "name": "Bedroom pressure",
+                "icon": null,
+                "disabled_by": "user",
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "pressure",
+                "unit_of_measurement": "hPa",
+                "original_name": "Bedroom Sensor",
+                "original_icon": "mdi:gauge"
+            },
+            {
+                "entity_id": "light.corridor",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "f2ceb1b5e47a5d6ab7b9f694b357cc42",
+                "area_id": null,
+                "unique_id": "00:17:88:01:04:1b:3a:9a-0b",
+                "platform": "deconz",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 153,
+                    "max_mireds": 454,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Corridor light",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.corridor_motion",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "f0557193b49cd30a72b37ed875ced7b6",
+                "area_id": null,
+                "unique_id": "cc:cc:cc:ff:fe:99:47:8d-01-0006",
+                "platform": "deconz",
+                "name": "Corridor motion",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "motion",
+                "unit_of_measurement": null,
+                "original_name": "Corridor Motion sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.corridor_motion_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "f0557193b49cd30a72b37ed875ced7b6",
+                "area_id": null,
+                "unique_id": "cc:cc:cc:ff:fe:99:47:8d-battery",
+                "platform": "deconz",
+                "name": "Corridor motion battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Corridor Motion sensor Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.guestroom_humidity",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "2a0aba87f2b3e08dc200b46471cc3759",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:88:bb:99-01-0405",
+                "platform": "deconz",
+                "name": "Guestroom humidity",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "humidity",
+                "unit_of_measurement": "%",
+                "original_name": "Guestroom Sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.guestroom_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "2a0aba87f2b3e08dc200b46471cc3759",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:88:bb:99-01-0402",
+                "platform": "deconz",
+                "name": "Guestroom thermometer",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Guestroom Sensor",
+                "original_icon": "mdi:thermometer"
+            },
+            {
+                "entity_id": "sensor.guestroom_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "2a0aba87f2b3e08dc200b46471cc3759",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:88:bb:99-battery",
+                "platform": "deconz",
+                "name": "Guestroom battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Guestroom Sensor Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.guestroom_pressure",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "2a0aba87f2b3e08dc200b46471cc3759",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:88:bb:99-01-0403",
+                "platform": "deconz",
+                "name": "Guestroom pressure",
+                "icon": null,
+                "disabled_by": "user",
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "pressure",
+                "unit_of_measurement": "hPa",
+                "original_name": "Guestroom Sensor",
+                "original_icon": "mdi:gauge"
+            },
+            {
+                "entity_id": "light.hall",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "e5e042113928b8a047bd60336981e1e6",
+                "area_id": null,
+                "unique_id": "00:17:88:01:04:1b:3a:91-0b",
+                "platform": "deconz",
+                "name": "Hall light",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 153,
+                    "max_mireds": 454,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Hallway light",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.hall_light",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
+                "area_id": null,
+                "unique_id": "00:17:88:01:04:b5:54:7d-02-0400",
+                "platform": "deconz",
+                "name": "Hall light level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "illuminance",
+                "unit_of_measurement": "lx",
+                "original_name": "Hallway Motion Sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.hall_motion",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
+                "area_id": null,
+                "unique_id": "00:17:88:01:04:b5:54:7d-02-0406",
+                "platform": "deconz",
+                "name": "Hall motion",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "motion",
+                "unit_of_measurement": null,
+                "original_name": "Hallway Motion Sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.hall_sensor_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
+                "area_id": null,
+                "unique_id": "00:17:88:01:04:b5:54:7d-battery",
+                "platform": "deconz",
+                "name": "Hall sensor battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Hallway Motion Sensor Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.hall_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
+                "area_id": null,
+                "unique_id": "00:17:88:01:04:b5:54:7d-02-0402",
+                "platform": "deconz",
+                "name": "Hall thermometer",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Hallway Motion Sensor",
+                "original_icon": "mdi:thermometer"
+            },
+            {
+                "entity_id": "binary_sensor.kitchen_motion",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "811fd532a4a1bdde606177e29af0ec97",
+                "area_id": null,
+                "unique_id": "5c:02:72:ff:fe:8c:c3:a9-01-0006",
+                "platform": "deconz",
+                "name": "Kitchen motion",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "motion",
+                "unit_of_measurement": null,
+                "original_name": "Kitchen motion sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.kitchen_motion_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "811fd532a4a1bdde606177e29af0ec97",
+                "area_id": null,
+                "unique_id": "5c:02:72:ff:fe:8c:c3:a9-battery",
+                "platform": "deconz",
+                "name": "Kitchen motion battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Kitchen motion sensor Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.lounge_humidity",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "e8b69dbd01f21f6ad380e73c2402b821",
+                "area_id": null,
+                "unique_id": "bc:33:ac:ff:fe:47:a5:45-01-0405",
+                "platform": "deconz",
+                "name": "Lounge humidity",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "humidity",
+                "unit_of_measurement": "%",
+                "original_name": "Humidity 26",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.lounge_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "e8b69dbd01f21f6ad380e73c2402b821",
+                "area_id": null,
+                "unique_id": "bc:33:ac:ff:fe:47:a5:45-01-0402",
+                "platform": "deconz",
+                "name": "Lounge sensor",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Temperature 25",
+                "original_icon": "mdi:thermometer"
+            },
+            {
+                "entity_id": "sensor.lounge_sensor_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "e8b69dbd01f21f6ad380e73c2402b821",
+                "area_id": null,
+                "unique_id": "bc:33:ac:ff:fe:47:a5:45-battery",
+                "platform": "deconz",
+                "name": "Lounge sensor battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Temperature 25 Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.pantry_door",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "b8bb92a8be279ee84529cbd0037afbc5",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:04:5d:45:8e-01-0006",
+                "platform": "deconz",
+                "name": "Pantry door",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "opening",
+                "unit_of_measurement": null,
+                "original_name": "Pantry OpenClose",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.pantry_door_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "b8bb92a8be279ee84529cbd0037afbc5",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:04:5d:45:8e-battery",
+                "platform": "deconz",
+                "name": "Pantry door battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Pantry OpenClose Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.pantry_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "b8bb92a8be279ee84529cbd0037afbc5",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:04:5d:45:8e-temperature",
+                "platform": "deconz",
+                "name": "Pantry thermometer",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Pantry OpenClose Temperature",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.bathroom_door",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "f24581febab429724251dc0538cc97da",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:06:59:d1:c7-01-0006",
+                "platform": "deconz",
+                "name": "Bathroom door",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "opening",
+                "unit_of_measurement": null,
+                "original_name": "Bathroom OpenClose",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.bathroom_door_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "f24581febab429724251dc0538cc97da",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:06:59:d1:c7-battery",
+                "platform": "deconz",
+                "name": "Bathroom door battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Bathroom OpenClose Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.pantry",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "7017f2fdaf015f8b5a86121921ed8ac8",
+                "area_id": null,
+                "unique_id": "00:17:88:01:04:86:57:92-0b",
+                "platform": "deconz",
+                "name": "Pantry light",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 153,
+                    "max_mireds": 454,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Pantry light",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.shed_door",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "b3c874782468351d90c0ebe2fac89018",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:42:51:2d-01-0006",
+                "platform": "deconz",
+                "name": "Shed door",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "opening",
+                "unit_of_measurement": null,
+                "original_name": "Shed OpenClose",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.shed_door_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "b3c874782468351d90c0ebe2fac89018",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:42:51:2d-battery",
+                "platform": "deconz",
+                "name": "Shed door battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Shed OpenClose Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.shed_door_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "b3c874782468351d90c0ebe2fac89018",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:42:51:2d-temperature",
+                "platform": "deconz",
+                "name": "Shed door thermometer",
+                "icon": null,
+                "disabled_by": "user",
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Shed OpenClose Temperature",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.shed",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "7a91e3fddeccb47006fec80014891153",
+                "area_id": null,
+                "unique_id": "00:17:88:01:09:3b:93:57-0b",
+                "platform": "deconz",
+                "name": "Shed light",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "min_mireds": 140,
+                    "max_mireds": 650,
+                    "supported_color_modes": [
+                        "color_temp"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Shed light",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.shed_humidity",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "bced05f348c2cf2bb5563f18a8acc533",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:88:96:12-01-0405",
+                "platform": "deconz",
+                "name": "Shed humidity",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "humidity",
+                "unit_of_measurement": "%",
+                "original_name": "Shed Sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.shed_pressure",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "bced05f348c2cf2bb5563f18a8acc533",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:88:96:12-01-0403",
+                "platform": "deconz",
+                "name": "Shed pressure",
+                "icon": null,
+                "disabled_by": "user",
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "pressure",
+                "unit_of_measurement": "hPa",
+                "original_name": "Shed Sensor",
+                "original_icon": "mdi:gauge"
+            },
+            {
+                "entity_id": "sensor.shed_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "bced05f348c2cf2bb5563f18a8acc533",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:88:96:12-01-0402",
+                "platform": "deconz",
+                "name": "Shed thermometer",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Shed Sensor",
+                "original_icon": "mdi:thermometer"
+            },
+            {
+                "entity_id": "sensor.shed_sensor_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "bced05f348c2cf2bb5563f18a8acc533",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:88:96:12-battery",
+                "platform": "deconz",
+                "name": "Shed sensor battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Shed Sensor Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.toilet_door",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "51fb2dd677fc2b08b7cd63bf90894249",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:42:67:5e-01-0006",
+                "platform": "deconz",
+                "name": "Toilet door",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "opening",
+                "unit_of_measurement": null,
+                "original_name": "Toilet OpenClose",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.toilet_door_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "51fb2dd677fc2b08b7cd63bf90894249",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:42:67:5e-battery",
+                "platform": "deconz",
+                "name": "Toilet door battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Toilet OpenClose Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.toilet_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "51fb2dd677fc2b08b7cd63bf90894249",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:42:67:5e-temperature",
+                "platform": "deconz",
+                "name": "Toilet thermometer",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Toilet OpenClose Temperature",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.walk_in_closet_door",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "2d6dfb759f39e16dea755338b1f3188e",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:04:60:7b:09-01-0006",
+                "platform": "deconz",
+                "name": "Walk in closet door",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "opening",
+                "unit_of_measurement": null,
+                "original_name": "Walk_in_closet OpenClose",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.walk_in_closet_door_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "2d6dfb759f39e16dea755338b1f3188e",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:04:60:7b:09-battery",
+                "platform": "deconz",
+                "name": "Walk in closet door battery level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Walk_in_closet OpenClose Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.walk_in_closet_thermometer",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "2d6dfb759f39e16dea755338b1f3188e",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:04:60:7b:09-temperature",
+                "platform": "deconz",
+                "name": "Walk in closet thermometer",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "Walk_in_closet OpenClose Temperature",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.walk_in_closet_2",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "b7723d2de806e40a54a918e2ace0ec6b",
+                "area_id": null,
+                "unique_id": "14:b4:57:ff:fe:4a:5b:fc-01",
+                "platform": "deconz",
+                "name": "Walk in closet light 2",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "supported_color_modes": [
+                        "brightness"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Walk_in_closet light 2",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.walk_in_closet_1",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "218a489b443bb8a6b2557da751191456",
+                "area_id": null,
+                "unique_id": "14:b4:57:ff:fe:3d:91:b0-01",
+                "platform": "deconz",
+                "name": "Walk in closet light 1",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "supported_color_modes": [
+                        "brightness"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Walk_in_closet light 1",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.kitchen",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "b0ddce550f02cbf0799d40d240ab435c",
+                "area_id": null,
+                "unique_id": "00:17:88:01:08:16:da:da-0b",
+                "platform": "deconz",
+                "name": "Kitchen light",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "supported_color_modes": [
+                        "brightness"
+                    ]
+                },
+                "supported_features": 40,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Kitchen light",
+                "original_icon": null
+            },
+            {
+                "entity_id": "light.walk_in_closet",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "light.walk_in_closet",
+                "platform": "group",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "supported_color_modes": [
+                        "onoff"
+                    ]
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Walk in closet",
+                "original_icon": "mdi:lightbulb-group"
+            },
+            {
+                "entity_id": "light.bedroom",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "light.bedroom",
+                "platform": "group",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "supported_color_modes": [
+                        "onoff"
+                    ]
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Bedroom",
+                "original_icon": "mdi:lightbulb-group"
+            },
+            {
+                "entity_id": "sensor.bedroom_humidity",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "edfd6fdec0ba0f861d77c2e02e08a729",
+                "area_id": null,
+                "unique_id": "00:15:8d:00:05:43:ba:85-01-0405",
+                "platform": "deconz",
+                "name": "Bedroom humidity",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "humidity",
+                "unit_of_measurement": "%",
+                "original_name": "Bedroom Sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.augustinuserf_cpu_load_average_15_min",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:cpu_15min_load",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": "user",
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "load",
+                "original_name": "augustinuserf CPU Load Average (15 min)",
+                "original_icon": "mdi:chip"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_cpu_load_average_5_min",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:cpu_5min_load",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "load",
+                "original_name": "augustinuserf CPU Load Average (5 min)",
+                "original_icon": "mdi:chip"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_cpu_utilization_total",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:cpu_total_load",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": "user",
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "%",
+                "original_name": "augustinuserf CPU Utilization (Total)",
+                "original_icon": "mdi:chip"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_cpu_utilization_user",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:cpu_user_load",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "%",
+                "original_name": "augustinuserf CPU Utilization (User)",
+                "original_icon": "mdi:chip"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_network_down",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:network_down",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "kB/s",
+                "original_name": "augustinuserf Download Throughput",
+                "original_icon": "mdi:download"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_memory_available_real",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_available_real",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "MB",
+                "original_name": "augustinuserf Memory Available (Real)",
+                "original_icon": "mdi:memory"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_memory_available_swap",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_available_swap",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "MB",
+                "original_name": "augustinuserf Memory Available (Swap)",
+                "original_icon": "mdi:memory"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_memory_total_real",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_total_real",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "MB",
+                "original_name": "augustinuserf Memory Total (Real)",
+                "original_icon": "mdi:memory"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_memory_total_swap",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_total_swap",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "MB",
+                "original_name": "augustinuserf Memory Total (Swap)",
+                "original_icon": "mdi:memory"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_memory_usage_real",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:memory_real_usage",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "%",
+                "original_name": "augustinuserf Memory Usage (Real)",
+                "original_icon": "mdi:memory"
+            },
+            {
+                "entity_id": "binary_sensor.augustinuserf_security_status",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.SecurityScan.Status:status",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "safety",
+                "unit_of_measurement": null,
+                "original_name": "augustinuserf Security status",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.augustinuserf_update_available",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.Upgrade:update_available",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "update",
+                "unit_of_measurement": null,
+                "original_name": "augustinuserf Update available",
+                "original_icon": "mdi:update"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_network_up",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Core.System.Utilization:network_up",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "kB/s",
+                "original_name": "augustinuserf Upload Throughput",
+                "original_icon": "mdi:upload"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_temperature",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "f60bca79adc6481f671953981e38f1b2",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.DSM.Info:temperature",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "augustinuserf temperature",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.augustinuserf_drive_2_below_min_remaining_life",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "255faf83b503d8c218fcfe6d92388a03",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:disk_below_remain_life_thr_sdb",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "safety",
+                "unit_of_measurement": null,
+                "original_name": "augustinuserf Below Min Remaining Life",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.augustinuserf_drive_2_exceeded_max_bad_sectors",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "255faf83b503d8c218fcfe6d92388a03",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:disk_exceed_bad_sector_thr_sdb",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "safety",
+                "unit_of_measurement": null,
+                "original_name": "augustinuserf Exceeded Max Bad Sectors",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.augustinuserf_drive_2_status",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "255faf83b503d8c218fcfe6d92388a03",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:disk_status_sdb",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "augustinuserf Status",
+                "original_icon": "mdi:checkbox-marked-circle-outline"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_drive_2_temperature",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "255faf83b503d8c218fcfe6d92388a03",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:disk_temp_sdb",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "augustinuserf Temperature",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.augustinuserf_volume_2_average_disk_temp",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:volume_disk_temp_avg_volume_2",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "original_name": "augustinuserf Average Disk Temp",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.augustinuserf_volume_2_status",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:volume_status_volume_2",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "augustinuserf Status",
+                "original_icon": "mdi:checkbox-marked-circle-outline"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_volume_2_used_space",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:volume_size_used_volume_2",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "TB",
+                "original_name": "augustinuserf Used Space",
+                "original_icon": "mdi:chart-pie"
+            },
+            {
+                "entity_id": "sensor.augustinuserf_volume_2_volume_used",
+                "config_entry_id": "adf8936a04606243f0dc49dc838639a8",
+                "device_id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
+                "area_id": null,
+                "unique_id": "14B0MPN441227_SYNO.Storage.CGI.Storage:volume_percentage_used_volume_2",
+                "platform": "synology_dsm",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "%",
+                "original_name": "augustinuserf Volume Used",
+                "original_icon": "mdi:chart-pie"
+            },
+            {
+                "entity_id": "binary_sensor.bike_motion",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "92f92740112aad1de8eac8a6c9ebb5bd",
+                "area_id": null,
+                "unique_id": "5c:02:72:ff:fe:9f:1d:8d-01-0006",
+                "platform": "deconz",
+                "name": "Bike motion",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "motion",
+                "unit_of_measurement": null,
+                "original_name": "Bike motion sensor",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.bike_switch_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "9eadf9239ebb9bc268ad74c2eae0602d",
+                "area_id": null,
+                "unique_id": "5c:02:72:ff:fe:5b:70:28-battery",
+                "platform": "deconz",
+                "name": "Bike switch Battery Level",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Bike switch Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.tradfri_motion_sensor_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "92f92740112aad1de8eac8a6c9ebb5bd",
+                "area_id": null,
+                "unique_id": "5c:02:72:ff:fe:9f:1d:8d-battery",
+                "platform": "deconz",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Bike motion sensor Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_energy_today_input_1",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_energy_today_input_1",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "total_increasing"
+                },
+                "supported_features": 0,
+                "device_class": "energy",
+                "unit_of_measurement": "kWh",
+                "original_name": "DCF3A3103X Energy Today Input 1",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.dcf3a3103x_energy_today_input_2",
+                "config_entry_id": "2f601e59608a122de87eef0cc93bcf6a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "DCF3A3103X-tlx_energy_today_input_2",
+                "platform": "growatt_server",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "total_increasing"
+                },
+                "supported_features": 0,
+                "device_class": "energy",
+                "unit_of_measurement": "kWh",
+                "original_name": "DCF3A3103X Energy Today Input 2",
+                "original_icon": "mdi:solar-power"
+            },
+            {
+                "entity_id": "sensor.shellyswitch25_8caab561e13f_voltage",
+                "config_entry_id": "a2df955e7cc746d71d223c05a7e35f53",
+                "device_id": "663b87c1fa016b28463175ae19183722",
+                "area_id": null,
+                "unique_id": "8CAAB561E13F-device-voltage",
+                "platform": "shelly",
+                "name": null,
+                "icon": null,
+                "disabled_by": "integration",
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "voltage",
+                "unit_of_measurement": "V",
+                "original_name": "shellyswitch25-8CAAB561E13F Voltage",
+                "original_icon": null
+            },
+            {
+                "entity_id": "binary_sensor.experiabox_v10_wan_status_2",
+                "config_entry_id": "0056e9d517d611ebb46265d0140cc59d",
+                "device_id": "065dc52c17d611eb86065165d3ec7694",
+                "area_id": null,
+                "unique_id": "uuid:20809696-105a-3721-e8b8-34dab7d452b8_wan_status",
+                "platform": "upnp",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": "connectivity",
+                "unit_of_measurement": null,
+                "original_name": "ExperiaBox-V10 wan status",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.experiabox_v10_external_ip",
+                "config_entry_id": "0056e9d517d611ebb46265d0140cc59d",
+                "device_id": "065dc52c17d611eb86065165d3ec7694",
+                "area_id": null,
+                "unique_id": "uuid:20809696-105a-3721-e8b8-34dab7d452b8_ip",
+                "platform": "upnp",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "ExperiaBox-V10 External IP",
+                "original_icon": "mdi:server-network"
+            },
+            {
+                "entity_id": "sensor.experiabox_v10_uptime",
+                "config_entry_id": "0056e9d517d611ebb46265d0140cc59d",
+                "device_id": "065dc52c17d611eb86065165d3ec7694",
+                "area_id": null,
+                "unique_id": "uuid:20809696-105a-3721-e8b8-34dab7d452b8_uptime",
+                "platform": "upnp",
+                "name": null,
+                "icon": null,
+                "disabled_by": "integration",
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "s",
+                "original_name": "ExperiaBox-V10 Uptime",
+                "original_icon": "mdi:server-network"
+            },
+            {
+                "entity_id": "sensor.experiabox_v10_wan_status",
+                "config_entry_id": "0056e9d517d611ebb46265d0140cc59d",
+                "device_id": "065dc52c17d611eb86065165d3ec7694",
+                "area_id": null,
+                "unique_id": "uuid:20809696-105a-3721-e8b8-34dab7d452b8_wan_status",
+                "platform": "upnp",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "ExperiaBox-V10 wan status",
+                "original_icon": "mdi:server-network"
+            },
+            {
+                "entity_id": "sensor.terrace_switch_battery_level",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "b0027c50d2f7ecc24c83a1a47819c346",
+                "area_id": null,
+                "unique_id": "bc:33:ac:ff:fe:9b:34:a0-battery",
+                "platform": "deconz",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": "battery",
+                "unit_of_measurement": "%",
+                "original_name": "Terrace switch Battery Level",
+                "original_icon": null
+            },
+            {
+                "entity_id": "automation.bedroom_control",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "1612890416638",
+                "platform": "automation",
+                "name": "Bedroom control",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Bedroom control",
+                "original_icon": null
+            },
+            {
+                "entity_id": "automation.bedroom_switch",
+                "config_entry_id": null,
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "1633606615304",
+                "platform": "automation",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Bedroom switch",
+                "original_icon": null
+            },
+            {
+                "entity_id": "sensor.relative_marginal_emissions_intensity_nl",
+                "config_entry_id": "f0d58037193e3feae6f5f9f8b70d6a4a",
+                "device_id": null,
+                "area_id": null,
+                "unique_id": "f0d58037193e3feae6f5f9f8b70d6a4a_percent",
+                "platform": "watttime",
+                "name": null,
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": "%",
+                "original_name": "Relative Marginal Emissions Intensity (NL)",
+                "original_icon": "mdi:blur"
+            },
+            {
+                "entity_id": "switch.heater",
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_id": "29eda50f7d23f3fb9bd2eede6084a931",
+                "area_id": null,
+                "unique_id": "bc:33:ac:ff:fe:5b:6a:3a-01",
+                "platform": "deconz",
+                "name": "Heater",
+                "icon": null,
+                "disabled_by": null,
+                "capabilities": {},
+                "supported_features": 0,
+                "device_class": null,
+                "unit_of_measurement": null,
+                "original_name": "Heater plug",
                 "original_icon": null
             }
         ]
