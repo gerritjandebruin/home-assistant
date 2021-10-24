@@ -481,7 +481,7 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "input_boolean.bright",
+                                    "entity": "input_number.brightness",
                                     "secondary_info": "last-changed"
                                 },
                                 {

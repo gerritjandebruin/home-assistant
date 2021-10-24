@@ -58,51 +58,21 @@
         entity_id:
         - light.hall
         - light.corridor
-    - alias: Dark
+    - alias: Maximum brightness
       conditions:
       - condition: numeric_state
-        entity_id: sensor.hall_light
-        below: 20
-      sequence:
-      - choose:
-        - conditions:
-          - condition: state
-            entity_id: input_boolean.bright
-            state: 'on'
-          sequence:
-          - service: light.turn_on
-            entity_id:
-            - light.hall
-            - light.corridor
-            data:
-              brightness_pct: 100
-              color_temp: 380
-        default:
-        - service: light.turn_on
-          entity_id:
-          - light.corridor
-          - light.hall
-          data:
-            brightness_pct: 50
-            color_temp: 454
-    default:
-    - service: light.turn_off
-      entity_id:
-      - light.corridor
-      - light.hall
-  - choose:
-    - conditions:
-      - condition: numeric_state
-        entity_id: sensor.outside_temperature
-        below: '0'
-      - condition: state
-        entity_id: light.hall
-        state: 'on'
+        entity_id: input_number.brightness
+        above: '0'
       sequence:
       - service: light.turn_on
-        entity_id: light.hall
+        target:
+          entity_id:
+          - light.hall
+          - light.corridor
         data:
-          color_temp: 153
+          brightness_pct: '{{ states(''input_number.brightness'') | float }}'
+          color_temp: '{{ 153 if states(''outside_temperature'') | float < 0 else
+            360 if states(''input_number.brightness'') | float > 50 else 454 }}'
   mode: queued
   max: 5
 - id: '1603831020194'
@@ -113,14 +83,13 @@
   trigger:
   - platform: state
     entity_id: binary_sensor.kitchen_motion
-    attribute: 'on'
     to: 'on'
   - platform: state
     entity_id: binary_sensor.kitchen_motion
     to: 'off'
     for:
       hours: 0
-      minutes: 1
+      minutes: 2
       seconds: 0
       milliseconds: 0
   condition: []
@@ -128,18 +97,17 @@
   - choose:
     - conditions:
       - condition: numeric_state
-        entity_id: sensor.hall_light
-        below: '20'
+        entity_id: input_number.brightness
+        above: '0'
       - condition: state
         entity_id: binary_sensor.kitchen_motion
         state: 'on'
       sequence:
       - service: light.turn_on
-        data:
-          brightness_pct: '{{ 100 if is_state(''input_boolean.bright'', ''on'') else
-            50 }}'
         target:
           entity_id: light.kitchen
+        data:
+          brightness_pct: '{{ states(''input_number.brightness'') | float }}'
     default:
     - service: light.turn_off
       entity_id: light.kitchen
@@ -162,7 +130,8 @@
   condition: []
   action:
   - choose:
-    - conditions:
+    - alias: No movement
+      conditions:
       - condition: state
         entity_id: binary_sensor.hall_motion
         state: 'off'
@@ -173,13 +142,17 @@
       sequence:
       - service: light.turn_off
         entity_id: light.attic
-    - conditions:
+    - alias: On if dark
+      conditions:
       - condition: numeric_state
-        entity_id: sensor.hall_light
-        below: '20'
+        entity_id: input_number.brightness
+        above: '0'
       sequence:
       - service: light.turn_on
-        entity_id: light.attic
+        target:
+          entity_id: light.attic
+        data:
+          brightness: 100
     default:
     - service: light.turn_off
       entity_id: light.attic
@@ -255,6 +228,10 @@
         tag: bedroom
         apns_headers:
           apns-collapse-id: bedroom
+  - service: notify.notify
+    data:
+      message: 'Sleeping room should be ventilated, predicted probability on mold:
+        {{states.sensor.bedroom_mold.state_with_unit}}.'
   mode: single
 - id: '1609974870568'
   alias: Doorbell
@@ -575,15 +552,46 @@
   condition: []
   action:
   - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ state_attr(''sun.sun'', ''elevation'') < -6 }}'
+    - alias: Min
+      conditions:
+      - condition: time
+        after: 01:00:00
+        before: 05:00:00
       sequence:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.bright
+      - service: input_number.set_value
+        data:
+          value: 1
+        target:
+          entity_id: input_number.brightness
+    - alias: Half
+      conditions:
+      - condition: numeric_state
+        entity_id: sun.sun
+        attribute: elevation
+        below: '-6'
+      sequence:
+      - service: input_number.set_value
+        data:
+          value: 50
+        target:
+          entity_id: input_number.brightness
+    - alias: Max
+      conditions:
+      - condition: numeric_state
+        entity_id: sensor.hall_light
+        below: '20'
+      sequence:
+      - service: input_number.set_value
+        data:
+          value: 100
+        target:
+          entity_id: input_number.brightness
     default:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.bright
+    - service: input_number.set_value
+      data:
+        value: 0
+      target:
+        entity_id: input_number.brightness
   mode: single
 - id: '1613720614532'
   alias: Bathroom
@@ -619,16 +627,6 @@
       sequence:
       - service: switch.turn_off
         entity_id: switch.bathroom
-    - alias: Presumed forgotten to switch light off while door closed
-      conditions:
-      - condition: trigger
-        id: door long closed
-      - condition: numeric_state
-        entity_id: sensor.bathroom_humidity
-        below: '80'
-      sequence:
-      - service: switch.turn_off
-        entity_id: switch.bathroom
     - alias: Presumed showering
       conditions:
       - condition: trigger
@@ -651,6 +649,13 @@
           below: '80'
         timeout:
           minutes: 60
+    - alias: Presumed forgotten to switch light off while door closed
+      conditions:
+      - condition: trigger
+        id: door long closed
+      sequence:
+      - service: switch.turn_off
+        entity_id: switch.bathroom
     - alias: Door opened
       conditions:
       - condition: trigger
@@ -847,6 +852,13 @@
       - service: switch.turn_off
         target:
           entity_id: all
+      - service: automation.turn_off
+        target:
+          entity_id: automation.hall_corridor
+      - delay: 60
+      - service: automation.turn_on
+        target:
+          entity_id: automation.hall_corridor
     - alias: Down
       conditions:
       - condition: template
@@ -856,4 +868,31 @@
         target:
           area_id: bedroom
     default: []
+  mode: single
+- id: '1634075059687'
+  alias: Lounge
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.hall_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.lounge
+    state: 'off'
+  - condition: numeric_state
+    entity_id: input_number.brightness
+    below: '100'
+  action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.lounge
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: switch.turn_off
+    target:
+      entity_id: switch.lounge
   mode: single

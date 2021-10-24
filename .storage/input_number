@@ -2,6 +2,16 @@
     "version": 1,
     "key": "input_number",
     "data": {
-        "items": []
+        "items": [
+            {
+                "min": 0.0,
+                "max": 100.0,
+                "icon": "mdi:lightbulb-on",
+                "name": "Brightness",
+                "mode": "box",
+                "step": 1.0,
+                "id": "brightness"
+            }
+        ]
     }
 }

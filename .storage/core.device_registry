@@ -32,8 +32,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -295,11 +295,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -357,11 +357,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ]
                 ],
@@ -388,11 +388,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -450,11 +450,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -605,11 +605,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -636,11 +636,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -667,11 +667,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:91"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:91"
                     ]
                 ],
@@ -729,11 +729,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -870,7 +870,7 @@
             },
             {
                 "config_entries": [
-                    "86e02a91d2f68eab1a8e3cded0e181d5",
+                    "073d9d60b505c7c436b05f7acbdd18db",
                     "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
@@ -961,11 +961,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:06:59:d1:c7"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:06:59:d1:c7"
                     ]
                 ],
@@ -1192,7 +1192,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
-                "sw_version": "6.4",
+                "sw_version": "6.5",
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
                 "via_device_id": null,
@@ -1270,11 +1270,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -1291,7 +1291,6 @@
             },
             {
                 "config_entries": [
-                    "86e02a91d2f68eab1a8e3cded0e181d5",
                     "70e683081b2cb3b8cbea7313bcef72bb"
                 ],
                 "connections": [
@@ -1331,7 +1330,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2021.9.3",
+                "sw_version": "2021.10.1",
                 "entry_type": "service",
                 "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
                 "via_device_id": null,
@@ -2049,6 +2048,28 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Heater",
+                "disabled_by": null
+            },
+            {
+                "config_entries": [
+                    "5059e91156881af6614777ea2d92b8f2"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "34b1ae131518bac6"
+                    ]
+                ],
+                "manufacturer": "HMD Global",
+                "model": "Nokia 7.2",
+                "name": "Nokia 7.2",
+                "sw_version": "29",
+                "entry_type": null,
+                "id": "f601d2d767d3a4d5d2eb777f46097194",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
                 "disabled_by": null
             }
         ],
