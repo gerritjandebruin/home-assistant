@@ -28,7 +28,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.254"
             },
             {
                 "config_entries": [
@@ -56,7 +57,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": "Toilet switch",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.232"
             },
             {
                 "config_entries": [
@@ -77,7 +79,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -104,7 +107,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -120,13 +124,14 @@
                 "manufacturer": "hacs.xyz",
                 "model": "",
                 "name": "HACS",
-                "sw_version": "1.15.2",
+                "sw_version": "1.18.0",
                 "entry_type": "service",
                 "id": "d4dfeb3faac3b7d65ca316e4fef1a2b1",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hacs"
             },
             {
                 "config_entries": [
@@ -140,11 +145,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -157,7 +162,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Attic light",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -171,11 +177,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
@@ -188,7 +194,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Attic sensor",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -213,13 +220,14 @@
                 "manufacturer": "LUMI",
                 "model": "lumi.weather",
                 "name": "Bathroom Sensor",
-                "sw_version": null,
+                "sw_version": "20191205",
                 "entry_type": null,
                 "id": "6eb5caeb5106cd5a570e512d885fc0e3",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Bathroom sensor",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -250,7 +258,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Lounge sensor",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -264,11 +273,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -281,7 +290,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Attic switch",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -312,7 +322,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Corridor light",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -343,7 +354,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Corridor motion",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -357,11 +369,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ]
                 ],
@@ -374,7 +386,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": "walk_in_closet",
                 "name_by_user": "Walk in closet light 2",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -388,11 +401,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -405,7 +418,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Walk in closet door",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -436,7 +450,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Toilet door",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -467,7 +482,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Bedroom control",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -481,11 +497,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -498,7 +514,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Bedroom switch",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -529,7 +546,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": "bedroom",
                 "name_by_user": "Bedroom light 1",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -560,7 +578,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": "bedroom",
                 "name_by_user": "Bedroom light 2",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -574,11 +593,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ]
                 ],
@@ -591,7 +610,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": "bedroom",
                 "name_by_user": "Bedroom light 3",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -605,11 +625,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -622,7 +642,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": "bedroom",
                 "name_by_user": "Bedroom light 4",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -636,11 +657,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -653,7 +674,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": "bedroom",
                 "name_by_user": "Bedroom light 5",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -684,7 +706,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Hall light",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -715,7 +738,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Hall sensor",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -729,11 +753,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -746,7 +770,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Pantry light",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -760,11 +785,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -777,7 +802,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Pantry door",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -791,11 +817,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:08:16:da:da"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -808,7 +834,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Kitchen light",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -822,11 +849,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -839,7 +866,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Shed light",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -866,12 +894,13 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": "Bike",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.231"
             },
             {
                 "config_entries": [
-                    "073d9d60b505c7c436b05f7acbdd18db",
-                    "33699060188811ebb707e7caa407dbba"
+                    "33699060188811ebb707e7caa407dbba",
+                    "073d9d60b505c7c436b05f7acbdd18db"
                 ],
                 "connections": [
                     [
@@ -894,7 +923,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": "Bathroom switch",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.234"
             },
             {
                 "config_entries": [
@@ -908,11 +938,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -925,29 +955,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Kitchen motion",
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "7a61e4ae7adf6466df3b1ee381636ace"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mobile_app",
-                        "c3b0e83d2496d9ea"
-                    ]
-                ],
-                "manufacturer": "HMD Global",
-                "model": "Nokia 7.2",
-                "name": "Nokia 7.2",
-                "sw_version": "29",
-                "entry_type": null,
-                "id": "8a7285025d5d2d51987663c78edf86e7",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -961,24 +970,25 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:06:59:d1:c7"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:06:59:d1:c7"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.sensor_magnet.aq2",
                 "name": "Bathroom OpenClose",
-                "sw_version": null,
+                "sw_version": "20161128",
                 "entry_type": null,
                 "id": "f24581febab429724251dc0538cc97da",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Bathroom door",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1000,7 +1010,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/core_check_config"
             },
             {
                 "config_entries": [
@@ -1015,14 +1026,15 @@
                 ],
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
-                "name": "Visual Studio Code",
-                "sw_version": "3.6.2",
+                "name": "Studio Code Server",
+                "sw_version": "3.7.0",
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_vscode"
             },
             {
                 "config_entries": [
@@ -1038,13 +1050,14 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Spotify Connect",
-                "sw_version": "0.9.1",
+                "sw_version": "0.10.0",
                 "entry_type": "service",
                 "id": "cf52919079aa78851a7fa118a22a1bd1",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_spotify"
             },
             {
                 "config_entries": [
@@ -1060,13 +1073,14 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Grafana",
-                "sw_version": "7.2.0",
+                "sw_version": "7.3.2",
                 "entry_type": "service",
                 "id": "f7f8bd1308cff7e610ba87b6009d3b85",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_grafana"
             },
             {
                 "config_entries": [
@@ -1088,7 +1102,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_portainer"
             },
             {
                 "config_entries": [
@@ -1104,13 +1119,14 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "InfluxDB",
-                "sw_version": "4.2.1",
+                "sw_version": "4.3.0",
                 "entry_type": "service",
                 "id": "b28137196acda31f40287f38243d701f",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_influxdb"
             },
             {
                 "config_entries": [
@@ -1126,13 +1142,14 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "JupyterLab",
-                "sw_version": "0.5.0",
+                "sw_version": "0.6.0",
                 "entry_type": "service",
                 "id": "c2053bd9d787aba62b8be63b65e4ae3d",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_jupyterlablite"
             },
             {
                 "config_entries": [
@@ -1154,7 +1171,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/cebe7a76_hassio_google_drive_backup"
             },
             {
                 "config_entries": [
@@ -1176,7 +1194,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/core_mosquitto"
             },
             {
                 "config_entries": [
@@ -1192,13 +1211,14 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
-                "sw_version": "6.5",
+                "sw_version": "6.6",
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1225,7 +1245,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": "Terrace",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.4"
             },
             {
                 "config_entries": [
@@ -1239,11 +1260,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1256,7 +1277,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Guestroom sensor",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1270,11 +1292,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -1287,7 +1309,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Bedroom sensor",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1314,7 +1337,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": "lounge",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.233"
             },
             {
                 "config_entries": [
@@ -1330,13 +1354,14 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2021.10.1",
+                "sw_version": "2021.11.4",
                 "entry_type": "service",
                 "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_esphome"
             },
             {
                 "config_entries": [
@@ -1358,7 +1383,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": "Printer",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1374,13 +1400,14 @@
                 "manufacturer": "Synology",
                 "model": "DS216play",
                 "name": "Synology NAS",
-                "sw_version": "DSM 7.0-41890",
+                "sw_version": "DSM 7.0.1-42218",
                 "entry_type": null,
                 "id": "953c91864067f38764af450c5f41be7c",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "https://192.168.1.252:5001"
             },
             {
                 "config_entries": [
@@ -1402,7 +1429,8 @@
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "https://192.168.1.252:5001"
             },
             {
                 "config_entries": [
@@ -1424,7 +1452,8 @@
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "https://192.168.1.252:5001"
             },
             {
                 "config_entries": [
@@ -1440,13 +1469,14 @@
                 "manufacturer": "Synology",
                 "model": "DS216play",
                 "name": "Synology NAS (Volume 2 - SHR without disk protect)",
-                "sw_version": "DSM 7.0-41890",
+                "sw_version": "DSM 7.0.1-42218",
                 "entry_type": null,
                 "id": "0ba8b62ca732fcd1819a3e32c79f631c",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "https://192.168.1.252:5001"
             },
             {
                 "config_entries": [
@@ -1462,13 +1492,14 @@
                 "manufacturer": "Synology",
                 "model": "DS216play",
                 "name": "Synology NAS (Volume 1 - SHR without disk protect)",
-                "sw_version": "DSM 7.0-41890",
+                "sw_version": "DSM 7.0.1-42218",
                 "entry_type": null,
                 "id": "0313f799af7698516edee819b8f272c9",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "https://192.168.1.252:5001"
             },
             {
                 "config_entries": [
@@ -1490,7 +1521,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": "Augustinuserf NAS",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "https://augustinuserf.nl:443"
             },
             {
                 "config_entries": [
@@ -1512,7 +1544,8 @@
                 "via_device_id": "f60bca79adc6481f671953981e38f1b2",
                 "area_id": null,
                 "name_by_user": "Augustinuserf Drive 2",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "https://augustinuserf.nl:443"
             },
             {
                 "config_entries": [
@@ -1534,11 +1567,12 @@
                 "via_device_id": "f60bca79adc6481f671953981e38f1b2",
                 "area_id": null,
                 "name_by_user": "Augustinuserf Volume 2",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "https://augustinuserf.nl:443"
             },
             {
                 "config_entries": [
-                    "fa35deda57d1990b231b04ae6e5d49a1"
+                    "47c054f917dac4a33280d77f76254678"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -1549,14 +1583,15 @@
                 ],
                 "manufacturer": "samsung",
                 "model": "SM-A520F",
-                "name": "Samsung ",
+                "name": "SM-A520F",
                 "sw_version": "26",
                 "entry_type": null,
                 "id": "3ca4294e6c19aa5bdc5be879fca5947f",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1570,11 +1605,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -1587,7 +1622,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Shed door",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1601,11 +1637,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -1618,7 +1654,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Shed sensor",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1632,11 +1669,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ]
                 ],
@@ -1649,7 +1686,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Terrace",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1665,13 +1703,14 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "SSH & Web Terminal",
-                "sw_version": "9.0.1",
+                "sw_version": "9.1.1",
                 "entry_type": "service",
                 "id": "dc599c9c099cbc5efd2cdbee6aff7750",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_ssh"
             },
             {
                 "config_entries": [
@@ -1693,7 +1732,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/local_ha-rtl"
             },
             {
                 "config_entries": [
@@ -1715,29 +1755,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
-            },
-            {
-                "config_entries": [
-                    "1e3e54cb7e19f4265b03c77d30e03915"
-                ],
-                "connections": [
-                    [
-                        "mac",
-                        "7c:9e:bd:f3:e4:a8"
-                    ]
-                ],
-                "identifiers": [],
-                "manufacturer": "espressif",
-                "model": "Espressif ESP32 Dev Module",
-                "name": "voltmeter",
-                "sw_version": "2021.8.2 (Sep 13 2021, 14:46:58)",
-                "entry_type": null,
-                "id": "06ba9e3d94196ad9f563032b5cc7f223",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1759,7 +1778,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/core_deconz"
             },
             {
                 "config_entries": [
@@ -1781,7 +1801,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": "user"
+                "disabled_by": "user",
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1798,12 +1819,13 @@
                 "model": "deCONZ",
                 "name": "Phoscon-GW",
                 "sw_version": "2.12.6",
-                "entry_type": null,
+                "entry_type": "service",
                 "id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1825,7 +1847,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": "user"
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1852,7 +1875,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1879,7 +1903,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": "walk_in_closet",
                 "name_by_user": "Walk in closet light 1",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1901,7 +1926,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": "user"
+                "disabled_by": "user",
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1923,7 +1949,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Walk in closet",
-                "disabled_by": "user"
+                "disabled_by": "user",
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1950,7 +1977,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Bike switch",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1977,7 +2005,8 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Bike motion",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -1999,7 +2028,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": "https://www.speedtest.net/"
             },
             {
                 "config_entries": [
@@ -2021,7 +2051,8 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": "user",
+                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -2048,11 +2079,150 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Heater",
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
             },
             {
                 "config_entries": [
-                    "5059e91156881af6614777ea2d92b8f2"
+                    "f8d140bf41eeb209a0f37954f3396982"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "c4:5b:be:6b:6b:56"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "Shelly",
+                "model": "Shelly EM",
+                "name": "shellyem-C45BBE6B6B56",
+                "sw_version": "20210909-150325/v1.11.4-DNSfix-ge6b2f6d",
+                "entry_type": null,
+                "id": "93a8f0b57682098cbf5f6afbfd586ff4",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": "Energy meter",
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.235"
+            },
+            {
+                "config_entries": [
+                    "08aa40ce52a730d3608823809fa0ff78"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "co2signal",
+                        "08aa40ce52a730d3608823809fa0ff78"
+                    ]
+                ],
+                "manufacturer": "Tmrow.com",
+                "model": null,
+                "name": "CO2 signal",
+                "sw_version": null,
+                "entry_type": "service",
+                "id": "d7f01121bcf04593f3f374c5e32954e3",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "https://www.electricitymap.org/"
+            },
+            {
+                "config_entries": [
+                    "25f9ea0fce14a52058fa4c12cab25539"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "forecast_solar",
+                        "25f9ea0fce14a52058fa4c12cab25539"
+                    ]
+                ],
+                "manufacturer": "Forecast.Solar",
+                "model": "public",
+                "name": "Solar Production Forecast",
+                "sw_version": null,
+                "entry_type": "service",
+                "id": "c2d4a230b02f875d3c562eb64907aa85",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "36d19cc99cab8472550508d64d7c322e"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "forecast_solar",
+                        "36d19cc99cab8472550508d64d7c322e"
+                    ]
+                ],
+                "manufacturer": "Forecast.Solar",
+                "model": "public",
+                "name": "Solar Production Forecast",
+                "sw_version": null,
+                "entry_type": "service",
+                "id": "c036bd383b1e34963cb897c0b9936ed1",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "2f601e59608a122de87eef0cc93bcf6a"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "growatt_server",
+                        "456444"
+                    ]
+                ],
+                "manufacturer": "Growatt",
+                "model": null,
+                "name": "Thuis Total",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "63e88ce2207663e3e73e2a4d8f3659d2",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "2f601e59608a122de87eef0cc93bcf6a"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "growatt_server",
+                        "DCF3A3103X"
+                    ]
+                ],
+                "manufacturer": "Growatt",
+                "model": null,
+                "name": "DCF3A3103X",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "95d5a62ee02f260066e3278c4af737fa",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "2edc9e4f4f7e4d5f0696a036377253b6"
                 ],
                 "connections": [],
                 "identifiers": [
@@ -2070,7 +2240,82 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "1bbcd31df82b8a69abd0d9ece6db8471"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "64:07:f6:c0:dc:68"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "samsungtv",
+                        "41d82c41-0415-464c-a36a-59c131e7b5ff"
+                    ]
+                ],
+                "manufacturer": "Samsung",
+                "model": "QE50LS03AAUXXN",
+                "name": "TV",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "58b296ba53b8d3d4efd4a3b2b5fbc75f",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": "the Frame",
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "864ba2763ac851ad235d5681a9f06373"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "cast",
+                        "6187f1c7cc0357a99a8b893945ce8197"
+                    ]
+                ],
+                "manufacturer": "Google Inc.",
+                "model": "Chromecast",
+                "name": "Living Room",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "1645812584028252b1d24c76017b32a1",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": "Google Cast",
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "02:42:ac:1e:21:07"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": null,
+                "model": null,
+                "name": null,
+                "sw_version": null,
+                "entry_type": null,
+                "id": "34dd4ffb798d6bab73ddcd603a3213f1",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
             }
         ],
         "deleted_devices": [
@@ -2117,23 +2362,6 @@
                 "orphaned_timestamp": null
             },
             {
-                "config_entries": [],
-                "connections": [
-                    [
-                        "zigbee",
-                        "00:17:88:01:09:07:74:18"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "00:17:88:01:09:07:74:18"
-                    ]
-                ],
-                "id": "605c136aa75dca74653540a33efda3c2",
-                "orphaned_timestamp": 1633522218.974642
-            },
-            {
                 "config_entries": [
                     "5f406ac278c3b2036080c757726ec016"
                 ],
@@ -2146,40 +2374,6 @@
                 ],
                 "id": "e26414fa8b56045c92691e2bb4882dda",
                 "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [],
-                "connections": [
-                    [
-                        "zigbee",
-                        "00:12:4b:00:22:2f:93:e7"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "00:12:4b:00:22:2f:93:e7"
-                    ]
-                ],
-                "id": "87a3633a241147297526da69cec2e2b5",
-                "orphaned_timestamp": 1633522218.974642
-            },
-            {
-                "config_entries": [],
-                "connections": [
-                    [
-                        "zigbee",
-                        "58:8e:81:ff:fe:29:72:80"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "zha",
-                        "58:8e:81:ff:fe:29:72:80"
-                    ]
-                ],
-                "id": "4fc9337cacb054e80826f4bb581a7f21",
-                "orphaned_timestamp": 1633522218.974642
             },
             {
                 "config_entries": [
@@ -2392,21 +2586,61 @@
                 "orphaned_timestamp": null
             },
             {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_letsencrypt"
+                    ]
+                ],
+                "id": "b43d452fc96f46d98c04951ad12e00bc",
+                "orphaned_timestamp": null
+            },
+            {
                 "config_entries": [],
                 "connections": [
                     [
-                        "zigbee",
-                        "00:12:4b:00:18:df:2c:b5"
+                        "upnp",
+                        "uuid:1f2e3bad-97b4-4fd3-8a71-d53266c7f205"
                     ]
                 ],
                 "identifiers": [
                     [
-                        "zha",
-                        "00:12:4b:00:18:df:2c:b5"
+                        "dlna_dmr",
+                        "uuid:1f2e3bad-97b4-4fd3-8a71-d53266c7f205"
                     ]
                 ],
-                "id": "c15d99dd43ef70761cc96f0f3d892367",
-                "orphaned_timestamp": 1633522218.974642
+                "id": "209aa99f54c66dce0c1f833301025fdd",
+                "orphaned_timestamp": 1637137457.1104412
+            },
+            {
+                "config_entries": [],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "c3b0e83d2496d9ea"
+                    ]
+                ],
+                "id": "8a7285025d5d2d51987663c78edf86e7",
+                "orphaned_timestamp": 1637421770.9325166
+            },
+            {
+                "config_entries": [
+                    "c80b2a23f639a2081eb3bf4641eddfd8"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "tuya",
+                        "bfb697fa6c76dc63d5oouq"
+                    ]
+                ],
+                "id": "31587bc2e514ca3abc9259a599f973df",
+                "orphaned_timestamp": null
             }
         ]
     }

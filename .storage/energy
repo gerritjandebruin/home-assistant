@@ -1,0 +1,64 @@
+{
+    "version": 1,
+    "key": "energy",
+    "data": {
+        "energy_sources": [
+            {
+                "type": "grid",
+                "flow_from": [
+                    {
+                        "stat_energy_from": "sensor.energy_from_grid",
+                        "stat_cost": null,
+                        "entity_energy_from": "sensor.energy_from_grid",
+                        "entity_energy_price": null,
+                        "number_energy_price": 0.22138
+                    }
+                ],
+                "flow_to": [
+                    {
+                        "stat_energy_to": "sensor.energy_to_grid",
+                        "stat_compensation": null,
+                        "entity_energy_to": "sensor.energy_to_grid",
+                        "entity_energy_price": null,
+                        "number_energy_price": 0.22138
+                    }
+                ],
+                "cost_adjustment_day": 0.0
+            },
+            {
+                "type": "solar",
+                "stat_energy_from": "sensor.growatt_energy_today_input_1",
+                "config_entry_solar_forecast": [
+                    "25f9ea0fce14a52058fa4c12cab25539"
+                ]
+            },
+            {
+                "type": "solar",
+                "stat_energy_from": "sensor.growatt_energy_today_input_2",
+                "config_entry_solar_forecast": [
+                    "36d19cc99cab8472550508d64d7c322e"
+                ]
+            }
+        ],
+        "device_consumption": [
+            {
+                "stat_consumption": "sensor.bathroom_energy"
+            },
+            {
+                "stat_consumption": "sensor.bike_light_energy"
+            },
+            {
+                "stat_consumption": "sensor.bike_socket_energy"
+            },
+            {
+                "stat_consumption": "sensor.lounge_energy"
+            },
+            {
+                "stat_consumption": "sensor.terrace_energy"
+            },
+            {
+                "stat_consumption": "sensor.toilet_energy"
+            }
+        ]
+    }
+}

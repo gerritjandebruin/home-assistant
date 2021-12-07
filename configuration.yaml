@@ -14,6 +14,12 @@ climate:
     target_temp: 20
     initial_hvac_mode: "off"
   - platform: generic_thermostat
+    name: Guestroom climate
+    heater: switch.heater
+    target_sensor: sensor.guestroom_thermometer
+    target_temp: 20
+    initial_hvac_mode: "off"
+  - platform: generic_thermostat
     name: Bathroom climate
     heater: switch.heater
     target_sensor: sensor.bathroom_thermometer
@@ -46,8 +52,9 @@ homeassistant:
       trusted_networks:
         - 192.168.1.0/25
 http:
-  ssl_certificate: /ssl/cert.pem
-  ssl_key: /ssl/privkey.pem
+  trusted_proxies:
+    - 192.168.1.252
+  use_x_forwarded_for: true
   ip_ban_enabled: true
   login_attempts_threshold: 3
 recorder:
@@ -56,30 +63,6 @@ sensor:
   - platform: filesize
     file_paths:
       - /config/home-assistant_v2.db
-  - platform: template
-    sensors:
-      outside_temperature:
-        friendly_name: "outside temperature"
-        unit_of_measurement: "°C"
-        value_template: "{{ state_attr('weather.home', 'temperature')}}"
-        device_class: temperature
-      outside_humidity:
-        friendly_name: "outside humidity"
-        unit_of_measurement: "%"
-        value_template: "{{ state_attr('weather.home', 'humidity')}}"
-        device_class: humidity
-      outside_airpressure:
-        friendly_name: "outside pressure"
-        unit_of_measurement: "hPa"
-        value_template: "{{ state_attr('weather.home', 'pressure')}}"
-        device_class: humidity
-  - platform: systemmonitor
-    resources:
-      - type: disk_free
-        arg: /home
-      - type: memory_use_percent
-      - type: processor_use
-      - type: last_boot
   - platform: mold_indicator
     name: bedroom_mold
     indoor_temp_sensor: sensor.bedroom_thermometer
@@ -116,6 +99,50 @@ sensor:
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.8
     name: lounge_mold
+  - platform: systemmonitor
+    resources:
+      - type: disk_free
+        arg: /home
+      - type: memory_use_percent
+      - type: processor_use
+      - type: last_boot
+  - platform: command_line
+    command: python3 -c "import requests; import json; import random; dataRequest = requests.get('https://cdn-secure.buienalarm.nl/api/3.4/forecast.php?lat=52.095&lon=5.103&region=nl&unit=mm%2Fu&c='+str(random.randint(0,999999999999999)) ).text; dataRequest = dataRequest.replace('\r\n',' '); data = '{\"data\":'+dataRequest+'}';    print(data);"
+    name: Neerslag_Buienalarm_Regen_Data
+    json_attributes:
+      - data
+    value_template: "last_changed: {{states.sensor.neerslag_buienalarm_regen_data.last_changed | default(now())}}"
+    scan_interval: 240
+template:
+  - sensor:
+      - name: outside temperature
+        unit_of_measurement: "°C"
+        state: "{{ state_attr('weather.home', 'temperature')}}"
+        device_class: temperature
+      - name: outside humidity
+        unit_of_measurement: "%"
+        state: "{{ state_attr('weather.home', 'humidity')}}"
+        device_class: humidity
+      - name: outside airpressure
+        unit_of_measurement: "hPa"
+        state: "{{ state_attr('weather.home', 'pressure')}}"
+        device_class: humidity
+      - name: Expected production today
+        unit_of_measurement: "kWh"
+        state: "{{ states('sensor.energy_production_today_1') | float + states('sensor.energy_production_today_2') | float }}"
+        device_class: energy
+      - name: Expected production current hour
+        unit_of_measurement: "kWh"
+        state: "{{ states('sensor.energy_current_hour_1') | float + states('sensor.energy_current_hour_2') | float }}"
+        device_class: energy
+      - name: Expected production next hour
+        unit_of_measurement: "kWh"
+        state: "{{ states('sensor.energy_next_hour_1') | float + states('sensor.energy_next_hour_2') | float }}"
+        device_class: energy
+      - name: Current power consumption
+        unit_of_measurement: "W"
+        state: "{{ states('sensor.power_from_grid') | float + states('sensor.growatt_total_output_power') | float }}"
+        device_class: power
 shell_command:
   backup_logs: cp /config/home-assistant.log /config/home-assistant.log.bk
 tts:

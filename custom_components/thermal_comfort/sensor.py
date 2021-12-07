@@ -9,15 +9,18 @@ from homeassistant.components.sensor import ENTITY_ID_FORMAT, \
     PLATFORM_SCHEMA, DEVICE_CLASSES_SCHEMA
 from homeassistant.const import (
     ATTR_FRIENDLY_NAME, ATTR_UNIT_OF_MEASUREMENT, CONF_ICON_TEMPLATE,
-	CONF_ENTITY_PICTURE_TEMPLATE, CONF_SENSORS, EVENT_HOMEASSISTANT_START,
-	MATCH_ALL, CONF_DEVICE_CLASS, DEVICE_CLASS_TEMPERATURE, STATE_UNKNOWN,
-        STATE_UNAVAILABLE, DEVICE_CLASS_HUMIDITY, ATTR_TEMPERATURE, TEMP_FAHRENHEIT)
+    CONF_ENTITY_PICTURE_TEMPLATE, CONF_SENSORS, EVENT_HOMEASSISTANT_START,
+    MATCH_ALL, CONF_DEVICE_CLASS, DEVICE_CLASS_TEMPERATURE, STATE_UNKNOWN,
+    STATE_UNAVAILABLE, DEVICE_CLASS_HUMIDITY, ATTR_TEMPERATURE, TEMP_FAHRENHEIT,
+    CONF_UNIQUE_ID,
+)
 from homeassistant.exceptions import TemplateError
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity import Entity, async_generate_entity_id
 from homeassistant.helpers.event import async_track_state_change
 
 import math
+from enum import Enum
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -30,7 +33,8 @@ SENSOR_SCHEMA = vol.Schema({
     vol.Required(CONF_HUMIDITY_SENSOR): cv.entity_id,
     vol.Optional(CONF_ICON_TEMPLATE): cv.template,
     vol.Optional(CONF_ENTITY_PICTURE_TEMPLATE): cv.template,
-    vol.Optional(ATTR_FRIENDLY_NAME): cv.string
+    vol.Optional(ATTR_FRIENDLY_NAME): cv.string,
+    vol.Optional(CONF_UNIQUE_ID): cv.string,
 })
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
@@ -44,6 +48,15 @@ SENSOR_TYPES = {
     'perception': [None, 'Thermal Perception', None],
 }
 
+PERCEPTION_DRY = "dry"
+PERCEPTION_VERY_COMFORTABLE = "very_comfortable"
+PERCEPTION_COMFORTABLE = "comfortable"
+PERCEPTION_DEWPOINT_OK_BUT_HUMID = "ok_but_humid"
+PERCEPTION_SOMEWHAT_UNCOMFORTABLE = "somewhat_uncomfortable"
+PERCEPTION_QUITE_UNCOMFORTABLE = "quite_uncomfortable"
+PERCEPTION_EXTREMELY_UNCOMFORTABLE = "extremely_uncomfortable"
+PERCEPTION_SEVERELY_HIGH = "severely_high"
+
 async def async_setup_platform(hass, config, async_add_entities,
                                discovery_info=None):
     """Set up the Thermal Comfort sensors."""
@@ -55,6 +68,7 @@ async def async_setup_platform(hass, config, async_add_entities,
         icon_template = device_config.get(CONF_ICON_TEMPLATE)
         entity_picture_template = device_config.get(CONF_ENTITY_PICTURE_TEMPLATE)
         friendly_name = device_config.get(ATTR_FRIENDLY_NAME, device)
+        unique_id = device_config.get(CONF_UNIQUE_ID)
 
         for sensor_type in SENSOR_TYPES:
                 sensors.append(
@@ -66,8 +80,10 @@ async def async_setup_platform(hass, config, async_add_entities,
                                 friendly_name,
                                 icon_template,
                                 entity_picture_template,
-                                sensor_type)
+                                sensor_type,
+                                unique_id,
                         )
+                )
     if not sensors:
         _LOGGER.error("No sensors added")
         return False
@@ -80,7 +96,7 @@ class SensorThermalComfort(Entity):
     """Representation of a Thermal Comfort Sensor."""
 
     def __init__(self, hass, device_id, temperature_entity, humidity_entity,
-                 friendly_name, icon_template, entity_picture_template, sensor_type):
+                 friendly_name, icon_template, entity_picture_template, sensor_type, unique_id=None):
         """Initialize the sensor."""
         self.hass = hass
         self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, "{}_{}".format(device_id, sensor_type), hass=hass)
@@ -98,6 +114,7 @@ class SensorThermalComfort(Entity):
         self._sensor_type = sensor_type
         self._temperature = None
         self._humidity = None
+        self._unique_id = unique_id
 
         async_track_state_change(
             self.hass, self._temperature_entity, self.temperature_state_listener)
@@ -106,16 +123,16 @@ class SensorThermalComfort(Entity):
             self.hass, self._humidity_entity, self.humidity_state_listener)
 
         temperature_state = hass.states.get(temperature_entity)
-        if temperature_state and temperature_state.state != STATE_UNKNOWN and temperature_state.state != STATE_UNAVAILABLE:
+        if _is_valid_state(temperature_state):
             self._temperature = float(temperature_state.state)
 
         humidity_state = hass.states.get(humidity_entity)
-        if humidity_state and humidity_state.state != STATE_UNKNOWN and humidity_state.state != STATE_UNAVAILABLE:
+        if _is_valid_state(humidity_state):
             self._humidity = float(humidity_state.state)
 
     def temperature_state_listener(self, entity, old_state, new_state):
         """Handle temperature device state changes."""
-        if new_state and new_state.state != STATE_UNKNOWN and new_state.state != STATE_UNAVAILABLE:
+        if _is_valid_state(new_state):
             unit = new_state.attributes.get(ATTR_UNIT_OF_MEASUREMENT)
             temp = util.convert(new_state.state, float)
             # convert to celsius if necessary
@@ -127,7 +144,7 @@ class SensorThermalComfort(Entity):
 
     def humidity_state_listener(self, entity, old_state, new_state):
         """Handle humidity device state changes."""
-        if new_state and new_state.state != STATE_UNKNOWN and new_state.state != STATE_UNAVAILABLE:
+        if _is_valid_state(new_state):
             self._humidity = float(new_state.state)
 
         self.async_schedule_update_ha_state(True)
@@ -179,20 +196,20 @@ class SensorThermalComfort(Entity):
         """https://en.wikipedia.org/wiki/Dew_point"""
         dewPoint = self.computeDewPoint(temperature, humidity)
         if dewPoint < 10:
-            return "A bit dry for some"
+            return PERCEPTION_DRY
         elif dewPoint < 13:
-            return "Very comfortable"
+            return PERCEPTION_VERY_COMFORTABLE
         elif dewPoint < 16:
-            return "Comfortable"
+            return PERCEPTION_COMFORTABLE
         elif dewPoint < 18:
-            return "OK for most, but all perceive the humidity at upper edge"
+            return PERCEPTION_DEWPOINT_OK_BUT_HUMID
         elif dewPoint < 21:
-            return "Somewhat uncomfortable for most people at upper edge"
+            return PERCEPTION_SOMEWHAT_UNCOMFORTABLE
         elif dewPoint < 24:
-            return "Very humid, quite uncomfortable"
+            return PERCEPTION_QUITE_UNCOMFORTABLE
         elif dewPoint < 26:
-            return "Extremely uncomfortable, oppressive"
-        return "Severely high, even deadly for asthma related illnesses"
+            return PERCEPTION_EXTREMELY_UNCOMFORTABLE
+        return PERCEPTION_SEVERELY_HIGH
 
     def computeAbsoluteHumidity(self, temperature, humidity):
         """https://carnotcycle.wordpress.com/2012/08/04/how-to-convert-relative-humidity-to-absolute-humidity/"""
@@ -245,10 +262,16 @@ class SensorThermalComfort(Entity):
         """No polling needed."""
         return False
 
+    @property
+    def unique_id(self) -> str:
+        """Return a unique ID."""
+        if self._unique_id is not None:
+            return self._unique_id + self._sensor_type
+
     async def async_update(self):
         """Update the state."""
         value = None
-        if self._temperature and self._humidity:
+        if self._temperature is not None and self._humidity is not None:
             if self._sensor_type == "dewpoint":
                 value = self.computeDewPoint(self._temperature, self._humidity)
             if self._sensor_type == "heatindex":
@@ -289,3 +312,6 @@ class SensorThermalComfort(Entity):
                     _LOGGER.error('Could not render %s template %s: %s',
                                   friendly_property_name, self._name, ex)
 
+
+def _is_valid_state(state) -> bool:
+    return state and state.state != STATE_UNKNOWN and state.state != STATE_UNAVAILABLE and not math.isnan(float(state.state))

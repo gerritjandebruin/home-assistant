@@ -22,6 +22,11 @@
                 "url": "/hacsfiles/lovelace-battery-entity-row/battery-entity-row.js",
                 "type": "module",
                 "id": "cdff997124ba4dec8765cf55f4f6d72d"
+            },
+            {
+                "url": "/hacsfiles/home-assistant-neerslag-card/neerslag-card.js?hacstag=342944383202110210",
+                "type": "module",
+                "id": "580b3d04bfb843368dacb9558ffc514d"
             }
         ]
     }

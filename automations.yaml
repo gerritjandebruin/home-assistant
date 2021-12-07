@@ -292,6 +292,11 @@
   - platform: numeric_state
     entity_id: sensor.shed_thermometer
     above: '10'
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
   condition: []
   action:
   - service: notify.mobile_app_nokia_7_2
@@ -671,6 +676,11 @@
   trigger:
   - platform: state
     entity_id: binary_sensor.bike_motion
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.bike_motion
+    to: 'off'
+    for: 00:01:00
   condition: []
   action:
   - choose:
@@ -869,30 +879,45 @@
           area_id: bedroom
     default: []
   mode: single
-- id: '1634075059687'
-  alias: Lounge
+- id: '1635893093845'
+  alias: Climate auto-off
+  description: ''
+  trigger:
+  - platform: time
+    at: 02:00:00
+  condition: []
+  action:
+  - service: climate.turn_off
+    target:
+      entity_id:
+      - climate.attic_climate
+      - climate.bathroom_climate
+      - climate.bedroom_climate
+  mode: single
+- id: '1635936485265'
+  alias: Climate
   description: ''
   trigger:
   - platform: state
-    entity_id: binary_sensor.hall_motion
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: switch.lounge
-    state: 'off'
-  - condition: numeric_state
-    entity_id: input_number.brightness
-    below: '100'
+    entity_id: sensor.power_from_grid
+  condition: []
   action:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.lounge
-  - delay:
-      hours: 0
-      minutes: 5
-      seconds: 0
-      milliseconds: 0
-  - service: switch.turn_off
-    target:
-      entity_id: switch.lounge
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.power_from_grid
+        below: '0'
+      sequence:
+      - service: climate.turn_on
+        target:
+          entity_id: climate.attic_climate
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.power_from_grid
+        above: '750'
+      sequence:
+      - service: climate.turn_off
+        target:
+          entity_id: climate.attic_climate
+    default: []
   mode: single

@@ -470,6 +470,226 @@
                     "title": "map"
                 },
                 {
+                    "title": "Thermometer",
+                    "path": "thermometer",
+                    "icon": "mdi:thermometer",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "glance",
+                            "show_icon": false,
+                            "entities": [
+                                {
+                                    "entity": "sensor.outside_temperature",
+                                    "name": "Outside"
+                                },
+                                {
+                                    "entity": "sensor.attic_thermometer",
+                                    "name": "Attic"
+                                },
+                                {
+                                    "entity": "sensor.bathroom_thermometer",
+                                    "name": "Bathroom"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_thermometer",
+                                    "name": "Bedroom"
+                                },
+                                {
+                                    "entity": "sensor.guestroom_thermometer",
+                                    "name": "Guestroom"
+                                },
+                                {
+                                    "entity": "sensor.hall_thermometer",
+                                    "name": "Hall"
+                                },
+                                {
+                                    "entity": "sensor.lounge_thermometer",
+                                    "name": "Lounge"
+                                },
+                                {
+                                    "entity": "sensor.shed_thermometer",
+                                    "name": "Shed"
+                                }
+                            ],
+                            "title": "Temperature",
+                            "state_color": true,
+                            "columns": 4
+                        },
+                        {
+                            "type": "weather-forecast",
+                            "entity": "weather.home"
+                        },
+                        {
+                            "type": "grid",
+                            "title": "Mold",
+                            "cards": [
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.lounge_mold",
+                                    "min": 0,
+                                    "max": 100,
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 70,
+                                        "red": 90
+                                    },
+                                    "name": "Lounge"
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.bathroom_mold",
+                                    "min": 0,
+                                    "max": 100,
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 70,
+                                        "red": 90
+                                    },
+                                    "name": "Bathroom"
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.guestroom_mold",
+                                    "min": 0,
+                                    "max": 100,
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 70,
+                                        "red": 90
+                                    },
+                                    "name": "Guest room"
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.attic_mold",
+                                    "min": 0,
+                                    "max": 100,
+                                    "name": "Attic",
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 70,
+                                        "red": 90
+                                    }
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.bedroom_mold",
+                                    "min": 0,
+                                    "max": 100,
+                                    "name": "Bedroom",
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 70,
+                                        "red": 90
+                                    }
+                                }
+                            ],
+                            "square": true
+                        },
+                        {
+                            "type": "grid",
+                            "title": "Humidity",
+                            "cards": [
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.lounge_humidity",
+                                    "min": 0,
+                                    "max": 100,
+                                    "name": "Lounge",
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 60,
+                                        "red": 80
+                                    }
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.bathroom_humidity",
+                                    "min": 0,
+                                    "max": 100,
+                                    "name": "Bathroom",
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 60,
+                                        "red": 80
+                                    }
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.guestroom_humidity",
+                                    "min": 0,
+                                    "max": 100,
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 60,
+                                        "red": 80
+                                    },
+                                    "name": "Guestroom"
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.attic_humidity",
+                                    "name": "Attic",
+                                    "min": 0,
+                                    "max": 100,
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 60,
+                                        "red": 80
+                                    }
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.outside_humidity",
+                                    "name": "Outside",
+                                    "min": 0,
+                                    "max": 100,
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 60,
+                                        "red": 80
+                                    }
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.bedroom_humidity",
+                                    "min": 0,
+                                    "max": 100,
+                                    "severity": {
+                                        "green": 0,
+                                        "yellow": 60,
+                                        "red": 80
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:sun-card"
+                        },
+                        {
+                            "type": "thermostat",
+                            "entity": "climate.attic_climate",
+                            "name": "Attic"
+                        },
+                        {
+                            "type": "custom:neerslag-card",
+                            "title": "Precipitation",
+                            "entity": "sensor.neerslag_buienalarm_regen_data"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "climate.attic_climate"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
+                        }
+                    ]
+                },
+                {
                     "icon": "mdi:lightbulb",
                     "panel": true,
                     "path": "default_view",
@@ -504,6 +724,12 @@
                                 },
                                 {
                                     "type": "section"
+                                },
+                                {
+                                    "entity": "media_player.the_frame"
+                                },
+                                {
+                                    "entity": "media_player.google"
                                 },
                                 {
                                     "entity": "switch.lounge",
@@ -642,248 +868,182 @@
                                     "icon": "mdi:bed",
                                     "show_state": false,
                                     "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "vacuum.berry",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Vacuum cleaner",
+                                    "secondary_info": "last-changed",
+                                    "entities": [
+                                        {
+                                            "icon": "mdi:pause",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "vacuum.pause",
+                                                "service_data": {
+                                                    "entity_id": "vacuum.berry"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "icon": "mdi:power-plug",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "vacuum.return_to_base",
+                                                "service_data": {
+                                                    "entity_id": "vacuum.berry"
+                                                }
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
                         }
                     ]
                 },
                 {
-                    "title": "Thermometer",
-                    "path": "thermometer",
-                    "icon": "mdi:thermometer",
-                    "badges": [],
+                    "title": "Solar",
+                    "path": "solar",
+                    "icon": "mdi:lightning-bolt",
+                    "badges": [
+                        {
+                            "entity": "sensor.growatt_ac_frequency"
+                        },
+                        {
+                            "entity": "sensor.grid_voltage"
+                        }
+                    ],
                     "cards": [
                         {
-                            "type": "history-graph",
+                            "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "sensor.growatt_total_output_power"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
-                            "title": "Solar panels"
-                        },
-                        {
-                            "type": "grid",
-                            "title": "Energy generated",
-                            "cards": [
-                                {
-                                    "type": "gauge",
                                     "entity": "sensor.growatt_total_output_power",
-                                    "min": 0,
-                                    "max": 2920,
-                                    "name": "Current"
+                                    "name": "Current production",
+                                    "secondary_info": "last-updated"
                                 },
                                 {
-                                    "type": "entity",
+                                    "entity": "sensor.power_from_grid",
+                                    "secondary_info": "last-updated"
+                                },
+                                {
+                                    "entity": "sensor.current_power_consumption",
+                                    "secondary_info": "last-updated"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "sensor.expected_production_current_hour",
+                                    "name": "Expected production this hour",
+                                    "secondary_info": "last-updated"
+                                },
+                                {
+                                    "entity": "sensor.expected_production_next_hour",
+                                    "name": "Expected production next hour",
+                                    "secondary_info": "last-updated"
+                                },
+                                {
+                                    "entity": "sensor.expected_production_today",
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Expected producation today",
+                                    "secondary_info": "last-changed",
+                                    "format": "precision1"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
                                     "entity": "sensor.growatt_total_energy_today",
-                                    "name": "Today"
+                                    "name": "Actual production today so-far",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
-                                    "type": "entity",
-                                    "entity": "sensor.growatt_total_lifetime_energy_output",
-                                    "name": "Total"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "glance",
-                            "show_icon": false,
-                            "entities": [
-                                {
-                                    "entity": "sensor.outside_temperature",
-                                    "name": "Outside"
+                                    "type": "divider"
                                 },
                                 {
-                                    "entity": "sensor.attic_thermometer",
-                                    "name": "Attic"
-                                },
-                                {
-                                    "entity": "sensor.bathroom_thermometer",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_thermometer",
-                                    "name": "Bedroom"
-                                },
-                                {
-                                    "entity": "sensor.guestroom_thermometer",
-                                    "name": "Guestroom"
-                                },
-                                {
-                                    "entity": "sensor.hall_thermometer",
-                                    "name": "Hall"
-                                },
-                                {
-                                    "entity": "sensor.lounge_thermometer",
-                                    "name": "Lounge"
-                                },
-                                {
-                                    "entity": "sensor.pantry_thermometer",
-                                    "name": "Pantry"
-                                },
-                                {
-                                    "entity": "sensor.shed_thermometer",
-                                    "name": "Shed"
-                                },
-                                {
-                                    "entity": "sensor.toilet_thermometer",
-                                    "name": "Toilet"
-                                },
-                                {
-                                    "entity": "sensor.walk_in_closet_thermometer",
-                                    "name": "Walk in closet"
-                                }
-                            ],
-                            "title": "Temperature",
-                            "state_color": true,
-                            "columns": 4
-                        },
-                        {
-                            "type": "weather-forecast",
-                            "entity": "weather.home"
-                        },
-                        {
-                            "type": "grid",
-                            "title": "Mold",
-                            "cards": [
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.lounge_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    },
-                                    "name": "Lounge"
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bathroom_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    },
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.guestroom_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    },
-                                    "name": "Guest room"
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.attic_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Attic",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bedroom_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Bedroom",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "grid",
-                            "title": "Humidity",
-                            "cards": [
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.lounge_humidity",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Lounge",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bathroom_humidity",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Bathroom",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.guestroom_humidity",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    },
-                                    "name": "Guestroom"
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.attic_humidity",
-                                    "name": "Attic",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.outside_humidity",
-                                    "name": "Outside",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bedroom_humidity",
-                                    "min": 0,
-                                    "max": 100
+                                    "entity": "automation.climate",
+                                    "secondary_info": "last-changed",
+                                    "toggle": true,
+                                    "type": "custom:multiple-entity-row",
+                                    "name": "Attic climate",
+                                    "entities": [
+                                        {
+                                            "entity": "climate.attic_climate",
+                                            "name": "heater",
+                                            "toggle": true
+                                        },
+                                        {
+                                            "entity": "climate.attic_climate",
+                                            "name": "action",
+                                            "attribute": "hvac_action"
+                                        },
+                                        {
+                                            "entity": "climate.attic_climate",
+                                            "attribute": "current_temperature",
+                                            "name": "current",
+                                            "unit": "\u00b0C"
+                                        },
+                                        {
+                                            "entity": "climate.attic_climate",
+                                            "attribute": "temperature",
+                                            "name": "target",
+                                            "unit": "\u00b0C"
+                                        }
+                                    ]
                                 }
                             ]
                         },
                         {
                             "type": "custom:sun-card"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.co2_intensity",
+                                    "name": "CO\u2082"
+                                },
+                                {
+                                    "entity": "sensor.grid_fossil_fuel_percentage",
+                                    "name": "Fraction fossil fuel"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.growatt_total_output_power",
+                                    "name": "Solar"
+                                },
+                                {
+                                    "entity": "sensor.power_from_grid",
+                                    "name": "Grid"
+                                }
+                            ],
+                            "hours_to_show": 1,
+                            "refresh_interval": 0,
+                            "title": "Power"
+                        },
+                        {
+                            "type": "energy-usage-graph"
+                        },
+                        {
+                            "type": "energy-distribution",
+                            "link_dashboard": false
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "climate.attic_climate"
+                                }
+                            ],
+                            "hours_to_show": 1,
+                            "refresh_interval": 0
                         }
                     ]
                 },
@@ -1015,6 +1175,9 @@
                         },
                         {
                             "entity": "binary_sensor.synology_update_available"
+                        },
+                        {
+                            "entity": "sensor.synology_temperature"
                         }
                     ],
                     "cards": [
@@ -1069,17 +1232,6 @@
                             "hours_to_show": 168,
                             "refresh_interval": 0,
                             "title": "HDD"
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.synology_temperature"
-                                }
-                            ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0,
-                            "title": "Device temperature"
                         }
                     ]
                 },
@@ -1147,9 +1299,9 @@
                     ]
                 },
                 {
-                    "title": "Shelly",
+                    "title": "Check",
                     "path": "shelly",
-                    "icon": "mdi:electric-switch",
+                    "icon": "mdi:check",
                     "badges": [
                         {
                             "entity": "binary_sensor.bathroom_overheating"
@@ -1171,38 +1323,9 @@
                         },
                         {
                             "entity": "binary_sensor.toilet_overpowering"
-                        },
-                        {
-                            "entity": "binary_sensor.bathroom_firmware_update"
-                        },
-                        {
-                            "entity": "binary_sensor.bike_firmware_update"
-                        },
-                        {
-                            "entity": "binary_sensor.toilet_firmware_update"
                         }
                     ],
                     "cards": [
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.toilet_device_temperature",
-                                    "name": "Toilet"
-                                },
-                                {
-                                    "entity": "sensor.bathroom_device_temperature",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bike_device_temperature",
-                                    "name": "Bike"
-                                }
-                            ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0,
-                            "title": "Device temperature"
-                        },
                         {
                             "type": "entities",
                             "entities": [
@@ -1221,57 +1344,6 @@
                             ],
                             "title": "Uptime"
                         },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.bathroom_rssi",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bike_rssi",
-                                    "name": "Bike"
-                                },
-                                {
-                                    "entity": "sensor.toilet_rssi",
-                                    "name": "Toilet"
-                                }
-                            ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0,
-                            "title": "RSSI"
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.bathroom_power",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bike_light_power",
-                                    "name": "Bike light"
-                                },
-                                {
-                                    "entity": "sensor.bike_socket_power",
-                                    "name": "Bike socket"
-                                },
-                                {
-                                    "entity": "sensor.toilet_power",
-                                    "name": "Toilet"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
-                        }
-                    ]
-                },
-                {
-                    "title": "history",
-                    "path": "light",
-                    "icon": "mdi:clock",
-                    "badges": [],
-                    "cards": [
                         {
                             "type": "history-graph",
                             "entities": [
@@ -1359,6 +1431,48 @@
                             ],
                             "hours_to_show": 24,
                             "title": "Motion & door"
+                        }
+                    ]
+                },
+                {
+                    "title": "TV",
+                    "path": "tv",
+                    "icon": "mdi:television",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "iframe",
+                            "url": "https://treinposities.nl/embed/vertraagd",
+                            "aspect_ratio": "50%"
+                        },
+                        {
+                            "type": "gauge",
+                            "entity": "sensor.lounge_thermometer",
+                            "min": 0,
+                            "max": 100,
+                            "name": "Temperature Lounge"
+                        },
+                        {
+                            "type": "iframe",
+                            "url": "https://embed.waze.com/iframe?zoom=9&lat=52.09506&lon=5.10254&pin=1",
+                            "aspect_ratio": "50%"
+                        },
+                        {
+                            "type": "iframe",
+                            "url": "https://gadgets.buienradar.nl/gadget/radarfivedays",
+                            "aspect_ratio": "100%"
+                        },
+                        {
+                            "type": "custom:sun-card"
+                        },
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.nokia_7_2_2"
+                                }
+                            ],
+                            "dark_mode": false
                         }
                     ]
                 }
