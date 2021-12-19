@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 2,
     "key": "core.device_registry",
     "data": {
         "devices": [
@@ -80,7 +81,7 @@
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null,
-                "configuration_url": null
+                "configuration_url": "https://www.met.no/en"
             },
             {
                 "config_entries": [
@@ -145,11 +146,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -241,11 +242,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -305,11 +306,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -337,11 +338,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
@@ -369,11 +370,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ]
                 ],
@@ -465,11 +466,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -497,11 +498,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -593,11 +594,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ]
                 ],
@@ -625,11 +626,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -753,11 +754,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -785,11 +786,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -849,11 +850,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -899,8 +900,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "073d9d60b505c7c436b05f7acbdd18db"
+                    "073d9d60b505c7c436b05f7acbdd18db",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -938,11 +939,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1073,7 +1074,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Grafana",
-                "sw_version": "7.3.2",
+                "sw_version": "7.4.0",
                 "entry_type": "service",
                 "id": "f7f8bd1308cff7e610ba87b6009d3b85",
                 "via_device_id": null,
@@ -1211,7 +1212,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
-                "sw_version": "6.6",
+                "sw_version": "7.0",
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
                 "via_device_id": null,
@@ -1354,7 +1355,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2021.11.4",
+                "sw_version": "2021.12.1",
                 "entry_type": "service",
                 "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
                 "via_device_id": null,
@@ -1825,7 +1826,7 @@
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null,
-                "configuration_url": null
+                "configuration_url": "homeassistant://hassio/ingress/core_deconz"
             },
             {
                 "config_entries": [
@@ -2149,7 +2150,7 @@
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null,
-                "configuration_url": null
+                "configuration_url": "https://forecast.solar"
             },
             {
                 "config_entries": [
@@ -2172,7 +2173,7 @@
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null,
-                "configuration_url": null
+                "configuration_url": "https://forecast.solar"
             },
             {
                 "config_entries": [
@@ -2282,7 +2283,7 @@
                         "6187f1c7cc0357a99a8b893945ce8197"
                     ]
                 ],
-                "manufacturer": "Google Inc.",
+                "manufacturer": "None",
                 "model": "Chromecast",
                 "name": "Living Room",
                 "sw_version": null,
@@ -2629,9 +2630,7 @@
                 "orphaned_timestamp": 1637421770.9325166
             },
             {
-                "config_entries": [
-                    "c80b2a23f639a2081eb3bf4641eddfd8"
-                ],
+                "config_entries": [],
                 "connections": [],
                 "identifiers": [
                     [
@@ -2640,7 +2639,7 @@
                     ]
                 ],
                 "id": "31587bc2e514ca3abc9259a599f973df",
-                "orphaned_timestamp": null
+                "orphaned_timestamp": 1639471575.934507
             }
         ]
     }

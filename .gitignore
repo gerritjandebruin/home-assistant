@@ -17,6 +17,7 @@
 .storage/mobile_app
 .storage/zha.storage
 .storage/hacs*
+.storage/trace.saved_traces
 
 blueprints
 deps

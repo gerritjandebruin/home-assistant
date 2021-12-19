@@ -476,47 +476,6 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "glance",
-                            "show_icon": false,
-                            "entities": [
-                                {
-                                    "entity": "sensor.outside_temperature",
-                                    "name": "Outside"
-                                },
-                                {
-                                    "entity": "sensor.attic_thermometer",
-                                    "name": "Attic"
-                                },
-                                {
-                                    "entity": "sensor.bathroom_thermometer",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_thermometer",
-                                    "name": "Bedroom"
-                                },
-                                {
-                                    "entity": "sensor.guestroom_thermometer",
-                                    "name": "Guestroom"
-                                },
-                                {
-                                    "entity": "sensor.hall_thermometer",
-                                    "name": "Hall"
-                                },
-                                {
-                                    "entity": "sensor.lounge_thermometer",
-                                    "name": "Lounge"
-                                },
-                                {
-                                    "entity": "sensor.shed_thermometer",
-                                    "name": "Shed"
-                                }
-                            ],
-                            "title": "Temperature",
-                            "state_color": true,
-                            "columns": 4
-                        },
-                        {
                             "type": "weather-forecast",
                             "entity": "weather.home"
                         },
@@ -668,11 +627,6 @@
                             "type": "custom:sun-card"
                         },
                         {
-                            "type": "thermostat",
-                            "entity": "climate.attic_climate",
-                            "name": "Attic"
-                        },
-                        {
                             "type": "custom:neerslag-card",
                             "title": "Precipitation",
                             "entity": "sensor.neerslag_buienalarm_regen_data"
@@ -686,6 +640,66 @@
                             ],
                             "hours_to_show": 24,
                             "refresh_interval": 0
+                        },
+                        {
+                            "type": "grid",
+                            "cards": [
+                                {
+                                    "type": "thermostat",
+                                    "entity": "climate.attic_climate",
+                                    "name": "Attic"
+                                },
+                                {
+                                    "type": "thermostat",
+                                    "entity": "climate.bathroom_climate",
+                                    "name": "Bath"
+                                },
+                                {
+                                    "type": "thermostat",
+                                    "entity": "climate.bedroom_climate",
+                                    "name": "Bed"
+                                },
+                                {
+                                    "type": "thermostat",
+                                    "entity": "climate.guestroom_climate",
+                                    "name": "Guest"
+                                },
+                                {
+                                    "type": "sensor",
+                                    "entity": "sensor.outside_temperature",
+                                    "graph": "line",
+                                    "icon": "mdi:sun-thermometer-outline",
+                                    "name": "Out",
+                                    "detail": 1,
+                                    "hours_to_show": 72
+                                },
+                                {
+                                    "type": "sensor",
+                                    "entity": "sensor.lounge_thermometer",
+                                    "graph": "line",
+                                    "name": "Lounge",
+                                    "icon": "mdi:table-chair",
+                                    "hours_to_show": 72
+                                },
+                                {
+                                    "type": "sensor",
+                                    "entity": "sensor.shed_thermometer",
+                                    "graph": "line",
+                                    "icon": "mdi:tools",
+                                    "name": "Shed",
+                                    "hours_to_show": 72
+                                },
+                                {
+                                    "type": "sensor",
+                                    "entity": "sensor.hall_thermometer",
+                                    "graph": "line",
+                                    "name": "Hall",
+                                    "icon": "mdi:hanger",
+                                    "hours_to_show": 72,
+                                    "detail": 1
+                                }
+                            ],
+                            "columns": 4
                         }
                     ]
                 },
