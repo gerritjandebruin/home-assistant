@@ -37,8 +37,11 @@
     entity_id:
     - binary_sensor.hall_motion
     - binary_sensor.corridor_motion
+    to: 'on'
   - platform: state
-    entity_id: binary_sensor.hall_motion
+    entity_id:
+    - binary_sensor.hall_motion
+    - binary_sensor.corridor_motion
     for: 00:10:00
     to: 'off'
   condition: []
