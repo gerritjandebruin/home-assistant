@@ -1,10 +1,11 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace_resources",
     "data": {
         "items": [
             {
-                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js",
+                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037431",
                 "type": "module",
                 "id": "93159c7aed05449d84dc8feafdbf1f2b"
             },
