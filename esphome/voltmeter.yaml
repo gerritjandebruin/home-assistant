@@ -1,5 +1,5 @@
 esphome:
-  name: voltmeter
+  name: flowermeter
   platform: ESP32
   board: esp32dev
 
@@ -7,17 +7,21 @@ esphome:
 logger:
 
 # Voltmeter
+esp32_ble_tracker:
+
+xiaomi_ble:
+
 sensor:
-  - platform: adc
-    pin: 32
-    name: "Voltmeter"
-    update_interval: 1ms
-    attenuation: 2.5db
-    filters:
-    - median:
-        window_size: 100
-        send_every: 100
-    device_class: voltage
+  - platform: xiaomi_gcls002
+    mac_address: "C4:7C:8D:6C:AB:F6"
+    temperature:
+      name: "Flower Temperature"
+    moisture:
+      name: "Flower Moisture"
+    conductivity:
+      name: "Flower Soil Conductivity"
+    illuminance:
+      name: "Flower Illuminance"
     
 
 # Enable Home Assistant API
@@ -37,7 +41,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Voltmeter Fallback Hotspot"
+    ssid: "Flowermeter Fallback Hotspot"
     password: "FxtxXIE9wPJN"
 
 
