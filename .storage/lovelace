@@ -1252,6 +1252,7 @@
                 },
                 {
                     "icon": "mdi:robot-vacuum",
+                    "path": "vacuum",
                     "badges": [],
                     "cards": [
                         {
@@ -1302,6 +1303,7 @@
                 },
                 {
                     "icon": "mdi:flower",
+                    "path": "plant",
                     "badges": [],
                     "cards": [
                         {
@@ -1353,10 +1355,106 @@
                 },
                 {
                     "title": "Check",
-                    "path": "shelly",
+                    "path": "check",
                     "icon": "mdi:check",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "glance"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "binary_sensor.*_overheating",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_overpowering",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_below_remaining_life",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_exceeded_max_bad_sectors",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_security_status",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_update_available",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_firmware_update",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.updater",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "sensor.synology_*_status"
+                                    },
+                                    {
+                                        "entity_id": "sensor.augustinuserf_*_status"
+                                    },
+                                    {
+                                        "entity_id": "sensor.experiabox_v10_wan_status"
+                                    },
+                                    {
+                                        "entity_id": "sensor.disk_free_home",
+                                        "state": "<10"
+                                    },
+                                    {
+                                        "entity_id": "sensor.growatt_ac_frequency",
+                                        "state 1": "!50",
+                                        "state 2": "!0"
+                                    },
+                                    {
+                                        "entity_id": "sensor.*_voltage",
+                                        "state": "<220"
+                                    },
+                                    {
+                                        "entity_id": "sensor.*_voltage",
+                                        "state": ">240"
+                                    },
+                                    {
+                                        "entity_id": "sensor.*_thermometer",
+                                        "state": "<0"
+                                    },
+                                    {
+                                        "entity_id": "sensor.*_thermometer",
+                                        "state": ">30"
+                                    },
+                                    {
+                                        "entity_id": "vacuum.berry",
+                                        "attributes": {
+                                            "battery_level": "<10"
+                                        }
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "entity_id": "sensor.growatt_input_*_voltage"
+                                    },
+                                    {
+                                        "state": "normal"
+                                    },
+                                    {
+                                        "state": "Connected"
+                                    }
+                                ]
+                            },
+                            "sort": {
+                                "method": "none"
+                            }
+                        },
                         {
                             "type": "history-graph",
                             "entities": [
@@ -1430,88 +1528,6 @@
                             "hours_to_show": 24,
                             "refresh_interval": 0,
                             "title": "Lights"
-                        },
-                        {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "type": "glance"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "binary_sensor.*_overheating",
-                                        "state": "on"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_overpowering",
-                                        "state": "on"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_below_remaining_life",
-                                        "state": "on"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_exceeded_max_bad_sectors",
-                                        "state": "on"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_security_status",
-                                        "state": "on"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_update_available",
-                                        "state": "on"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.*_firmware_update",
-                                        "state": "on"
-                                    },
-                                    {
-                                        "entity_id": "binary_sensor.updater",
-                                        "state": "on"
-                                    },
-                                    {
-                                        "entity_id": "sensor.synology_*_status"
-                                    },
-                                    {
-                                        "entity_id": "sensor.augustinuserf_*_status"
-                                    },
-                                    {
-                                        "entity_id": "sensor.experiabox_v10_wan_status"
-                                    },
-                                    {
-                                        "entity_id": "sensor.disk_free_home",
-                                        "state": "<10"
-                                    },
-                                    {
-                                        "entity_id": "sensor.growatt_ac_frequency",
-                                        "state 1": "!50",
-                                        "state 2": "!0"
-                                    },
-                                    {
-                                        "entity_id": "sensor.*_voltage",
-                                        "state": "<220"
-                                    },
-                                    {
-                                        "entity_id": "sensor.*_voltage",
-                                        "state": ">240"
-                                    }
-                                ],
-                                "exclude": [
-                                    {
-                                        "entity_id": "sensor.growatt_input_*_voltage"
-                                    },
-                                    {
-                                        "state": "normal"
-                                    },
-                                    {
-                                        "state": "Connected"
-                                    }
-                                ]
-                            },
-                            "sort": {
-                                "method": "none"
-                            }
                         }
                     ]
                 },

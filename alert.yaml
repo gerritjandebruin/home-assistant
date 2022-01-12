@@ -5,6 +5,11 @@ abnormal_voltage:
   message: "{{ states('sensor.grid_voltage') }} is measured"
   notifiers:
     - pushnotification
+  data:
+    tag: abnormal_voltage
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 abnormal_temperature:
   name: Abnormal temperature
   entity_id: binary_sensor.abnormal_temperature
@@ -12,6 +17,11 @@ abnormal_temperature:
   message: "Abnormal temperature measured"
   notifiers:
     - pushnotification
+  data:
+    tag: abnormal_temperature
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 overheating:
   name: Overheating
   entity_id: binary_sensor.overheating
@@ -31,6 +41,11 @@ overheating:
     {% endif %}
   notifiers:
     - pushnotification
+  data:
+    tag: overheating
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 overpowering:
   name: Overpowering
   entity_id: binary_sensor.overpowering
@@ -59,6 +74,11 @@ overpowering:
     {% endif %}
   notifiers:
     - pushnotification
+  data:
+    tag: overpowering
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 synology:
   name: synology
   entity_id: binary_sensor.synology_problem
@@ -90,6 +110,11 @@ synology:
     {% endif %}
   notifiers:
     - pushnotification
+  data:
+    tag: synology_problem
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 shed_temperature:
   name: Shed temperature
   entity_id: binary_sensor.shed_status
@@ -98,6 +123,11 @@ shed_temperature:
   done_message: Shed temperature is OK
   notifiers:
     - pushnotification
+  data:
+    tag: shed_temperature
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 attic_mold:
   name: Attic mold
   entity_id: binary_sensor.attic_mold
@@ -106,6 +136,11 @@ attic_mold:
   done_message: Mold at attic is unlikely again
   notifiers:
     - pushnotification
+  data:
+    tag: attic_mold
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 bathroom_mold:
   name: Bathroom mold
   entity_id: binary_sensor.bathroom_mold
@@ -115,6 +150,11 @@ bathroom_mold:
   skip_first: true
   notifiers:
     - pushnotification
+  data:
+    tag: bathroom_mold
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 bedroom_mold:
   name: Bedroom mold
   entity_id: binary_sensor.bedroom_mold
@@ -123,6 +163,11 @@ bedroom_mold:
   done_message: Mold at bedroom is unlikely again
   notifiers:
     - pushnotification
+  data:
+    tag: bedroom_mold
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 guestroom_mold:
   name: Guestroom mold
   entity_id: binary_sensor.guestroom_mold
@@ -131,6 +176,11 @@ guestroom_mold:
   done_message: Mold at guestroom is unlikely again
   notifiers:
     - pushnotification
+  data:
+    tag: guestroom_mold
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 lounge_mold:
   name: Lounge mold
   entity_id: binary_sensor.lounge_mold
@@ -139,6 +189,11 @@ lounge_mold:
   done_message: Mold at lound is unlikely again
   notifiers:
     - pushnotification
+  data:
+    tag: lounge_mold
+    requireInteraction: true
+    url: lovelace/check
+    priority: high
 plant:
   name: Plant
   entity_id: plant.flower
@@ -151,6 +206,10 @@ plant:
   notifiers:
     - pushnotification
     - mobile_app_sm_a520f
+  data:
+    tag: plant
+    requireInteraction: true
+    url: lovelace/plant
 vacuum:
   name: Vacuum
   entity_id: binary_sensor.vacuum_low_battery
@@ -158,3 +217,7 @@ vacuum:
   message: "Battery vacuum is almost empty {{ state_attr('vacuum.berry', 'battery_level') }}"
   notifiers:
     - pushnotification
+  data:
+    tag: vacuum
+    requireInteraction: true
+    url: lovelace/vacuum
