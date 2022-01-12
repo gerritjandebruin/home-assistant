@@ -19,13 +19,12 @@
       icon: "{{ state_attr('vacuum.berry', 'battery_icon') }}"
     - name: Abnormal voltage
       unique_id: abnormal_voltage
-      availability: "{{ states('sensor.grid_voltage') | is_number or states('sensor.growatt_reactive_voltage') | float(-1) >= 0 }}"
       device_class: problem
       state: >
         {% set input = states('sensor.grid_voltage') | float %}
         {% set input_available = not is_state('sensor.grid_voltage', 'unavailable') %}
         {% set solarpanel = states('sensor.growatt_reactive_voltage') | float %}
-        {{ (input < 210 and input_available) or solarpanel < 210 or input > 245 or solarpanel > 245}}
+        {{ (input < 210 and input_available) or (solarpanel < 210 and solarpanel > 0) or input > 245 or solarpanel > 245}}
     - name: Shed status
       unique_id: shed_status
       device_class: problem
