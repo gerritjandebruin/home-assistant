@@ -474,91 +474,84 @@
                     "title": "Thermometer",
                     "path": "thermometer",
                     "icon": "mdi:thermometer",
+                    "type": "custom:grid-layout",
+                    "layout": {
+                        "grid-template-columns": "1fr 1fr 1fr"
+                    },
                     "badges": [],
                     "cards": [
-                        {
-                            "type": "custom:neerslag-card",
-                            "title": "Precipitation",
-                            "entity": "sensor.neerslag_buienalarm_regen_data"
-                        },
-                        {
-                            "type": "custom:sun-card"
-                        },
-                        {
-                            "type": "weather-forecast",
-                            "entity": "weather.home"
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "climate.attic"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
-                        },
                         {
                             "type": "entities",
                             "entities": [
                                 {
-                                    "type": "section",
-                                    "label": "Mold"
+                                    "type": "custom:fold-entity-row",
+                                    "open": true,
+                                    "head": {
+                                        "type": "section",
+                                        "label": "Mold"
+                                    },
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.attic_mold",
+                                            "name": "Attic"
+                                        },
+                                        {
+                                            "entity": "sensor.bathroom_mold",
+                                            "name": "Bathroom"
+                                        },
+                                        {
+                                            "entity": "sensor.bedroom_mold",
+                                            "name": "Bedroom"
+                                        },
+                                        {
+                                            "entity": "sensor.guestroom_mold",
+                                            "name": "Guestroom"
+                                        },
+                                        {
+                                            "entity": "sensor.lounge_mold",
+                                            "name": "Lounge"
+                                        },
+                                        {
+                                            "entity": "sensor.shed_mold",
+                                            "name": "Shed"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "sensor.attic_mold",
-                                    "name": "Attic"
-                                },
-                                {
-                                    "entity": "sensor.bathroom_mold",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_mold",
-                                    "name": "Bedroom"
-                                },
-                                {
-                                    "entity": "sensor.guestroom_mold",
-                                    "name": "Guestroom"
-                                },
-                                {
-                                    "entity": "sensor.lounge_mold",
-                                    "name": "Lounge"
-                                },
-                                {
-                                    "entity": "sensor.shed_mold",
-                                    "name": "Shed"
-                                },
-                                {
-                                    "type": "section",
-                                    "label": "Humidity"
-                                },
-                                {
-                                    "entity": "sensor.attic_humidity",
-                                    "name": "Attic"
-                                },
-                                {
-                                    "entity": "sensor.bathroom_humidity",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_humidity",
-                                    "name": "Bedroom"
-                                },
-                                {
-                                    "entity": "sensor.guestroom_humidity",
-                                    "name": "Guestroom"
-                                },
-                                {
-                                    "entity": "sensor.lounge_humidity",
-                                    "name": "Lounge"
-                                },
-                                {
-                                    "entity": "sensor.shed_humidity",
-                                    "name": "Shed"
+                                    "type": "custom:fold-entity-row",
+                                    "open": false,
+                                    "head": {
+                                        "type": "section",
+                                        "label": "Humidity"
+                                    },
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.attic_humidity",
+                                            "name": "Attic"
+                                        },
+                                        {
+                                            "entity": "sensor.bathroom_humidity",
+                                            "name": "Bathroom"
+                                        },
+                                        {
+                                            "entity": "sensor.bedroom_humidity",
+                                            "name": "Bedroom"
+                                        },
+                                        {
+                                            "entity": "sensor.guestroom_humidity",
+                                            "name": "Guestroom"
+                                        },
+                                        {
+                                            "entity": "sensor.lounge_humidity",
+                                            "name": "Lounge"
+                                        },
+                                        {
+                                            "entity": "sensor.shed_humidity",
+                                            "name": "Shed"
+                                        }
+                                    ]
                                 }
-                            ],
-                            "state_color": true
+                            ]
                         },
                         {
                             "type": "entities",
@@ -593,14 +586,39 @@
                                     "entity": "sensor.hall_thermometer"
                                 }
                             ]
+                        },
+                        {
+                            "type": "custom:neerslag-card",
+                            "title": "Precipitation",
+                            "entity": "sensor.neerslag_buienalarm_regen_data"
+                        },
+                        {
+                            "type": "custom:sun-card"
+                        },
+                        {
+                            "type": "weather-forecast",
+                            "entity": "weather.home"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "climate.attic"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
                         }
                     ]
                 },
                 {
                     "icon": "mdi:lightbulb",
-                    "panel": true,
                     "path": "default_view",
                     "title": "Dashboard",
+                    "type": "custom:grid-layout",
+                    "layout": {
+                        "grid-template-columns": "1fr 1fr"
+                    },
                     "badges": [],
                     "cards": [
                         {
@@ -693,10 +711,13 @@
                                     "toggle": true,
                                     "type": "custom:multiple-entity-row",
                                     "icon": "mdi:home-floor-0"
-                                },
-                                {
-                                    "type": "section"
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            "show_header_toggle": false,
+                            "type": "entities",
+                            "entities": [
                                 {
                                     "entities": [
                                         {
@@ -859,6 +880,10 @@
                     "title": "Solar",
                     "path": "solar",
                     "icon": "mdi:lightning-bolt",
+                    "type": "custom:grid-layout",
+                    "layout": {
+                        "grid-template-columns": "1fr 1fr 1fr 1fr"
+                    },
                     "badges": [
                         {
                             "entity": "sensor.growatt_ac_frequency"
@@ -921,15 +946,14 @@
                             "type": "history-graph",
                             "entities": [
                                 {
-                                    "entity": "sensor.co2_intensity",
-                                    "name": "CO\u2082"
-                                },
-                                {
                                     "entity": "sensor.grid_fossil_fuel_percentage",
                                     "name": "Fraction fossil fuel"
                                 },
                                 {
                                     "entity": "sensor.relative_marginal_emissions_intensity_nl"
+                                },
+                                {
+                                    "entity": "sensor.co2_intensity"
                                 }
                             ],
                             "hours_to_show": 24,
@@ -996,6 +1020,12 @@
                     ]
                 },
                 {
+                    "icon": "mdi:web",
+                    "title": "Internet",
+                    "layout": {
+                        "grid-template-columns": "1fr 1fr 1fr"
+                    },
+                    "type": "custom:grid-layout",
                     "badges": [],
                     "cards": [
                         {
@@ -1063,12 +1093,14 @@
                                 "max"
                             ]
                         }
-                    ],
-                    "icon": "mdi:web",
-                    "title": "Internet"
+                    ]
                 },
                 {
                     "icon": "mdi:server",
+                    "type": "custom:grid-layout",
+                    "layout": {
+                        "grid-template-columns": "1fr 1fr 1fr"
+                    },
                     "badges": [],
                     "cards": [
                         {
@@ -1107,12 +1139,16 @@
                     "path": "synology",
                     "title": "Synology",
                     "icon": "mdi:harddisk",
+                    "layout": {
+                        "grid-template-columns": "1fr 1fr 1fr"
+                    },
+                    "type": "custom:grid-layout",
                     "badges": [],
                     "cards": [
                         {
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.augustinuserf_network_up"
+                                "sensor.synology_network_up"
                             ],
                             "days_to_show": 365,
                             "stat_types": [
@@ -1122,7 +1158,7 @@
                         {
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.augustinuserf_network_down"
+                                "sensor.synology_network_down"
                             ],
                             "days_to_show": 365,
                             "stat_types": [
@@ -1132,7 +1168,7 @@
                         {
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.augustinuserf_cpu_utilization_user"
+                                "sensor.synology_cpu_utilization_user"
                             ],
                             "days_to_show": 30,
                             "stat_types": [
@@ -1142,7 +1178,7 @@
                         {
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.augustinuserf_memory_available_real"
+                                "sensor.synology_memory_available_real"
                             ],
                             "days_to_show": 365,
                             "stat_types": [
@@ -1152,7 +1188,7 @@
                         {
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.augustinuserf_memory_available_swap"
+                                "sensor.synology_memory_available_swap"
                             ],
                             "days_to_show": 365,
                             "stat_types": [
@@ -1162,8 +1198,9 @@
                         {
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.augustinuserf_temperature",
-                                "sensor.augustinuserf_drive_2_temperature"
+                                "sensor.synology_temperature",
+                                "sensor.synology_drive_1_temperature",
+                                "sensor.synology_drive_2_temperature"
                             ],
                             "days_to_show": 365,
                             "stat_types": [
@@ -1173,8 +1210,8 @@
                     ]
                 },
                 {
-                    "path": "synology",
-                    "title": "Synology",
+                    "path": "augustinuserf",
+                    "title": "Augustinuserf",
                     "icon": "mdi:cloud-upload",
                     "badges": [],
                     "cards": [
