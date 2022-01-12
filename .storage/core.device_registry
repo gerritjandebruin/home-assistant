@@ -34,8 +34,8 @@
             },
             {
                 "config_entries": [
-                    "a2df955e7cc746d71d223c05a7e35f53",
-                    "33699060188811ebb707e7caa407dbba"
+                    "33699060188811ebb707e7caa407dbba",
+                    "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
                     [
@@ -52,11 +52,11 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "Toilet",
-                "sw_version": "20210909-145919/v1.11.4-DNSfix-ge6b2f6d",
+                "sw_version": "20211109-130756/v1.11.7-g682a0db",
                 "entry_type": null,
                 "id": "3396514f188811ebb18c5f4e3e6696c1",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "toilet",
                 "name_by_user": "Toilet switch",
                 "disabled_by": null,
                 "configuration_url": "http://192.168.1.232"
@@ -125,7 +125,7 @@
                 "manufacturer": "hacs.xyz",
                 "model": "",
                 "name": "HACS",
-                "sw_version": "1.18.0",
+                "sw_version": "1.19.3",
                 "entry_type": "service",
                 "id": "d4dfeb3faac3b7d65ca316e4fef1a2b1",
                 "via_device_id": null,
@@ -146,11 +146,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -161,7 +161,7 @@
                 "entry_type": null,
                 "id": "60bfe7a8e3f01ab889642012e4ea1141",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "attic",
                 "name_by_user": "Attic light",
                 "disabled_by": null,
                 "configuration_url": null
@@ -193,7 +193,7 @@
                 "entry_type": null,
                 "id": "08779d5418a838c9e8d8eb3f24718953",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "attic",
                 "name_by_user": "Attic sensor",
                 "disabled_by": null,
                 "configuration_url": null
@@ -210,11 +210,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -225,7 +225,7 @@
                 "entry_type": null,
                 "id": "6eb5caeb5106cd5a570e512d885fc0e3",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "bathroom",
                 "name_by_user": "Bathroom sensor",
                 "disabled_by": null,
                 "configuration_url": null
@@ -257,7 +257,7 @@
                 "entry_type": null,
                 "id": "e8b69dbd01f21f6ad380e73c2402b821",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "lounge",
                 "name_by_user": "Lounge sensor",
                 "disabled_by": null,
                 "configuration_url": null
@@ -289,7 +289,7 @@
                 "entry_type": null,
                 "id": "d2d1de274ba99aa61fa79c7b3f8e64c1",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "attic",
                 "name_by_user": "Attic switch",
                 "disabled_by": null,
                 "configuration_url": null
@@ -321,7 +321,7 @@
                 "entry_type": null,
                 "id": "f2ceb1b5e47a5d6ab7b9f694b357cc42",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "corridor",
                 "name_by_user": "Corridor light",
                 "disabled_by": null,
                 "configuration_url": null
@@ -338,11 +338,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
@@ -353,7 +353,7 @@
                 "entry_type": null,
                 "id": "f0557193b49cd30a72b37ed875ced7b6",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "corridor",
                 "name_by_user": "Corridor motion",
                 "disabled_by": null,
                 "configuration_url": null
@@ -402,11 +402,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -417,7 +417,7 @@
                 "entry_type": null,
                 "id": "2d6dfb759f39e16dea755338b1f3188e",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "walk_in_closet",
                 "name_by_user": "Walk in closet door",
                 "disabled_by": null,
                 "configuration_url": null
@@ -449,7 +449,7 @@
                 "entry_type": null,
                 "id": "51fb2dd677fc2b08b7cd63bf90894249",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "toilet",
                 "name_by_user": "Toilet door",
                 "disabled_by": null,
                 "configuration_url": null
@@ -466,11 +466,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -481,7 +481,7 @@
                 "entry_type": null,
                 "id": "5a9933c449a2a8068f6012de36a6e91d",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "bedroom",
                 "name_by_user": "Bedroom control",
                 "disabled_by": null,
                 "configuration_url": null
@@ -498,11 +498,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -513,7 +513,7 @@
                 "entry_type": null,
                 "id": "ef6cce96c0aff37b73773be4f1a30e2f",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "bedroom",
                 "name_by_user": "Bedroom switch",
                 "disabled_by": null,
                 "configuration_url": null
@@ -530,11 +530,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
@@ -594,11 +594,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ]
                 ],
@@ -626,11 +626,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -690,11 +690,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:91"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:91"
                     ]
                 ],
@@ -705,7 +705,7 @@
                 "entry_type": null,
                 "id": "e5e042113928b8a047bd60336981e1e6",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "hall",
                 "name_by_user": "Hall light",
                 "disabled_by": null,
                 "configuration_url": null
@@ -722,11 +722,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:b5:54:7d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:b5:54:7d"
                     ]
                 ],
@@ -737,7 +737,7 @@
                 "entry_type": null,
                 "id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "hall",
                 "name_by_user": "Hall sensor",
                 "disabled_by": null,
                 "configuration_url": null
@@ -769,7 +769,7 @@
                 "entry_type": null,
                 "id": "7017f2fdaf015f8b5a86121921ed8ac8",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "pantry",
                 "name_by_user": "Pantry light",
                 "disabled_by": null,
                 "configuration_url": null
@@ -786,11 +786,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -801,7 +801,7 @@
                 "entry_type": null,
                 "id": "b8bb92a8be279ee84529cbd0037afbc5",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "pantry",
                 "name_by_user": "Pantry door",
                 "disabled_by": null,
                 "configuration_url": null
@@ -833,7 +833,7 @@
                 "entry_type": null,
                 "id": "b0ddce550f02cbf0799d40d240ab435c",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "kitchen",
                 "name_by_user": "Kitchen light",
                 "disabled_by": null,
                 "configuration_url": null
@@ -850,11 +850,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -865,7 +865,7 @@
                 "entry_type": null,
                 "id": "7a91e3fddeccb47006fec80014891153",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "shed",
                 "name_by_user": "Shed light",
                 "disabled_by": null,
                 "configuration_url": null
@@ -889,11 +889,11 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 2.5",
                 "name": "shellyswitch25-8CAAB561E13F",
-                "sw_version": "20210909-144331/v1.11.4-DNSfix-ge6b2f6d",
+                "sw_version": "20211109-125214/v1.11.7-g682a0db",
                 "entry_type": null,
                 "id": "663b87c1fa016b28463175ae19183722",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "bike",
                 "name_by_user": "Bike",
                 "disabled_by": null,
                 "configuration_url": "http://192.168.1.231"
@@ -918,11 +918,11 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "Bathroom",
-                "sw_version": "20210909-145919/v1.11.4-DNSfix-ge6b2f6d",
+                "sw_version": "20211109-130756/v1.11.7-g682a0db",
                 "entry_type": null,
                 "id": "975aeee16d3e74fb7be938acf75275d8",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "bathroom",
                 "name_by_user": "Bathroom switch",
                 "disabled_by": null,
                 "configuration_url": "http://192.168.1.234"
@@ -954,7 +954,7 @@
                 "entry_type": null,
                 "id": "811fd532a4a1bdde606177e29af0ec97",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "kitchen",
                 "name_by_user": "Kitchen motion",
                 "disabled_by": null,
                 "configuration_url": null
@@ -971,11 +971,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:06:59:d1:c7"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:06:59:d1:c7"
                     ]
                 ],
@@ -986,7 +986,7 @@
                 "entry_type": null,
                 "id": "f24581febab429724251dc0538cc97da",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "bathroom",
                 "name_by_user": "Bathroom door",
                 "disabled_by": null,
                 "configuration_url": null
@@ -1028,7 +1028,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Studio Code Server",
-                "sw_version": "3.7.0",
+                "sw_version": "4.0.0",
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
                 "via_device_id": null,
@@ -1212,7 +1212,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
-                "sw_version": "7.0",
+                "sw_version": "7.1",
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
                 "via_device_id": null,
@@ -1244,10 +1244,10 @@
                 "entry_type": null,
                 "id": "a9f1fc5ca682b5534d1e91820b492b08",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "terrace",
                 "name_by_user": "Terrace",
                 "disabled_by": null,
-                "configuration_url": "http://192.168.1.4"
+                "configuration_url": "http://192.168.1.1"
             },
             {
                 "config_entries": [
@@ -1261,11 +1261,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1276,7 +1276,7 @@
                 "entry_type": null,
                 "id": "2a0aba87f2b3e08dc200b46471cc3759",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "guestroom",
                 "name_by_user": "Guestroom sensor",
                 "disabled_by": null,
                 "configuration_url": null
@@ -1293,11 +1293,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -1308,7 +1308,7 @@
                 "entry_type": null,
                 "id": "edfd6fdec0ba0f861d77c2e02e08a729",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "bedroom",
                 "name_by_user": "Bedroom sensor",
                 "disabled_by": null,
                 "configuration_url": null
@@ -1332,11 +1332,11 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "shelly1pm-E09806A9DECC",
-                "sw_version": "20210909-145919/v1.11.4-DNSfix-ge6b2f6d",
+                "sw_version": "20211109-130756/v1.11.7-g682a0db",
                 "entry_type": null,
                 "id": "a9c1ea637f003a57f1abb222312e4d02",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "lounge",
                 "name_by_user": "lounge",
                 "disabled_by": null,
                 "configuration_url": "http://192.168.1.233"
@@ -1355,7 +1355,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2021.12.1",
+                "sw_version": "2021.12.3",
                 "entry_type": "service",
                 "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
                 "via_device_id": null,
@@ -1382,7 +1382,7 @@
                 "entry_type": null,
                 "id": "5be8407b5bd0fede7a4d4c73b15bc1d3",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "attic",
                 "name_by_user": "Printer",
                 "disabled_by": null,
                 "configuration_url": null
@@ -1606,11 +1606,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -1621,7 +1621,7 @@
                 "entry_type": null,
                 "id": "b3c874782468351d90c0ebe2fac89018",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "shed",
                 "name_by_user": "Shed door",
                 "disabled_by": null,
                 "configuration_url": null
@@ -1638,11 +1638,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -1653,7 +1653,7 @@
                 "entry_type": null,
                 "id": "bced05f348c2cf2bb5563f18a8acc533",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "shed",
                 "name_by_user": "Shed sensor",
                 "disabled_by": null,
                 "configuration_url": null
@@ -1670,11 +1670,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ]
                 ],
@@ -1685,7 +1685,7 @@
                 "entry_type": null,
                 "id": "b0027c50d2f7ecc24c83a1a47819c346",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "terrace",
                 "name_by_user": "Terrace",
                 "disabled_by": null,
                 "configuration_url": null
@@ -1704,7 +1704,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "SSH & Web Terminal",
-                "sw_version": "10.0.0",
+                "sw_version": "10.0.1",
                 "entry_type": "service",
                 "id": "dc599c9c099cbc5efd2cdbee6aff7750",
                 "via_device_id": null,
@@ -1754,7 +1754,7 @@
                 "entry_type": null,
                 "id": "00a670d9a519980a790548083d7a9cf5",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "hall",
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": null
@@ -1876,7 +1876,7 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null,
+                "disabled_by": "user",
                 "configuration_url": null
             },
             {
@@ -1927,7 +1927,7 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": "user",
+                "disabled_by": null,
                 "configuration_url": null
             },
             {
@@ -1950,7 +1950,7 @@
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "area_id": null,
                 "name_by_user": "Walk in closet",
-                "disabled_by": "user",
+                "disabled_by": null,
                 "configuration_url": null
             },
             {
@@ -1976,7 +1976,7 @@
                 "entry_type": null,
                 "id": "9eadf9239ebb9bc268ad74c2eae0602d",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "bike",
                 "name_by_user": "Bike switch",
                 "disabled_by": null,
                 "configuration_url": null
@@ -2004,7 +2004,7 @@
                 "entry_type": null,
                 "id": "92f92740112aad1de8eac8a6c9ebb5bd",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
-                "area_id": null,
+                "area_id": "bike",
                 "name_by_user": "Bike motion",
                 "disabled_by": null,
                 "configuration_url": null
@@ -2097,7 +2097,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly EM",
                 "name": "shellyem-C45BBE6B6B56",
-                "sw_version": "20210909-150325/v1.11.4-DNSfix-ge6b2f6d",
+                "sw_version": "20211109-131205/v1.11.7-g682a0db",
                 "entry_type": null,
                 "id": "93a8f0b57682098cbf5f6afbfd586ff4",
                 "via_device_id": null,
@@ -2194,8 +2194,8 @@
                 "id": "63e88ce2207663e3e73e2a4d8f3659d2",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null,
+                "name_by_user": "Growatt convertor",
+                "disabled_by": "user",
                 "configuration_url": null
             },
             {
@@ -2217,7 +2217,7 @@
                 "id": "95d5a62ee02f260066e3278c4af737fa",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Growatt panels",
                 "disabled_by": null,
                 "configuration_url": null
             },
@@ -2267,7 +2267,7 @@
                 "entry_type": null,
                 "id": "58b296ba53b8d3d4efd4a3b2b5fbc75f",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "lounge",
                 "name_by_user": "the Frame",
                 "disabled_by": null,
                 "configuration_url": null
@@ -2290,7 +2290,7 @@
                 "entry_type": null,
                 "id": "1645812584028252b1d24c76017b32a1",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "lounge",
                 "name_by_user": "Google Cast",
                 "disabled_by": null,
                 "configuration_url": null
@@ -2315,7 +2315,7 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null,
+                "disabled_by": "user",
                 "configuration_url": null
             },
             {
@@ -2355,11 +2355,11 @@
                 "manufacturer": "espressif",
                 "model": "esp32dev",
                 "name": "flowermeter",
-                "sw_version": "2021.12.1 (Dec 22 2021, 13:56:19)",
+                "sw_version": "2021.12.3 (Jan 12 2022, 15:35:15)",
                 "entry_type": null,
                 "id": "517e980970bffcbceda20932a7c71ed0",
                 "via_device_id": null,
-                "area_id": null,
+                "area_id": "lounge",
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": null

@@ -74,7 +74,7 @@
           - light.corridor
         data:
           brightness_pct: '{{ states(''input_number.brightness'') | float }}'
-          color_temp: '{{ 153 if states(''outside_temperature'') | float < 0 else
+          color_temp: '{{ 153 if states(''outside_temperature'') | float(0) < 0 else
             360 if states(''input_number.brightness'') | float > 50 else 454 }}'
   mode: queued
   max: 5
@@ -646,6 +646,7 @@
       - service: notify.mobile_app_nokia_7_2
         data:
           title: Shower detected!
+          message: Shower detected!
       - service: switch.toggle
         entity_id: switch.bathroom
       - delay: 00:00:01
@@ -655,8 +656,6 @@
         - platform: numeric_state
           entity_id: sensor.bathroom_humidity
           below: '80'
-        timeout:
-          minutes: 60
     - alias: Presumed forgotten to switch light off while door closed
       conditions:
       - condition: trigger
@@ -895,32 +894,5 @@
       entity_id:
       - climate.attic_climate
       - climate.bathroom_climate
-      - climate.bedroom_climate
-  mode: single
-- id: '1635936485265'
-  alias: Climate
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: sensor.power_from_grid
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: numeric_state
-        entity_id: sensor.power_from_grid
-        below: '0'
-      sequence:
-      - service: climate.turn_on
-        target:
-          entity_id: climate.attic_climate
-    - conditions:
-      - condition: numeric_state
-        entity_id: sensor.power_from_grid
-        above: '750'
-      sequence:
-      - service: climate.turn_off
-        target:
-          entity_id: climate.attic_climate
-    default: []
+      - climate.guestroom_climate
   mode: single

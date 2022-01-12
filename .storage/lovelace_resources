@@ -5,7 +5,7 @@
     "data": {
         "items": [
             {
-                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037431",
+                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037441",
                 "type": "module",
                 "id": "93159c7aed05449d84dc8feafdbf1f2b"
             },
@@ -28,6 +28,16 @@
                 "url": "/hacsfiles/home-assistant-neerslag-card/neerslag-card.js?hacstag=342944383202110210",
                 "type": "module",
                 "id": "580b3d04bfb843368dacb9558ffc514d"
+            },
+            {
+                "url": "/hacsfiles/lovelace-flower-card/flower-card.js?hacstag=297423025851197",
+                "type": "module",
+                "id": "41005d96e60d45b481af35f668834dfa"
+            },
+            {
+                "url": "/local/card-tools.js",
+                "type": "module",
+                "id": "75f625b9d514413c912b650f0d9985a4"
             }
         ]
     }

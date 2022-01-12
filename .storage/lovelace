@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
@@ -476,230 +477,122 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "weather-forecast",
-                            "entity": "weather.home"
-                        },
-                        {
-                            "type": "grid",
-                            "title": "Mold",
-                            "cards": [
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.lounge_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    },
-                                    "name": "Lounge"
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bathroom_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    },
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.guestroom_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    },
-                                    "name": "Guest room"
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.attic_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Attic",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bedroom_mold",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Bedroom",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 70,
-                                        "red": 90
-                                    }
-                                }
-                            ],
-                            "square": true
-                        },
-                        {
-                            "type": "grid",
-                            "title": "Humidity",
-                            "cards": [
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.lounge_humidity",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Lounge",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bathroom_humidity",
-                                    "min": 0,
-                                    "max": 100,
-                                    "name": "Bathroom",
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.guestroom_humidity",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    },
-                                    "name": "Guestroom"
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.attic_humidity",
-                                    "name": "Attic",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.outside_humidity",
-                                    "name": "Outside",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                },
-                                {
-                                    "type": "gauge",
-                                    "entity": "sensor.bedroom_humidity",
-                                    "min": 0,
-                                    "max": 100,
-                                    "severity": {
-                                        "green": 0,
-                                        "yellow": 60,
-                                        "red": 80
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "custom:sun-card"
-                        },
-                        {
                             "type": "custom:neerslag-card",
                             "title": "Precipitation",
                             "entity": "sensor.neerslag_buienalarm_regen_data"
                         },
                         {
+                            "type": "custom:sun-card"
+                        },
+                        {
+                            "type": "weather-forecast",
+                            "entity": "weather.home"
+                        },
+                        {
                             "type": "history-graph",
                             "entities": [
                                 {
-                                    "entity": "climate.attic_climate"
+                                    "entity": "climate.attic"
                                 }
                             ],
                             "hours_to_show": 24,
                             "refresh_interval": 0
                         },
                         {
-                            "type": "grid",
-                            "cards": [
+                            "type": "entities",
+                            "entities": [
                                 {
-                                    "type": "thermostat",
-                                    "entity": "climate.attic_climate",
+                                    "type": "section",
+                                    "label": "Mold"
+                                },
+                                {
+                                    "entity": "sensor.attic_mold",
                                     "name": "Attic"
                                 },
                                 {
-                                    "type": "thermostat",
-                                    "entity": "climate.bathroom_climate",
-                                    "name": "Bath"
+                                    "entity": "sensor.bathroom_mold",
+                                    "name": "Bathroom"
                                 },
                                 {
-                                    "type": "thermostat",
-                                    "entity": "climate.bedroom_climate",
-                                    "name": "Bed"
+                                    "entity": "sensor.bedroom_mold",
+                                    "name": "Bedroom"
                                 },
                                 {
-                                    "type": "thermostat",
-                                    "entity": "climate.guestroom_climate",
-                                    "name": "Guest"
+                                    "entity": "sensor.guestroom_mold",
+                                    "name": "Guestroom"
                                 },
                                 {
-                                    "type": "sensor",
-                                    "entity": "sensor.outside_temperature",
-                                    "graph": "line",
-                                    "icon": "mdi:sun-thermometer-outline",
-                                    "name": "Out",
-                                    "detail": 1,
-                                    "hours_to_show": 72
+                                    "entity": "sensor.lounge_mold",
+                                    "name": "Lounge"
                                 },
                                 {
-                                    "type": "sensor",
-                                    "entity": "sensor.lounge_thermometer",
-                                    "graph": "line",
-                                    "name": "Lounge",
-                                    "icon": "mdi:table-chair",
-                                    "hours_to_show": 72
+                                    "entity": "sensor.shed_mold",
+                                    "name": "Shed"
                                 },
                                 {
-                                    "type": "sensor",
-                                    "entity": "sensor.shed_thermometer",
-                                    "graph": "line",
-                                    "icon": "mdi:tools",
-                                    "name": "Shed",
-                                    "hours_to_show": 72
+                                    "type": "section",
+                                    "label": "Humidity"
                                 },
                                 {
-                                    "type": "sensor",
-                                    "entity": "sensor.hall_thermometer",
-                                    "graph": "line",
-                                    "name": "Hall",
-                                    "icon": "mdi:hanger",
-                                    "hours_to_show": 72,
-                                    "detail": 1
+                                    "entity": "sensor.attic_humidity",
+                                    "name": "Attic"
+                                },
+                                {
+                                    "entity": "sensor.bathroom_humidity",
+                                    "name": "Bathroom"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_humidity",
+                                    "name": "Bedroom"
+                                },
+                                {
+                                    "entity": "sensor.guestroom_humidity",
+                                    "name": "Guestroom"
+                                },
+                                {
+                                    "entity": "sensor.lounge_humidity",
+                                    "name": "Lounge"
+                                },
+                                {
+                                    "entity": "sensor.shed_humidity",
+                                    "name": "Shed"
                                 }
                             ],
-                            "columns": 4
+                            "state_color": true
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "climate.attic",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "climate.bathroom",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "climate.bedroom",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "climate.guestroom",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.outside_temperature",
+                                    "name": "Outside"
+                                },
+                                {
+                                    "entity": "sensor.lounge_thermometer"
+                                },
+                                {
+                                    "entity": "sensor.shed_thermometer"
+                                },
+                                {
+                                    "entity": "sensor.hall_thermometer"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -888,7 +781,18 @@
                                     "type": "custom:multiple-entity-row",
                                     "name": "Vacuum cleaner",
                                     "secondary_info": "last-changed",
+                                    "state_header": "dock",
                                     "entities": [
+                                        {
+                                            "icon": "mdi:play",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "vacuum.start",
+                                                "service_data": {
+                                                    "entity_id": "vacuum.berry"
+                                                }
+                                            }
+                                        },
                                         {
                                             "icon": "mdi:pause",
                                             "tap_action": {
@@ -896,6 +800,17 @@
                                                 "service": "vacuum.pause",
                                                 "service_data": {
                                                     "entity_id": "vacuum.berry"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "icon": "mdi:home-floor-1",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "select.select_option",
+                                                "service_data": {
+                                                    "entity_id": "select.berry_mode",
+                                                    "option": "single"
                                                 }
                                             }
                                         },
@@ -908,6 +823,31 @@
                                                     "entity_id": "vacuum.berry"
                                                 }
                                             }
+                                        },
+                                        {
+                                            "icon": "mdi:broom",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "select.select_option",
+                                                "service_data": {
+                                                    "entity_id": "select.berry_mode",
+                                                    "option": "smart"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "entity": "sensor.berry_cleaning_area",
+                                            "unit": "m\u00b3",
+                                            "name": false
+                                        },
+                                        {
+                                            "entity": "sensor.berry_cleaning_time",
+                                            "name": false,
+                                            "unit": "min"
+                                        },
+                                        {
+                                            "entity": "select.berry_mode",
+                                            "name": "mode"
                                         }
                                     ]
                                 }
@@ -971,40 +911,6 @@
                                     "entity": "sensor.growatt_total_energy_today",
                                     "name": "Actual production today so-far",
                                     "secondary_info": "last-changed"
-                                },
-                                {
-                                    "type": "divider"
-                                },
-                                {
-                                    "entity": "automation.climate",
-                                    "secondary_info": "last-changed",
-                                    "toggle": true,
-                                    "type": "custom:multiple-entity-row",
-                                    "name": "Attic climate",
-                                    "entities": [
-                                        {
-                                            "entity": "climate.attic_climate",
-                                            "name": "heater",
-                                            "toggle": true
-                                        },
-                                        {
-                                            "entity": "climate.attic_climate",
-                                            "name": "action",
-                                            "attribute": "hvac_action"
-                                        },
-                                        {
-                                            "entity": "climate.attic_climate",
-                                            "attribute": "current_temperature",
-                                            "name": "current",
-                                            "unit": "\u00b0C"
-                                        },
-                                        {
-                                            "entity": "climate.attic_climate",
-                                            "attribute": "temperature",
-                                            "name": "target",
-                                            "unit": "\u00b0C"
-                                        }
-                                    ]
                                 }
                             ]
                         },
@@ -1021,6 +927,9 @@
                                 {
                                     "entity": "sensor.grid_fossil_fuel_percentage",
                                     "name": "Fraction fossil fuel"
+                                },
+                                {
+                                    "entity": "sensor.relative_marginal_emissions_intensity_nl"
                                 }
                             ],
                             "hours_to_show": 24,
@@ -1048,16 +957,6 @@
                         {
                             "type": "energy-distribution",
                             "link_dashboard": false
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "climate.attic_climate"
-                                }
-                            ],
-                            "hours_to_show": 1,
-                            "refresh_interval": 0
                         }
                     ]
                 },
@@ -1065,6 +964,7 @@
                     "icon": "mdi:battery-low",
                     "path": "battery",
                     "title": "Battery",
+                    "visible": [],
                     "badges": [],
                     "cards": [
                         {
@@ -1134,181 +1034,269 @@
                             "title": "Printer"
                         },
                         {
-                            "type": "history-graph",
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "sensor.speedtest_download"
-                                },
-                                {
-                                    "entity": "sensor.speedtest_upload"
-                                },
-                                {
-                                    "entity": "sensor.speedtest_ping"
-                                }
+                                "sensor.speedtest_download"
                             ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0,
-                            "title": "Speedtest"
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "min"
+                            ]
                         },
                         {
-                            "type": "history-graph",
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "person.gerrit_jan"
-                                },
-                                {
-                                    "entity": "person.mirjam"
-                                }
+                                "sensor.speedtest_upload"
                             ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "min"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.speedtest_ping"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "max"
+                            ]
                         }
                     ],
                     "icon": "mdi:web",
                     "title": "Internet"
                 },
                 {
-                    "path": "synology",
-                    "title": "Synology",
-                    "icon": "mdi:harddisk",
-                    "badges": [
-                        {
-                            "entity": "binary_sensor.synology_drive_1_below_min_remaining_life"
-                        },
-                        {
-                            "entity": "binary_sensor.synology_drive_1_exceeded_max_bad_sectors"
-                        },
-                        {
-                            "entity": "binary_sensor.synology_drive_2_below_min_remaining_life"
-                        },
-                        {
-                            "entity": "binary_sensor.synology_drive_2_exceeded_max_bad_sectors"
-                        },
-                        {
-                            "entity": "binary_sensor.synology_security_status"
-                        },
-                        {
-                            "entity": "binary_sensor.synology_update_available"
-                        },
-                        {
-                            "entity": "sensor.synology_temperature"
-                        }
-                    ],
+                    "icon": "mdi:server",
+                    "badges": [],
                     "cards": [
                         {
-                            "type": "history-graph",
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "sensor.synology_network_down",
-                                    "name": "Down"
-                                },
-                                {
-                                    "entity": "sensor.synology_network_up",
-                                    "name": "Up"
-                                }
+                                "sensor.processor_use"
                             ],
-                            "title": "LAN",
-                            "refresh_interval": 0,
-                            "hours_to_show": 168
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
                         },
                         {
-                            "type": "history-graph",
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "sensor.synology_cpu_load_average_15_min",
-                                    "name": "User"
-                                }
+                                "sensor.memory_use_percent"
                             ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0,
-                            "title": "CPU"
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
                         },
                         {
-                            "type": "history-graph",
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "sensor.synology_drive_1_temperature",
-                                    "name": "HDD1"
-                                },
-                                {
-                                    "entity": "sensor.synology_drive_2_temperature",
-                                    "name": "HDD2"
-                                },
-                                {
-                                    "entity": "sensor.synology_volume_1_volume_used",
-                                    "name": "Space HDD1"
-                                },
-                                {
-                                    "entity": "sensor.synology_volume_2_volume_used",
-                                    "name": "Space HDD2"
-                                }
+                                "sensor.disk_free_home"
                             ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0,
-                            "title": "HDD"
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
                         }
                     ]
                 },
                 {
-                    "path": "ubuntu",
-                    "title": "Ubuntu",
-                    "icon": "mdi:laptop",
-                    "badges": [
-                        {
-                            "entity": "binary_sensor.updater"
-                        },
-                        {
-                            "entity": "sensor.hacs"
-                        }
-                    ],
+                    "path": "synology",
+                    "title": "Synology",
+                    "icon": "mdi:harddisk",
+                    "badges": [],
                     "cards": [
                         {
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "sensor.last_boot"
-                                }
+                                "sensor.augustinuserf_network_up"
                             ],
-                            "hours_to_show": 720,
-                            "refresh_interval": 0,
-                            "title": "Boot last month",
-                            "type": "history-graph"
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
                         },
                         {
-                            "type": "history-graph",
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "sensor.disk_free_home"
-                                }
+                                "sensor.augustinuserf_network_down"
                             ],
-                            "refresh_interval": 0,
-                            "title": "Disk free",
-                            "hours_to_show": 8760
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
                         },
                         {
-                            "type": "history-graph",
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "sensor.memory_use_percent"
-                                }
+                                "sensor.augustinuserf_cpu_utilization_user"
                             ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0,
-                            "title": "RAM"
+                            "days_to_show": 30,
+                            "stat_types": [
+                                "mean"
+                            ]
                         },
                         {
-                            "type": "history-graph",
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "sensor.processor_use"
-                                }
+                                "sensor.augustinuserf_memory_available_real"
                             ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0,
-                            "title": "CPU"
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
                         },
                         {
-                            "type": "entity",
-                            "entity": "sensor.home_assistant_v2_db"
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_memory_available_swap"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_temperature",
+                                "sensor.augustinuserf_drive_2_temperature"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "path": "synology",
+                    "title": "Synology",
+                    "icon": "mdi:cloud-upload",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_network_up"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_network_down"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_cpu_utilization_total"
+                            ],
+                            "days_to_show": 30,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_memory_available_real"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_memory_available_swap"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_drive_1_temperature"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_drive_1_temperature"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:robot-vacuum",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.berry_cleaning_area"
+                                },
+                                {
+                                    "entity": "sensor.berry_cleaning_time"
+                                },
+                                {
+                                    "entity": "select.berry_mode"
+                                },
+                                {
+                                    "entity": "vacuum.berry",
+                                    "name": "state"
+                                },
+                                {
+                                    "entity": "vacuum.berry",
+                                    "type": "custom:multiple-entity-row",
+                                    "attribute": "battery_level",
+                                    "icon": "mdi:battery",
+                                    "name": "battery"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "vacuum.pause",
+                                        "service_data": {},
+                                        "target": {
+                                            "entity_id": "vacuum.berry"
+                                        }
+                                    },
+                                    "entity": "vacuum.berry",
+                                    "icon": "mdi:pause",
+                                    "name": "Pause"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1316,48 +1304,8 @@
                     "title": "Check",
                     "path": "shelly",
                     "icon": "mdi:check",
-                    "badges": [
-                        {
-                            "entity": "binary_sensor.bathroom_overheating"
-                        },
-                        {
-                            "entity": "binary_sensor.bike_overheating"
-                        },
-                        {
-                            "entity": "binary_sensor.toilet_overheating"
-                        },
-                        {
-                            "entity": "binary_sensor.bathroom_overpowering"
-                        },
-                        {
-                            "entity": "binary_sensor.bike_light_overpowering"
-                        },
-                        {
-                            "entity": "binary_sensor.bike_socket_overpowering"
-                        },
-                        {
-                            "entity": "binary_sensor.toilet_overpowering"
-                        }
-                    ],
+                    "badges": [],
                     "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.bathroom_uptime",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.bike_uptime",
-                                    "name": "Bike"
-                                },
-                                {
-                                    "entity": "sensor.toilet_uptime",
-                                    "name": "Toilet"
-                                }
-                            ],
-                            "title": "Uptime"
-                        },
                         {
                             "type": "history-graph",
                             "entities": [
@@ -1433,18 +1381,86 @@
                             "title": "Lights"
                         },
                         {
-                            "type": "logbook",
-                            "entities": [
-                                "binary_sensor.corridor_on_off",
-                                "binary_sensor.hall_on_off",
-                                "binary_sensor.kitchen_on_off",
-                                "binary_sensor.pantry_on_off",
-                                "binary_sensor.shed_on_off",
-                                "binary_sensor.toilet_on_off",
-                                "binary_sensor.walk_in_closet_on_off"
-                            ],
-                            "hours_to_show": 24,
-                            "title": "Motion & door"
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "glance"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "binary_sensor.*_overheating",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_overpowering",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_below_remaining_life",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_exceeded_max_bad_sectors",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_security_status",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_update_available",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.*_firmware_update",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "binary_sensor.updater",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "entity_id": "sensor.synology_*_status"
+                                    },
+                                    {
+                                        "entity_id": "sensor.augustinuserf_*_status"
+                                    },
+                                    {
+                                        "entity_id": "sensor.experiabox_v10_wan_status"
+                                    },
+                                    {
+                                        "entity_id": "sensor.disk_free_home",
+                                        "state": "<10"
+                                    },
+                                    {
+                                        "entity_id": "sensor.growatt_ac_frequency",
+                                        "state 1": "!50",
+                                        "state 2": "!0"
+                                    },
+                                    {
+                                        "entity_id": "sensor.*_voltage",
+                                        "state": "<220"
+                                    },
+                                    {
+                                        "entity_id": "sensor.*_voltage",
+                                        "state": ">240"
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "entity_id": "sensor.growatt_input_*_voltage"
+                                    },
+                                    {
+                                        "state": "normal"
+                                    },
+                                    {
+                                        "state": "Connected"
+                                    }
+                                ]
+                            },
+                            "sort": {
+                                "method": "none"
+                            }
                         }
                     ]
                 },
@@ -1487,6 +1503,57 @@
                                 }
                             ],
                             "dark_mode": false
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:flower",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:flower-card",
+                            "entity": "plant.flower"
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_illuminance"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_moisture"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_soil_conductivity"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_temperature"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ],
+                            "chart_type": "line"
                         }
                     ]
                 }

@@ -6,31 +6,12 @@ notify:
     services:
       - service: mobile_app_samsung
       - service: mobile_app_nokia_7_2
-climate:
-  - platform: generic_thermostat
-    name: Attic climate
-    heater: switch.heater
-    target_sensor: sensor.attic_thermometer
-    target_temp: 20
-    initial_hvac_mode: "off"
-  - platform: generic_thermostat
-    name: Guestroom climate
-    heater: switch.heater
-    target_sensor: sensor.guestroom_thermometer
-    target_temp: 20
-    initial_hvac_mode: "off"
-  - platform: generic_thermostat
-    name: Bathroom climate
-    heater: switch.heater
-    target_sensor: sensor.bathroom_thermometer
-    target_temp: 20
-    initial_hvac_mode: "off"
-  - platform: generic_thermostat
-    name: Bedroom climate
-    heater: switch.heater
-    target_sensor: sensor.bedroom_thermometer
-    target_temp: 20
-    initial_hvac_mode: "off"
+  - platform: html5
+    name: pushnotification
+    vapid_pub_key: !secret vapid_pub_key
+    vapid_prv_key: !secret vapid_prv_key
+    vapid_email: !secret vapid_email
+
 influxdb:
   host: a0d7b954-influxdb
   port: 8086
@@ -43,6 +24,7 @@ influxdb:
     domains:
       - automation
       - persistent_notification
+
 homeassistant:
   allowlist_external_dirs:
     - "/config/"
@@ -51,54 +33,21 @@ homeassistant:
     - type: trusted_networks
       trusted_networks:
         - 192.168.1.0/25
+
 http:
   trusted_proxies:
     - 192.168.1.252
   use_x_forwarded_for: true
   ip_ban_enabled: true
   login_attempts_threshold: 3
+
 recorder:
   purge_keep_days: 800
+
 sensor:
   - platform: filesize
     file_paths:
       - /config/home-assistant_v2.db
-  - platform: mold_indicator
-    name: bedroom_mold
-    indoor_temp_sensor: sensor.bedroom_thermometer
-    indoor_humidity_sensor: sensor.bedroom_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
-    calibration_factor: 1.6
-  - platform: mold_indicator
-    indoor_temp_sensor: sensor.attic_thermometer
-    indoor_humidity_sensor: sensor.attic_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
-    calibration_factor: 1.5
-    name: attic_mold
-  - platform: mold_indicator
-    indoor_temp_sensor: sensor.bathroom_thermometer
-    indoor_humidity_sensor: sensor.bathroom_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
-    calibration_factor: 1.5
-    name: bathroom_mold
-  - platform: mold_indicator
-    indoor_temp_sensor: sensor.guestroom_thermometer
-    indoor_humidity_sensor: sensor.guestroom_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
-    calibration_factor: 1.6
-    name: guestroom_mold
-  - platform: mold_indicator
-    indoor_temp_sensor: sensor.shed_thermometer
-    indoor_humidity_sensor: sensor.shed_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
-    calibration_factor: 1.0
-    name: shed_mold
-  - platform: mold_indicator
-    indoor_temp_sensor: sensor.lounge_thermometer
-    indoor_humidity_sensor: sensor.lounge_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
-    calibration_factor: 1.8
-    name: lounge_mold
   - platform: systemmonitor
     resources:
       - type: disk_free
@@ -113,41 +62,18 @@ sensor:
       - data
     value_template: "last_changed: {{states.sensor.neerslag_buienalarm_regen_data.last_changed | default(now())}}"
     scan_interval: 240
-template:
-  - sensor:
-      - name: outside temperature
-        unit_of_measurement: "°C"
-        state: "{{ state_attr('weather.home', 'temperature')}}"
-        device_class: temperature
-      - name: outside humidity
-        unit_of_measurement: "%"
-        state: "{{ state_attr('weather.home', 'humidity')}}"
-        device_class: humidity
-      - name: outside airpressure
-        unit_of_measurement: "hPa"
-        state: "{{ state_attr('weather.home', 'pressure')}}"
-        device_class: humidity
-      - name: Expected production today
-        unit_of_measurement: "kWh"
-        state: "{{ states('sensor.energy_production_today_1') | float + states('sensor.energy_production_today_2') | float }}"
-        device_class: energy
-      - name: Expected production current hour
-        unit_of_measurement: "kWh"
-        state: "{{ states('sensor.energy_current_hour_1') | float + states('sensor.energy_current_hour_2') | float }}"
-        device_class: energy
-      - name: Expected production next hour
-        unit_of_measurement: "kWh"
-        state: "{{ states('sensor.energy_next_hour_1') | float + states('sensor.energy_next_hour_2') | float }}"
-        device_class: energy
-      - name: Current power consumption
-        unit_of_measurement: "W"
-        availability: "{{ not is_state('sensor.power_from_grid', 'unavailable') }}"
-        state: "{{ states('sensor.power_from_grid') | float + states('sensor.growatt_total_output_power') | float(0) }}"
-        device_class: power
+
 shell_command:
   backup_logs: cp /config/home-assistant.log /config/home-assistant.log.bk
+
 tts:
   - platform: google_translate
 
-script: !include scripts.yaml
+alert: !include alert.yaml
 automation: !include automations.yaml
+binary_sensor: !include binary_sensor.yaml
+climate: !include climate.yaml
+plant: !include plant.yaml
+script: !include scripts.yaml
+sensor mold: !include mold.yaml
+template: !include template.yaml
