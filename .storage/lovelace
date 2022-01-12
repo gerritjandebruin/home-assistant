@@ -1301,6 +1301,57 @@
                     ]
                 },
                 {
+                    "icon": "mdi:flower",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:flower-card",
+                            "entity": "plant.flower"
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_illuminance"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_moisture"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_soil_conductivity"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_temperature"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ],
+                            "chart_type": "line"
+                        }
+                    ]
+                },
+                {
                     "title": "Check",
                     "path": "shelly",
                     "icon": "mdi:check",
@@ -1503,57 +1554,6 @@
                                 }
                             ],
                             "dark_mode": false
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:flower",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "custom:flower-card",
-                            "entity": "plant.flower"
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_illuminance"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_moisture"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_soil_conductivity"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_temperature"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ],
-                            "chart_type": "line"
                         }
                     ]
                 }
