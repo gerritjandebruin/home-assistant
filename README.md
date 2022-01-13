@@ -32,9 +32,10 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 |-------------------|-------------------|---------------------------------------------|----------------------------------------------------------------------------------------------|--------|------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | Control outlet    | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €10    | 1    | [ikea.com](https://www.ikea.com/nl/en/p/tradfri-wireless-control-outlet-90356166/)                                                            |
 | Dimmer            | Philips           | Hue                                         | Zigbee                                                                                       | €20    | 1    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_philips-hue-white-ambiance-starterkit-inclusief-dimmer-switch-e27-1522070.html)         |
-| Door sensor       | Aqara             |                                             | Zigbee                                                                                       | €44    | 5    | [aliexpress.com](https://aliexpress.com/item/4001241581941.html)                                                                              |
+| Door sensor       | Aqara             |                                             | Zigbee                                                                                       | €53    | 6    | [aliexpress.com](https://aliexpress.com/item/4001241581941.html)                                                                              |
 | Doorbell          | KIKA              | ACDB-6600AC                                 | RTL-SDR / MQTT                                                                               | €25    | 1    | [gamma.nl](https://www.gamma.nl/assortiment/klikaanklikuit-deurbel-set-acdb-6600ac/p/B413295)                                                 |
-| Flower sensor     | Vegtrug           |                                             | Bluetooth                                                                              | €19    | 1    | [aliexpress.com](https://nl.aliexpress.com/item/1005001671394326.html?spm=a2g0s.9042311.0.0.71494c4dbKexmG)                                   |
+| ESP32             | Espressif         | ESP32-WROOM-32D                             | Bluetooth & WiFi                                                                             | €5     | 1    | [aliexpress.com](https://nl.aliexpress.com/item/32864722159.html)                                                                             |
+| Flower sensor     | Vegtrug           |                                             | Bluetooth (via ESP32)                                                                        | €19    | 1    | [aliexpress.com](https://nl.aliexpress.com/item/1005001671394326.html)                                                                        |
 | Heater            | EUROM             | CK2003 Turbo 2000W                          | via outlet                                                                                   | (€29)  | 1    | [hornbach.nl](https://www.hornbach.nl/shop/EUROM-Convectorkachel-CK2003-Turbo-2000-Watt/8438008/artikel.html)                                 |
 | LED + 200W power  |                   | 24V RGB/ White spectrum 19W/m IP67 960lmn/m | via driver                                                                                   | €188   | 10m  | [led-gigant.nl](https://www.led-gigant.nl/product/24volt-rgbww-led-strip-ip66/)                                                               |
 | LED + 50W power   |                   | 24V LED 12W IP65 1260lmn/m 2700K            | via shelly                                                                                   | €41    | 2.5m | [led-gigant.nl](https://www.led-gigant.nl/product/waterdichte-led-strip-extra-warm-wit-12w-1260lm-meter-24vdc-ip68-nano-3000k-25m-rol-kopie/) |
@@ -44,7 +45,6 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 | Light bulb        | Philips           | Hue E14 Ambiance White spectrum             | Zigbee                                                                                       | €45    | 2    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_philips-hue-ambiance-2-pack-wit-1502337.html)                                           |
 | Light bulb        | Philips           | Hue E27 Ambiance White spectrum             | Zigbee                                                                                       | €130   | 3    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_philips-hue-white-ambiance-starterkit-inclusief-dimmer-switch-e27-1522070.html)         |
 | Light bulb        | Philips           | Hue E27 Filament Dimmable 7W                | Zigbee                                                                                       | €20    | 1    | [gamma.nl](https://www.gamma.nl/assortiment/philips-hue-filament-led-lamp-e27-7w/p/B128025)                                                   |
-| Mobile phone      | Apple             | iPhone                                      | [iOS app](https://apps.apple.com/nl/app/home-assistant/id1099568401)                         | -      | 1    |                                                                                                                             |                 
 | Motion sensor     | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €39    | 3    | [ikea.com](https://www.ikea.com/nl/nl/p/tradfri-draadloze-bewegingssensor-wit-70429913/)                                                      |
 | Motion sensor     | Philips           | Hue, w/ thermometer                         | Zigbee                                                                                       | €40    | 1    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_philips-hue-bewegingssensor-1522068.html)                                               |
 | NAS               | Synology          | DS216play                                   | [API](https://github.com/home-assistant/core/tree/dev/homeassistant/components/synology_dsm) | (€250) | 1    | [tweakers.net](https://tweakers.net/pricewatch/461480/synology-diskstation-ds216play.html)                                                    |
@@ -60,7 +60,7 @@ Also, since I try to limit spending, there is no smart climate, smart keys or ev
 | Wireless dimmer   | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €14    | 2    | [ikea.com](https://www.ikea.com/nl/en/p/tradfri-wireless-dimmer-white-70408595/)                                                              |
 | Zigbee controller | Texas Instruments | CC2531                                      | [ZHA](https://www.home-assistant.io/integrations/zha/)                                       | €10    | 1    | [tweakers.net](https://tweakers.net/aanbod/2522130/cc2531-zigbee-usb-stick-zigbee2mqtt-met-antenne.html)                                      |
 
-- Total costs (ignoring prices in brackets): €911 
+- Total costs (ignoring prices in brackets): €925
 
 ## Hardware experiences
 ### LED
@@ -86,9 +86,10 @@ As the IKEA manual is not very accurate on how to this, I used the instructions 
 ### Vegtrug
 I like the idea of a flower sensor very much, so that is the reason I paid this relatively expensive gadget.
 I will use it to monitor a citrus plant that is not doing so well :)
-It is a pity that it does not work on Zigbee, so for the moment I monitor this device via the Vegtug app.
-This worked only on Android 8 and not on Android 10 for some reason.
-The provided database of over 6000 flowers looks impressive!
+It is a pity that it does not work on Zigbee, so for the moment I monitor this device ~~via the Vegtug app~~ with an ESP32 using [ESPHome](https://esphome.io/components/sensor/xiaomi_ble.html?highlight=flower).
+~~This worked only on Android 8 and not on Android 10 for some reason.~~
+~~The provided database of over 6000 flowers looks impressive!~~
+An open-source database for the Vegtrug can be found at https://open.plantbook.io/.
 
 ### TuYa temperature sensor
 Nice thermometer with a display that shows the temperature and humidity.
