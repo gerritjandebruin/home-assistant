@@ -39,17 +39,17 @@ sensor:
 homeassistant:
   customize:
     sensor.bedroom_mold:
-      icon: mdi:bacteria
+      icon: mdi:bed
     sensor.attic_mold:
-      icon: mdi:bacteria
+      icon: mdi:home-floor-2
     sensor.bathroom_mold:
-      icon: mdi:bacteria
+      icon: mdi:shower-head
     sensor.guestroom_mold:
-      icon: mdi:bacteria
+      icon: mdi:bed-empty
     sensor.shed_mold:
-      icon: mdi:bacteria
+      icon: mdi:garage
     sensor.lounge_mold:
-      icon: mdi:bacteria
+      icon: mdi:seat
 
 template:
   binary_sensor:

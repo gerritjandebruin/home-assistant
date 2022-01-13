@@ -48,6 +48,11 @@
                 "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866231",
                 "type": "module",
                 "id": "4cc384a2c3fd4c329b07553c76b040f0"
+            },
+            {
+                "url": "/hacsfiles/numberbox-card/numberbox-card.js?hacstag=30496791833",
+                "type": "module",
+                "id": "8941a6e7b2f84a8eb9d3839321144cbe"
             }
         ]
     }

@@ -12,3 +12,8 @@ template:
       unit_of_measurement: "hPa"
       state: "{{ state_attr('weather.home', 'pressure')}}"
       device_class: humidity
+
+homeassistant:
+  customize:
+    sensor.outside_temperature:
+      icon: mdi:sun-thermometer

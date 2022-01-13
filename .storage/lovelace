@@ -7,6 +7,13 @@
             "title": "Huis",
             "views": [
                 {
+                    "icon": "mdi:home",
+                    "path": "map",
+                    "title": "map",
+                    "type": "custom:horizontal-layout",
+                    "layout": {
+                        "width": 400
+                    },
                     "badges": [],
                     "cards": [
                         {
@@ -220,277 +227,273 @@
                                     ],
                                     "image": "local/floor-0.jpg",
                                     "type": "picture-elements"
-                                },
-                                {
-                                    "elements": [
-                                        {
-                                            "entity": "light.terrace",
-                                            "style": {
-                                                "left": "34%",
-                                                "top": "31%",
-                                                "width": "34%"
-                                            },
-                                            "state_filter": {
-                                                "off": "brightness(60%)",
-                                                "on": "brightness(100%)",
-                                                "unavailable": "brightness(60%)"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "image",
-                                            "image": "local/terrace.jpg"
-                                        },
-                                        {
-                                            "entity": "light.corridor",
-                                            "image": "/local/corridor.jpg",
-                                            "state_filter": {
-                                                "off": "brightness(60%)",
-                                                "on": "brightness(100%)",
-                                                "unavailable": "brightness(60%)"
-                                            },
-                                            "style": {
-                                                "left": "32%",
-                                                "top": "58%",
-                                                "width": "27%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "image"
-                                        },
-                                        {
-                                            "entity": "light.walk_in_closet_1",
-                                            "image": "/local/walk-in-closet.jpg",
-                                            "state_filter": {
-                                                "off": "brightness(60%)",
-                                                "on": "brightness(100%)",
-                                                "unavailable": "brightness(60%)"
-                                            },
-                                            "style": {
-                                                "left": "62%",
-                                                "top": "71%",
-                                                "width": "33%"
-                                            },
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.toggle",
-                                                "service_data": {
-                                                    "area_id": "walk_in_closet"
-                                                }
-                                            },
-                                            "type": "image"
-                                        },
-                                        {
-                                            "entity": "light.bedroom_1",
-                                            "image": "/local/bedroom.jpg",
-                                            "state_filter": {
-                                                "off": "brightness(60%)",
-                                                "on": "brightness(100%)",
-                                                "unavailable": "brightness(60%)"
-                                            },
-                                            "style": {
-                                                "left": "48%",
-                                                "top": "87%",
-                                                "width": "63%"
-                                            },
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.toggle",
-                                                "service_data": {
-                                                    "area_id": "bedroom"
-                                                }
-                                            },
-                                            "type": "image"
-                                        },
-                                        {
-                                            "entity": "switch.toilet",
-                                            "image": "/local/toilet.jpg",
-                                            "state_filter": {
-                                                "off": "brightness(60%)",
-                                                "on": "brightness(100%)",
-                                                "unavailable": "brightness(60%)"
-                                            },
-                                            "style": {
-                                                "left": "25%",
-                                                "top": "71%",
-                                                "width": "15%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "image"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.toilet_door",
-                                            "state_image": {
-                                                "off": "/local/door-closed.jpg",
-                                                "on": "/local/door-open.jpg"
-                                            },
-                                            "style": {
-                                                "left": "34%",
-                                                "top": "72%",
-                                                "width": "8%"
-                                            },
-                                            "type": "image"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.walk_in_closet_door",
-                                            "state_image": {
-                                                "off": "/local/door-closed.jpg",
-                                                "on": "/local/door-open.jpg"
-                                            },
-                                            "style": {
-                                                "left": "49%",
-                                                "top": "71%",
-                                                "width": "8%"
-                                            },
-                                            "type": "image"
-                                        },
-                                        {
-                                            "entity": "binary_sensor.corridor_motion",
-                                            "style": {
-                                                "left": "30%",
-                                                "top": "45%"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "light.walk_in_closet_1",
-                                            "style": {
-                                                "left": "54%",
-                                                "top": "70%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "light.walk_in_closet_2",
-                                            "style": {
-                                                "left": "54%",
-                                                "top": "72%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "light.bedroom_1",
-                                            "style": {
-                                                "left": "72%",
-                                                "top": "80%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "light.bedroom_2",
-                                            "style": {
-                                                "left": "72%",
-                                                "top": "84%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "light.bedroom_3",
-                                            "style": {
-                                                "left": "72%",
-                                                "top": "88%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "light.bedroom_4",
-                                            "style": {
-                                                "left": "72%",
-                                                "top": "92%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "state-icon"
-                                        },
-                                        {
-                                            "entity": "light.bedroom_5",
-                                            "style": {
-                                                "left": "72%",
-                                                "top": "96%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "state-icon"
-                                        }
-                                    ],
-                                    "image": "local/floor-1.jpg",
-                                    "type": "picture-elements"
-                                },
-                                {
-                                    "elements": [
-                                        {
-                                            "entity": "light.attic",
-                                            "image": "/local/floor-2.jpg",
-                                            "state_filter": {
-                                                "off": "brightness(60%)",
-                                                "on": "brightness(100%)",
-                                                "unavailable": "brightness(60%)"
-                                            },
-                                            "style": {
-                                                "left": "50%",
-                                                "top": "50%",
-                                                "width": "100%",
-                                                "height": "100%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            },
-                                            "type": "image"
-                                        },
-                                        {
-                                            "entity": "automation.attic_motion",
-                                            "type": "state-label",
-                                            "prefix": "auto on/off: ",
-                                            "style": {
-                                                "font-size": "25px",
-                                                "color": "black",
-                                                "left": "40%",
-                                                "top": "20%"
-                                            },
-                                            "tap_action": {
-                                                "action": "toggle"
-                                            }
-                                        }
-                                    ],
-                                    "image": "local/floor-2.jpg",
-                                    "type": "picture-elements"
                                 }
                             ],
                             "type": "horizontal-stack"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "entity": "light.terrace",
+                                    "style": {
+                                        "left": "34%",
+                                        "top": "31%",
+                                        "width": "34%"
+                                    },
+                                    "state_filter": {
+                                        "off": "brightness(60%)",
+                                        "on": "brightness(100%)",
+                                        "unavailable": "brightness(60%)"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "image",
+                                    "image": "local/terrace.jpg"
+                                },
+                                {
+                                    "entity": "light.corridor",
+                                    "image": "/local/corridor.jpg",
+                                    "state_filter": {
+                                        "off": "brightness(60%)",
+                                        "on": "brightness(100%)",
+                                        "unavailable": "brightness(60%)"
+                                    },
+                                    "style": {
+                                        "left": "32%",
+                                        "top": "58%",
+                                        "width": "27%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "light.walk_in_closet_1",
+                                    "image": "/local/walk-in-closet.jpg",
+                                    "state_filter": {
+                                        "off": "brightness(60%)",
+                                        "on": "brightness(100%)",
+                                        "unavailable": "brightness(60%)"
+                                    },
+                                    "style": {
+                                        "left": "62%",
+                                        "top": "71%",
+                                        "width": "33%"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "light.toggle",
+                                        "service_data": {
+                                            "area_id": "walk_in_closet"
+                                        }
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "light.bedroom_1",
+                                    "image": "/local/bedroom.jpg",
+                                    "state_filter": {
+                                        "off": "brightness(60%)",
+                                        "on": "brightness(100%)",
+                                        "unavailable": "brightness(60%)"
+                                    },
+                                    "style": {
+                                        "left": "48%",
+                                        "top": "87%",
+                                        "width": "63%"
+                                    },
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "light.toggle",
+                                        "service_data": {
+                                            "area_id": "bedroom"
+                                        }
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "switch.toilet",
+                                    "image": "/local/toilet.jpg",
+                                    "state_filter": {
+                                        "off": "brightness(60%)",
+                                        "on": "brightness(100%)",
+                                        "unavailable": "brightness(60%)"
+                                    },
+                                    "style": {
+                                        "left": "25%",
+                                        "top": "71%",
+                                        "width": "15%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "binary_sensor.toilet_door",
+                                    "state_image": {
+                                        "off": "/local/door-closed.jpg",
+                                        "on": "/local/door-open.jpg"
+                                    },
+                                    "style": {
+                                        "left": "34%",
+                                        "top": "72%",
+                                        "width": "8%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "binary_sensor.walk_in_closet_door",
+                                    "state_image": {
+                                        "off": "/local/door-closed.jpg",
+                                        "on": "/local/door-open.jpg"
+                                    },
+                                    "style": {
+                                        "left": "49%",
+                                        "top": "71%",
+                                        "width": "8%"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "binary_sensor.corridor_motion",
+                                    "style": {
+                                        "left": "30%",
+                                        "top": "45%"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "light.walk_in_closet_1",
+                                    "style": {
+                                        "left": "54%",
+                                        "top": "70%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "light.walk_in_closet_2",
+                                    "style": {
+                                        "left": "54%",
+                                        "top": "72%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "light.bedroom_1",
+                                    "style": {
+                                        "left": "72%",
+                                        "top": "80%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "light.bedroom_2",
+                                    "style": {
+                                        "left": "72%",
+                                        "top": "84%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "light.bedroom_3",
+                                    "style": {
+                                        "left": "72%",
+                                        "top": "88%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "light.bedroom_4",
+                                    "style": {
+                                        "left": "72%",
+                                        "top": "92%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "light.bedroom_5",
+                                    "style": {
+                                        "left": "72%",
+                                        "top": "96%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "state-icon"
+                                }
+                            ],
+                            "image": "local/floor-1.jpg",
+                            "type": "picture-elements"
+                        },
+                        {
+                            "elements": [
+                                {
+                                    "entity": "light.attic",
+                                    "image": "/local/floor-2.jpg",
+                                    "state_filter": {
+                                        "off": "brightness(60%)",
+                                        "on": "brightness(100%)",
+                                        "unavailable": "brightness(60%)"
+                                    },
+                                    "style": {
+                                        "left": "50%",
+                                        "top": "50%",
+                                        "width": "100%",
+                                        "height": "100%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "image"
+                                },
+                                {
+                                    "entity": "automation.attic_motion",
+                                    "type": "state-label",
+                                    "prefix": "auto on/off: ",
+                                    "style": {
+                                        "font-size": "25px",
+                                        "color": "black",
+                                        "left": "40%",
+                                        "top": "20%"
+                                    },
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
+                                }
+                            ],
+                            "image": "local/floor-2.jpg",
+                            "type": "picture-elements"
                         }
-                    ],
-                    "icon": "mdi:home",
-                    "panel": true,
-                    "path": "map",
-                    "title": "map"
+                    ]
                 },
                 {
                     "title": "Thermometer",
                     "path": "thermometer",
                     "icon": "mdi:thermometer",
-                    "type": "custom:grid-layout",
+                    "type": "custom:horizontal-layout",
                     "layout": {
-                        "grid-template-columns": "1fr 1fr 1fr"
+                        "max_cols": 3
                     },
                     "badges": [],
                     "cards": [
@@ -571,20 +574,87 @@
                             "type": "entities",
                             "entities": [
                                 {
+                                    "type": "custom:multiple-entity-row",
                                     "entity": "climate.attic",
-                                    "secondary_info": "last-changed"
+                                    "secondary_info": "last-changed",
+                                    "state_color": true,
+                                    "toggle": true,
+                                    "entities": [
+                                        {
+                                            "attribute": "hvac_action",
+                                            "name": "current action",
+                                            "state_color": true
+                                        },
+                                        {
+                                            "attribute": "current_temperature",
+                                            "name": "current",
+                                            "unit": "\u00b0C"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "custom:numberbox-card",
+                                    "entity": "climate.attic",
+                                    "state": "temperature",
+                                    "service": "set_temperature",
+                                    "name": "Target temperature",
+                                    "border": true,
+                                    "step": 0.1,
+                                    "param": "temperature",
+                                    "icon": "mdi:fire",
+                                    "min": 0,
+                                    "max": 25
                                 },
                                 {
                                     "entity": "climate.bathroom",
                                     "secondary_info": "last-changed"
                                 },
                                 {
+                                    "type": "custom:numberbox-card",
+                                    "entity": "climate.bathroom",
+                                    "state": "temperature",
+                                    "service": "set_temperature",
+                                    "name": "Target temperature",
+                                    "border": true,
+                                    "step": 0.1,
+                                    "param": "temperature",
+                                    "icon": "mdi:fire",
+                                    "min": 0,
+                                    "max": 25
+                                },
+                                {
                                     "entity": "climate.bedroom",
                                     "secondary_info": "last-changed"
                                 },
                                 {
+                                    "type": "custom:numberbox-card",
+                                    "entity": "climate.bedroom",
+                                    "state": "temperature",
+                                    "service": "set_temperature",
+                                    "name": "Target temperature",
+                                    "border": true,
+                                    "step": 0.1,
+                                    "param": "temperature",
+                                    "icon": "mdi:fire",
+                                    "min": 0,
+                                    "max": 25
+                                },
+                                {
                                     "entity": "climate.guestroom",
                                     "secondary_info": "last-changed"
+                                },
+                                {
+                                    "type": "custom:numberbox-card",
+                                    "entity": "climate.guestroom",
+                                    "state": "temperature",
+                                    "service": "set_temperature",
+                                    "name": "Target temperature",
+                                    "border": true,
+                                    "step": 0.1,
+                                    "param": "temperature",
+                                    "icon": "mdi:fire",
+                                    "min": 0,
+                                    "max": 25
                                 },
                                 {
                                     "entity": "sensor.outside_temperature",
@@ -595,9 +665,6 @@
                                 },
                                 {
                                     "entity": "sensor.shed_thermometer"
-                                },
-                                {
-                                    "entity": "sensor.hall_thermometer"
                                 }
                             ]
                         },
@@ -629,9 +696,9 @@
                     "icon": "mdi:lightbulb",
                     "path": "default_view",
                     "title": "Dashboard",
-                    "type": "custom:grid-layout",
+                    "type": "custom:horizontal-layout",
                     "layout": {
-                        "grid-template-columns": "1fr 1fr"
+                        "max_width": 700
                     },
                     "badges": [],
                     "cards": [
@@ -714,7 +781,6 @@
                                 },
                                 {
                                     "entity": "light.hall",
-                                    "name": "Hall",
                                     "secondary_info": "last-changed",
                                     "toggle": true,
                                     "type": "custom:multiple-entity-row"
@@ -729,31 +795,26 @@
                                     "entities": [
                                         {
                                             "entity": "light.bedroom_1",
-                                            "name": "GJ",
                                             "toggle": true
                                         },
                                         {
                                             "entity": "light.bedroom_2",
-                                            "name": 2,
                                             "toggle": true
                                         },
                                         {
                                             "entity": "light.bedroom_3",
-                                            "name": 3,
                                             "toggle": true
                                         },
                                         {
                                             "entity": "light.bedroom_4",
-                                            "name": 4,
                                             "toggle": true
                                         },
                                         {
                                             "entity": "light.bedroom_5",
-                                            "name": "M",
                                             "toggle": true
                                         }
                                     ],
-                                    "entity": "light.bedroom_1",
+                                    "entity": "light.bedroom",
                                     "icon": "mdi:bed",
                                     "secondary_info": "last-changed",
                                     "toggle": true,
@@ -772,9 +833,7 @@
                                             "toggle": true
                                         }
                                     ],
-                                    "entity": "light.walk_in_closet_1",
-                                    "name": "Walk in closet",
-                                    "icon": "mdi:wardrobe",
+                                    "entity": "light.walk_in_closet",
                                     "secondary_info": "last-changed",
                                     "toggle": true,
                                     "type": "custom:multiple-entity-row"
@@ -884,9 +943,9 @@
                     "title": "Solar",
                     "path": "solar",
                     "icon": "mdi:lightning-bolt",
-                    "type": "custom:grid-layout",
+                    "type": "custom:horizontal-layout",
                     "layout": {
-                        "grid-template-columns": "1fr 1fr 1fr 1fr"
+                        "max_cols": 4
                     },
                     "badges": [
                         {
@@ -944,7 +1003,27 @@
                             ]
                         },
                         {
-                            "type": "custom:sun-card"
+                            "type": "energy-distribution",
+                            "link_dashboard": false
+                        },
+                        {
+                            "type": "energy-usage-graph"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.growatt_total_output_power",
+                                    "name": "Solar"
+                                },
+                                {
+                                    "entity": "sensor.power_from_grid",
+                                    "name": "Grid"
+                                }
+                            ],
+                            "hours_to_show": 1,
+                            "refresh_interval": 0,
+                            "title": "Power"
                         },
                         {
                             "type": "history-graph",
@@ -964,433 +1043,7 @@
                             "refresh_interval": 0
                         },
                         {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.growatt_total_output_power",
-                                    "name": "Solar"
-                                },
-                                {
-                                    "entity": "sensor.power_from_grid",
-                                    "name": "Grid"
-                                }
-                            ],
-                            "hours_to_show": 1,
-                            "refresh_interval": 0,
-                            "title": "Power"
-                        },
-                        {
-                            "type": "energy-usage-graph"
-                        },
-                        {
-                            "type": "energy-distribution",
-                            "link_dashboard": false
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:battery-low",
-                    "path": "battery",
-                    "title": "Battery",
-                    "visible": [],
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "type": "entities",
-                                "title": "Battery below 50%"
-                            },
-                            "sort": {
-                                "method": "state",
-                                "numeric": true
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.*battery_level",
-                                        "options": {
-                                            "type": "custom:battery-entity-row"
-                                        }
-                                    }
-                                ],
-                                "exclude": [
-                                    {
-                                        "state": ">50"
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:web",
-                    "title": "Internet",
-                    "layout": {
-                        "grid-template-columns": "1fr 1fr 1fr"
-                    },
-                    "type": "custom:grid-layout",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.experiabox_v10_kib_s_received",
-                                    "name": "Received"
-                                },
-                                {
-                                    "entity": "sensor.experiabox_v10_kib_s_sent",
-                                    "name": "Sent"
-                                }
-                            ],
-                            "refresh_interval": 0,
-                            "title": "Internet",
-                            "type": "history-graph",
-                            "hours_to_show": 168
-                        },
-                        {
-                            "type": "glance",
-                            "entities": [
-                                {
-                                    "entity": "sensor.printer"
-                                },
-                                {
-                                    "entity": "sensor.printer_black"
-                                },
-                                {
-                                    "entity": "sensor.printer_color"
-                                },
-                                {
-                                    "entity": "sensor.printer_uptime"
-                                }
-                            ],
-                            "state_color": true,
-                            "title": "Printer"
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.speedtest_download"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "min"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.speedtest_upload"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "min"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.speedtest_ping"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "max"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:server",
-                    "type": "custom:grid-layout",
-                    "layout": {
-                        "grid-template-columns": "1fr 1fr 1fr"
-                    },
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.processor_use"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.memory_use_percent"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.disk_free_home"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "path": "synology",
-                    "title": "Synology",
-                    "icon": "mdi:harddisk",
-                    "layout": {
-                        "grid-template-columns": "1fr 1fr 1fr"
-                    },
-                    "type": "custom:grid-layout",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_network_up"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_network_down"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_cpu_utilization_user"
-                            ],
-                            "days_to_show": 30,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_memory_available_real"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_memory_available_swap"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_temperature",
-                                "sensor.synology_drive_1_temperature",
-                                "sensor.synology_drive_2_temperature"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "path": "augustinuserf",
-                    "title": "Augustinuserf",
-                    "icon": "mdi:cloud-upload",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_network_up"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_network_down"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_cpu_utilization_total"
-                            ],
-                            "days_to_show": 30,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_memory_available_real"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_memory_available_swap"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_drive_1_temperature"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_drive_1_temperature"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:robot-vacuum",
-                    "path": "vacuum",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.berry_cleaning_area"
-                                },
-                                {
-                                    "entity": "sensor.berry_cleaning_time"
-                                },
-                                {
-                                    "entity": "select.berry_mode"
-                                },
-                                {
-                                    "entity": "vacuum.berry",
-                                    "name": "state"
-                                },
-                                {
-                                    "entity": "vacuum.berry",
-                                    "type": "custom:multiple-entity-row",
-                                    "attribute": "battery_level",
-                                    "icon": "mdi:battery",
-                                    "name": "battery"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
-                                {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "vacuum.pause",
-                                        "service_data": {},
-                                        "target": {
-                                            "entity_id": "vacuum.berry"
-                                        }
-                                    },
-                                    "entity": "vacuum.berry",
-                                    "icon": "mdi:pause",
-                                    "name": "Pause"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:flower",
-                    "path": "plant",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "custom:flower-card",
-                            "entity": "plant.flower"
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_illuminance"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_moisture"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_soil_conductivity"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_temperature"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ],
-                            "chart_type": "line"
+                            "type": "custom:sun-card"
                         }
                     ]
                 },
@@ -1470,7 +1123,7 @@
                                     },
                                     {
                                         "entity_id": "sensor.*_voltage",
-                                        "state": "<220"
+                                        "state": "<210"
                                     },
                                     {
                                         "entity_id": "sensor.*_voltage",
@@ -1584,6 +1237,386 @@
                             "hours_to_show": 24,
                             "refresh_interval": 0,
                             "title": "Lights"
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:robot-vacuum",
+                    "path": "vacuum",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.berry_cleaning_area"
+                                },
+                                {
+                                    "entity": "sensor.berry_cleaning_time"
+                                },
+                                {
+                                    "entity": "select.berry_mode"
+                                },
+                                {
+                                    "entity": "vacuum.berry",
+                                    "name": "state"
+                                },
+                                {
+                                    "entity": "vacuum.berry",
+                                    "type": "custom:multiple-entity-row",
+                                    "attribute": "battery_level",
+                                    "icon": "mdi:battery",
+                                    "name": "battery"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "vacuum.pause",
+                                        "service_data": {},
+                                        "target": {
+                                            "entity_id": "vacuum.berry"
+                                        }
+                                    },
+                                    "entity": "vacuum.berry",
+                                    "icon": "mdi:pause",
+                                    "name": "Pause"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:flower",
+                    "path": "plant",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:flower-card",
+                            "entity": "plant.flower"
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_illuminance"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_moisture"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_soil_conductivity"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.flower_temperature"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ],
+                            "chart_type": "line"
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:web",
+                    "title": "Internet",
+                    "type": "custom:horizontal-layout",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.experiabox_v10_kib_s_received",
+                                    "name": "Received"
+                                },
+                                {
+                                    "entity": "sensor.experiabox_v10_kib_s_sent",
+                                    "name": "Sent"
+                                }
+                            ],
+                            "refresh_interval": 0,
+                            "title": "Internet",
+                            "type": "history-graph",
+                            "hours_to_show": 168
+                        },
+                        {
+                            "type": "glance",
+                            "entities": [
+                                {
+                                    "entity": "sensor.printer"
+                                },
+                                {
+                                    "entity": "sensor.printer_black"
+                                },
+                                {
+                                    "entity": "sensor.printer_color"
+                                },
+                                {
+                                    "entity": "sensor.printer_uptime"
+                                }
+                            ],
+                            "state_color": true,
+                            "title": "Printer"
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.speedtest_download"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "min"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.speedtest_upload"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "min"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.speedtest_ping"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "max"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:server",
+                    "type": "custom:horizontal-layout",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.processor_use"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.memory_use_percent"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.disk_free_home"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "path": "synology",
+                    "title": "Synology",
+                    "icon": "mdi:harddisk",
+                    "layout": {},
+                    "type": "custom:horizontal-layout",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.synology_network_up"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.synology_network_down"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.synology_cpu_utilization_user"
+                            ],
+                            "days_to_show": 30,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.synology_memory_available_real"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.synology_memory_available_swap"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.synology_temperature",
+                                "sensor.synology_drive_1_temperature",
+                                "sensor.synology_drive_2_temperature"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "path": "augustinuserf",
+                    "title": "Augustinuserf",
+                    "icon": "mdi:cloud-upload",
+                    "type": "custom:horizontal-layout",
+                    "layout": {
+                        "max_cols": 2,
+                        "max_width": 800
+                    },
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_network_up"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_network_down"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_memory_available_real"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.augustinuserf_memory_available_swap"
+                            ],
+                            "days_to_show": 365,
+                            "stat_types": [
+                                "mean"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:battery-low",
+                    "path": "battery",
+                    "title": "Battery",
+                    "visible": [
+                        {
+                            "user": "76446e7c5b7c42f5bc1233034aa7e006"
+                        },
+                        {
+                            "user": "f3d68035204c4d4bb09d34d7b2b5e8f9"
+                        }
+                    ],
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "title": "Battery below 50%"
+                            },
+                            "sort": {
+                                "method": "state",
+                                "numeric": true
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.*battery_level",
+                                        "options": {
+                                            "type": "custom:battery-entity-row"
+                                        }
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "state": ">50"
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
