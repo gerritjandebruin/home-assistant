@@ -1,0 +1,40 @@
+light:
+  - platform: group
+    name: Walk in closet
+    entities:
+      - light.walk_in_closet_1
+      - light.walk_in_closet_2
+
+homeassistant:
+  customize:
+    light.walk_in_closet:
+      icon: mdi:wardrobe
+
+automation:
+  - alias: Walk in closet
+    description: >-
+      When the door of the walk-in closet is opened, put the light on. Put it off
+      when the door is closed. When the door is opened for ten minutes, it is
+      presumably forgotten. In that case, the lights are turned off.
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.walk_in_closet_door
+      - platform: state
+        entity_id: binary_sensor.walk_in_closet_door
+        for: "00:10:00"
+        to: "on"
+    action:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: binary_sensor.walk_in_closet_door
+                state: "off"
+            sequence:
+              - service: light.turn_off
+                target:
+                  area_id: walk_in_closet
+        default:
+          - service: light.turn_on
+            target:
+              area_id: walk_in_closet
+    mode: single
