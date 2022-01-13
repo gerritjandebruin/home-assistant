@@ -53,6 +53,11 @@
                 "url": "/hacsfiles/numberbox-card/numberbox-card.js?hacstag=30496791833",
                 "type": "module",
                 "id": "8941a6e7b2f84a8eb9d3839321144cbe"
+            },
+            {
+                "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001721",
+                "type": "module",
+                "id": "7b0eab4812f94755be3e3761e99951f9"
             }
         ]
     }
