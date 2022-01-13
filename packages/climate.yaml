@@ -9,20 +9,28 @@ climate:
     name: Guestroom
     heater: switch.heater
     target_sensor: sensor.guestroom_thermometer
-    target_temp: 20
     initial_hvac_mode: "off"
   - platform: generic_thermostat
     name: Bathroom
     heater: switch.heater
     target_sensor: sensor.bathroom_thermometer
-    target_temp: 20
     initial_hvac_mode: "off"
   - platform: generic_thermostat
     name: Bedroom
     heater: switch.heater
     target_sensor: sensor.bedroom_thermometer
-    target_temp: 20
     initial_hvac_mode: "off"
+
+homeassistant:
+  customize:
+    climate.attic:
+      icon: mdi:home-floor-2
+    climate.guestroom:
+      icon: mdi:bed-empty
+    climate.bathroom:
+      icon: mdi:shower-head
+    climate.bedroom:
+      icon: mdi:bed
 
 automation:
   - alias: Climate
