@@ -2386,6 +2386,34 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": "http://weerlive.nl/api/toegang/account.php"
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:15:8d:00:04:4e:2b:63"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "deconz",
+                        "00:15:8d:00:04:4e:2b:63"
+                    ]
+                ],
+                "manufacturer": "LUMI",
+                "model": "lumi.sensor_magnet.aq2",
+                "name": "OpenClose 45",
+                "sw_version": null,
+                "entry_type": null,
+                "id": "051215d5b20dc09f912d269348bf1441",
+                "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+                "area_id": "hall",
+                "name_by_user": "Front door",
+                "disabled_by": null,
+                "configuration_url": null
             }
         ],
         "deleted_devices": [

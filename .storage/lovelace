@@ -188,6 +188,20 @@
                                             "type": "image"
                                         },
                                         {
+                                            "entity": "binary_sensor.front_door",
+                                            "state_image": {
+                                                "off": "/local/door-closed.jpg",
+                                                "on": "/local/door-open.jpg"
+                                            },
+                                            "style": {
+                                                "left": "28%",
+                                                "top": "78%",
+                                                "width": "6%",
+                                                "transform": "rotate(270deg)"
+                                            },
+                                            "type": "image"
+                                        },
+                                        {
                                             "entity": "binary_sensor.kitchen_motion",
                                             "style": {
                                                 "left": "40%",
@@ -1394,6 +1408,14 @@
                             "filter": {
                                 "include": [
                                     {
+                                        "domain": "alert",
+                                        "state": "on"
+                                    },
+                                    {
+                                        "domain": "alert",
+                                        "state": "off"
+                                    },
+                                    {
                                         "entity_id": "binary_sensor.*_overheating",
                                         "state": "on"
                                     },
@@ -1440,8 +1462,11 @@
                                     },
                                     {
                                         "entity_id": "sensor.growatt_ac_frequency",
-                                        "state 1": "!50",
-                                        "state 2": "!0"
+                                        "state": "<49"
+                                    },
+                                    {
+                                        "entity_id": "sensor.growatt_ac_frequency",
+                                        "state": ">51"
                                     },
                                     {
                                         "entity_id": "sensor.*_voltage",

@@ -9791,6 +9791,70 @@
                 "supported_features": 0,
                 "unique_id": "overcurrent",
                 "unit_of_measurement": null
+            },
+            {
+                "area_id": null,
+                "capabilities": null,
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_class": null,
+                "device_id": "051215d5b20dc09f912d269348bf1441",
+                "disabled_by": null,
+                "entity_category": null,
+                "entity_id": "binary_sensor.front_door",
+                "icon": null,
+                "id": "d3c043216d763c36d68e6a298c33f293",
+                "name": "Front door",
+                "original_device_class": "opening",
+                "original_icon": null,
+                "original_name": "OpenClose 45",
+                "platform": "deconz",
+                "supported_features": 0,
+                "unique_id": "00:15:8d:00:04:4e:2b:63-01-0006",
+                "unit_of_measurement": null
+            },
+            {
+                "area_id": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_class": null,
+                "device_id": "051215d5b20dc09f912d269348bf1441",
+                "disabled_by": null,
+                "entity_category": "diagnostic",
+                "entity_id": "sensor.front_door_battery_level",
+                "icon": null,
+                "id": "0f4c1dba05f345e3ae0e10258789650c",
+                "name": "Front door Battery Level",
+                "original_device_class": "battery",
+                "original_icon": null,
+                "original_name": "OpenClose 45 Battery Level",
+                "platform": "deconz",
+                "supported_features": 0,
+                "unique_id": "00:15:8d:00:04:4e:2b:63-battery",
+                "unit_of_measurement": "%"
+            },
+            {
+                "area_id": null,
+                "capabilities": {
+                    "state_class": "measurement"
+                },
+                "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+                "device_class": "temperature",
+                "device_id": "051215d5b20dc09f912d269348bf1441",
+                "disabled_by": "user",
+                "entity_category": null,
+                "entity_id": "sensor.front_door_temperature",
+                "icon": null,
+                "id": "b61b8942848b402d38a834900b16e169",
+                "name": "Front door Temperature",
+                "original_device_class": "temperature",
+                "original_icon": null,
+                "original_name": "OpenClose 45 Temperature",
+                "platform": "deconz",
+                "supported_features": 0,
+                "unique_id": "00:15:8d:00:04:4e:2b:63-temperature",
+                "unit_of_measurement": "\u00b0C"
             }
         ]
     }
