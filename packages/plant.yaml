@@ -38,4 +38,16 @@ alert:
       tag: plant
       requireInteraction: true
       url: lovelace/plant
-      actions: ignore
+      actions: plant_ignore
+
+automation:
+  - alias: "Plant acknowledged"
+    trigger:
+      - platform: event
+        event_type: html5_notification.clicked
+        event_data:
+          action: plant_ignore
+    action:
+      - service: alert.turn_off
+        target:
+          entity_id: alert.plant

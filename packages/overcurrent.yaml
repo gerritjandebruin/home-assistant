@@ -19,4 +19,22 @@ alert:
       requireInteraction: true
       url: lovelace/solar
       priority: high
-      action: put_off
+      action: turn_off
+
+automation:
+  - alias: Overcurrent
+    trigger:
+      - platform: event
+        event_type: html5_notification.clicked
+        event_data:
+          action: turn_off
+    action:
+      - service: climate.turn_off
+        target:
+          entity_id: all
+      - service: light.turn_off
+        target:
+          entity_id: all
+      - service: swtich.turn_off
+        target:
+          entity_id: all

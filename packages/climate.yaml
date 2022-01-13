@@ -23,3 +23,15 @@ climate:
     target_sensor: sensor.bedroom_thermometer
     target_temp: 20
     initial_hvac_mode: "off"
+
+automation:
+  - alias: Climate
+    trigger:
+      - platform: time
+        at: "02:00:00"
+    action:
+      - service: climate.turn_off
+        target:
+          entity_id:
+            - climate.attic_climate
+            - climate.bathroom_climate

@@ -46,8 +46,5 @@ http:
 recorder:
   purge_keep_days: 800
 
-# shell_command:
-#   backup_logs: cp /config/home-assistant.log /config/home-assistant.log.bk
-
 automation: !include automations.yaml
 script: !include scripts.yaml

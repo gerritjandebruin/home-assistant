@@ -1,0 +1,12 @@
+shell_command:
+  backup_logs: cp /config/home-assistant.log /config/home-assistant.log.bk
+
+automation:
+  - alias: Backup log
+    description: Store log just before HA is rebooted.
+    initial_state: false
+    trigger:
+      - platform: homeassistant
+        event: shutdown
+    action:
+      - service: shell_command.backup_logs
