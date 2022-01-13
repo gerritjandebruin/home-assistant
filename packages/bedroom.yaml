@@ -1,0 +1,158 @@
+light:
+  - platform: group
+    name: Bedroom
+    entities:
+      - light.bedroom_1
+      - light.bedroom_2
+      - light.bedroom_3
+      - light.bedroom_4
+      - light.bedroom_5
+
+homeassistant:
+  customize:
+    light.bedroom:
+      icon: mdi:bed
+
+automation:
+  - alias: Bedroom control
+    description: https://www.ikea.com/nl/nl/p/tradfri-afstandsbediening-30443124/
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: bedroom_control
+    action:
+      - variables:
+          event: "{{ trigger.event.data.event }}"
+      - choose:
+          - alias: Toggle
+            conditions:
+              - condition: template
+                value_template: "{{ event == 1002 }}"
+            sequence:
+              - service: light.toggle
+                target:
+                  area_id: bedroom
+          - alias: Brightness up hold
+            conditions:
+              - condition: template
+                value_template: "{{ event == 2001 }}"
+            sequence:
+              - service: light.turn_on
+                target:
+                  area_id: bedroom
+                data:
+                  brightness_pct: 100
+                  color_temp: 395
+          - alias: Brightness up
+            conditions:
+              - condition: template
+                value_template: "{{ event == 2002 }}"
+            sequence:
+              - service: light.turn_on
+                target:
+                  area_id: bedroom
+                data:
+                  brightness_step_pct: 20
+          - alias: Brightness down hold
+            conditions:
+              - condition: template
+                value_template: "{{ event == 3001 }}"
+            sequence:
+              - service: light.turn_on
+                target:
+                  area_id: bedroom
+                data:
+                  brightness_pct: 1
+                  color_temp: 140
+          - alias: Brightness down
+            conditions:
+              - condition: template
+                value_template: "{{ event == 3002 }}"
+            sequence:
+              - service: light.turn_on
+                target:
+                  area_id: bedroom
+                data:
+                  brightness_step_pct: -20
+          - alias: Color down
+            conditions:
+              - condition: template
+                value_template: "{{ event == 4002 }}"
+            sequence:
+              - service: light.turn_on
+                target:
+                  area_id: bedroom
+                data:
+                  color_temp: 140
+          - alias: Color down
+            conditions:
+              - condition: template
+                value_template: "{{ event == 5002 }}"
+            sequence:
+              - service: light.turn_on
+                target:
+                  area_id: bedroom
+                data:
+                  color_temp: 395
+    mode: queued
+    max: 25
+  - alias: Bedroom switch
+    description: https://www.ikea.com/nl/nl/p/tradfri-draadloze-dimmer-wit-70408595/
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: bedroom_switch
+    action:
+      - choose:
+          - alias: Hold up
+            conditions:
+              - condition: template
+                value_template: "{{ trigger.event.data.event == 1001 }}"
+            sequence:
+              - service: light.turn_on
+                target:
+                  area_id: bedroom
+                data:
+                  brightness_pct: 1
+                  color_temp: 650
+          - alias: Up
+            conditions:
+              - condition: template
+                value_template: "{{ trigger.event.data.event == 1002 }}"
+            sequence:
+              - service: light.turn_on
+                target:
+                  entity_id: light.bedroom_1
+                data:
+                  brightness_pct: 1
+                  color_temp: 650
+          - alias: Hold down
+            conditions:
+              - condition: template
+                value_template: "{{ trigger.event.data.event == 2001 }}"
+            sequence:
+              - service: light.turn_off
+                target:
+                  entity_id: all
+              - service: switch.turn_off
+                target:
+                  entity_id: all
+              - service: automation.turn_off
+                target:
+                  entity_id: automation.hall_corridor
+              - delay: 60
+              - service: automation.turn_on
+                target:
+                  entity_id: automation.hall_corridor
+          - alias: Down
+            conditions:
+              - condition: template
+                value_template: "{{ trigger.event.data.event == 2002 }}"
+            sequence:
+              - service: light.turn_off
+                target:
+                  area_id: bedroom
+        default: []
+    mode: single
