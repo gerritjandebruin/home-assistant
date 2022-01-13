@@ -36,6 +36,21 @@ sensor:
     calibration_factor: 1.8
     name: lounge_mold
 
+homeassistant:
+  customize:
+    sensor.bedroom_mold:
+      icon: mdi:bacteria
+    sensor.attic_mold:
+      icon: mdi:bacteria
+    sensor.bathroom_mold:
+      icon: mdi:bacteria
+    sensor.guestroom_mold:
+      icon: mdi:bacteria
+    sensor.shed_mold:
+      icon: mdi:bacteria
+    sensor.lounge_mold:
+      icon: mdi:bacteria
+
 template:
   binary_sensor:
     - name: Attic mold

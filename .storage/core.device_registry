@@ -210,11 +210,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -242,11 +242,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -338,11 +338,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
@@ -370,11 +370,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ]
                 ],
@@ -434,11 +434,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:67:5e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:67:5e"
                     ]
                 ],
@@ -498,11 +498,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -594,11 +594,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ]
                 ],
@@ -786,11 +786,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -850,11 +850,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -939,11 +939,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -971,11 +971,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:06:59:d1:c7"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:06:59:d1:c7"
                     ]
                 ],
@@ -1261,11 +1261,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1638,11 +1638,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],

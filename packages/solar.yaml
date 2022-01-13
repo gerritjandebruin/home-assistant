@@ -4,14 +4,17 @@ template:
         unit_of_measurement: "kWh"
         state: "{{ states('sensor.energy_production_today_1') | float + states('sensor.energy_production_today_2') | float }}"
         device_class: energy
+        icon: mdi:solar-power
       - name: Expected production current hour
         unit_of_measurement: "kWh"
         state: "{{ states('sensor.energy_current_hour_1') | float + states('sensor.energy_current_hour_2') | float }}"
         device_class: energy
+        icon: mdi:solar-power
       - name: Expected production next hour
         unit_of_measurement: "kWh"
         state: "{{ states('sensor.energy_next_hour_1') | float + states('sensor.energy_next_hour_2') | float }}"
         device_class: energy
+        icon: mdi:solar-power
       - name: Current power consumption
         unit_of_measurement: "W"
         availability: "{{ not is_state('sensor.power_from_grid', 'unavailable') }}"

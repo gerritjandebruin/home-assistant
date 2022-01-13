@@ -1,0 +1,22 @@
+template:
+  binary_sensor:
+    name: overcurrent
+    unique_id: overcurrent
+    device_class: problem
+    state: "{{ states('sensor.power_from_grid') | float > 6800}}"
+
+alert:
+  overcurrent:
+    name: overcurrent
+    entity_id: binary_sensor.overcurrent
+    repeat: 5
+    message: >
+      "High total current measured {{ states('sensor.power_from_grid') | float }}"
+    notifiers:
+      - pushnotification
+    data:
+      tag: overcurrent
+      requireInteraction: true
+      url: lovelace/solar
+      priority: high
+      action: put_off

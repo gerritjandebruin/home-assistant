@@ -635,13 +635,11 @@
                                 {
                                     "entity": "light.shed",
                                     "secondary_info": "last-changed",
-                                    "toggle": true,
-                                    "icon": "mdi:garage"
+                                    "toggle": true
                                 },
                                 {
                                     "entity": "switch.bike_light",
-                                    "secondary_info": "last-changed",
-                                    "icon": "mdi:bicycle"
+                                    "secondary_info": "last-changed"
                                 },
                                 {
                                     "entity": "switch.bike_socket",
@@ -658,7 +656,6 @@
                                 },
                                 {
                                     "entity": "switch.lounge",
-                                    "icon": "mdi:seat",
                                     "secondary_info": "last-changed",
                                     "toggle": true,
                                     "type": "custom:multiple-entity-row",
@@ -687,19 +684,16 @@
                                 },
                                 {
                                     "entity": "switch.bathroom",
-                                    "icon": "mdi:shower",
                                     "secondary_info": "last-changed",
                                     "toggle": true
                                 },
                                 {
                                     "entity": "light.kitchen",
-                                    "icon": "mdi:food",
                                     "secondary_info": "last-changed",
                                     "toggle": true
                                 },
                                 {
                                     "entity": "light.pantry",
-                                    "icon": "mdi:food-variant",
                                     "secondary_info": "last-changed",
                                     "toggle": true,
                                     "type": "custom:multiple-entity-row"
@@ -709,8 +703,7 @@
                                     "name": "Hall",
                                     "secondary_info": "last-changed",
                                     "toggle": true,
-                                    "type": "custom:multiple-entity-row",
-                                    "icon": "mdi:home-floor-0"
+                                    "type": "custom:multiple-entity-row"
                                 }
                             ]
                         },
@@ -774,13 +767,11 @@
                                 },
                                 {
                                     "entity": "switch.toilet",
-                                    "icon": "mdi:toilet",
                                     "secondary_info": "last-changed",
                                     "toggle": true
                                 },
                                 {
                                     "entity": "light.corridor",
-                                    "icon": "mdi:home-floor-1",
                                     "secondary_info": "last-changed",
                                     "toggle": true
                                 },
@@ -793,7 +784,6 @@
                                 },
                                 {
                                     "entity": "light.attic",
-                                    "icon": "mdi:bed",
                                     "show_state": false,
                                     "secondary_info": "last-changed"
                                 },
