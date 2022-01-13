@@ -1,0 +1,24 @@
+template:
+  binary_sensor:
+    - name: Abnormal voltage
+      unique_id: abnormal_voltage
+      device_class: problem
+      state: >
+        {% set input = states('sensor.grid_voltage') | float %}
+        {% set input_available = not is_state('sensor.grid_voltage', 'unavailable') %}
+        {% set solarpanel = states('sensor.growatt_reactive_voltage') | float %}
+        {{ (input < 210 and input_available) or (solarpanel < 210 and solarpanel > 0) or input > 245 or solarpanel > 245}}
+
+alert:
+  abnormal_voltage:
+    name: Abnormal voltage
+    entity_id: binary_sensor.abnormal_voltage
+    repeat: 30
+    message: "{{ states('sensor.grid_voltage') }} is measured"
+    notifiers:
+      - pushnotification
+    data:
+      tag: abnormal_voltage
+      requireInteraction: true
+      url: lovelace/check
+      priority: high

@@ -9771,6 +9771,26 @@
                 "supported_features": 0,
                 "unique_id": "f624a701edf684e7d6a4659cbd0f4b24-KNMI Home",
                 "unit_of_measurement": null
+            },
+            {
+                "area_id": null,
+                "capabilities": null,
+                "config_entry_id": null,
+                "device_class": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_category": null,
+                "entity_id": "automation.html5_push",
+                "icon": null,
+                "id": "6ee7eda43657c923c59d095789dc54fc",
+                "name": null,
+                "original_device_class": null,
+                "original_icon": null,
+                "original_name": "HTML5 push",
+                "platform": "automation",
+                "supported_features": 0,
+                "unique_id": "1642059729431",
+                "unit_of_measurement": null
             }
         ]
     }

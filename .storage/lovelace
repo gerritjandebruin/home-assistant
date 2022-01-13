@@ -1478,6 +1478,10 @@
                                 ],
                                 "exclude": [
                                     {
+                                        "entity_id": "sensor.growatt_reactive_voltage",
+                                        "state": "<0.001"
+                                    },
+                                    {
                                         "entity_id": "sensor.growatt_input_*_voltage"
                                     },
                                     {

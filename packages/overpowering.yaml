@@ -1,0 +1,48 @@
+binary_sensor:
+  - platform: group
+    name: Overpowering
+    unique_id: overpowering
+    device_class: problem
+    entities:
+      - binary_sensor.bathroom_overpowering
+      - binary_sensor.bike_light_overpowering
+      - binary_sensor.bike_socket_overpowering
+      - binary_sensor.energy_overpowering
+      - binary_sensor.lounge_overpowering
+      - binary_sensor.terrace_overpowering
+      - binary_sensor.toilet_overpowering
+
+alert:
+  overpowering:
+    name: Overpowering
+    entity_id: binary_sensor.overpowering
+    repeat: 30
+    message: >
+      {% if is_state('binary_sensor.bathroom_overpowering', 'on') %}
+        Bathroom
+      {% endif %}
+      {% if is_state('binary_sensor.bike_light_overpowering', 'on') %}
+        Bike light
+      {% endif %}
+      {% if is_state('binary_sensor.bike_socket_overpowering', 'on') %}
+        Bike socket
+      {% endif %}
+      {% if is_state('binary_sensor.energy_overpowering', 'on') %}
+        Energy
+      {% endif %}
+      {% if is_state('binary_sensor.lounge_overpowering', 'on') %}
+        Lounge
+      {% endif %}
+      {% if is_state('binary_sensor.terrace_overpowering', 'on') %}
+        Terrace
+      {% endif %}
+      {% if is_state('binary_sensor.toilet_overpowering', 'on') %}
+        Toilet
+      {% endif %}
+    notifiers:
+      - pushnotification
+    data:
+      tag: overpowering
+      requireInteraction: true
+      url: lovelace/check
+      priority: high

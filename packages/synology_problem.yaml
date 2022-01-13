@@ -1,0 +1,52 @@
+binary_sensor:
+  - platform: group
+    name: Synology problem
+    unique_id: synology_problem
+    device_class: problem
+    entities:
+      - binary_sensor.augustinuserf_drive_2_below_min_remaining_life
+      - binary_sensor.synology_drive_1_below_min_remaining_life
+      - binary_sensor.synology_drive_2_below_min_remaining_life
+      - binary_sensor.augustinuserf_drive_2_exceeded_max_bad_sectors
+      - binary_sensor.synology_drive_1_exceeded_max_bad_sectors
+      - binary_sensor.synology_drive_2_exceeded_max_bad_sectors
+      - binary_sensor.augustinuserf_security_status
+      - binary_sensor.augustinuserf_security_status
+
+alert:
+  synology:
+    name: synology
+    entity_id: binary_sensor.synology_problem
+    repeat: 30
+    message: >
+      {% if is_state('binary_sensor.augustinuserf_drive_2_below_min_remaining_life', 'on') %}
+        binary_sensor.augustinuserf_drive_2_below_min_remaining_life
+      {% endif %}
+      {% if is_state('binary_sensor.synology_drive_1_below_min_remaining_life',      'on') %}
+        binary_sensor.synology_drive_1_below_min_remaining_life
+      {% endif %}
+      {% if is_state('binary_sensor.synology_drive_2_below_min_remaining_life',      'on') %}
+        binary_sensor.synology_drive_2_below_min_remaining_life
+      {% endif %}
+        {% if is_state('binary_sensor.augustinuserf_drive_2_exceeded_max_bad_sectors', 'on') %}
+        binary_sensor.augustinuserf_drive_2_exceeded_max_bad_sectors
+      {% endif %}
+      {% if is_state('binary_sensor.synology_drive_1_exceeded_max_bad_sectors',      'on') %}
+        binary_sensor.synology_drive_1_exceeded_max_bad_sectors
+      {% endif %}
+      {% if is_state('binary_sensor.synology_drive_2_exceeded_max_bad_sectors',      'on') %}
+        binary_sensor.synology_drive_2_exceeded_max_bad_sectors
+      {% endif %}
+      {% if is_state('binary_sensor.augustinuserf_security_status',                  'on') %}
+        binary_sensor.augustinuserf_security_status
+      {% endif %}
+      {% if is_state('binary_sensor.augustinuserf_security_status',                  'on') %}
+        binary_sensor.augustinuserf_security_status
+      {% endif %}
+    notifiers:
+      - pushnotification
+    data:
+      tag: synology_problem
+      requireInteraction: true
+      url: lovelace/check
+      priority: high

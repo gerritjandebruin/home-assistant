@@ -1,0 +1,21 @@
+sensor:
+  - platform: command_line
+    command: python3 -c "import requests; import json; import random; dataRequest = requests.get('https://cdn-secure.buienalarm.nl/api/3.4/forecast.php?lat=52.095&lon=5.103&region=nl&unit=mm%2Fu&c='+str(random.randint(0,999999999999999)) ).text; dataRequest = dataRequest.replace('\r\n',' '); data = '{\"data\":'+dataRequest+'}';    print(data);"
+    name: Neerslag_Buienalarm_Regen_Data
+    json_attributes:
+      - data
+    value_template: "last_changed: {{states.sensor.neerslag_buienalarm_regen_data.last_changed | default(now())}}"
+    scan_interval: 240
+
+alert:
+  knmi:
+    name: Weather
+    entity_id: binary_sensor.knmi_home_waarschuwing
+    repeat: 1440
+    message: "KNMI weerwaarschuwing: {{ state_attr('binary_sensor.knmi_home_waarschuwing', 'Waarschuwing') }}"
+    notifiers:
+      - pushnotification
+    data:
+      tag: weather
+      url: https://www.knmi.nl
+      priority: high

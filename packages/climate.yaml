@@ -1,0 +1,25 @@
+climate:
+  - platform: generic_thermostat
+    name: Attic
+    heater: switch.heater
+    target_sensor: sensor.attic_thermometer
+    target_temp: 20
+    initial_hvac_mode: "off"
+  - platform: generic_thermostat
+    name: Guestroom
+    heater: switch.heater
+    target_sensor: sensor.guestroom_thermometer
+    target_temp: 20
+    initial_hvac_mode: "off"
+  - platform: generic_thermostat
+    name: Bathroom
+    heater: switch.heater
+    target_sensor: sensor.bathroom_thermometer
+    target_temp: 20
+    initial_hvac_mode: "off"
+  - platform: generic_thermostat
+    name: Bedroom
+    heater: switch.heater
+    target_sensor: sensor.bedroom_thermometer
+    target_temp: 20
+    initial_hvac_mode: "off"

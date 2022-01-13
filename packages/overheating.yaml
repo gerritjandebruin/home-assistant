@@ -1,0 +1,36 @@
+binary_sensor:
+  - platform: group
+    name: Overheating
+    unique_id: overheating
+    device_class: problem
+    entities:
+      - binary_sensor.bathroom_overheating
+      - binary_sensor.bike_overheating
+      - binary_sensor.lounge_overheating
+      - binary_sensor.toilet_overheating
+
+alert:
+  overheating:
+    name: Overheating
+    entity_id: binary_sensor.overheating
+    repeat: 30
+    message: >
+      {% if is_state('binary_sensor.bathroom_overheating', 'on') %}
+        Bathroom
+      {% endif %}
+      {% if is_state('binary_sensor.bike_overheating', 'on') %}
+        Bike
+      {% endif %}
+      {% if is_state('binary_sensor.lounge_overheating', 'on') %}
+        Lounge
+      {% endif %}
+      {% if is_state('binary_sensor.toilet_overheating', 'on') %}
+        Toilet
+      {% endif %}
+    notifiers:
+      - pushnotification
+    data:
+      tag: overheating
+      requireInteraction: true
+      url: lovelace/check
+      priority: high

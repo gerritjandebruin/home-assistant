@@ -1,0 +1,21 @@
+template:
+  - binary_sensor:
+      - name: vacuum low battery
+        unique_id: vacuum_low_battery
+        availability: "{{ not is_state('vacuum.berry', 'unavailable') }}"
+        device_class: battery
+        state: "{{ state_attr('vacuum.berry', 'battery_level') | float < 10 }}"
+        icon: "{{ state_attr('vacuum.berry', 'battery_icon') }}"
+
+alert:
+  vacuum:
+    name: Vacuum
+    entity_id: binary_sensor.vacuum_low_battery
+    repeat: 30
+    message: "Battery vacuum is almost empty {{ state_attr('vacuum.berry', 'battery_level') }}"
+    notifiers:
+      - pushnotification
+    data:
+      tag: vacuum
+      requireInteraction: true
+      url: lovelace/vacuum

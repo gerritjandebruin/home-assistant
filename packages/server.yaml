@@ -1,0 +1,11 @@
+sensor:
+  - platform: filesize
+    file_paths:
+      - /config/home-assistant_v2.db
+  - platform: systemmonitor
+    resources:
+      - type: disk_free
+        arg: /home
+      - type: memory_use_percent
+      - type: processor_use
+      - type: last_boot

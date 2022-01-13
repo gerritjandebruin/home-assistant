@@ -74,8 +74,9 @@
           - light.corridor
         data:
           brightness_pct: '{{ states(''input_number.brightness'') | float }}'
-          color_temp: '{{ 153 if states(''outside_temperature'') | float(0) < 0 else
-            360 if states(''input_number.brightness'') | float > 50 else 454 }}'
+          color_temp: "{% if is_state('binary_sensor.knmi_home_waarschuwing', 'on')\
+            \ %}\n  153\n{% elif states('input_number.brightness') | int > 50 %}\n\
+            \  360\n{% else %}\n  454\n{% endif %}"
   mode: queued
   max: 5
 - id: '1603831020194'
@@ -895,4 +896,18 @@
       - climate.attic_climate
       - climate.bathroom_climate
       - climate.guestroom_climate
+  mode: single
+- id: '1642059729431'
+  alias: HTML5 push
+  description: ''
+  trigger:
+  - platform: event
+    event_type: html5_notification.clicked
+    event_data:
+      action: ignore
+  condition: []
+  action:
+  - service: alert.turn_off
+    target:
+      entity_id: alert.plant
   mode: single

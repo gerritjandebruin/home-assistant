@@ -1,5 +1,16 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
+
+homeassistant:
+  packages: !include_dir_named packages/
+  allowlist_external_dirs:
+    - "/config/"
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.1.0/25
+
 notify:
   - name: everyone
     platform: group
@@ -25,15 +36,6 @@ influxdb:
       - automation
       - persistent_notification
 
-homeassistant:
-  allowlist_external_dirs:
-    - "/config/"
-  auth_providers:
-    - type: homeassistant
-    - type: trusted_networks
-      trusted_networks:
-        - 192.168.1.0/25
-
 http:
   trusted_proxies:
     - 192.168.1.252
@@ -44,36 +46,8 @@ http:
 recorder:
   purge_keep_days: 800
 
-sensor:
-  - platform: filesize
-    file_paths:
-      - /config/home-assistant_v2.db
-  - platform: systemmonitor
-    resources:
-      - type: disk_free
-        arg: /home
-      - type: memory_use_percent
-      - type: processor_use
-      - type: last_boot
-  - platform: command_line
-    command: python3 -c "import requests; import json; import random; dataRequest = requests.get('https://cdn-secure.buienalarm.nl/api/3.4/forecast.php?lat=52.095&lon=5.103&region=nl&unit=mm%2Fu&c='+str(random.randint(0,999999999999999)) ).text; dataRequest = dataRequest.replace('\r\n',' '); data = '{\"data\":'+dataRequest+'}';    print(data);"
-    name: Neerslag_Buienalarm_Regen_Data
-    json_attributes:
-      - data
-    value_template: "last_changed: {{states.sensor.neerslag_buienalarm_regen_data.last_changed | default(now())}}"
-    scan_interval: 240
+# shell_command:
+#   backup_logs: cp /config/home-assistant.log /config/home-assistant.log.bk
 
-shell_command:
-  backup_logs: cp /config/home-assistant.log /config/home-assistant.log.bk
-
-tts:
-  - platform: google_translate
-
-alert: !include alert.yaml
 automation: !include automations.yaml
-binary_sensor: !include binary_sensor.yaml
-climate: !include climate.yaml
-plant: !include plant.yaml
 script: !include scripts.yaml
-sensor mold: !include mold.yaml
-template: !include template.yaml

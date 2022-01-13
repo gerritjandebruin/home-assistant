@@ -1,0 +1,22 @@
+template:
+  binary_sensor:
+    - name: Shed status
+      unique_id: shed_status
+      device_class: problem
+      state: "{{ states('sensor.shed_thermometer') | float < 0 or states('sensor.shed_thermometer') | float > 10 }}"
+      availability: "{{ not is_state('sensor.shed_thermometer', 'unavailable') }}"
+
+alert:
+  shed_temperature:
+    name: Shed temperature
+    entity_id: binary_sensor.shed_status
+    repeat: 30
+    message: "Temperature in shed is {{ states('sensor.shed_thermometer') }}"
+    done_message: Shed temperature is OK
+    notifiers:
+      - pushnotification
+    data:
+      tag: shed_temperature
+      requireInteraction: true
+      url: lovelace/check
+      priority: high

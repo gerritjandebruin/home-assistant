@@ -1,0 +1,28 @@
+template:
+  - binary_sensor:
+      - name: abnormal temperature
+        unique_id: abnormal_temperature
+        device_class: problem
+        state: >
+          {% set a = states('sensor.attic_thermometer')     | float(0) %}
+          {% set b = states('sensor.bathroom_thermometer')  | float(0) %}
+          {% set c = states('sensor.bedroom_thermometer')   | float(0) %}
+          {% set d = states('sensor.guestroom_thermometer') | float(0) %}
+          {% set e = states('sensor.hall_thermometer')      | float(0) %}
+          {% set f = states('sensor.lounge_thermometer')    | float(0) %}
+          {% set g = states('sensor.shed_thermometer')      | float(0) %}
+          {{ a<0 or b<0 or c<0 or d<0 or e<0 or f<0 or g<0 or a>30 or b>30 or c>30 or d>30 or e>30 or f>30 or g>30 }}
+
+alert:
+  abnormal_temperature:
+    name: Abnormal temperature
+    entity_id: binary_sensor.abnormal_temperature
+    repeat: 30
+    message: "Abnormal temperature measured"
+    notifiers:
+      - pushnotification
+    data:
+      tag: abnormal_temperature
+      requireInteraction: true
+      url: lovelace/check
+      priority: high
