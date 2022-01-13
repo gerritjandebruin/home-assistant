@@ -1,0 +1,34 @@
+alert:
+  front_door:
+    name: Front door
+    entity_id: binary_sensor.front_door
+    title: Front door is open
+    skip_first: true
+    repeat: 5
+    message: >
+      Front door is open for
+      {{((as_timestamp(now())-as_timestamp(states.binary_sensor.front_door.last_changed))/60) | round}}
+      minutes.
+    done_message: "Front door is closed again."
+    notifiers:
+      - pushnotification
+    data:
+      tag: front_door
+      requireInteraction: true
+      priority: high
+      actions:
+        - action: front_door
+          title: It's ok!
+          icon: mdi:check
+
+automation:
+  - alias: Front door
+    trigger:
+      - platform: event
+        event_type: html5_notification.clicked
+        event_data:
+          action: front_door
+    action:
+      - service: alert.turn_off
+        target:
+          entity_id: alert.front_door
