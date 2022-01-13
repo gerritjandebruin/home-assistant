@@ -1,7 +1,6 @@
 template:
   binary_sensor:
     - name: Shed status
-      unique_id: shed_status
       device_class: problem
       state: "{{ states('sensor.shed_thermometer') | float < 0 or states('sensor.shed_thermometer') | float > 10 }}"
       availability: "{{ not is_state('sensor.shed_thermometer', 'unavailable') }}"

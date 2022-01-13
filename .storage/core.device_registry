@@ -34,8 +34,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -210,11 +210,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -274,11 +274,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -306,11 +306,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -402,11 +402,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -498,11 +498,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -530,11 +530,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
@@ -562,11 +562,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
@@ -626,11 +626,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -818,11 +818,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:08:16:da:da"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -900,8 +900,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "073d9d60b505c7c436b05f7acbdd18db"
+                    "073d9d60b505c7c436b05f7acbdd18db",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -939,11 +939,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1606,11 +1606,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -2406,7 +2406,7 @@
                 "manufacturer": "LUMI",
                 "model": "lumi.sensor_magnet.aq2",
                 "name": "Front OpenClose",
-                "sw_version": null,
+                "sw_version": "20161128",
                 "entry_type": null,
                 "id": "051215d5b20dc09f912d269348bf1441",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",

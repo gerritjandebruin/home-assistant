@@ -1,7 +1,6 @@
 binary_sensor:
   - platform: group
     name: Synology problem
-    unique_id: synology_problem
     device_class: problem
     entities:
       - binary_sensor.augustinuserf_drive_2_below_min_remaining_life

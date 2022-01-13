@@ -1,7 +1,6 @@
 template:
   binary_sensor:
     name: overcurrent
-    unique_id: overcurrent
     device_class: problem
     state: "{{ states('sensor.power_from_grid') | float > 6800}}"
 

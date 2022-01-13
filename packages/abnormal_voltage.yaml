@@ -1,7 +1,6 @@
 template:
   binary_sensor:
     - name: Abnormal voltage
-      unique_id: abnormal_voltage
       device_class: problem
       state: >
         {% set input = states('sensor.grid_voltage') | float %}

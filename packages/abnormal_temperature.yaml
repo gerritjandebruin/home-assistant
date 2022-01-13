@@ -1,7 +1,6 @@
 template:
   - binary_sensor:
       - name: abnormal temperature
-        unique_id: abnormal_temperature
         device_class: problem
         state: >
           {% set a = states('sensor.attic_thermometer')     | float(0) %}

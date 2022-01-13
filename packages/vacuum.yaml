@@ -1,7 +1,6 @@
 template:
   - binary_sensor:
       - name: vacuum low battery
-        unique_id: vacuum_low_battery
         availability: "{{ not is_state('vacuum.berry', 'unavailable') }}"
         device_class: battery
         state: "{{ state_attr('vacuum.berry', 'battery_level') | float < 10 }}"

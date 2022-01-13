@@ -1,7 +1,6 @@
 binary_sensor:
   - platform: group
     name: Overpowering
-    unique_id: overpowering
     device_class: problem
     entities:
       - binary_sensor.bathroom_overpowering

@@ -1,7 +1,6 @@
 binary_sensor:
   - platform: group
     name: Overheating
-    unique_id: overheating
     device_class: problem
     entities:
       - binary_sensor.bathroom_overheating

@@ -54,27 +54,22 @@ homeassistant:
 template:
   binary_sensor:
     - name: Attic mold
-      unique_id: attic_mold
       device_class: problem
       state: "{{ states('sensor.attic_mold') | float > 90 }}"
       availability: "{{ not is_state('sensor.attic_mold', 'unavailable') }}"
     - name: Bathroom mold
-      unique_id: bathroom_mold
       device_class: problem
       state: "{{ states('sensor.bathroom_mold') | float > 90 }}"
       availability: "{{ not is_state('sensor.bathroom_mold', 'unavailable') }}"
     - name: Bedroom mold
-      unique_id: bedroom_mold
       device_class: problem
       state: "{{ states('sensor.bedroom_mold') | float > 90 }}"
       availability: "{{ not is_state('sensor.bedroom_mold', 'unavailable') }}"
     - name: Guestroom mold
-      unique_id: guestroom_mold
       device_class: problem
       state: "{{ states('sensor.guestroom_mold') | float > 90 }}"
       availability: "{{ not is_state('sensor.guestroom_mold', 'unavailable') }}"
     - name: Lounge mold
-      unique_id: lounge_mold
       device_class: problem
       state: "{{ states('sensor.lounge_mold') | float > 90 }}"
       availability: "{{ not is_state('sensor.lounge_mold', 'unavailable') }}"
