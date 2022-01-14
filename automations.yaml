@@ -9,12 +9,17 @@
     entity_id:
     - binary_sensor.hall_motion
     - binary_sensor.corridor_motion
+    - binary_sensor.front_door
     to: 'on'
   - platform: state
     entity_id:
     - binary_sensor.hall_motion
     - binary_sensor.corridor_motion
     for: 00:10:00
+    to: 'off'
+  - platform: state
+    entity_id: binary_sensor.front_door
+    for: 00:01:00
     to: 'off'
   condition: []
   action:
@@ -28,6 +33,10 @@
       - condition: state
         entity_id: binary_sensor.corridor_motion
         state: 'off'
+      - condition: state
+        entity_id: binary_sensor.front_door
+        state: 'off'
+        for: 00:01:00
       sequence:
       - service: light.turn_off
         entity_id:
