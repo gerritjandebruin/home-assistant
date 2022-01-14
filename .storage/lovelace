@@ -12,7 +12,8 @@
                     "title": "map",
                     "type": "custom:horizontal-layout",
                     "layout": {
-                        "width": 400
+                        "width": 300,
+                        "max-width": 400
                     },
                     "badges": [],
                     "cards": [
@@ -841,17 +842,20 @@
                                 },
                                 {
                                     "entity": "switch.bike_light",
-                                    "secondary_info": "last-changed"
+                                    "secondary_info": "last-changed",
+                                    "state_color": true
                                 },
                                 {
                                     "entity": "switch.bike_socket",
-                                    "secondary_info": "last-changed"
+                                    "secondary_info": "last-changed",
+                                    "state_color": true
                                 },
                                 {
                                     "type": "section"
                                 },
                                 {
-                                    "entity": "media_player.the_frame"
+                                    "entity": "media_player.the_frame",
+                                    "state_color": true
                                 },
                                 {
                                     "entity": "media_player.google"
@@ -859,6 +863,7 @@
                                 {
                                     "entity": "switch.lounge",
                                     "secondary_info": "last-changed",
+                                    "state_color": true,
                                     "toggle": true,
                                     "type": "custom:multiple-entity-row",
                                     "entities": [
@@ -887,7 +892,8 @@
                                 {
                                     "entity": "switch.bathroom",
                                     "secondary_info": "last-changed",
-                                    "toggle": true
+                                    "toggle": true,
+                                    "state_color": true
                                 },
                                 {
                                     "entity": "light.kitchen",
@@ -962,7 +968,8 @@
                                 {
                                     "entity": "switch.toilet",
                                     "secondary_info": "last-changed",
-                                    "toggle": true
+                                    "toggle": true,
+                                    "state_color": true
                                 },
                                 {
                                     "entity": "light.corridor",
@@ -985,6 +992,7 @@
                                     "entity": "vacuum.berry",
                                     "type": "custom:multiple-entity-row",
                                     "name": "Vacuum cleaner",
+                                    "state_color": true,
                                     "secondary_info": "last-changed",
                                     "state_header": "dock",
                                     "entities": [
