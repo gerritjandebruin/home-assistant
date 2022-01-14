@@ -284,6 +284,15 @@
                                             "style": {
                                                 "left": "42%",
                                                 "top": "70%"
+                                            },
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "media_player.media_play_media",
+                                                "service_data": {
+                                                    "entity_id": "media_player.samsung_tv_remote",
+                                                    "media_content_type": "url",
+                                                    "media_content_id": "http://192.168.1.251:8123/lovelace/map"
+                                                }
                                             }
                                         },
                                         {
