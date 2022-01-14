@@ -20,13 +20,13 @@ climate:
 homeassistant:
   customize:
     climate.attic:
-      icon: mdi:home-floor-2
+      icon: mdi:radiator
     climate.guestroom:
-      icon: mdi:bed-empty
+      icon: mdi:radiator
     climate.bathroom:
-      icon: mdi:shower-head
+      icon: mdi:radiator
     climate.bedroom:
-      icon: mdi:bed
+      icon: mdi:radiator
 
 automation:
   - alias: Climate

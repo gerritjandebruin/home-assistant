@@ -147,3 +147,13 @@ homeassistant:
     sensor.lounge_mold:
       icon: mdi:seat
       friendly_name: Lounge
+    alert.attic_mold:
+      icon: mdi:bacteria
+    alert.bathroom_mold:
+      icon: mdi:bacteria
+    alert.bedroom_mold:
+      icon: mdi:bacteria
+    alert.guestroom_mold:
+      icon: mdi:bacteria
+    alert.shed_mold:
+      icon: mdi:bacteria

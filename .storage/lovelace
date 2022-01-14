@@ -224,6 +224,126 @@
                                                 "top": "95%"
                                             },
                                             "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "switch.bike_socket",
+                                            "style": {
+                                                "left": "68%",
+                                                "top": "95%"
+                                            },
+                                            "type": "state-icon"
+                                        },
+                                        {
+                                            "entity": "plant.flower",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "70%",
+                                                "top": "55%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "climate.bathroom",
+                                            "type": "state-icon",
+                                            "icon": "mdi:radiator",
+                                            "style": {
+                                                "left": "30%",
+                                                "top": "13%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "sensor.lounge_thermometer",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "42%",
+                                                "top": "50%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "alert.lounge_mold",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "42%",
+                                                "top": "54%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "media_player.the_frame",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "42%",
+                                                "top": "70%",
+                                                "--paper-item-icon-color": "#f68309",
+                                                "--paper-item-icon-active-color": "#44739e"
+                                            }
+                                        },
+                                        {
+                                            "entity": "binary_sensor.experiabox_v10_wan_status",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "70%",
+                                                "top": "78%",
+                                                "--paper-item-icon-color": "#f68309",
+                                                "--paper-item-icon-active-color": "#44739e"
+                                            }
+                                        },
+                                        {
+                                            "entity": "sensor.shed_thermometer",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "63%",
+                                                "top": "7%",
+                                                "--paper-item-icon-active-color": "green"
+                                            }
+                                        },
+                                        {
+                                            "entity": "alert.shed_temperature",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "55%",
+                                                "top": "7%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "alert.abnormal_temperature",
+                                            "type": "state-icon",
+                                            "icon": "mdi:thermometer-alert",
+                                            "style": {
+                                                "left": "5%",
+                                                "top": "5%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "weather.knmi_home",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "30%",
+                                                "top": "97%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "binary_sensor.knmi_home_waarschuwing",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "30%",
+                                                "top": "93%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "alert.abnormal_voltage",
+                                            "type": "state-icon",
+                                            "icon": "mdi:flash-alert",
+                                            "style": {
+                                                "left": "28%",
+                                                "top": "71%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "alert.bathroom_mold",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "38%",
+                                                "top": "13%"
+                                            }
                                         }
                                     ],
                                     "image": "local/floor-0.jpg",
@@ -361,8 +481,40 @@
                                 {
                                     "entity": "binary_sensor.corridor_motion",
                                     "style": {
-                                        "left": "30%",
+                                        "left": "25%",
                                         "top": "45%"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "climate.guestroom",
+                                    "style": {
+                                        "left": "70%",
+                                        "top": "64%"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "alert.guestroom_mold",
+                                    "style": {
+                                        "left": "63%",
+                                        "top": "64%"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "climate.bedroom",
+                                    "style": {
+                                        "left": "25%",
+                                        "top": "80%"
+                                    },
+                                    "type": "state-icon"
+                                },
+                                {
+                                    "entity": "alert.bedroom_mold",
+                                    "style": {
+                                        "left": "25%",
+                                        "top": "84%"
                                     },
                                     "type": "state-icon"
                                 },
@@ -381,7 +533,7 @@
                                     "entity": "light.walk_in_closet_2",
                                     "style": {
                                         "left": "54%",
-                                        "top": "72%"
+                                        "top": "73%"
                                     },
                                     "tap_action": {
                                         "action": "toggle"
@@ -470,16 +622,65 @@
                                 },
                                 {
                                     "entity": "automation.attic_motion",
-                                    "type": "state-label",
-                                    "prefix": "auto on/off: ",
+                                    "type": "state-icon",
                                     "style": {
-                                        "font-size": "25px",
-                                        "color": "black",
                                         "left": "40%",
-                                        "top": "20%"
+                                        "top": "30%",
+                                        "--paper-item-icon-color": "red",
+                                        "--paper-item-icon-active-color": "green"
                                     },
                                     "tap_action": {
                                         "action": "toggle"
+                                    }
+                                },
+                                {
+                                    "entity": "sensor.printer",
+                                    "type": "state-icon",
+                                    "style": {
+                                        "left": "80%",
+                                        "top": "25%"
+                                    }
+                                },
+                                {
+                                    "entity": "vacuum.berry",
+                                    "type": "state-icon",
+                                    "style": {
+                                        "left": "80%",
+                                        "top": "33%"
+                                    }
+                                },
+                                {
+                                    "entity": "alert.synology",
+                                    "type": "state-icon",
+                                    "icon": "mdi:server",
+                                    "style": {
+                                        "left": "80%",
+                                        "top": "29%"
+                                    }
+                                },
+                                {
+                                    "entity": "sensor.growatt_total_energy_today",
+                                    "type": "state-icon",
+                                    "style": {
+                                        "left": "17%",
+                                        "top": "25%",
+                                        "--paper-item-icon-color": "#f68309"
+                                    }
+                                },
+                                {
+                                    "entity": "climate.attic",
+                                    "type": "state-icon",
+                                    "style": {
+                                        "left": "17%",
+                                        "top": "70%"
+                                    }
+                                },
+                                {
+                                    "entity": "alert.attic_mold",
+                                    "type": "state-icon",
+                                    "style": {
+                                        "left": "25%",
+                                        "top": "70%"
                                     }
                                 }
                             ],
@@ -512,6 +713,7 @@
                                         {
                                             "type": "custom:multiple-entity-row",
                                             "entity": "sensor.attic_mold",
+                                            "icon": "mdi:home-floor-2",
                                             "entities": [
                                                 {
                                                     "entity": "alert.attic_mold",
@@ -525,6 +727,7 @@
                                         {
                                             "type": "custom:multiple-entity-row",
                                             "entity": "sensor.bathroom_mold",
+                                            "icon": "mdi:shower-head",
                                             "entities": [
                                                 {
                                                     "entity": "alert.bathroom_mold",
@@ -538,6 +741,7 @@
                                         {
                                             "type": "custom:multiple-entity-row",
                                             "entity": "sensor.bedroom_mold",
+                                            "icon": "mdi:bed",
                                             "entities": [
                                                 {
                                                     "entity": "alert.bedroom_mold",
@@ -551,6 +755,7 @@
                                         {
                                             "type": "custom:multiple-entity-row",
                                             "entity": "sensor.guestroom_mold",
+                                            "icon": "mdi:bed-empty",
                                             "entities": [
                                                 {
                                                     "entity": "alert.guestroom_mold",
@@ -564,6 +769,7 @@
                                         {
                                             "type": "custom:multiple-entity-row",
                                             "entity": "sensor.lounge_mold",
+                                            "icon": "mdi:seat",
                                             "entities": [
                                                 {
                                                     "entity": "alert.lounge_mold",
@@ -626,6 +832,7 @@
                                     "type": "custom:multiple-entity-row",
                                     "entity": "climate.attic",
                                     "secondary_info": "last-changed",
+                                    "icon": "mdi:home-floor-2",
                                     "state_color": true,
                                     "toggle": true,
                                     "entities": [
@@ -657,6 +864,7 @@
                                 {
                                     "type": "custom:multiple-entity-row",
                                     "entity": "climate.bathroom",
+                                    "icon": "mdi:shower-head",
                                     "secondary_info": "last-changed",
                                     "state_color": true,
                                     "toggle": true,
@@ -689,6 +897,7 @@
                                 {
                                     "type": "custom:multiple-entity-row",
                                     "entity": "climate.bedroom",
+                                    "icon": "mdi:bed",
                                     "secondary_info": "last-changed",
                                     "state_color": true,
                                     "toggle": true,
@@ -721,6 +930,7 @@
                                 {
                                     "type": "custom:multiple-entity-row",
                                     "entity": "climate.guestroom",
+                                    "icon": "mdi:bed-empty",
                                     "secondary_info": "last-changed",
                                     "state_color": true,
                                     "toggle": true,
@@ -771,11 +981,13 @@
                                     ]
                                 },
                                 {
-                                    "entity": "sensor.lounge_thermometer"
+                                    "entity": "sensor.lounge_thermometer",
+                                    "icon": "mdi:seat"
                                 },
                                 {
                                     "entity": "sensor.shed_thermometer",
                                     "type": "custom:multiple-entity-row",
+                                    "icon": "mdi:garage",
                                     "entities": [
                                         {
                                             "entity": "alert.shed_temperature",
