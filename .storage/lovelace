@@ -370,8 +370,16 @@
                                             "type": "state-icon",
                                             "icon": "mdi:flash-alert",
                                             "style": {
-                                                "left": "28%",
+                                                "left": "25%",
                                                 "top": "71%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "binary_sensor.ha_rtl_running",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "24%",
+                                                "top": "78%"
                                             }
                                         },
                                         {
