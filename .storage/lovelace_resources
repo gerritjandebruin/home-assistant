@@ -25,11 +25,6 @@
                 "id": "cdff997124ba4dec8765cf55f4f6d72d"
             },
             {
-                "url": "/hacsfiles/home-assistant-neerslag-card/neerslag-card.js?hacstag=342944383202110210",
-                "type": "module",
-                "id": "580b3d04bfb843368dacb9558ffc514d"
-            },
-            {
                 "url": "/hacsfiles/lovelace-flower-card/flower-card.js?hacstag=297423025851197",
                 "type": "module",
                 "id": "41005d96e60d45b481af35f668834dfa"
@@ -58,6 +53,11 @@
                 "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001721",
                 "type": "module",
                 "id": "7b0eab4812f94755be3e3761e99951f9"
+            },
+            {
+                "url": "/hacsfiles/home-assistant-neerslag-card/neerslag-card.js?hacstag=342944383202110210",
+                "type": "module",
+                "id": "3b80f002e189403bbc871e8035d3f7ee"
             }
         ]
     }
