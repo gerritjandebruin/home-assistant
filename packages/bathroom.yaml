@@ -1,7 +1,7 @@
 input_boolean:
   bathroom_presence:
     name: Bathroom precence
-    icon: mdi:motion-sensor
+    icon: mdi:walk
 
 automation:
   - alias: Bathroom
