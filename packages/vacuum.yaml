@@ -18,3 +18,8 @@ alert:
       tag: vacuum
       requireInteraction: true
       url: lovelace/vacuum
+
+homeassistant:
+  customize:
+    alert.vacuum:
+      friendly_name: Battery

@@ -6,7 +6,7 @@ template:
 
 alert:
   overcurrent:
-    name: overcurrent
+    name: Overcurrent
     entity_id: binary_sensor.overcurrent
     repeat: 5
     message: >

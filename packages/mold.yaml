@@ -1,6 +1,6 @@
 sensor:
   - platform: mold_indicator
-    name: bedroom_mold
+    name: Bedroom mold
     indoor_temp_sensor: sensor.bedroom_thermometer
     indoor_humidity_sensor: sensor.bedroom_humidity
     outdoor_temp_sensor: sensor.outside_temperature
@@ -10,46 +10,31 @@ sensor:
     indoor_humidity_sensor: sensor.attic_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.5
-    name: attic_mold
+    name: Attic mold
   - platform: mold_indicator
     indoor_temp_sensor: sensor.bathroom_thermometer
     indoor_humidity_sensor: sensor.bathroom_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.5
-    name: bathroom_mold
+    name: Bathroom mold
   - platform: mold_indicator
     indoor_temp_sensor: sensor.guestroom_thermometer
     indoor_humidity_sensor: sensor.guestroom_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.6
-    name: guestroom_mold
+    name: Guestroom mold
   - platform: mold_indicator
     indoor_temp_sensor: sensor.shed_thermometer
     indoor_humidity_sensor: sensor.shed_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.0
-    name: shed_mold
+    name: Shed mold
   - platform: mold_indicator
     indoor_temp_sensor: sensor.lounge_thermometer
     indoor_humidity_sensor: sensor.lounge_humidity
     outdoor_temp_sensor: sensor.outside_temperature
     calibration_factor: 1.8
-    name: lounge_mold
-
-homeassistant:
-  customize:
-    sensor.bedroom_mold:
-      icon: mdi:bed
-    sensor.attic_mold:
-      icon: mdi:home-floor-2
-    sensor.bathroom_mold:
-      icon: mdi:shower-head
-    sensor.guestroom_mold:
-      icon: mdi:bed-empty
-    sensor.shed_mold:
-      icon: mdi:garage
-    sensor.lounge_mold:
-      icon: mdi:seat
+    name: Lounge mold
 
 template:
   binary_sensor:
@@ -141,3 +126,24 @@ alert:
       requireInteraction: true
       url: lovelace/check
       priority: high
+
+homeassistant:
+  customize:
+    sensor.bedroom_mold:
+      icon: mdi:bed
+      friendly_name: Bedroom
+    sensor.attic_mold:
+      icon: mdi:home-floor-2
+      friendly_name: Attic
+    sensor.bathroom_mold:
+      icon: mdi:shower-head
+      friendly_name: Bathroom
+    sensor.guestroom_mold:
+      icon: mdi:bed-empty
+      friendly_name: Guestroom
+    sensor.shed_mold:
+      icon: mdi:garage
+      friendly_name: Shed
+    sensor.lounge_mold:
+      icon: mdi:seat
+      friendly_name: Lounge
