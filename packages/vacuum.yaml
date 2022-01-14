@@ -23,3 +23,7 @@ homeassistant:
   customize:
     alert.vacuum:
       friendly_name: Battery
+    sensor.berry_cleaning_area:
+      unit_of_measurement: m³
+    sensor.berry_cleaning_time:
+      unit_of_measurement: min

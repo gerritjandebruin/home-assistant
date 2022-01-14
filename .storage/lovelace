@@ -1445,6 +1445,7 @@
                                     "type": "custom:multiple-entity-row",
                                     "attribute": "battery_level",
                                     "icon": "mdi:battery",
+                                    "unit": "%",
                                     "name": "battery"
                                 }
                             ]
