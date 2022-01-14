@@ -39,3 +39,6 @@ notebooks/home-assistant
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 secrets.yaml
+
+# Push registrations
+html5_push_registrations.conf
