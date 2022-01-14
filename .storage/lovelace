@@ -246,7 +246,16 @@
                                             "type": "state-icon",
                                             "style": {
                                                 "left": "42%",
-                                                "top": "50%"
+                                                "top": "52%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "sensor.lounge_thermometer",
+                                            "type": "state-label",
+                                            "style": {
+                                                "left": "52%",
+                                                "top": "52%",
+                                                "color": "black"
                                             }
                                         },
                                         {
@@ -254,7 +263,16 @@
                                             "type": "state-icon",
                                             "style": {
                                                 "left": "42%",
-                                                "top": "54%"
+                                                "top": "49%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "sensor.lounge_humidity",
+                                            "type": "state-label",
+                                            "style": {
+                                                "left": "52%",
+                                                "top": "49%",
+                                                "color": "black"
                                             }
                                         },
                                         {
@@ -279,8 +297,8 @@
                                             "entity": "sensor.shed_thermometer",
                                             "type": "state-icon",
                                             "style": {
-                                                "left": "63%",
-                                                "top": "7%",
+                                                "left": "55%",
+                                                "top": "3%",
                                                 "--paper-item-icon-active-color": "green"
                                             }
                                         },
@@ -290,6 +308,15 @@
                                             "style": {
                                                 "left": "55%",
                                                 "top": "7%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "sensor.shed_thermometer",
+                                            "type": "state-label",
+                                            "style": {
+                                                "left": "65%",
+                                                "top": "3%",
+                                                "color": "black"
                                             }
                                         },
                                         {
@@ -310,6 +337,15 @@
                                             }
                                         },
                                         {
+                                            "entity": "sensor.outside_temperature",
+                                            "type": "state-label",
+                                            "style": {
+                                                "left": "40%",
+                                                "top": "97%",
+                                                "color": "black"
+                                            }
+                                        },
+                                        {
                                             "entity": "binary_sensor.knmi_home_waarschuwing",
                                             "type": "state-icon",
                                             "style": {
@@ -327,6 +363,22 @@
                                             }
                                         },
                                         {
+                                            "entity": "input_boolean.shower",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "30%",
+                                                "top": "5%"
+                                            }
+                                        },
+                                        {
+                                            "entity": "alert.bathroom_mold",
+                                            "type": "state-icon",
+                                            "style": {
+                                                "left": "30%",
+                                                "top": "9%"
+                                            }
+                                        },
+                                        {
                                             "entity": "climate.bathroom",
                                             "type": "state-icon",
                                             "icon": "mdi:radiator",
@@ -336,19 +388,13 @@
                                             }
                                         },
                                         {
-                                            "entity": "alert.bathroom_mold",
-                                            "type": "state-icon",
+                                            "entity": "sensor.bathroom_thermometer",
+                                            "type": "state-label",
+                                            "icon": "mdi:radiator",
                                             "style": {
-                                                "left": "38%",
-                                                "top": "13%"
-                                            }
-                                        },
-                                        {
-                                            "entity": "input_boolean.bathroom_presence",
-                                            "type": "state-icon",
-                                            "style": {
-                                                "left": "46%",
-                                                "top": "13%"
+                                                "left": "40%",
+                                                "top": "13%",
+                                                "color": "black"
                                             }
                                         }
                                     ],
@@ -495,16 +541,16 @@
                                 {
                                     "entity": "climate.guestroom",
                                     "style": {
-                                        "left": "70%",
-                                        "top": "64%"
+                                        "left": "54%",
+                                        "top": "49%"
                                     },
                                     "type": "state-icon"
                                 },
                                 {
                                     "entity": "alert.guestroom_mold",
                                     "style": {
-                                        "left": "63%",
-                                        "top": "64%"
+                                        "left": "54%",
+                                        "top": "45%"
                                     },
                                     "type": "state-icon"
                                 },
@@ -515,6 +561,24 @@
                                         "top": "80%"
                                     },
                                     "type": "state-icon"
+                                },
+                                {
+                                    "entity": "sensor.guestroom_thermometer",
+                                    "style": {
+                                        "left": "64%",
+                                        "top": "49%",
+                                        "color": "black"
+                                    },
+                                    "type": "state-label"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_thermometer",
+                                    "style": {
+                                        "left": "35%",
+                                        "top": "80%",
+                                        "color": "black"
+                                    },
+                                    "type": "state-label"
                                 },
                                 {
                                     "entity": "alert.bedroom_mold",
@@ -674,7 +738,7 @@
                                     }
                                 },
                                 {
-                                    "entity": "climate.attic",
+                                    "entity": "alert.attic_mold",
                                     "type": "state-icon",
                                     "style": {
                                         "left": "17%",
@@ -682,11 +746,20 @@
                                     }
                                 },
                                 {
-                                    "entity": "alert.attic_mold",
+                                    "entity": "climate.attic",
                                     "type": "state-icon",
                                     "style": {
-                                        "left": "25%",
-                                        "top": "70%"
+                                        "left": "17%",
+                                        "top": "74%"
+                                    }
+                                },
+                                {
+                                    "entity": "sensor.attic_thermometer",
+                                    "type": "state-label",
+                                    "style": {
+                                        "left": "27%",
+                                        "top": "74%",
+                                        "color": "black"
                                     }
                                 }
                             ],

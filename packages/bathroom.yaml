@@ -1,7 +1,7 @@
 input_boolean:
-  bathroom_presence:
-    name: Bathroom precence
-    icon: mdi:walk
+  shower:
+    name: Shower
+    icon: mdi:shower-head
 
 automation:
   - alias: Bathroom
@@ -38,7 +38,7 @@ automation:
               - service: switch.turn_off
                 entity_id: switch.bathroom
               - service: input_boolean.turn_off
-                entity_id: input_boolean.bathroom_precence
+                entity_id: input_boolean.shower
           - alias: Presumed showering
             conditions:
               - condition: trigger
@@ -48,7 +48,7 @@ automation:
                 above: "80"
             sequence:
               - service: input_boolean.turn_on
-                entity_id: input_boolean.bathroom_precence
+                entity_id: input_boolean.shower
               - service: notify.mobile_app_nokia_7_2
                 data:
                   title: Shower detected!
@@ -62,6 +62,8 @@ automation:
                   - platform: numeric_state
                     entity_id: sensor.bathroom_humidity
                     below: "80"
+              - service: input_boolean.turn_off
+                entity_id: input_boolean.shower
           - alias: Presumed forgotten to switch light off while door closed
             conditions:
               - condition: trigger
