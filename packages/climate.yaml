@@ -3,7 +3,6 @@ climate:
     name: Attic
     heater: switch.heater
     target_sensor: sensor.attic_thermometer
-    target_temp: 20
   - platform: generic_thermostat
     name: Guestroom
     heater: switch.heater
