@@ -1218,11 +1218,29 @@
                                 "include": [
                                     {
                                         "domain": "alert",
-                                        "state": "on"
+                                        "state": "on",
+                                        "options": {
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "alert.toggle",
+                                                "service_data": {
+                                                    "entity_id": "this.entity_id"
+                                                }
+                                            }
+                                        }
                                     },
                                     {
                                         "domain": "alert",
-                                        "state": "off"
+                                        "state": "off",
+                                        "options": {
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "alert.toggle",
+                                                "service_data": {
+                                                    "entity_id": "this.entity_id"
+                                                }
+                                            }
+                                        }
                                     },
                                     {
                                         "entity_id": "binary_sensor.*_overheating",
