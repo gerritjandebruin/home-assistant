@@ -1727,7 +1727,9 @@
                         {
                             "type": "statistics-graph",
                             "entities": [
+                                "sensor.synology_volume_1_total_size",
                                 "sensor.synology_volume_1_used_space",
+                                "sensor.synology_volume_2_total_size",
                                 "sensor.synology_volume_2_used_space"
                             ],
                             "days_to_show": 30,
@@ -1848,7 +1850,8 @@
                         {
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.augustinuserf_volume_2_used_space"
+                                "sensor.augustinuserf_volume_2_used_space",
+                                "sensor.augustinuserf_volume_2_total_size"
                             ],
                             "days_to_show": 365,
                             "stat_types": [
