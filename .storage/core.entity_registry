@@ -707,7 +707,7 @@
                 "disabled_by": null,
                 "entity_category": null,
                 "entity_id": "automation.attic_motion",
-                "icon": "mdi:motion-sensor",
+                "icon": "mdi:walk",
                 "id": "95bd6fc2fd1ecc6a4dd29d936ed7d02c",
                 "name": null,
                 "original_device_class": null,
@@ -7896,31 +7896,6 @@
             {
                 "area_id": null,
                 "capabilities": {
-                    "source_list": [
-                        "TV",
-                        "HDMI"
-                    ]
-                },
-                "config_entry_id": "1bbcd31df82b8a69abd0d9ece6db8471",
-                "device_class": "tv",
-                "device_id": "58b296ba53b8d3d4efd4a3b2b5fbc75f",
-                "disabled_by": null,
-                "entity_category": null,
-                "entity_id": "media_player.the_frame",
-                "icon": "mdi:television-box",
-                "id": "913a882cb5d242b23f9cc8c7f785bde9",
-                "name": "the Frame",
-                "original_device_class": "tv",
-                "original_icon": null,
-                "original_name": "TV",
-                "platform": "samsungtv",
-                "supported_features": 20409,
-                "unique_id": "41d82c41-0415-464c-a36a-59c131e7b5ff",
-                "unit_of_measurement": null
-            },
-            {
-                "area_id": null,
-                "capabilities": {
                     "state_class": "measurement"
                 },
                 "config_entry_id": "47c054f917dac4a33280d77f76254678",
@@ -9414,6 +9389,26 @@
                 "platform": "spotify",
                 "supported_features": 0,
                 "unique_id": "1161914049",
+                "unit_of_measurement": null
+            },
+            {
+                "area_id": null,
+                "capabilities": null,
+                "config_entry_id": null,
+                "device_class": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_category": null,
+                "entity_id": "input_boolean.shower",
+                "icon": null,
+                "id": "fff85af1d0c49522f3333fd444e8e4ea",
+                "name": null,
+                "original_device_class": null,
+                "original_icon": "mdi:shower-head",
+                "original_name": "Shower",
+                "platform": "input_boolean",
+                "supported_features": 0,
+                "unique_id": "shower",
                 "unit_of_measurement": null
             }
         ]

@@ -231,7 +231,10 @@
                                                 "left": "68%",
                                                 "top": "95%"
                                             },
-                                            "type": "state-icon"
+                                            "type": "state-icon",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
                                         },
                                         {
                                             "entity": "plant.flower",
@@ -276,7 +279,7 @@
                                             }
                                         },
                                         {
-                                            "entity": "media_player.the_frame",
+                                            "entity": "media_player.samsung_tv_remote",
                                             "type": "state-icon",
                                             "style": {
                                                 "left": "42%",
@@ -1143,11 +1146,8 @@
                                     "type": "section"
                                 },
                                 {
-                                    "entity": "media_player.the_frame",
+                                    "entity": "media_player.samsung_tv_remote",
                                     "state_color": true
-                                },
-                                {
-                                    "entity": "media_player.google"
                                 },
                                 {
                                     "entity": "switch.lounge",
