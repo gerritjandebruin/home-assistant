@@ -262,9 +262,7 @@
                                             "type": "state-icon",
                                             "style": {
                                                 "left": "42%",
-                                                "top": "70%",
-                                                "--paper-item-icon-color": "#f68309",
-                                                "--paper-item-icon-active-color": "#44739e"
+                                                "top": "70%"
                                             }
                                         },
                                         {
