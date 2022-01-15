@@ -33,7 +33,7 @@ sensor:
     indoor_temp_sensor: sensor.lounge_thermometer
     indoor_humidity_sensor: sensor.lounge_humidity
     outdoor_temp_sensor: sensor.outside_temperature
-    calibration_factor: 1.8
+    calibration_factor: 1.6
     name: Lounge mold
 
 template:
