@@ -118,7 +118,7 @@ alert:
     entity_id: binary_sensor.lounge_mold
     repeat: 30
     message: "Mold probability in lounge is high: {{ states('sensor.lounge_mold') }}"
-    done_message: Mold at lound is unlikely again
+    done_message: Mold at lounge is unlikely again
     notifiers:
       - pushnotification
     data:
