@@ -56,7 +56,7 @@ template:
       availability: "{{ not is_state('sensor.guestroom_mold', 'unavailable') }}"
     - name: Lounge mold
       device_class: problem
-      state: "{{ states('sensor.lounge_mold') | float > 90 }}"
+      state: "{{ states('sensor.lounge_mold') | float > 95 }}"
       availability: "{{ not is_state('sensor.lounge_mold', 'unavailable') }}"
 
 alert:
