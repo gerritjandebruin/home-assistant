@@ -21,22 +21,18 @@ automation:
         event_type: deconz_event
         event_data:
           id: bedroom_control
+    variables:
+      event: "{{ trigger.event.data.event }}"
     action:
-      - variables:
-          event: "{{ trigger.event.data.event }}"
       - choose:
           - alias: Toggle
-            conditions:
-              - condition: template
-                value_template: "{{ event == 1002 }}"
+            conditions: "{{ event == 1002 }}"
             sequence:
               - service: light.toggle
                 target:
                   area_id: bedroom
           - alias: Brightness up hold
-            conditions:
-              - condition: template
-                value_template: "{{ event == 2001 }}"
+            conditions: "{{ event == 2001 }}"
             sequence:
               - service: light.turn_on
                 target:
@@ -45,9 +41,7 @@ automation:
                   brightness_pct: 100
                   color_temp: 395
           - alias: Brightness up
-            conditions:
-              - condition: template
-                value_template: "{{ event == 2002 }}"
+            conditions: "{{ event == 2002 }}"
             sequence:
               - service: light.turn_on
                 target:
@@ -55,9 +49,7 @@ automation:
                 data:
                   brightness_step_pct: 20
           - alias: Brightness down hold
-            conditions:
-              - condition: template
-                value_template: "{{ event == 3001 }}"
+            conditions: "{{ event == 3001 }}"
             sequence:
               - service: light.turn_on
                 target:
@@ -66,9 +58,7 @@ automation:
                   brightness_pct: 1
                   color_temp: 140
           - alias: Brightness down
-            conditions:
-              - condition: template
-                value_template: "{{ event == 3002 }}"
+            conditions: "{{ event == 3002 }}"
             sequence:
               - service: light.turn_on
                 target:
@@ -76,9 +66,7 @@ automation:
                 data:
                   brightness_step_pct: -20
           - alias: Color down
-            conditions:
-              - condition: template
-                value_template: "{{ event == 4002 }}"
+            conditions: "{{ event == 4002 }}"
             sequence:
               - service: light.turn_on
                 target:
@@ -86,9 +74,7 @@ automation:
                 data:
                   color_temp: 140
           - alias: Color down
-            conditions:
-              - condition: template
-                value_template: "{{ event == 5002 }}"
+            conditions: "{{ event == 5002 }}"
             sequence:
               - service: light.turn_on
                 target:
@@ -107,9 +93,7 @@ automation:
     action:
       - choose:
           - alias: Hold up
-            conditions:
-              - condition: template
-                value_template: "{{ trigger.event.data.event == 1001 }}"
+            conditions: "{{ trigger.event.data.event == 1001 }}"
             sequence:
               - service: light.turn_on
                 target:
@@ -118,9 +102,7 @@ automation:
                   brightness_pct: 1
                   color_temp: 650
           - alias: Up
-            conditions:
-              - condition: template
-                value_template: "{{ trigger.event.data.event == 1002 }}"
+            conditions: "{{ trigger.event.data.event == 1002 }}"
             sequence:
               - service: light.turn_on
                 target:
@@ -129,9 +111,7 @@ automation:
                   brightness_pct: 1
                   color_temp: 650
           - alias: Hold down
-            conditions:
-              - condition: template
-                value_template: "{{ trigger.event.data.event == 2001 }}"
+            conditions: "{{ trigger.event.data.event == 2001 }}"
             sequence:
               - service: light.turn_off
                 target:
@@ -147,9 +127,7 @@ automation:
                 target:
                   entity_id: automation.hall_corridor
           - alias: Down
-            conditions:
-              - condition: template
-                value_template: "{{ trigger.event.data.event == 2002 }}"
+            conditions: "{{ trigger.event.data.event == 2002 }}"
             sequence:
               - service: light.turn_off
                 target:
