@@ -12,23 +12,40 @@ alert:
     done_message: "Front door is closed again."
     notifiers:
       - pushnotification
+      - mobile_app_nokia_7_2
     data:
+      clickAction: "entityId:binary_sensor.front_door"
+      channel: front_door
       tag: front_door
       requireInteraction: true
+      importance: high
       priority: high
+      url: lovelace/map
+      vibrationPattern: 100, 1000, 100, 1000, 100, 1000
+      sticky: true
       actions:
         - action: front_door
-          title: It's ok!
+          title: ✅ It's ok!
           icon: mdi:check
 
 automation:
   - alias: Front door
     trigger:
       - platform: event
-        event_type: html5_notification.clicked
+        event_type:
+          - html5_notification.clicked
+          - mobile_app_notification_action
         event_data:
           action: front_door
     action:
       - service: alert.turn_off
         target:
           entity_id: alert.front_door
+      - service: notify.mobile_app_nokia_7_2
+        data:
+          message: clear_notification
+          data:
+            tag: front_door
+      - service: html5.dismiss
+        data:
+          tag: front_door

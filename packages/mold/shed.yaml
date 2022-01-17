@@ -1,0 +1,13 @@
+sensor:
+  - platform: mold_indicator
+    indoor_temp_sensor: sensor.shed_thermometer
+    indoor_humidity_sensor: sensor.shed_humidity
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.0
+    name: Shed mold
+
+homeassistant:
+  customize:
+    sensor.shed_mold:
+      icon: mdi:garage
+      friendly_name: Shed

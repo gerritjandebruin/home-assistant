@@ -14,7 +14,10 @@ alert:
     message: "Battery vacuum is almost empty {{ state_attr('vacuum.berry', 'battery_level') }}"
     notifiers:
       - pushnotification
+      - mobile_app_sm_a520f
     data:
+      clickAction: lovelace/vacuum
+      channel: vacuum
       tag: vacuum
       requireInteraction: true
       url: lovelace/vacuum

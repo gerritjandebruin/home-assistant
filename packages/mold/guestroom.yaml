@@ -1,0 +1,35 @@
+sensor:
+  - platform: mold_indicator
+    indoor_temp_sensor: sensor.guestroom_thermometer
+    indoor_humidity_sensor: sensor.guestroom_humidity
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.6
+    name: Guestroom mold
+
+binary_sensor:
+  - platform: threshold
+    entity_id: sensor.guestroom_mold
+    upper: 90
+
+alert:
+  guestroom_mold:
+    name: Guestroom mold
+    entity_id: binary_sensor.guestroom_mold
+    repeat: 30
+    message: "Mold probability in guestroom is high: {{ states('sensor.guestroom_mold') }}"
+    done_message: Mold at guestroom is unlikely again
+    notifiers:
+      - pushnotification
+    data:
+      tag: guestroom_mold
+      requireInteraction: true
+      url: lovelace/check
+      priority: high
+
+homeassistant:
+  customize:
+    sensor.guestroom_mold:
+      icon: mdi:bed-empty
+      friendly_name: Guestroom
+    alert.guestroom_mold:
+      icon: mdi:bacteria

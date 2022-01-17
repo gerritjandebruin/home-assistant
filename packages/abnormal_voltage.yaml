@@ -1,23 +1,29 @@
 template:
-  binary_sensor:
-    - name: Abnormal voltage
-      device_class: problem
-      state: >
-        {% set input = states('sensor.grid_voltage') | float %}
-        {% set input_available = not is_state('sensor.grid_voltage', 'unavailable') %}
-        {% set solarpanel = states('sensor.growatt_reactive_voltage') | float %}
-        {{ (input < 210 and input_available) or (solarpanel < 210 and solarpanel > 0) or input > 245 or solarpanel > 245}}
+  - binary_sensor:
+      - name: Abnormal voltage
+        device_class: problem
+        state: >
+          {% set input = states('sensor.grid_voltage') | float %}
+          {% set input_available = not is_state('sensor.grid_voltage', 'unavailable') %}
+          {% set solarpanel = states('sensor.growatt_reactive_voltage') | float %}
+          {{ (input < 210 and input_available) or (solarpanel < 210 and solarpanel > 0) or input > 245 or solarpanel > 245}}
 
 alert:
   abnormal_voltage:
-    name: Abnormal voltage
+    name: ⚠️ Abnormal voltage
     entity_id: binary_sensor.abnormal_voltage
     repeat: 30
     message: "{{ states('sensor.grid_voltage') }} is measured"
     notifiers:
       - pushnotification
+      - mobile_app_nokia_7_2
     data:
+      clickAction: "lovelace/check"
+      channel: abnormal_voltage
       tag: abnormal_voltage
       requireInteraction: true
-      url: lovelace/check
+      importance: high
       priority: high
+      url: lovelace/check
+      vibrationPattern: 100, 1000, 100, 1000, 100, 1000
+      sticky: true

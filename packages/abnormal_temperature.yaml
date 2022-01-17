@@ -17,11 +17,17 @@ alert:
     name: Abnormal temperature
     entity_id: binary_sensor.abnormal_temperature
     repeat: 30
-    message: "Abnormal temperature measured"
+    message: ⚠️ Abnormal temperature
     notifiers:
       - pushnotification
+      - mobile_app_nokia_7_2
     data:
+      clickAction: "lovelace/thermometer"
+      channel: abnormal_temperature
       tag: abnormal_temperature
       requireInteraction: true
-      url: lovelace/check
+      importance: high
       priority: high
+      url: lovelace/check
+      vibrationPattern: 100, 1000, 100, 1000, 100, 1000
+      sticky: true

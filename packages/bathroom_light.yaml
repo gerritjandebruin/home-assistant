@@ -49,10 +49,6 @@ automation:
             sequence:
               - service: input_boolean.turn_on
                 entity_id: input_boolean.shower
-              - service: notify.mobile_app_nokia_7_2
-                data:
-                  title: Shower detected!
-                  message: Shower detected!
               - service: switch.toggle
                 entity_id: switch.bathroom
               - delay: "00:00:01"

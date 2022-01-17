@@ -8,15 +8,6 @@ binary_sensor:
       - binary_sensor.synology_drive_1_exceeded_max_bad_sectors
       - binary_sensor.synology_drive_2_exceeded_max_bad_sectors
       - binary_sensor.synology_security_status
-  - platform: group
-    name: Augustinuserf problem
-    device_class: problem
-    entities:
-      - binary_sensor.augustinuserf_security_status
-      - binary_sensor.augustinuserf_security_status
-      - binary_sensor.augustinuserf_drive_2_exceeded_max_bad_sectors
-      - binary_sensor.augustinuserf_drive_2_below_min_remaining_life
-      - binary_sensor.augustinuserf_security_status
 
 alert:
   synology:
@@ -41,29 +32,10 @@ alert:
       {% endif %}
     notifiers:
       - pushnotification
+      - mobile_app_nokia_7_2
     data:
+      clickAction: lovelace/synology
+      channel: synology_problem
       tag: synology_problem
       requireInteraction: true
       url: lovelace/check
-      priority: high
-  augustinuserf:
-    name: augustinuserf
-    entity_id: binary_sensor.augustinuserf_problem
-    repeat: 30
-    message: >
-      {% if is_state('binary_sensor.augustinuserf_drive_2_below_min_remaining_life', 'on') %}
-        Below min remaining life
-      {% endif %}
-      {% if is_state('binary_sensor.augustinuserf_drive_2_exceeded_max_bad_sectors', 'on') %}
-        Exceeded max bad sectors
-      {% endif %}
-      {% if is_state('binary_sensor.augustinuserf_security_status',                  'on') %}
-        Security status
-      {% endif %}
-    notifiers:
-      - pushnotification
-    data:
-      tag: synology_problem
-      requireInteraction: true
-      url: lovelace/check
-      priority: high

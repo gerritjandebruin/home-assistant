@@ -33,21 +33,36 @@ alert:
     message: "Plant: {{ state_attr('plant.flower', 'problem') }}"
     notifiers:
       - pushnotification
-      # - mobile_app_sm_a520f
+      - mobile_app_sm_a520f
     data:
+      clickAction: lovelace/plant
+      channel: plant
       tag: plant
       requireInteraction: true
       url: lovelace/plant
-      actions: plant_ignore
+      actions:
+        - action: plant_ignore
+          title: 🔕 Ignore 🪴
+          icon: mdi:alert-remove
 
 automation:
   - alias: "Plant acknowledged"
     trigger:
       - platform: event
-        event_type: html5_notification.clicked
+        event_type:
+          - html5_notification.clicked
+          - mobile_app_notification_action
         event_data:
           action: plant_ignore
     action:
       - service: alert.turn_off
         target:
           entity_id: alert.plant
+      - service: notify.mobile_app_nokia_7_2
+        data:
+          message: clear_notification
+          data:
+            tag: plant
+      - service: html5.dismiss
+        data:
+          tag: plant

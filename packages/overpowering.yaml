@@ -40,8 +40,48 @@ alert:
       {% endif %}
     notifiers:
       - pushnotification
+      - mobile_app_nokia_7_2
     data:
+      clickAction: lovelace/check
+      channel: overpowering
       tag: overpowering
       requireInteraction: true
-      url: lovelace/check
+      importance: high
       priority: high
+      url: lovelace/check
+      vibrationPattern: 100, 1000, 100, 1000, 100, 1000
+      actions:
+        - action: overpowering
+          title: ⭘ Turn everything off.
+          icon: mdi:power-off
+
+automation:
+  - alias: Overpowering
+    trigger:
+      - platform: event
+        event_type:
+          - html5_notification.clicked
+          - mobile_app_notification_action
+        event_data:
+          action: overpowering
+    action:
+      - service: climate.turn_off
+        target:
+          entity_id: all
+      - service: light.turn_off
+        target:
+          entity_id: all
+      - service: swtich.turn_off
+        target:
+          entity_id: all
+      - service: media_player.turn_off
+        target:
+          entity_id: media_player.samsung_tv_remote
+      - service: notify.mobile_app_nokia_7_2
+        data:
+          message: clear_notification
+          data:
+            tag: overpowering
+      - service: html5.dismiss
+        data:
+          tag: overpowering

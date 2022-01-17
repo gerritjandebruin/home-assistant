@@ -28,8 +28,44 @@ alert:
       {% endif %}
     notifiers:
       - pushnotification
+      - mobile_app_nokia_7_2
     data:
+      clickAction: lovelace/check
+      channel: overheating
       tag: overheating
       requireInteraction: true
-      url: lovelace/check
+      importance: high
       priority: high
+      url: lovelace/check
+      vibrationPattern: 100, 1000, 100, 1000, 100, 1000
+      sticky: true
+      actions:
+        - action: overheating
+          title: ⭘ Turn everything off.
+          icon: mdi:power-off
+
+automation:
+  - alias: Overheating
+    trigger:
+      - platform: event
+        event_type: html5_notification.clicked
+        event_data:
+          action: overheating
+    action:
+      - service: climate.turn_off
+        target:
+          entity_id: all
+      - service: light.turn_off
+        target:
+          entity_id: all
+      - service: swtich.turn_off
+        target:
+          entity_id: all
+      - service: notify.mobile_app_nokia_7_2
+        data:
+          message: clear_notification
+          data:
+            tag: overheating
+      - service: html5.dismiss
+        data:
+          tag: overheating

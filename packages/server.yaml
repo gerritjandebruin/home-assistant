@@ -9,3 +9,27 @@ sensor:
       - type: memory_use_percent
       - type: processor_use
       - type: last_boot
+
+binary_sensor:
+  - platform: threshold
+    entity_id: sensor.disk_free_home
+    lower: 15
+    name: Disk full home
+
+alert:
+  disk_full_home:
+    name: Disk full home
+    entity_id: binary_sensor.disk_full_home
+    state: problem
+    skip_first: true
+    repeat: 86400
+    message: "Server disk is full: {{ states('sensor.disk_free_home') }} GB"
+    notifiers:
+      - pushnotification
+      - mobile_app_sm_a520f
+    data:
+      clickAction: lovelace/server
+      channel: server
+      tag: server
+      requireInteraction: true
+      url: lovelace/server

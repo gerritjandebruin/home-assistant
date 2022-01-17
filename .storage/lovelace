@@ -1963,6 +1963,7 @@
                 {
                     "icon": "mdi:server",
                     "type": "custom:horizontal-layout",
+                    "path": "server",
                     "badges": [],
                     "cards": [
                         {
