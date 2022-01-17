@@ -1851,21 +1851,24 @@
                     "icon": "mdi:web",
                     "title": "Internet",
                     "type": "custom:horizontal-layout",
+                    "layout": {
+                        "max_cols": 4,
+                        "width": 300,
+                        "max_width": 400
+                    },
                     "badges": [],
                     "cards": [
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.experiabox_v10_kib_s_received",
-                                    "name": "Received"
+                                    "entity": "sensor.experiabox_v10_kib_s_received"
                                 },
                                 {
-                                    "entity": "sensor.experiabox_v10_kib_s_sent",
-                                    "name": "Sent"
+                                    "entity": "sensor.experiabox_v10_kib_s_sent"
                                 }
                             ],
                             "refresh_interval": 0,
-                            "title": "Internet",
+                            "title": "Internet (last week)",
                             "type": "history-graph",
                             "hours_to_show": 168
                         },
@@ -1889,34 +1892,71 @@
                             "title": "Printer"
                         },
                         {
-                            "type": "statistics-graph",
+                            "type": "history-graph",
                             "entities": [
-                                "sensor.speedtest_download"
+                                {
+                                    "entity": "sensor.speedtest_download"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_upload"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_ping"
+                                }
                             ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "min"
+                            "hours_to_show": 12,
+                            "refresh_interval": 0,
+                            "title": "Speedtest (last 12 hours)"
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "title": "Speedtest (last year)",
+                            "cards": [
+                                {
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.speedtest_download"
+                                    ],
+                                    "days_to_show": 365,
+                                    "stat_types": [
+                                        "min"
+                                    ]
+                                },
+                                {
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.speedtest_upload"
+                                    ],
+                                    "days_to_show": 365,
+                                    "stat_types": [
+                                        "min"
+                                    ]
+                                },
+                                {
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.speedtest_ping"
+                                    ],
+                                    "days_to_show": 365,
+                                    "stat_types": [
+                                        "max"
+                                    ]
+                                }
                             ]
                         },
                         {
-                            "type": "statistics-graph",
+                            "type": "history-graph",
                             "entities": [
-                                "sensor.speedtest_upload"
+                                {
+                                    "entity": "sensor.experiabox_v10_kib_s_received"
+                                },
+                                {
+                                    "entity": "sensor.experiabox_v10_kib_s_sent"
+                                }
                             ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "min"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.speedtest_ping"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "max"
-                            ]
+                            "hours_to_show": 12,
+                            "refresh_interval": 0,
+                            "title": "Internet (last 12 hours)"
                         }
                     ]
                 },
