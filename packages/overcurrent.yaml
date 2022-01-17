@@ -2,7 +2,7 @@ template:
   - binary_sensor:
       - name: overcurrent
         device_class: problem
-        state: "{{ states('sensor.power_from_grid') | float > 6800}}"
+        state: "{{ states('sensor.power_from_grid') | float(0) > 6800}}"
 
 alert:
   overcurrent:
@@ -13,7 +13,7 @@ alert:
       High total current measured {{ states('sensor.power_from_grid') | float }}
     done_message: >
       Current dropped again and is currently 
-      {{ states('sensor.power_from_grid') | float }}
+      {{ states('sensor.power_from_grid') | float(-1) }}
     notifiers:
       - pushnotification
       - mobile_app_nokia_7_2

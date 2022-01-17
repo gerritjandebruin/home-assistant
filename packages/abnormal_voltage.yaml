@@ -3,9 +3,9 @@ template:
       - name: Abnormal voltage
         device_class: problem
         state: >
-          {% set input = states('sensor.grid_voltage') | float %}
+          {% set input = states('sensor.grid_voltage') | float(210) %}
           {% set input_available = not is_state('sensor.grid_voltage', 'unavailable') %}
-          {% set solarpanel = states('sensor.growatt_reactive_voltage') | float %}
+          {% set solarpanel = states('sensor.growatt_reactive_voltage') | float(210) %}
           {{ (input < 210 and input_available) or (solarpanel < 210 and solarpanel > 0) or input > 245 or solarpanel > 245}}
 
 alert:

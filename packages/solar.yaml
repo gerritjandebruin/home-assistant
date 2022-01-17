@@ -18,5 +18,5 @@ template:
       - name: Current power consumption
         unit_of_measurement: "W"
         availability: "{{ not is_state('sensor.power_from_grid', 'unavailable') }}"
-        state: "{{ states('sensor.power_from_grid') | float + states('sensor.growatt_total_output_power') | float(0) }}"
+        state: "{{ states('sensor.power_from_grid') | float(0) + states('sensor.growatt_total_output_power') | float(0) }}"
         device_class: power

@@ -65,4 +65,5 @@ automation:
             tag: plant
       - service: html5.dismiss
         data:
-          tag: plant
+          data:
+            tag: plant
