@@ -12,6 +12,7 @@ alert:
     done_message: "Front door is closed again."
     notifiers:
       - pushnotification
+      - mobile_app_sm_a520f
       - mobile_app_nokia_7_2
     data:
       clickAction: "entityId:binary_sensor.front_door"

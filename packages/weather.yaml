@@ -16,6 +16,7 @@ alert:
     notifiers:
       - pushnotification
       - mobile_app_sm_a520f
+      - mobile_app_nokia_7_2
     data:
       clickAction: https://www.knmi.nl
       channel: weather
