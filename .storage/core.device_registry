@@ -146,11 +146,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -178,11 +178,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:1e:0e:0c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
@@ -210,11 +210,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -274,11 +274,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -338,11 +338,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
@@ -434,11 +434,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:67:5e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:67:5e"
                     ]
                 ],
@@ -466,11 +466,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -530,11 +530,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
@@ -626,11 +626,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -690,11 +690,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:91"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:91"
                     ]
                 ],
@@ -722,11 +722,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:b5:54:7d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:b5:54:7d"
                     ]
                 ],
@@ -754,11 +754,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -786,11 +786,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -939,11 +939,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1002,7 +1002,7 @@
                         "core_check_config"
                     ]
                 ],
-                "manufacturer": "Official add-ons",
+                "manufacturer": "core",
                 "model": "Home Assistant Add-on",
                 "name": "Check Home Assistant configuration",
                 "sw_version": "3.9.0",
@@ -1025,7 +1025,7 @@
                         "a0d7b954_vscode"
                     ]
                 ],
-                "manufacturer": "Home Assistant Community Add-ons",
+                "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "Studio Code Server",
                 "sw_version": "4.1.0",
@@ -1048,7 +1048,7 @@
                         "a0d7b954_spotify"
                     ]
                 ],
-                "manufacturer": "Home Assistant Community Add-ons",
+                "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "Spotify Connect",
                 "sw_version": "0.10.0",
@@ -1071,7 +1071,7 @@
                         "a0d7b954_grafana"
                     ]
                 ],
-                "manufacturer": "Home Assistant Community Add-ons",
+                "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "Grafana",
                 "sw_version": "7.4.0",
@@ -1094,7 +1094,7 @@
                         "a0d7b954_portainer"
                     ]
                 ],
-                "manufacturer": "Home Assistant Community Add-ons",
+                "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "Portainer",
                 "sw_version": "2.0.0",
@@ -1117,7 +1117,7 @@
                         "a0d7b954_influxdb"
                     ]
                 ],
-                "manufacturer": "Home Assistant Community Add-ons",
+                "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "InfluxDB",
                 "sw_version": "4.3.0",
@@ -1140,7 +1140,7 @@
                         "a0d7b954_jupyterlablite"
                     ]
                 ],
-                "manufacturer": "Home Assistant Community Add-ons",
+                "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "JupyterLab",
                 "sw_version": "0.6.0",
@@ -1186,7 +1186,7 @@
                         "core_mosquitto"
                     ]
                 ],
-                "manufacturer": "Official add-ons",
+                "manufacturer": "core",
                 "model": "Home Assistant Add-on",
                 "name": "Mosquitto broker",
                 "sw_version": "6.0.1",
@@ -1261,11 +1261,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1352,7 +1352,7 @@
                         "a0d7b954_esphome"
                     ]
                 ],
-                "manufacturer": "Home Assistant Community Add-ons",
+                "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
                 "sw_version": "2021.12.3",
@@ -1638,11 +1638,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -1701,7 +1701,7 @@
                         "a0d7b954_ssh"
                     ]
                 ],
-                "manufacturer": "Home Assistant Community Add-ons",
+                "manufacturer": "a0d7b954",
                 "model": "Home Assistant Add-on",
                 "name": "SSH & Web Terminal",
                 "sw_version": "10.0.1",
@@ -1724,7 +1724,7 @@
                         "local_ha-rtl"
                     ]
                 ],
-                "manufacturer": "Local add-ons",
+                "manufacturer": "local",
                 "model": "Home Assistant Add-on",
                 "name": "ha-rtl",
                 "sw_version": "2.1.0",
@@ -1770,7 +1770,7 @@
                         "core_deconz"
                     ]
                 ],
-                "manufacturer": "Official add-ons",
+                "manufacturer": "core",
                 "model": "Home Assistant Add-on",
                 "name": "deCONZ",
                 "sw_version": "6.11.1",
@@ -2389,26 +2389,26 @@
             },
             {
                 "config_entries": [
-                    "96483d6b4d23430281505fddb0d630f2"
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
-                "connections": [],
-                "identifiers": [
+                "connections": [
                     [
-                        "spotify",
-                        "1161914049"
+                        "mac",
+                        "02:42:ac:1e:21:05"
                     ]
                 ],
-                "manufacturer": "Spotify AB",
-                "model": "Spotify open",
-                "name": "Spotify 1161914049",
+                "identifiers": [],
+                "manufacturer": null,
+                "model": null,
+                "name": null,
                 "sw_version": null,
-                "entry_type": "service",
-                "id": "ec014a93bcd587c813a3e833b9bb69f9",
+                "entry_type": null,
+                "id": "5d6169ac0ca16e9a5847d0dffb9ac8e0",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": null,
-                "configuration_url": "https://open.spotify.com"
+                "configuration_url": null
             }
         ],
         "deleted_devices": [
@@ -2708,6 +2708,18 @@
                 ],
                 "id": "58b296ba53b8d3d4efd4a3b2b5fbc75f",
                 "orphaned_timestamp": 1642170693.1725612
+            },
+            {
+                "config_entries": [],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "spotify",
+                        "1161914049"
+                    ]
+                ],
+                "id": "ec014a93bcd587c813a3e833b9bb69f9",
+                "orphaned_timestamp": 1642441002.8120077
             }
         ]
     }

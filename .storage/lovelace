@@ -1995,6 +1995,32 @@
                             "stat_types": [
                                 "mean"
                             ]
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.processor_use"
+                                },
+                                {
+                                    "entity": "sensor.memory_use_percent"
+                                },
+                                {
+                                    "entity": "sensor.disk_free_home"
+                                }
+                            ],
+                            "refresh_interval": 0,
+                            "hours_to_show": 8
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.last_boot"
+                                }
+                            ],
+                            "refresh_interval": 0,
+                            "hours_to_show": 24
                         }
                     ]
                 },
