@@ -11,7 +11,8 @@ alert:
     name: Vacuum
     entity_id: binary_sensor.vacuum_low_battery
     repeat: 30
-    message: "Battery vacuum is almost empty {{ state_attr('vacuum.berry', 'battery_level') }}"
+    message: >
+      Battery vacuum is almost empty {{state_attr('vacuum.berry', 'battery_level')}} %
     notifiers:
       - pushnotification
       - mobile_app_sm_a520f
