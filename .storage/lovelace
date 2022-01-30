@@ -1788,52 +1788,14 @@
                     "icon": "mdi:flower",
                     "path": "plant",
                     "type": "custom:horizontal-layout",
+                    "layout": {
+                        "width": 300
+                    },
                     "badges": [],
                     "cards": [
                         {
                             "type": "custom:flower-card",
                             "entity": "plant.flower"
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_illuminance"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_moisture"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_soil_conductivity"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.flower_temperature"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ],
-                            "chart_type": "line"
                         },
                         {
                             "type": "button",
@@ -1844,6 +1806,42 @@
                             "show_state": true,
                             "show_name": false,
                             "icon_height": "100px"
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.flower_moisture"
+                                    ],
+                                    "days_to_show": 365,
+                                    "stat_types": [
+                                        "mean"
+                                    ]
+                                },
+                                {
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.flower_illuminance"
+                                    ],
+                                    "days_to_show": 365,
+                                    "stat_types": [
+                                        "mean"
+                                    ]
+                                },
+                                {
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.flower_temperature"
+                                    ],
+                                    "days_to_show": 365,
+                                    "stat_types": [
+                                        "mean"
+                                    ],
+                                    "chart_type": "line"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1854,24 +1852,10 @@
                     "layout": {
                         "max_cols": 4,
                         "width": 300,
-                        "max_width": 400
+                        "max_width": 350
                     },
                     "badges": [],
                     "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.experiabox_v10_kib_s_received"
-                                },
-                                {
-                                    "entity": "sensor.experiabox_v10_kib_s_sent"
-                                }
-                            ],
-                            "refresh_interval": 0,
-                            "title": "Internet (last week)",
-                            "type": "history-graph",
-                            "hours_to_show": 168
-                        },
                         {
                             "type": "glance",
                             "entities": [
@@ -1892,21 +1876,54 @@
                             "title": "Printer"
                         },
                         {
-                            "type": "history-graph",
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.speedtest_download"
+                                        },
+                                        {
+                                            "entity": "sensor.speedtest_upload"
+                                        },
+                                        {
+                                            "entity": "sensor.speedtest_ping"
+                                        }
+                                    ],
+                                    "hours_to_show": 12,
+                                    "refresh_interval": 0,
+                                    "title": "Speedtest (last 12 hours)"
+                                },
+                                {
+                                    "type": "history-graph",
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.experiabox_v10_kib_s_received"
+                                        },
+                                        {
+                                            "entity": "sensor.experiabox_v10_kib_s_sent"
+                                        }
+                                    ],
+                                    "hours_to_show": 12,
+                                    "refresh_interval": 0,
+                                    "title": "Internet (last 12 hours)"
+                                }
+                            ]
+                        },
+                        {
                             "entities": [
                                 {
-                                    "entity": "sensor.speedtest_download"
+                                    "entity": "sensor.experiabox_v10_kib_s_received"
                                 },
                                 {
-                                    "entity": "sensor.speedtest_upload"
-                                },
-                                {
-                                    "entity": "sensor.speedtest_ping"
+                                    "entity": "sensor.experiabox_v10_kib_s_sent"
                                 }
                             ],
-                            "hours_to_show": 12,
                             "refresh_interval": 0,
-                            "title": "Speedtest (last 12 hours)"
+                            "title": "Internet (last week)",
+                            "type": "history-graph",
+                            "hours_to_show": 168
                         },
                         {
                             "type": "vertical-stack",
@@ -1943,20 +1960,6 @@
                                     ]
                                 }
                             ]
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.experiabox_v10_kib_s_received"
-                                },
-                                {
-                                    "entity": "sensor.experiabox_v10_kib_s_sent"
-                                }
-                            ],
-                            "hours_to_show": 12,
-                            "refresh_interval": 0,
-                            "title": "Internet (last 12 hours)"
                         }
                     ]
                 },
@@ -1964,36 +1967,44 @@
                     "icon": "mdi:server",
                     "type": "custom:horizontal-layout",
                     "path": "server",
+                    "layout": {
+                        "width": 300
+                    },
                     "badges": [],
                     "cards": [
                         {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.processor_use"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.memory_use_percent"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.disk_free_home"
-                            ],
-                            "days_to_show": 365,
-                            "stat_types": [
-                                "mean"
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.disk_free_home"
+                                    ],
+                                    "days_to_show": 365,
+                                    "stat_types": [
+                                        "mean"
+                                    ]
+                                },
+                                {
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.processor_use"
+                                    ],
+                                    "days_to_show": 365,
+                                    "stat_types": [
+                                        "mean"
+                                    ]
+                                },
+                                {
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.memory_use_percent"
+                                    ],
+                                    "days_to_show": 365,
+                                    "stat_types": [
+                                        "mean"
+                                    ]
+                                }
                             ]
                         },
                         {
@@ -2105,7 +2116,7 @@
                                 "sensor.synology_volume_2_total_size",
                                 "sensor.synology_volume_2_used_space"
                             ],
-                            "days_to_show": 30,
+                            "days_to_show": 365,
                             "stat_types": [
                                 "mean"
                             ]
@@ -2187,7 +2198,7 @@
                             "entities": [
                                 "sensor.augustinuserf_cpu_utilization_total"
                             ],
-                            "days_to_show": 30,
+                            "days_to_show": 365,
                             "stat_types": [
                                 "mean"
                             ]
