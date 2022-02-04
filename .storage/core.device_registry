@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "minor_version": 2,
+    "minor_version": 3,
     "key": "core.device_registry",
     "data": {
         "devices": [
@@ -24,6 +24,7 @@
                 "model": "H369A",
                 "name": "ExperiaBox-V10",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "065dc52c17d611eb86065165d3ec7694",
                 "via_device_id": null,
@@ -34,8 +35,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -53,6 +54,7 @@
                 "model": "Shelly 1PM",
                 "name": "Toilet",
                 "sw_version": "20211109-130756/v1.11.7-g682a0db",
+                "hw_version": "gen1 (SHSW-PM)",
                 "entry_type": null,
                 "id": "3396514f188811ebb18c5f4e3e6696c1",
                 "via_device_id": null,
@@ -75,6 +77,7 @@
                 "model": "Forecast",
                 "name": "Forecast",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "74232e3eebd5245d4d1ea9d0021d2e7c",
                 "via_device_id": null,
@@ -103,6 +106,7 @@
                 "model": "Wi-Fi Router X4 N300",
                 "name": "Wi-Fi Router X4 N300",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "1ffcbb71ca41bace393903f55ec056d2",
                 "via_device_id": null,
@@ -126,6 +130,7 @@
                 "model": "",
                 "name": "HACS",
                 "sw_version": "1.19.3",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "d4dfeb3faac3b7d65ca316e4fef1a2b1",
                 "via_device_id": null,
@@ -146,11 +151,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -158,6 +163,7 @@
                 "model": "LTW010",
                 "name": "Attic",
                 "sw_version": "1.50.2_r30933",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "60bfe7a8e3f01ab889642012e4ea1141",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -190,6 +196,7 @@
                 "model": "lumi.weather",
                 "name": "Attic Sensor",
                 "sw_version": "20191205",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "08779d5418a838c9e8d8eb3f24718953",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -222,6 +229,7 @@
                 "model": "lumi.weather",
                 "name": "Bathroom Sensor",
                 "sw_version": "20191205",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "6eb5caeb5106cd5a570e512d885fc0e3",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -242,18 +250,19 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
                 "manufacturer": "_TZ2000_a476raq2",
                 "model": "TS0201",
                 "name": "Lounge sensor",
-                "sw_version": null,
+                "sw_version": "",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "e8b69dbd01f21f6ad380e73c2402b821",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -286,6 +295,7 @@
                 "model": "RWL021",
                 "name": "Attic remote",
                 "sw_version": "6.1.1.28573",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "d2d1de274ba99aa61fa79c7b3f8e64c1",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -306,11 +316,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -318,6 +328,7 @@
                 "model": "LTW012",
                 "name": "Corridor light",
                 "sw_version": "1.50.2_r30933",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "f2ceb1b5e47a5d6ab7b9f694b357cc42",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -350,6 +361,7 @@
                 "model": "TRADFRI motion sensor",
                 "name": "Corridor Motion sensor",
                 "sw_version": "2.0.022",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "f0557193b49cd30a72b37ed875ced7b6",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -370,11 +382,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ]
                 ],
@@ -382,6 +394,7 @@
                 "model": "TRADFRI bulb GU10 WW 400lm",
                 "name": "Walk_in_closet light 2",
                 "sw_version": "2.3.086",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "b7723d2de806e40a54a918e2ace0ec6b",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -413,7 +426,8 @@
                 "manufacturer": "LUMI",
                 "model": "lumi.sensor_magnet.aq2",
                 "name": "Walk_in_closet OpenClose",
-                "sw_version": null,
+                "sw_version": "",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "2d6dfb759f39e16dea755338b1f3188e",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -434,11 +448,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:67:5e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:67:5e"
                     ]
                 ],
@@ -446,6 +460,7 @@
                 "model": "lumi.sensor_magnet.aq2",
                 "name": "Toilet OpenClose",
                 "sw_version": "20161128",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "51fb2dd677fc2b08b7cd63bf90894249",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -478,6 +493,7 @@
                 "model": "TRADFRI remote control",
                 "name": "Bedroom control",
                 "sw_version": "2.3.014",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "5a9933c449a2a8068f6012de36a6e91d",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -498,11 +514,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -510,6 +526,7 @@
                 "model": "TRADFRI on/off switch",
                 "name": "Bedroom switch",
                 "sw_version": "2.2.010",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "ef6cce96c0aff37b73773be4f1a30e2f",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -530,11 +547,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
@@ -542,6 +559,7 @@
                 "model": "TRADFRI bulb GU10 WS 400lm",
                 "name": "Bedroom light 1",
                 "sw_version": "2.0.029",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "6783c5c5d415efc8d8ee992bcede1f16",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -574,6 +592,7 @@
                 "model": "TRADFRI bulb GU10 WS 400lm",
                 "name": "Bedroom light 2",
                 "sw_version": "2.0.029",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "5c6125df50aeff0acb2509f14b0fe122",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -606,6 +625,7 @@
                 "model": "TRADFRI bulb GU10 WS 400lm",
                 "name": "Bedroom light 3",
                 "sw_version": "2.0.029",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "648c5c6e37a271d466d4c10608d51e6c",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -638,6 +658,7 @@
                 "model": "TRADFRI bulb GU10 WS 400lm",
                 "name": "Bedroom light 4",
                 "sw_version": "2.0.029",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "63daa83622c7e18147725c9a8e1a9b4e",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -670,6 +691,7 @@
                 "model": "TRADFRI bulb GU10 WS 400lm",
                 "name": "Bedroom light 5",
                 "sw_version": "2.0.029",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "a86d85dac77c6830cc859999c74e41da",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -690,11 +712,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:91"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:91"
                     ]
                 ],
@@ -702,6 +724,7 @@
                 "model": "LTW012",
                 "name": "Hallway light",
                 "sw_version": "1.50.2_r30933",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "e5e042113928b8a047bd60336981e1e6",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -722,11 +745,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:b5:54:7d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:b5:54:7d"
                     ]
                 ],
@@ -734,6 +757,7 @@
                 "model": "SML001",
                 "name": "Hallway Motion Sensor",
                 "sw_version": "6.1.1.27575",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "e13fa775ae5c1aa7dc0dd04f3d6fe2e8",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -766,6 +790,7 @@
                 "model": "LTW010",
                 "name": "Pantry light",
                 "sw_version": "1.50.2_r30933",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "7017f2fdaf015f8b5a86121921ed8ac8",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -786,11 +811,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -798,6 +823,7 @@
                 "model": "lumi.sensor_magnet.aq2",
                 "name": "Pantry OpenClose",
                 "sw_version": "20161128",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "b8bb92a8be279ee84529cbd0037afbc5",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -818,11 +844,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:08:16:da:da"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -830,6 +856,7 @@
                 "model": "LWA004",
                 "name": "Kitchen light",
                 "sw_version": "1.65.9_hB3217DF4",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "b0ddce550f02cbf0799d40d240ab435c",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -850,11 +877,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -862,6 +889,7 @@
                 "model": "LTA001",
                 "name": "Shed light",
                 "sw_version": "1.53.3_r27175",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "7a91e3fddeccb47006fec80014891153",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -890,6 +918,7 @@
                 "model": "Shelly 2.5",
                 "name": "shellyswitch25-8CAAB561E13F",
                 "sw_version": "20211109-125214/v1.11.7-g682a0db",
+                "hw_version": "gen1 (SHSW-25)",
                 "entry_type": null,
                 "id": "663b87c1fa016b28463175ae19183722",
                 "via_device_id": null,
@@ -900,8 +929,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "073d9d60b505c7c436b05f7acbdd18db"
+                    "073d9d60b505c7c436b05f7acbdd18db",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -919,6 +948,7 @@
                 "model": "Shelly 1PM",
                 "name": "Bathroom",
                 "sw_version": "20211109-130756/v1.11.7-g682a0db",
+                "hw_version": "gen1 (SHSW-PM)",
                 "entry_type": null,
                 "id": "975aeee16d3e74fb7be938acf75275d8",
                 "via_device_id": null,
@@ -951,6 +981,7 @@
                 "model": "TRADFRI motion sensor",
                 "name": "Kitchen motion sensor",
                 "sw_version": "2.0.022",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "811fd532a4a1bdde606177e29af0ec97",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -971,11 +1002,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:06:59:d1:c7"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:06:59:d1:c7"
                     ]
                 ],
@@ -983,6 +1014,7 @@
                 "model": "lumi.sensor_magnet.aq2",
                 "name": "Bathroom OpenClose",
                 "sw_version": "20161128",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "f24581febab429724251dc0538cc97da",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1006,6 +1038,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "Check Home Assistant configuration",
                 "sw_version": "3.9.0",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "35120953a64b54abd43dd788ee77dcdc",
                 "via_device_id": null,
@@ -1029,6 +1062,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "Studio Code Server",
                 "sw_version": "4.1.0",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
                 "via_device_id": null,
@@ -1052,6 +1086,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "Spotify Connect",
                 "sw_version": "0.10.0",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "cf52919079aa78851a7fa118a22a1bd1",
                 "via_device_id": null,
@@ -1075,6 +1110,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "Grafana",
                 "sw_version": "7.4.1",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "f7f8bd1308cff7e610ba87b6009d3b85",
                 "via_device_id": null,
@@ -1098,6 +1134,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "Portainer",
                 "sw_version": "2.0.0",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "a13661badff4fe010bb3ffc795b93df1",
                 "via_device_id": null,
@@ -1121,6 +1158,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "InfluxDB",
                 "sw_version": "4.3.0",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "b28137196acda31f40287f38243d701f",
                 "via_device_id": null,
@@ -1144,6 +1182,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "JupyterLab",
                 "sw_version": "0.6.0",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "c2053bd9d787aba62b8be63b65e4ae3d",
                 "via_device_id": null,
@@ -1167,6 +1206,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "Home Assistant Google Drive Backup",
                 "sw_version": "0.104.3",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "8a6bd578779a03f07dc67b1460feccda",
                 "via_device_id": null,
@@ -1190,6 +1230,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "Mosquitto broker",
                 "sw_version": "6.0.1",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "96206c4519d6359364c9c6372245b011",
                 "via_device_id": null,
@@ -1213,6 +1254,7 @@
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
                 "sw_version": "7.2",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
                 "via_device_id": null,
@@ -1241,6 +1283,7 @@
                 "model": "Shelly RGBW2",
                 "name": "shellyrgbw2-DEC502",
                 "sw_version": "20210909-145215/v1.11.4-DNSfix-ge6b2f6d",
+                "hw_version": "gen1 (SHRGBW2)",
                 "entry_type": null,
                 "id": "a9f1fc5ca682b5534d1e91820b492b08",
                 "via_device_id": null,
@@ -1273,6 +1316,7 @@
                 "model": "lumi.weather",
                 "name": "Guestroom Sensor",
                 "sw_version": "20191205",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "2a0aba87f2b3e08dc200b46471cc3759",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1293,11 +1337,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -1305,6 +1349,7 @@
                 "model": "lumi.weather",
                 "name": "Bedroom Sensor",
                 "sw_version": "20191205",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "edfd6fdec0ba0f861d77c2e02e08a729",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1333,6 +1378,7 @@
                 "model": "Shelly 1PM",
                 "name": "shelly1pm-E09806A9DECC",
                 "sw_version": "20211109-130756/v1.11.7-g682a0db",
+                "hw_version": "gen1 (SHSW-PM)",
                 "entry_type": null,
                 "id": "a9c1ea637f003a57f1abb222312e4d02",
                 "via_device_id": null,
@@ -1355,7 +1401,8 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2022.1.2",
+                "sw_version": "2022.1.3",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
                 "via_device_id": null,
@@ -1379,6 +1426,7 @@
                 "model": "MG3600 series",
                 "name": "Canon MG3600 series",
                 "sw_version": "2.0",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "5be8407b5bd0fede7a4d4c73b15bc1d3",
                 "via_device_id": null,
@@ -1402,6 +1450,7 @@
                 "model": "DS216play",
                 "name": "Synology NAS",
                 "sw_version": "DSM 7.0.1-42218 Update 2",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "953c91864067f38764af450c5f41be7c",
                 "via_device_id": null,
@@ -1425,6 +1474,7 @@
                 "model": "WD30EFRX-68EUZN0",
                 "name": "Synology NAS (Drive 1 - SATA)",
                 "sw_version": "82.00A82",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "85927e6fc408b6dac1ffebfe6bd78fe8",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
@@ -1448,6 +1498,7 @@
                 "model": "MQ01ABF050",
                 "name": "Synology NAS (Drive 2 - SATA)",
                 "sw_version": "AM002J",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "a51b48c16bf9dbf5819ad4487b5ae986",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
@@ -1471,6 +1522,7 @@
                 "model": "DS216play",
                 "name": "Synology NAS (Volume 2 - SHR without disk protect)",
                 "sw_version": "DSM 7.0.1-42218 Update 2",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "0ba8b62ca732fcd1819a3e32c79f631c",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
@@ -1494,6 +1546,7 @@
                 "model": "DS216play",
                 "name": "Synology NAS (Volume 1 - SHR without disk protect)",
                 "sw_version": "DSM 7.0.1-42218 Update 2",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "0313f799af7698516edee819b8f272c9",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
@@ -1517,6 +1570,7 @@
                 "model": "DS215j",
                 "name": "Synology NAS",
                 "sw_version": "DSM 7.0-41890",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "f60bca79adc6481f671953981e38f1b2",
                 "via_device_id": null,
@@ -1540,6 +1594,7 @@
                 "model": "ST2000DL003-9VT166",
                 "name": "Synology NAS (Drive 2 - SATA)",
                 "sw_version": "CC45",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "255faf83b503d8c218fcfe6d92388a03",
                 "via_device_id": "f60bca79adc6481f671953981e38f1b2",
@@ -1563,6 +1618,7 @@
                 "model": "DS215j",
                 "name": "Synology NAS (Volume 2 - SHR without disk protect)",
                 "sw_version": "DSM 7.0-41890",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
                 "via_device_id": "f60bca79adc6481f671953981e38f1b2",
@@ -1586,6 +1642,7 @@
                 "model": "SM-A520F",
                 "name": "SM-A520F",
                 "sw_version": "26",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "3ca4294e6c19aa5bdc5be879fca5947f",
                 "via_device_id": null,
@@ -1606,18 +1663,19 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
                 "manufacturer": "LUMI",
                 "model": "lumi.sensor_magnet.aq2",
                 "name": "Shed OpenClose",
-                "sw_version": null,
+                "sw_version": "",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "b3c874782468351d90c0ebe2fac89018",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1650,6 +1708,7 @@
                 "model": "lumi.weather",
                 "name": "Shed Sensor",
                 "sw_version": "20191205",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "bced05f348c2cf2bb5563f18a8acc533",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1682,6 +1741,7 @@
                 "model": "TRADFRI on/off switch",
                 "name": "Terrace switch",
                 "sw_version": "2.2.010",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "b0027c50d2f7ecc24c83a1a47819c346",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1705,6 +1765,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "SSH & Web Terminal",
                 "sw_version": "10.0.2",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "dc599c9c099cbc5efd2cdbee6aff7750",
                 "via_device_id": null,
@@ -1728,6 +1789,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "ha-rtl",
                 "sw_version": "2.1.0",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "339b126bc1ff7b969dbe5afced9dff8e",
                 "via_device_id": null,
@@ -1751,6 +1813,7 @@
                 "model": "7000ac",
                 "name": "KiKa Doorbell",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "00a670d9a519980a790548083d7a9cf5",
                 "via_device_id": null,
@@ -1774,6 +1837,7 @@
                 "model": "Home Assistant Add-on",
                 "name": "deCONZ",
                 "sw_version": "6.11.1",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "9ef7d945e29f22eb90425330572c2a88",
                 "via_device_id": null,
@@ -1797,6 +1861,7 @@
                 "model": null,
                 "name": null,
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "f256d101283e4199fe669f3baec74564",
                 "via_device_id": null,
@@ -1820,6 +1885,7 @@
                 "model": "deCONZ",
                 "name": "Phoscon-GW",
                 "sw_version": "2.13.4",
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "c85d3e34e7d911cc9b1f6fb16026b271",
                 "via_device_id": null,
@@ -1843,6 +1909,7 @@
                 "model": "deCONZ group",
                 "name": "Attic",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "04a2ef1712d45cedf5fb4d3a093bfe14",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1871,6 +1938,7 @@
                 "model": "PHDL00",
                 "name": "Daylight",
                 "sw_version": "1.0",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "d29decaa03828459039ca71481204f5c",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1898,7 +1966,8 @@
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI bulb GU10 WW 400lm",
                 "name": "Walk_in_closet light 1",
-                "sw_version": "2.3.050",
+                "sw_version": "2.3.086",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "218a489b443bb8a6b2557da751191456",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1922,6 +1991,7 @@
                 "model": "deCONZ group",
                 "name": "Corridor",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "34ebee3aeb8808424aac9bcc37fcbf11",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1945,6 +2015,7 @@
                 "model": "deCONZ group",
                 "name": "Walk_in_closet",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "bf3e7029ce4857708e50e3238e841910",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -1973,6 +2044,7 @@
                 "model": "TRADFRI on/off switch",
                 "name": "Bike switch",
                 "sw_version": "2.2.010",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "9eadf9239ebb9bc268ad74c2eae0602d",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -2001,6 +2073,7 @@
                 "model": "TRADFRI motion sensor",
                 "name": "Bike motion sensor",
                 "sw_version": "2.0.022",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "92f92740112aad1de8eac8a6c9ebb5bd",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -2024,6 +2097,7 @@
                 "model": null,
                 "name": "SpeedTest",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "0eec4a3cfac48ce623d89fe7937ee387",
                 "via_device_id": null,
@@ -2047,6 +2121,7 @@
                 "model": null,
                 "name": null,
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "91861b524cc0eda533fbb5b7784a4c73",
                 "via_device_id": null,
@@ -2074,7 +2149,8 @@
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI control outlet",
                 "name": "Heater plug",
-                "sw_version": "2.0.024",
+                "sw_version": "2.3.089",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "29eda50f7d23f3fb9bd2eede6084a931",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -2098,6 +2174,7 @@
                 "model": "Shelly EM",
                 "name": "shellyem-C45BBE6B6B56",
                 "sw_version": "20211109-131205/v1.11.7-g682a0db",
+                "hw_version": "gen1 (SHEM)",
                 "entry_type": null,
                 "id": "93a8f0b57682098cbf5f6afbfd586ff4",
                 "via_device_id": null,
@@ -2121,6 +2198,7 @@
                 "model": null,
                 "name": "CO2 signal",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "d7f01121bcf04593f3f374c5e32954e3",
                 "via_device_id": null,
@@ -2144,6 +2222,7 @@
                 "model": "public",
                 "name": "Solar Production Forecast",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "c2d4a230b02f875d3c562eb64907aa85",
                 "via_device_id": null,
@@ -2167,6 +2246,7 @@
                 "model": "public",
                 "name": "Solar Production Forecast",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "c036bd383b1e34963cb897c0b9936ed1",
                 "via_device_id": null,
@@ -2190,6 +2270,7 @@
                 "model": null,
                 "name": "Thuis Total",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "63e88ce2207663e3e73e2a4d8f3659d2",
                 "via_device_id": null,
@@ -2213,6 +2294,7 @@
                 "model": null,
                 "name": "DCF3A3103X",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "95d5a62ee02f260066e3278c4af737fa",
                 "via_device_id": null,
@@ -2235,7 +2317,8 @@
                 "manufacturer": "HMD Global",
                 "model": "Nokia 7.2",
                 "name": "Nokia 7.2",
-                "sw_version": "29",
+                "sw_version": "30",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "f601d2d767d3a4d5d2eb777f46097194",
                 "via_device_id": null,
@@ -2259,6 +2342,7 @@
                 "model": "Chromecast",
                 "name": "Living Room",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "1645812584028252b1d24c76017b32a1",
                 "via_device_id": null,
@@ -2282,35 +2366,13 @@
                 "model": null,
                 "name": null,
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "34dd4ffb798d6bab73ddcd603a3213f1",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
                 "disabled_by": "user",
-                "configuration_url": null
-            },
-            {
-                "config_entries": [
-                    "80351be7ea6286bfa7f844a88a7e2ed6"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "tuya",
-                        "bfb697fa6c76dc63d5oouq"
-                    ]
-                ],
-                "manufacturer": "Tuya",
-                "model": "BLUEBOT XBOOST (ar2qdml2r6riwllt)",
-                "name": "berry",
-                "sw_version": null,
-                "entry_type": null,
-                "id": "31587bc2e514ca3abc9259a599f973df",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null,
                 "configuration_url": null
             },
             {
@@ -2328,6 +2390,7 @@
                 "model": "esp32dev",
                 "name": "flowermeter",
                 "sw_version": "2022.1.0 (Jan 19 2022, 09:33:16)",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "517e980970bffcbceda20932a7c71ed0",
                 "via_device_id": null,
@@ -2351,6 +2414,7 @@
                 "model": "1.1.6",
                 "name": "KNMI",
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": "service",
                 "id": "47cae9a24f14a6dd6972f263fa30dc82",
                 "via_device_id": null,
@@ -2379,6 +2443,7 @@
                 "model": "lumi.sensor_magnet.aq2",
                 "name": "Front OpenClose",
                 "sw_version": "20161128",
+                "hw_version": null,
                 "entry_type": null,
                 "id": "051215d5b20dc09f912d269348bf1441",
                 "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -2402,6 +2467,7 @@
                 "model": null,
                 "name": null,
                 "sw_version": null,
+                "hw_version": null,
                 "entry_type": null,
                 "id": "5d6169ac0ca16e9a5847d0dffb9ac8e0",
                 "via_device_id": null,
@@ -2720,6 +2786,20 @@
                 ],
                 "id": "ec014a93bcd587c813a3e833b9bb69f9",
                 "orphaned_timestamp": 1642441002.8120077
+            },
+            {
+                "config_entries": [
+                    "80351be7ea6286bfa7f844a88a7e2ed6"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "tuya",
+                        "bfb697fa6c76dc63d5oouq"
+                    ]
+                ],
+                "id": "31587bc2e514ca3abc9259a599f973df",
+                "orphaned_timestamp": null
             }
         ]
     }
