@@ -23,6 +23,18 @@ alert:
       requireInteraction: true
       url: lovelace/vacuum
 
+script:
+  vacuum_single_room:
+    alias: "Vacuum single room"
+    icon: mdi:robot-vacuum
+    mode: restart
+    sequence:
+      - service: select.select_option
+        data:
+          option: single
+        target:
+          entity_id: select.berry_mode
+
 homeassistant:
   customize:
     alert.vacuum:
