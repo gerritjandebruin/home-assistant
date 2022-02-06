@@ -199,10 +199,10 @@
   trigger:
   - platform: device
     domain: mqtt
-    device_id: 8a682e970222e80c81b8e04a40d466b5
+    device_id: 79ff302733b26ef330b68c020ceedad2
     type: action
     subtype: button_1
-    discovery_id: rtl433
+    discovery_id: rtl433 1
   condition: []
   action:
   - service: notify.everyone

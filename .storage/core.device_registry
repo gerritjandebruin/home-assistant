@@ -35,8 +35,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -151,11 +151,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -217,11 +217,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -250,11 +250,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -283,11 +283,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -382,11 +382,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ]
                 ],
@@ -415,11 +415,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -547,11 +547,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
@@ -679,11 +679,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -712,11 +712,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:91"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:91"
                     ]
                 ],
@@ -877,11 +877,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -929,8 +929,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "073d9d60b505c7c436b05f7acbdd18db"
+                    "073d9d60b505c7c436b05f7acbdd18db",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -969,11 +969,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1304,11 +1304,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1337,11 +1337,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -1773,54 +1773,6 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": "homeassistant://hassio/addon/a0d7b954_ssh"
-            },
-            {
-                "config_entries": [
-                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hassio",
-                        "local_ha-rtl"
-                    ]
-                ],
-                "manufacturer": "Local add-ons",
-                "model": "Home Assistant Add-on",
-                "name": "ha-rtl",
-                "sw_version": "2.1.0",
-                "hw_version": null,
-                "entry_type": "service",
-                "id": "339b126bc1ff7b969dbe5afced9dff8e",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null,
-                "configuration_url": "homeassistant://hassio/addon/local_ha-rtl"
-            },
-            {
-                "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
-                        "doorbell"
-                    ]
-                ],
-                "manufacturer": "Gamma",
-                "model": "7000ac",
-                "name": "KiKa Doorbell",
-                "sw_version": null,
-                "hw_version": null,
-                "entry_type": null,
-                "id": "00a670d9a519980a790548083d7a9cf5",
-                "via_device_id": null,
-                "area_id": "hall",
-                "name_by_user": null,
-                "disabled_by": null,
-                "configuration_url": null
             },
             {
                 "config_entries": [
@@ -2411,7 +2363,7 @@
                     ]
                 ],
                 "manufacturer": "KNMI",
-                "model": "1.1.6",
+                "model": "1.1.7",
                 "name": "KNMI",
                 "sw_version": null,
                 "hw_version": null,
@@ -2499,6 +2451,66 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "rtl433"
+                    ],
+                    [
+                        "mqtt",
+                        "0"
+                    ],
+                    [
+                        "mqtt",
+                        "51"
+                    ],
+                    [
+                        "mqtt",
+                        "30755554"
+                    ]
+                ],
+                "manufacturer": "Gamma",
+                "model": "7000ac",
+                "name": "KiKa Doorbell",
+                "sw_version": null,
+                "hw_version": null,
+                "entry_type": null,
+                "id": "79ff302733b26ef330b68c020ceedad2",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "28809773_ha-rtl"
+                    ]
+                ],
+                "manufacturer": "HA RTL433 to Home Assistant",
+                "model": "Home Assistant Add-on",
+                "name": "ha-rtl",
+                "sw_version": "3.0.0",
+                "hw_version": null,
+                "entry_type": "service",
+                "id": "9761f9f1b015983517823b53dcbae61f",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/28809773_ha-rtl"
             }
         ],
         "deleted_devices": [
@@ -2720,20 +2732,6 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "rtl433"
-                    ]
-                ],
-                "id": "79ff302733b26ef330b68c020ceedad2",
-                "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [
-                    "5f406ac278c3b2036080c757726ec016"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mqtt",
                         "device2"
                     ]
                 ],
@@ -2810,6 +2808,48 @@
                 ],
                 "id": "ec014a93bcd587c813a3e833b9bb69f9",
                 "orphaned_timestamp": 1642441002.8120077
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "doorbell"
+                    ]
+                ],
+                "id": "00a670d9a519980a790548083d7a9cf5",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mqtt",
+                        "{ids}"
+                    ]
+                ],
+                "id": "4fb781447a023b2e5dd51b87d8d389e0",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "local_ha-rtl"
+                    ]
+                ],
+                "id": "339b126bc1ff7b969dbe5afced9dff8e",
+                "orphaned_timestamp": null
             }
         ]
     }
