@@ -41,9 +41,9 @@ automation:
     action:
       - service: html5.dismiss
         data:
-          tag: plant
+          tag: shed_temperature
       - service: notify.mobile_app_nokia_7_2
         data:
           message: clear_notification
           data:
-            tag: plant
+            tag: shed_temperature
