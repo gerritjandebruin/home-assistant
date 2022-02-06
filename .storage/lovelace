@@ -375,14 +375,6 @@
                                             }
                                         },
                                         {
-                                            "entity": "binary_sensor.ha_rtl_running",
-                                            "type": "state-icon",
-                                            "style": {
-                                                "left": "24%",
-                                                "top": "78%"
-                                            }
-                                        },
-                                        {
                                             "entity": "input_boolean.shower",
                                             "type": "state-icon",
                                             "style": {
