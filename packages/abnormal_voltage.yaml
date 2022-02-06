@@ -13,7 +13,7 @@ alert:
     name: ⚠️ Abnormal voltage
     entity_id: binary_sensor.abnormal_voltage
     repeat: 30
-    message: "{{ states('sensor.grid_voltage') }} is measured"
+    message: "An abnormal voltage of {{states('sensor.grid_voltage')}}V is measured"
     notifiers:
       - pushnotification
       - mobile_app_nokia_7_2
