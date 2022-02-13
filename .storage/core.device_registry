@@ -35,8 +35,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -53,7 +53,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "Toilet",
-                "sw_version": "20211109-130756/v1.11.7-g682a0db",
+                "sw_version": "20220209-094317/v1.11.8-g8c7bb8d",
                 "hw_version": "gen1 (SHSW-PM)",
                 "entry_type": null,
                 "id": "3396514f188811ebb18c5f4e3e6696c1",
@@ -184,11 +184,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:1e:0e:0c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
@@ -250,11 +250,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -481,11 +481,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -514,11 +514,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -580,11 +580,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
@@ -613,11 +613,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ]
                 ],
@@ -646,11 +646,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -679,11 +679,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -778,11 +778,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -844,11 +844,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:08:16:da:da"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -877,11 +877,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -917,7 +917,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 2.5",
                 "name": "shellyswitch25-8CAAB561E13F",
-                "sw_version": "20211109-125214/v1.11.7-g682a0db",
+                "sw_version": "20220209-093016/v1.11.8-g8c7bb8d",
                 "hw_version": "gen1 (SHSW-25)",
                 "entry_type": null,
                 "id": "663b87c1fa016b28463175ae19183722",
@@ -929,8 +929,8 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
-                    "073d9d60b505c7c436b05f7acbdd18db"
+                    "073d9d60b505c7c436b05f7acbdd18db",
+                    "33699060188811ebb707e7caa407dbba"
                 ],
                 "connections": [
                     [
@@ -947,7 +947,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "Bathroom",
-                "sw_version": "20211109-130756/v1.11.7-g682a0db",
+                "sw_version": "20220209-094317/v1.11.8-g8c7bb8d",
                 "hw_version": "gen1 (SHSW-PM)",
                 "entry_type": null,
                 "id": "975aeee16d3e74fb7be938acf75275d8",
@@ -969,11 +969,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1253,7 +1253,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
-                "sw_version": "7.2",
+                "sw_version": "7.4",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
@@ -1337,11 +1337,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -1377,7 +1377,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly 1PM",
                 "name": "shelly1pm-E09806A9DECC",
-                "sw_version": "20211109-130756/v1.11.7-g682a0db",
+                "sw_version": "20220209-094317/v1.11.8-g8c7bb8d",
                 "hw_version": "gen1 (SHSW-PM)",
                 "entry_type": null,
                 "id": "a9c1ea637f003a57f1abb222312e4d02",
@@ -1401,7 +1401,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2022.1.3",
+                "sw_version": "2022.1.4",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
@@ -1696,11 +1696,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -1729,11 +1729,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ]
                 ],
@@ -1788,7 +1788,7 @@
                 "manufacturer": "Official add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "deCONZ",
-                "sw_version": "6.11.1",
+                "sw_version": "6.12.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "9ef7d945e29f22eb90425330572c2a88",
@@ -1836,7 +1836,7 @@
                 "manufacturer": "Dresden Elektronik",
                 "model": "deCONZ",
                 "name": "Phoscon-GW",
-                "sw_version": "2.13.4",
+                "sw_version": "2.14.1",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -2125,7 +2125,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly EM",
                 "name": "shellyem-C45BBE6B6B56",
-                "sw_version": "20211109-131205/v1.11.7-g682a0db",
+                "sw_version": "20220209-094734/v1.11.8-g8c7bb8d",
                 "hw_version": "gen1 (SHEM)",
                 "entry_type": null,
                 "id": "93a8f0b57682098cbf5f6afbfd586ff4",
@@ -2460,11 +2460,11 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "30755554"
+                        "0"
                     ],
                     [
                         "mqtt",
-                        "rtl433"
+                        "30755554"
                     ],
                     [
                         "mqtt",
@@ -2472,7 +2472,7 @@
                     ],
                     [
                         "mqtt",
-                        "0"
+                        "rtl433"
                     ]
                 ],
                 "manufacturer": "Gamma",
