@@ -217,11 +217,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -283,11 +283,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -316,11 +316,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -415,11 +415,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -448,11 +448,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:67:5e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:67:5e"
                     ]
                 ],
@@ -811,11 +811,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -1037,7 +1037,7 @@
                 "manufacturer": "Official add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Check Home Assistant configuration",
-                "sw_version": "3.9.0",
+                "sw_version": "3.10.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "35120953a64b54abd43dd788ee77dcdc",
@@ -1386,30 +1386,6 @@
                 "name_by_user": "lounge",
                 "disabled_by": null,
                 "configuration_url": "http://192.168.1.233"
-            },
-            {
-                "config_entries": [
-                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hassio",
-                        "a0d7b954_esphome"
-                    ]
-                ],
-                "manufacturer": "Home Assistant Community Add-ons",
-                "model": "Home Assistant Add-on",
-                "name": "ESPHome",
-                "sw_version": "2022.1.4",
-                "hw_version": null,
-                "entry_type": "service",
-                "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null,
-                "configuration_url": "homeassistant://hassio/addon/a0d7b954_esphome"
             },
             {
                 "config_entries": [
@@ -2464,15 +2440,15 @@
                     ],
                     [
                         "mqtt",
+                        "rtl433"
+                    ],
+                    [
+                        "mqtt",
                         "30755554"
                     ],
                     [
                         "mqtt",
                         "51"
-                    ],
-                    [
-                        "mqtt",
-                        "rtl433"
                     ]
                 ],
                 "manufacturer": "Gamma",
@@ -2511,6 +2487,30 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": "homeassistant://hassio/addon/28809773_ha-rtl"
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "5c53de3b_esphome"
+                    ]
+                ],
+                "manufacturer": "ESPHome",
+                "model": "Home Assistant Add-on",
+                "name": "ESPHome",
+                "sw_version": "2022.2.1",
+                "hw_version": null,
+                "entry_type": "service",
+                "id": "7e391f985711d028d1fa5b7a9b49e697",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/5c53de3b_esphome"
             }
         ],
         "deleted_devices": [
@@ -2782,23 +2782,6 @@
             },
             {
                 "config_entries": [],
-                "connections": [
-                    [
-                        "mac",
-                        "64:07:f6:c0:dc:68"
-                    ]
-                ],
-                "identifiers": [
-                    [
-                        "samsungtv",
-                        "41d82c41-0415-464c-a36a-59c131e7b5ff"
-                    ]
-                ],
-                "id": "58b296ba53b8d3d4efd4a3b2b5fbc75f",
-                "orphaned_timestamp": 1642170693.1725612
-            },
-            {
-                "config_entries": [],
                 "connections": [],
                 "identifiers": [
                     [
@@ -2849,6 +2832,20 @@
                     ]
                 ],
                 "id": "339b126bc1ff7b969dbe5afced9dff8e",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_esphome"
+                    ]
+                ],
+                "id": "bd5be6cd3e7d85a65f92c4fdf1151e8b",
                 "orphaned_timestamp": null
             }
         ]
