@@ -52,12 +52,19 @@
         target:
           entity_id:
           - light.hall
-          - light.corridor
         data:
           brightness_pct: '{{ states(''input_number.brightness'') | float }}'
           color_temp: "{% if is_state('binary_sensor.knmi_home_waarschuwing', 'on')\
             \ %}\n  153\n{% elif states('input_number.brightness') | int > 50 %}\n\
             \  360\n{% else %}\n  454\n{% endif %}"
+      - service: light.turn_on
+        target:
+          entity_id:
+          - light.corridor
+        data:
+          brightness_pct: '{{ states(''input_number.brightness'') | float }}'
+          color_temp:
+            '[object Object]':
   mode: queued
   max: 5
 - id: '1603831020194'
