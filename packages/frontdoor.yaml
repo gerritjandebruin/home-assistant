@@ -9,7 +9,7 @@ alert:
       Front door is open for
       {{((as_timestamp(now())-as_timestamp(states.binary_sensor.front_door.last_changed))/60) | round}}
       minutes.
-    done_message: "Front door is closed again."
+    done_message: clear_notification
     notifiers:
       - pushnotification
       - mobile_app_sm_a520f
