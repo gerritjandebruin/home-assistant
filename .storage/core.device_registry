@@ -250,11 +250,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -283,11 +283,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -316,11 +316,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -448,11 +448,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:67:5e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:67:5e"
                     ]
                 ],
@@ -514,11 +514,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -745,11 +745,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:b5:54:7d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:b5:54:7d"
                     ]
                 ],
@@ -778,11 +778,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -811,11 +811,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -844,11 +844,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:08:16:da:da"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -969,11 +969,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1002,11 +1002,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:06:59:d1:c7"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:06:59:d1:c7"
                     ]
                 ],
@@ -1304,11 +1304,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1672,11 +1672,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -2436,15 +2436,15 @@
                 "identifiers": [
                     [
                         "mqtt",
+                        "30755554"
+                    ],
+                    [
+                        "mqtt",
                         "0"
                     ],
                     [
                         "mqtt",
                         "rtl433"
-                    ],
-                    [
-                        "mqtt",
-                        "30755554"
                     ],
                     [
                         "mqtt",
@@ -2502,7 +2502,7 @@
                 "manufacturer": "ESPHome",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2022.2.1",
+                "sw_version": "2022.2.3",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "7e391f985711d028d1fa5b7a9b49e697",
