@@ -63,8 +63,8 @@
           - light.corridor
         data:
           brightness_pct: '{{ states(''input_number.brightness'') | float }}'
-          color_temp:
-            '[object Object]':
+          color_temp: '{{ 360 if states("input_number.brightness") | int > 50 else
+            454 }}'
   mode: queued
   max: 5
 - id: '1603831020194'
