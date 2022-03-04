@@ -10,7 +10,7 @@
                 "id": "93159c7aed05449d84dc8feafdbf1f2b"
             },
             {
-                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js",
+                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841101",
                 "type": "module",
                 "id": "37881659e94545bba2f6b869ed37b5be"
             },
@@ -35,17 +35,17 @@
                 "id": "75f625b9d514413c912b650f0d9985a4"
             },
             {
-                "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=150781994210",
+                "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=150781994220",
                 "type": "module",
                 "id": "a0b4bb9fb19747ada0349352475e7fdc"
             },
             {
-                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866231",
+                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866241",
                 "type": "module",
                 "id": "4cc384a2c3fd4c329b07553c76b040f0"
             },
             {
-                "url": "/hacsfiles/numberbox-card/numberbox-card.js?hacstag=30496791834",
+                "url": "/hacsfiles/numberbox-card/numberbox-card.js?hacstag=30496791839",
                 "type": "module",
                 "id": "8941a6e7b2f84a8eb9d3839321144cbe"
             },
