@@ -151,11 +151,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -217,11 +217,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -283,11 +283,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -349,11 +349,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
@@ -415,11 +415,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -514,11 +514,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -613,11 +613,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ]
                 ],
@@ -646,11 +646,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -679,11 +679,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -712,11 +712,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:91"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:91"
                     ]
                 ],
@@ -778,11 +778,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -969,11 +969,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1639,11 +1639,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -1672,11 +1672,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -2317,7 +2317,7 @@
                 "manufacturer": "espressif",
                 "model": "esp32dev",
                 "name": "flowermeter",
-                "sw_version": "2022.1.0 (Jan 19 2022, 09:33:16)",
+                "sw_version": "2022.2.5 (Feb 26 2022, 20:12:55)",
                 "hw_version": null,
                 "entry_type": null,
                 "id": "517e980970bffcbceda20932a7c71ed0",
@@ -2436,10 +2436,6 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "30755554"
-                    ],
-                    [
-                        "mqtt",
                         "0"
                     ],
                     [
@@ -2449,6 +2445,10 @@
                     [
                         "mqtt",
                         "51"
+                    ],
+                    [
+                        "mqtt",
+                        "30755554"
                     ]
                 ],
                 "manufacturer": "Gamma",
@@ -2502,7 +2502,7 @@
                 "manufacturer": "ESPHome",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2022.2.3",
+                "sw_version": "2022.2.6",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "7e391f985711d028d1fa5b7a9b49e697",
@@ -2511,6 +2511,30 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": "homeassistant://hassio/addon/5c53de3b_esphome"
+            },
+            {
+                "config_entries": [
+                    "c9c41f9a3d4f05878c948e74edefa7c9"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "58:bf:25:82:86:9c"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "espressif",
+                "model": "esp32dev",
+                "name": "test-device",
+                "sw_version": "2022.2.5 (Feb 27 2022, 15:21:36)",
+                "hw_version": null,
+                "entry_type": null,
+                "id": "b34bea43ca6573cf044f5c7d8550d158",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
             }
         ],
         "deleted_devices": [
@@ -2779,18 +2803,6 @@
                 ],
                 "id": "b43d452fc96f46d98c04951ad12e00bc",
                 "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "spotify",
-                        "1161914049"
-                    ]
-                ],
-                "id": "ec014a93bcd587c813a3e833b9bb69f9",
-                "orphaned_timestamp": 1642441002.8120077
             },
             {
                 "config_entries": [
