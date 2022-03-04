@@ -1,0 +1,64 @@
+{
+    "version": 1,
+    "minor_version": 1,
+    "key": "esphome.c9c41f9a3d4f05878c948e74edefa7c9",
+    "data": {
+        "device_info": {
+            "uses_password": false,
+            "name": "test-device",
+            "mac_address": "58:BF:25:82:86:9C",
+            "compilation_time": "Feb 27 2022, 15:21:36",
+            "model": "esp32dev",
+            "has_deep_sleep": false,
+            "esphome_version": "2022.2.5",
+            "project_name": "",
+            "project_version": "",
+            "webserver_port": 0
+        },
+        "services": [],
+        "api_version": {
+            "major": 1,
+            "minor": 6
+        },
+        "sensor": [
+            {
+                "object_id": "senseair_co2_value",
+                "key": 3291295024,
+                "name": "SenseAir CO2 Value",
+                "unique_id": "test-devicesensorsenseair_co2_value",
+                "disabled_by_default": false,
+                "icon": "mdi:molecule-co2",
+                "entity_category": 0,
+                "device_class": "carbon_dioxide",
+                "unit_of_measurement": "ppm",
+                "accuracy_decimals": 0,
+                "force_update": false,
+                "state_class": 1,
+                "last_reset_type": 0
+            }
+        ],
+        "text_sensor": [],
+        "button": [
+            {
+                "object_id": "calibrate_sensor",
+                "key": 897283541,
+                "name": "Calibrate sensor",
+                "unique_id": "test-devicebuttoncalibrate_sensor",
+                "disabled_by_default": false,
+                "icon": "",
+                "entity_category": 0,
+                "device_class": ""
+            },
+            {
+                "object_id": "get_result_calibration",
+                "key": 314944856,
+                "name": "Get result calibration",
+                "unique_id": "test-devicebuttonget_result_calibration",
+                "disabled_by_default": false,
+                "icon": "",
+                "entity_category": 0,
+                "device_class": ""
+            }
+        ]
+    }
+}

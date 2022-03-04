@@ -1,0 +1,39 @@
+esphome:
+  name: test-device2
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "36d8aa28977b231a4f7daec015d0fc91"
+
+wifi:
+  ssid: "de Bruin boven"
+  password: !secret wifi_password
+    
+  manual_ip:
+    static_ip: 192.168.1.223
+    gateway: 192.168.1.254
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Test-Device2 Fallback Hotspot"
+    password: "2k8QFvFJJraO"
+
+captive_portal:
+
+logger:
+  baud_rate: 0
+
+uart:
+  rx_pin: 3
+  tx_pin: 1
+  baud_rate: 9600
+
+tuya:
