@@ -1,5 +1,5 @@
 esphome:
-  name: test-device
+  name: co2meter
 
 esp32:
   board: esp32dev
