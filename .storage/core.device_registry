@@ -35,7 +35,6 @@
             },
             {
                 "config_entries": [
-                    "33699060188811ebb707e7caa407dbba",
                     "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
@@ -151,11 +150,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -184,11 +183,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
@@ -217,11 +216,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -250,11 +249,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -283,11 +282,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -316,11 +315,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -547,11 +546,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
@@ -580,11 +579,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
@@ -613,11 +612,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ]
                 ],
@@ -679,11 +678,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -712,11 +711,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:91"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:91"
                     ]
                 ],
@@ -844,11 +843,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:08:16:da:da"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -877,11 +876,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -929,8 +928,7 @@
             },
             {
                 "config_entries": [
-                    "073d9d60b505c7c436b05f7acbdd18db",
-                    "33699060188811ebb707e7caa407dbba"
+                    "073d9d60b505c7c436b05f7acbdd18db"
                 ],
                 "connections": [
                     [
@@ -969,11 +967,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1639,11 +1637,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -1672,11 +1670,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -2317,7 +2315,7 @@
                 "manufacturer": "espressif",
                 "model": "esp32dev",
                 "name": "flowermeter",
-                "sw_version": "2022.2.6 (Mar 13 2022, 08:52:07)",
+                "sw_version": "2022.2.6 (Mar 13 2022, 16:15:31)",
                 "hw_version": null,
                 "entry_type": null,
                 "id": "517e980970bffcbceda20932a7c71ed0",
@@ -2436,7 +2434,7 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "51"
+                        "30755554"
                     ],
                     [
                         "mqtt",
@@ -2448,7 +2446,7 @@
                     ],
                     [
                         "mqtt",
-                        "30755554"
+                        "51"
                     ]
                 ],
                 "manufacturer": "Gamma",
@@ -2526,7 +2524,7 @@
                 "manufacturer": "espressif",
                 "model": "esp32dev",
                 "name": "test-device",
-                "sw_version": "2022.2.6 (Mar 13 2022, 08:58:01)",
+                "sw_version": "2022.2.6 (Mar 13 2022, 16:18:51)",
                 "hw_version": null,
                 "entry_type": null,
                 "id": "b34bea43ca6573cf044f5c7d8550d158",
