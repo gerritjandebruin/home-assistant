@@ -7,10 +7,10 @@
             "uses_password": false,
             "name": "flowermeter",
             "mac_address": "7C:9E:BD:F3:E4:A8",
-            "compilation_time": "Feb 26 2022, 20:12:55",
+            "compilation_time": "Mar 13 2022, 08:52:07",
             "model": "esp32dev",
             "has_deep_sleep": false,
-            "esphome_version": "2022.2.5",
+            "esphome_version": "2022.2.6",
             "project_name": "",
             "project_version": "",
             "webserver_port": 0
