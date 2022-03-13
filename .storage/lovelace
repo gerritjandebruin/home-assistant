@@ -1498,6 +1498,30 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.power_from_grid"
+                            ],
+                            "stat_types": [
+                                "mean"
+                            ]
+                        },
+                        {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.power_from_grid"
+                            ],
+                            "stat_types": [
+                                "max"
+                            ]
                         }
                     ]
                 },
@@ -1803,35 +1827,53 @@
                             "type": "vertical-stack",
                             "cards": [
                                 {
+                                    "chart_type": "line",
+                                    "period": "day",
+                                    "days_to_show": 365,
                                     "type": "statistics-graph",
                                     "entities": [
                                         "sensor.flower_moisture"
                                     ],
-                                    "days_to_show": 365,
                                     "stat_types": [
                                         "mean"
                                     ]
                                 },
                                 {
+                                    "chart_type": "line",
+                                    "period": "day",
+                                    "days_to_show": 365,
                                     "type": "statistics-graph",
                                     "entities": [
                                         "sensor.flower_illuminance"
                                     ],
-                                    "days_to_show": 365,
                                     "stat_types": [
-                                        "mean"
+                                        "max"
                                     ]
                                 },
                                 {
+                                    "chart_type": "line",
+                                    "period": "day",
+                                    "days_to_show": 365,
                                     "type": "statistics-graph",
                                     "entities": [
                                         "sensor.flower_temperature"
                                     ],
+                                    "stat_types": [
+                                        "min",
+                                        "max"
+                                    ]
+                                },
+                                {
+                                    "chart_type": "line",
+                                    "period": "day",
                                     "days_to_show": 365,
+                                    "type": "statistics-graph",
+                                    "entities": [
+                                        "sensor.flower_soil_conductivity"
+                                    ],
                                     "stat_types": [
                                         "mean"
-                                    ],
-                                    "chart_type": "line"
+                                    ]
                                 }
                             ]
                         }
@@ -1904,53 +1946,17 @@
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
+                            "type": "statistics-graph",
                             "entities": [
-                                {
-                                    "entity": "sensor.experiabox_v10_kib_s_received"
-                                },
-                                {
-                                    "entity": "sensor.experiabox_v10_kib_s_sent"
-                                }
+                                "sensor.speedtest_upload",
+                                "sensor.speedtest_download",
+                                "sensor.speedtest_ping"
                             ],
-                            "refresh_interval": 0,
-                            "title": "Internet (last week)",
-                            "type": "history-graph",
-                            "hours_to_show": 168
-                        },
-                        {
-                            "type": "vertical-stack",
-                            "title": "Speedtest (last year)",
-                            "cards": [
-                                {
-                                    "type": "statistics-graph",
-                                    "entities": [
-                                        "sensor.speedtest_download"
-                                    ],
-                                    "days_to_show": 365,
-                                    "stat_types": [
-                                        "min"
-                                    ]
-                                },
-                                {
-                                    "type": "statistics-graph",
-                                    "entities": [
-                                        "sensor.speedtest_upload"
-                                    ],
-                                    "days_to_show": 365,
-                                    "stat_types": [
-                                        "min"
-                                    ]
-                                },
-                                {
-                                    "type": "statistics-graph",
-                                    "entities": [
-                                        "sensor.speedtest_ping"
-                                    ],
-                                    "days_to_show": 365,
-                                    "stat_types": [
-                                        "max"
-                                    ]
-                                }
+                            "stat_types": [
+                                "mean"
                             ]
                         }
                     ]
@@ -1968,31 +1974,37 @@
                             "type": "vertical-stack",
                             "cards": [
                                 {
+                                    "chart_type": "line",
+                                    "period": "day",
+                                    "days_to_show": 365,
                                     "type": "statistics-graph",
                                     "entities": [
                                         "sensor.disk_free_home"
                                     ],
-                                    "days_to_show": 365,
                                     "stat_types": [
                                         "mean"
                                     ]
                                 },
                                 {
+                                    "chart_type": "line",
+                                    "period": "day",
+                                    "days_to_show": 365,
                                     "type": "statistics-graph",
                                     "entities": [
                                         "sensor.processor_use"
                                     ],
-                                    "days_to_show": 365,
                                     "stat_types": [
                                         "mean"
                                     ]
                                 },
                                 {
+                                    "chart_type": "line",
+                                    "period": "day",
+                                    "days_to_show": 365,
                                     "type": "statistics-graph",
                                     "entities": [
                                         "sensor.memory_use_percent"
                                     ],
-                                    "days_to_show": 365,
                                     "stat_types": [
                                         "mean"
                                     ]
@@ -2039,68 +2051,89 @@
                     "badges": [],
                     "cards": [
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.synology_network_up"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
+                                "max",
                                 "mean"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.synology_network_down"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
-                                "mean"
+                                "mean",
+                                "max"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 30,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.synology_cpu_utilization_total"
                             ],
-                            "days_to_show": 30,
                             "stat_types": [
-                                "mean"
+                                "mean",
+                                "max",
+                                "min"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.synology_memory_usage_real"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
-                                "mean"
+                                "mean",
+                                "min",
+                                "max"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.synology_memory_available_swap"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
                                 "mean"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.synology_temperature",
                                 "sensor.synology_drive_1_temperature",
                                 "sensor.synology_drive_2_temperature"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
-                                "mean"
+                                "max"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.synology_volume_1_total_size",
@@ -2108,7 +2141,6 @@
                                 "sensor.synology_volume_2_total_size",
                                 "sensor.synology_volume_2_used_space"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
                                 "mean"
                             ]
@@ -2166,75 +2198,95 @@
                     "badges": [],
                     "cards": [
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.augustinuserf_network_up"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
-                                "mean"
+                                "mean",
+                                "max"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.augustinuserf_network_down"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
-                                "mean"
+                                "mean",
+                                "max"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.augustinuserf_cpu_utilization_total"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
-                                "mean"
+                                "mean",
+                                "min",
+                                "max"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.augustinuserf_memory_usage_real"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
-                                "mean"
+                                "mean",
+                                "min",
+                                "max"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.augustinuserf_memory_available_swap"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
                                 "mean"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.augustinuserf_temperature",
                                 "sensor.augustinuserf_drive_2_temperature"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
-                                "mean"
+                                "max"
                             ]
                         },
                         {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
                                 "sensor.augustinuserf_volume_2_used_space",
                                 "sensor.augustinuserf_volume_2_total_size"
                             ],
-                            "days_to_show": 365,
                             "stat_types": [
-                                "mean"
+                                "min"
                             ]
                         },
                         {
