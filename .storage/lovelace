@@ -1110,6 +1110,21 @@
                             ],
                             "hours_to_show": 24,
                             "refresh_interval": 0
+                        },
+                        {
+                            "chart_type": "line",
+                            "period": "day",
+                            "days_to_show": 365,
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.shed_thermometer"
+                            ],
+                            "stat_types": [
+                                "mean",
+                                "min",
+                                "max",
+                                "sum"
+                            ]
                         }
                     ]
                 },
