@@ -35,8 +35,8 @@
             },
             {
                 "config_entries": [
-                    "a2df955e7cc746d71d223c05a7e35f53",
-                    "1dcb3598d679b88a3cb6b41dcd412b62"
+                    "1dcb3598d679b88a3cb6b41dcd412b62",
+                    "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
                     [
@@ -129,7 +129,7 @@
                 "manufacturer": "hacs.xyz",
                 "model": "",
                 "name": "HACS",
-                "sw_version": "1.23.0",
+                "sw_version": "1.24.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "d4dfeb3faac3b7d65ca316e4fef1a2b1",
@@ -151,11 +151,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -250,11 +250,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -349,11 +349,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
@@ -382,11 +382,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ]
                 ],
@@ -415,11 +415,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -481,11 +481,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -514,11 +514,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -558,7 +558,7 @@
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI bulb GU10 WS 400lm",
                 "name": "Bedroom light 1",
-                "sw_version": "2.0.029",
+                "sw_version": "2.3.091",
                 "hw_version": null,
                 "entry_type": null,
                 "id": "6783c5c5d415efc8d8ee992bcede1f16",
@@ -580,18 +580,18 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
                 "manufacturer": "IKEA of Sweden",
                 "model": "TRADFRI bulb GU10 WS 400lm",
                 "name": "Bedroom light 2",
-                "sw_version": "2.0.029",
+                "sw_version": "2.3.091",
                 "hw_version": null,
                 "entry_type": null,
                 "id": "5c6125df50aeff0acb2509f14b0fe122",
@@ -646,11 +646,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -745,11 +745,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:b5:54:7d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:b5:54:7d"
                     ]
                 ],
@@ -778,11 +778,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -811,11 +811,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -844,11 +844,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:08:16:da:da"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -877,11 +877,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -1060,7 +1060,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Studio Code Server",
-                "sw_version": "4.1.0",
+                "sw_version": "4.2.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
@@ -1108,7 +1108,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Grafana",
-                "sw_version": "7.5.1",
+                "sw_version": "7.5.2",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "f7f8bd1308cff7e610ba87b6009d3b85",
@@ -1156,7 +1156,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "InfluxDB",
-                "sw_version": "4.4.0",
+                "sw_version": "4.4.1",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "b28137196acda31f40287f38243d701f",
@@ -1180,7 +1180,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "JupyterLab",
-                "sw_version": "0.6.0",
+                "sw_version": "0.7.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "c2053bd9d787aba62b8be63b65e4ae3d",
@@ -1336,11 +1336,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -2435,7 +2435,7 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "0"
+                        "51"
                     ],
                     [
                         "mqtt",
@@ -2443,11 +2443,11 @@
                     ],
                     [
                         "mqtt",
-                        "51"
+                        "rtl433"
                     ],
                     [
                         "mqtt",
-                        "rtl433"
+                        "0"
                     ]
                 ],
                 "manufacturer": "Gamma",
@@ -2501,7 +2501,7 @@
                 "manufacturer": "ESPHome",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2022.3.0",
+                "sw_version": "2022.3.2",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "7e391f985711d028d1fa5b7a9b49e697",
