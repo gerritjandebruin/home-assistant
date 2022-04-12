@@ -1,18 +1,3 @@
-light:
-  - platform: group
-    name: Bedroom
-    entities:
-      - light.bedroom_1
-      - light.bedroom_2
-      - light.bedroom_3
-      - light.bedroom_4
-      - light.bedroom_5
-
-homeassistant:
-  customize:
-    light.bedroom:
-      icon: mdi:bed
-
 automation:
   - alias: Bedroom control
     description: https://www.ikea.com/nl/nl/p/tradfri-afstandsbediening-30443124/

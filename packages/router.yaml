@@ -1,9 +1,0 @@
-utility_meter:
-  download:
-    source: sensor.experiabox_v10_b_received
-    name: Total downloaded
-    cycle: daily
-  upload:
-    source: sensor.experiabox_v10_b_sent
-    name: Total uploaded
-    cycle: daily

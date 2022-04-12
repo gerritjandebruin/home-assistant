@@ -1,7 +1,4 @@
 sensor:
-  - platform: filesize
-    file_paths:
-      - /config/home-assistant_v2.db
   - platform: systemmonitor
     resources:
       - type: disk_free
@@ -9,12 +6,6 @@ sensor:
       - type: memory_use_percent
       - type: processor_use
       - type: last_boot
-
-binary_sensor:
-  - platform: threshold
-    entity_id: sensor.disk_free_home
-    lower: 15
-    name: Disk full home
 
 alert:
   disk_full_home:

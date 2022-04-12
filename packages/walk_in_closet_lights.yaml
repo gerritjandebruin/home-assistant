@@ -1,15 +1,3 @@
-light:
-  - platform: group
-    name: Walk in closet
-    entities:
-      - light.walk_in_closet_1
-      - light.walk_in_closet_2
-
-homeassistant:
-  customize:
-    light.walk_in_closet:
-      icon: mdi:wardrobe
-
 automation:
   - alias: Walk in closet
     description: >-

@@ -36,6 +36,7 @@
             {
                 "config_entries": [
                     "1dcb3598d679b88a3cb6b41dcd412b62",
+                    "b6ce38f45458659f9dc8cd897ab11bc8",
                     "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
@@ -151,11 +152,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -184,11 +185,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:1e:0e:0c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
@@ -217,11 +218,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -250,11 +251,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -316,11 +317,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -415,11 +416,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -481,11 +482,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -547,11 +548,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
@@ -580,11 +581,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
@@ -646,11 +647,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -679,11 +680,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -745,11 +746,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:b5:54:7d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:b5:54:7d"
                     ]
                 ],
@@ -811,11 +812,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -900,6 +901,7 @@
             },
             {
                 "config_entries": [
+                    "011a8d576dbb7d3d7ceb75d2060fb19b",
                     "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
@@ -1001,11 +1003,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:06:59:d1:c7"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:06:59:d1:c7"
                     ]
                 ],
@@ -1252,7 +1254,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
-                "sw_version": "7.5",
+                "sw_version": "7.6",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
@@ -1303,11 +1305,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1359,6 +1361,7 @@
             },
             {
                 "config_entries": [
+                    "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e",
                     "70e683081b2cb3b8cbea7313bcef72bb"
                 ],
                 "connections": [
@@ -2241,10 +2244,10 @@
                         "34b1ae131518bac6"
                     ]
                 ],
-                "manufacturer": "HMD Global",
-                "model": "Nokia 7.2",
+                "manufacturer": "samsung",
+                "model": "SM-A530F",
                 "name": "Nokia 7.2",
-                "sw_version": "30",
+                "sw_version": "28",
                 "hw_version": null,
                 "entry_type": null,
                 "id": "f601d2d767d3a4d5d2eb777f46097194",
@@ -2439,11 +2442,11 @@
                     ],
                     [
                         "mqtt",
-                        "30755554"
+                        "rtl433"
                     ],
                     [
                         "mqtt",
-                        "rtl433"
+                        "30755554"
                     ],
                     [
                         "mqtt",
@@ -2553,6 +2556,102 @@
                 "hw_version": null,
                 "entry_type": null,
                 "id": "c3569e479b4926e8dbb26f6d296e5126",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core"
+                    ]
+                ],
+                "manufacturer": "Home Assistant",
+                "model": "Home Assistant Core",
+                "name": "Home Assistant Core",
+                "sw_version": "2022.4.2",
+                "hw_version": null,
+                "entry_type": "service",
+                "id": "f91905170bd4f439c08f9968fe86ee05",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "supervisor"
+                    ]
+                ],
+                "manufacturer": "Home Assistant",
+                "model": "Home Assistant Supervisor",
+                "name": "Home Assistant Supervisor",
+                "sw_version": "2022.04.0",
+                "hw_version": null,
+                "entry_type": "service",
+                "id": "77535099d21df7a01598a2653630aae2",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "13a79ec27ea1386628801849dfdea66b"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "filesize",
+                        "13a79ec27ea1386628801849dfdea66b"
+                    ]
+                ],
+                "manufacturer": null,
+                "model": null,
+                "name": "home-assistant_v2.db",
+                "sw_version": null,
+                "hw_version": null,
+                "entry_type": "service",
+                "id": "102393b80b7a5fff516bf253447b63d7",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "ab7dbe0e605c5543e4a6db691071d064"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "neerslag",
+                        "neerslag-device"
+                    ]
+                ],
+                "manufacturer": "aex351",
+                "model": "All-in-one package",
+                "name": "Neerslag App",
+                "sw_version": "",
+                "hw_version": null,
+                "entry_type": null,
+                "id": "5581b1ee2427e5ccf49c601e38308be3",
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
