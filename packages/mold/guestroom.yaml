@@ -9,6 +9,7 @@ sensor:
 binary_sensor:
   - platform: threshold
     entity_id: sensor.guestroom_mold
+    name: Guestroom mold warning
     upper: 90
 
 alert:

@@ -1,0 +1,36 @@
+sensor:
+  - platform: mold_indicator
+    name: Bedroom mold
+    indoor_temp_sensor: sensor.bedroom_thermometer
+    indoor_humidity_sensor: sensor.bedroom_humidity
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.6
+
+binary_sensor:
+  - platform: threshold
+    entity_id: sensor.bedroom_mold
+    name: Bedroom mold warning
+    upper: 90
+
+alert:
+  bedroom_mold:
+    name: Bedroom mold
+    entity_id: binary_sensor.bedroom_mold
+    repeat: 30
+    message: "Mold probability in bedroom is high: {{ states('sensor.bedroom_mold') }}"
+    done_message: Mold at bedroom is unlikely again
+    notifiers:
+      - pushnotification
+    data:
+      tag: bedroom_mold
+      requireInteraction: true
+      url: lovelace/check
+      priority: high
+
+homeassistant:
+  customize:
+    sensor.bedroom_mold:
+      icon: mdi:bed
+      friendly_name: Bedroom
+    alert.bedroom_mold:
+      icon: mdi:bacteria

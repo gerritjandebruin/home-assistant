@@ -20,7 +20,6 @@ alert:
     message: ⚠️ Abnormal temperature
     notifiers:
       - pushnotification
-      - mobile_app_nokia_7_2
     data:
       clickAction: "lovelace/thermometer"
       channel: abnormal_temperature

@@ -1,5 +1,5 @@
 - id: '1603830622083'
-  alias: Hall and corridor
+  alias: Hall and corridor light
   description: Triggers when there is movement in the hall at ground level or first
     floor. When it freezes, warn with a blue light. Brightness is adapted to the desired
     level. Because the IKEA sensor at the corridor is slow in going to the cleared
@@ -68,7 +68,7 @@
   mode: queued
   max: 5
 - id: '1603831020194'
-  alias: Kitchen
+  alias: Kitchen light
   description: Triggers when there is movement in the kitchen. Only activate light
     when there is less than 20 lux measured in the hall at ground level. Brightness
     is adapted to the desired level.
@@ -83,7 +83,6 @@
       hours: 0
       minutes: 2
       seconds: 0
-      milliseconds: 0
   condition: []
   action:
   - choose:
@@ -151,7 +150,7 @@
   mode: queued
   max: 5
 - id: '1608134139962'
-  alias: Shed
+  alias: Shed light
   description: Put the light in the shed on when the door is opened and it is dark.
     Put it off when the door is closed for longer than two minutes. If the door is
     closed, the user is reminded of this automation by a brief flash.
@@ -240,7 +239,7 @@
       - light.shed
   mode: single
 - id: '1612988672846'
-  alias: Toilet
+  alias: Toilet light
   description: Switch the toilet light when the door is opened.
   trigger:
   - platform: state
@@ -279,7 +278,7 @@
         entity_id: switch.toilet
   mode: single
 - id: '1612988850571'
-  alias: Pantry
+  alias: Pantry light
   description: Switch the light in the pantry when the door is opened or closed.
   trigger:
   - platform: state
@@ -395,7 +394,7 @@
     default: []
   mode: single
 - id: '1613577759701'
-  alias: Bright
+  alias: Light brightness
   description: ''
   trigger:
   - platform: time_pattern
@@ -532,7 +531,7 @@
         entity_id: all
   mode: restart
 - id: '1629321154907'
-  alias: Terrace
+  alias: Terrace light
   description: Control roof terrace LEDs with IKEA remote button.
   trigger:
   - platform: event
@@ -572,6 +571,7 @@
           entity_id:
           - automation.attic_motion
           - automation.hall_corridor
+        data: {}
     - alias: Off hold
       conditions:
       - condition: template
@@ -586,10 +586,12 @@
           - light.attic
           area_id:
           - bedroom
+        data: {}
       - service: automation.turn_off
         target:
           entity_id:
           - automation.attic_motion
           - automation.hall_corridor
+        data: {}
   mode: queued
   max: 25

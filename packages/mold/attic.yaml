@@ -8,6 +8,7 @@ sensor:
 
 binary_sensor:
   - platform: threshold
+    name: Attic mold warning
     entity_id: sensor.attic_mold
     upper: 90
 

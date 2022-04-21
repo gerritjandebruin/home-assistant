@@ -16,7 +16,6 @@ alert:
     message: "An abnormal voltage of {{states('sensor.grid_voltage')}}V is measured"
     notifiers:
       - pushnotification
-      - mobile_app_nokia_7_2
     data:
       clickAction: "lovelace/check"
       channel: abnormal_voltage

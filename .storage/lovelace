@@ -455,7 +455,7 @@
                                     "type": "image"
                                 },
                                 {
-                                    "entity": "light.walk_in_closet_1",
+                                    "entity": "light.walk_in_closet",
                                     "image": "/local/walk-in-closet.jpg",
                                     "state_filter": {
                                         "off": "brightness(60%)",
@@ -471,7 +471,7 @@
                                         "action": "call-service",
                                         "service": "light.toggle",
                                         "service_data": {
-                                            "area_id": "walk_in_closet"
+                                            "entity_id": "light.walk_in_closet"
                                         }
                                     },
                                     "type": "image"
@@ -1254,7 +1254,7 @@
                                             "toggle": true
                                         }
                                     ],
-                                    "entity": "light.bedroom",
+                                    "entity": "light.bedroom_1",
                                     "icon": "mdi:bed",
                                     "secondary_info": "last-changed",
                                     "toggle": true,

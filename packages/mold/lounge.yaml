@@ -1,0 +1,34 @@
+sensor:
+  - platform: mold_indicator
+    indoor_temp_sensor: sensor.lounge_thermometer
+    indoor_humidity_sensor: sensor.lounge_humidity
+    outdoor_temp_sensor: sensor.outside_temperature
+    calibration_factor: 1.6
+    name: Lounge mold
+
+binary_sensor:
+  - platform: threshold
+    name: Lounge mold warning
+    entity_id: sensor.lounge_mold
+    upper: 90
+
+alert:
+  lounge_mold:
+    name: Lounge mold
+    entity_id: binary_sensor.lounge_mold
+    repeat: 30
+    message: "Mold probability in lounge is high: {{ states('sensor.lounge_mold') }}"
+    done_message: Mold at lounge is unlikely again
+    notifiers:
+      - pushnotification
+    data:
+      tag: lounge_mold
+      requireInteraction: true
+      url: lovelace/check
+      priority: high
+
+homeassistant:
+  customize:
+    sensor.lounge_mold:
+      icon: mdi:seat
+      friendly_name: Lounge

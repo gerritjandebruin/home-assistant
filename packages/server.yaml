@@ -17,7 +17,6 @@ alert:
     message: "Server disk is full: {{ states('sensor.disk_free_home') }} GB"
     notifiers:
       - pushnotification
-      - mobile_app_sm_a520f
     data:
       clickAction: lovelace/server
       channel: server

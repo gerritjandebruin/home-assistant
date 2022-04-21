@@ -1,5 +1,5 @@
 automation:
-  - alias: Bathroom
+  - alias: Bathroom light
     description: >-
       Put light on when door is opened. Put off when closed for 10 minutes. Put off
       when nothing has changed for 30 minutes, except when showering.
