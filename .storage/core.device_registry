@@ -35,9 +35,9 @@
             },
             {
                 "config_entries": [
+                    "b6ce38f45458659f9dc8cd897ab11bc8",
                     "1dcb3598d679b88a3cb6b41dcd412b62",
-                    "a2df955e7cc746d71d223c05a7e35f53",
-                    "b6ce38f45458659f9dc8cd897ab11bc8"
+                    "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
                     [
@@ -152,11 +152,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -185,11 +185,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
@@ -218,11 +218,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -251,11 +251,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -284,11 +284,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -350,11 +350,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
@@ -416,11 +416,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -449,11 +449,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:67:5e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:67:5e"
                     ]
                 ],
@@ -482,11 +482,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -515,11 +515,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "84:2e:14:ff:fe:47:9f:72"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "84:2e:14:ff:fe:47:9f:72"
                     ]
                 ],
@@ -647,11 +647,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -680,11 +680,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -812,11 +812,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -845,11 +845,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:08:16:da:da"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -901,8 +901,8 @@
             },
             {
                 "config_entries": [
-                    "011a8d576dbb7d3d7ceb75d2060fb19b",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "011a8d576dbb7d3d7ceb75d2060fb19b"
                 ],
                 "connections": [
                     [
@@ -1062,7 +1062,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Studio Code Server",
-                "sw_version": "4.2.0",
+                "sw_version": "5.0.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
@@ -1305,11 +1305,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1641,11 +1641,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -1674,11 +1674,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -2414,11 +2414,7 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "rtl433"
-                    ],
-                    [
-                        "mqtt",
-                        "51"
+                        "0"
                     ],
                     [
                         "mqtt",
@@ -2426,7 +2422,11 @@
                     ],
                     [
                         "mqtt",
-                        "0"
+                        "51"
+                    ],
+                    [
+                        "mqtt",
+                        "rtl433"
                     ]
                 ],
                 "manufacturer": "Gamma",
@@ -2480,7 +2480,7 @@
                 "manufacturer": "ESPHome",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2022.3.2",
+                "sw_version": "2022.4.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "7e391f985711d028d1fa5b7a9b49e697",
@@ -2552,7 +2552,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Core",
                 "name": "Home Assistant Core",
-                "sw_version": "2022.4.3",
+                "sw_version": "2022.4.6",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "f91905170bd4f439c08f9968fe86ee05",
@@ -2633,6 +2633,30 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_sqlite-web"
+                    ]
+                ],
+                "manufacturer": "Home Assistant Community Add-ons",
+                "model": "Home Assistant Add-on",
+                "name": "SQLite Web",
+                "sw_version": "3.3.0",
+                "hw_version": null,
+                "entry_type": "service",
+                "id": "72b3690c3a86723d1426edc5a493c718",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_sqlite-web"
             }
         ],
         "deleted_devices": [
