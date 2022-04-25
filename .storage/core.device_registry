@@ -35,9 +35,9 @@
             },
             {
                 "config_entries": [
-                    "b6ce38f45458659f9dc8cd897ab11bc8",
                     "1dcb3598d679b88a3cb6b41dcd412b62",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "b6ce38f45458659f9dc8cd897ab11bc8"
                 ],
                 "connections": [
                     [
@@ -130,7 +130,7 @@
                 "manufacturer": "hacs.xyz",
                 "model": "",
                 "name": "HACS",
-                "sw_version": "1.24.4",
+                "sw_version": "1.24.5",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "d4dfeb3faac3b7d65ca316e4fef1a2b1",
@@ -185,11 +185,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:1e:0e:0c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
@@ -317,11 +317,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -416,11 +416,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -581,11 +581,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
@@ -647,11 +647,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -779,11 +779,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -878,11 +878,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -901,8 +901,8 @@
             },
             {
                 "config_entries": [
-                    "a2df955e7cc746d71d223c05a7e35f53",
-                    "011a8d576dbb7d3d7ceb75d2060fb19b"
+                    "011a8d576dbb7d3d7ceb75d2060fb19b",
+                    "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
                     [
@@ -970,11 +970,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1003,11 +1003,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:06:59:d1:c7"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:06:59:d1:c7"
                     ]
                 ],
@@ -1338,11 +1338,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -1607,30 +1607,6 @@
             },
             {
                 "config_entries": [
-                    "47c054f917dac4a33280d77f76254678"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mobile_app",
-                        "4318efca80eb09ff"
-                    ]
-                ],
-                "manufacturer": "samsung",
-                "model": "SM-A520F",
-                "name": "SM-A520F",
-                "sw_version": "26",
-                "hw_version": null,
-                "entry_type": null,
-                "id": "3ca4294e6c19aa5bdc5be879fca5947f",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null,
-                "configuration_url": null
-            },
-            {
-                "config_entries": [
                     "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
@@ -1707,11 +1683,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ]
                 ],
@@ -2295,7 +2271,7 @@
                 "manufacturer": "espressif",
                 "model": "esp32dev",
                 "name": "flowermeter",
-                "sw_version": "2022.3.0 (Mar 22 2022, 15:24:40)",
+                "sw_version": "2022.4.0 (Apr 21 2022, 08:41:16)",
                 "hw_version": null,
                 "entry_type": null,
                 "id": "517e980970bffcbceda20932a7c71ed0",
@@ -2422,11 +2398,11 @@
                     ],
                     [
                         "mqtt",
-                        "51"
+                        "rtl433"
                     ],
                     [
                         "mqtt",
-                        "rtl433"
+                        "51"
                     ]
                 ],
                 "manufacturer": "Gamma",
@@ -2492,30 +2468,6 @@
             },
             {
                 "config_entries": [
-                    "c9c41f9a3d4f05878c948e74edefa7c9"
-                ],
-                "connections": [
-                    [
-                        "mac",
-                        "58:bf:25:82:86:9c"
-                    ]
-                ],
-                "identifiers": [],
-                "manufacturer": "espressif",
-                "model": "esp32dev",
-                "name": "test-device",
-                "sw_version": "2022.2.6 (Mar 13 2022, 16:18:51)",
-                "hw_version": null,
-                "entry_type": null,
-                "id": "b34bea43ca6573cf044f5c7d8550d158",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null,
-                "configuration_url": null
-            },
-            {
-                "config_entries": [
                     "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
@@ -2552,7 +2504,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Core",
                 "name": "Home Assistant Core",
-                "sw_version": "2022.4.6",
+                "sw_version": "2022.4.7",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "f91905170bd4f439c08f9968fe86ee05",
@@ -2657,6 +2609,54 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": "homeassistant://hassio/addon/a0d7b954_sqlite-web"
+            },
+            {
+                "config_entries": [
+                    "2bd7da118553dd091a084764090bce34"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "58:bf:25:82:86:9c"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "espressif",
+                "model": "esp32dev",
+                "name": "co2meter",
+                "sw_version": "2022.4.0 (Apr 21 2022, 09:28:36)",
+                "hw_version": null,
+                "entry_type": null,
+                "id": "b34bea43ca6573cf044f5c7d8550d158",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "dd2336ad33e922b9ee98fa3167b65ccc"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "b062f2e317d27371"
+                    ]
+                ],
+                "manufacturer": "samsung",
+                "model": "SM-A530F",
+                "name": "SM-A530F",
+                "sw_version": "28",
+                "hw_version": null,
+                "entry_type": null,
+                "id": "b26acac4f6332ba83f2aadae7bae622e",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
             }
         ],
         "deleted_devices": [
@@ -2914,20 +2914,6 @@
             },
             {
                 "config_entries": [
-                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hassio",
-                        "core_letsencrypt"
-                    ]
-                ],
-                "id": "b43d452fc96f46d98c04951ad12e00bc",
-                "orphaned_timestamp": null
-            },
-            {
-                "config_entries": [
                     "5f406ac278c3b2036080c757726ec016"
                 ],
                 "connections": [],
@@ -3006,6 +2992,32 @@
                     ]
                 ],
                 "id": "c204aaba40ee223ac0eb1fbc21a2ca5d",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "4318efca80eb09ff"
+                    ]
+                ],
+                "id": "3ca4294e6c19aa5bdc5be879fca5947f",
+                "orphaned_timestamp": 1650528400.1792989
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_letsencrypt"
+                    ]
+                ],
+                "id": "b43d452fc96f46d98c04951ad12e00bc",
                 "orphaned_timestamp": null
             }
         ]
