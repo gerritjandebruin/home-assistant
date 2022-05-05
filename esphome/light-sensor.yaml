@@ -1,0 +1,35 @@
+esphome:
+  name: light-sensor
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "8289cae3937f20973105aea2bbbf149b"
+
+ethernet:
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO17_OUT
+  phy_addr: 0
+  power_pin: GPIO12
+  
+sensor:
+  - platform: adc
+    pin: GPIO39
+    name: "TEMT6000 Illuminance"
+    device_class: illuminance
+    unit_of_measurement: lx
+    filters:
+      - lambda: |-
+          return (x / 10000.0) * 2000000.0;
+    

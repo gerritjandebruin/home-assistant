@@ -17,7 +17,7 @@
                 "identifiers": [
                     [
                         "upnp",
-                        "uuid:20809696-105a-3721-e8b8-34dab7d452b8"
+                        "uuid:20809696-105a-3721-e8b8-34dab7d452b8::urn:schemas-upnp-org:device:InternetGatewayDevice:1"
                     ]
                 ],
                 "manufacturer": "ZTE",
@@ -152,11 +152,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -218,11 +218,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -284,11 +284,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -317,11 +317,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -350,11 +350,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
@@ -383,11 +383,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:4a:5b:fc"
                     ]
                 ],
@@ -482,11 +482,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -581,11 +581,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
@@ -647,11 +647,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:34:0c:70"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:34:0c:70"
                     ]
                 ],
@@ -680,11 +680,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -713,11 +713,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:91"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:91"
                     ]
                 ],
@@ -779,11 +779,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -812,11 +812,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:5d:45:8e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:5d:45:8e"
                     ]
                 ],
@@ -878,11 +878,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -901,8 +901,8 @@
             },
             {
                 "config_entries": [
-                    "011a8d576dbb7d3d7ceb75d2060fb19b",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "011a8d576dbb7d3d7ceb75d2060fb19b"
                 ],
                 "connections": [
                     [
@@ -1003,11 +1003,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:06:59:d1:c7"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:06:59:d1:c7"
                     ]
                 ],
@@ -1062,7 +1062,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Studio Code Server",
-                "sw_version": "5.0.0",
+                "sw_version": "5.0.2",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
@@ -1230,7 +1230,7 @@
                 "manufacturer": "Official add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Mosquitto broker",
-                "sw_version": "6.0.1",
+                "sw_version": "6.1.1",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "96206c4519d6359364c9c6372245b011",
@@ -1305,11 +1305,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1338,11 +1338,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -1361,8 +1361,8 @@
             },
             {
                 "config_entries": [
-                    "70e683081b2cb3b8cbea7313bcef72bb",
-                    "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e"
+                    "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e",
+                    "70e683081b2cb3b8cbea7313bcef72bb"
                 ],
                 "connections": [
                     [
@@ -1426,7 +1426,7 @@
                 ],
                 "manufacturer": "Synology",
                 "model": "DS216play",
-                "name": "Synology NAS",
+                "name": "nieuw-engeland",
                 "sw_version": "DSM 7.0.1-42218 Update 3",
                 "hw_version": null,
                 "entry_type": null,
@@ -1450,7 +1450,7 @@
                 ],
                 "manufacturer": "WDC     ",
                 "model": "WD30EFRX-68EUZN0",
-                "name": "Synology NAS (Drive 1 - SATA)",
+                "name": "nieuw-engeland (Drive 1)",
                 "sw_version": "82.00A82",
                 "hw_version": null,
                 "entry_type": null,
@@ -1474,7 +1474,7 @@
                 ],
                 "manufacturer": "TOSHIBA ",
                 "model": "MQ01ABF050",
-                "name": "Synology NAS (Drive 2 - SATA)",
+                "name": "nieuw-engeland (Drive 2)",
                 "sw_version": "AM002J",
                 "hw_version": null,
                 "entry_type": null,
@@ -1498,7 +1498,7 @@
                 ],
                 "manufacturer": "Synology",
                 "model": "DS216play",
-                "name": "Synology NAS (Volume 2 - SHR without disk protect)",
+                "name": "nieuw-engeland (Volume 2)",
                 "sw_version": "DSM 7.0.1-42218 Update 3",
                 "hw_version": null,
                 "entry_type": null,
@@ -1522,7 +1522,7 @@
                 ],
                 "manufacturer": "Synology",
                 "model": "DS216play",
-                "name": "Synology NAS (Volume 1 - SHR without disk protect)",
+                "name": "nieuw-engeland (Volume 1)",
                 "sw_version": "DSM 7.0.1-42218 Update 3",
                 "hw_version": null,
                 "entry_type": null,
@@ -1546,7 +1546,7 @@
                 ],
                 "manufacturer": "Synology",
                 "model": "DS215j",
-                "name": "Synology NAS",
+                "name": "augustinuserf",
                 "sw_version": "DSM 7.0-41890",
                 "hw_version": null,
                 "entry_type": null,
@@ -1570,7 +1570,7 @@
                 ],
                 "manufacturer": "Seagate",
                 "model": "ST2000DL003-9VT166",
-                "name": "Synology NAS (Drive 2 - SATA)",
+                "name": "augustinuserf (Drive 2)",
                 "sw_version": "CC45",
                 "hw_version": null,
                 "entry_type": null,
@@ -1594,7 +1594,7 @@
                 ],
                 "manufacturer": "Synology",
                 "model": "DS215j",
-                "name": "Synology NAS (Volume 2 - SHR without disk protect)",
+                "name": "augustinuserf (Volume 2)",
                 "sw_version": "DSM 7.0-41890",
                 "hw_version": null,
                 "entry_type": null,
@@ -1617,11 +1617,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -1650,11 +1650,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -1683,11 +1683,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ]
                 ],
@@ -1718,7 +1718,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "SSH & Web Terminal",
-                "sw_version": "10.1.1",
+                "sw_version": "10.1.3",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "dc599c9c099cbc5efd2cdbee6aff7750",
@@ -1742,7 +1742,7 @@
                 "manufacturer": "Official add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "deCONZ",
-                "sw_version": "6.12.0",
+                "sw_version": "6.13.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "9ef7d945e29f22eb90425330572c2a88",
@@ -1790,7 +1790,7 @@
                 "manufacturer": "Dresden Elektronik",
                 "model": "deCONZ",
                 "name": "Phoscon-GW",
-                "sw_version": "2.14.1",
+                "sw_version": "2.15.3",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "c85d3e34e7d911cc9b1f6fb16026b271",
@@ -2390,11 +2390,11 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "0"
+                        "30755554"
                     ],
                     [
                         "mqtt",
-                        "30755554"
+                        "51"
                     ],
                     [
                         "mqtt",
@@ -2402,7 +2402,7 @@
                     ],
                     [
                         "mqtt",
-                        "51"
+                        "0"
                     ]
                 ],
                 "manufacturer": "Gamma",
@@ -2504,7 +2504,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Core",
                 "name": "Home Assistant Core",
-                "sw_version": "2022.4.7",
+                "sw_version": "2022.5.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "f91905170bd4f439c08f9968fe86ee05",
@@ -2528,7 +2528,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Supervisor",
                 "name": "Home Assistant Supervisor",
-                "sw_version": "2022.04.0",
+                "sw_version": "2022.05.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "77535099d21df7a01598a2653630aae2",
@@ -2654,6 +2654,78 @@
                 "id": "b26acac4f6332ba83f2aadae7bae622e",
                 "via_device_id": null,
                 "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_duckdns"
+                    ]
+                ],
+                "manufacturer": "Official add-ons",
+                "model": "Home Assistant Add-on",
+                "name": "Duck DNS",
+                "sw_version": "1.14.0",
+                "hw_version": null,
+                "entry_type": "service",
+                "id": "950ecd5fe4e3275155d2b526a8cb64a7",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/core_duckdns"
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_nodered"
+                    ]
+                ],
+                "manufacturer": "Home Assistant Community Add-ons",
+                "model": "Home Assistant Add-on",
+                "name": "Node-RED",
+                "sw_version": "11.1.2",
+                "hw_version": null,
+                "entry_type": "service",
+                "id": "aae5be8873d34ac8209b1132babe2091",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "homeassistant://hassio/addon/a0d7b954_nodered"
+            },
+            {
+                "config_entries": [
+                    "5f406ac278c3b2036080c757726ec016"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "3c:61:05:e4:fc:9f"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "Shelly",
+                "model": "Uni",
+                "name": "Bilge sensor",
+                "sw_version": null,
+                "hw_version": null,
+                "entry_type": null,
+                "id": "05804f2331a27cab25c7dfb741fb4f5f",
+                "via_device_id": null,
+                "area_id": "boat",
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": null

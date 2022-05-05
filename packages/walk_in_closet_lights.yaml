@@ -12,17 +12,17 @@ automation:
         for: "00:10:00"
         to: "on"
     action:
-      - choose:
-          - conditions:
-              - condition: state
-                entity_id: binary_sensor.walk_in_closet_door
-                state: "off"
-            sequence:
-              - service: light.turn_off
-                target:
-                  area_id: walk_in_closet
-        default:
+      - if:
+        - alias: "Door is opened"
+          condition: state
+          entity_id: binary_sensor.walk_in_closet_door
+          state: "on"
+        then:
           - service: light.turn_on
+            target:
+              area_id: walk_in_closet
+        else:
+          - service: light.turn_off
             target:
               area_id: walk_in_closet
     mode: single

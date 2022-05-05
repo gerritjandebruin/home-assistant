@@ -73,6 +73,11 @@
                 "name": "Lounge",
                 "id": "lounge",
                 "picture": null
+            },
+            {
+                "name": "Boat",
+                "id": "boat",
+                "picture": null
             }
         ]
     }

@@ -10,6 +10,8 @@ homeassistant:
     - type: trusted_networks
       trusted_networks:
         - 192.168.1.0/25
+  external_url: https://nieuw-engeland.duckdns.org:8123/
+  internal_url: http://192.168.1.251:8123/
 
 notify:
   - name: everyone
@@ -37,11 +39,10 @@ influxdb:
       - persistent_notification
 
 http:
-  trusted_proxies:
-    - 192.168.1.252
   ip_ban_enabled: true
   login_attempts_threshold: 3
-  
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
 
 recorder:
   purge_keep_days: 800

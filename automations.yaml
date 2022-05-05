@@ -85,21 +85,20 @@
       seconds: 0
   condition: []
   action:
-  - choose:
-    - conditions:
-      - condition: numeric_state
-        entity_id: input_number.brightness
-        above: '0'
-      - condition: state
-        entity_id: binary_sensor.kitchen_motion
-        state: 'on'
-      sequence:
-      - service: light.turn_on
-        target:
-          entity_id: light.kitchen
-        data:
-          brightness_pct: '{{ states(''input_number.brightness'') | float }}'
-    default:
+  - if:
+    - condition: numeric_state
+      entity_id: input_number.brightness
+      above: '0'
+    - condition: state
+      entity_id: binary_sensor.kitchen_motion
+      state: 'on'
+    then:
+    - service: light.turn_on
+      target:
+        entity_id: light.kitchen
+      data:
+        brightness_pct: '{{ states(''input_number.brightness'') | float }}'
+    else:
     - service: light.turn_off
       entity_id: light.kitchen
   mode: single
@@ -457,18 +456,17 @@
     for: 00:01:00
   condition: []
   action:
-  - choose:
-    - conditions:
-      - condition: numeric_state
-        entity_id: sensor.hall_light
-        below: '10'
-      - condition: state
-        entity_id: binary_sensor.bike_motion
-        state: 'on'
-      sequence:
-      - service: switch.turn_on
-        entity_id: switch.bike_light
-    default:
+  - if:
+    - condition: numeric_state
+      entity_id: sensor.hall_light
+      below: '10'
+    - condition: state
+      entity_id: binary_sensor.bike_motion
+      state: 'on'
+    then:
+    - service: switch.turn_on
+      entity_id: switch.bike_light
+    else:
     - service: switch.turn_off
       entity_id: switch.bike_light
   mode: single
@@ -595,3 +593,18 @@
         data: {}
   mode: queued
   max: 25
+- id: '1651331761967'
+  alias: Bilge alarm
+  description: ''
+  trigger:
+  - platform: event
+    event_type: alarm
+    event_data:
+      type: bilge
+  condition: []
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.attic
+  mode: single
