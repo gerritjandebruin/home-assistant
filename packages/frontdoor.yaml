@@ -11,7 +11,7 @@ alert:
       minutes.
     done_message: clear_notification
     notifiers:
-      - pushnotification
+      - mobile_app_sm_a530f
     data:
       clickAction: "entityId:binary_sensor.front_door"
       channel: front_door

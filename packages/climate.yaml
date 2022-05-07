@@ -26,15 +26,3 @@ homeassistant:
       icon: mdi:radiator
     climate.bedroom:
       icon: mdi:radiator
-
-automation:
-  - alias: Climate
-    trigger:
-      - platform: time
-        at: "02:00:00"
-    action:
-      - service: climate.turn_off
-        target:
-          entity_id:
-            - climate.attic_climate
-            - climate.bathroom_climate

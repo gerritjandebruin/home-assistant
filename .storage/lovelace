@@ -245,7 +245,7 @@
                                             }
                                         },
                                         {
-                                            "entity": "sensor.lounge_thermometer",
+                                            "entity": "sensor.lounge_temperature",
                                             "type": "state-icon",
                                             "style": {
                                                 "left": "42%",
@@ -253,7 +253,7 @@
                                             }
                                         },
                                         {
-                                            "entity": "sensor.lounge_thermometer",
+                                            "entity": "sensor.lounge_temperature",
                                             "type": "state-label",
                                             "style": {
                                                 "left": "52%",
@@ -306,7 +306,7 @@
                                             }
                                         },
                                         {
-                                            "entity": "sensor.shed_thermometer",
+                                            "entity": "sensor.shed_temperature",
                                             "type": "state-icon",
                                             "style": {
                                                 "left": "62%",
@@ -315,15 +315,7 @@
                                             }
                                         },
                                         {
-                                            "entity": "alert.shed_temperature",
-                                            "type": "state-icon",
-                                            "style": {
-                                                "left": "55%",
-                                                "top": "3%"
-                                            }
-                                        },
-                                        {
-                                            "entity": "sensor.shed_thermometer",
+                                            "entity": "sensor.shed_temperature",
                                             "type": "state-label",
                                             "style": {
                                                 "left": "70%",
@@ -334,7 +326,7 @@
                                         {
                                             "entity": "alert.abnormal_temperature",
                                             "type": "state-icon",
-                                            "icon": "mdi:thermometer-alert",
+                                            "icon": "mdi:temperature-alert",
                                             "style": {
                                                 "left": "5%",
                                                 "top": "5%"
@@ -346,23 +338,6 @@
                                             "style": {
                                                 "left": "30%",
                                                 "top": "97%"
-                                            }
-                                        },
-                                        {
-                                            "entity": "sensor.outside_temperature",
-                                            "type": "state-label",
-                                            "style": {
-                                                "left": "40%",
-                                                "top": "97%",
-                                                "color": "black"
-                                            }
-                                        },
-                                        {
-                                            "entity": "binary_sensor.knmi_home_waarschuwing",
-                                            "type": "state-icon",
-                                            "style": {
-                                                "left": "30%",
-                                                "top": "93%"
                                             }
                                         },
                                         {
@@ -400,7 +375,7 @@
                                             }
                                         },
                                         {
-                                            "entity": "sensor.bathroom_thermometer",
+                                            "entity": "sensor.bathroom_temperature",
                                             "type": "state-label",
                                             "icon": "mdi:radiator",
                                             "style": {
@@ -575,7 +550,7 @@
                                     "type": "state-icon"
                                 },
                                 {
-                                    "entity": "sensor.guestroom_thermometer",
+                                    "entity": "sensor.guestroom_temperature",
                                     "style": {
                                         "left": "64%",
                                         "top": "49%",
@@ -584,7 +559,7 @@
                                     "type": "state-label"
                                 },
                                 {
-                                    "entity": "sensor.bedroom_thermometer",
+                                    "entity": "sensor.bedroom_temperature",
                                     "style": {
                                         "left": "35%",
                                         "top": "80%",
@@ -730,15 +705,6 @@
                                     }
                                 },
                                 {
-                                    "entity": "alert.synology",
-                                    "type": "state-icon",
-                                    "icon": "mdi:server",
-                                    "style": {
-                                        "left": "80%",
-                                        "top": "29%"
-                                    }
-                                },
-                                {
                                     "entity": "sensor.growatt_total_energy_today",
                                     "type": "state-icon",
                                     "style": {
@@ -764,7 +730,7 @@
                                     }
                                 },
                                 {
-                                    "entity": "sensor.attic_thermometer",
+                                    "entity": "sensor.attic_temperature",
                                     "type": "state-label",
                                     "style": {
                                         "left": "27%",
@@ -779,8 +745,9 @@
                     ]
                 },
                 {
-                    "title": "Thermometer",
-                    "path": "thermometer",
+                    "theme": "Backend-selected",
+                    "title": "temperature",
+                    "path": "temperature",
                     "icon": "mdi:thermometer",
                     "type": "custom:horizontal-layout",
                     "layout": {
@@ -1051,7 +1018,9 @@
                                 },
                                 {
                                     "type": "custom:multiple-entity-row",
-                                    "entity": "sensor.outside_temperature",
+                                    "entity": "weather.home",
+                                    "attribute": "temperature",
+                                    "unit": "\u00b0C",
                                     "name": "Outside",
                                     "secondary_info": {
                                         "entity": "sensor.knmi_home_omschrijving",
@@ -1070,11 +1039,11 @@
                                     ]
                                 },
                                 {
-                                    "entity": "sensor.lounge_thermometer",
+                                    "entity": "sensor.lounge_temperature",
                                     "icon": "mdi:seat"
                                 },
                                 {
-                                    "entity": "sensor.shed_thermometer",
+                                    "entity": "sensor.shed_temperature",
                                     "type": "custom:multiple-entity-row",
                                     "icon": "mdi:garage",
                                     "entities": [
@@ -1117,7 +1086,7 @@
                             "days_to_show": 365,
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.shed_thermometer"
+                                "sensor.shed_temperature"
                             ],
                             "stat_types": [
                                 "mean",
@@ -1300,84 +1269,38 @@
                                     "entity": "light.attic",
                                     "show_state": false,
                                     "secondary_info": "last-changed"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.berry_cleaning_area"
+                                },
+                                {
+                                    "entity": "sensor.berry_cleaning_time"
+                                },
+                                {
+                                    "entity": "select.berry_mode"
+                                },
+                                {
+                                    "entity": "vacuum.berry",
+                                    "name": "state"
                                 },
                                 {
                                     "entity": "vacuum.berry",
                                     "type": "custom:multiple-entity-row",
-                                    "name": "Vacuum cleaner",
-                                    "state_color": true,
-                                    "secondary_info": "last-changed",
-                                    "state_header": "dock",
-                                    "entities": [
-                                        {
-                                            "icon": "mdi:play",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "vacuum.start",
-                                                "service_data": {
-                                                    "entity_id": "vacuum.berry"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "icon": "mdi:pause",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "vacuum.pause",
-                                                "service_data": {
-                                                    "entity_id": "vacuum.berry"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "icon": "mdi:home-floor-1",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "select.select_option",
-                                                "service_data": {
-                                                    "entity_id": "select.berry_mode",
-                                                    "option": "single"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "icon": "mdi:power-plug",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "vacuum.return_to_base",
-                                                "service_data": {
-                                                    "entity_id": "vacuum.berry"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "icon": "mdi:broom",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "select.select_option",
-                                                "service_data": {
-                                                    "entity_id": "select.berry_mode",
-                                                    "option": "smart"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "entity": "sensor.berry_cleaning_area",
-                                            "unit": "m\u00b3",
-                                            "name": false
-                                        },
-                                        {
-                                            "entity": "sensor.berry_cleaning_time",
-                                            "name": false,
-                                            "unit": "min"
-                                        },
-                                        {
-                                            "entity": "select.berry_mode",
-                                            "name": "mode"
-                                        }
-                                    ]
+                                    "attribute": "battery_level",
+                                    "icon": "mdi:battery",
+                                    "unit": "%",
+                                    "name": "battery"
                                 }
                             ]
+                        },
+                        {
+                            "type": "custom:flower-card",
+                            "entity": "plant.flower"
                         }
                     ]
                 },
@@ -1403,8 +1326,9 @@
                             "entities": [
                                 {
                                     "type": "custom:multiple-entity-row",
-                                    "entity": "sensor.power_from_grid",
+                                    "entity": "sensor.energy_meter_channel_1_power",
                                     "secondary_info": "last-updated",
+                                    "name": "Power from grid",
                                     "entities": [
                                         {
                                             "entity": "alert.overcurrent",
@@ -1415,66 +1339,15 @@
                                     ]
                                 },
                                 {
-                                    "entity": "sensor.current_power_consumption",
-                                    "secondary_info": "last-updated"
-                                },
-                                {
                                     "entity": "sensor.growatt_total_output_power",
                                     "name": "Current production",
                                     "secondary_info": "last-updated"
-                                },
-                                {
-                                    "type": "divider"
-                                },
-                                {
-                                    "entity": "sensor.expected_production_current_hour",
-                                    "name": "Expected production this hour",
-                                    "secondary_info": "last-updated"
-                                },
-                                {
-                                    "entity": "sensor.expected_production_next_hour",
-                                    "name": "Expected production next hour",
-                                    "secondary_info": "last-updated"
-                                },
-                                {
-                                    "entity": "sensor.expected_production_today",
-                                    "type": "custom:multiple-entity-row",
-                                    "name": "Expected producation today",
-                                    "secondary_info": "last-changed",
-                                    "format": "precision1"
-                                },
-                                {
-                                    "type": "divider"
-                                },
-                                {
-                                    "entity": "sensor.growatt_total_energy_today",
-                                    "name": "Actual production today so-far",
-                                    "secondary_info": "last-changed"
                                 }
                             ]
                         },
                         {
                             "type": "energy-distribution",
                             "link_dashboard": false
-                        },
-                        {
-                            "type": "energy-usage-graph"
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.growatt_total_output_power",
-                                    "name": "Solar"
-                                },
-                                {
-                                    "entity": "sensor.power_from_grid",
-                                    "name": "Grid"
-                                }
-                            ],
-                            "hours_to_show": 1,
-                            "refresh_interval": 0,
-                            "title": "Power"
                         },
                         {
                             "type": "history-graph",
@@ -1495,48 +1368,6 @@
                         },
                         {
                             "type": "custom:sun-card"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "type": "custom:multiple-entity-row",
-                                    "entity": "sensor.grid_voltage",
-                                    "entities": [
-                                        {
-                                            "entity": "alert.abnormal_voltage",
-                                            "state_color": true,
-                                            "icon": true,
-                                            "hide_if": "idle",
-                                            "name": false
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.power_from_grid"
-                            ],
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.power_from_grid"
-                            ],
-                            "stat_types": [
-                                "max"
-                            ]
                         }
                     ]
                 },
@@ -1641,12 +1472,12 @@
                                         "state": ">240"
                                     },
                                     {
-                                        "entity_id": "sensor.*_thermometer",
+                                        "entity_id": "sensor.*_temperature",
                                         "state": "<0"
                                     },
                                     {
-                                        "entity_id": "sensor.*_thermometer",
-                                        "state": ">30"
+                                        "entity_id": "sensor.*_temperature",
+                                        "state": ">90"
                                     },
                                     {
                                         "entity_id": "vacuum.berry",
@@ -1756,66 +1587,6 @@
                     ]
                 },
                 {
-                    "icon": "mdi:robot-vacuum",
-                    "path": "vacuum",
-                    "type": "custom:vertical-layout",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.berry_cleaning_area"
-                                },
-                                {
-                                    "entity": "sensor.berry_cleaning_time"
-                                },
-                                {
-                                    "entity": "select.berry_mode"
-                                },
-                                {
-                                    "entity": "vacuum.berry",
-                                    "name": "state"
-                                },
-                                {
-                                    "entity": "vacuum.berry",
-                                    "type": "custom:multiple-entity-row",
-                                    "attribute": "battery_level",
-                                    "icon": "mdi:battery",
-                                    "unit": "%",
-                                    "name": "battery"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
-                                {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "vacuum.pause",
-                                        "target": {
-                                            "entity_id": "vacuum.berry"
-                                        }
-                                    },
-                                    "entity": "vacuum.berry",
-                                    "icon": "mdi:pause",
-                                    "name": "Pause",
-                                    "icon_height": "100px"
-                                },
-                                {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "entity": "alert.vacuum"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
                     "icon": "mdi:flower",
                     "path": "plant",
                     "type": "custom:horizontal-layout",
@@ -1824,20 +1595,6 @@
                     },
                     "badges": [],
                     "cards": [
-                        {
-                            "type": "custom:flower-card",
-                            "entity": "plant.flower"
-                        },
-                        {
-                            "type": "button",
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "entity": "alert.plant",
-                            "show_state": true,
-                            "show_name": false,
-                            "icon_height": "100px"
-                        },
                         {
                             "type": "vertical-stack",
                             "cards": [
@@ -1987,6 +1744,7 @@
                     "cards": [
                         {
                             "type": "vertical-stack",
+                            "title": "Last year",
                             "cards": [
                                 {
                                     "chart_type": "line",
@@ -2040,303 +1798,8 @@
                                 }
                             ],
                             "refresh_interval": 0,
-                            "hours_to_show": 8
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                {
-                                    "entity": "sensor.last_boot"
-                                }
-                            ],
-                            "refresh_interval": 0,
-                            "hours_to_show": 24
-                        }
-                    ]
-                },
-                {
-                    "path": "synology",
-                    "title": "Synology",
-                    "icon": "mdi:harddisk",
-                    "layout": {
-                        "max_width": 400,
-                        "max_cols": 4
-                    },
-                    "type": "custom:horizontal-layout",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_network_up"
-                            ],
-                            "stat_types": [
-                                "max",
-                                "mean"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_network_down"
-                            ],
-                            "stat_types": [
-                                "mean",
-                                "max"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 30,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_cpu_utilization_total"
-                            ],
-                            "stat_types": [
-                                "mean",
-                                "max",
-                                "min"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_memory_usage_real"
-                            ],
-                            "stat_types": [
-                                "mean",
-                                "min",
-                                "max"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_memory_available_swap"
-                            ],
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_temperature",
-                                "sensor.synology_drive_1_temperature",
-                                "sensor.synology_drive_2_temperature"
-                            ],
-                            "stat_types": [
-                                "max"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.synology_volume_1_total_size",
-                                "sensor.synology_volume_1_used_space",
-                                "sensor.synology_volume_2_total_size",
-                                "sensor.synology_volume_2_used_space"
-                            ],
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "type": "custom:multiple-entity-row",
-                                    "entity": "binary_sensor.synology_update_available",
-                                    "state_color": true,
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.synology_last_boot",
-                                    "state_color": true
-                                },
-                                {
-                                    "type": "custom:fold-entity-row",
-                                    "head": {
-                                        "entity": "alert.synology"
-                                    },
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.synology_drive_1_below_min_remaining_life",
-                                            "state_color": true
-                                        },
-                                        {
-                                            "entity": "binary_sensor.synology_drive_2_below_min_remaining_life",
-                                            "state_color": true
-                                        },
-                                        {
-                                            "entity": "binary_sensor.synology_drive_1_exceeded_max_bad_sectors",
-                                            "state_color": true
-                                        },
-                                        {
-                                            "entity": "binary_sensor.synology_drive_2_exceeded_max_bad_sectors",
-                                            "state_color": true
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "path": "augustinuserf",
-                    "title": "Augustinuserf",
-                    "icon": "mdi:cloud-upload",
-                    "type": "custom:horizontal-layout",
-                    "layout": {
-                        "max_cols": 4,
-                        "max_width": 400
-                    },
-                    "badges": [],
-                    "cards": [
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_network_up"
-                            ],
-                            "stat_types": [
-                                "mean",
-                                "max"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_network_down"
-                            ],
-                            "stat_types": [
-                                "mean",
-                                "max"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_cpu_utilization_total"
-                            ],
-                            "stat_types": [
-                                "mean",
-                                "min",
-                                "max"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_memory_usage_real"
-                            ],
-                            "stat_types": [
-                                "mean",
-                                "min",
-                                "max"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_memory_available_swap"
-                            ],
-                            "stat_types": [
-                                "mean"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_temperature",
-                                "sensor.augustinuserf_drive_2_temperature"
-                            ],
-                            "stat_types": [
-                                "max"
-                            ]
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.augustinuserf_volume_2_used_space",
-                                "sensor.augustinuserf_volume_2_total_size"
-                            ],
-                            "stat_types": [
-                                "min"
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "type": "custom:multiple-entity-row",
-                                    "entity": "binary_sensor.augustinuserf_update_available",
-                                    "state_color": true,
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.synology_last_boot",
-                                    "state_color": true
-                                },
-                                {
-                                    "type": "custom:fold-entity-row",
-                                    "head": {
-                                        "entity": "alert.augustinuserf"
-                                    },
-                                    "entities": [
-                                        {
-                                            "entity": "binary_sensor.augustinuserf_drive_2_below_min_remaining_life",
-                                            "state_color": true
-                                        },
-                                        {
-                                            "entity": "binary_sensor.augustinuserf_drive_2_exceeded_max_bad_sectors",
-                                            "state_color": true
-                                        },
-                                        {
-                                            "entity": "binary_sensor.augustinuserf_security_status"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "hours_to_show": 8,
+                            "title": "Last 8 hours"
                         }
                     ]
                 },
@@ -2358,7 +1821,7 @@
                             "type": "custom:auto-entities",
                             "card": {
                                 "type": "entities",
-                                "title": "Battery below 50%"
+                                "title": "Battery below 10%"
                             },
                             "sort": {
                                 "method": "state",
@@ -2375,52 +1838,10 @@
                                 ],
                                 "exclude": [
                                     {
-                                        "state": ">50"
+                                        "state": ">=10"
                                     }
                                 ]
                             }
-                        }
-                    ]
-                },
-                {
-                    "title": "TV",
-                    "path": "tv",
-                    "icon": "mdi:television",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "iframe",
-                            "url": "https://treinposities.nl/embed/vertraagd",
-                            "aspect_ratio": "50%"
-                        },
-                        {
-                            "type": "gauge",
-                            "entity": "sensor.lounge_thermometer",
-                            "min": 0,
-                            "max": 100,
-                            "name": "Temperature Lounge"
-                        },
-                        {
-                            "type": "iframe",
-                            "url": "https://embed.waze.com/iframe?zoom=9&lat=52.09506&lon=5.10254&pin=1",
-                            "aspect_ratio": "50%"
-                        },
-                        {
-                            "type": "iframe",
-                            "url": "https://gadgets.buienradar.nl/gadget/radarfivedays",
-                            "aspect_ratio": "100%"
-                        },
-                        {
-                            "type": "custom:sun-card"
-                        },
-                        {
-                            "type": "map",
-                            "entities": [
-                                {
-                                    "entity": "device_tracker.nokia_7_2_2"
-                                }
-                            ],
-                            "dark_mode": false
                         }
                     ]
                 }

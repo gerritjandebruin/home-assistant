@@ -1,33 +1,11 @@
-binary_sensor:
-  - platform: group
-    name: Overheating
-    device_class: problem
-    entities:
-      - binary_sensor.bathroom_overheating
-      - binary_sensor.bike_overheating
-      - binary_sensor.lounge_overheating
-      - binary_sensor.toilet_overheating
-
 alert:
   overheating:
     name: Overheating
     entity_id: binary_sensor.overheating
     repeat: 30
-    message: >
-      {% if is_state('binary_sensor.bathroom_overheating', 'on') %}
-        Bathroom
-      {% endif %}
-      {% if is_state('binary_sensor.bike_overheating', 'on') %}
-        Bike
-      {% endif %}
-      {% if is_state('binary_sensor.lounge_overheating', 'on') %}
-        Lounge
-      {% endif %}
-      {% if is_state('binary_sensor.toilet_overheating', 'on') %}
-        Toilet
-      {% endif %}
+    message: Overheating detected
     notifiers:
-      - pushnotification
+      - mobile_app_sm_a530f
     data:
       clickAction: lovelace/check
       channel: overheating
@@ -38,33 +16,3 @@ alert:
       url: lovelace/check
       vibrationPattern: 100, 1000, 100, 1000, 100, 1000
       sticky: true
-      actions:
-        - title: ⭘ Turn everything off.
-          icon: mdi:power-off
-#           action: overheating
-
-# automation:
-#   - alias: Overheating
-#     trigger:
-#       - platform: event
-#         event_type: html5_notification.clicked
-#         event_data:
-#           action: overheating
-#     action:
-#       - service: climate.turn_off
-#         target:
-#           entity_id: all
-#       - service: light.turn_off
-#         target:
-#           entity_id: all
-#       - service: swtich.turn_off
-#         target:
-#           entity_id: all
-#       - service: notify.mobile_app_nokia_7_2
-#         data:
-#           message: clear_notification
-#           data:
-#             tag: overheating
-#       - service: html5.dismiss
-#         data:
-#           tag: overheating

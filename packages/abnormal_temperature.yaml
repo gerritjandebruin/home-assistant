@@ -1,15 +1,15 @@
 template:
   - binary_sensor:
-      - name: abnormal temperature
+      - name: Abnormal temperature
         device_class: problem
         state: >
-          {% set a = states('sensor.attic_thermometer')     | float(0) %}
-          {% set b = states('sensor.bathroom_thermometer')  | float(0) %}
-          {% set c = states('sensor.bedroom_thermometer')   | float(0) %}
-          {% set d = states('sensor.guestroom_thermometer') | float(0) %}
-          {% set e = states('sensor.hall_thermometer')      | float(0) %}
-          {% set f = states('sensor.lounge_thermometer')    | float(0) %}
-          {% set g = states('sensor.shed_thermometer')      | float(0) %}
+          {% set a = states('sensor.attic_temperature')     | float(0) %}
+          {% set b = states('sensor.bathroom_temperature')  | float(0) %}
+          {% set c = states('sensor.bedroom_temperature')   | float(0) %}
+          {% set d = states('sensor.guestroom_temperature') | float(0) %}
+          {% set e = states('sensor.hall_temperature')      | float(0) %}
+          {% set f = states('sensor.lounge_temperature')    | float(0) %}
+          {% set g = states('sensor.shed_temperature')      | float(0) %}
           {{ a<0 or b<0 or c<0 or d<0 or e<0 or f<0 or g<0 or a>30 or b>30 or c>30 or d>30 or e>30 or f>30 or g>30 }}
 
 alert:
@@ -19,14 +19,12 @@ alert:
     repeat: 30
     message: ⚠️ Abnormal temperature
     notifiers:
-      - pushnotification
+      - mobile_app_sm_a530f
     data:
-      clickAction: "lovelace/thermometer"
       channel: abnormal_temperature
       tag: abnormal_temperature
       requireInteraction: true
       importance: high
       priority: high
-      url: lovelace/check
       vibrationPattern: 100, 1000, 100, 1000, 100, 1000
       sticky: true

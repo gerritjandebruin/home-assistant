@@ -1,20 +1,7 @@
-binary_sensor:
-  - platform: group
-    name: Overpowering
-    device_class: problem
-    entities:
-      - binary_sensor.bathroom_overpowering
-      - binary_sensor.bike_light_overpowering
-      - binary_sensor.bike_socket_overpowering
-      - binary_sensor.energy_overpowering
-      - binary_sensor.lounge_overpowering
-      - binary_sensor.terrace_overpowering
-      - binary_sensor.toilet_overpowering
-
 alert:
   overpowering:
     name: Overpowering
-    entity_id: binary_sensor.overpowering
+    entity_id: binary_sensor.overpowering_alert
     repeat: 30
     message: >
       {% if is_state('binary_sensor.bathroom_overpowering', 'on') %}
@@ -26,7 +13,7 @@ alert:
       {% if is_state('binary_sensor.bike_socket_overpowering', 'on') %}
         Bike socket
       {% endif %}
-      {% if is_state('binary_sensor.energy_overpowering', 'on') %}
+      {% if is_state('binary_sensor.energy_meter_overpowering', 'on') %}
         Energy
       {% endif %}
       {% if is_state('binary_sensor.lounge_overpowering', 'on') %}
@@ -39,7 +26,7 @@ alert:
         Toilet
       {% endif %}
     notifiers:
-      - pushnotification
+      - mobile_app_sm_a530f
     data:
       clickAction: lovelace/check
       channel: overpowering
@@ -52,35 +39,3 @@ alert:
       actions:
         - title: ⭘ Turn everything off.
           icon: mdi:power-off
-#           action: overpowering
-
-# automation:
-#   - alias: Overpowering
-#     trigger:
-#       - platform: event
-#         event_type:
-#           - html5_notification.clicked
-#           - mobile_app_notification_action
-#         event_data:
-#           action: overpowering
-#     action:
-#       - service: climate.turn_off
-#         target:
-#           entity_id: all
-#       - service: light.turn_off
-#         target:
-#           entity_id: all
-#       - service: swtich.turn_off
-#         target:
-#           entity_id: all
-#       - service: media_player.turn_off
-#         target:
-#           entity_id: media_player.samsung_tv_remote
-#       - service: notify.mobile_app_nokia_7_2
-#         data:
-#           message: clear_notification
-#           data:
-#             tag: overpowering
-#       - service: html5.dismiss
-#         data:
-#           tag: overpowering

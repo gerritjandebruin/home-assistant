@@ -1,31 +1,24 @@
 sensor:
   - platform: mold_indicator
-    indoor_temp_sensor: sensor.bathroom_thermometer
+    indoor_temp_sensor: sensor.bathroom_temperature
     indoor_humidity_sensor: sensor.bathroom_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
+    outdoor_temp_sensor: sensor.weather_temperature
     calibration_factor: 1.5
     name: Bathroom mold
-
-binary_sensor:
-  - platform: threshold
-    name: Bathroom mold warning
-    entity_id: sensor.bathroom_mold
-    upper: 90
 
 alert:
   bathroom_mold:
     name: Bathroom mold
     entity_id: binary_sensor.bathroom_mold
     repeat: 60
-    message: "Mold probability in bathroom is high for over an hour: {{ states('sensor.bathroom_mold') }}"
+    message: "Mold probability in bathroom is high for over an hour: {{ states('sensor.bathroom_mold') }} %"
     done_message: Mold at bathroom is unlikely again
     skip_first: true
     notifiers:
-      - pushnotification
+      - mobile_app_sm_a530f
     data:
       tag: bathroom_mold
       requireInteraction: true
-      url: lovelace/check
       priority: high
 
 homeassistant:

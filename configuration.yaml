@@ -11,19 +11,7 @@ homeassistant:
       trusted_networks:
         - 192.168.1.0/25
   external_url: https://nieuw-engeland.duckdns.org:8123/
-  internal_url: http://192.168.1.251:8123/
-
-notify:
-  - name: everyone
-    platform: group
-    services:
-      - service: mobile_app_samsung
-      - service: mobile_app_nokia_7_2
-  - platform: html5
-    name: pushnotification
-    vapid_pub_key: !secret vapid_pub_key
-    vapid_prv_key: !secret vapid_prv_key
-    vapid_email: !secret vapid_email
+  internal_url: https://192.168.1.251:8123/
 
 influxdb:
   host: a0d7b954-influxdb
@@ -33,19 +21,65 @@ influxdb:
   password: !secret influxdb_password
   max_retries: 3
   measurement_attr: entity_id
-  exclude:
+  include:
+    entity_globs:
+      - binary_sensor.*_door
+      - binary_sensor.*_motion
+      - sensor.*_battery_level
+      - sensor.*_humidity
+      - sensor.*_network_*
+      - sensor.*_pressure
+      - sensor.*_energy
+      - sensor.*_frequency
+      - sensor.*_power
+      - sensor.*_power_factor
+      - sensor.*_voltage
+      - sensor.growatt_lifetime_total_energy_input_*
+      - sensor.growatt_reactive_voltage
+      - sensor.growatt_temperature_*
+      - sensor.*_temperature
+      - sensor.*_rssi
+      - sensor.*_cleaning_area
+      - sensor.*_cleaning_time
+      - sensor.canon_*
+      - sensor.*_co2
+      - sensor.*_download
+      - sensor.*_ping
+      - sensor.*_upload
+      - sensor.*_b_received
+      - sensor.*_b_sent
+      - sensor.*_kib_s_received
+      - sensor.*_kib_s_sent
+      - sensor.*_uptime
     domains:
-      - automation
-      - persistent_notification
+      - climate
+      - light
+      - plant
+      - weather
+    entities:
+      - binary_sensor.experiabox_v10_wan_status
+      - input_boolean.shower
+      - sensor.cpu_speed
+      - sensor.current_power_consumption
+      - sensor.disk_free_home
+      - sensor.energy_from_grid
+      - sensor.energy_to_grid
+      - sensor.energy_to_grid
+      - sensor.grid_fossil_fuel_percentage
+      - sensor.growatt_output_power
+      - sensor.growatt_lifetime_energy_output
+      - sensor.last_boot
+      - sensor.memory_use_percent
+      - sensor.power_from_grid
+      - sensor.power_production_now
+      - sensor.processor_use
+      - sensor.relative_marginal_emissions_intensity_nl
 
 http:
   ip_ban_enabled: true
   login_attempts_threshold: 3
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
-
-recorder:
-  purge_keep_days: 800
 
 automation: !include automations.yaml
 script: !include scripts.yaml

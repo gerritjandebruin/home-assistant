@@ -1,30 +1,23 @@
 sensor:
   - platform: mold_indicator
-    indoor_temp_sensor: sensor.guestroom_thermometer
+    indoor_temp_sensor: sensor.guestroom_temperature
     indoor_humidity_sensor: sensor.guestroom_humidity
-    outdoor_temp_sensor: sensor.outside_temperature
+    outdoor_temp_sensor: sensor.weather_temperature
     calibration_factor: 1.6
     name: Guestroom mold
-
-binary_sensor:
-  - platform: threshold
-    entity_id: sensor.guestroom_mold
-    name: Guestroom mold warning
-    upper: 90
 
 alert:
   guestroom_mold:
     name: Guestroom mold
     entity_id: binary_sensor.guestroom_mold
     repeat: 30
-    message: "Mold probability in guestroom is high: {{ states('sensor.guestroom_mold') }}"
+    message: "Mold probability in guestroom is high: {{ states('sensor.guestroom_mold') }} %"
     done_message: Mold at guestroom is unlikely again
     notifiers:
-      - pushnotification
+      - mobile_app_sm_a530f
     data:
       tag: guestroom_mold
       requireInteraction: true
-      url: lovelace/check
       priority: high
 
 homeassistant:

@@ -152,11 +152,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:85:91:62"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:85:91:62"
                     ]
                 ],
@@ -185,11 +185,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
@@ -218,11 +218,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:8c:a6:fa"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:8c:a6:fa"
                     ]
                 ],
@@ -251,11 +251,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -284,11 +284,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -317,11 +317,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:1b:3a:9a"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:1b:3a:9a"
                     ]
                 ],
@@ -548,11 +548,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
@@ -581,11 +581,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
@@ -680,11 +680,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -746,11 +746,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:b5:54:7d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:b5:54:7d"
                     ]
                 ],
@@ -779,11 +779,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -878,11 +878,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -901,8 +901,8 @@
             },
             {
                 "config_entries": [
-                    "a2df955e7cc746d71d223c05a7e35f53",
-                    "011a8d576dbb7d3d7ceb75d2060fb19b"
+                    "011a8d576dbb7d3d7ceb75d2060fb19b",
+                    "a2df955e7cc746d71d223c05a7e35f53"
                 ],
                 "connections": [
                     [
@@ -1032,30 +1032,6 @@
                 "identifiers": [
                     [
                         "hassio",
-                        "core_check_config"
-                    ]
-                ],
-                "manufacturer": "Official add-ons",
-                "model": "Home Assistant Add-on",
-                "name": "Check Home Assistant configuration",
-                "sw_version": "3.10.0",
-                "hw_version": null,
-                "entry_type": "service",
-                "id": "35120953a64b54abd43dd788ee77dcdc",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null,
-                "configuration_url": "homeassistant://hassio/addon/core_check_config"
-            },
-            {
-                "config_entries": [
-                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hassio",
                         "a0d7b954_vscode"
                     ]
                 ],
@@ -1119,30 +1095,6 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": "homeassistant://hassio/addon/a0d7b954_grafana"
-            },
-            {
-                "config_entries": [
-                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "hassio",
-                        "a0d7b954_portainer"
-                    ]
-                ],
-                "manufacturer": "Home Assistant Community Add-ons",
-                "model": "Home Assistant Add-on",
-                "name": "Portainer",
-                "sw_version": "2.0.0",
-                "hw_version": null,
-                "entry_type": "service",
-                "id": "a13661badff4fe010bb3ffc795b93df1",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null,
-                "configuration_url": "homeassistant://hassio/addon/a0d7b954_portainer"
             },
             {
                 "config_entries": [
@@ -1305,11 +1257,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:bb:99"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:bb:99"
                     ]
                 ],
@@ -1361,8 +1313,8 @@
             },
             {
                 "config_entries": [
-                    "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e",
-                    "70e683081b2cb3b8cbea7313bcef72bb"
+                    "70e683081b2cb3b8cbea7313bcef72bb",
+                    "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e"
                 ],
                 "connections": [
                     [
@@ -1385,7 +1337,7 @@
                 "id": "a9c1ea637f003a57f1abb222312e4d02",
                 "via_device_id": null,
                 "area_id": "lounge",
-                "name_by_user": "lounge",
+                "name_by_user": "Lounge",
                 "disabled_by": null,
                 "configuration_url": "http://192.168.1.233"
             },
@@ -1433,7 +1385,7 @@
                 "id": "953c91864067f38764af450c5f41be7c",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Nieuw-Engeland NAS",
                 "disabled_by": null,
                 "configuration_url": "https://192.168.1.252:5001"
             },
@@ -1457,7 +1409,7 @@
                 "id": "85927e6fc408b6dac1ffebfe6bd78fe8",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Nieuw Engeland NAS Drive 1",
                 "disabled_by": null,
                 "configuration_url": "https://192.168.1.252:5001"
             },
@@ -1481,7 +1433,7 @@
                 "id": "a51b48c16bf9dbf5819ad4487b5ae986",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Nieuw-Engeland NAS Drive 2",
                 "disabled_by": null,
                 "configuration_url": "https://192.168.1.252:5001"
             },
@@ -1505,7 +1457,7 @@
                 "id": "0ba8b62ca732fcd1819a3e32c79f631c",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Nieuw-Engeland NAS Volume 2",
                 "disabled_by": null,
                 "configuration_url": "https://192.168.1.252:5001"
             },
@@ -1529,7 +1481,7 @@
                 "id": "0313f799af7698516edee819b8f272c9",
                 "via_device_id": "953c91864067f38764af450c5f41be7c",
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Nieuw-Engeland NAS Volume 1",
                 "disabled_by": null,
                 "configuration_url": "https://192.168.1.252:5001"
             },
@@ -1577,7 +1529,7 @@
                 "id": "255faf83b503d8c218fcfe6d92388a03",
                 "via_device_id": "f60bca79adc6481f671953981e38f1b2",
                 "area_id": null,
-                "name_by_user": "Augustinuserf Drive 2",
+                "name_by_user": "Augustinuserf NAS Drive 2",
                 "disabled_by": null,
                 "configuration_url": "https://augustinuserf.nl:443"
             },
@@ -1601,7 +1553,7 @@
                 "id": "6da6bb123e3e3bb5718f4cb7a4edab4e",
                 "via_device_id": "f60bca79adc6481f671953981e38f1b2",
                 "area_id": null,
-                "name_by_user": "Augustinuserf Volume 2",
+                "name_by_user": "Augustinuserf NAS Volume 2",
                 "disabled_by": null,
                 "configuration_url": "https://augustinuserf.nl:443"
             },
@@ -1617,11 +1569,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -1650,11 +1602,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:88:96:12"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:88:96:12"
                     ]
                 ],
@@ -1683,11 +1635,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:9b:34:a0"
                     ]
                 ],
@@ -2067,30 +2019,6 @@
             },
             {
                 "config_entries": [
-                    "f8d140bf41eeb209a0f37954f3396982"
-                ],
-                "connections": [
-                    [
-                        "mac",
-                        "c4:5b:be:6b:6b:56"
-                    ]
-                ],
-                "identifiers": [],
-                "manufacturer": "Shelly",
-                "model": "Shelly EM",
-                "name": "shellyem-C45BBE6B6B56",
-                "sw_version": "20220209-094734/v1.11.8-g8c7bb8d",
-                "hw_version": "gen1 (SHEM)",
-                "entry_type": null,
-                "id": "93a8f0b57682098cbf5f6afbfd586ff4",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": "Energy meter",
-                "disabled_by": null,
-                "configuration_url": "http://192.168.1.235"
-            },
-            {
-                "config_entries": [
                     "08aa40ce52a730d3608823809fa0ff78"
                 ],
                 "connections": [],
@@ -2134,7 +2062,7 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null,
+                "disabled_by": "config_entry",
                 "configuration_url": "https://forecast.solar"
             },
             {
@@ -2158,7 +2086,7 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null,
+                "disabled_by": "config_entry",
                 "configuration_url": "https://forecast.solar"
             },
             {
@@ -2390,7 +2318,7 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "30755554"
+                        "rtl433"
                     ],
                     [
                         "mqtt",
@@ -2398,7 +2326,7 @@
                     ],
                     [
                         "mqtt",
-                        "rtl433"
+                        "30755554"
                     ],
                     [
                         "mqtt",
@@ -2487,7 +2415,7 @@
                 "via_device_id": null,
                 "area_id": null,
                 "name_by_user": null,
-                "disabled_by": null,
+                "disabled_by": "user",
                 "configuration_url": null
             },
             {
@@ -2504,7 +2432,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Core",
                 "name": "Home Assistant Core",
-                "sw_version": "2022.5.0",
+                "sw_version": "2022.5.2",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "f91905170bd4f439c08f9968fe86ee05",
@@ -2612,30 +2540,6 @@
             },
             {
                 "config_entries": [
-                    "2bd7da118553dd091a084764090bce34"
-                ],
-                "connections": [
-                    [
-                        "mac",
-                        "58:bf:25:82:86:9c"
-                    ]
-                ],
-                "identifiers": [],
-                "manufacturer": "espressif",
-                "model": "esp32dev",
-                "name": "co2meter",
-                "sw_version": "2022.4.0 (Apr 21 2022, 09:28:36)",
-                "hw_version": null,
-                "entry_type": null,
-                "id": "b34bea43ca6573cf044f5c7d8550d158",
-                "via_device_id": null,
-                "area_id": null,
-                "name_by_user": null,
-                "disabled_by": null,
-                "configuration_url": null
-            },
-            {
-                "config_entries": [
                     "dd2336ad33e922b9ee98fa3167b65ccc"
                 ],
                 "connections": [],
@@ -2654,7 +2558,7 @@
                 "id": "b26acac4f6332ba83f2aadae7bae622e",
                 "via_device_id": null,
                 "area_id": null,
-                "name_by_user": null,
+                "name_by_user": "Samsung Galaxy A8",
                 "disabled_by": null,
                 "configuration_url": null
             },
@@ -2729,6 +2633,30 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "a790c6b892e4dd4f24a38ca7fd02b900"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "c4:5b:be:6b:6b:56"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "Shelly",
+                "model": "Shelly EM",
+                "name": "Energy meter",
+                "sw_version": "20220209-094734/v1.11.8-g8c7bb8d",
+                "hw_version": "gen1 (SHEM)",
+                "entry_type": null,
+                "id": "93a8f0b57682098cbf5f6afbfd586ff4",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.235"
             }
         ],
         "deleted_devices": [
@@ -3090,6 +3018,46 @@
                     ]
                 ],
                 "id": "b43d452fc96f46d98c04951ad12e00bc",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "core_check_config"
+                    ]
+                ],
+                "id": "35120953a64b54abd43dd788ee77dcdc",
+                "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [],
+                "connections": [
+                    [
+                        "mac",
+                        "58:bf:25:82:86:9c"
+                    ]
+                ],
+                "identifiers": [],
+                "id": "b34bea43ca6573cf044f5c7d8550d158",
+                "orphaned_timestamp": 1651777352.401841
+            },
+            {
+                "config_entries": [
+                    "50f97953fcb6fa9a7b0f9c8040ffb15c"
+                ],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "hassio",
+                        "a0d7b954_portainer"
+                    ]
+                ],
+                "id": "a13661badff4fe010bb3ffc795b93df1",
                 "orphaned_timestamp": null
             }
         ]

@@ -6,20 +6,8 @@ sensor:
       - type: memory_use_percent
       - type: processor_use
       - type: last_boot
-
-alert:
-  disk_full_home:
-    name: Disk full home
-    entity_id: binary_sensor.disk_full_home
-    state: problem
-    skip_first: true
-    repeat: 86400
-    message: "Server disk is full: {{ states('sensor.disk_free_home') }} GB"
-    notifiers:
-      - pushnotification
-    data:
-      clickAction: lovelace/server
-      channel: server
-      tag: server
-      requireInteraction: true
-      url: lovelace/server
+  - platform: command_line
+    name: CPU device temperature
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: "{{ value | multiply(0.001) }}"

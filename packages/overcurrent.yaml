@@ -1,21 +1,15 @@
-template:
-  - binary_sensor:
-      - name: overcurrent
-        device_class: problem
-        state: "{{ states('sensor.power_from_grid') | float(0) > 6800}}"
-
 alert:
   overcurrent:
     name: Overcurrent
-    entity_id: binary_sensor.overcurrent
+    entity_id: binary_sensor.overcurrent_alert
     repeat: 5
     message: >
-      High total current measured {{ states('sensor.power_from_grid') | float }}
+      High total current measured {{ states('sensor.energy_meter_channel_1_power') | float }}
     done_message: >
       Current dropped again and is currently 
-      {{ states('sensor.power_from_grid') | float(-1) }}
+      {{ states('sensor.energy_meter_channel_1_power') | float(-1) }}
     notifiers:
-      - pushnotification
+      - mobile_app_sm_a530f
     data:
       clickAction: lovelace/solar
       channel: overcurrent
@@ -25,38 +19,3 @@ alert:
       priority: high
       url: lovelace/solar
       vibrationPattern: 100, 1000, 100, 1000, 100, 1000
-      actions:
-        - title: ⭘ Turn everything off.
-          icon: mdi:power-off
-#         action: overcurrent
-
-# automation:
-#   - alias: Overcurrent
-#     trigger:
-#       - platform: event
-#         event_type:
-#           - html5_notification.clicked
-#           - mobile_app_notification_action
-#         event_data:
-#           action: overcurrent
-#     action:
-#       - service: climate.turn_off
-#         target:
-#           entity_id: all
-#       - service: light.turn_off
-#         target:
-#           entity_id: all
-#       - service: swtich.turn_off
-#         target:
-#           entity_id: all
-#       - service: media_player.turn_off
-#         target:
-#           entity_id: media_player.samsung_tv_remote
-#       - service: notify.mobile_app_nokia_7_2
-#         data:
-#           message: clear_notification
-#           data:
-#             tag: overcurrent
-#       - service: html5.dismiss
-#         data:
-#           tag: overcurrent

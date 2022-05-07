@@ -7,10 +7,10 @@
         "login_attempts_threshold": 3,
         "ssl_certificate": "/ssl/fullchain.pem",
         "ssl_key": "/ssl/privkey.pem",
-        "ssl_profile": "modern",
-        "server_port": 8123,
         "cors_allowed_origins": [
             "https://cast.home-assistant.io"
-        ]
+        ],
+        "ssl_profile": "modern",
+        "server_port": 8123
     }
 }

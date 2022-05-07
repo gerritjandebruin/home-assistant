@@ -608,3 +608,19 @@
     target:
       entity_id: light.attic
   mode: single
+- id: '1651757124594'
+  alias: Vacuum alert
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - select.berry_mode
+    from: Single
+    to: Return to dock
+  condition: []
+  action:
+  - device_id: b26acac4f6332ba83f2aadae7bae622e
+    domain: mobile_app
+    type: notify
+    message: Vacuum cleaner completed single room
+  mode: single
