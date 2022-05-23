@@ -185,11 +185,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:1e:0e:0c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:1e:0e:0c"
                     ]
                 ],
@@ -251,11 +251,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "bc:33:ac:ff:fe:47:a5:45"
                     ]
                 ],
@@ -284,11 +284,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:ec:e0:aa"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:ec:e0:aa"
                     ]
                 ],
@@ -350,11 +350,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "cc:cc:cc:ff:fe:99:47:8d"
                     ]
                 ],
@@ -416,11 +416,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:04:60:7b:09"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:04:60:7b:09"
                     ]
                 ],
@@ -449,11 +449,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:67:5e"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:67:5e"
                     ]
                 ],
@@ -482,11 +482,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3f:e3:43"
                     ]
                 ],
@@ -548,11 +548,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:a0:5f:4b"
                     ]
                 ],
@@ -581,11 +581,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:32:6e:3c"
                     ]
                 ],
@@ -614,11 +614,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:0d:6f:ff:fe:be:3c:1e"
                     ]
                 ],
@@ -680,11 +680,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "14:b4:57:ff:fe:3d:0b:00"
                     ]
                 ],
@@ -746,11 +746,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:b5:54:7d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:b5:54:7d"
                     ]
                 ],
@@ -779,11 +779,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:04:86:57:92"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:04:86:57:92"
                     ]
                 ],
@@ -845,11 +845,11 @@
                 ],
                 "identifiers": [
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:08:16:da:da"
                     ],
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:08:16:da:da"
                     ]
                 ],
@@ -878,11 +878,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:17:88:01:09:3b:93:57"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:17:88:01:09:3b:93:57"
                     ]
                 ],
@@ -901,8 +901,8 @@
             },
             {
                 "config_entries": [
-                    "011a8d576dbb7d3d7ceb75d2060fb19b",
-                    "a2df955e7cc746d71d223c05a7e35f53"
+                    "a2df955e7cc746d71d223c05a7e35f53",
+                    "011a8d576dbb7d3d7ceb75d2060fb19b"
                 ],
                 "connections": [
                     [
@@ -931,7 +931,8 @@
             },
             {
                 "config_entries": [
-                    "073d9d60b505c7c436b05f7acbdd18db"
+                    "073d9d60b505c7c436b05f7acbdd18db",
+                    "d0729784a0529368f00d68a836cc42c3"
                 ],
                 "connections": [
                     [
@@ -970,11 +971,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "5c:02:72:ff:fe:8c:c3:a9"
                     ]
                 ],
@@ -1038,7 +1039,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Studio Code Server",
-                "sw_version": "5.0.2",
+                "sw_version": "5.0.4",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "ab74923a63a75b0391ee0b074018c77a",
@@ -1182,7 +1183,7 @@
                 "manufacturer": "Official add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "Mosquitto broker",
-                "sw_version": "6.1.1",
+                "sw_version": "6.1.2",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "96206c4519d6359364c9c6372245b011",
@@ -1206,7 +1207,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Operating System",
                 "name": "Home Assistant Operating System",
-                "sw_version": "7.6",
+                "sw_version": "8.1",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "e4e5b0eae14ee9fb26007f467c37beed",
@@ -1235,7 +1236,7 @@
                 "manufacturer": "Shelly",
                 "model": "Shelly RGBW2",
                 "name": "shellyrgbw2-DEC502",
-                "sw_version": "20210909-145215/v1.11.4-DNSfix-ge6b2f6d",
+                "sw_version": "20220209-093926/v1.11.8-g8c7bb8d",
                 "hw_version": "gen1 (SHRGBW2)",
                 "entry_type": null,
                 "id": "a9f1fc5ca682b5534d1e91820b492b08",
@@ -1243,7 +1244,7 @@
                 "area_id": "terrace",
                 "name_by_user": "Terrace",
                 "disabled_by": null,
-                "configuration_url": "http://192.168.1.2"
+                "configuration_url": "http://192.168.1.8"
             },
             {
                 "config_entries": [
@@ -1290,11 +1291,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:43:ba:85"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:43:ba:85"
                     ]
                 ],
@@ -1313,8 +1314,8 @@
             },
             {
                 "config_entries": [
-                    "70e683081b2cb3b8cbea7313bcef72bb",
-                    "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e"
+                    "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e",
+                    "70e683081b2cb3b8cbea7313bcef72bb"
                 ],
                 "connections": [
                     [
@@ -1569,11 +1570,11 @@
                 ],
                 "identifiers": [
                     [
-                        "zha",
+                        "deconz",
                         "00:15:8d:00:05:42:51:2d"
                     ],
                     [
-                        "deconz",
+                        "zha",
                         "00:15:8d:00:05:42:51:2d"
                     ]
                 ],
@@ -2139,30 +2140,6 @@
             },
             {
                 "config_entries": [
-                    "864ba2763ac851ad235d5681a9f06373"
-                ],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "cast",
-                        "6187f1c7cc0357a99a8b893945ce8197"
-                    ]
-                ],
-                "manufacturer": "None",
-                "model": "Chromecast",
-                "name": "Living Room",
-                "sw_version": null,
-                "hw_version": null,
-                "entry_type": null,
-                "id": "1645812584028252b1d24c76017b32a1",
-                "via_device_id": null,
-                "area_id": "lounge",
-                "name_by_user": "Google Cast",
-                "disabled_by": null,
-                "configuration_url": null
-            },
-            {
-                "config_entries": [
                     "3af3b94cde23f07cad4bbfd6f1129a44"
                 ],
                 "connections": [
@@ -2199,7 +2176,7 @@
                 "manufacturer": "espressif",
                 "model": "esp32dev",
                 "name": "flowermeter",
-                "sw_version": "2022.4.0 (Apr 21 2022, 08:41:16)",
+                "sw_version": "2022.5.0 (May 22 2022, 18:52:24)",
                 "hw_version": null,
                 "entry_type": null,
                 "id": "517e980970bffcbceda20932a7c71ed0",
@@ -2318,11 +2295,7 @@
                 "identifiers": [
                     [
                         "mqtt",
-                        "rtl433"
-                    ],
-                    [
-                        "mqtt",
-                        "51"
+                        "0"
                     ],
                     [
                         "mqtt",
@@ -2330,7 +2303,11 @@
                     ],
                     [
                         "mqtt",
-                        "0"
+                        "rtl433"
+                    ],
+                    [
+                        "mqtt",
+                        "51"
                     ]
                 ],
                 "manufacturer": "Gamma",
@@ -2384,7 +2361,7 @@
                 "manufacturer": "ESPHome",
                 "model": "Home Assistant Add-on",
                 "name": "ESPHome",
-                "sw_version": "2022.4.0",
+                "sw_version": "2022.5.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "7e391f985711d028d1fa5b7a9b49e697",
@@ -2432,7 +2409,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Core",
                 "name": "Home Assistant Core",
-                "sw_version": "2022.5.2",
+                "sw_version": "2022.5.5",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "f91905170bd4f439c08f9968fe86ee05",
@@ -2456,7 +2433,7 @@
                 "manufacturer": "Home Assistant",
                 "model": "Home Assistant Supervisor",
                 "name": "Home Assistant Supervisor",
-                "sw_version": "2022.05.0",
+                "sw_version": "2022.05.2",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "77535099d21df7a01598a2653630aae2",
@@ -2528,7 +2505,7 @@
                 "manufacturer": "Home Assistant Community Add-ons",
                 "model": "Home Assistant Add-on",
                 "name": "SQLite Web",
-                "sw_version": "3.3.0",
+                "sw_version": "3.4.0",
                 "hw_version": null,
                 "entry_type": "service",
                 "id": "72b3690c3a86723d1426edc5a493c718",
@@ -2657,6 +2634,159 @@
                 "name_by_user": null,
                 "disabled_by": null,
                 "configuration_url": "http://192.168.1.235"
+            },
+            {
+                "config_entries": [
+                    "dbc8d2b649094956963d07cd37a7cf2f"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "64:07:f6:c0:dc:68"
+                    ],
+                    [
+                        "mac",
+                        "none"
+                    ]
+                ],
+                "identifiers": [
+                    [
+                        "samsungtv",
+                        "41d82c41-0415-464c-a36a-59c131e7b5ff"
+                    ]
+                ],
+                "manufacturer": "Samsung",
+                "model": "QE50LS03AAUXXN",
+                "name": "The Frame",
+                "sw_version": null,
+                "hw_version": null,
+                "entry_type": null,
+                "id": "431fb6473bab7c17930fb2b12b7ab763",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "dd7bf9bc5be859ea18f0b085a8c144de"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "48:3f:da:22:1c:8e"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "Shelly",
+                "model": "Shelly Plug S",
+                "name": "Desk north plug",
+                "sw_version": "20220209-094058/v1.11.8-g8c7bb8d",
+                "hw_version": "gen1 (SHPLG-S)",
+                "entry_type": null,
+                "id": "7b748ddf488252dc1ed824f226b39955",
+                "via_device_id": null,
+                "area_id": "attic",
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.236"
+            },
+            {
+                "config_entries": [
+                    "a97ffa0fbd1eb37eb6562fe801c025eb"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "e8:68:e7:ed:b2:4c"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "Shelly",
+                "model": "Shelly Plug S",
+                "name": "Server plug",
+                "sw_version": "20220209-094058/v1.11.8-g8c7bb8d",
+                "hw_version": "gen1 (SHPLG-S)",
+                "entry_type": null,
+                "id": "e7a0368f7aa5524971709057138daa06",
+                "via_device_id": null,
+                "area_id": "attic",
+                "name_by_user": "Server plug",
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.237"
+            },
+            {
+                "config_entries": [
+                    "3af3b94cde23f07cad4bbfd6f1129a44"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "02:42:ac:1e:21:03"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": null,
+                "model": null,
+                "name": null,
+                "sw_version": null,
+                "hw_version": null,
+                "entry_type": null,
+                "id": "9d4f410f8f34e3b91b0f4ec405ddf646",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": null
+            },
+            {
+                "config_entries": [
+                    "a6fa0268cc78e837d0b1f0c3e665701c"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "48:3f:da:22:3b:79"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "Shelly",
+                "model": "Shelly Plug S",
+                "name": "Fridge kitchen plug",
+                "sw_version": "20220209-094058/v1.11.8-g8c7bb8d",
+                "hw_version": "gen1 (SHPLG-S)",
+                "entry_type": null,
+                "id": "a52e41335935e80a94e44499f92b313d",
+                "via_device_id": null,
+                "area_id": "kitchen",
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.238"
+            },
+            {
+                "config_entries": [
+                    "0295e5231bd2f096e370338e2bc1776b"
+                ],
+                "connections": [
+                    [
+                        "mac",
+                        "98:cd:ac:2d:a6:74"
+                    ]
+                ],
+                "identifiers": [],
+                "manufacturer": "Shelly",
+                "model": "Shelly Flood",
+                "name": "Washing machine flood",
+                "sw_version": "20220209-093411/v1.11.8-g8c7bb8d",
+                "hw_version": "gen1 (SHWT-1)",
+                "entry_type": null,
+                "id": "65b57a6a38100e4f6ce1849051f4d1e3",
+                "via_device_id": null,
+                "area_id": null,
+                "name_by_user": null,
+                "disabled_by": null,
+                "configuration_url": "http://192.168.1.239"
             }
         ],
         "deleted_devices": [
@@ -2969,18 +3099,6 @@
                 "orphaned_timestamp": null
             },
             {
-                "config_entries": [],
-                "connections": [],
-                "identifiers": [
-                    [
-                        "mobile_app",
-                        "34b1ae131518bac6"
-                    ]
-                ],
-                "id": "f601d2d767d3a4d5d2eb777f46097194",
-                "orphaned_timestamp": 1649952076.0331554
-            },
-            {
                 "config_entries": [
                     "50f97953fcb6fa9a7b0f9c8040ffb15c"
                 ],
@@ -3059,6 +3177,18 @@
                 ],
                 "id": "a13661badff4fe010bb3ffc795b93df1",
                 "orphaned_timestamp": null
+            },
+            {
+                "config_entries": [],
+                "connections": [],
+                "identifiers": [
+                    [
+                        "cast",
+                        "6187f1c7cc0357a99a8b893945ce8197"
+                    ]
+                ],
+                "id": "1645812584028252b1d24c76017b32a1",
+                "orphaned_timestamp": 1652521636.0934904
             }
         ]
     }

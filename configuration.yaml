@@ -12,6 +12,13 @@ homeassistant:
         - 192.168.1.0/25
   external_url: https://nieuw-engeland.duckdns.org:8123/
   internal_url: https://192.168.1.251:8123/
+  customize:
+    sensor.berry_cleaning_area:
+      unit_of_measurement: "m³"
+    sensor.berry_cleaning_time:
+      unit_of_measurement: "min"
+    sensor.samsung_galaxy_a8_battery_level:
+      state_class:
 
 influxdb:
   host: a0d7b954-influxdb
@@ -27,53 +34,54 @@ influxdb:
       - binary_sensor.*_motion
       - sensor.*_battery_level
       - sensor.*_humidity
-      - sensor.*_network_*
-      - sensor.*_pressure
+      - sensor.*_airpressure
+      - sensor.*_temperature
+      - sensor.*_mold
       - sensor.*_energy
+      - sensor.*_energy_returned
       - sensor.*_frequency
       - sensor.*_power
       - sensor.*_power_factor
       - sensor.*_voltage
-      - sensor.growatt_lifetime_total_energy_input_*
-      - sensor.growatt_reactive_voltage
-      - sensor.growatt_temperature_*
-      - sensor.*_temperature
+      - sensor.growatt_*
       - sensor.*_rssi
       - sensor.*_cleaning_area
       - sensor.*_cleaning_time
-      - sensor.canon_*
-      - sensor.*_co2
-      - sensor.*_download
-      - sensor.*_ping
-      - sensor.*_upload
-      - sensor.*_b_received
-      - sensor.*_b_sent
-      - sensor.*_kib_s_received
-      - sensor.*_kib_s_sent
       - sensor.*_uptime
+      - sensor.*_percent
+      - sensor.experiabox_v10_*
+      - sensor.printer*
+      - sensor.speedtest_*
+      - sensor.augustinuserf_nas_*
+      - sensor.nieuw_engeland_nas_*
+      - sensor.galaxy_a8_*
     domains:
       - climate
+      - device_tracker
       - light
       - plant
+      - vacuum
       - weather
     entities:
       - binary_sensor.experiabox_v10_wan_status
       - input_boolean.shower
+      - select.berry_mode
+      - sensor.co2_intensity
       - sensor.cpu_speed
       - sensor.current_power_consumption
+      - sensor.database_megabyte
       - sensor.disk_free_home
       - sensor.energy_from_grid
       - sensor.energy_to_grid
       - sensor.energy_to_grid
       - sensor.grid_fossil_fuel_percentage
-      - sensor.growatt_output_power
-      - sensor.growatt_lifetime_energy_output
       - sensor.last_boot
       - sensor.memory_use_percent
       - sensor.power_from_grid
       - sensor.power_production_now
       - sensor.processor_use
       - sensor.relative_marginal_emissions_intensity_nl
+      - switch.heater
 
 http:
   ip_ban_enabled: true

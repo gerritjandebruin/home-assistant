@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "energy",
     "data": {
         "energy_sources": [
@@ -7,20 +8,20 @@
                 "type": "grid",
                 "flow_from": [
                     {
-                        "stat_energy_from": "sensor.energy_from_grid",
+                        "stat_energy_from": "sensor.energy_meter_channel_1_energy",
                         "stat_cost": null,
-                        "entity_energy_from": "sensor.energy_from_grid",
+                        "entity_energy_from": "sensor.energy_meter_channel_1_energy",
                         "entity_energy_price": null,
-                        "number_energy_price": 0.22138
+                        "number_energy_price": null
                     }
                 ],
                 "flow_to": [
                     {
-                        "stat_energy_to": "sensor.energy_to_grid",
+                        "stat_energy_to": "sensor.energy_meter_channel_1_energy_returned",
                         "stat_compensation": null,
-                        "entity_energy_to": "sensor.energy_to_grid",
+                        "entity_energy_to": "sensor.energy_meter_channel_1_energy_returned",
                         "entity_energy_price": null,
-                        "number_energy_price": 0.22138
+                        "number_energy_price": null
                     }
                 ],
                 "cost_adjustment_day": 0.0
@@ -28,22 +29,15 @@
             {
                 "type": "solar",
                 "stat_energy_from": "sensor.growatt_energy_today_input_1",
-                "config_entry_solar_forecast": [
-                    "25f9ea0fce14a52058fa4c12cab25539"
-                ]
+                "config_entry_solar_forecast": null
             },
             {
                 "type": "solar",
                 "stat_energy_from": "sensor.growatt_energy_today_input_2",
-                "config_entry_solar_forecast": [
-                    "36d19cc99cab8472550508d64d7c322e"
-                ]
+                "config_entry_solar_forecast": null
             }
         ],
         "device_consumption": [
-            {
-                "stat_consumption": "sensor.bathroom_energy"
-            },
             {
                 "stat_consumption": "sensor.bike_light_energy"
             },
@@ -58,6 +52,15 @@
             },
             {
                 "stat_consumption": "sensor.toilet_energy"
+            },
+            {
+                "stat_consumption": "sensor.bathroom_switch_energy"
+            },
+            {
+                "stat_consumption": "sensor.server_plug_energy"
+            },
+            {
+                "stat_consumption": "sensor.desk_north_plug_energy"
             }
         ]
     }

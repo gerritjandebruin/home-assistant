@@ -10,7 +10,7 @@ template:
           {% set e = states('sensor.hall_temperature')      | float(0) %}
           {% set f = states('sensor.lounge_temperature')    | float(0) %}
           {% set g = states('sensor.shed_temperature')      | float(0) %}
-          {{ a<0 or b<0 or c<0 or d<0 or e<0 or f<0 or g<0 or a>30 or b>30 or c>30 or d>30 or e>30 or f>30 or g>30 }}
+          {{ a<0 or b<0 or c<0 or e<0 or f<0 or g<0 or a>30 or b>30 or c>30 or d>30 or e>30 or f>30 or g>30 }}
 
 alert:
   abnormal_temperature:

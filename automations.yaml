@@ -28,14 +28,20 @@
       conditions:
       - condition: state
         entity_id: binary_sensor.hall_motion
-        state: 'off'
+        state:
+        - 'off'
+        - unavailable
         for: 00:10:00
       - condition: state
         entity_id: binary_sensor.corridor_motion
-        state: 'off'
+        state:
+        - 'off'
+        - unavailable
       - condition: state
         entity_id: binary_sensor.front_door
-        state: 'off'
+        state:
+        - 'off'
+        - unavailable
         for: 00:01:00
       sequence:
       - service: light.turn_off
@@ -104,8 +110,8 @@
   mode: single
 - id: '1605426186449'
   alias: Attic motion
-  description: Put the light at the second floor on when there is movement in the
-    hallway at ground level or first floor. Do so only if there is insufficient light.
+  description: Put the light in the attic on when there is movement in the hallway
+    at ground level or first floor. Do so only if there is insufficient light.
   trigger:
   - platform: state
     entity_id:
@@ -124,11 +130,15 @@
       conditions:
       - condition: state
         entity_id: binary_sensor.hall_motion
-        state: 'off'
+        state:
+        - 'off'
+        - unavailable
         for: 00:10:00
       - condition: state
         entity_id: binary_sensor.corridor_motion
-        state: 'off'
+        state:
+        - 'off'
+        - unavailable
       sequence:
       - service: light.turn_off
         entity_id: light.attic
@@ -166,7 +176,7 @@
     - alias: Dark and door opened
       conditions:
       - condition: numeric_state
-        entity_id: sensor.hall_light
+        entity_id: sensor.hall_illuminance
         below: '20'
       - condition: state
         entity_id: binary_sensor.shed_door
@@ -427,7 +437,7 @@
     - alias: Max
       conditions:
       - condition: numeric_state
-        entity_id: sensor.hall_light
+        entity_id: sensor.hall_illuminance
         below: '20'
       sequence:
       - service: input_number.set_value
@@ -458,7 +468,7 @@
   action:
   - if:
     - condition: numeric_state
-      entity_id: sensor.hall_light
+      entity_id: sensor.hall_illuminance
       below: '10'
     - condition: state
       entity_id: binary_sensor.bike_motion
@@ -502,11 +512,13 @@
       - service: switch.turn_on
         target:
           entity_id: switch.lounge
+        data: {}
       - service: light.turn_on
         target:
           entity_id:
           - light.hall
           - light.kitchen
+        data: {}
     - alias: 'Off'
       conditions:
       - condition: template
@@ -523,10 +535,24 @@
       - condition: template
         value_template: '{{ event == 2001 }}'
       sequence:
-      - service: switch.turn_off
-        entity_id: all
-      - service: light.turn_off
-        entity_id: all
+      - service: homeassistant.turn_off
+        data: {}
+        target:
+          device_id:
+          - 60bfe7a8e3f01ab889642012e4ea1141
+          - 7b748ddf488252dc1ed824f226b39955
+          - b0ddce550f02cbf0799d40d240ab435c
+          area_id:
+          - bike
+          - corridor
+          - guestroom
+          - hall
+          - lounge
+          - pantry
+          - shed
+          - terrace
+          - toilet
+          - walk_in_closet
   mode: restart
 - id: '1629321154907'
   alias: Terrace light
@@ -615,7 +641,7 @@
   - platform: state
     entity_id:
     - select.berry_mode
-    from: Single
+    from: Smart
     to: Return to dock
   condition: []
   action:
@@ -623,4 +649,19 @@
     domain: mobile_app
     type: notify
     message: Vacuum cleaner completed single room
+  mode: single
+- id: '1652901588502'
+  alias: Vacuum charged
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: vacuum.berry
+    attribute: battery_level
+    above: '99'
+  condition: []
+  action:
+  - device_id: b26acac4f6332ba83f2aadae7bae622e
+    domain: mobile_app
+    type: notify
+    message: Vacuum is charged.
   mode: single

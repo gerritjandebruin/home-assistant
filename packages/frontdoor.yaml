@@ -4,7 +4,7 @@ alert:
     entity_id: binary_sensor.front_door
     title: Front door is open
     skip_first: true
-    repeat: 5
+    repeat: 15
     message: >
       Front door is open for
       {{((as_timestamp(now())-as_timestamp(states.binary_sensor.front_door.last_changed))/60) | round}}

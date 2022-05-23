@@ -1018,7 +1018,7 @@
                                 },
                                 {
                                     "type": "custom:multiple-entity-row",
-                                    "entity": "weather.home",
+                                    "entity": "weather.knmi_home",
                                     "attribute": "temperature",
                                     "unit": "\u00b0C",
                                     "name": "Outside",
@@ -1059,11 +1059,6 @@
                             ]
                         },
                         {
-                            "type": "custom:neerslag-card",
-                            "title": "Precipitation",
-                            "entity": "sensor.neerslag_buienalarm_regen_data"
-                        },
-                        {
                             "type": "custom:sun-card"
                         },
                         {
@@ -1074,26 +1069,14 @@
                             "type": "history-graph",
                             "entities": [
                                 {
-                                    "entity": "climate.attic"
+                                    "entity": "sensor.attic_temperature"
+                                },
+                                {
+                                    "entity": "sensor.lounge_temperature"
                                 }
                             ],
                             "hours_to_show": 24,
                             "refresh_interval": 0
-                        },
-                        {
-                            "chart_type": "line",
-                            "period": "day",
-                            "days_to_show": 365,
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.shed_temperature"
-                            ],
-                            "stat_types": [
-                                "mean",
-                                "min",
-                                "max",
-                                "sum"
-                            ]
                         }
                     ]
                 },
@@ -1342,6 +1325,15 @@
                                     "entity": "sensor.growatt_total_output_power",
                                     "name": "Current production",
                                     "secondary_info": "last-updated"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "entity": "sensor.server_plug_power"
+                                },
+                                {
+                                    "entity": "sensor.desk_north_plug_power"
                                 }
                             ]
                         },
@@ -1368,6 +1360,17 @@
                         },
                         {
                             "type": "custom:sun-card"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.server_plug_power"
+                                },
+                                {
+                                    "entity": "sensor.desk_north_plug_power"
+                                }
+                            ]
                         }
                     ]
                 },
