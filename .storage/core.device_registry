@@ -35,9 +35,9 @@
       },
       {
         "config_entries": [
-          "a2df955e7cc746d71d223c05a7e35f53",
+          "1dcb3598d679b88a3cb6b41dcd412b62",
           "b6ce38f45458659f9dc8cd897ab11bc8",
-          "1dcb3598d679b88a3cb6b41dcd412b62"
+          "a2df955e7cc746d71d223c05a7e35f53"
         ],
         "connections": [
           [
@@ -130,7 +130,7 @@
         "manufacturer": "hacs.xyz",
         "model": "",
         "name": "HACS",
-        "sw_version": "1.25.5",
+        "sw_version": "1.26.1",
         "hw_version": null,
         "entry_type": "service",
         "id": "d4dfeb3faac3b7d65ca316e4fef1a2b1",
@@ -152,11 +152,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:17:88:01:04:85:91:62"
           ],
           [
-            "zha",
+            "deconz",
             "00:17:88:01:04:85:91:62"
           ]
         ],
@@ -185,11 +185,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:05:1e:0e:0c"
           ],
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:05:1e:0e:0c"
           ]
         ],
@@ -218,11 +218,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:05:8c:a6:fa"
           ],
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:05:8c:a6:fa"
           ]
         ],
@@ -317,11 +317,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:17:88:01:04:1b:3a:9a"
           ],
           [
-            "zha",
+            "deconz",
             "00:17:88:01:04:1b:3a:9a"
           ]
         ],
@@ -350,11 +350,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "cc:cc:cc:ff:fe:99:47:8d"
           ],
           [
-            "deconz",
+            "zha",
             "cc:cc:cc:ff:fe:99:47:8d"
           ]
         ],
@@ -383,11 +383,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "14:b4:57:ff:fe:4a:5b:fc"
           ],
           [
-            "zha",
+            "deconz",
             "14:b4:57:ff:fe:4a:5b:fc"
           ]
         ],
@@ -416,11 +416,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:04:60:7b:09"
           ],
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:04:60:7b:09"
           ]
         ],
@@ -515,11 +515,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "84:2e:14:ff:fe:47:9f:72"
           ],
           [
-            "deconz",
+            "zha",
             "84:2e:14:ff:fe:47:9f:72"
           ]
         ],
@@ -581,11 +581,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "14:b4:57:ff:fe:32:6e:3c"
           ],
           [
-            "zha",
+            "deconz",
             "14:b4:57:ff:fe:32:6e:3c"
           ]
         ],
@@ -647,11 +647,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "14:b4:57:ff:fe:34:0c:70"
           ],
           [
-            "deconz",
+            "zha",
             "14:b4:57:ff:fe:34:0c:70"
           ]
         ],
@@ -680,11 +680,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "14:b4:57:ff:fe:3d:0b:00"
           ],
           [
-            "zha",
+            "deconz",
             "14:b4:57:ff:fe:3d:0b:00"
           ]
         ],
@@ -713,11 +713,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:17:88:01:04:1b:3a:91"
           ],
           [
-            "zha",
+            "deconz",
             "00:17:88:01:04:1b:3a:91"
           ]
         ],
@@ -901,8 +901,8 @@
       },
       {
         "config_entries": [
-          "a2df955e7cc746d71d223c05a7e35f53",
-          "011a8d576dbb7d3d7ceb75d2060fb19b"
+          "011a8d576dbb7d3d7ceb75d2060fb19b",
+          "a2df955e7cc746d71d223c05a7e35f53"
         ],
         "connections": [
           [
@@ -931,8 +931,8 @@
       },
       {
         "config_entries": [
-          "d0729784a0529368f00d68a836cc42c3",
-          "073d9d60b505c7c436b05f7acbdd18db"
+          "073d9d60b505c7c436b05f7acbdd18db",
+          "d0729784a0529368f00d68a836cc42c3"
         ],
         "connections": [
           [
@@ -971,11 +971,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "5c:02:72:ff:fe:8c:c3:a9"
           ],
           [
-            "zha",
+            "deconz",
             "5c:02:72:ff:fe:8c:c3:a9"
           ]
         ],
@@ -1004,11 +1004,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:06:59:d1:c7"
           ],
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:06:59:d1:c7"
           ]
         ],
@@ -1291,11 +1291,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:05:43:ba:85"
           ],
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:05:43:ba:85"
           ]
         ],
@@ -1314,8 +1314,8 @@
       },
       {
         "config_entries": [
-          "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e",
-          "70e683081b2cb3b8cbea7313bcef72bb"
+          "70e683081b2cb3b8cbea7313bcef72bb",
+          "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e"
         ],
         "connections": [
           [
@@ -1570,11 +1570,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:05:42:51:2d"
           ],
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:05:42:51:2d"
           ]
         ],
@@ -1603,11 +1603,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:05:88:96:12"
           ],
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:05:88:96:12"
           ]
         ],
@@ -1636,11 +1636,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "bc:33:ac:ff:fe:9b:34:a0"
           ],
           [
-            "deconz",
+            "zha",
             "bc:33:ac:ff:fe:9b:34:a0"
           ]
         ],
@@ -2247,7 +2247,7 @@
         "identifiers": [
           [
             "mqtt",
-            "51"
+            "30755554"
           ],
           [
             "mqtt",
@@ -2255,11 +2255,11 @@
           ],
           [
             "mqtt",
-            "30755554"
+            "rtl433"
           ],
           [
             "mqtt",
-            "rtl433"
+            "51"
           ]
         ],
         "manufacturer": "Gamma",
