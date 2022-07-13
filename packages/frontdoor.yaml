@@ -1,24 +1,24 @@
-alert:
-  front_door:
-    name: Front door
-    entity_id: binary_sensor.front_door
-    title: Front door is open
-    skip_first: true
-    repeat: 15
-    message: >
-      Front door is open for
-      {{((as_timestamp(now())-as_timestamp(states.binary_sensor.front_door.last_changed))/60) | round}}
-      minutes.
-    done_message: clear_notification
-    notifiers:
-      - mobile_app_sm_a530f
-    data:
-      clickAction: "entityId:binary_sensor.front_door"
-      channel: front_door
-      tag: front_door
-      requireInteraction: true
-      importance: high
-      priority: high
-      url: lovelace/map
-      vibrationPattern: 100, 1000, 100, 1000, 100, 1000
-      sticky: true
+# alert:
+#   front_door:
+#     name: Front door
+#     entity_id: binary_sensor.front_door
+#     title: Front door is open
+#     skip_first: true
+#     repeat: 15
+#     message: >
+#       Front door is open for
+#       {{((as_timestamp(now())-as_timestamp(states.binary_sensor.front_door.last_changed))/60) | round}}
+#       minutes.
+#     done_message: clear_notification
+#     notifiers:
+#       - mobile_app_sm_a530f
+#     data:
+#       clickAction: "entityId:binary_sensor.front_door"
+#       channel: front_door
+#       tag: front_door
+#       requireInteraction: true
+#       importance: high
+#       priority: high
+#       url: lovelace/map
+#       vibrationPattern: 100, 1000, 100, 1000, 100, 1000
+#       sticky: true

@@ -68,13 +68,13 @@ automation:
                   color_temp: 395
     mode: queued
     max: 25
-  - alias: Bedroom switch
+  - alias: Bedroom button
     description: https://www.ikea.com/nl/nl/p/tradfri-draadloze-dimmer-wit-70408595/
     trigger:
       - platform: event
         event_type: deconz_event
         event_data:
-          id: bedroom_switch
+          id: bedroom_button
     action:
       - choose:
           - alias: Hold up
@@ -101,10 +101,10 @@ automation:
               - alias: Turn everything off
                 service: homeassistant.turn_off
                 target:
-                  device_id:
-                    - 60bfe7a8e3f01ab889642012e4ea1141
-                    - 7b748ddf488252dc1ed824f226b39955
-                    - b0ddce550f02cbf0799d40d240ab435c
+                  entity_id:
+                    - switch.desk_north_plug
+                    - switch.desk_south_plug
+                    - switch.stereo
                   area_id:
                     - bike
                     - corridor
