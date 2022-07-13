@@ -18,6 +18,7 @@
 .storage/zha.storage
 .storage/hacs*
 .storage/trace.saved_traces
+.storage/http
 
 blueprints
 deps
@@ -43,4 +44,4 @@ secrets.yaml
 # Push registrations
 html5_push_registrations.conf
 .storage/core.entity_registry
-.storage/http
+
