@@ -1,0 +1,87 @@
+{
+    "version": 1,
+    "minor_version": 1,
+    "key": "esphome.b8cf0bf4f5c8cb2ca2c620a3fa6dda66",
+    "data": {
+        "device_info": {
+            "uses_password": false,
+            "name": "flowermeter",
+            "mac_address": "7C:9E:BD:F3:E4:A8",
+            "compilation_time": "Jun 19 2022, 13:58:25",
+            "model": "esp32dev",
+            "has_deep_sleep": false,
+            "esphome_version": "2022.6.1",
+            "project_name": "",
+            "project_version": "",
+            "webserver_port": 0
+        },
+        "services": [],
+        "api_version": {
+            "major": 1,
+            "minor": 6
+        },
+        "sensor": [
+            {
+                "object_id": "flower_temperature",
+                "key": 3427674231,
+                "name": "Flower Temperature",
+                "unique_id": "flowermetersensorflower_temperature",
+                "disabled_by_default": false,
+                "icon": "",
+                "entity_category": 0,
+                "device_class": "temperature",
+                "unit_of_measurement": "\u00b0C",
+                "accuracy_decimals": 1,
+                "force_update": false,
+                "state_class": 1,
+                "last_reset_type": 0
+            },
+            {
+                "object_id": "flower_moisture",
+                "key": 4255145493,
+                "name": "Flower Moisture",
+                "unique_id": "flowermetersensorflower_moisture",
+                "disabled_by_default": false,
+                "icon": "mdi:water-percent",
+                "entity_category": 0,
+                "device_class": "",
+                "unit_of_measurement": "%",
+                "accuracy_decimals": 0,
+                "force_update": false,
+                "state_class": 1,
+                "last_reset_type": 0
+            },
+            {
+                "object_id": "flower_illuminance",
+                "key": 764876754,
+                "name": "Flower Illuminance",
+                "unique_id": "flowermetersensorflower_illuminance",
+                "disabled_by_default": false,
+                "icon": "",
+                "entity_category": 0,
+                "device_class": "illuminance",
+                "unit_of_measurement": "lx",
+                "accuracy_decimals": 0,
+                "force_update": false,
+                "state_class": 1,
+                "last_reset_type": 0
+            },
+            {
+                "object_id": "flower_soil_conductivity",
+                "key": 525066562,
+                "name": "Flower Soil Conductivity",
+                "unique_id": "flowermetersensorflower_soil_conductivity",
+                "disabled_by_default": false,
+                "icon": "mdi:flower",
+                "entity_category": 0,
+                "device_class": "",
+                "unit_of_measurement": "\u00b5S/cm",
+                "accuracy_decimals": 0,
+                "force_update": false,
+                "state_class": 1,
+                "last_reset_type": 0
+            }
+        ],
+        "text_sensor": []
+    }
+}

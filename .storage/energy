@@ -61,6 +61,9 @@
             },
             {
                 "stat_consumption": "sensor.desk_north_plug_energy"
+            },
+            {
+                "stat_consumption": "sensor.fridge_kitchen_plug_energy"
             }
         ]
     }

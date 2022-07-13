@@ -1,0 +1,46 @@
+esphome:
+  name: tno2022gj1
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "eqTwvUIc28tZhILwEGA35YqX7X0xKI1JYW6fGJi/TmE="
+
+ota:
+  password: "f9696b769e897b385261856b46cb2f04"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Tno2022Gj1 Fallback Hotspot"
+    password: "lw5NfDa4xVz0"
+
+captive_portal:
+    
+sensor:
+  - platform: adc
+    pin: 33
+    name: "Brightness"
+    update_interval: 5s
+    attenuation: auto
+    
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 13
+      mode:
+        input: true
+        pulldown: true
+    name: "Motion"
+    

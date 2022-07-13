@@ -1,64 +1,64 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "lovelace_resources",
-    "data": {
-        "items": [
-            {
-                "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037441",
-                "type": "module",
-                "id": "93159c7aed05449d84dc8feafdbf1f2b"
-            },
-            {
-                "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841110",
-                "type": "module",
-                "id": "37881659e94545bba2f6b869ed37b5be"
-            },
-            {
-                "url": "/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js",
-                "type": "module",
-                "id": "726a8f25aba84bc4acb50129f9856b5d"
-            },
-            {
-                "url": "/hacsfiles/lovelace-battery-entity-row/battery-entity-row.js",
-                "type": "module",
-                "id": "cdff997124ba4dec8765cf55f4f6d72d"
-            },
-            {
-                "url": "/hacsfiles/lovelace-flower-card/flower-card.js?hacstag=297423025851197",
-                "type": "module",
-                "id": "41005d96e60d45b481af35f668834dfa"
-            },
-            {
-                "url": "/local/card-tools.js",
-                "type": "module",
-                "id": "75f625b9d514413c912b650f0d9985a4"
-            },
-            {
-                "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=150781994220",
-                "type": "module",
-                "id": "a0b4bb9fb19747ada0349352475e7fdc"
-            },
-            {
-                "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866242",
-                "type": "module",
-                "id": "4cc384a2c3fd4c329b07553c76b040f0"
-            },
-            {
-                "url": "/hacsfiles/numberbox-card/numberbox-card.js?hacstag=304967918310",
-                "type": "module",
-                "id": "8941a6e7b2f84a8eb9d3839321144cbe"
-            },
-            {
-                "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001721",
-                "type": "module",
-                "id": "7b0eab4812f94755be3e3761e99951f9"
-            },
-            {
-                "url": "/hacsfiles/home-assistant-neerslag-card/neerslag-card.js?hacstag=342944383202201313",
-                "type": "module",
-                "id": "3b80f002e189403bbc871e8035d3f7ee"
-            }
-        ]
-    }
+  "version": 1,
+  "minor_version": 1,
+  "key": "lovelace_resources",
+  "data": {
+    "items": [
+      {
+        "url": "/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js?hacstag=178921037441",
+        "type": "module",
+        "id": "93159c7aed05449d84dc8feafdbf1f2b"
+      },
+      {
+        "url": "/hacsfiles/lovelace-auto-entities/auto-entities.js?hacstag=1677445841110",
+        "type": "module",
+        "id": "37881659e94545bba2f6b869ed37b5be"
+      },
+      {
+        "url": "/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js",
+        "type": "module",
+        "id": "726a8f25aba84bc4acb50129f9856b5d"
+      },
+      {
+        "url": "/hacsfiles/lovelace-battery-entity-row/battery-entity-row.js",
+        "type": "module",
+        "id": "cdff997124ba4dec8765cf55f4f6d72d"
+      },
+      {
+        "url": "/hacsfiles/lovelace-flower-card/flower-card.js?hacstag=297423025851197",
+        "type": "module",
+        "id": "41005d96e60d45b481af35f668834dfa"
+      },
+      {
+        "url": "/local/card-tools.js",
+        "type": "module",
+        "id": "75f625b9d514413c912b650f0d9985a4"
+      },
+      {
+        "url": "/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js?hacstag=150781994220",
+        "type": "module",
+        "id": "a0b4bb9fb19747ada0349352475e7fdc"
+      },
+      {
+        "url": "/hacsfiles/lovelace-layout-card/layout-card.js?hacstag=156434866242",
+        "type": "module",
+        "id": "4cc384a2c3fd4c329b07553c76b040f0"
+      },
+      {
+        "url": "/hacsfiles/numberbox-card/numberbox-card.js?hacstag=304967918312",
+        "type": "module",
+        "id": "8941a6e7b2f84a8eb9d3839321144cbe"
+      },
+      {
+        "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001721",
+        "type": "module",
+        "id": "7b0eab4812f94755be3e3761e99951f9"
+      },
+      {
+        "url": "/hacsfiles/home-assistant-neerslag-card/neerslag-card.js?hacstag=342944383202201313",
+        "type": "module",
+        "id": "3b80f002e189403bbc871e8035d3f7ee"
+      }
+    ]
+  }
 }
