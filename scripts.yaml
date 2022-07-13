@@ -40,3 +40,27 @@
         domain: switch
   mode: single
   icon: mdi:brightness-6
+disable_motion_trigger:
+  alias: Disable motion trigger
+  sequence:
+  - if:
+    - condition: state
+      entity_id: automation.light_brightness
+      state: 'on'
+    then:
+    - service: input_number.set_value
+      data:
+        value: 0
+      target:
+        entity_id: input_number.brightness
+    else:
+    - service: automation.trigger
+      data: {}
+      target:
+        entity_id: automation.light_brightness
+  - service: automation.toggle
+    data: {}
+    target:
+      entity_id: automation.light_brightness
+  mode: single
+  icon: mdi:motion-sensor-off

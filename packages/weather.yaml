@@ -1,21 +1,7 @@
-alert:
-  knmi:
-    name: Weather
-    entity_id: binary_sensor.knmi_home_waarschuwing
-    repeat: 1440
-    message: "KNMI weerwaarschuwing: {{ state_attr('binary_sensor.knmi_home_waarschuwing', 'Waarschuwing') }}"
-    notifiers:
-      - mobile_app_sm_a530f
-    data:
-      clickAction: https://www.knmi.nl
-      channel: weather
-      tag: weather
-      url: https://www.knmi.nl
-      priority: high
-
 template:
   - sensor:
-      - name: Weather temperature
+      - unique_id: weather_temperature
+        name: Outside
         unit_of_measurement: "°C"
         state: "{{ state_attr('weather.home', 'temperature') }}"
         device_class: temperature

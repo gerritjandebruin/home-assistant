@@ -1010,23 +1010,24 @@
                 },
                 {
                   "type": "custom:multiple-entity-row",
-                  "entity": "weather.knmi_home",
+                  "entity": "weather.home",
                   "attribute": "temperature",
                   "unit": "°C",
                   "name": "Outside",
                   "secondary_info": {
-                    "entity": "sensor.knmi_home_omschrijving",
+                    "entity": "weather.home",
                     "name": false
                   },
                   "entities": [
                     {
-                      "entity": "alert.knmi",
-                      "state_color": true,
-                      "icon": true,
-                      "hide_if": "idle"
+                      "attribute": "humidity",
+                      "unit": "%",
+                      "name": "Humidity"
                     },
                     {
-                      "entity": "sensor.knmi_home_gevoelstemperatuur"
+                      "attribute": "wind_speed",
+                      "unit": "km/h",
+                      "name": "Wind speed"
                     }
                   ]
                 },
@@ -1054,10 +1055,6 @@
               "type": "custom:sun-card"
             },
             {
-              "type": "weather-forecast",
-              "entity": "weather.home"
-            },
-            {
               "type": "history-graph",
               "entities": [
                 {
@@ -1065,6 +1062,12 @@
                 },
                 {
                   "entity": "sensor.lounge_temperature"
+                },
+                {
+                  "entity": "sensor.bedroom_temperature"
+                },
+                {
+                  "entity": "sensor.weather_temperature"
                 }
               ],
               "hours_to_show": 24,
@@ -1088,177 +1091,121 @@
               "entities": [
                 {
                   "type": "custom:slider-entity-row",
-                  "entity": "input_number.brightness",
-                  "min": 0,
-                  "max": 100
+                  "entity": "input_number.brightness"
                 },
                 {
-                  "type": "section"
+                  "entity": "automation.light_brightness",
+                  "type": "button",
+                  "name": "Motion trigger",
+                  "icon": "mdi:motion-sensor",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "script.disable_motion_trigger"
+                  }
                 },
                 {
-                  "entity": "light.shed",
-                  "secondary_info": "last-changed",
-                  "toggle": true
+                  "type": "section",
+                  "label": "First floor"
                 },
                 {
-                  "entity": "switch.bike_light",
-                  "secondary_info": "last-changed",
-                  "state_color": true
+                  "type": "buttons",
+                  "entities": [
+                    "light.shed",
+                    "switch.bike_light",
+                    "switch.bike_socket"
+                  ]
                 },
                 {
-                  "entity": "switch.bike_socket",
-                  "secondary_info": "last-changed",
-                  "state_color": true
+                  "type": "buttons",
+                  "entities": [
+                    "media_player.the_frame",
+                    "switch.lounge",
+                    "light.bathroom",
+                    "light.kitchen",
+                    "light.pantry",
+                    "light.hall"
+                  ]
                 },
                 {
-                  "type": "section"
+                  "type": "section",
+                  "label": "Bedroom"
                 },
                 {
-                  "entity": "media_player.samsung_tv_remote",
-                  "state_color": true
-                },
-                {
-                  "entity": "switch.lounge",
-                  "secondary_info": "last-changed",
-                  "state_color": true,
-                  "toggle": true,
-                  "type": "custom:multiple-entity-row",
+                  "type": "buttons",
                   "entities": [
                     {
-                      "name": false,
-                      "state_color": true,
-                      "entity": "script.1622183688699",
-                      "icon": true,
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.1622183688699"
-                      }
+                      "entity": "light.bedroom_1",
+                      "show_name": true
                     },
                     {
-                      "name": false,
-                      "state_color": true,
-                      "entity": "script.1622183720081",
-                      "icon": true,
-                      "tap_action": {
-                        "action": "call-service",
-                        "service": "script.1622183720081"
-                      }
+                      "entity": "light.bedroom_2",
+                      "show_name": true
+                    },
+                    {
+                      "entity": "light.bedroom_3",
+                      "show_name": true
+                    },
+                    {
+                      "entity": "light.bedroom_4",
+                      "show_name": true
+                    },
+                    {
+                      "entity": "light.bedroom_5",
+                      "show_name": true
                     }
                   ]
                 },
                 {
-                  "entity": "switch.bathroom",
-                  "secondary_info": "last-changed",
-                  "toggle": true,
-                  "state_color": true
+                  "type": "section",
+                  "label": "Remainder second floor"
                 },
                 {
-                  "entity": "light.kitchen",
-                  "secondary_info": "last-changed",
-                  "toggle": true
-                },
-                {
-                  "entity": "light.pantry",
-                  "secondary_info": "last-changed",
-                  "toggle": true,
-                  "type": "custom:multiple-entity-row"
-                },
-                {
-                  "entity": "light.hall",
-                  "secondary_info": "last-changed",
-                  "toggle": true,
-                  "type": "custom:multiple-entity-row"
-                }
-              ]
-            },
-            {
-              "show_header_toggle": false,
-              "type": "entities",
-              "entities": [
-                {
+                  "type": "buttons",
                   "entities": [
                     {
-                      "entity": "light.bedroom_1",
-                      "toggle": true
+                      "entity": "light.walk_in_closet",
+                      "name": "Walk in closet"
                     },
                     {
-                      "entity": "light.bedroom_2",
-                      "toggle": true
+                      "entity": "light.bedroom",
+                      "name": "Bedroom"
                     },
                     {
-                      "entity": "light.bedroom_3",
-                      "toggle": true
+                      "entity": "light.toilet",
+                      "name": "Toilet"
                     },
                     {
-                      "entity": "light.bedroom_4",
-                      "toggle": true
+                      "entity": "light.corridor",
+                      "name": "Corridor"
                     },
                     {
-                      "entity": "light.bedroom_5",
-                      "toggle": true
+                      "entity": "light.terrace",
+                      "name": "Terrace"
                     }
-                  ],
-                  "entity": "light.bedroom_1",
-                  "icon": "mdi:bed",
-                  "secondary_info": "last-changed",
-                  "toggle": true,
-                  "type": "custom:multiple-entity-row"
+                  ]
                 },
                 {
+                  "type": "section",
+                  "label": "Attic"
+                },
+                {
+                  "type": "buttons",
                   "entities": [
                     {
-                      "entity": "light.walk_in_closet_1",
-                      "name": 1,
-                      "toggle": true
+                      "entity": "light.attic"
                     },
                     {
-                      "entity": "light.walk_in_closet_2",
-                      "name": 2,
-                      "toggle": true
+                      "entity": "switch.desk_south_plug",
+                      "name": "South"
+                    },
+                    {
+                      "entity": "switch.stereo"
+                    },
+                    {
+                      "entity": "switch.desk_north_plug",
+                      "name": "North"
                     }
-                  ],
-                  "entity": "light.walk_in_closet",
-                  "secondary_info": "last-changed",
-                  "toggle": true,
-                  "type": "custom:multiple-entity-row"
-                },
-                {
-                  "entity": "switch.toilet",
-                  "secondary_info": "last-changed",
-                  "toggle": true,
-                  "state_color": true
-                },
-                {
-                  "entity": "light.corridor",
-                  "secondary_info": "last-changed",
-                  "toggle": true
-                },
-                {
-                  "entity": "light.terrace",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "type": "section"
-                },
-                {
-                  "entity": "light.attic",
-                  "show_state": false,
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "switch.desk_south_plug",
-                  "show_state": false,
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "switch.stereo",
-                  "show_state": false,
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "switch.desk_north_plug",
-                  "show_state": false,
-                  "secondary_info": "last-changed"
+                  ]
                 }
               ]
             },
@@ -1477,6 +1424,10 @@
                         }
                       }
                     }
+                  },
+                  {
+                    "domain": "plant",
+                    "state": "problem"
                   },
                   {
                     "entity_id": "binary_sensor.*_overheating",
