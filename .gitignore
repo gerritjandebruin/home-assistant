@@ -42,3 +42,6 @@ secrets.yaml
 
 # Push registrations
 html5_push_registrations.conf
+.storage/core.device_registry
+.storage/core.entity_registry
+.storage/http

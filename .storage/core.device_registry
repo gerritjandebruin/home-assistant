@@ -35,8 +35,8 @@
       },
       {
         "config_entries": [
-          "b6ce38f45458659f9dc8cd897ab11bc8",
           "a2df955e7cc746d71d223c05a7e35f53",
+          "b6ce38f45458659f9dc8cd897ab11bc8",
           "1dcb3598d679b88a3cb6b41dcd412b62"
         ],
         "connections": [
@@ -152,11 +152,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:17:88:01:04:85:91:62"
           ],
           [
-            "zha",
+            "deconz",
             "00:17:88:01:04:85:91:62"
           ]
         ],
@@ -185,11 +185,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:05:1e:0e:0c"
           ],
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:05:1e:0e:0c"
           ]
         ],
@@ -218,11 +218,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:05:8c:a6:fa"
           ],
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:05:8c:a6:fa"
           ]
         ],
@@ -284,11 +284,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:17:88:01:04:ec:e0:aa"
           ],
           [
-            "zha",
+            "deconz",
             "00:17:88:01:04:ec:e0:aa"
           ]
         ],
@@ -350,11 +350,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "cc:cc:cc:ff:fe:99:47:8d"
           ],
           [
-            "deconz",
+            "zha",
             "cc:cc:cc:ff:fe:99:47:8d"
           ]
         ],
@@ -482,11 +482,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "14:b4:57:ff:fe:3f:e3:43"
           ],
           [
-            "zha",
+            "deconz",
             "14:b4:57:ff:fe:3f:e3:43"
           ]
         ],
@@ -515,11 +515,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "84:2e:14:ff:fe:47:9f:72"
           ],
           [
-            "deconz",
+            "zha",
             "84:2e:14:ff:fe:47:9f:72"
           ]
         ],
@@ -532,7 +532,7 @@
         "id": "ef6cce96c0aff37b73773be4f1a30e2f",
         "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
         "area_id": "bedroom",
-        "name_by_user": "Bedroom switch",
+        "name_by_user": "Bedroom button",
         "disabled_by": null,
         "configuration_url": null
       },
@@ -581,11 +581,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "14:b4:57:ff:fe:32:6e:3c"
           ],
           [
-            "deconz",
+            "zha",
             "14:b4:57:ff:fe:32:6e:3c"
           ]
         ],
@@ -614,11 +614,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:0d:6f:ff:fe:be:3c:1e"
           ],
           [
-            "zha",
+            "deconz",
             "00:0d:6f:ff:fe:be:3c:1e"
           ]
         ],
@@ -746,11 +746,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "00:17:88:01:04:b5:54:7d"
           ],
           [
-            "deconz",
+            "zha",
             "00:17:88:01:04:b5:54:7d"
           ]
         ],
@@ -845,11 +845,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:17:88:01:08:16:da:da"
           ],
           [
-            "zha",
+            "deconz",
             "00:17:88:01:08:16:da:da"
           ]
         ],
@@ -878,11 +878,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "00:17:88:01:09:3b:93:57"
           ],
           [
-            "deconz",
+            "zha",
             "00:17:88:01:09:3b:93:57"
           ]
         ],
@@ -971,11 +971,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "5c:02:72:ff:fe:8c:c3:a9"
           ],
           [
-            "deconz",
+            "zha",
             "5c:02:72:ff:fe:8c:c3:a9"
           ]
         ],
@@ -1291,11 +1291,11 @@
         ],
         "identifiers": [
           [
-            "deconz",
+            "zha",
             "00:15:8d:00:05:43:ba:85"
           ],
           [
-            "zha",
+            "deconz",
             "00:15:8d:00:05:43:ba:85"
           ]
         ],
@@ -1314,8 +1314,8 @@
       },
       {
         "config_entries": [
-          "70e683081b2cb3b8cbea7313bcef72bb",
-          "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e"
+          "1d06ca7b9dce6c5f02ed8dc0a9d9eb4e",
+          "70e683081b2cb3b8cbea7313bcef72bb"
         ],
         "connections": [
           [
@@ -1636,11 +1636,11 @@
         ],
         "identifiers": [
           [
-            "zha",
+            "deconz",
             "bc:33:ac:ff:fe:9b:34:a0"
           ],
           [
-            "deconz",
+            "zha",
             "bc:33:ac:ff:fe:9b:34:a0"
           ]
         ],
@@ -1653,7 +1653,7 @@
         "id": "b0027c50d2f7ecc24c83a1a47819c346",
         "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
         "area_id": "terrace",
-        "name_by_user": "Terrace",
+        "name_by_user": "Terrace button",
         "disabled_by": null,
         "configuration_url": null
       },
@@ -1908,7 +1908,7 @@
         "id": "9eadf9239ebb9bc268ad74c2eae0602d",
         "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
         "area_id": "bike",
-        "name_by_user": "Bike switch",
+        "name_by_user": "Bike button",
         "disabled_by": null,
         "configuration_url": null
       },
@@ -2251,15 +2251,15 @@
           ],
           [
             "mqtt",
-            "0"
-          ],
-          [
-            "mqtt",
             "51"
           ],
           [
             "mqtt",
             "rtl433"
+          ],
+          [
+            "mqtt",
+            "0"
           ]
         ],
         "manufacturer": "Gamma",
@@ -2570,11 +2570,11 @@
         "connections": [
           [
             "mac",
-            "none"
+            "64:07:f6:c0:dc:68"
           ],
           [
             "mac",
-            "64:07:f6:c0:dc:68"
+            "none"
           ]
         ],
         "identifiers": [
@@ -2848,6 +2848,35 @@
         "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
         "area_id": "attic",
         "name_by_user": "Desk south plug",
+        "disabled_by": null,
+        "configuration_url": null
+      },
+      {
+        "config_entries": [
+          "3af3b94cde23f07cad4bbfd6f1129a44"
+        ],
+        "connections": [
+          [
+            "zigbee",
+            "b4:e3:f9:ff:fe:3a:99:08"
+          ]
+        ],
+        "identifiers": [
+          [
+            "deconz",
+            "b4:e3:f9:ff:fe:3a:99:08"
+          ]
+        ],
+        "manufacturer": "IKEA of Sweden",
+        "model": "TRADFRI on/off switch",
+        "name": "Desk north button",
+        "sw_version": "2.2.010",
+        "hw_version": null,
+        "entry_type": null,
+        "id": "edc737eaf70410f77edc47501e93b308",
+        "via_device_id": "c85d3e34e7d911cc9b1f6fb16026b271",
+        "area_id": "attic",
+        "name_by_user": "Desk north button",
         "disabled_by": null,
         "configuration_url": null
       }

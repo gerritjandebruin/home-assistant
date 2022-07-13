@@ -2562,31 +2562,6 @@
         "unit_of_measurement": "%"
       },
       {
-        "area_id": "bedroom",
-        "capabilities": {
-          "state_class": "measurement"
-        },
-        "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
-        "device_class": "battery",
-        "device_id": "ef6cce96c0aff37b73773be4f1a30e2f",
-        "disabled_by": null,
-        "entity_category": "diagnostic",
-        "entity_id": "sensor.bedroom_switch_battery_level",
-        "hidden_by": "user",
-        "icon": null,
-        "id": "050247cbf7d2383147a3285ca68f83a5",
-        "has_entity_name": false,
-        "name": "Bedroom switch battery level",
-        "options": {},
-        "original_device_class": "battery",
-        "original_icon": null,
-        "original_name": "Bedroom switch Battery",
-        "platform": "deconz",
-        "supported_features": 0,
-        "unique_id": "84:2e:14:ff:fe:47:9f:72-battery",
-        "unit_of_measurement": "%"
-      },
-      {
         "area_id": null,
         "capabilities": {
           "state_class": "measurement"
@@ -3447,31 +3422,6 @@
         },
         "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
         "device_class": "battery",
-        "device_id": "9eadf9239ebb9bc268ad74c2eae0602d",
-        "disabled_by": null,
-        "entity_category": "diagnostic",
-        "entity_id": "sensor.bike_switch_battery_level",
-        "hidden_by": null,
-        "icon": null,
-        "id": "8c6497f3dd343be339562fb456e9a390",
-        "has_entity_name": false,
-        "name": "Bike switch Battery Level",
-        "options": {},
-        "original_device_class": "battery",
-        "original_icon": null,
-        "original_name": "Bike switch Battery",
-        "platform": "deconz",
-        "supported_features": 0,
-        "unique_id": "5c:02:72:ff:fe:5b:70:28-battery",
-        "unit_of_measurement": "%"
-      },
-      {
-        "area_id": "bike",
-        "capabilities": {
-          "state_class": "measurement"
-        },
-        "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
-        "device_class": "battery",
         "device_id": "92f92740112aad1de8eac8a6c9ebb5bd",
         "disabled_by": null,
         "entity_category": "diagnostic",
@@ -3558,31 +3508,6 @@
         "supported_features": 0,
         "unique_id": "uuid:20809696-105a-3721-e8b8-34dab7d452b8_wan_status",
         "unit_of_measurement": null
-      },
-      {
-        "area_id": "terrace",
-        "capabilities": {
-          "state_class": "measurement"
-        },
-        "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
-        "device_class": "battery",
-        "device_id": "b0027c50d2f7ecc24c83a1a47819c346",
-        "disabled_by": null,
-        "entity_category": "diagnostic",
-        "entity_id": "sensor.terrace_switch_battery_level",
-        "hidden_by": null,
-        "icon": null,
-        "id": "b2812f5a83442ff323755e70dfea7bc4",
-        "has_entity_name": false,
-        "name": null,
-        "options": {},
-        "original_device_class": "battery",
-        "original_icon": null,
-        "original_name": "Terrace switch Battery",
-        "platform": "deconz",
-        "supported_features": 0,
-        "unique_id": "bc:33:ac:ff:fe:9b:34:a0-battery",
-        "unit_of_measurement": "%"
       },
       {
         "area_id": null,
@@ -16341,6 +16266,106 @@
         "supported_features": 0,
         "unique_id": "ec:1b:bd:ff:fe:ff:81:89-01",
         "unit_of_measurement": null
+      },
+      {
+        "area_id": "terrace",
+        "capabilities": {
+          "state_class": "measurement"
+        },
+        "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+        "device_class": "battery",
+        "device_id": "b0027c50d2f7ecc24c83a1a47819c346",
+        "disabled_by": null,
+        "entity_category": "diagnostic",
+        "entity_id": "sensor.terrace_button_battery_level",
+        "hidden_by": null,
+        "icon": null,
+        "id": "b2812f5a83442ff323755e70dfea7bc4",
+        "has_entity_name": false,
+        "name": "Terrace button Battery",
+        "options": {},
+        "original_device_class": "battery",
+        "original_icon": null,
+        "original_name": "Terrace switch Battery",
+        "platform": "deconz",
+        "supported_features": 0,
+        "unique_id": "bc:33:ac:ff:fe:9b:34:a0-battery",
+        "unit_of_measurement": "%"
+      },
+      {
+        "area_id": "bedroom",
+        "capabilities": {
+          "state_class": "measurement"
+        },
+        "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+        "device_class": "battery",
+        "device_id": "ef6cce96c0aff37b73773be4f1a30e2f",
+        "disabled_by": null,
+        "entity_category": "diagnostic",
+        "entity_id": "sensor.bedroom_button_battery_level",
+        "hidden_by": "user",
+        "icon": null,
+        "id": "050247cbf7d2383147a3285ca68f83a5",
+        "has_entity_name": false,
+        "name": "Bedroom button battery level",
+        "options": {},
+        "original_device_class": "battery",
+        "original_icon": null,
+        "original_name": "Bedroom switch Battery",
+        "platform": "deconz",
+        "supported_features": 0,
+        "unique_id": "84:2e:14:ff:fe:47:9f:72-battery",
+        "unit_of_measurement": "%"
+      },
+      {
+        "area_id": "bike",
+        "capabilities": {
+          "state_class": "measurement"
+        },
+        "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+        "device_class": "battery",
+        "device_id": "9eadf9239ebb9bc268ad74c2eae0602d",
+        "disabled_by": null,
+        "entity_category": "diagnostic",
+        "entity_id": "sensor.bike_button_battery_level",
+        "hidden_by": null,
+        "icon": null,
+        "id": "8c6497f3dd343be339562fb456e9a390",
+        "has_entity_name": false,
+        "name": "Bike button Battery Level",
+        "options": {},
+        "original_device_class": "battery",
+        "original_icon": null,
+        "original_name": "Bike switch Battery",
+        "platform": "deconz",
+        "supported_features": 0,
+        "unique_id": "5c:02:72:ff:fe:5b:70:28-battery",
+        "unit_of_measurement": "%"
+      },
+      {
+        "area_id": null,
+        "capabilities": {
+          "state_class": "measurement"
+        },
+        "config_entry_id": "3af3b94cde23f07cad4bbfd6f1129a44",
+        "device_class": "battery",
+        "device_id": "edc737eaf70410f77edc47501e93b308",
+        "disabled_by": null,
+        "entity_category": "diagnostic",
+        "entity_id": "sensor.desk_north_button_battery_level",
+        "hidden_by": null,
+        "icon": null,
+        "id": "65ae0695b29bd6a31df07cfe795de667",
+        "has_entity_name": false,
+        "name": "Desk north button Battery",
+        "options": {},
+        "original_device_class": "battery",
+        "original_icon": null,
+        "original_name": "TRADFRI on/off switch  Battery",
+        "platform": "deconz",
+        "supported_features": 0,
+        "unique_id": "b4:e3:f9:ff:fe:3a:99:08-battery",
+        "unit_of_measurement": "%"
       }
     ]
   }
