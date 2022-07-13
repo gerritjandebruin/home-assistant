@@ -1,33 +1,34 @@
-# plant:
-#   openplantbook:
-#     client_id: !secret plantbook_client_id
-#     secret: !secret plantbook_secret
+# Creates plant.flower entity
+plant:
+  openplantbook:
+    client_id: !secret plantbook_client_id
+    secret: !secret plantbook_secret
 
-#   flower:
-#     species: yucca elephantipes
-#     image: openplantbook
-#     sensors:
-#       moisture: sensor.flower_moisture
-#       temperature: sensor.flower_temperature
-#       conductivity: sensor.flower_soil_conductivity
-#       brightness: sensor.flower_illuminance
-#     warn_low_brightness: false
+  flower:
+    species: yucca elephantipes
+    image: openplantbook
+    sensors:
+      moisture: sensor.flower_moisture
+      temperature: sensor.flower_temperature
+      conductivity: sensor.flower_soil_conductivity
+      brightness: sensor.flower_illuminance
+    warn_low_brightness: false
 
-# # alert:
-# #   plant:
-# #     name: Plant
-# #     entity_id: plant.flower
-# #     state: problem
-# #     skip_first: true
-# #     repeat:
-# #       - 1
-# #       - 480
-# #     message: "Plant: {{ state_attr('plant.flower', 'problem') }}"
-# #     notifiers:
-# #       - mobile_app_sm_a530f
-# #     data:
-# #       clickAction: lovelace/plant
-# #       channel: plant
-# #       tag: plant
-# #       requireInteraction: true
-# #       url: lovelace/plant
+    # alert:
+#   plant:
+#     name: Plant
+#     entity_id: plant.flower
+#     state: problem
+#     skip_first: true
+#     repeat:
+#       - 1
+#       - 480
+#     message: "Plant: {{ state_attr('plant.flower', 'problem') }}"
+#     notifiers:
+#       - mobile_app_sm_a530f
+#     data:
+#       clickAction: lovelace/plant
+#       channel: plant
+#       tag: plant
+#       requireInteraction: true
+#       url: lovelace/plant

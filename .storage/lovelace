@@ -1287,10 +1287,6 @@
                   "name": "battery"
                 }
               ]
-            },
-            {
-              "type": "custom:flower-card",
-              "entity": "plant.flower"
             }
           ]
         },
