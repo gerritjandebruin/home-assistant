@@ -2730,7 +2730,7 @@
         "manufacturer": "espressif",
         "model": "esp32dev",
         "name": "flowermeter",
-        "sw_version": "2022.6.1 (Jun 19 2022, 13:58:25)",
+        "sw_version": "2022.6.2 (Jul 13 2022, 21:55:17)",
         "hw_version": null,
         "entry_type": null,
         "id": "517e980970bffcbceda20932a7c71ed0",
