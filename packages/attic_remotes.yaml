@@ -37,3 +37,36 @@ automation:
             sequence:
               - service: switch.turn_off
                 entity_id: switch.desk_south_plug
+  - alias: Attic button
+    description: https://www.ikea.com/nl/nl/p/tradfri-draadloze-dimmer-wit-70408595/
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: attic_button
+    action:
+      - choose:
+          - alias: "Up"
+            conditions: "{{ trigger.event.data.event == 1001 }}"
+            sequence:
+              - service: light.turn_on
+                entity_id: light.attic
+                data:
+                  brightness_step_pct: 20
+          - alias: "On"
+            conditions: "{{ trigger.event.data.event == 1002 }}"
+            sequence:
+              - service: light.turn_on
+                entity_id: light.attic
+          - alias: "Up"
+            conditions: "{{ trigger.event.data.event == 2001 }}"
+            sequence:
+              - service: light.turn_on
+                entity_id: light.attic
+                data:
+                  brightness_step_pct: -20
+          - alias: "Off"
+            conditions: "{{ trigger.event.data.event == 2002 }}"
+            sequence:
+              - service: light.turn_off
+                entity_id: light.attic

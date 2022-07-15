@@ -1,0 +1,67 @@
+automation:
+  - alias: Terrace remote
+    description: https://www.beterbed.nl/verlichting/verlichting-philips-hue-dimmer-switch
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: terrace_remote
+    condition: []
+    action:
+      - variables:
+          event: "{{ trigger.event.data.event }}"
+      - choose:
+          - alias: "On"
+            conditions: "{{ event == 1000 }}"
+            sequence:
+              - service: light.turn_on
+                entity_id: light.terrace
+          - alias: "Off"
+            conditions: "{{ event == 4000 }}"
+            sequence:
+              - service: light.turn_off
+                entity_id: light.terrace
+          - alias: Up
+            conditions: "{{ event == 2002 }}"
+            sequence:
+              - service: light.turn_on
+                entity_id: light.terrace
+                data:
+                  brightness_step_pct: 20
+          - alias: Down
+            conditions: "{{ event == 3002 }}"
+            sequence:
+              - service: light.turn_on
+                entity_id: light.terrace
+                data:
+                  brightness_step_pct: -20
+          # - alias: Up hold
+          #   conditions: '{{ event == 2001 }}'
+          # - alias: Down hold
+          #   conditions: '{{ event == 3001 }}'
+          - alias: On hold
+            conditions: "{{ event == 1001 }}"
+            sequence:
+              - service: automation.turn_on
+                entity_id:
+                  - automation.attic_motion
+                  - automation.hall_corridor_light
+              - service: light.turn_on
+                entity_id:
+                  - light.attic
+                  - light.corridor
+                  - light.hall
+          - alias: Off hold
+            conditions: "{{ event == 4001 }}"
+            sequence:
+              - service: automation.turn_off
+                entity_id:
+                  - automation.attic_motion
+                  - automation.hall_corridor_light
+              - service: light.turn_off
+                entity_id:
+                  - light.attic
+                  - light.corridor
+                  - light.hall
+        default: []
+    mode: single
