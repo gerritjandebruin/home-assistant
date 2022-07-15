@@ -1,0 +1,39 @@
+automation:
+  - alias: Desk north button
+    description: https://www.ikea.com/nl/nl/p/tradfri-draadloze-dimmer-wit-70408595/
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: desk_north_button
+    action:
+      - choose:
+          - alias: "On"
+            conditions: "{{ trigger.event.data.event == 1002 }}"
+            sequence:
+              - service: switch.turn_on
+                entity_id: switch.desk_north_plug
+          - alias: "Off"
+            conditions: "{{ trigger.event.data.event == 2002 }}"
+            sequence:
+              - service: switch.turn_off
+                entity_id: switch.desk_north_plug
+  - alias: Desk south button
+    description: https://www.ikea.com/nl/nl/p/tradfri-draadloze-dimmer-wit-70408595/
+    trigger:
+      - platform: event
+        event_type: deconz_event
+        event_data:
+          id: desk_south_button
+    action:
+      - choose:
+          - alias: "On"
+            conditions: "{{ trigger.event.data.event == 1002 }}"
+            sequence:
+              - service: switch.turn_on
+                entity_id: switch.desk_south_plug
+          - alias: "Off"
+            conditions: "{{ trigger.event.data.event == 2002 }}"
+            sequence:
+              - service: switch.turn_off
+                entity_id: switch.desk_south_plug
