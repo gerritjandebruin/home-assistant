@@ -1095,8 +1095,9 @@
                 },
                 {
                   "entity": "automation.light_brightness",
-                  "type": "button",
-                  "name": "Motion trigger",
+                  "state_color": true,
+                  "type": "custom:multiple-entity-row",
+                  "name": "Trigger on motion",
                   "icon": "mdi:motion-sensor",
                   "tap_action": {
                     "action": "call-service",
