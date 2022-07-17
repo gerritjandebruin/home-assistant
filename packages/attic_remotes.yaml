@@ -46,7 +46,7 @@ automation:
           id: attic_button
     action:
       - choose:
-          - alias: "Up"
+          - alias: "On hold"
             conditions: "{{ trigger.event.data.event == 1001 }}"
             sequence:
               - service: light.turn_on
@@ -58,13 +58,14 @@ automation:
             sequence:
               - service: light.turn_on
                 entity_id: light.attic
-          - alias: "Up"
+          - alias: "Off hold"
             conditions: "{{ trigger.event.data.event == 2001 }}"
             sequence:
-              - service: light.turn_on
-                entity_id: light.attic
-                data:
-                  brightness_step_pct: -20
+              - service: switch.turn_off
+                entity_id:
+                  - switch.desk_north_plug
+                  - switch.desk_south_plug
+                  - switch.stereo
           - alias: "Off"
             conditions: "{{ trigger.event.data.event == 2002 }}"
             sequence:
