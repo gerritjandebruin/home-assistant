@@ -271,7 +271,7 @@
                       }
                     },
                     {
-                      "entity": "media_player.samsung_tv_remote",
+                      "entity": "media_player.the_frame",
                       "type": "state-icon",
                       "style": {
                         "left": "42%",
@@ -325,7 +325,7 @@
                       }
                     },
                     {
-                      "entity": "weather.knmi_home",
+                      "entity": "weather.home",
                       "type": "state-icon",
                       "style": {
                         "left": "30%",
