@@ -53,6 +53,11 @@
         "url": "/hacsfiles/lovelace-slider-entity-row/slider-entity-row.js?hacstag=1448997001721",
         "type": "module",
         "id": "7b0eab4812f94755be3e3761e99951f9"
+      },
+      {
+        "url": "/hacsfiles/thermal_comfort_icons/thermal_comfort_icons.js?hacstag=449218690130",
+        "type": "module",
+        "id": "94724d637d0343bfade98f02b019dee1"
       }
     ]
   }
