@@ -3,7 +3,7 @@ sensor:
     name: Bedroom mold
     indoor_temp_sensor: sensor.bedroom_temperature
     indoor_humidity_sensor: sensor.bedroom_humidity
-    outdoor_temp_sensor: sensor.weather_temperature
+    outdoor_temp_sensor: sensor.outside
     calibration_factor: 1.6
 
 alert:
