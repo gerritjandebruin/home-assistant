@@ -911,12 +911,17 @@
                   "toggle": true,
                   "entities": [
                     {
-                      "entity": "sensor.attic_humidity"
+                      "attribute": "hvac_action",
+                      "name": "Action",
+                      "state_color": true
                     },
                     {
-                      "attribute": "hvac_action",
-                      "name": "Current action",
-                      "state_color": true
+                      "entity": "sensor.attic_humidity",
+                      "format": "precision0"
+                    },
+                    {
+                      "entity": "sensor.attic_heatindex",
+                      "format": "precision1"
                     },
                     {
                       "attribute": "current_temperature",
