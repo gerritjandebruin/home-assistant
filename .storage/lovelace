@@ -871,6 +871,32 @@
               "entities": [
                 {
                   "type": "custom:multiple-entity-row",
+                  "entity": "weather.home",
+                  "attribute": "temperature",
+                  "unit": "°C",
+                  "name": "Outside",
+                  "secondary_info": {
+                    "entity": "weather.home",
+                    "name": false
+                  },
+                  "entities": [
+                    {
+                      "attribute": "humidity",
+                      "unit": "%",
+                      "name": "Humidity"
+                    },
+                    {
+                      "attribute": "wind_speed",
+                      "unit": "km/h",
+                      "name": "Wind speed"
+                    }
+                  ]
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "custom:multiple-entity-row",
                   "entity": "alert.abnormal_temperature",
                   "state_color": true,
                   "secondary_info": "last-triggered",
@@ -884,6 +910,9 @@
                   "state_color": true,
                   "toggle": true,
                   "entities": [
+                    {
+                      "entity": "sensor.attic_humidity"
+                    },
                     {
                       "attribute": "hvac_action",
                       "name": "Current action",
@@ -1007,29 +1036,6 @@
                   "icon": "mdi:fire",
                   "min": 0,
                   "max": 25
-                },
-                {
-                  "type": "custom:multiple-entity-row",
-                  "entity": "weather.home",
-                  "attribute": "temperature",
-                  "unit": "°C",
-                  "name": "Outside",
-                  "secondary_info": {
-                    "entity": "weather.home",
-                    "name": false
-                  },
-                  "entities": [
-                    {
-                      "attribute": "humidity",
-                      "unit": "%",
-                      "name": "Humidity"
-                    },
-                    {
-                      "attribute": "wind_speed",
-                      "unit": "km/h",
-                      "name": "Wind speed"
-                    }
-                  ]
                 },
                 {
                   "entity": "sensor.lounge_temperature",
