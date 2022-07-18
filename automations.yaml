@@ -403,7 +403,7 @@
   - platform: event
     event_type: deconz_event
     event_data:
-      id: bike_switch
+      id: bike_button
   condition: []
   action:
   - variables:
