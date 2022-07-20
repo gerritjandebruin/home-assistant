@@ -2,7 +2,7 @@ sensor:
   - platform: mold_indicator
     indoor_temp_sensor: sensor.shed_temperature
     indoor_humidity_sensor: sensor.shed_humidity
-    outdoor_temp_sensor: sensor.outside
+    outdoor_temp_sensor: sensor.weather_temperature
     calibration_factor: 1.0
     name: Shed mold
 
