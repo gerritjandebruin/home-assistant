@@ -751,144 +751,35 @@
               "type": "entities",
               "entities": [
                 {
-                  "type": "custom:fold-entity-row",
-                  "open": true,
-                  "head": {
-                    "type": "section",
-                    "label": "Mold"
-                  },
-                  "entities": [
-                    {
-                      "type": "custom:multiple-entity-row",
-                      "entity": "sensor.attic_mold",
-                      "icon": "mdi:home-floor-2",
-                      "entities": [
-                        {
-                          "entity": "alert.attic_mold",
-                          "state_color": true,
-                          "icon": true,
-                          "hide_if": "idle",
-                          "name": false
-                        }
-                      ]
-                    },
-                    {
-                      "type": "custom:multiple-entity-row",
-                      "entity": "sensor.bathroom_mold",
-                      "icon": "mdi:shower-head",
-                      "entities": [
-                        {
-                          "entity": "alert.bathroom_mold",
-                          "state_color": true,
-                          "icon": true,
-                          "hide_if": "idle",
-                          "name": false
-                        }
-                      ]
-                    },
-                    {
-                      "type": "custom:multiple-entity-row",
-                      "entity": "sensor.bedroom_mold",
-                      "icon": "mdi:bed",
-                      "entities": [
-                        {
-                          "entity": "alert.bedroom_mold",
-                          "state_color": true,
-                          "icon": true,
-                          "hide_if": "idle",
-                          "name": false
-                        }
-                      ]
-                    },
-                    {
-                      "type": "custom:multiple-entity-row",
-                      "entity": "sensor.guestroom_mold",
-                      "icon": "mdi:bed-empty",
-                      "entities": [
-                        {
-                          "entity": "alert.guestroom_mold",
-                          "state_color": true,
-                          "icon": true,
-                          "hide_if": "idle",
-                          "name": false
-                        }
-                      ]
-                    },
-                    {
-                      "type": "custom:multiple-entity-row",
-                      "entity": "sensor.lounge_mold",
-                      "icon": "mdi:seat",
-                      "entities": [
-                        {
-                          "entity": "alert.lounge_mold",
-                          "state_color": true,
-                          "icon": true,
-                          "hide_if": "idle",
-                          "name": false
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "custom:fold-entity-row",
-                  "open": false,
-                  "head": {
-                    "type": "section",
-                    "label": "Humidity"
-                  },
-                  "entities": [
-                    {
-                      "entity": "sensor.attic_humidity",
-                      "name": "Attic"
-                    },
-                    {
-                      "entity": "sensor.bathroom_humidity",
-                      "name": "Bathroom"
-                    },
-                    {
-                      "entity": "sensor.bedroom_humidity",
-                      "name": "Bedroom"
-                    },
-                    {
-                      "entity": "sensor.guestroom_humidity",
-                      "name": "Guestroom"
-                    },
-                    {
-                      "entity": "sensor.lounge_humidity",
-                      "name": "Lounge"
-                    },
-                    {
-                      "entity": "sensor.shed_humidity",
-                      "name": "Shed"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
                   "type": "custom:multiple-entity-row",
                   "entity": "weather.home",
                   "attribute": "temperature",
                   "unit": "°C",
                   "name": "Outside",
+                  "state_header": "Current",
                   "secondary_info": {
                     "entity": "weather.home",
                     "name": false
                   },
+                  "format": "precision0",
                   "entities": [
+                    {
+                      "entity": "sensor.weather_frostrisk",
+                      "name": "Frost"
+                    },
+                    {
+                      "attribute": "wind_speed",
+                      "unit": "km/h",
+                      "name": "Wind"
+                    },
                     {
                       "attribute": "humidity",
                       "unit": "%",
                       "name": "Humidity"
                     },
                     {
-                      "attribute": "wind_speed",
-                      "unit": "km/h",
-                      "name": "Wind speed"
+                      "entity": "sensor.weather_heatindex",
+                      "format": "precision0"
                     }
                   ]
                 },
@@ -921,14 +812,16 @@
                     },
                     {
                       "entity": "sensor.attic_heatindex",
-                      "format": "precision1"
+                      "format": "precision0"
                     },
                     {
                       "attribute": "current_temperature",
                       "name": "Current",
-                      "unit": "°C"
+                      "unit": "°C",
+                      "format": "precision0"
                     }
-                  ]
+                  ],
+                  "format": "precision0"
                 },
                 {
                   "type": "custom:numberbox-card",
@@ -937,7 +830,7 @@
                   "service": "set_temperature",
                   "name": "Target temperature",
                   "border": true,
-                  "step": 0.1,
+                  "step": 1,
                   "param": "temperature",
                   "icon": "mdi:fire",
                   "min": 0,
@@ -953,13 +846,22 @@
                   "entities": [
                     {
                       "attribute": "hvac_action",
-                      "name": "Current action",
+                      "name": "Action",
                       "state_color": true
+                    },
+                    {
+                      "entity": "sensor.bathroom_humidity",
+                      "format": "precision0"
+                    },
+                    {
+                      "entity": "sensor.bathroom_heatindex",
+                      "format": "precision0"
                     },
                     {
                       "attribute": "current_temperature",
                       "name": "Current",
-                      "unit": "°C"
+                      "unit": "°C",
+                      "format": "precision0"
                     }
                   ]
                 },
@@ -970,7 +872,7 @@
                   "service": "set_temperature",
                   "name": "Target temperature",
                   "border": true,
-                  "step": 0.1,
+                  "step": 1,
                   "param": "temperature",
                   "icon": "mdi:fire",
                   "min": 0,
@@ -986,13 +888,22 @@
                   "entities": [
                     {
                       "attribute": "hvac_action",
-                      "name": "Current action",
+                      "name": "Action",
                       "state_color": true
+                    },
+                    {
+                      "entity": "sensor.bedroom_humidity",
+                      "format": "precision0"
+                    },
+                    {
+                      "entity": "sensor.bedroom_heatindex",
+                      "format": "precision0"
                     },
                     {
                       "attribute": "current_temperature",
                       "name": "Current",
-                      "unit": "°C"
+                      "unit": "°C",
+                      "format": "precision0"
                     }
                   ]
                 },
@@ -1003,40 +914,7 @@
                   "service": "set_temperature",
                   "name": "Target temperature",
                   "border": true,
-                  "step": 0.1,
-                  "param": "temperature",
-                  "icon": "mdi:fire",
-                  "min": 0,
-                  "max": 25
-                },
-                {
-                  "type": "custom:multiple-entity-row",
-                  "entity": "climate.guestroom",
-                  "icon": "mdi:bed-empty",
-                  "secondary_info": "last-changed",
-                  "state_color": true,
-                  "toggle": true,
-                  "entities": [
-                    {
-                      "attribute": "hvac_action",
-                      "name": "Current action",
-                      "state_color": true
-                    },
-                    {
-                      "attribute": "current_temperature",
-                      "name": "Current",
-                      "unit": "°C"
-                    }
-                  ]
-                },
-                {
-                  "type": "custom:numberbox-card",
-                  "entity": "climate.guestroom",
-                  "state": "temperature",
-                  "service": "set_temperature",
-                  "name": "Target temperature",
-                  "border": true,
-                  "step": 0.1,
+                  "step": 1,
                   "param": "temperature",
                   "icon": "mdi:fire",
                   "min": 0,
@@ -1044,13 +922,32 @@
                 },
                 {
                   "entity": "sensor.lounge_temperature",
-                  "icon": "mdi:seat"
+                  "icon": "mdi:seat",
+                  "format": "precision0",
+                  "type": "custom:multiple-entity-row",
+                  "state_header": "Current",
+                  "entities": [
+                    {
+                      "entity": "sensor.bedroom_humidity",
+                      "format": "precision0"
+                    },
+                    {
+                      "entity": "sensor.bedroom_heatindex",
+                      "format": "precision0"
+                    }
+                  ]
                 },
                 {
                   "entity": "sensor.shed_temperature",
                   "type": "custom:multiple-entity-row",
                   "icon": "mdi:garage",
+                  "format": "precision0",
+                  "state_header": "Current",
                   "entities": [
+                    {
+                      "entity": "sensor.shed_frostrisk",
+                      "name": "Frost"
+                    },
                     {
                       "entity": "alert.shed_temperature",
                       "state_color": true,
