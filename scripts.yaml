@@ -41,26 +41,36 @@
   mode: single
   icon: mdi:brightness-6
 disable_motion_trigger:
-  alias: Disable motion trigger
+  alias: Toggle motion trigger
   sequence:
-  - if:
-    - condition: state
-      entity_id: automation.light_brightness
-      state: 'on'
-    then:
-    - service: input_number.set_value
-      data:
-        value: 0
-      target:
-        entity_id: input_number.brightness
-    else:
-    - service: automation.trigger
-      data: {}
-      target:
+  - choose:
+    - conditions:
+      - condition: state
         entity_id: automation.light_brightness
-  - service: automation.toggle
-    data: {}
-    target:
-      entity_id: automation.light_brightness
+        state: 'on'
+      sequence:
+      - service: input_number.set_value
+        data:
+          value: 0
+        target:
+          entity_id: input_number.brightness
+      - service: light.turn_off
+        entity_id:
+        - light.attic
+        - light.corridor
+        - light.hall
+      - service: automation.turn_off
+        entity_id: automation.light_brightness
+    - conditions:
+      - condition: state
+        entity_id: automation.light_brightness
+        state: 'off'
+      sequence:
+      - service: automation.trigger
+        data: {}
+        target:
+          entity_id: automation.light_brightness
+      - service: automation.turn_on
+        entity_id: automation.light_brightness
   mode: single
   icon: mdi:motion-sensor-off

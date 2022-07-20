@@ -43,27 +43,23 @@ automation:
             conditions: "{{ event == 1001 }}"
             sequence:
               - service: automation.turn_on
-                entity_id:
-                  - automation.attic_motion
-                  - automation.hall_corridor_light
-                  - automation.kitchen_light
-              - service: light.turn_on
-                entity_id:
-                  - light.attic
-                  - light.corridor
-                  - light.hall
+                entity_id: automation.light_brightness
+              - service: automation.trigger
+                entity_id: automation.light_brightness
           - alias: Off hold
             conditions: "{{ event == 4001 }}"
             sequence:
-              - service: automation.turn_off
-                entity_id:
-                  - automation.attic_motion
-                  - automation.hall_corridor_light
-                  - automation.kitchen_light
+              - service: input_number.set_value
+                data:
+                  value: 0
+                target:
+                  entity_id: input_number.brightness
               - service: light.turn_off
                 entity_id:
                   - light.attic
                   - light.corridor
                   - light.hall
+              - service: automation.turn_off
+                entity_id: automation.light_brightness
         default: []
     mode: single
