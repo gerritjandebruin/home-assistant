@@ -4,6 +4,7 @@ alert:
     entity_id: binary_sensor.overheating
     repeat: 30
     message: Overheating detected
+    state: "On"
     notifiers:
       - mobile_app_sm_a530f
     data:
