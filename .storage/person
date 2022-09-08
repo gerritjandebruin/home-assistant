@@ -1,25 +1,26 @@
 {
-    "version": 2,
-    "minor_version": 1,
-    "key": "person",
-    "data": {
-        "items": [
-            {
-                "name": "Gerrit-Jan",
-                "user_id": "76446e7c5b7c42f5bc1233034aa7e006",
-                "device_trackers": [
-                    "device_tracker.sm_a530f"
-                ],
-                "id": "gerrit_jan",
-                "picture": null
-            },
-            {
-                "name": "Mirjam",
-                "device_trackers": [],
-                "user_id": null,
-                "picture": null,
-                "id": "mirjam"
-            }
-        ]
-    }
+  "version": 2,
+  "minor_version": 1,
+  "key": "person",
+  "data": {
+    "items": [
+      {
+        "name": "Gerrit-Jan",
+        "user_id": "76446e7c5b7c42f5bc1233034aa7e006",
+        "device_trackers": [
+          "device_tracker.sm_a530f",
+          "device_tracker.nokia_7_2"
+        ],
+        "id": "gerrit_jan",
+        "picture": null
+      },
+      {
+        "name": "Mirjam",
+        "device_trackers": [],
+        "user_id": null,
+        "picture": null,
+        "id": "mirjam"
+      }
+    ]
+  }
 }
