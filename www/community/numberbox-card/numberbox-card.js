@@ -1,6 +1,6 @@
 ((LitElement) => {
 
-console.info('NUMBERBOX_CARD 3.12');
+console.info('NUMBERBOX_CARD 3.15');
 const html = LitElement.prototype.html;
 const css = LitElement.prototype.css;
 class NumberBox extends LitElement {
@@ -29,8 +29,8 @@ render() {
 	if(isNaN(parseFloat(this.config.min))){this.config.min=0;}
 	if(this.config.max === undefined){ this.config.max=this.stateObj.attributes.max;}
 	if(isNaN(parseFloat(this.config.max))){this.config.max=9e9;}
+	if('step_entity' in this.config && this.config.step_entity in this._hass.states && !isNaN(parseFloat(this._hass.states[this.config.step_entity].state))) {this.config.step=this._hass.states[this.config.step_entity].state;}
 	if(this.config.step === undefined){ this.config.step=this.stateObj.attributes.step;}
-
 
 	return html`
 	<ha-card class="${(!this.config.border)?'noborder':''}">
@@ -40,6 +40,9 @@ render() {
 				<state-badge
 				.overrideIcon="${this.config.icon}"
 				.stateObj=${this.stateObj}
+				></state-badge>` : this.config.picture ? html`
+				<state-badge
+				.overrideImage="${this.config.picture}"
 				></state-badge>` : null }
 			<div class="info">
 				${this.config.name?this.config.name:''}
@@ -146,10 +149,13 @@ timeNum(x,s,m){
 	return Number(x);
 }
 
-numTime(x,f,t){
+numTime(x,f,t,u){
+	if(t=="timehm"){u=1;f=1;}
 	t = (x>=3600 || f)? Math.floor(x/3600).toString().padStart(2,'0') + ':' : '';
 	t += (Math.floor(x/60)-Math.floor(x/3600)*60).toString().padStart(2,'0');
-	t += ':' + (x%60).toString().padStart(2,'0');
+	if( !u ){
+		t += ':' + (x%60).toString().padStart(2,'0');
+	}
 	return t;
 }
 
@@ -157,7 +163,7 @@ setNumb(c){
 	let v=this.pending;
 	if( v===false ){ v=this.timeNum(this.state); v=isNaN(v)?this.config.min:v;}
 	let adval=c?(v + Number(this.config.step)):(v - Number(this.config.step));
-	adval=Math.round(adval*1000)/1000;
+	adval=Math.round(adval*1e9)/1e9;
 	if( adval <= Number(this.config.max) && adval >= Number(this.config.min)){
 		this.pending=(adval);
 		if(this.config.delay){
@@ -195,8 +201,8 @@ niceNum(){
 	}else{ stp=fix; }
 	fix = v.toFixed(fix);
 	const u=this.config.unit;
-	if( u=="time" ){
-		let t = this.numTime(fix);
+	if( u=="time" || u=="timehm"){
+		let t = this.numTime(fix,0,u);
 		return html`${t}`;
 	}
 	fix = new Intl.NumberFormat(
