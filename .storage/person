@@ -8,7 +8,6 @@
         "name": "Gerrit-Jan",
         "user_id": "76446e7c5b7c42f5bc1233034aa7e006",
         "device_trackers": [
-          "device_tracker.sm_a530f",
           "device_tracker.nokia_7_2"
         ],
         "id": "gerrit_jan",

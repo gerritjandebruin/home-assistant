@@ -22,7 +22,7 @@
                 {
                   "elements": [
                     {
-                      "entity": "switch.lounge",
+                      "entity": "light.lounge",
                       "image": "/local/lounge.jpg",
                       "state_filter": {
                         "off": "brightness(60%)",
@@ -39,7 +39,7 @@
                       }
                     },
                     {
-                      "entity": "switch.bike_light",
+                      "entity": "light.bike",
                       "image": "/local/bike.jpg",
                       "state_filter": {
                         "off": "brightness(60%)",
@@ -75,7 +75,7 @@
                       "type": "image"
                     },
                     {
-                      "entity": "switch.bathroom",
+                      "entity": "light.bathroom",
                       "type": "image",
                       "image": "/local/bathroom.jpg",
                       "state_filter": {
@@ -466,7 +466,7 @@
                   "type": "image"
                 },
                 {
-                  "entity": "switch.toilet",
+                  "entity": "light.toilet",
                   "image": "/local/toilet.jpg",
                   "state_filter": {
                     "off": "brightness(60%)",
@@ -689,7 +689,7 @@
                   }
                 },
                 {
-                  "entity": "vacuum.berry",
+                  "entity": "vacuum.vacuum",
                   "type": "state-icon",
                   "style": {
                     "left": "80%",
@@ -697,7 +697,7 @@
                   }
                 },
                 {
-                  "entity": "sensor.growatt_total_energy_today",
+                  "entity": "sensor.solar_energy_today",
                   "type": "state-icon",
                   "style": {
                     "left": "17%",
@@ -764,7 +764,7 @@
                   "format": "precision0",
                   "entities": [
                     {
-                      "entity": "sensor.weather_frostrisk",
+                      "entity": "sensor.frostrisk",
                       "name": "Frost"
                     },
                     {
@@ -778,7 +778,7 @@
                       "name": "Humidity"
                     },
                     {
-                      "entity": "sensor.weather_heatindex",
+                      "entity": "sensor.heatindex",
                       "format": "precision0"
                     }
                   ]
@@ -966,16 +966,20 @@
               "type": "history-graph",
               "entities": [
                 {
-                  "entity": "sensor.attic_temperature"
+                  "entity": "sensor.attic_temperature",
+                  "name": "Attic"
                 },
                 {
-                  "entity": "sensor.lounge_temperature"
+                  "entity": "sensor.lounge_temperature",
+                  "name": "Lounge"
                 },
                 {
-                  "entity": "sensor.bedroom_temperature"
+                  "entity": "sensor.bedroom_temperature",
+                  "name": "Bedroom"
                 },
                 {
-                  "entity": "sensor.weather_temperature"
+                  "entity": "sensor.temperature",
+                  "name": "Outside"
                 }
               ],
               "hours_to_show": 24,
@@ -998,10 +1002,6 @@
               "type": "entities",
               "entities": [
                 {
-                  "type": "custom:slider-entity-row",
-                  "entity": "input_number.brightness"
-                },
-                {
                   "entity": "automation.light_brightness",
                   "state_color": true,
                   "type": "custom:multiple-entity-row",
@@ -1019,20 +1019,48 @@
                 {
                   "type": "buttons",
                   "entities": [
-                    "light.shed",
-                    "switch.bike_light",
-                    "switch.bike_socket"
+                    {
+                      "entity": "light.shed",
+                      "name": "Shed"
+                    },
+                    {
+                      "entity": "light.bike",
+                      "name": "Bike",
+                      "icon": "mdi:led-strip-variant"
+                    },
+                    {
+                      "entity": "switch.bike_socket",
+                      "name": "Bike"
+                    }
                   ]
                 },
                 {
                   "type": "buttons",
                   "entities": [
-                    "media_player.the_frame",
-                    "switch.lounge",
-                    "light.bathroom",
-                    "light.kitchen",
-                    "light.pantry",
-                    "light.hall"
+                    {
+                      "entity": "media_player.the_frame",
+                      "name": "TV"
+                    },
+                    {
+                      "entity": "light.lounge",
+                      "name": "Lounge"
+                    },
+                    {
+                      "entity": "light.bathroom",
+                      "name": "Bathroom"
+                    },
+                    {
+                      "entity": "light.kitchen",
+                      "name": "Kitchen"
+                    },
+                    {
+                      "entity": "light.pantry",
+                      "name": "Pantry"
+                    },
+                    {
+                      "entity": "light.hall",
+                      "name": "Hall"
+                    }
                   ]
                 },
                 {
@@ -1044,23 +1072,23 @@
                   "entities": [
                     {
                       "entity": "light.bedroom_1",
-                      "show_name": true
+                      "name": 1
                     },
                     {
                       "entity": "light.bedroom_2",
-                      "show_name": true
+                      "name": 2
                     },
                     {
                       "entity": "light.bedroom_3",
-                      "show_name": true
+                      "name": 3
                     },
                     {
                       "entity": "light.bedroom_4",
-                      "show_name": true
+                      "name": 4
                     },
                     {
                       "entity": "light.bedroom_5",
-                      "show_name": true
+                      "name": 5
                     }
                   ]
                 },
@@ -1104,14 +1132,14 @@
                       "entity": "light.attic"
                     },
                     {
-                      "entity": "switch.desk_south_plug",
+                      "entity": "switch.desk_south",
                       "name": "South"
                     },
                     {
                       "entity": "switch.stereo"
                     },
                     {
-                      "entity": "switch.desk_north_plug",
+                      "entity": "switch.desk_north",
                       "name": "North"
                     }
                   ]
@@ -1122,20 +1150,20 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "sensor.berry_cleaning_area"
+                  "entity": "sensor.vacuum_cleaning_area"
                 },
                 {
-                  "entity": "sensor.berry_cleaning_time"
+                  "entity": "sensor.vacuum_cleaning_time"
                 },
                 {
-                  "entity": "select.berry_mode"
+                  "entity": "select.vacuum_mode"
                 },
                 {
-                  "entity": "vacuum.berry",
+                  "entity": "vacuum.vacuum",
                   "name": "state"
                 },
                 {
-                  "entity": "vacuum.berry",
+                  "entity": "vacuum.vacuum",
                   "type": "custom:multiple-entity-row",
                   "attribute": "battery_level",
                   "icon": "mdi:battery",
@@ -1168,9 +1196,10 @@
               "entities": [
                 {
                   "type": "custom:multiple-entity-row",
-                  "entity": "sensor.energy_meter_channel_1_power",
+                  "entity": "sensor.power",
                   "secondary_info": "last-updated",
                   "name": "Power from grid",
+                  "icon": "mdi:transmission-tower",
                   "entities": [
                     {
                       "entity": "alert.overcurrent",
@@ -1181,7 +1210,7 @@
                   ]
                 },
                 {
-                  "entity": "sensor.growatt_total_output_power",
+                  "entity": "sensor.solar_power",
                   "name": "Current production",
                   "secondary_info": "last-updated"
                 },
@@ -1189,13 +1218,16 @@
                   "type": "divider"
                 },
                 {
-                  "entity": "sensor.server_plug_power"
+                  "entity": "sensor.server_power",
+                  "icon": "mdi:server"
                 },
                 {
-                  "entity": "sensor.desk_north_plug_power"
+                  "entity": "sensor.desk_north_power",
+                  "icon": "mdi:laptop"
                 },
                 {
-                  "entity": "sensor.fridge_kitchen_plug_power"
+                  "entity": "sensor.fridge_kitchen_power",
+                  "icon": "mdi:fridge"
                 }
               ]
             },
@@ -1285,9 +1317,9 @@
               "days_to_show": 30,
               "type": "statistics-graph",
               "entities": [
-                "sensor.desk_north_plug_power",
-                "sensor.server_plug_power",
-                "sensor.fridge_kitchen_plug_power"
+                "sensor.desk_north_power",
+                "sensor.server_power",
+                "sensor.fridge_kitchen_power"
               ],
               "stat_types": [
                 "mean"
@@ -1339,45 +1371,14 @@
                     "state": "problem"
                   },
                   {
-                    "entity_id": "binary_sensor.*_overheating",
-                    "state": "on"
-                  },
-                  {
-                    "entity_id": "binary_sensor.*_overpowering",
-                    "state": "on"
-                  },
-                  {
-                    "entity_id": "binary_sensor.*_below_remaining_life",
-                    "state": "on"
-                  },
-                  {
-                    "entity_id": "binary_sensor.*_exceeded_max_bad_sectors",
-                    "state": "on"
-                  },
-                  {
-                    "entity_id": "binary_sensor.*_security_status",
-                    "state": "on"
-                  },
-                  {
-                    "entity_id": "binary_sensor.*_update_available",
-                    "state": "on"
-                  },
-                  {
                     "entity_id": "binary_sensor.*_firmware_update",
                     "state": "on"
                   },
                   {
-                    "entity_id": "binary_sensor.updater",
-                    "state": "on"
-                  },
-                  {
-                    "entity_id": "sensor.synology_*_status"
-                  },
-                  {
-                    "entity_id": "sensor.augustinuserf_*_status"
-                  },
-                  {
-                    "entity_id": "sensor.experiabox_v10_wan_status"
+                    "entity_id": "sensor.experiabox_v10_wan_status",
+                    "not": {
+                      "state": "Connected"
+                    }
                   },
                   {
                     "entity_id": "sensor.disk_free_home",
@@ -1412,6 +1413,33 @@
                     "attributes": {
                       "battery_level": "<10"
                     }
+                  },
+                  {
+                    "entity_id": "binary_sensor.*",
+                    "state": "on",
+                    "attributes": {
+                      "device_class": "safety"
+                    }
+                  },
+                  {
+                    "entity_id": "binary_sensor.*",
+                    "state": "on",
+                    "attributes": {
+                      "device_class": "problem"
+                    }
+                  },
+                  {
+                    "entity_id": "binary_sensor.*",
+                    "state": "on",
+                    "attributes": {
+                      "device_class": "moisture"
+                    }
+                  },
+                  {
+                    "entity_id": "sensor.*_health",
+                    "not": {
+                      "state": "good"
+                    }
                   }
                 ],
                 "exclude": [
@@ -1425,12 +1453,6 @@
                   {
                     "entity_id": "sensor.growatt_ac_frequency",
                     "state": "=0.0"
-                  },
-                  {
-                    "state": "normal"
-                  },
-                  {
-                    "state": "Connected"
                   }
                 ]
               },
@@ -1442,7 +1464,7 @@
               "type": "history-graph",
               "entities": [
                 {
-                  "entity": "switch.bathroom",
+                  "entity": "light.bathroom",
                   "name": "Bathroom"
                 },
                 {
@@ -1490,7 +1512,7 @@
                   "name": "2 walk in closet"
                 },
                 {
-                  "entity": "switch.toilet",
+                  "entity": "light.toilet",
                   "name": "Toilet"
                 },
                 {
@@ -1502,7 +1524,13 @@
                   "name": "Attic"
                 },
                 {
-                  "entity": "switch.bike_light"
+                  "entity": "switch.desk_north"
+                },
+                {
+                  "entity": "switch.stereo"
+                },
+                {
+                  "entity": "light.bike"
                 },
                 {
                   "entity": "switch.bike_socket"
@@ -1511,6 +1539,32 @@
               "hours_to_show": 24,
               "refresh_interval": 0,
               "title": "Lights"
+            },
+            {
+              "type": "custom:auto-entities",
+              "card": {
+                "type": "entities",
+                "title": "Battery below 10%"
+              },
+              "sort": {
+                "method": "state",
+                "numeric": true
+              },
+              "filter": {
+                "include": [
+                  {
+                    "entity_id": "sensor.*battery",
+                    "options": {
+                      "type": "custom:battery-entity-row"
+                    }
+                  }
+                ],
+                "exclude": [
+                  {
+                    "state": ">=10"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -1532,7 +1586,7 @@
                   "days_to_show": 365,
                   "type": "statistics-graph",
                   "entities": [
-                    "sensor.flower_moisture"
+                    "sensor.flower_soil_moisture"
                   ],
                   "stat_types": [
                     "mean"
@@ -1569,7 +1623,7 @@
                   "days_to_show": 365,
                   "type": "statistics-graph",
                   "entities": [
-                    "sensor.flower_soil_conductivity"
+                    "sensor.flower_conductivity"
                   ],
                   "stat_types": [
                     "mean"
@@ -1704,7 +1758,7 @@
                   "days_to_show": 365,
                   "type": "statistics-graph",
                   "entities": [
-                    "sensor.memory_use_percent"
+                    "sensor.memory_use"
                   ],
                   "stat_types": [
                     "mean"
@@ -1719,7 +1773,7 @@
                   "entity": "sensor.processor_use"
                 },
                 {
-                  "entity": "sensor.memory_use_percent"
+                  "entity": "sensor.memory_use"
                 },
                 {
                   "entity": "sensor.disk_free_home"
@@ -1728,48 +1782,6 @@
               "refresh_interval": 0,
               "hours_to_show": 8,
               "title": "Last 8 hours"
-            }
-          ]
-        },
-        {
-          "icon": "mdi:battery-low",
-          "path": "battery",
-          "title": "Battery",
-          "visible": [
-            {
-              "user": "76446e7c5b7c42f5bc1233034aa7e006"
-            },
-            {
-              "user": "f3d68035204c4d4bb09d34d7b2b5e8f9"
-            }
-          ],
-          "badges": [],
-          "cards": [
-            {
-              "type": "custom:auto-entities",
-              "card": {
-                "type": "entities",
-                "title": "Battery below 10%"
-              },
-              "sort": {
-                "method": "state",
-                "numeric": true
-              },
-              "filter": {
-                "include": [
-                  {
-                    "entity_id": "sensor.*battery_level",
-                    "options": {
-                      "type": "custom:battery-entity-row"
-                    }
-                  }
-                ],
-                "exclude": [
-                  {
-                    "state": ">=10"
-                  }
-                ]
-              }
             }
           ]
         }
