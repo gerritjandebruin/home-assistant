@@ -1,14 +1,14 @@
 {
-    "version": 1,
-    "minor_version": 1,
-    "key": "input_boolean",
-    "data": {
-        "items": [
-            {
-                "name": "Shower",
-                "icon": "mdi:shower-head",
-                "id": "shower"
-            }
-        ]
-    }
+  "version": 1,
+  "minor_version": 1,
+  "key": "input_boolean",
+  "data": {
+    "items": [
+      {
+        "name": "Shower",
+        "icon": "mdi:shower-head",
+        "id": "shower"
+      }
+    ]
+  }
 }

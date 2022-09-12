@@ -4,10 +4,10 @@ alert:
     entity_id: binary_sensor.overcurrent_alert
     repeat: 5
     message: >
-      High total current measured {{ states('sensor.energy_meter_channel_1_power') | float }}
+      High total current measured {{ states('sensor.power') | float }}
     done_message: >
       Current dropped again and is currently 
-      {{ states('sensor.energy_meter_channel_1_power') | float(-1) }}
+      {{ states('sensor.power') | float(-1) }}
     notifiers:
       - mobile_app_sm_a530f
     data:

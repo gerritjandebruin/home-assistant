@@ -1,20 +1,20 @@
 # Creates plant.flower entity
-plant:
-  openplantbook:
-    client_id: !secret plantbook_client_id
-    secret: !secret plantbook_secret
+# plant:
+#   openplantbook:
+#     client_id: !secret plantbook_client_id
+#     secret: !secret plantbook_secret
 
-  flower:
-    species: yucca elephantipes
-    image: openplantbook
-    sensors:
-      moisture: sensor.flower_moisture
-      temperature: sensor.flower_temperature
-      conductivity: sensor.flower_soil_conductivity
-      brightness: sensor.flower_illuminance
-    warn_low_brightness: false
+#   flower:
+#     species: yucca elephantipes
+#     image: openplantbook
+#     sensors:
+#       moisture: sensor.flower_moisture
+#       temperature: sensor.flower_temperature
+#       conductivity: sensor.flower_soil_conductivity
+#       brightness: sensor.flower_illuminance
+#     warn_low_brightness: false
 
-    # alert:
+# alert:
 #   plant:
 #     name: Plant
 #     entity_id: plant.flower

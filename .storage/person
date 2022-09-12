@@ -15,7 +15,9 @@
       },
       {
         "name": "Mirjam",
-        "device_trackers": [],
+        "device_trackers": [
+          "device_tracker.sm_a530f"
+        ],
         "user_id": null,
         "picture": null,
         "id": "mirjam"

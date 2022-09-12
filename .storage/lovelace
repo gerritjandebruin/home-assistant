@@ -254,7 +254,7 @@
                       }
                     },
                     {
-                      "entity": "alert.lounge_mold",
+                      "entity": "binary_sensor.lounge_mold",
                       "type": "state-icon",
                       "style": {
                         "left": "42%",
@@ -375,6 +375,14 @@
                         "top": "13%",
                         "color": "black"
                       }
+                    },
+                    {
+                      "entity": "sensor.hall_illuminance",
+                      "type": "state-label",
+                      "style": {
+                        "left": "31%",
+                        "top": "56%"
+                      }
                     }
                   ],
                   "image": "local/floor-0.jpg",
@@ -444,7 +452,7 @@
                   "type": "image"
                 },
                 {
-                  "entity": "light.bedroom_1",
+                  "entity": "light.bedroom",
                   "image": "/local/bedroom.jpg",
                   "state_filter": {
                     "off": "brightness(60%)",
@@ -459,8 +467,8 @@
                   "tap_action": {
                     "action": "call-service",
                     "service": "light.toggle",
-                    "service_data": {
-                      "area_id": "bedroom"
+                    "target": {
+                      "entity_id": "light.bedroom"
                     }
                   },
                   "type": "image"
@@ -651,36 +659,6 @@
             {
               "elements": [
                 {
-                  "entity": "light.attic",
-                  "image": "/local/floor-2.jpg",
-                  "state_filter": {
-                    "off": "brightness(60%)",
-                    "on": "brightness(100%)",
-                    "unavailable": "brightness(60%)"
-                  },
-                  "style": {
-                    "left": "50%",
-                    "top": "50%",
-                    "width": "100%",
-                    "height": "100%"
-                  },
-                  "tap_action": {
-                    "action": "toggle"
-                  },
-                  "type": "image"
-                },
-                {
-                  "entity": "automation.attic_motion",
-                  "type": "state-icon",
-                  "style": {
-                    "left": "40%",
-                    "top": "30%"
-                  },
-                  "tap_action": {
-                    "action": "toggle"
-                  }
-                },
-                {
                   "entity": "sensor.printer",
                   "type": "state-icon",
                   "style": {
@@ -728,6 +706,30 @@
                     "left": "27%",
                     "top": "74%",
                     "color": "black"
+                  }
+                },
+                {
+                  "entity": "switch.desk_south",
+                  "type": "state-icon",
+                  "style": {
+                    "left": "80%",
+                    "top": "40%"
+                  }
+                },
+                {
+                  "entity": "switch.desk_north",
+                  "type": "state-icon",
+                  "style": {
+                    "left": "80%",
+                    "top": "70%"
+                  }
+                },
+                {
+                  "entity": "switch.stereo",
+                  "type": "state-icon",
+                  "style": {
+                    "left": "80%",
+                    "top": "55%"
                   }
                 }
               ],
@@ -815,7 +817,7 @@
                       "format": "precision0"
                     },
                     {
-                      "attribute": "current_temperature",
+                      "entity": "sensor.attic_temperature",
                       "name": "Current",
                       "unit": "°C",
                       "format": "precision0"
@@ -1002,17 +1004,6 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "automation.light_brightness",
-                  "state_color": true,
-                  "type": "custom:multiple-entity-row",
-                  "name": "Trigger on motion",
-                  "icon": "mdi:motion-sensor",
-                  "tap_action": {
-                    "action": "call-service",
-                    "service": "script.disable_motion_trigger"
-                  }
-                },
-                {
                   "type": "section",
                   "label": "First floor"
                 },
@@ -1129,9 +1120,6 @@
                   "type": "buttons",
                   "entities": [
                     {
-                      "entity": "light.attic"
-                    },
-                    {
                       "entity": "switch.desk_south",
                       "name": "South"
                     },
@@ -1235,66 +1223,6 @@
               "type": "custom:sun-card"
             },
             {
-              "type": "vertical-stack",
-              "title": "Power",
-              "cards": [
-                {
-                  "chart_type": "line",
-                  "period": "day",
-                  "days_to_show": 30,
-                  "type": "statistics-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.desk_north_plug_power",
-                      "name": "Desk"
-                    }
-                  ],
-                  "stat_types": [
-                    "mean",
-                    "min",
-                    "max",
-                    "sum"
-                  ]
-                },
-                {
-                  "chart_type": "line",
-                  "period": "day",
-                  "days_to_show": 30,
-                  "type": "statistics-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.server_plug_power",
-                      "name": "Server"
-                    }
-                  ],
-                  "stat_types": [
-                    "mean",
-                    "min",
-                    "max",
-                    "sum"
-                  ]
-                },
-                {
-                  "chart_type": "line",
-                  "period": "day",
-                  "days_to_show": 30,
-                  "type": "statistics-graph",
-                  "entities": [
-                    {
-                      "entity": "sensor.fridge_kitchen_plug_power",
-                      "name": "Fridge"
-                    }
-                  ],
-                  "stat_types": [
-                    "mean",
-                    "min",
-                    "max",
-                    "sum"
-                  ]
-                }
-              ]
-            },
-            {
               "type": "history-graph",
               "entities": [
                 {
@@ -1310,20 +1238,6 @@
               ],
               "hours_to_show": 24,
               "refresh_interval": 0
-            },
-            {
-              "chart_type": "line",
-              "period": "day",
-              "days_to_show": 30,
-              "type": "statistics-graph",
-              "entities": [
-                "sensor.desk_north_power",
-                "sensor.server_power",
-                "sensor.fridge_kitchen_power"
-              ],
-              "stat_types": [
-                "mean"
-              ]
             }
           ]
         },
@@ -1453,6 +1367,12 @@
                   {
                     "entity_id": "sensor.growatt_ac_frequency",
                     "state": "=0.0"
+                  },
+                  {
+                    "entity_id": "sensor.solar_1_voltage"
+                  },
+                  {
+                    "entity_id": "sensor.solar_2_voltage"
                   }
                 ]
               },
@@ -1463,6 +1383,15 @@
             {
               "type": "history-graph",
               "entities": [
+                {
+                  "entity": "light.bike"
+                },
+                {
+                  "entity": "switch.bike_socket"
+                },
+                {
+                  "entity": "input_boolean.shower"
+                },
                 {
                   "entity": "light.bathroom",
                   "name": "Bathroom"
@@ -1520,25 +1449,44 @@
                   "name": "Corridor"
                 },
                 {
-                  "entity": "light.attic",
-                  "name": "Attic"
-                },
-                {
                   "entity": "switch.desk_north"
                 },
                 {
                   "entity": "switch.stereo"
                 },
                 {
-                  "entity": "light.bike"
+                  "entity": "switch.desk_south"
                 },
                 {
-                  "entity": "switch.bike_socket"
+                  "entity": "media_player.the_frame"
+                },
+                {
+                  "entity": "vacuum.vacuum"
+                },
+                {
+                  "entity": "sensor.nokia_7_2_battery_state"
+                },
+                {
+                  "entity": "sensor.sm_a530f_battery_state"
+                },
+                {
+                  "entity": "binary_sensor.dark"
+                },
+                {
+                  "entity": "person.gerrit_jan"
+                },
+                {
+                  "entity": "person.mirjam"
+                },
+                {
+                  "entity": "sun.sun"
+                },
+                {
+                  "entity": "weather.home"
                 }
               ],
               "hours_to_show": 24,
-              "refresh_interval": 0,
-              "title": "Lights"
+              "refresh_interval": 0
             },
             {
               "type": "custom:auto-entities",
@@ -1655,9 +1603,6 @@
                 },
                 {
                   "entity": "sensor.printer_color"
-                },
-                {
-                  "entity": "sensor.printer_uptime"
                 }
               ],
               "state_color": true,

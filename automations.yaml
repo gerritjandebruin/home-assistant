@@ -11,66 +11,36 @@
     - binary_sensor.corridor_motion
     - binary_sensor.front_door
     to: 'on'
-  - platform: state
-    entity_id:
-    - binary_sensor.hall_motion
-    - binary_sensor.corridor_motion
-    for: 00:10:00
-    to: 'off'
-  - platform: state
-    entity_id: binary_sensor.front_door
-    for: 00:01:00
-    to: 'off'
-  condition: []
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dark
+    state: 'on'
   action:
-  - choose:
-    - alias: No movement
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.hall_motion
-        state:
-        - 'off'
-        - unavailable
-        for: 00:10:00
-      - condition: state
-        entity_id: binary_sensor.corridor_motion
-        state:
-        - 'off'
-        - unavailable
-      - condition: state
-        entity_id: binary_sensor.front_door
-        state:
-        - 'off'
-        - unavailable
-        for: 00:01:00
-      sequence:
-      - service: light.turn_off
-        entity_id:
-        - light.hall
-        - light.corridor
-    - alias: Maximum brightness
-      conditions:
-      - condition: numeric_state
-        entity_id: input_number.brightness
-        above: '0'
-      sequence:
-      - service: light.turn_on
-        target:
-          entity_id:
-          - light.hall
-        data:
-          brightness_pct: '{{ states(''input_number.brightness'') | float }}'
-          color_temp: "{% if is_state('binary_sensor.knmi_home_waarschuwing', 'on')
-            %}\n  153\n{% elif states('input_number.brightness') | int > 50 %}\n  360\n{%
-            else %}\n  454\n{% endif %}"
-      - service: light.turn_on
-        target:
-          entity_id:
-          - light.corridor
-        data:
-          brightness_pct: '{{ states(''input_number.brightness'') | float }}'
-          color_temp: '{{ 360 if states("input_number.brightness") | int > 50 else
-            454 }}'
+  - service: light.turn_on
+    data:
+      brightness_pct: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 1
+        {% else %} 100 {% endif %}'
+      color_temp: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 454 {%
+        else %} 366 {% endif %}'
+    target:
+      entity_id:
+      - light.corridor
+      - light.hall
+  - wait_template: '  {{ (states(''binary_sensor.hall_motion'') == ''off'') and (states(''binary_sensor.corridor_motion'')
+      == ''off'') }}'
+    continue_on_timeout: true
+    timeout: 01:00:00
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    target:
+      entity_id:
+      - light.corridor
+      - light.hall
+    data: {}
   mode: queued
   max: 5
 - id: '1603831020194'
@@ -80,84 +50,41 @@
     is adapted to the desired level.
   trigger:
   - platform: state
-    entity_id: binary_sensor.kitchen_motion
+    entity_id:
+    - binary_sensor.kitchen_motion
     to: 'on'
-  - platform: state
-    entity_id: binary_sensor.kitchen_motion
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 2
-      seconds: 0
-  condition: []
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dark
+    state: 'on'
   action:
-  - if:
-    - condition: numeric_state
-      entity_id: input_number.brightness
-      above: '0'
-    - condition: state
-      entity_id: binary_sensor.kitchen_motion
-      state: 'on'
-    then:
-    - service: light.turn_on
-      target:
-        entity_id: light.kitchen
-      data:
-        brightness_pct: '{{ states(''input_number.brightness'') | float }}'
-    else:
-    - service: light.turn_off
+  - service: light.turn_on
+    data:
+      brightness_pct: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 1
+        {% else %} 100 {% endif %}'
+      color_temp: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 454 {%
+        else %} 366 {% endif %}'
+    target:
+      entity_id: light.kitchen
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.kitchen_motion
+      to: 'off'
+      for:
+        hours: 0
+        minutes: 2
+        seconds: 0
+    timeout:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
       entity_id: light.kitchen
   mode: single
-- id: '1605426186449'
-  alias: Attic motion
-  description: Put the light in the attic on when there is movement in the hallway
-    at ground level or first floor. Do so only if there is insufficient light.
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.hall_motion
-    - binary_sensor.corridor_motion
-  - platform: state
-    entity_id: binary_sensor.hall_motion
-    to: 'off'
-    for: 00:10:00
-  - platform: time_pattern
-    minutes: '0'
-  condition: []
-  action:
-  - choose:
-    - alias: No movement
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.hall_motion
-        state:
-        - 'off'
-        - unavailable
-        for: 00:10:00
-      - condition: state
-        entity_id: binary_sensor.corridor_motion
-        state:
-        - 'off'
-        - unavailable
-      sequence:
-      - service: light.turn_off
-        entity_id: light.attic
-    - alias: On if dark
-      conditions:
-      - condition: numeric_state
-        entity_id: input_number.brightness
-        above: '0'
-      sequence:
-      - service: light.turn_on
-        target:
-          entity_id: light.attic
-        data:
-          brightness: 100
-    default:
-    - service: light.turn_off
-      entity_id: light.attic
-  mode: queued
-  max: 5
 - id: '1608134139962'
   alias: Shed light
   description: Put the light in the shed on when the door is opened and it is dark.
@@ -165,48 +92,38 @@
     closed, the user is reminded of this automation by a brief flash.
   trigger:
   - platform: state
-    entity_id: binary_sensor.shed_door
-  - platform: state
-    entity_id: binary_sensor.shed_door
-    for: 00:02:00
-    to: 'off'
-  condition: []
+    entity_id:
+    - binary_sensor.shed_door
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dark
+    state: 'on'
   action:
-  - choose:
-    - alias: Dark and door opened
-      conditions:
-      - condition: numeric_state
-        entity_id: sensor.hall_illuminance
-        below: '20'
-      - condition: state
-        entity_id: binary_sensor.shed_door
-        state: 'on'
-      sequence:
-      - service: light.turn_on
-        data: {}
-        entity_id: light.shed
-    - alias: Door closed for two minutes
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.shed_door
-        state: 'off'
-        for: 00:02:00
-      sequence:
-      - service: light.turn_off
-        data: {}
-        entity_id: light.shed
-    - alias: Door closed
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.shed_door
-        state: 'off'
-      sequence:
-      - service: light.turn_on
-        entity_id: light.shed
-        data:
-          flash: short
-    default: []
-  mode: single
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.shed
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.shed_door
+      to: 'off'
+    timeout:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.shed
+  mode: restart
 - id: '1609974870568'
   alias: Doorbell
   description: Flash lights and notify when the doorbell is detected by the RTL_433
@@ -252,119 +169,51 @@
   description: Switch the toilet light when the door is opened.
   trigger:
   - platform: state
-    entity_id: binary_sensor.toilet_door
-  - platform: state
-    entity_id: binary_sensor.toilet_door
-    for: 00:05:00
-  - platform: time_pattern
-    minutes: '0'
+    entity_id:
+    - binary_sensor.toilet_door
+    to: 'on'
   condition: []
   action:
-  - choose:
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.toilet_door
-        state: 'off'
-        for: 00:05:00
-      sequence:
-      - service: switch.turn_off
-        entity_id: switch.toilet
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.toilet_door
-        state: 'on'
-        for: 00:05:00
-      sequence:
-      - service: switch.turn_off
-        entity_id: switch.toilet
-    - conditions:
-      - condition: state
-        entity_id: binary_sensor.toilet_door
-        state: 'on'
-      sequence:
-      - service: switch.turn_on
-        data: {}
-        entity_id: switch.toilet
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.toilet
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.toilet_door
+      to: 'on'
+    timeout:
+      hours: 0
+      minutes: 15
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
   mode: single
 - id: '1612988850571'
   alias: Pantry light
   description: Switch the light in the pantry when the door is opened or closed.
   trigger:
   - platform: state
-    entity_id: binary_sensor.pantry_door
-  - platform: state
-    entity_id: binary_sensor.pantry_door
-    for: 00:10:00
-    to: 'on'
+    entity_id:
+    - binary_sensor.pantry_door
   condition: []
   action:
-  - choose:
-    - conditions:
-      - condition: or
-        conditions:
-        - condition: state
-          entity_id: binary_sensor.pantry_door
-          for: 00:10:00
-          state: 'on'
-        - condition: state
-          entity_id: binary_sensor.pantry_door
-          state: 'off'
-      sequence:
-      - service: light.turn_off
-        entity_id: light.pantry
-    default:
-    - service: light.turn_on
-      entity_id: light.pantry
-  mode: single
-- id: '1613577759701'
-  alias: Light brightness
-  description: ''
-  trigger:
-  - platform: time_pattern
-    minutes: /5
-  condition: []
-  action:
-  - choose:
-    - alias: Min
-      conditions:
-      - condition: time
-        after: 01:00:00
-        before: 05:00:00
-      sequence:
-      - service: input_number.set_value
-        data:
-          value: 1
-        target:
-          entity_id: input_number.brightness
-    - alias: Half
-      conditions:
-      - condition: numeric_state
-        entity_id: sun.sun
-        attribute: elevation
-        below: '-6'
-      sequence:
-      - service: input_number.set_value
-        data:
-          value: 50
-        target:
-          entity_id: input_number.brightness
-    - alias: Max
-      conditions:
-      - condition: numeric_state
-        entity_id: sensor.hall_illuminance
-        below: '20'
-      sequence:
-      - service: input_number.set_value
-        data:
-          value: 100
-        target:
-          entity_id: input_number.brightness
-    default:
-    - service: input_number.set_value
-      data:
-        value: 0
-      target:
-        entity_id: input_number.brightness
+  - service: light.turn_on
+    entity_id: light.pantry
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.pantry_door
+      to: 'off'
+    timeout:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    entity_id: light.pantry
   mode: single
 - id: '1614112596198'
   alias: Bike motion
@@ -374,114 +223,29 @@
   - platform: state
     entity_id: binary_sensor.bike_motion
     to: 'on'
-  - platform: state
-    entity_id: binary_sensor.bike_motion
-    to: 'off'
-    for: 00:01:00
-  condition: []
-  action:
-  - if:
-    - condition: numeric_state
-      entity_id: sensor.hall_illuminance
-      below: '10'
-    - condition: state
-      entity_id: binary_sensor.bike_motion
-      state: 'on'
-    then:
-    - service: switch.turn_on
-      entity_id: switch.bike_light
-    else:
-    - service: switch.turn_off
-      entity_id: switch.bike_light
-  mode: single
-- id: '1614152225581'
-  alias: Bike button
-  description: When the on button is pressed, put the lights on and disable the motion
-    sensor. When the off button is pressed, put the lights off and enable the motion
-    sensor after 60 seconds.
-  trigger:
-  - platform: event
-    event_type: deconz_event
-    event_data:
-      id: bike_button
-  condition: []
-  action:
-  - variables:
-      event: '{{ trigger.event.data.event }}'
-  - choose:
-    - alias: 'On'
-      conditions:
-      - condition: template
-        value_template: '{{ event == 1002 }}'
-      sequence:
-      - service: switch.turn_on
-        entity_id: switch.bike_light
-      - service: automation.turn_off
-        entity_id: automation.bike_motion
-    - alias: On hold
-      conditions:
-      - condition: template
-        value_template: '{{ event == 1001 }}'
-      sequence:
-      - service: switch.turn_on
-        target:
-          entity_id: switch.lounge
-        data: {}
-      - service: light.turn_on
-        target:
-          entity_id:
-          - light.hall
-          - light.kitchen
-        data: {}
-    - alias: 'Off'
-      conditions:
-      - condition: template
-        value_template: '{{ event == 2002 }}'
-      sequence:
-      - service: switch.turn_off
-        entity_id: switch.bike_light
-      - delay:
-          minutes: 1
-      - service: automation.turn_on
-        entity_id: automation.bike_motion
-    - alias: Off hold
-      conditions:
-      - condition: template
-        value_template: '{{ event == 2001 }}'
-      sequence:
-      - service: homeassistant.turn_off
-        data: {}
-        target:
-          device_id:
-          - 60bfe7a8e3f01ab889642012e4ea1141
-          - 7b748ddf488252dc1ed824f226b39955
-          - b0ddce550f02cbf0799d40d240ab435c
-          area_id:
-          - bike
-          - corridor
-          - guestroom
-          - hall
-          - lounge
-          - pantry
-          - shed
-          - terrace
-          - toilet
-          - walk_in_closet
-  mode: restart
-- id: '1651331761967'
-  alias: Bilge alarm
-  description: ''
-  trigger:
-  - platform: event
-    event_type: alarm
-    event_data:
-      type: bilge
-  condition: []
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dark
+    state: 'on'
   action:
   - service: light.turn_on
     data: {}
     target:
-      entity_id: light.attic
+      entity_id: light.bike
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.bike_motion
+      to: 'off'
+    timeout:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.bike
   mode: single
 - id: '1651757124594'
   alias: Vacuum alert
@@ -489,28 +253,57 @@
   trigger:
   - platform: state
     entity_id:
-    - select.berry_mode
+    - select.vacuum_mode
     from: Smart
     to: Return to dock
   condition: []
   action:
-  - device_id: b26acac4f6332ba83f2aadae7bae622e
+  - device_id: 15eeb66f75f26da52ed7cc142ef96e1f
     domain: mobile_app
     type: notify
-    message: Vacuum cleaner completed single room
+    message: Vacuum has returned
   mode: single
 - id: '1652901588502'
   alias: Vacuum charged
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: vacuum.berry
+    entity_id: vacuum.vacuum
     attribute: battery_level
     above: '99'
   condition: []
   action:
-  - device_id: b26acac4f6332ba83f2aadae7bae622e
+  - device_id: 15eeb66f75f26da52ed7cc142ef96e1f
     domain: mobile_app
     type: notify
     message: Vacuum is charged.
+  mode: single
+- id: '1662921513914'
+  alias: Walk in closet
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.walk_in_closet_door
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.walk_in_closet
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.walk_in_closet_door
+      to: 'off'
+    continue_on_timeout: true
+    timeout:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
   mode: single

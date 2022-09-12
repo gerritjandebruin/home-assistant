@@ -3,9 +3,9 @@ template:
       - name: Abnormal voltage
         device_class: problem
         state: >
-          {% set input = states('sensor.energy_meter_channel_1_voltage') | float(210) %}
-          {% set input_available = not is_state('sensor.energy_meter_channel_1_voltage', 'unavailable') %}
-          {% set solarpanel = states('sensor.growatt_reactive_voltage') | float(210) %}
+          {% set input = states('sensor.voltage') | float(210) %}
+          {% set input_available = not is_state('sensor.voltage', 'unavailable') %}
+          {% set solarpanel = states('sensor.solar_voltage') | float(210) %}
           {{ (input < 210 and input_available) or (solarpanel < 210 and solarpanel > 0) or input > 245 or solarpanel > 245}}
 
 alert:
@@ -13,7 +13,7 @@ alert:
     name: ⚠️ Abnormal voltage
     entity_id: binary_sensor.abnormal_voltage
     repeat: 30
-    message: "An abnormal voltage of {{states('sensor.energy_meter_channel_1_voltage')}}V is measured"
+    message: "An abnormal voltage of {{states('sensor.voltage')}}V is measured"
     notifiers:
       - pushnotification
     data:
