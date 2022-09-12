@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "esphome.10369f59555f21752269b320a6933860",
+  "data": {
+    "device_info": {
+      "uses_password": false,
+      "name": "tno-gj1",
+      "mac_address": "10:97:BD:35:CE:20",
+      "compilation_time": "Jul 19 2022, 19:31:41",
+      "model": "esp32dev",
+      "has_deep_sleep": false,
+      "esphome_version": "2022.6.2",
+      "project_name": "",
+      "project_version": "",
+      "webserver_port": 0
+    },
+    "services": [],
+    "api_version": {
+      "major": 1,
+      "minor": 6
+    },
+    "sensor": [
+      {
+        "object_id": "motion",
+        "key": 2012559111,
+        "name": "motion",
+        "unique_id": "tno-gj1sensormotion",
+        "disabled_by_default": false,
+        "icon": "",
+        "entity_category": 0,
+        "device_class": "voltage",
+        "unit_of_measurement": "V",
+        "accuracy_decimals": 2,
+        "force_update": false,
+        "state_class": 1,
+        "last_reset_type": 0
+      },
+      {
+        "object_id": "light",
+        "key": 1935470627,
+        "name": "light",
+        "unique_id": "tno-gj1sensorlight",
+        "disabled_by_default": false,
+        "icon": "",
+        "entity_category": 0,
+        "device_class": "voltage",
+        "unit_of_measurement": "V",
+        "accuracy_decimals": 2,
+        "force_update": false,
+        "state_class": 1,
+        "last_reset_type": 0
+      }
+    ],
+    "text_sensor": [],
+    "binary_sensor": []
+  }
+}
