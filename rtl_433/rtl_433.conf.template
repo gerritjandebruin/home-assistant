@@ -1,0 +1,16 @@
+# This is an empty template for configuring rtl_433. mqtt information will be
+# automatically added. Create multiple files ending in '.conf.template' to
+# manage multiple rtl_433 radios, being sure to set the 'device' setting.
+# https://github.com/merbanan/rtl_433/blob/master/conf/rtl_433.example.conf
+
+output mqtt://${host}:${port},user=${username},pass=${password},retain=${retain}
+
+protocol    51
+frequency   433.92M
+convert     si
+report_meta newmodel
+
+# Uncomment the following line to also enable the default "table" output to the
+# addon logs.
+output kv
+output json
