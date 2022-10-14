@@ -131,38 +131,20 @@
   trigger:
   - platform: device
     domain: mqtt
-    device_id: 79ff302733b26ef330b68c020ceedad2
-    type: action
+    device_id: 83b12a930eaf4c7cb659f87de06f7708
+    type: button_short_release
     subtype: button_1
-    discovery_id: rtl433 1
+    discovery_id: Proove-Security-3-30755554 Proove-Security-3-30755554-CH
   condition: []
   action:
-  - service: notify.everyone
+  - service: notify.persistent_notification
     data:
-      message: Doorbell!
-      data:
-        group: doorbell
-        icon_url: /local/doorbell.png
-  - service: light.turn_on
-    target:
-      entity_id:
-      - light.hall
-      - light.shed
-      - light.attic
-    data:
-      brightness_pct: 100
-      flash: short
+      message: Doorbell
   - delay:
       hours: 0
-      minutes: 5
-      seconds: 0
+      minutes: 0
+      seconds: 10
       milliseconds: 0
-  - service: light.turn_off
-    target:
-      entity_id:
-      - light.hall
-      - light.attic
-      - light.shed
   mode: single
 - id: '1612988672846'
   alias: Toilet light
@@ -360,4 +342,21 @@
     data: {}
     target:
       entity_id: switch.stereo
+  mode: single
+- id: '1664560108193'
+  alias: Bedroom full brightness
+  description: ''
+  trigger:
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+    target:
+      entity_id: light.bedroom
   mode: single
