@@ -18,7 +18,7 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
-from homeassistant.helpers.network import get_url
+from homeassistant.helpers.network import NoURLAvailableError, get_url
 from homeassistant.helpers.selector import selector
 
 from .const import (
@@ -368,7 +368,13 @@ class PlantConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         ] = str
         entity_picture = plant_config[FLOW_PLANT_INFO].get(ATTR_ENTITY_PICTURE)
         if not entity_picture.startswith("http"):
-            entity_picture = f"{get_url(self.hass, require_current_request=True)}{urllib.parse.quote(entity_picture)}"
+            try:
+                entity_picture = f"{get_url(self.hass, require_current_request=True)}{urllib.parse.quote(entity_picture)}"
+            except NoURLAvailableError:
+                _LOGGER.error(
+                    "No internal or external url found. Please configure these in HA General Settings"
+                )
+                entity_picture = ""
         return self.async_show_form(
             step_id="limits",
             data_schema=vol.Schema(data_schema),
@@ -442,7 +448,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             ):
                 user_input[ATTR_SPECIES] = ""
             if ATTR_ENTITY_PICTURE not in user_input or not re.match(
-                r"\w+", user_input[ATTR_ENTITY_PICTURE]
+                r"(\/)?\w+", user_input[ATTR_ENTITY_PICTURE]
             ):
                 user_input[ATTR_ENTITY_PICTURE] = ""
             if OPB_DISPLAY_PID not in user_input or not re.match(
