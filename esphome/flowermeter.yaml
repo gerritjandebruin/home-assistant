@@ -1,49 +1,37 @@
 esphome:
   name: flowermeter
-  platform: ESP32
+
+esp32:
   board: esp32dev
+  framework:
+    type: arduino
 
 # Enable logging
 logger:
 
-# Voltmeter
-esp32_ble_tracker:
-
-xiaomi_ble:
-
-sensor:
-  - platform: xiaomi_gcls002
-    mac_address: "C4:7C:8D:6C:AB:F6"
-    temperature:
-      name: "Flower Temperature"
-    moisture:
-      name: "Flower Moisture"
-    conductivity:
-      name: "Flower Soil Conductivity"
-    illuminance:
-      name: "Flower Illuminance"
-    
-
 # Enable Home Assistant API
 api:
+  encryption:
+    key: "T0gvCM5rX2l29NYbTDiZkQ8nUgGKg/JV/DTSEgCIHH0="
 
 ota:
-  password: "2a4d238f2f1429b74a198217f6969e68"
+  password: "fd9912f4b8b47312e38e582cd8d061e0"
 
 wifi:
-  ssid: "de Bruin beneden 2.4GHz"
-  password: "79CD7C7DA6C9"
-
+  ssid: "de Bruin boven"
+  password: !secret wifi_password
   manual_ip:
-    static_ip: 192.168.1.221
-    gateway: 192.168.1.254
+    static_ip:  192.168.1.12
+    gateway: 10.0.0.1
     subnet: 255.255.255.0
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
     ssid: "Flowermeter Fallback Hotspot"
-    password: "FxtxXIE9wPJN"
-
-
+    password: "fTh3PQZZ7nsC"
 
 captive_portal:
+    
+esp32_ble_tracker:
+bluetooth_proxy:
+  active: True

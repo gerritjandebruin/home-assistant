@@ -10,7 +10,6 @@
           {
             "stat_energy_from": "sensor.energy_consumed",
             "stat_cost": null,
-            "entity_energy_from": "sensor.energy_consumed",
             "entity_energy_price": null,
             "number_energy_price": null
           }
@@ -19,7 +18,6 @@
           {
             "stat_energy_to": "sensor.energy_returned",
             "stat_compensation": null,
-            "entity_energy_to": "sensor.energy_returned",
             "entity_energy_price": null,
             "number_energy_price": null
           }
@@ -28,12 +26,7 @@
       },
       {
         "type": "solar",
-        "stat_energy_from": "sensor.solar_energy_today_1",
-        "config_entry_solar_forecast": null
-      },
-      {
-        "type": "solar",
-        "stat_energy_from": "sensor.solar_energy_today_2",
+        "stat_energy_from": "sensor.solar_energy",
         "config_entry_solar_forecast": null
       }
     ],

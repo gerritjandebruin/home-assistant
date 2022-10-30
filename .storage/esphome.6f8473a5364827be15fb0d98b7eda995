@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "esphome.6f8473a5364827be15fb0d98b7eda995",
+  "data": {
+    "device_info": {
+      "uses_password": false,
+      "name": "flowermeter",
+      "mac_address": "78:E3:6D:19:05:B4",
+      "compilation_time": "Oct 22 2022, 08:46:35",
+      "model": "esp32dev",
+      "has_deep_sleep": false,
+      "esphome_version": "2022.10.0",
+      "project_name": "",
+      "project_version": "",
+      "webserver_port": 0,
+      "bluetooth_proxy_version": 2
+    },
+    "services": [],
+    "api_version": {
+      "major": 1,
+      "minor": 7
+    }
+  }
+}

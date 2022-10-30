@@ -1,6 +1,13 @@
 # Log
 *.log.*
 
+# XLSX
+*.xls
+*.xlsx
+
+# Notebooks
+notebooks/
+
 # IDE config
 .vscode
 
