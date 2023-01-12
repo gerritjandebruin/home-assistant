@@ -1,7 +1,8 @@
 {
-    "version": 1,
-    "key": "input_select",
-    "data": {
-        "items": []
-    }
+  "version": 1,
+  "minor_version": 2,
+  "key": "input_select",
+  "data": {
+    "items": []
+  }
 }

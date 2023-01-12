@@ -86,7 +86,7 @@
       entity_id: light.kitchen
   mode: single
 - id: '1608134139962'
-  alias: Shed light
+  alias: 'Shed door opened '
   description: Put the light in the shed on when the door is opened and it is dark.
     Put it off when the door is closed for longer than two minutes. If the door is
     closed, the user is reminded of this automation by a brief flash.
@@ -140,11 +140,27 @@
   - service: notify.persistent_notification
     data:
       message: Doorbell
+  - service: light.toggle
+    data:
+      flash: long
+    target:
+      area_id:
+      - kitchen
+      - hall
+      - corridor
   - delay:
       hours: 0
       minutes: 0
-      seconds: 10
+      seconds: 1
       milliseconds: 0
+  - service: light.toggle
+    data:
+      flash: long
+    target:
+      area_id:
+      - kitchen
+      - hall
+      - corridor
   mode: single
 - id: '1612988672846'
   alias: Toilet light
@@ -231,22 +247,6 @@
     target:
       entity_id: light.bike
   mode: single
-- id: '1651757124594'
-  alias: Vacuum alert
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - select.vacuum_mode
-    from: Smart
-    to: Return to dock
-  condition: []
-  action:
-  - device_id: 15eeb66f75f26da52ed7cc142ef96e1f
-    domain: mobile_app
-    type: notify
-    message: Vacuum has returned
-  mode: single
 - id: '1652901588502'
   alias: Vacuum charged
   description: ''
@@ -257,10 +257,9 @@
     above: '99'
   condition: []
   action:
-  - device_id: 15eeb66f75f26da52ed7cc142ef96e1f
-    domain: mobile_app
-    type: notify
-    message: Vacuum is charged.
+  - service: notify.persistent_notification
+    data:
+      message: Vacuum cleaner is charged!
   mode: single
 - id: '1662921513914'
   alias: Walk in closet
@@ -338,7 +337,10 @@
   trigger:
   - platform: time
     at: 01:00:00
-  condition: []
+  condition:
+  - condition: state
+    entity_id: switch.stereo
+    state: 'on'
   action:
   - service: switch.turn_off
     data: {}
@@ -370,7 +372,7 @@
   - platform: state
     entity_id: binary_sensor.bathroom_door
     to: 'off'
-    for: 00:10:00
+    for: 00:15:00
     id: door long closed
   - platform: state
     entity_id: binary_sensor.bathroom_door
@@ -438,18 +440,212 @@
       - service: switch.turn_on
         entity_id: switch.bathroom
   mode: single
-- id: '1667141650651'
-  alias: Front door
+- id: '1672433954997'
+  alias: Shed auto dark
   description: ''
   trigger:
-  - type: opened
-    platform: device
-    device_id: 051215d5b20dc09f912d269348bf1441
-    entity_id: binary_sensor.front_door
-    domain: binary_sensor
+  - platform: time_pattern
+    minutes: /5
+  condition:
+  - condition: state
+    entity_id: binary_sensor.shed_door
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    state: ''
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.shed
+  mode: single
+- id: '1672600472717'
+  alias: Christmas lights
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: 00:30:00
+    variables:
+      service: light.turn_off
+  - platform: sun
+    event: sunset
+    offset: -00:30:00
+    variables:
+      service: light.turn_on
   condition: []
   action:
-  - service: notify.notify
+  - service: '{{ service }}'
+    target:
+      entity_id: light.desk_east
+  mode: single
+- id: '1672605032341'
+  alias: Problem check
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.growatt_phase_voltage
+    - sensor.voltage
+    - sensor.bike_voltage
+    above: 0
+    below: 210
+  - platform: numeric_state
+    entity_id:
+    - sensor.growatt_phase_voltage
+    - sensor.voltage
+    - sensor.bike_voltage
+    above: 245
+  - platform: numeric_state
+    entity_id:
+    - sensor.attic_temperature
+    - sensor.bathroom_temperature
+    - sensor.bedroom_temperature
+    - sensor.guestroom_temperature
+    - sensor.hall_temperature
+    - sensor.lounge_temperature
+    - sensor.shed_temperature
+    below: 0
+  - platform: numeric_state
+    entity_id:
+    - sensor.attic_temperature
+    - sensor.bathroom_temperature
+    - sensor.bedroom_temperature
+    - sensor.guestroom_temperature
+    - sensor.hall_temperature
+    - sensor.lounge_temperature
+    - sensor.shed_temperature
+    above: 45
+  - platform: state
+    entity_id:
+    - binary_sensor.bathroom_light_overpowering
+    - binary_sensor.bike_light_overpowering
+    - binary_sensor.bike_socket_overpowering
+    - binary_sensor.desk_north_overpowering
+    - binary_sensor.dishwasher_overpowering
+    - binary_sensor.energy_meter_overpowering
+    - binary_sensor.fridge_kitchen_overpowering
+    - binary_sensor.lounge_overpowering
+    - binary_sensor.server_plug_overpowering
+    - binary_sensor.terrace_overpowering
+    - binary_sensor.toilet_overpowering
+    - binary_sensor.bathroom_light_overheating
+    - binary_sensor.bike_overheating
+    - binary_sensor.desk_north_overheating
+    - binary_sensor.dishwasher_overheating
+    - binary_sensor.fridge_kitchen_overheating
+    - binary_sensor.lounge_overheating
+    - binary_sensor.server_plug_overheating
+    - binary_sensor.toilet_overheating
+    - binary_sensor.nieuw_engeland_nas_drive_1_below_min_remaining_life
+    - binary_sensor.nieuw_engeland_nas_drive_1_exceeded_max_bad_sectors
+    - binary_sensor.nieuw_engeland_nas_drive_2_below_min_remaining_life
+    - binary_sensor.nieuw_engeland_nas_drive_2_exceeded_max_bad_sectors
+    - binary_sensor.nieuw_engeland_nas_security_status
+    to: 'on'
+  - platform: state
+    entity_id:
+    - sensor.shed_frostrisk
+    from: no_risk
+  - platform: numeric_state
+    entity_id: sensor.speedtest_download
+    below: 10
+  - platform: numeric_state
+    entity_id: sensor.speedtest_upload
+    below: 2
+  - platform: numeric_state
+    entity_id: sensor.terrace_power
+    above: 500
+  - platform: numeric_state
+    entity_id: sensor.toilet_power
+    above: 50
+  - platform: numeric_state
+    entity_id: sensor.washing_machine_flood_battery
+    below: 20
+  - platform: state
+    entity_id: binary_sensor.washing_machine_flood
+    to: 'on'
+    id: flood
+  condition: []
+  action:
+  - service: notify.persistent_notification
     data:
-      title: 'Door opened '
+      title: Problem with {{ trigger.entity_id }}
+      message: Triggered on {{ trigger.entity_id }} with state {{ trigger.to_state.state
+        }} at {{ now() }}.
+  - service: notify.mobile_app_sm_a530f
+    data:
+      title: Problem with {{ trigger.entity_id }}
+      message: Triggered on {{ trigger.entity_id }} with state {{ trigger.to_state.state
+        }} at {{ now() }}.
+  - if:
+    - condition: trigger
+      id: flood
+    then:
+    - service: notify.mobile_app_sm_g980f
+      data:
+        title: Probleem met de wasmachine
+        message: Hey Mirjam! Mogelijk is er een probleem met het lekken van water
+          bij de wasmachine. Wil je zsm even kijken? Liefs, Gerrit-Jan :)
+  mode: single
+- id: '1672607309301'
+  alias: Desk
+  description: Handling events from the buttons on the desks.
+  trigger:
+  - id: north_on
+    device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  - id: north_off
+    device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+  - id: south_on
+    device_id: f2920d964a5c507e42ff8757a220ddb8
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  - id: south_off
+    device_id: f2920d964a5c507e42ff8757a220ddb8
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: north_on
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.desk_north
+    - conditions:
+      - condition: trigger
+        id: north_off
+      sequence:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.desk_north
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: south_on
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.desk_south
+    - conditions:
+      - condition: trigger
+        id: south_off
+      sequence:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.desk_south
+        data: {}
   mode: single

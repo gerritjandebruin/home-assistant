@@ -26,7 +26,7 @@
       },
       {
         "type": "solar",
-        "stat_energy_from": "sensor.solar_energy",
+        "stat_energy_from": "sensor.growatt_generated_energy_total",
         "config_entry_solar_forecast": null
       }
     ],

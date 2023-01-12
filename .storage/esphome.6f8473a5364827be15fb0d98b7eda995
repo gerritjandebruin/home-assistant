@@ -7,14 +7,15 @@
       "uses_password": false,
       "name": "flowermeter",
       "mac_address": "78:E3:6D:19:05:B4",
-      "compilation_time": "Oct 22 2022, 08:46:35",
+      "compilation_time": "Jan  5 2023, 07:04:37",
       "model": "esp32dev",
+      "manufacturer": "Espressif",
       "has_deep_sleep": false,
-      "esphome_version": "2022.10.0",
+      "esphome_version": "2022.12.3",
       "project_name": "",
       "project_version": "",
       "webserver_port": 0,
-      "bluetooth_proxy_version": 2
+      "bluetooth_proxy_version": 3
     },
     "services": [],
     "api_version": {
