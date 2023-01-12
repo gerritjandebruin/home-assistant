@@ -1,0 +1,10 @@
+template:
+  - sensor:
+      - unique_id: vacuum_battery
+        name: Vacuum battery
+        unit_of_measurement: "%"
+        state_class: measurement
+        device_class: battery
+        availability: "{{ not is_state('vacuum.vacuum', 'unknown') }}"
+        icon: "{{ state_attr('vacuum.vacuum', 'battery_icon') }}"
+        state: "{{ state_attr('vacuum.vacuum', 'battery_level') }}"

@@ -1,0 +1,351 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "bluetooth.remote_scanners",
+  "data": {
+    "78:e3:6d:19:05:b4": {
+      "connectable": true,
+      "expire_seconds": 195,
+      "discovered_device_advertisement_datas": {
+        "E1:A1:41:68:27:29": {
+          "device": {
+            "address": "E1:A1:41:68:27:29",
+            "name": "3C3B58F8A4C833A8EA",
+            "rssi": -93,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": "3C3B58F8A4C833A8EA",
+            "manufacturer_data": {
+              "1447": "051001000000000000022200ca"
+            },
+            "service_data": {},
+            "service_uuids": [
+              "0000fe07-0000-1000-8000-00805f9b34fb"
+            ],
+            "rssi": -93,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "D8:A3:5C:B2:4D:55": {
+          "device": {
+            "address": "D8:A3:5C:B2:4D:55",
+            "name": "",
+            "rssi": -94,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 0
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "117": "420401806ed8a35cb24d55daa35cb24d5401580000000000"
+            },
+            "service_data": {},
+            "service_uuids": [],
+            "rssi": -94,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "C4:7C:8D:6C:AB:F6": {
+          "device": {
+            "address": "C4:7C:8D:6C:AB:F6",
+            "name": "Flower care",
+            "rssi": -92,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 0
+            }
+          },
+          "advertisement_data": {
+            "local_name": "Flower care",
+            "manufacturer_data": {},
+            "service_data": {
+              "0000fe95-0000-1000-8000-00805f9b34fb": "7120980057f6ab6c8d7cc40d071003700200"
+            },
+            "service_uuids": [
+              "0000fe95-0000-1000-8000-00805f9b34fb"
+            ],
+            "rssi": -92,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "48:A1:E9:9E:03:84": {
+          "device": {
+            "address": "48:A1:E9:9E:03:84",
+            "name": "",
+            "rssi": -94,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "76": "10060f1d3ca6c548"
+            },
+            "service_data": {},
+            "service_uuids": [],
+            "rssi": -94,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "62:D6:6C:E5:77:F8": {
+          "device": {
+            "address": "62:D6:6C:E5:77:F8",
+            "name": "",
+            "rssi": -91,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "224": "019dca56beac"
+            },
+            "service_data": {
+              "0000fe9f-0000-1000-8000-00805f9b34fb": "0259384262742d5873587659000001859fceae1c"
+            },
+            "service_uuids": [
+              "0000fe9f-0000-1000-8000-00805f9b34fb"
+            ],
+            "rssi": -91,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "65:DF:E7:6A:BD:25": {
+          "device": {
+            "address": "65:DF:E7:6A:BD:25",
+            "name": "",
+            "rssi": -95,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {},
+            "service_data": {
+              "0000fd69-0000-1000-8000-00805f9b34fb": "10da72705feac870d2ea33dbd752001c5f1e3d0e"
+            },
+            "service_uuids": [
+              "0000fd69-0000-1000-8000-00805f9b34fb"
+            ],
+            "rssi": -95,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "44:A4:0A:20:B2:7A": {
+          "device": {
+            "address": "44:A4:0A:20:B2:7A",
+            "name": "",
+            "rssi": -83,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "76": "10052998309d55"
+            },
+            "service_data": {},
+            "service_uuids": [],
+            "rssi": -83,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "2F:D9:B0:56:9E:1E": {
+          "device": {
+            "address": "2F:D9:B0:56:9E:1E",
+            "name": "",
+            "rssi": -95,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "6": "010920026df8cbd1bb5e588ef02d620d6aae133e742931e866c4a6"
+            },
+            "service_data": {},
+            "service_uuids": [],
+            "rssi": -95,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "D1:28:B6:21:98:0B": {
+          "device": {
+            "address": "D1:28:B6:21:98:0B",
+            "name": "",
+            "rssi": -84,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "76": "12020003"
+            },
+            "service_data": {},
+            "service_uuids": [],
+            "rssi": -84,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "6C:01:19:F3:C4:F1": {
+          "device": {
+            "address": "6C:01:19:F3:C4:F1",
+            "name": "",
+            "rssi": -94,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "76": "1005511ce0109c"
+            },
+            "service_data": {},
+            "service_uuids": [],
+            "rssi": -94,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "7E:BE:E8:AD:E6:C3": {
+          "device": {
+            "address": "7E:BE:E8:AD:E6:C3",
+            "name": "",
+            "rssi": -93,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "76": "10073a1f1112453848"
+            },
+            "service_data": {},
+            "service_uuids": [],
+            "rssi": -93,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "6C:95:C9:7D:D1:DB": {
+          "device": {
+            "address": "6C:95:C9:7D:D1:DB",
+            "name": "",
+            "rssi": -91,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "224": "019dca56beac"
+            },
+            "service_data": {
+              "0000fe9f-0000-1000-8000-00805f9b34fb": "02574552767558546e367251000001859fd7d5dc"
+            },
+            "service_uuids": [
+              "0000fe9f-0000-1000-8000-00805f9b34fb"
+            ],
+            "rssi": -91,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "F9:A8:9C:3E:7D:9C": {
+          "device": {
+            "address": "F9:A8:9C:3E:7D:9C",
+            "name": "",
+            "rssi": -98,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "76": "12020003"
+            },
+            "service_data": {},
+            "service_uuids": [],
+            "rssi": -98,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        },
+        "CB:38:49:E6:A2:C8": {
+          "device": {
+            "address": "CB:38:49:E6:A2:C8",
+            "name": "",
+            "rssi": -94,
+            "details": {
+              "source": "78:e3:6d:19:05:b4",
+              "address_type": 1
+            }
+          },
+          "advertisement_data": {
+            "local_name": null,
+            "manufacturer_data": {
+              "76": "12020003"
+            },
+            "service_data": {},
+            "service_uuids": [],
+            "rssi": -94,
+            "tx_power": -127,
+            "platform_data": []
+          }
+        }
+      },
+      "discovered_device_timestamps": {
+        "E1:A1:41:68:27:29": 1673423587.2995057,
+        "D8:A3:5C:B2:4D:55": 1673423552.7918706,
+        "C4:7C:8D:6C:AB:F6": 1673423590.2625604,
+        "48:A1:E9:9E:03:84": 1673423584.427453,
+        "62:D6:6C:E5:77:F8": 1673423399.8030539,
+        "65:DF:E7:6A:BD:25": 1673423519.5082579,
+        "44:A4:0A:20:B2:7A": 1673423471.4833739,
+        "2F:D9:B0:56:9E:1E": 1673423588.942536,
+        "D1:28:B6:21:98:0B": 1673423471.4933739,
+        "6C:01:19:F3:C4:F1": 1673423542.8536878,
+        "7E:BE:E8:AD:E6:C3": 1673423438.5187669,
+        "6C:95:C9:7D:D1:DB": 1673423574.8402765,
+        "F9:A8:9C:3E:7D:9C": 1673423416.4953613,
+        "CB:38:49:E6:A2:C8": 1673423465.4412625
+      }
+    }
+  }
+}
