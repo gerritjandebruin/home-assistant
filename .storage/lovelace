@@ -1086,13 +1086,11 @@
                 },
                 {
                   "entity": "sensor.bike_light_power",
-                  "icon": "mdi:led-strip-variant",
-                  "name": "Bike light"
+                  "icon": "mdi:led-strip-variant"
                 },
                 {
                   "entity": "sensor.bike_socket_power",
-                  "icon": "mdi:power-socket-eu",
-                  "name": "Bike socket"
+                  "icon": "mdi:power-socket-eu"
                 },
                 {
                   "entity": "sensor.toilet_power",
