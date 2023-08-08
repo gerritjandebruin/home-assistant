@@ -1,0 +1,33 @@
+# Log
+*.log.*
+
+# XLSX
+*.xls
+*.xlsx
+
+# Notebooks
+notebooks/
+
+# IDE config
+.vscode
+
+# Ignore files
+.storage
+blueprints
+notebooks
+
+# Database
+*.db
+*.db-wal
+*.db-shm
+
+# Logs
+*.log
+*.log.bk
+
+# Python
+*__pycache*
+*.ipynb_checkpoints
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+secrets.yaml

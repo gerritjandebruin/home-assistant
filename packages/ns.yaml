@@ -1,0 +1,14 @@
+sensor:
+- platform: nederlandse_spoorwegen
+  api_key: !secret NS_API_KEY
+  routes:
+    - name: Utrecht-Alkmaar
+      from: Ut
+      to: Amr
+      time: "07:09:00"
+    - name: Utrecht-Den Haag
+      from: Ut
+      to: Gvc
+    - name: Den Haag-Utrecht
+      from: Gvc
+      to: Ut

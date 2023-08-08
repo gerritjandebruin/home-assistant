@@ -1,0 +1,14 @@
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: disk_free
+        arg: /home
+      - type: memory_use_percent
+      - type: processor_use
+      - type: last_boot
+command_line:
+  - sensor:
+      name: CPU device temperature
+      command: "cat /sys/class/thermal/thermal_zone0/temp"
+      unit_of_measurement: "°C"
+      value_template: "{{ value | multiply(0.001) }}"

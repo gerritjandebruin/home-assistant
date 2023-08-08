@@ -1,0 +1,53 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+homeassistant:
+  packages: !include_dir_named packages/
+  allowlist_external_dirs:
+    - "/config/"
+  auth_providers:
+    - type: homeassistant
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.1.0/25
+  customize:
+    sensor.vacuum_cleaning_area:
+      unit_of_measurement: "m³"
+    sensor.vacuum_cleaning_time:
+      unit_of_measurement: "min"
+    sensor.washing_machine_flood_battery:
+      state_class: measurement
+
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret influxdb_password
+  max_retries: 3
+  measurement_attr: entity_id
+  exclude:
+    domains:
+      - alert
+      - automation
+      - button
+    entity_globs:
+      - binary_sensor.*_firmware_update
+      - binary_sensor.*_occupancy
+  ignore_attributes:
+    - friendly_name
+    - device_class
+    - state_class
+
+http:
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+feedreader:
+  urls:
+    - https://simonwillison.net/atom/everything/

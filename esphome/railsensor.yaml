@@ -1,0 +1,64 @@
+esphome:
+  name: railsensor
+  friendly_name: railsensor
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "ONMThYsAi3SEvHjeo8rmKAjw/n+Ql0Tnz6t05lkaUTg="
+
+ota:
+  password: "0fcd047232c97fb8ef8ad27176dce2c4"
+
+wifi:
+  networks:
+    - ssid: de Bruin beneden
+      password: !secret wifi_password
+    - ssid: de Bruin boven
+      password: !secret wifi_password
+
+  manual_ip:
+    static_ip: 192.168.1.181
+    gateway: 192.168.1.254
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Railsensor Fallback Hotspot"
+    password: "aGWK8s5neslq"
+    
+    manual_ip:
+      static_ip:  192.168.1.221
+      gateway: 10.0.0.1
+      subnet: 255.255.255.0
+
+captive_portal:
+    
+# Example configuration entry
+uart:
+  rx_pin: GPIO23
+  tx_pin: GPIO22
+  baud_rate: 9600
+
+sensor:
+  - platform: pmsx003
+    type: PMSX003
+    pm_1_0:
+      name: "Particulate Matter <1.0µm Concentration"
+    pm_2_5:
+      name: "Particulate Matter <2.5µm Concentration"
+    pm_10_0:
+      name: "Particulate Matter <10.0µm Concentration"
+    temperature:
+      name: "Particulate Matter Temperature"
+    humidity:
+      name: "Particulate Matter Humidity"
+    update_interval: 5min

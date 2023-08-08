@@ -1,0 +1,720 @@
+- id: '1603830622083'
+  alias: Hall and corridor light
+  description: Triggers when there is movement in the hall at ground level or first
+    floor. When it freezes, warn with a blue light. Brightness is adapted to the desired
+    level. Because the IKEA sensor at the corridor is slow in going to the cleared
+    state, have a 10m wait before the Philips sensor at the hall is allowed to clear.
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.hall_motion
+    - binary_sensor.corridor_motion
+    - binary_sensor.front_door
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dark
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: '{% if (now().hour|int >= 22) or (now().hour|int <= 6) %} 1
+        {% else %} 100 {% endif %}'
+      color_temp: '{% if (now().hour|int >= 22) or (now().hour|int <= 6) %} 454 {%
+        else %} 366 {% endif %}'
+    target:
+      entity_id:
+      - light.corridor
+      - light.hall
+  - wait_template: '  {{ (states(''binary_sensor.hall_motion'') == ''off'') and (states(''binary_sensor.corridor_motion'')
+      == ''off'') }}'
+    continue_on_timeout: true
+    timeout: 01:00:00
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    target:
+      entity_id:
+      - light.corridor
+      - light.hall
+    data: {}
+  mode: queued
+  max: 5
+- id: '1603831020194'
+  alias: Kitchen light
+  description: Triggers when there is movement in the kitchen. Only activate light
+    when there is less than 20 lux measured in the hall at ground level. Brightness
+    is adapted to the desired level.
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.kitchen_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dark
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 1
+        {% else %} 100 {% endif %}'
+      color_temp: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 454 {%
+        else %} 366 {% endif %}'
+    target:
+      entity_id: light.kitchen
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.kitchen_motion
+      to: 'off'
+      for:
+        hours: 0
+        minutes: 2
+        seconds: 0
+    timeout:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.kitchen
+  mode: single
+- id: '1608134139962'
+  alias: 'Shed door opened '
+  description: Put the light in the shed on when the door is opened and it is dark.
+    Put it off when the door is closed for longer than two minutes. If the door is
+    closed, the user is reminded of this automation by a brief flash.
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.shed_door
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dark
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.shed
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.shed_door
+      to: 'off'
+    timeout:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.shed
+  mode: restart
+- id: '1609974870568'
+  alias: Doorbell
+  description: Flash lights and notify when the doorbell is detected by the RTL_433
+    extension.
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 83b12a930eaf4c7cb659f87de06f7708
+    type: button_short_release
+    subtype: button_1
+    discovery_id: Proove-Security-3-30755554 Proove-Security-3-30755554-CH
+  condition: []
+  action:
+  - service: notify.persistent_notification
+    data:
+      message: Doorbell
+  - service: light.toggle
+    data:
+      flash: long
+    target:
+      area_id:
+      - kitchen
+      - hall
+      - corridor
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 1
+      milliseconds: 0
+  - service: light.toggle
+    data:
+      flash: long
+    target:
+      area_id:
+      - kitchen
+      - hall
+      - corridor
+  mode: single
+- id: '1612988672846'
+  alias: Toilet light
+  description: Switch the toilet light when the door is opened.
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.toilet_door
+    to: 'on'
+  condition: []
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.toilet
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.toilet_door
+      to: 'on'
+    timeout:
+      hours: 0
+      minutes: 15
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.toilet
+  mode: single
+- id: '1612988850571'
+  alias: Pantry light
+  description: Switch the light in the pantry when the door is opened or closed.
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.pantry_door
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: light.pantry
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.pantry_door
+      to: 'off'
+    timeout:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    entity_id: light.pantry
+  mode: single
+- id: '1614112596198'
+  alias: Bike motion
+  description: When it is dark and there is motion, put on the lights in the bike
+    shed. Else, put off. Note that this automation can be turned off by  automation.bike_button.
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.bike_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: binary_sensor.dark
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.bike
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.bike_motion
+      to: 'off'
+    timeout:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.bike
+  mode: single
+- id: '1652901588502'
+  alias: Vacuum charged
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: vacuum.vacuum
+    attribute: battery_level
+    above: '99'
+  condition: []
+  action:
+  - service: notify.persistent_notification
+    data:
+      message: Vacuum cleaner is charged!
+  - service: notify.mobile_app_phone_gj
+    data:
+      message: Vacuum cleaner is charged!
+  mode: single
+- id: '1662921513914'
+  alias: Walk in closet
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.walk_in_closet_door
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.walk_in_closet
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.walk_in_closet_door
+      to: 'off'
+    continue_on_timeout: true
+    timeout:
+      hours: 0
+      minutes: 10
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.walk_in_closet
+  mode: single
+- id: '1663095761773'
+  alias: Terrace
+  description: ''
+  use_blueprint:
+    path: EPMatt/philips_324131092621.yaml
+    input:
+      integration: ZHA
+      controller_device: d2d1de274ba99aa61fa79c7b3f8e64c1
+      action_button_on_short:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.terrace
+      action_button_off_short:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.terrace
+      action_button_on_long:
+      - service: automation.turn_on
+        data: {}
+        target:
+          entity_id: automation.hall_corridor_light
+      action_button_off_long:
+      - service: automation.turn_off
+        data: {}
+        target:
+          entity_id: automation.hall_corridor_light
+      action_button_up_short:
+      - device_id: a9f1fc5ca682b5534d1e91820b492b08
+        domain: light
+        entity_id: light.terrace
+        type: brightness_increase
+      action_button_down_short:
+      - device_id: a9f1fc5ca682b5534d1e91820b492b08
+        domain: light
+        entity_id: light.terrace
+        type: brightness_decrease
+      action_button_up_long: []
+- id: '1664560108193'
+  alias: Bedroom full brightness
+  description: ''
+  trigger:
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+    target:
+      entity_id: light.bedroom
+  mode: single
+- id: '1667116701161'
+  alias: Bathroom light
+  description: Put light on when door is opened. Put off when closed for 10 minutes.
+    Put off when nothing has changed for 30 minutes, except when showering.
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.bathroom_door
+    to: 'off'
+    for: 00:15:00
+    id: door long closed
+  - platform: state
+    entity_id: binary_sensor.bathroom_door
+    to: 'on'
+    id: door opened
+  - platform: state
+    entity_id: binary_sensor.bathroom_door
+    to: 'on'
+    for: 00:10:00
+    id: door long opened
+  - platform: numeric_state
+    entity_id: sensor.bathroom_humidity
+    below: '80'
+    for: 00:00:05
+    id: low humidity
+  condition: []
+  action:
+  - choose:
+    - alias: Presumed forgotten to switch light off while door open
+      conditions:
+      - condition: trigger
+        id: door long opened
+      sequence:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.bathroom
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.shower
+    - alias: Presumed showering
+      conditions:
+      - condition: trigger
+        id: door long closed
+      - condition: numeric_state
+        entity_id: sensor.bathroom_humidity
+        above: '90'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.shower
+      - service: switch.toggle
+        entity_id: switch.bathroom
+      - delay: 00:00:01
+      - service: switch.toggle
+        entity_id: switch.bathroom
+      - wait_for_trigger:
+        - platform: numeric_state
+          entity_id: sensor.bathroom_humidity
+          below: '90'
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.shower
+    - alias: Presumed forgotten to switch light off while door closed
+      conditions:
+      - condition: trigger
+        id: door long closed
+      sequence:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.shower
+      - service: light.turn_off
+        entity_id: light.bathroom
+    - alias: Door opened
+      conditions:
+      - condition: trigger
+        id: door opened
+      sequence:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.shower
+      - service: light.turn_on
+        entity_id: light.bathroom
+  mode: single
+- id: '1672433954997'
+  alias: Shed auto dark
+  description: ''
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+  condition:
+  - condition: state
+    entity_id: binary_sensor.shed_door
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    state: ''
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.shed
+  mode: single
+- id: '1672605032341'
+  alias: Problem check
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.growatt_phase_voltage
+    - sensor.voltage
+    - sensor.bike_voltage
+    above: 0
+    below: 207
+  - platform: numeric_state
+    entity_id:
+    - sensor.growatt_phase_voltage
+    - sensor.voltage
+    - sensor.bike_voltage
+    above: 252
+  - platform: numeric_state
+    entity_id:
+    - sensor.attic_temperature
+    - sensor.bathroom_temperature
+    - sensor.bedroom_temperature
+    - sensor.guestroom_temperature
+    - sensor.hall_temperature
+    - sensor.lounge_temperature
+    - sensor.shed_temperature
+    below: 0
+  - platform: numeric_state
+    entity_id:
+    - sensor.attic_temperature
+    - sensor.bathroom_temperature
+    - sensor.bedroom_temperature
+    - sensor.guestroom_temperature
+    - sensor.hall_temperature
+    - sensor.lounge_temperature
+    - sensor.shed_temperature
+    above: 45
+  - platform: state
+    entity_id:
+    - binary_sensor.bathroom_light_overpowering
+    - binary_sensor.bike_light_overpowering
+    - binary_sensor.bike_socket_overpowering
+    - binary_sensor.desk_north_overpowering
+    - binary_sensor.dishwasher_overpowering
+    - binary_sensor.energy_meter_overpowering
+    - binary_sensor.fridge_kitchen_overpowering
+    - binary_sensor.lounge_overpowering
+    - binary_sensor.server_plug_overpowering
+    - binary_sensor.terrace_overpowering
+    - binary_sensor.toilet_overpowering
+    - binary_sensor.bathroom_light_overheating
+    - binary_sensor.bike_overheating
+    - binary_sensor.desk_north_overheating
+    - binary_sensor.dishwasher_overheating
+    - binary_sensor.fridge_kitchen_overheating
+    - binary_sensor.lounge_overheating
+    - binary_sensor.server_plug_overheating
+    - binary_sensor.toilet_overheating
+    - binary_sensor.nieuw_engeland_nas_drive_1_below_min_remaining_life
+    - binary_sensor.nieuw_engeland_nas_drive_1_exceeded_max_bad_sectors
+    - binary_sensor.nieuw_engeland_nas_drive_2_below_min_remaining_life
+    - binary_sensor.nieuw_engeland_nas_drive_2_exceeded_max_bad_sectors
+    - binary_sensor.nieuw_engeland_nas_security_status
+    to: 'on'
+  - platform: state
+    entity_id:
+    - sensor.shed_frostrisk
+    from: no_risk
+  - platform: numeric_state
+    entity_id: sensor.speedtest_download
+    below: 10
+  - platform: numeric_state
+    entity_id: sensor.speedtest_upload
+    below: 2
+  - platform: numeric_state
+    entity_id: sensor.terrace_power
+    above: 500
+  - platform: numeric_state
+    entity_id: sensor.toilet_power
+    above: 50
+  - platform: numeric_state
+    entity_id: sensor.washing_machine_flood_battery
+    below: 20
+  - platform: state
+    entity_id: binary_sensor.washing_machine_flood
+    to: 'on'
+    id: flood
+  condition: []
+  action:
+  - service: notify.persistent_notification
+    data:
+      title: Problem with {{ trigger.entity_id }}
+      message: Triggered on {{ trigger.entity_id }} with state {{ trigger.to_state.state
+        }} at {{ now() }}.
+  - service: notify.mobile_app_sm_s901b
+    data:
+      title: Problem with {{ trigger.entity_id }}
+      message: Triggered on {{ trigger.entity_id }} with state {{ trigger.to_state.state
+        }} at {{ now() }}.
+  - if:
+    - condition: trigger
+      id: flood
+    then:
+    - service: notify.mobile_app_sm_g980f
+      data:
+        title: Probleem met de wasmachine
+        message: Hey Mirjam! Mogelijk is er een probleem met het lekken van water
+          bij de wasmachine. Wil je zsm even kijken? Liefs, Gerrit-Jan :)
+  mode: single
+- id: '1672607309301'
+  alias: Desk
+  description: Handling events from the buttons on the desks.
+  trigger:
+  - id: north_on
+    device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  - id: north_off
+    device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+  - id: south_on
+    device_id: f2920d964a5c507e42ff8757a220ddb8
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  - id: south_off
+    device_id: f2920d964a5c507e42ff8757a220ddb8
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: north_on
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.desk_north
+    - conditions:
+      - condition: trigger
+        id: north_off
+      sequence:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.desk_north
+        data: {}
+    - conditions:
+      - condition: trigger
+        id: south_on
+      sequence:
+      - service: switch.turn_on
+        entity_id: switch.desk_south
+    - conditions:
+      - condition: trigger
+        id: south_off
+      sequence:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.desk_south
+        data: {}
+  mode: single
+- id: '1675062799052'
+  alias: Train alert
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.utrecht_alkmaar
+  condition: []
+  action:
+  - service: notify.mobile_app_phone_gj
+    data:
+      message: '{{ states(sensor.utrecht_alkmaar) }}'
+  mode: single
+- id: '1678268586740'
+  alias: Vacuum single room
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.vacuum_single
+    alias: When vacuum single button pressed
+  condition: []
+  action:
+  - service: select.select_option
+    data:
+      option: single
+    target:
+      entity_id: select.vacuum_mode
+    alias: Vacuum clean single room
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - vacuum.vacuum
+      to: idle
+    timeout:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+    continue_on_timeout: false
+  - service: notify.mobile_app_phone_gj
+    data:
+      message: Vacuum cleaner is done
+  - service: notify.persistent_notification
+    data:
+      message: Vacuum cleaner is done
+  mode: single
+- id: '1678344107461'
+  alias: Change IP
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.experiabox_v10_external_ip
+  condition: []
+  action:
+  - service: notify.gerritjan_debruin_gmail_com
+    data:
+      target: gerritjan.debruin@gmail.com
+      title: Your IP-address changed.
+      message: The IP-address changed from {{ trigger.from_state }} to {{ trigger.to_state
+        }}.
+  - service: notify.mobile_app_sm_s901b
+    data:
+      title: Your IP-address changed.
+      message: The IP-address changed from {{ trigger.from_state }} to {{ trigger.to_state     }}.
+  mode: single
+- id: '1678631209619'
+  alias: NAS CPU high
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.nieuw_engeland_nas_cpu_utilization_total
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    above: 95
+  condition: []
+  action:
+  - service: notify.mobile_app_phone_gj
+    data:
+      message: NAS CPU Utilization is high
+  mode: single
+- id: '1688049065302'
+  alias: RSS
+  description: ''
+  trigger:
+  - platform: event
+    event_type: feedreader
+    event_data:
+      feed_url: https://simonwillison.net/atom/everything/
+  condition: []
+  action:
+  - service: notify.gerritjan_debruin_gmail_com
+    data:
+      title: New post
+      target: gerritjan.debruin@gmail.com
+      data: trigger.event.data.title
+  mode: single
