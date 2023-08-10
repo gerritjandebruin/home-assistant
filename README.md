@@ -105,6 +105,6 @@ Battery life is around 6-12 months.
 Feel free to ask more experiences by opening an [issue](https://github.com/gerritjandebruin/home-assistant/issues/new)!
 
 ## Screenshots
-See the `img/` directory!
+See the [img/](https://github.com/gerritjandebruin/home-assistant/tree/main/img) directory!
 
 ![map](img/map.PNG)
