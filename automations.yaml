@@ -137,9 +137,10 @@
     discovery_id: Proove-Security-3-30755554 Proove-Security-3-30755554-CH
   condition: []
   action:
-  - service: notify.persistent_notification
-    data:
-      message: Doorbell
+  - device_id: b2d9e2278037545c981b4d8814de3bac
+    domain: mobile_app
+    type: notify
+    message: Doorbell!
   - service: light.toggle
     data:
       flash: long
@@ -257,12 +258,10 @@
     above: '99'
   condition: []
   action:
-  - service: notify.persistent_notification
-    data:
-      message: Vacuum cleaner is charged!
-  - service: notify.mobile_app_phone_gj
-    data:
-      message: Vacuum cleaner is charged!
+  - device_id: b2d9e2278037545c981b4d8814de3bac
+    domain: mobile_app
+    type: notify
+    message: Vacuum charged
   mode: single
 - id: '1662921513914'
   alias: Walk in closet
@@ -334,23 +333,6 @@
         entity_id: light.terrace
         type: brightness_decrease
       action_button_up_long: []
-- id: '1664560108193'
-  alias: Bedroom full brightness
-  description: ''
-  trigger:
-  - device_id: 5a9933c449a2a8068f6012de36a6e91d
-    domain: zha
-    platform: device
-    type: remote_button_long_press
-    subtype: turn_on
-  condition: []
-  action:
-  - service: light.turn_on
-    data:
-      brightness_pct: 100
-    target:
-      entity_id: light.bedroom
-  mode: single
 - id: '1667116701161'
   alias: Bathroom light
   description: Put light on when door is opened. Put off when closed for 10 minutes.
@@ -429,63 +411,44 @@
       - service: light.turn_on
         entity_id: light.bathroom
   mode: single
-- id: '1672433954997'
-  alias: Shed auto dark
-  description: ''
-  trigger:
-  - platform: time_pattern
-    minutes: /5
-  condition:
-  - condition: state
-    entity_id: binary_sensor.shed_door
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-    state: ''
-  action:
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.shed
-  mode: single
 - id: '1672605032341'
-  alias: Problem check
+  alias: Notify
   description: ''
   trigger:
   - platform: numeric_state
     entity_id:
-    - sensor.growatt_phase_voltage
     - sensor.voltage
-    - sensor.bike_voltage
     above: 0
     below: 207
   - platform: numeric_state
     entity_id:
-    - sensor.growatt_phase_voltage
     - sensor.voltage
-    - sensor.bike_voltage
     above: 252
+  - platform: state
+    entity_id:
+    - sensor.shed_frostrisk
+    from: no_risk
+    alias: Shed freezing
   - platform: numeric_state
     entity_id:
     - sensor.attic_temperature
     - sensor.bathroom_temperature
     - sensor.bedroom_temperature
     - sensor.guestroom_temperature
-    - sensor.hall_temperature
     - sensor.lounge_temperature
     - sensor.shed_temperature
     below: 0
+    alias: Thermometer below 0
   - platform: numeric_state
     entity_id:
     - sensor.attic_temperature
     - sensor.bathroom_temperature
     - sensor.bedroom_temperature
     - sensor.guestroom_temperature
-    - sensor.hall_temperature
     - sensor.lounge_temperature
     - sensor.shed_temperature
     above: 45
+    alias: Thermometer above 40
   - platform: state
     entity_id:
     - binary_sensor.bathroom_light_overpowering
@@ -493,42 +456,30 @@
     - binary_sensor.bike_socket_overpowering
     - binary_sensor.desk_north_overpowering
     - binary_sensor.dishwasher_overpowering
+    - binary_sensor.dryer_overpowering
     - binary_sensor.energy_meter_overpowering
+    - binary_sensor.fan_overpowering
     - binary_sensor.fridge_kitchen_overpowering
-    - binary_sensor.lounge_overpowering
     - binary_sensor.server_plug_overpowering
     - binary_sensor.terrace_overpowering
     - binary_sensor.toilet_overpowering
+    - binary_sensor.washing_machine_overpowering
+    to: 'on'
+    alias: Overpowering
+  - platform: state
+    entity_id:
     - binary_sensor.bathroom_light_overheating
     - binary_sensor.bike_overheating
     - binary_sensor.desk_north_overheating
     - binary_sensor.dishwasher_overheating
+    - binary_sensor.dryer_overheating
+    - binary_sensor.fan_overheating
     - binary_sensor.fridge_kitchen_overheating
-    - binary_sensor.lounge_overheating
     - binary_sensor.server_plug_overheating
     - binary_sensor.toilet_overheating
-    - binary_sensor.nieuw_engeland_nas_drive_1_below_min_remaining_life
-    - binary_sensor.nieuw_engeland_nas_drive_1_exceeded_max_bad_sectors
-    - binary_sensor.nieuw_engeland_nas_drive_2_below_min_remaining_life
-    - binary_sensor.nieuw_engeland_nas_drive_2_exceeded_max_bad_sectors
-    - binary_sensor.nieuw_engeland_nas_security_status
+    - binary_sensor.washing_machine_overheating
     to: 'on'
-  - platform: state
-    entity_id:
-    - sensor.shed_frostrisk
-    from: no_risk
-  - platform: numeric_state
-    entity_id: sensor.speedtest_download
-    below: 10
-  - platform: numeric_state
-    entity_id: sensor.speedtest_upload
-    below: 2
-  - platform: numeric_state
-    entity_id: sensor.terrace_power
-    above: 500
-  - platform: numeric_state
-    entity_id: sensor.toilet_power
-    above: 50
+    alias: Overheating
   - platform: numeric_state
     entity_id: sensor.washing_machine_flood_battery
     below: 20
@@ -536,44 +487,53 @@
     entity_id: binary_sensor.washing_machine_flood
     to: 'on'
     id: flood
+  - platform: state
+    entity_id:
+    - sensor.experiabox_v10_external_ip
+    alias: Changed Archer IP address
+  - platform: state
+    entity_id:
+    - binary_sensor.washing_machine
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    alias: Washing machine is ready
+  - platform: state
+    entity_id:
+    - sensor.myip
+    alias: Changed external IP address
+  - platform: state
+    entity_id:
+    - fan.fan
+    alias: Fan available
+  - type: unsafe
+    platform: device
+    device_id: 953c91864067f38764af450c5f41be7c
+    entity_id: d22b961e536ec094696c518cc29bc458
+    domain: binary_sensor
+  - platform: state
+    entity_id:
+    - binary_sensor.nieuw_engeland_nas_drive_1_below_min_remaining_life
+    - binary_sensor.nieuw_engeland_nas_drive_1_exceeded_max_bad_sectors
+    - binary_sensor.nieuw_engeland_nas_drive_2_below_min_remaining_life
+    - binary_sensor.nieuw_engeland_nas_drive_2_exceeded_max_bad_sectors
+    to: 'on'
+    alias: Drive problems
   condition: []
   action:
-  - service: notify.persistent_notification
-    data:
-      title: Problem with {{ trigger.entity_id }}
-      message: Triggered on {{ trigger.entity_id }} with state {{ trigger.to_state.state
-        }} at {{ now() }}.
-  - service: notify.mobile_app_sm_s901b
-    data:
-      title: Problem with {{ trigger.entity_id }}
-      message: Triggered on {{ trigger.entity_id }} with state {{ trigger.to_state.state
-        }} at {{ now() }}.
-  - if:
-    - condition: trigger
-      id: flood
-    then:
-    - service: notify.mobile_app_sm_g980f
-      data:
-        title: Probleem met de wasmachine
-        message: Hey Mirjam! Mogelijk is er een probleem met het lekken van water
-          bij de wasmachine. Wil je zsm even kijken? Liefs, Gerrit-Jan :)
+  - device_id: b2d9e2278037545c981b4d8814de3bac
+    domain: mobile_app
+    type: notify
+    title: Problem with {{ trigger.entity_id }}
+    message: Triggered on {{ trigger.entity_id }} from {{ trigger.from_state.state
+      }} to state {{ trigger.to_state.state }} at {{ now() }}.
   mode: single
 - id: '1672607309301'
   alias: Desk
   description: Handling events from the buttons on the desks.
   trigger:
-  - id: north_on
-    device_id: edc737eaf70410f77edc47501e93b308
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  - id: north_off
-    device_id: edc737eaf70410f77edc47501e93b308
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_off
   - id: south_on
     device_id: f2920d964a5c507e42ff8757a220ddb8
     domain: zha
@@ -589,20 +549,6 @@
   condition: []
   action:
   - choose:
-    - conditions:
-      - condition: trigger
-        id: north_on
-      sequence:
-      - service: switch.turn_on
-        entity_id: switch.desk_north
-    - conditions:
-      - condition: trigger
-        id: north_off
-      sequence:
-      - service: switch.turn_off
-        target:
-          entity_id: switch.desk_north
-        data: {}
     - conditions:
       - condition: trigger
         id: south_on
@@ -627,9 +573,10 @@
     - sensor.utrecht_alkmaar
   condition: []
   action:
-  - service: notify.mobile_app_phone_gj
-    data:
-      message: '{{ states(sensor.utrecht_alkmaar) }}'
+  - device_id: b2d9e2278037545c981b4d8814de3bac
+    domain: mobile_app
+    type: notify
+    message: '{{ states(sensor.utrecht_alkmaar) }}'
   mode: single
 - id: '1678268586740'
   alias: Vacuum single room
@@ -658,63 +605,71 @@
       seconds: 0
       milliseconds: 0
     continue_on_timeout: false
-  - service: notify.mobile_app_phone_gj
-    data:
-      message: Vacuum cleaner is done
-  - service: notify.persistent_notification
-    data:
-      message: Vacuum cleaner is done
+  - device_id: b2d9e2278037545c981b4d8814de3bac
+    domain: mobile_app
+    type: notify
+    message: Vacuum cleaner is done
   mode: single
-- id: '1678344107461'
-  alias: Change IP
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.experiabox_v10_external_ip
-  condition: []
-  action:
-  - service: notify.gerritjan_debruin_gmail_com
-    data:
-      target: gerritjan.debruin@gmail.com
-      title: Your IP-address changed.
-      message: The IP-address changed from {{ trigger.from_state }} to {{ trigger.to_state
-        }}.
-  - service: notify.mobile_app_sm_s901b
-    data:
-      title: Your IP-address changed.
-      message: The IP-address changed from {{ trigger.from_state }} to {{ trigger.to_state     }}.
-  mode: single
-- id: '1678631209619'
-  alias: NAS CPU high
+- id: '1692770404361'
+  alias: Dishwasher ready
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: sensor.nieuw_engeland_nas_cpu_utilization_total
+    entity_id: sensor.dishwasher_power
     for:
       hours: 0
       minutes: 10
       seconds: 0
-    above: 95
+    below: 2
   condition: []
   action:
-  - service: notify.mobile_app_phone_gj
-    data:
-      message: NAS CPU Utilization is high
+  - device_id: b2d9e2278037545c981b4d8814de3bac
+    domain: mobile_app
+    type: notify
+    message: Dishwasher is ready
   mode: single
-- id: '1688049065302'
-  alias: RSS
+- id: '1693129416861'
+  alias: Fan turn off
   description: ''
   trigger:
-  - platform: event
-    event_type: feedreader
-    event_data:
-      feed_url: https://simonwillison.net/atom/everything/
+  - platform: numeric_state
+    entity_id: sensor.bathroom_humidity
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    below: 75
+  - platform: numeric_state
+    entity_id: sensor.bathroom_dewpoint
+    below: sensor.weather_dewpoint
   condition: []
   action:
-  - service: notify.gerritjan_debruin_gmail_com
+  - service: fan.turn_off
+    data: {}
+    target:
+      entity_id: fan.fan
+  - service: notify.mobile_app_phone_gj
     data:
-      title: New post
-      target: gerritjan.debruin@gmail.com
-      data: trigger.event.data.title
+      message: Fan turned off
+  mode: single
+- id: '1693418071300'
+  alias: Fan turn on
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.bathroom_humidity
+    above: 80
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.bathroom_dewpoint
+    above: sensor.weather_dewpoint
+  action:
+  - type: turn_on
+    device_id: a9c1ea637f003a57f1abb222312e4d02
+    entity_id: 4dc9a6cc91fe6a9e15b04d6f0acccfa2
+    domain: fan
+  - device_id: b2d9e2278037545c981b4d8814de3bac
+    domain: mobile_app
+    type: notify
+    message: Fan turned on
   mode: single

@@ -42,8 +42,9 @@ influxdb:
 http:
   ip_ban_enabled: true
   login_attempts_threshold: 3
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+  use_x_forwarded_for: true
+  trusted_proxies: 
+    - 192.168.1.244
 
 automation: !include automations.yaml
 script: !include scripts.yaml
