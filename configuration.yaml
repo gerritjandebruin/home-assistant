@@ -43,12 +43,8 @@ http:
   ip_ban_enabled: true
   login_attempts_threshold: 3
   use_x_forwarded_for: true
-  trusted_proxies: 
+  trusted_proxies:
     - 192.168.1.244
 
 automation: !include automations.yaml
 script: !include scripts.yaml
-
-feedreader:
-  urls:
-    - https://simonwillison.net/atom/everything/
