@@ -1,675 +1,701 @@
-- id: '1603830622083'
+- id: "1603830622083"
   alias: Hall and corridor light
-  description: Triggers when there is movement in the hall at ground level or first
+  description:
+    Triggers when there is movement in the hall at ground level or first
     floor. When it freezes, warn with a blue light. Brightness is adapted to the desired
     level. Because the IKEA sensor at the corridor is slow in going to the cleared
     state, have a 10m wait before the Philips sensor at the hall is allowed to clear.
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.hall_motion
-    - binary_sensor.corridor_motion
-    - binary_sensor.front_door
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: binary_sensor.dark
-    state: 'on'
-  action:
-  - service: light.turn_on
-    data:
-      brightness_pct: '{% if (now().hour|int >= 22) or (now().hour|int <= 6) %} 1
-        {% else %} 100 {% endif %}'
-      color_temp: '{% if (now().hour|int >= 22) or (now().hour|int <= 6) %} 454 {%
-        else %} 366 {% endif %}'
-    target:
-      entity_id:
-      - light.corridor
-      - light.hall
-  - wait_template: '  {{ (states(''binary_sensor.hall_motion'') == ''off'') and (states(''binary_sensor.corridor_motion'')
-      == ''off'') }}'
-    continue_on_timeout: true
-    timeout: 01:00:00
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    target:
-      entity_id:
-      - light.corridor
-      - light.hall
-    data: {}
-  mode: queued
-  max: 5
-- id: '1603831020194'
-  alias: Kitchen light
-  description: Triggers when there is movement in the kitchen. Only activate light
-    when there is less than 20 lux measured in the hall at ground level. Brightness
-    is adapted to the desired level.
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.kitchen_motion
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: binary_sensor.dark
-    state: 'on'
-  action:
-  - service: light.turn_on
-    data:
-      brightness_pct: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 1
-        {% else %} 100 {% endif %}'
-      color_temp: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 454 {%
-        else %} 366 {% endif %}'
-    target:
-      entity_id: light.kitchen
-  - wait_for_trigger:
     - platform: state
       entity_id:
-      - binary_sensor.kitchen_motion
-      to: 'off'
-      for:
+        - binary_sensor.hall_motion
+        - binary_sensor.corridor_motion
+        - binary_sensor.front_door
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.dark
+      state: "on"
+  action:
+    - service: light.turn_on
+      data:
+        brightness_pct:
+          "{% if (now().hour|int >= 22) or (now().hour|int <= 6) %} 1
+          {% else %} 100 {% endif %}"
+        color_temp:
+          "{% if (now().hour|int >= 22) or (now().hour|int <= 6) %} 454 {%
+          else %} 366 {% endif %}"
+      target:
+        entity_id:
+          - light.corridor
+          - light.hall
+    - wait_template:
+        "  {{ (states('binary_sensor.hall_motion') == 'off') and (states('binary_sensor.corridor_motion')
+        == 'off') }}"
+      continue_on_timeout: true
+      timeout: 01:00:00
+    - delay:
         hours: 0
         minutes: 2
         seconds: 0
-    timeout:
-      hours: 1
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.kitchen
+        milliseconds: 0
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.corridor
+          - light.hall
+      data: {}
+  mode: queued
+  max: 5
+- id: "1603831020194"
+  alias: Kitchen light
+  description:
+    Triggers when there is movement in the kitchen. Only activate light
+    when there is less than 20 lux measured in the hall at ground level. Brightness
+    is adapted to the desired level.
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.kitchen_motion
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.dark
+      state: "on"
+  action:
+    - service: light.turn_on
+      data:
+        brightness_pct:
+          "{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 1
+          {% else %} 100 {% endif %}"
+        color_temp:
+          "{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 454 {%
+          else %} 366 {% endif %}"
+      target:
+        entity_id: light.kitchen
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.kitchen_motion
+          to: "off"
+          for:
+            hours: 0
+            minutes: 2
+            seconds: 0
+      timeout:
+        hours: 1
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.kitchen
   mode: single
-- id: '1608134139962'
-  alias: 'Shed door opened '
-  description: Put the light in the shed on when the door is opened and it is dark.
+- id: "1608134139962"
+  alias: "Shed door opened "
+  description:
+    Put the light in the shed on when the door is opened and it is dark.
     Put it off when the door is closed for longer than two minutes. If the door is
     closed, the user is reminded of this automation by a brief flash.
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.shed_door
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: binary_sensor.dark
-    state: 'on'
-  action:
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id: light.shed
-  - wait_for_trigger:
     - platform: state
       entity_id:
-      - binary_sensor.shed_door
-      to: 'off'
-    timeout:
-      hours: 0
-      minutes: 5
-      seconds: 0
-      milliseconds: 0
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.shed
+        - binary_sensor.shed_door
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.dark
+      state: "on"
+  action:
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.shed
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.shed_door
+          to: "off"
+      timeout:
+        hours: 0
+        minutes: 5
+        seconds: 0
+        milliseconds: 0
+    - delay:
+        hours: 0
+        minutes: 2
+        seconds: 0
+        milliseconds: 0
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.shed
   mode: restart
-- id: '1609974870568'
+- id: "1609974870568"
   alias: Doorbell
-  description: Flash lights and notify when the doorbell is detected by the RTL_433
+  description:
+    Flash lights and notify when the doorbell is detected by the RTL_433
     extension.
   trigger:
-  - platform: device
-    domain: mqtt
-    device_id: 83b12a930eaf4c7cb659f87de06f7708
-    type: button_short_release
-    subtype: button_1
-    discovery_id: Proove-Security-3-30755554 Proove-Security-3-30755554-CH
+    - platform: device
+      domain: mqtt
+      device_id: 83b12a930eaf4c7cb659f87de06f7708
+      type: button_short_release
+      subtype: button_1
+      discovery_id: Proove-Security-3-30755554 Proove-Security-3-30755554-CH
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
-    domain: mobile_app
-    type: notify
-    message: Doorbell!
-  - service: light.toggle
-    data:
-      flash: long
-    target:
-      area_id:
-      - kitchen
-      - hall
-      - corridor
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 1
-      milliseconds: 0
-  - service: light.toggle
-    data:
-      flash: long
-    target:
-      area_id:
-      - kitchen
-      - hall
-      - corridor
+    - device_id: b2d9e2278037545c981b4d8814de3bac
+      domain: mobile_app
+      type: notify
+      message: Doorbell!
+    - service: light.toggle
+      data:
+        flash: long
+      target:
+        area_id:
+          - kitchen
+          - hall
+          - corridor
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: light.toggle
+      data:
+        flash: long
+      target:
+        area_id:
+          - kitchen
+          - hall
+          - corridor
   mode: single
-- id: '1612988672846'
+- id: "1612988672846"
   alias: Toilet light
   description: Switch the toilet light when the door is opened.
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.toilet_door
-    to: 'on'
-  condition: []
-  action:
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id: light.toilet
-  - wait_for_trigger:
     - platform: state
       entity_id:
-      - binary_sensor.toilet_door
-      to: 'on'
-    timeout:
-      hours: 0
-      minutes: 15
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.toilet
+        - binary_sensor.toilet_door
+      to: "on"
+  condition: []
+  action:
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.toilet
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.toilet_door
+          to: "on"
+      timeout:
+        hours: 0
+        minutes: 15
+        seconds: 0
+        milliseconds: 0
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.toilet
   mode: single
-- id: '1612988850571'
+- id: "1612988850571"
   alias: Pantry light
   description: Switch the light in the pantry when the door is opened or closed.
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.pantry_door
-  condition: []
-  action:
-  - service: light.turn_on
-    entity_id: light.pantry
-  - wait_for_trigger:
     - platform: state
       entity_id:
-      - binary_sensor.pantry_door
-      to: 'off'
-    timeout:
-      hours: 0
-      minutes: 5
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    entity_id: light.pantry
+        - binary_sensor.pantry_door
+      to: "on"
+  condition: []
+  action:
+    - service: light.turn_on
+      entity_id: light.pantry
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.pantry_door
+          to: "off"
+      timeout:
+        hours: 0
+        minutes: 5
+        seconds: 0
+        milliseconds: 0
+    - service: light.turn_off
+      entity_id: light.pantry
   mode: single
-- id: '1614112596198'
+- id: "1614112596198"
   alias: Bike motion
-  description: When it is dark and there is motion, put on the lights in the bike
+  description:
+    When it is dark and there is motion, put on the lights in the bike
     shed. Else, put off. Note that this automation can be turned off by  automation.bike_button.
   trigger:
-  - platform: state
-    entity_id: binary_sensor.bike_motion
-    to: 'on'
+    - platform: state
+      entity_id: binary_sensor.bike_motion
+      to: "on"
   condition:
-  - condition: state
-    entity_id: binary_sensor.dark
-    state: 'on'
+    - condition: state
+      entity_id: binary_sensor.dark
+      state: "on"
   action:
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id: light.bike
-  - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.bike_motion
-      to: 'off'
-    timeout:
-      hours: 0
-      minutes: 10
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.bike
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.bike
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.bike_motion
+          to: "off"
+      timeout:
+        hours: 0
+        minutes: 10
+        seconds: 0
+        milliseconds: 0
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.bike
   mode: single
-- id: '1652901588502'
+- id: "1652901588502"
   alias: Vacuum charged
-  description: ''
+  description: ""
   trigger:
-  - platform: numeric_state
-    entity_id: vacuum.vacuum
-    attribute: battery_level
-    above: '99'
+    - platform: numeric_state
+      entity_id: vacuum.vacuum
+      attribute: battery_level
+      above: "99"
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
-    domain: mobile_app
-    type: notify
-    message: Vacuum charged
+    - device_id: b2d9e2278037545c981b4d8814de3bac
+      domain: mobile_app
+      type: notify
+      message: Vacuum charged
   mode: single
-- id: '1662921513914'
+- id: "1662921513914"
   alias: Walk in closet
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.walk_in_closet_door
-    from: 'off'
-    to: 'on'
-  condition: []
-  action:
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id: light.walk_in_closet
-  - wait_for_trigger:
     - platform: state
       entity_id:
-      - binary_sensor.walk_in_closet_door
-      to: 'off'
-    continue_on_timeout: true
-    timeout:
-      hours: 0
-      minutes: 10
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    data: {}
-    target:
-      entity_id: light.walk_in_closet
+        - binary_sensor.walk_in_closet_door
+      from: "off"
+      to: "on"
+  condition: []
+  action:
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.walk_in_closet
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - binary_sensor.walk_in_closet_door
+          to: "off"
+      continue_on_timeout: true
+      timeout:
+        hours: 0
+        minutes: 10
+        seconds: 0
+        milliseconds: 0
+    - service: light.turn_off
+      data: {}
+      target:
+        entity_id: light.walk_in_closet
   mode: single
-- id: '1663095761773'
+- id: "1663095761773"
   alias: Terrace
-  description: ''
+  description: ""
   use_blueprint:
     path: EPMatt/philips_324131092621.yaml
     input:
       integration: ZHA
       controller_device: d2d1de274ba99aa61fa79c7b3f8e64c1
       action_button_on_short:
-      - service: light.turn_on
-        data: {}
-        target:
-          entity_id: light.terrace
+        - service: light.turn_on
+          data: {}
+          target:
+            entity_id: light.terrace
       action_button_off_short:
-      - service: light.turn_off
-        data: {}
-        target:
-          entity_id: light.terrace
+        - service: light.turn_off
+          data: {}
+          target:
+            entity_id: light.terrace
       action_button_on_long:
-      - service: automation.turn_on
-        data: {}
-        target:
-          entity_id: automation.hall_corridor_light
+        - service: automation.turn_on
+          data: {}
+          target:
+            entity_id: automation.hall_corridor_light
       action_button_off_long:
-      - service: automation.turn_off
-        data: {}
-        target:
-          entity_id: automation.hall_corridor_light
+        - service: automation.turn_off
+          data: {}
+          target:
+            entity_id: automation.hall_corridor_light
       action_button_up_short:
-      - device_id: a9f1fc5ca682b5534d1e91820b492b08
-        domain: light
-        entity_id: light.terrace
-        type: brightness_increase
+        - device_id: a9f1fc5ca682b5534d1e91820b492b08
+          domain: light
+          entity_id: light.terrace
+          type: brightness_increase
       action_button_down_short:
-      - device_id: a9f1fc5ca682b5534d1e91820b492b08
-        domain: light
-        entity_id: light.terrace
-        type: brightness_decrease
+        - device_id: a9f1fc5ca682b5534d1e91820b492b08
+          domain: light
+          entity_id: light.terrace
+          type: brightness_decrease
       action_button_up_long: []
-- id: '1667116701161'
+- id: "1667116701161"
   alias: Bathroom light
-  description: Put light on when door is opened. Put off when closed for 10 minutes.
+  description:
+    Put light on when door is opened. Put off when closed for 10 minutes.
     Put off when nothing has changed for 30 minutes, except when showering.
   trigger:
-  - platform: state
-    entity_id: binary_sensor.bathroom_door
-    to: 'off'
-    for: 00:15:00
-    id: door long closed
-  - platform: state
-    entity_id: binary_sensor.bathroom_door
-    to: 'on'
-    id: door opened
-  - platform: state
-    entity_id: binary_sensor.bathroom_door
-    to: 'on'
-    for: 00:10:00
-    id: door long opened
-  - platform: numeric_state
-    entity_id: sensor.bathroom_humidity
-    below: '80'
-    for: 00:00:05
-    id: low humidity
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: "off"
+      for: 00:15:00
+      id: door long closed
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: "on"
+      id: door opened
+    - platform: state
+      entity_id: binary_sensor.bathroom_door
+      to: "on"
+      for: 00:10:00
+      id: door long opened
+    - platform: numeric_state
+      entity_id: sensor.bathroom_humidity
+      below: "80"
+      for: 00:00:05
+      id: low humidity
   condition: []
   action:
-  - choose:
-    - alias: Presumed forgotten to switch light off while door open
-      conditions:
-      - condition: trigger
-        id: door long opened
-      sequence:
-      - service: light.turn_off
-        data: {}
-        target:
-          entity_id: light.bathroom
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.shower
-    - alias: Presumed showering
-      conditions:
-      - condition: trigger
-        id: door long closed
-      - condition: numeric_state
-        entity_id: sensor.bathroom_humidity
-        above: '90'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.shower
-      - service: switch.toggle
-        entity_id: switch.bathroom
-      - delay: 00:00:01
-      - service: switch.toggle
-        entity_id: switch.bathroom
-      - wait_for_trigger:
-        - platform: numeric_state
-          entity_id: sensor.bathroom_humidity
-          below: '90'
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.shower
-    - alias: Presumed forgotten to switch light off while door closed
-      conditions:
-      - condition: trigger
-        id: door long closed
-      sequence:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.shower
-      - service: light.turn_off
-        entity_id: light.bathroom
-    - alias: Door opened
-      conditions:
-      - condition: trigger
-        id: door opened
-      sequence:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.shower
-      - service: light.turn_on
-        entity_id: light.bathroom
+    - choose:
+        - alias: Presumed forgotten to switch light off while door open
+          conditions:
+            - condition: trigger
+              id: door long opened
+          sequence:
+            - service: light.turn_off
+              data: {}
+              target:
+                entity_id: light.bathroom
+            - service: input_boolean.turn_off
+              entity_id: input_boolean.shower
+        - alias: Presumed showering
+          conditions:
+            - condition: trigger
+              id: door long closed
+            - condition: numeric_state
+              entity_id: sensor.bathroom_humidity
+              above: "90"
+          sequence:
+            - service: input_boolean.turn_on
+              entity_id: input_boolean.shower
+            - service: light.toggle
+              entity_id: light.bathroom
+            - delay: 00:00:01
+            - service: switch.toggle
+              entity_id: switch.bathroom
+            - wait_for_trigger:
+                - platform: numeric_state
+                  entity_id: sensor.bathroom_humidity
+                  below: "90"
+            - service: input_boolean.turn_off
+              entity_id: input_boolean.shower
+        - alias: Presumed forgotten to switch light off while door closed
+          conditions:
+            - condition: trigger
+              id: door long closed
+          sequence:
+            - service: input_boolean.turn_off
+              entity_id: input_boolean.shower
+            - service: light.turn_off
+              entity_id: light.bathroom
+        - alias: Door opened
+          conditions:
+            - condition: trigger
+              id: door opened
+          sequence:
+            - service: input_boolean.turn_off
+              entity_id: input_boolean.shower
+            - service: light.turn_on
+              entity_id: light.bathroom
   mode: single
-- id: '1672605032341'
+- id: "1672605032341"
   alias: Notify
-  description: ''
+  description: ""
   trigger:
-  - platform: numeric_state
-    entity_id:
-    - sensor.voltage
-    above: 0
-    below: 207
-  - platform: numeric_state
-    entity_id:
-    - sensor.voltage
-    above: 252
-  - platform: state
-    entity_id:
-    - sensor.shed_frostrisk
-    from: no_risk
-    alias: Shed freezing
-  - platform: numeric_state
-    entity_id:
-    - sensor.attic_temperature
-    - sensor.bathroom_temperature
-    - sensor.bedroom_temperature
-    - sensor.guestroom_temperature
-    - sensor.lounge_temperature
-    - sensor.shed_temperature
-    below: 0
-    alias: Thermometer below 0
-  - platform: numeric_state
-    entity_id:
-    - sensor.attic_temperature
-    - sensor.bathroom_temperature
-    - sensor.bedroom_temperature
-    - sensor.guestroom_temperature
-    - sensor.lounge_temperature
-    - sensor.shed_temperature
-    above: 45
-    alias: Thermometer above 40
-  - platform: state
-    entity_id:
-    - binary_sensor.bathroom_light_overpowering
-    - binary_sensor.bike_light_overpowering
-    - binary_sensor.bike_socket_overpowering
-    - binary_sensor.desk_north_overpowering
-    - binary_sensor.dishwasher_overpowering
-    - binary_sensor.dryer_overpowering
-    - binary_sensor.energy_meter_overpowering
-    - binary_sensor.fan_overpowering
-    - binary_sensor.fridge_kitchen_overpowering
-    - binary_sensor.server_plug_overpowering
-    - binary_sensor.terrace_overpowering
-    - binary_sensor.toilet_overpowering
-    - binary_sensor.washing_machine_overpowering
-    to: 'on'
-    alias: Overpowering
-  - platform: state
-    entity_id:
-    - binary_sensor.bathroom_light_overheating
-    - binary_sensor.bike_overheating
-    - binary_sensor.desk_north_overheating
-    - binary_sensor.dishwasher_overheating
-    - binary_sensor.dryer_overheating
-    - binary_sensor.fan_overheating
-    - binary_sensor.fridge_kitchen_overheating
-    - binary_sensor.server_plug_overheating
-    - binary_sensor.toilet_overheating
-    - binary_sensor.washing_machine_overheating
-    to: 'on'
-    alias: Overheating
-  - platform: numeric_state
-    entity_id: sensor.washing_machine_flood_battery
-    below: 20
-  - platform: state
-    entity_id: binary_sensor.washing_machine_flood
-    to: 'on'
-    id: flood
-  - platform: state
-    entity_id:
-    - sensor.experiabox_v10_external_ip
-    alias: Changed Archer IP address
-  - platform: state
-    entity_id:
-    - binary_sensor.washing_machine
-    to: 'off'
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-    alias: Washing machine is ready
-  - platform: state
-    entity_id:
-    - sensor.myip
-    alias: Changed external IP address
-  - platform: state
-    entity_id:
-    - fan.fan
-    alias: Fan available
-  - type: unsafe
-    platform: device
-    device_id: 953c91864067f38764af450c5f41be7c
-    entity_id: d22b961e536ec094696c518cc29bc458
-    domain: binary_sensor
-  - platform: state
-    entity_id:
-    - binary_sensor.nieuw_engeland_nas_drive_1_below_min_remaining_life
-    - binary_sensor.nieuw_engeland_nas_drive_1_exceeded_max_bad_sectors
-    - binary_sensor.nieuw_engeland_nas_drive_2_below_min_remaining_life
-    - binary_sensor.nieuw_engeland_nas_drive_2_exceeded_max_bad_sectors
-    to: 'on'
-    alias: Drive problems
+    - platform: numeric_state
+      entity_id:
+        - sensor.voltage
+      above: 0
+      below: 207
+    - platform: numeric_state
+      entity_id:
+        - sensor.voltage
+      above: 252
+    - platform: state
+      entity_id:
+        - sensor.shed_frostrisk
+      from: no_risk
+      alias: Shed freezing
+    - platform: numeric_state
+      entity_id:
+        - sensor.attic_temperature
+        - sensor.bathroom_temperature
+        - sensor.bedroom_temperature
+        - sensor.guestroom_temperature
+        - sensor.lounge_temperature
+        - sensor.shed_temperature
+      below: 0
+      alias: Thermometer below 0
+    - platform: numeric_state
+      entity_id:
+        - sensor.attic_temperature
+        - sensor.bathroom_temperature
+        - sensor.bedroom_temperature
+        - sensor.guestroom_temperature
+        - sensor.lounge_temperature
+        - sensor.shed_temperature
+      above: 45
+      alias: Thermometer above 40
+    - platform: state
+      entity_id:
+        - binary_sensor.bathroom_light_overpowering
+        - binary_sensor.bike_light_overpowering
+        - binary_sensor.bike_socket_overpowering
+        - binary_sensor.desk_north_overpowering
+        - binary_sensor.dishwasher_overpowering
+        - binary_sensor.dryer_overpowering
+        - binary_sensor.energy_meter_overpowering
+        - binary_sensor.fan_overpowering
+        - binary_sensor.fridge_kitchen_overpowering
+        - binary_sensor.server_plug_overpowering
+        - binary_sensor.terrace_overpowering
+        - binary_sensor.toilet_overpowering
+        - binary_sensor.washing_machine_overpowering
+      to: "on"
+      alias: Overpowering
+    - platform: state
+      entity_id:
+        - binary_sensor.bathroom_light_overheating
+        - binary_sensor.bike_overheating
+        - binary_sensor.desk_north_overheating
+        - binary_sensor.dishwasher_overheating
+        - binary_sensor.dryer_overheating
+        - binary_sensor.fan_overheating
+        - binary_sensor.fridge_kitchen_overheating
+        - binary_sensor.server_plug_overheating
+        - binary_sensor.toilet_overheating
+        - binary_sensor.washing_machine_overheating
+      to: "on"
+      alias: Overheating
+    - platform: numeric_state
+      entity_id: sensor.washing_machine_flood_battery
+      below: 20
+    - platform: state
+      entity_id: binary_sensor.washing_machine_flood
+      to: "on"
+      id: flood
+    - platform: state
+      entity_id:
+        - sensor.experiabox_v10_external_ip
+      alias: Changed Archer IP address
+    - platform: state
+      entity_id:
+        - sensor.myip
+      alias: Changed external IP address
+    - platform: state
+      entity_id:
+        - fan.fan
+      alias: Fan available
+    - type: unsafe
+      platform: device
+      device_id: 953c91864067f38764af450c5f41be7c
+      entity_id: d22b961e536ec094696c518cc29bc458
+      domain: binary_sensor
+    - platform: state
+      entity_id:
+        - binary_sensor.nieuw_engeland_nas_drive_1_below_min_remaining_life
+        - binary_sensor.nieuw_engeland_nas_drive_1_exceeded_max_bad_sectors
+        - binary_sensor.nieuw_engeland_nas_drive_2_below_min_remaining_life
+        - binary_sensor.nieuw_engeland_nas_drive_2_exceeded_max_bad_sectors
+      to: "on"
+      alias: Drive problems
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
-    domain: mobile_app
-    type: notify
-    title: Problem with {{ trigger.entity_id }}
-    message: Triggered on {{ trigger.entity_id }} from {{ trigger.from_state.state
-      }} to state {{ trigger.to_state.state }} at {{ now() }}.
+    - device_id: b2d9e2278037545c981b4d8814de3bac
+      domain: mobile_app
+      type: notify
+      title: Problem with {{ trigger.entity_id }}
+      message:
+        Triggered on {{ trigger.entity_id }} from {{ trigger.from_state.state
+        }} to state {{ trigger.to_state.state }} at {{ now() }}.
   mode: single
-- id: '1672607309301'
+- id: "1672607309301"
   alias: Desk
   description: Handling events from the buttons on the desks.
   trigger:
-  - id: south_on
-    device_id: f2920d964a5c507e42ff8757a220ddb8
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-  - id: south_off
-    device_id: f2920d964a5c507e42ff8757a220ddb8
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_off
+    - id: south_on
+      device_id: f2920d964a5c507e42ff8757a220ddb8
+      domain: zha
+      platform: device
+      type: remote_button_short_press
+      subtype: turn_on
+    - id: south_off
+      device_id: f2920d964a5c507e42ff8757a220ddb8
+      domain: zha
+      platform: device
+      type: remote_button_short_press
+      subtype: turn_off
   condition: []
   action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: south_on
-      sequence:
-      - service: switch.turn_on
-        entity_id: switch.desk_south
-    - conditions:
-      - condition: trigger
-        id: south_off
-      sequence:
-      - service: switch.turn_off
-        target:
-          entity_id: switch.desk_south
-        data: {}
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: south_on
+          sequence:
+            - service: switch.turn_on
+              entity_id: switch.desk_south
+        - conditions:
+            - condition: trigger
+              id: south_off
+          sequence:
+            - service: switch.turn_off
+              target:
+                entity_id: switch.desk_south
+              data: {}
   mode: single
-- id: '1675062799052'
+- id: "1675062799052"
   alias: Train alert
-  description: ''
+  description: ""
   trigger:
-  - platform: state
-    entity_id:
-    - sensor.utrecht_alkmaar
-  condition: []
-  action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
-    domain: mobile_app
-    type: notify
-    message: '{{ states(sensor.utrecht_alkmaar) }}'
-  mode: single
-- id: '1678268586740'
-  alias: Vacuum single room
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - input_button.vacuum_single
-    alias: When vacuum single button pressed
-  condition: []
-  action:
-  - service: select.select_option
-    data:
-      option: single
-    target:
-      entity_id: select.vacuum_mode
-    alias: Vacuum clean single room
-  - wait_for_trigger:
     - platform: state
       entity_id:
-      - vacuum.vacuum
-      to: idle
-    timeout:
-      hours: 1
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
-    continue_on_timeout: false
-  - device_id: b2d9e2278037545c981b4d8814de3bac
-    domain: mobile_app
-    type: notify
-    message: Vacuum cleaner is done
+        - sensor.utrecht_alkmaar
+  condition: []
+  action:
+    - device_id: b2d9e2278037545c981b4d8814de3bac
+      domain: mobile_app
+      type: notify
+      message: "{{ states(sensor.utrecht_alkmaar) }}"
   mode: single
-- id: '1692770404361'
+- id: "1678268586740"
+  alias: Vacuum single room
+  description: ""
+  trigger:
+    - platform: state
+      entity_id:
+        - input_button.vacuum_single
+      alias: When vacuum single button pressed
+  condition: []
+  action:
+    - service: select.select_option
+      data:
+        option: single
+      target:
+        entity_id: select.vacuum_mode
+      alias: Vacuum clean single room
+    - wait_for_trigger:
+        - platform: state
+          entity_id:
+            - vacuum.vacuum
+          to: idle
+      timeout:
+        hours: 1
+        minutes: 0
+        seconds: 0
+        milliseconds: 0
+      continue_on_timeout: false
+    - device_id: b2d9e2278037545c981b4d8814de3bac
+      domain: mobile_app
+      type: notify
+      message: Vacuum cleaner is done
+  mode: single
+- id: "1692770404361"
   alias: Dishwasher ready
-  description: ''
+  description: ""
   trigger:
-  - platform: numeric_state
-    entity_id: sensor.dishwasher_power
-    for:
-      hours: 0
-      minutes: 10
-      seconds: 0
-    below: 2
+    - platform: numeric_state
+      entity_id: sensor.dishwasher_power
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+      below: 2
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
-    domain: mobile_app
-    type: notify
-    message: Dishwasher is ready
+    - device_id: b2d9e2278037545c981b4d8814de3bac
+      domain: mobile_app
+      type: notify
+      message: Dishwasher is ready
   mode: single
-- id: '1693129416861'
+- id: "1693129416861"
   alias: Fan turn off
-  description: ''
+  description: ""
   trigger:
-  - platform: numeric_state
-    entity_id: sensor.bathroom_humidity
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-    below: 75
-  - platform: numeric_state
-    entity_id: sensor.bathroom_dewpoint
-    below: sensor.weather_dewpoint
+    - platform: numeric_state
+      entity_id: sensor.bathroom_humidity
+      for:
+        hours: 0
+        minutes: 5
+        seconds: 0
+      below: 75
+    - platform: numeric_state
+      entity_id: sensor.bathroom_dewpoint
+      below: sensor.weather_dewpoint
+  condition:
+    - condition: device
+      device_id: a9c1ea637f003a57f1abb222312e4d02
+      domain: fan
+      entity_id: 4dc9a6cc91fe6a9e15b04d6f0acccfa2
+      type: is_on
+  action:
+    - service: fan.turn_off
+      data: {}
+      target:
+        entity_id: fan.fan
+    - service: notify.mobile_app_phone_gj
+      data:
+        title: Fan turned off
+        message: Triggered by {{ trigger.entity_id }}, being {{ trigger.to_state }}.
+  mode: single
+- id: "1693418071300"
+  alias: Fan turn on
+  description: ""
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.bathroom_humidity
+      above: 80
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.bathroom_dewpoint
+      above: sensor.weather_dewpoint
+  action:
+    - service: fan.turn_on
+      data: {}
+      target:
+        entity_id: fan.fan
+    - device_id: b2d9e2278037545c981b4d8814de3bac
+      domain: mobile_app
+      type: notify
+      message: Fan turned on
+  mode: single
+- id: "1693470796463"
+  alias: Washing machine is ready
+  description: ""
+  trigger:
+    - type: not_running
+      platform: device
+      device_id: 7b748ddf488252dc1ed824f226b39955
+      entity_id: 917e85b275361e10b477a358351e103b
+      domain: binary_sensor
   condition: []
   action:
-  - service: fan.turn_off
-    data: {}
-    target:
-      entity_id: fan.fan
-  - service: notify.mobile_app_phone_gj
-    data:
-      message: Fan turned off
-  mode: single
-- id: '1693418071300'
-  alias: Fan turn on
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.bathroom_humidity
-    above: 80
-  condition:
-  - condition: numeric_state
-    entity_id: sensor.bathroom_dewpoint
-    above: sensor.weather_dewpoint
-  action:
-  - type: turn_on
-    device_id: a9c1ea637f003a57f1abb222312e4d02
-    entity_id: 4dc9a6cc91fe6a9e15b04d6f0acccfa2
-    domain: fan
-  - device_id: b2d9e2278037545c981b4d8814de3bac
-    domain: mobile_app
-    type: notify
-    message: Fan turned on
+    - device_id: b2d9e2278037545c981b4d8814de3bac
+      domain: mobile_app
+      type: notify
+      message: Washing machine is ready
   mode: single
