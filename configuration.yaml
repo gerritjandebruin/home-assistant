@@ -9,7 +9,7 @@ homeassistant:
     - type: homeassistant
     - type: trusted_networks
       trusted_networks:
-        - 192.168.1.0/25
+        - 192.168.1.0/24
   customize:
     sensor.vacuum_cleaning_area:
       unit_of_measurement: "m³"

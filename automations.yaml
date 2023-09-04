@@ -619,7 +619,7 @@
       hours: 0
       minutes: 10
       seconds: 0
-    below: 2
+    below: 5
   condition: []
   action:
   - device_id: b2d9e2278037545c981b4d8814de3bac
@@ -639,8 +639,8 @@
       seconds: 0
     below: 75
   - platform: numeric_state
-    entity_id: sensor.bathroom_dewpoint
-    below: sensor.weather_dewpoint
+    entity_id: sensor.bathroom_differential_dew_point
+    below: 2
   condition:
   - condition: device
     device_id: a9c1ea637f003a57f1abb222312e4d02
