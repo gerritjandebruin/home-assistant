@@ -662,12 +662,9 @@
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: sensor.bathroom_humidity
-    above: 80
-  condition:
-  - condition: numeric_state
-    entity_id: sensor.bathroom_dewpoint
-    above: sensor.weather_dewpoint
+    entity_id: sensor.bathroom_differential_dew_point
+    above: 2
+  condition: []
   action:
   - service: fan.turn_on
     data: {}
