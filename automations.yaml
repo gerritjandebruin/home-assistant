@@ -506,7 +506,8 @@
   - platform: state
     entity_id:
     - fan.fan
-    alias: Fan available
+    alias: Fan unavailable
+    to: unavailable
   - type: unsafe
     platform: device
     device_id: 953c91864067f38764af450c5f41be7c
