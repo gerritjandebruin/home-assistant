@@ -665,7 +665,10 @@
   - platform: numeric_state
     entity_id: sensor.bathroom_differential_dew_point
     above: 2
-  condition: []
+  condition:
+  - condition: state
+    entity_id: fan.fan
+    state: 'off'
   action:
   - service: fan.turn_on
     data: {}
