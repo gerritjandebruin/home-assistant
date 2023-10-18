@@ -664,7 +664,7 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.bathroom_differential_dew_point
-    above: 2
+    above: 2.5
   condition:
   - condition: state
     entity_id: fan.fan
@@ -694,4 +694,37 @@
     domain: mobile_app
     type: notify
     message: Washing machine is ready
+  mode: single
+- id: '1697474001246'
+  alias: Desk north automation
+  description: ''
+  trigger:
+  - device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+    id: turn_on
+  - device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+    id: turn_off
+  condition: []
+  action:
+  - if:
+    - condition: trigger
+      id:
+      - turn_on
+    then:
+    - type: turn_on
+      device_id: 36543f490d13ca02e682f5623788a79b
+      entity_id: ab46a26638e7ab4314922daaada9644a
+      domain: switch
+    else:
+    - type: turn_off
+      device_id: 36543f490d13ca02e682f5623788a79b
+      entity_id: ab46a26638e7ab4314922daaada9644a
+      domain: switch
   mode: single
