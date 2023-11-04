@@ -728,3 +728,19 @@
       entity_id: ab46a26638e7ab4314922daaada9644a
       domain: switch
   mode: single
+- id: '1699096303431'
+  alias: Fan toggle
+  description: ''
+  trigger:
+  - device_id: 88565956afb4bf97d9676e215e0a2711
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+  condition: []
+  action:
+  - service: fan.toggle
+    data: {}
+    target:
+      entity_id: fan.fan
+  mode: single
