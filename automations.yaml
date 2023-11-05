@@ -137,7 +137,7 @@
     discovery_id: Proove-Security-3-30755554 Proove-Security-3-30755554-CH
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
     message: Doorbell!
@@ -259,7 +259,7 @@
     above: '99'
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
     message: Vacuum charged
@@ -523,7 +523,7 @@
     alias: Drive problems
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
     title: Problem with {{ trigger.entity_id }}
@@ -573,10 +573,10 @@
     - sensor.utrecht_alkmaar
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
-    message: '{{ states(sensor.utrecht_alkmaar) }}'
+    message: Train trigger
   mode: single
 - id: '1678268586740'
   alias: Vacuum single room
@@ -605,7 +605,7 @@
       seconds: 0
       milliseconds: 0
     continue_on_timeout: false
-  - device_id: b2d9e2278037545c981b4d8814de3bac
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
     message: Vacuum cleaner is done
@@ -623,7 +623,7 @@
     below: 5
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
     message: Dishwasher is ready
@@ -674,10 +674,6 @@
     data: {}
     target:
       entity_id: fan.fan
-  - device_id: b2d9e2278037545c981b4d8814de3bac
-    domain: mobile_app
-    type: notify
-    message: Fan turned on
   mode: single
 - id: '1693470796463'
   alias: Washing machine is ready
@@ -690,7 +686,7 @@
     domain: binary_sensor
   condition: []
   action:
-  - device_id: b2d9e2278037545c981b4d8814de3bac
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
     message: Washing machine is ready
@@ -728,19 +724,36 @@
       entity_id: ab46a26638e7ab4314922daaada9644a
       domain: switch
   mode: single
-- id: '1699096303431'
-  alias: Fan toggle
+- id: '1699101063603'
+  alias: Fan button
   description: ''
   trigger:
-  - device_id: 88565956afb4bf97d9676e215e0a2711
+  - device_id: dba399be5f18d6a874165e6f8f4cf9c5
     domain: zha
     platform: device
     type: remote_button_short_press
     subtype: turn_on
+    id: turn_on
+  - device_id: dba399be5f18d6a874165e6f8f4cf9c5
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+    id: turn_off
   condition: []
   action:
-  - service: fan.toggle
-    data: {}
-    target:
-      entity_id: fan.fan
+  - if:
+    - condition: trigger
+      id:
+      - turn_on
+    then:
+    - service: fan.turn_on
+      data: {}
+      target:
+        entity_id: fan.fan
+    else:
+    - service: fan.turn_off
+      data: {}
+      target:
+        entity_id: fan.fan
   mode: single
