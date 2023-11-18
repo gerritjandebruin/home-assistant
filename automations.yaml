@@ -653,10 +653,10 @@
     data: {}
     target:
       entity_id: fan.fan
-  - service: notify.mobile_app_phone_gj
-    data:
-      title: Fan turned off
-      message: Triggered by {{ trigger.entity_id }}, being {{ trigger.to_state }}.
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
+    domain: mobile_app
+    type: notify
+    message: Triggered by {{ trigger.entity_id }}, being {{ trigger.to_state }}.
   mode: single
 - id: '1693418071300'
   alias: Fan turn on
@@ -756,4 +756,101 @@
       data: {}
       target:
         entity_id: fan.fan
+  mode: single
+- id: '1699803193333'
+  alias: Bedroom remote
+  description: ''
+  trigger:
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+    id: '1'
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: dim_up
+    id: '2'
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: dim_down
+    id: '3'
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: left
+    id: '4'
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: right
+    id: '5'
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: left
+    id: '6'
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: right
+    id: '7'
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - '1'
+      sequence:
+      - service: light.toggle
+        data: {}
+        target:
+          entity_id: light.bedroom
+    - conditions:
+      - condition: trigger
+        id:
+        - '2'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness_step: 10
+        target:
+          entity_id: light.bedroom
+    - conditions:
+      - condition: trigger
+        id:
+        - '3'
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness_step: -10
+        target:
+          entity_id: light.bedroom
+    - conditions:
+      - condition: trigger
+        id:
+        - '4'
+      sequence:
+      - type: toggle
+        device_id: 6783c5c5d415efc8d8ee992bcede1f16
+        entity_id: c0713d089c995a6583b6ea2ca85d3848
+        domain: light
+    - conditions:
+      - condition: trigger
+        id:
+        - '5'
+      sequence:
+      - type: toggle
+        device_id: a86d85dac77c6830cc859999c74e41da
+        entity_id: 7b92662312ab2bfa93a704d11b8f5b1b
+        domain: light
   mode: single
