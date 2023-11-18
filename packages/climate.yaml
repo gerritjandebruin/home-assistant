@@ -1,5 +1,6 @@
-# climate:
-#   - platform: generic_thermostat
-#     name: Heater
-#     heater: switch.heater
-#     target_sensor: sensor.attic_temperature
+climate:
+  - platform: generic_thermostat
+    name: Heater
+    unique_id: heater_attic
+    heater: switch.heater
+    target_sensor: sensor.attic_temperature
