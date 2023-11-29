@@ -16,16 +16,48 @@
     entity_id: binary_sensor.dark
     state: 'on'
   action:
-  - service: light.turn_on
-    data:
-      brightness_pct: '{% if (now().hour|int >= 22) or (now().hour|int <= 6) %} 1
-        {% else %} 100 {% endif %}'
-      color_temp: '{% if (now().hour|int >= 22) or (now().hour|int <= 6) %} 454 {%
-        else %} 366 {% endif %}'
-    target:
-      entity_id:
-      - light.corridor
-      - light.hall
+  - choose:
+    - conditions:
+      - condition: time
+        after: '22:00:00'
+        before: 06:00:00
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 1
+          color_temp: 153
+        target:
+          entity_id:
+          - light.corridor
+          - light.hall
+    - conditions:
+      - condition: numeric_state
+        entity_id: sensor.temperature
+        below: 0.1
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 100
+          color_temp: 500
+        target:
+          entity_id:
+          - light.hall
+      - service: light.turn_on
+        data:
+          brightness: 100
+          color_temp: 331
+        target:
+          entity_id:
+          - light.corridor
+    default:
+    - service: light.turn_on
+      data:
+        brightness: 100
+        color_temp: 326
+      target:
+        entity_id:
+        - light.corridor
+        - light.hall
   - wait_template: '  {{ (states(''binary_sensor.hall_motion'') == ''off'') and (states(''binary_sensor.corridor_motion'')
       == ''off'') }}'
     continue_on_timeout: true
@@ -751,11 +783,15 @@
       data: {}
       target:
         entity_id: fan.fan
+    - delay:
+        minutes: 1
     else:
     - service: fan.turn_off
       data: {}
       target:
         entity_id: fan.fan
+    - delay:
+        minutes: 1
   mode: single
 - id: '1699803193333'
   alias: Bedroom remote
@@ -853,4 +889,37 @@
         device_id: a86d85dac77c6830cc859999c74e41da
         entity_id: 7b92662312ab2bfa93a704d11b8f5b1b
         domain: light
+  mode: single
+- id: '1701281060086'
+  alias: Desk east timer
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 0
+    id: sunset
+  - platform: time
+    at: 00:00:00
+    id: midnight
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - sunset
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        target:
+          entity_id: switch.desk_east
+    - conditions:
+      - condition: trigger
+        id:
+        - midnight
+      sequence:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.desk_east
   mode: single
