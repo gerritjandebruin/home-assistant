@@ -37,8 +37,8 @@
       sequence:
       - service: light.turn_on
         data:
-          brightness: 100
           color_temp: 500
+          brightness: 255
         target:
           entity_id:
           - light.hall
@@ -49,6 +49,69 @@
         target:
           entity_id:
           - light.corridor
+    - conditions:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        after: 06:39:00
+        before: 07:09:00
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: sensor.utrecht_alkmaar
+          state:
+          - unknown
+          - unavaible
+        alias: Utrecht - Alkmaar is available
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: sensor.utrecht_alkmaar
+          attribute: going
+          state: 'false'
+          alias: Train not running
+        - alias: Train is delayed
+          condition: not
+          conditions:
+          - condition: state
+            entity_id: sensor.utrecht_alkmaar
+            attribute: departure_delay
+            state: 'false'
+        - alias: Train status is not normal
+          condition: not
+          conditions:
+          - condition: state
+            entity_id: sensor.utrecht_alkmaar
+            state: normal
+            attribute: status
+        alias: Test if there is an abnormality
+      sequence:
+      - service: light.turn_on
+        data:
+          color_temp: 153
+          brightness_pct: 100
+          flash: long
+        target:
+          entity_id:
+          - light.hall
+          - light.corridor
+      - service: notify.mobile_app_sm_s901b
+        data:
+          title: Train is delayed or cancelled.
+          message: 'Going                 {{ state_attr(''sensor.utrecht_alkmaar'',
+            ''going'') }} Departure time actual {{ state_attr(''sensor.utrecht_alkmaar'',
+            ''departure_time_actual'') }}  Departure delay       {{ state_attr(''sensor.utrecht_alkmaar'',
+            ''departure_delay'') }} Status                {{ state_attr(''sensor.utrecht_alkmaar'',
+            ''status'') }} Remarks               {{ state_attr(''sensor.utrecht_alkmaar'',
+            ''remarks'') }} {% if state_attr(''sensor.utrecht_alkmaar'', ''transfers'')
+            | int(0) != 0 %} Transfers             {{ state_attr(''sensor.utrecht_alkmaar'',
+            ''transfers'') }} {% endif %}
+
+            '
     default:
     - service: light.turn_on
       data:
@@ -602,13 +665,42 @@
   trigger:
   - platform: state
     entity_id:
-    - sensor.utrecht_alkmaar
+    - sensor.utrecht_den_haag
+    attribute: going
+    to: 'false'
+  - platform: state
+    entity_id:
+    - sensor.utrecht_den_haag
+    attribute: departure_delay
+    from: 'false'
+  - platform: state
+    entity_id:
+    - sensor.utrecht_den_haag
+    attribute: status
+  - platform: state
+    entity_id:
+    - sensor.utrecht_den_haag
+    attribute: transfers
+    from: '0'
+  - platform: state
+    entity_id:
+    - sensor.utrecht_den_haag
+    attribute: remarks
   condition: []
   action:
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Train trigger
+  - service: notify.mobile_app_sm_s901b
+    data:
+      title: Train is delayed or cancelled.
+      message: 'Going                 {{ state_attr(''sensor.utrecht_den_haag'', ''going'')
+        }} Departure time actual {{ state_attr(''sensor.utrecht_den_haag'', ''departure_time_actual'')
+        }} Departure delay       {{ state_attr(''sensor.utrecht_den_haag'', ''departure_delay'')
+        }} Status                {{ state_attr(''sensor.utrecht_den_haag'', ''status'')
+        }} Remarks               {{ state_attr(''sensor.utrecht_den_haag'', ''remarks'')
+        }} {% if state_attr(''sensor.utrecht_den_haag'', ''transfers'') | int(0) !=
+        0 %} Transfers             {{ state_attr(''sensor.utrecht_den_haag'', ''transfers'')
+        }} {% endif %}
+
+        '
   mode: single
 - id: '1678268586740'
   alias: Vacuum single room
@@ -922,4 +1014,45 @@
         data: {}
         target:
           entity_id: switch.desk_east
+  mode: single
+- id: '1701595949318'
+  alias: Heater timer
+  description: ''
+  trigger:
+  - platform: event
+    event_type: timer.started
+    event_data:
+      entity_id: timer.heater
+    id: started
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.heater
+    id: finished
+  - platform: event
+    event_type: timer.cancelled
+    event_data:
+      entity_id: timer.heater
+    id: finished
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - started
+      sequence:
+      - service: switch.turn_on
+        data: {}
+        target:
+          entity_id: switch.heater
+    - conditions:
+      - condition: trigger
+        id:
+        - finished
+      sequence:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.heater
   mode: single

@@ -9,3 +9,6 @@ sensor:
       - name: Utrecht-Den Haag
         from: Ut
         to: Gvc
+      - name: Utrecht-Amstel
+        from: Ut
+        to: Asa
