@@ -1056,3 +1056,17 @@
         target:
           entity_id: switch.heater
   mode: single
+- id: '1702071765185'
+  alias: Cast
+  description: ''
+  trigger:
+  - platform: time_pattern
+    hours: '*'
+  condition: []
+  action:
+  - service: cast.show_lovelace_view
+    data:
+      entity_id: media_player.lounge_display
+      dashboard_path: lovelace
+      view_path: hub
+  mode: single
