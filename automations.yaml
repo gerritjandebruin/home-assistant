@@ -313,7 +313,7 @@
     entity_id: light.pantry
   mode: single
 - id: '1614112596198'
-  alias: Bike motion
+  alias: Bike
   description: When it is dark and there is motion, put on the lights in the bike
     shed. Else, put off. Note that this automation can be turned off by  automation.bike_button.
   trigger:
@@ -430,7 +430,7 @@
         type: brightness_decrease
       action_button_up_long: []
 - id: '1667116701161'
-  alias: Bathroom light
+  alias: Bathroom
   description: Put light on when door is opened. Put off when closed for 10 minutes.
     Put off when nothing has changed for 30 minutes, except when showering.
   trigger:
@@ -626,7 +626,7 @@
       }} to state {{ trigger.to_state.state }} at {{ now() }}.
   mode: single
 - id: '1672607309301'
-  alias: Desk
+  alias: Desk south
   description: Handling events from the buttons on the desks.
   trigger:
   - id: south_on
@@ -686,7 +686,7 @@
         attribute: status
         state:
         - cancelled
-        - maintainance
+        - maintenance
         - normal
   action:
   - service: notify.mobile_app_sm_s901b
@@ -736,7 +736,7 @@
     message: Vacuum cleaner is done
   mode: single
 - id: '1692770404361'
-  alias: Dishwasher ready
+  alias: Dishwasher
   description: ''
   trigger:
   - platform: numeric_state
@@ -768,11 +768,13 @@
     entity_id: sensor.bathroom_differential_dew_point
     below: 2
   condition:
-  - condition: device
-    device_id: a9c1ea637f003a57f1abb222312e4d02
-    domain: fan
-    entity_id: 4dc9a6cc91fe6a9e15b04d6f0acccfa2
-    type: is_on
+  - condition: state
+    entity_id: fan.fan
+    state: 'on'
+    for:
+      hours: 0
+      minutes: 30
+      seconds: 0
   action:
   - service: fan.turn_off
     data: {}
@@ -788,20 +790,30 @@
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: sensor.bathroom_differential_dew_point
-    above: 2.5
+    entity_id:
+    - sensor.bathroom_mold
+    above: 99
   condition:
   - condition: state
     entity_id: fan.fan
     state: 'off'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
   action:
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
   - service: fan.turn_on
     data: {}
     target:
       entity_id: fan.fan
   mode: single
 - id: '1693470796463'
-  alias: Washing machine is ready
+  alias: Washing machine
   description: ''
   trigger:
   - type: not_running
@@ -817,7 +829,7 @@
     message: Washing machine is ready
   mode: single
 - id: '1697474001246'
-  alias: Desk north automation
+  alias: Desk north
   description: ''
   trigger:
   - device_id: edc737eaf70410f77edc47501e93b308
@@ -887,7 +899,7 @@
         minutes: 1
   mode: single
 - id: '1699803193333'
-  alias: Bedroom remote
+  alias: Bedroom
   description: ''
   trigger:
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
