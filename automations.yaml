@@ -666,27 +666,28 @@
   - platform: state
     entity_id:
     - sensor.utrecht_den_haag
-    attribute: going
-    to: 'false'
-  - platform: state
-    entity_id:
-    - sensor.utrecht_den_haag
-    attribute: departure_delay
-    from: 'false'
-  - platform: state
-    entity_id:
-    - sensor.utrecht_den_haag
     attribute: status
-  - platform: state
-    entity_id:
-    - sensor.utrecht_den_haag
-    attribute: transfers
-    from: '0'
+    id: status
   - platform: state
     entity_id:
     - sensor.utrecht_den_haag
     attribute: remarks
-  condition: []
+    id: remarks
+  condition:
+  - condition: or
+    conditions:
+    - condition: trigger
+      id:
+      - remarks
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: sensor.utrecht_den_haag
+        attribute: status
+        state:
+        - cancelled
+        - maintainance
+        - normal
   action:
   - service: notify.mobile_app_sm_s901b
     data:
