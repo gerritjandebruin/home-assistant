@@ -1,1 +1,26 @@
-{}
+bluebot_xboost_single_room:
+  alias: Bluebot Xboost single room
+  sequence:
+  - device_id: e138f8d5b85f7b6841198dad0fb8e5ea
+    domain: select
+    entity_id: 28a4ad3e7a17c959bc99ecacf2584475
+    type: select_option
+    option: single
+    alias: BLUEBOT XBOOST clean single room
+  - wait_for_trigger:
+    - platform: device
+      device_id: e138f8d5b85f7b6841198dad0fb8e5ea
+      domain: select
+      entity_id: 28a4ad3e7a17c959bc99ecacf2584475
+      type: current_option_changed
+      to: standby
+      alias: 'BLUEBOT XBOOST ready '
+    timeout:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - service: notify.mobile_app_sm_s901b
+    data: {}
+  mode: single
+  icon: mdi:broom

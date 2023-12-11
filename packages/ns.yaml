@@ -5,10 +5,6 @@ sensor:
       - name: Utrecht-Alkmaar
         from: Ut
         to: Amr
-        time: "06:39:00"
-      - name: Utrecht-Alkmaar
-        from: Ut
-        to: Amr
         time: "07:09:00"
       - name: Utrecht-Den Haag
         from: Ut

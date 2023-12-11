@@ -24,8 +24,8 @@
       sequence:
       - service: light.turn_on
         data:
-          brightness: 1
-          color_temp: 153
+          brightness_pct: 1
+          kelvin: 2000
         target:
           entity_id:
           - light.corridor
@@ -996,15 +996,15 @@
         domain: light
   mode: single
 - id: '1701281060086'
-  alias: Desk east timer
+  alias: Christmas lights
   description: ''
   trigger:
   - platform: sun
     event: sunset
-    offset: 0
+    offset: -01:00:00
     id: sunset
   - platform: time
-    at: 00:00:00
+    at: 01:00:00
     id: midnight
   condition: []
   action:
@@ -1017,7 +1017,9 @@
       - service: switch.turn_on
         data: {}
         target:
-          entity_id: switch.desk_east
+          entity_id:
+          - switch.desk_east
+          - switch.bike_socket
     - conditions:
       - condition: trigger
         id:
@@ -1026,7 +1028,9 @@
       - service: switch.turn_off
         data: {}
         target:
-          entity_id: switch.desk_east
+          entity_id:
+          - switch.desk_east
+          - switch.bike_socket
   mode: single
 - id: '1701595949318'
   alias: Heater timer
@@ -1068,18 +1072,4 @@
         data: {}
         target:
           entity_id: switch.heater
-  mode: single
-- id: '1702071765185'
-  alias: Cast
-  description: ''
-  trigger:
-  - platform: time_pattern
-    hours: '*'
-  condition: []
-  action:
-  - service: cast.show_lovelace_view
-    data:
-      entity_id: media_player.lounge_display
-      dashboard_path: lovelace
-      view_path: hub
   mode: single
