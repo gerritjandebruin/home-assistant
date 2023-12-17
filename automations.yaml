@@ -58,29 +58,23 @@
         - thu
         - fri
         after: 06:39:00
-        before: 07:09:00
+        before: 07:05:00
       - condition: not
         conditions:
         - condition: state
           entity_id: sensor.utrecht_alkmaar
           state:
           - unknown
-          - unavaible
+          - unavailable
         alias: Utrecht - Alkmaar is available
-      - condition: or
+      - alias: Test if there is an abnormality
+        condition: or
         conditions:
         - condition: state
           entity_id: sensor.utrecht_alkmaar
           attribute: going
           state: 'false'
           alias: Train not running
-        - alias: Train is delayed
-          condition: not
-          conditions:
-          - condition: state
-            entity_id: sensor.utrecht_alkmaar
-            attribute: departure_delay
-            state: 'false'
         - alias: Train status is not normal
           condition: not
           conditions:
@@ -88,7 +82,10 @@
             entity_id: sensor.utrecht_alkmaar
             state: normal
             attribute: status
-        alias: Test if there is an abnormality
+        - condition: state
+          entity_id: sensor.utrecht_alkmaar
+          attribute: departure_delay
+          state: 'true'
       sequence:
       - service: light.turn_on
         data:

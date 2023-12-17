@@ -24,3 +24,12 @@ bluebot_xboost_single_room:
     data: {}
   mode: single
   icon: mdi:broom
+'1702660694980':
+  alias: Cast
+  sequence:
+  - service: cast.show_lovelace_view
+    data:
+      entity_id: media_player.lounge_display
+      dashboard_path: lovelace
+      view_path: hub
+  mode: single
