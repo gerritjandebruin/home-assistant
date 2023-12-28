@@ -8,7 +8,9 @@ sensor:
       - type: last_boot
 command_line:
   - sensor:
-      name: CPU device temperature
       command: "cat /sys/class/thermal/thermal_zone0/temp"
+      name: CPU device temperature
       unit_of_measurement: "°C"
+      unique_id: hass_cpu
+      device_class: temperature
       value_template: "{{ value | multiply(0.001) }}"

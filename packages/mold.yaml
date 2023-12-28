@@ -35,3 +35,30 @@ sensor:
     outdoor_temp_sensor: sensor.temperature
     calibration_factor: 1.0
     name: Shed mold
+
+homeassistant:
+  customize:
+    sensor.attic_mold:
+      state_class: measurement
+      unit_of_measurement: "%"
+      friendly_name: Schimmelkans zolder
+    sensor.bathroom_mold:
+      state_class: measurement
+      unit_of_measurement: "%"
+      friendly_name: Schimmelkans badkamer
+    sensor.bedroom_mold:
+      state_class: measurement
+      unit_of_measurement: "%"
+      friendly_name: Schimmelkans slaapkamer
+    sensor.guestroom_mold:
+      state_class: measurement
+      unit_of_measurement: "%"
+      friendly_name: Schimmelkans gastenkamer
+    sensor.lounge_mold:
+      state_class: measurement
+      unit_of_measurement: "%"
+      friendly_name: Schimmelkans woonkamer
+    sensor.shed_mold:
+      state_class: measurement
+      unit_of_measurement: "%"
+      friendly_name: Schimmelkans schuur

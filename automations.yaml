@@ -528,7 +528,6 @@
     entity_id:
     - sensor.shed_frostrisk
     from: no_risk
-    alias: Shed freezing
   - platform: numeric_state
     entity_id:
     - sensor.attic_temperature
@@ -538,7 +537,6 @@
     - sensor.lounge_temperature
     - sensor.shed_temperature
     below: 0
-    alias: Thermometer below 0
   - platform: numeric_state
     entity_id:
     - sensor.attic_temperature
@@ -548,8 +546,8 @@
     - sensor.lounge_temperature
     - sensor.shed_temperature
     above: 45
-    alias: Thermometer above 40
-  - platform: state
+  - alias: Overpowering
+    platform: state
     entity_id:
     - binary_sensor.bathroom_light_overpowering
     - binary_sensor.bike_light_overpowering
@@ -561,11 +559,10 @@
     - binary_sensor.fan_overpowering
     - binary_sensor.fridge_kitchen_overpowering
     - binary_sensor.server_plug_overpowering
-    - binary_sensor.terrace_overpowering
-    - binary_sensor.toilet_overpowering
+    - binary_sensor.toilet_light_overpowering
     - binary_sensor.washing_machine_overpowering
+    - binary_sensor.heater_overpowering
     to: 'on'
-    alias: Overpowering
   - platform: state
     entity_id:
     - binary_sensor.bathroom_light_overheating
@@ -576,16 +573,17 @@
     - binary_sensor.fan_overheating
     - binary_sensor.fridge_kitchen_overheating
     - binary_sensor.server_plug_overheating
-    - binary_sensor.toilet_overheating
+    - binary_sensor.heater_overheating
+    - binary_sensor.toilet_light_overheating
     - binary_sensor.washing_machine_overheating
     to: 'on'
-    alias: Overheating
   - platform: numeric_state
     entity_id: sensor.washing_machine_flood_battery
     below: 20
   - platform: state
-    entity_id: binary_sensor.washing_machine_flood
-    to: 'on'
+    entity_id:
+    - binary_sensor.washing_machine_flood
+    to:
     id: flood
   - platform: state
     entity_id:
@@ -593,18 +591,11 @@
     alias: Changed Archer IP address
   - platform: state
     entity_id:
-    - sensor.myip
-    alias: Changed external IP address
-  - platform: state
-    entity_id:
     - fan.fan
     alias: Fan unavailable
-    to: unavailable
-  - type: unsafe
-    platform: device
-    device_id: 953c91864067f38764af450c5f41be7c
-    entity_id: d22b961e536ec094696c518cc29bc458
-    domain: binary_sensor
+    to:
+    - unavailable
+    - unknown
   - platform: state
     entity_id:
     - binary_sensor.nieuw_engeland_nas_drive_1_below_min_remaining_life
@@ -613,6 +604,31 @@
     - binary_sensor.nieuw_engeland_nas_drive_2_exceeded_max_bad_sectors
     to: 'on'
     alias: Drive problems
+  - platform: state
+    entity_id:
+    - sensor.growatt_1_charge
+    to:
+    - unavailable
+    - unknown
+    for: '24:00:00'
+  - platform: state
+    entity_id:
+    - binary_sensor.zielhorst_security_status
+    - binary_sensor.nieuw_engeland_security_status
+    - binary_sensor.zielhorst_drive_2_below_min_remaining_life
+    - binary_sensor.nieuw_engeland_drive_1_below_min_remaining_life
+    - binary_sensor.nieuw_engeland_drive_2_below_min_remaining_life
+    - binary_sensor.zielhorst_drive_2_exceeded_max_bad_sectors
+    - binary_sensor.nieuw_engeland_drive_2_exceeded_max_bad_sectors
+    - binary_sensor.nieuw_engeland_drive_1_exceeded_max_bad_sectors
+    to: 'on'
+  - platform: state
+    entity_id:
+    - sensor.washing_machine_flood_battery
+    for:
+      hours: 24
+      minutes: 0
+      seconds: 0
   condition: []
   action:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d

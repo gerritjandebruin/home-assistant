@@ -3,4 +3,9 @@ climate:
     name: Heater
     unique_id: heater_attic
     heater: switch.heater
+    target_sensor: sensor.bathroom_temperature
+  - platform: generic_thermostat
+    name: Table heater
+    unique_id: heater_table
+    heater: switch.table_heater
     target_sensor: sensor.attic_temperature

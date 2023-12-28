@@ -29,7 +29,18 @@ bluebot_xboost_single_room:
   sequence:
   - service: cast.show_lovelace_view
     data:
-      entity_id: media_player.lounge_display
+      entity_id: media_player.nest_hub
+      dashboard_path: lovelace
+      view_path: humidity
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - service: cast.show_lovelace_view
+    data:
+      entity_id: media_player.nest_hub
       dashboard_path: lovelace
       view_path: hub
   mode: single
+  fields: {}
