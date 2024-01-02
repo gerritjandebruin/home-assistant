@@ -716,38 +716,6 @@
 
         '
   mode: single
-- id: '1678268586740'
-  alias: Vacuum single room
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - input_button.vacuum_single
-    alias: When vacuum single button pressed
-  condition: []
-  action:
-  - service: select.select_option
-    data:
-      option: single
-    target:
-      entity_id: select.vacuum_mode
-    alias: Vacuum clean single room
-  - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - vacuum.vacuum
-      to: idle
-    timeout:
-      hours: 1
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
-    continue_on_timeout: false
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Vacuum cleaner is done
-  mode: single
 - id: '1692770404361'
   alias: Dishwasher
   description: ''
