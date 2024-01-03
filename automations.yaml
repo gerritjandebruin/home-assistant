@@ -133,8 +133,7 @@
       - light.corridor
       - light.hall
     data: {}
-  mode: queued
-  max: 5
+  mode: single
 - id: '1603831020194'
   alias: Kitchen light
   description: Triggers when there is movement in the kitchen. Only activate light
