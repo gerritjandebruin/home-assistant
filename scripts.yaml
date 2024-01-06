@@ -1,5 +1,5 @@
 bluebot_xboost_single_room:
-  alias: Bluebot Xboost single room
+  alias: Robotstofzuiger enkele kamer
   sequence:
   - device_id: e138f8d5b85f7b6841198dad0fb8e5ea
     domain: select
@@ -20,8 +20,9 @@ bluebot_xboost_single_room:
       minutes: 0
       seconds: 0
       milliseconds: 0
-  - service: notify.mobile_app_sm_s901b
-    data: {}
+  - service: notify.mobile_app_telefoon_gj
+    data:
+      message: Robotstofzuiger is klaar
   mode: single
   icon: mdi:broom
 '1702660694980':
