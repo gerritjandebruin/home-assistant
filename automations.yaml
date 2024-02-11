@@ -96,7 +96,7 @@
           entity_id:
           - light.hall
           - light.corridor
-      - service: notify.mobile_app_sm_s901b
+      - service: notify.mobile_app_telefoon_gj
         data:
           title: Train is delayed or cancelled.
           message: 'Going                 {{ state_attr(''sensor.utrecht_alkmaar'',
@@ -421,7 +421,7 @@
         type: brightness_decrease
       action_button_up_long: []
 - id: '1667116701161'
-  alias: Bathroom
+  alias: Badkamer verlichting
   description: Put light on when door is opened. Put off when closed for 10 minutes.
     Put off when nothing has changed for 30 minutes, except when showering.
   trigger:
@@ -506,7 +506,7 @@
         entity_id: light.bathroom
   mode: single
 - id: '1672605032341'
-  alias: Notificatie probleem
+  alias: Notificatie GJ
   description: ''
   trigger:
   - platform: numeric_state
@@ -623,6 +623,15 @@
       hours: 24
       minutes: 0
       seconds: 0
+  - platform: state
+    entity_id:
+    - sensor.growatt_energy
+    to: unavailable
+    for:
+      hours: 24
+      minutes: 0
+      seconds: 0
+    id: Zonnepanelen
   condition: []
   action:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
@@ -671,10 +680,11 @@
   description: ''
   trigger:
   - platform: numeric_state
-    entity_id: sensor.dishwasher_power
+    entity_id:
+    - sensor.dishwasher_power
     for:
       hours: 0
-      minutes: 10
+      minutes: 30
       seconds: 0
     below: 5
   condition: []
@@ -767,6 +777,11 @@
     domain: mobile_app
     type: notify
     message: Washing machine is ready
+  - delay:
+      hours: 0
+      minutes: 30
+      seconds: 0
+      milliseconds: 0
   mode: single
 - id: '1697474001246'
   alias: Bureau GJ
@@ -839,7 +854,7 @@
         minutes: 1
   mode: single
 - id: '1699803193333'
-  alias: Bedroom
+  alias: Slaapkamer verlichting
   description: ''
   trigger:
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
