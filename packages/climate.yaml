@@ -1,11 +1,16 @@
 climate:
   - platform: generic_thermostat
-    name: Heater
-    unique_id: heater_attic
+    name: Verwarming badkamer
+    unique_id: heater_attic # Historical reasons
     heater: switch.heater
     target_sensor: sensor.bathroom_temperature
   - platform: generic_thermostat
-    name: Table heater
-    unique_id: heater_table
+    name: Verwarming zolder
+    unique_id: heater_table # Historical reasons
     heater: switch.table_heater
     target_sensor: sensor.attic_temperature
+  - platform: generic_thermostat
+    name: Verwarming slaapkamer
+    unique_id: heater_bedroom
+    heater: switch.heater
+    target_sensor: sensor.bedroom_temperature
