@@ -987,3 +987,52 @@
           - switch.desk_east
           - switch.bike_socket
   mode: single
+- id: '1707682123353'
+  alias: Wekker GJ
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{% if has_value(''sensor.telefoon_gj_next_alarm'') %}
+
+      {{ (states(''sensor.telefoon_gj_next_alarm'') | as_datetime - now()).total_seconds()
+      < 30 }}
+
+      {% else %}
+
+      false
+
+      {% endif %}'
+  condition:
+  - condition: zone
+    entity_id: person.gerrit_jan
+    zone: zone.home
+  - condition: time
+    after: 04:00:00
+    before: '12:00:00'
+    enabled: true
+  action:
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 50
+    target:
+      entity_id: light.bedroom_1
+  mode: single
+- id: '1708682164461'
+  alias: CPU bewaking
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.system_monitor_processor_temperature
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    above: 55
+  condition: []
+  action:
+  - service: hassio.host_shutdown
+    metadata: {}
+    data: {}
+  mode: single
