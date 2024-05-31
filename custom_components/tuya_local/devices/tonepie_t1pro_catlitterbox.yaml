@@ -29,7 +29,7 @@ secondary_entities:
         unit: visits
   - entity: sensor
     name: Time spent today
-    mdi: "mdi:emoticon-poop"
+    icon: "mdi:emoticon-poop"
     class: duration
     dps:
       - id: 8
@@ -46,7 +46,6 @@ secondary_entities:
         type: boolean
         name: switch
   - entity: binary_sensor
-    name: Fault
     class: problem
     category: diagnostic
     dps:
@@ -82,6 +81,11 @@ secondary_entities:
         name: event
         optional: true
         persist: false
+        mapping:
+          - dps_val: true
+            value: full
+          - dps_val: false
+            value: null
   - entity: binary_sensor
     class: occupancy
     icon: "mdi:cat"
@@ -129,8 +133,7 @@ secondary_entities:
           - dps_val: true
             value: false
   - entity: lock
-    name: Child lock
-    icon: "mdi:hand-back-right-off"
+    translation_key: child_lock
     category: config
     dps:
       - id: 114

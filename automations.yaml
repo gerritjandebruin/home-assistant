@@ -96,7 +96,7 @@
           entity_id:
           - light.hall
           - light.corridor
-      - service: notify.mobile_app_telefoon_gj
+      - service: notify.mobile_app_sm_s901b
         data:
           title: Train is delayed or cancelled.
           message: 'Going                 {{ state_attr(''sensor.utrecht_alkmaar'',
@@ -189,7 +189,7 @@
   - service: light.turn_on
     data: {}
     target:
-      entity_id: light.shed
+      area_id: shed
   - wait_for_trigger:
     - platform: state
       entity_id:
@@ -208,7 +208,7 @@
   - service: light.turn_off
     data: {}
     target:
-      entity_id: light.shed
+      area_id: shed
   mode: restart
 - id: '1609974870568'
   alias: Deurbel
@@ -420,91 +420,6 @@
         entity_id: light.terrace
         type: brightness_decrease
       action_button_up_long: []
-- id: '1667116701161'
-  alias: Badkamer verlichting
-  description: Put light on when door is opened. Put off when closed for 10 minutes.
-    Put off when nothing has changed for 30 minutes, except when showering.
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.bathroom_door
-    to: 'off'
-    for: 00:15:00
-    id: door long closed
-  - platform: state
-    entity_id: binary_sensor.bathroom_door
-    to: 'on'
-    id: door opened
-  - platform: state
-    entity_id: binary_sensor.bathroom_door
-    to: 'on'
-    for: 00:10:00
-    id: door long opened
-  - platform: numeric_state
-    entity_id: sensor.bathroom_humidity
-    below: '80'
-    for: 00:00:05
-    id: low humidity
-  condition: []
-  action:
-  - choose:
-    - alias: Presumed forgotten to switch light off while door open
-      conditions:
-      - condition: trigger
-        id: door long opened
-      sequence:
-      - service: light.turn_off
-        data: {}
-        target:
-          entity_id: light.bathroom
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.shower
-    - alias: Presumed showering
-      conditions:
-      - condition: trigger
-        id: door long closed
-      - condition: numeric_state
-        entity_id: sensor.bathroom_humidity
-        above: '90'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.shower
-      - service: light.toggle
-        entity_id: light.bathroom
-      - delay: 00:00:01
-      - service: light.toggle
-        data: {}
-        target:
-          entity_id: light.bathroom
-      - wait_for_trigger:
-        - platform: numeric_state
-          entity_id: sensor.bathroom_humidity
-          below: '90'
-        timeout:
-          hours: 0
-          minutes: 30
-          seconds: 0
-          milliseconds: 0
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.shower
-    - alias: Presumed forgotten to switch light off while door closed
-      conditions:
-      - condition: trigger
-        id: door long closed
-      sequence:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.shower
-      - service: light.turn_off
-        entity_id: light.bathroom
-    - alias: Door opened
-      conditions:
-      - condition: trigger
-        id: door opened
-      sequence:
-      - service: input_boolean.turn_off
-        entity_id: input_boolean.shower
-      - service: light.turn_on
-        entity_id: light.bathroom
-  mode: single
 - id: '1672605032341'
   alias: Notificatie GJ
   description: ''
@@ -559,23 +474,6 @@
     to: 'on'
   - platform: state
     entity_id:
-    - binary_sensor.bathroom_light_overheating
-    - binary_sensor.bike_overheating
-    - binary_sensor.desk_north_overheating
-    - binary_sensor.dishwasher_overheating
-    - binary_sensor.dryer_overheating
-    - binary_sensor.fan_overheating
-    - binary_sensor.fridge_kitchen_overheating
-    - binary_sensor.server_plug_overheating
-    - binary_sensor.heater_overheating
-    - binary_sensor.toilet_light_overheating
-    - binary_sensor.washing_machine_overheating
-    to: 'on'
-  - platform: numeric_state
-    entity_id: sensor.washing_machine_flood_battery
-    below: 20
-  - platform: state
-    entity_id:
     - binary_sensor.washing_machine_flood
     to:
     id: flood
@@ -583,13 +481,6 @@
     entity_id:
     - sensor.experiabox_v10_external_ip
     alias: Changed Archer IP address
-  - platform: state
-    entity_id:
-    - fan.fan
-    alias: Fan unavailable
-    to:
-    - unavailable
-    - unknown
   - platform: state
     entity_id:
     - binary_sensor.nieuw_engeland_nas_drive_1_below_min_remaining_life
@@ -632,6 +523,37 @@
       minutes: 0
       seconds: 0
     id: Zonnepanelen
+  - type: value
+    platform: device
+    device_id: 3e1b266f2968a4f10a61e51feba13106
+    entity_id: 9d9db7e2780c464459551e7125c520b2
+    domain: sensor
+    above: 50
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - type: temperature
+    platform: device
+    device_id: 3e1b266f2968a4f10a61e51feba13106
+    entity_id: a2d0637f037c4cac5dbc03340cb3a17c
+    domain: sensor
+    above: 60
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - type: moist
+    platform: device
+    device_id: 4e458e050949dc393f7743185a458889
+    entity_id: acd2f3e0b3085c146651edad738825c9
+    domain: binary_sensor
+  - type: battery_level
+    platform: device
+    device_id: 4e458e050949dc393f7743185a458889
+    entity_id: 9875247b23ecd598887fc0c09ca6856a
+    domain: sensor
+    below: 20
   condition: []
   action:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
@@ -694,74 +616,6 @@
     type: notify
     message: Vaatwasser is klaar
   mode: single
-- id: '1693129416861'
-  alias: Ventilator uit
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id: sensor.bathroom_humidity
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-    below: 75
-  - platform: numeric_state
-    entity_id: sensor.bathroom_differential_dew_point
-    below: 2
-  condition:
-  - condition: state
-    entity_id: fan.fan
-    state: 'on'
-    for:
-      hours: 0
-      minutes: 30
-      seconds: 0
-  action:
-  - service: fan.turn_off
-    data: {}
-    target:
-      entity_id: fan.fan
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Trigger door {{ trigger.entity_id }}, met status {{ trigger.to_state
-      }}.
-  mode: single
-- id: '1693418071300'
-  alias: Ventilator aan
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - sensor.bathroom_mold
-    above: 90
-    for:
-      hours: 1
-      minutes: 0
-      seconds: 0
-  condition:
-  - condition: state
-    entity_id: fan.fan
-    state: 'off'
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-  - condition: device
-    device_id: 59cde7a170567574783f836d53e74acf
-    domain: fan
-    entity_id: 0c13ef827a5327e8373296d934c43ae7
-    type: is_on
-  action:
-  - service: fan.turn_on
-    data: {}
-    target:
-      entity_id: fan.fan
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Ventilator is aangezet
-  mode: single
 - id: '1693470796463'
   alias: Wasmachine
   description: ''
@@ -816,45 +670,8 @@
       entity_id: ab46a26638e7ab4314922daaada9644a
       domain: switch
   mode: single
-- id: '1699101063603'
-  alias: Ventilator knop
-  description: ''
-  trigger:
-  - device_id: dba399be5f18d6a874165e6f8f4cf9c5
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_on
-    id: turn_on
-  - device_id: dba399be5f18d6a874165e6f8f4cf9c5
-    domain: zha
-    platform: device
-    type: remote_button_short_press
-    subtype: turn_off
-    id: turn_off
-  condition: []
-  action:
-  - if:
-    - condition: trigger
-      id:
-      - turn_on
-    then:
-    - service: fan.turn_on
-      data: {}
-      target:
-        entity_id: fan.fan
-    - delay:
-        minutes: 1
-    else:
-    - service: fan.turn_off
-      data: {}
-      target:
-        entity_id: fan.fan
-    - delay:
-        minutes: 1
-  mode: single
 - id: '1699803193333'
-  alias: Slaapkamer verlichting
+  alias: Slaapkamer remote
   description: ''
   trigger:
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
@@ -899,6 +716,18 @@
     type: remote_button_long_press
     subtype: right
     id: '7'
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: dim_up
+    id: '8'
+  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: dim_down
+    id: '9'
   condition: []
   action:
   - choose:
@@ -949,43 +778,30 @@
         device_id: a86d85dac77c6830cc859999c74e41da
         entity_id: 7b92662312ab2bfa93a704d11b8f5b1b
         domain: light
-  mode: single
-- id: '1701281060086'
-  alias: Kerstverlichting
-  description: ''
-  trigger:
-  - platform: sun
-    event: sunset
-    offset: -01:00:00
-    id: sunset
-  - platform: time
-    at: 01:00:00
-    id: midnight
-  condition: []
-  action:
-  - choose:
     - conditions:
       - condition: trigger
         id:
-        - sunset
+        - '8'
       sequence:
-      - service: switch.turn_on
-        data: {}
+      - service: light.turn_on
+        metadata: {}
+        data:
+          brightness: 255
+          kelvin: 4267
         target:
-          entity_id:
-          - switch.desk_east
-          - switch.bike_socket
+          area_id: bedroom
     - conditions:
       - condition: trigger
         id:
-        - midnight
+        - '9'
       sequence:
-      - service: switch.turn_off
-        data: {}
+      - service: light.turn_on
+        metadata: {}
+        data:
+          kelvin: 2000
+          brightness: 1
         target:
-          entity_id:
-          - switch.desk_east
-          - switch.bike_socket
+          area_id: bedroom
   mode: single
 - id: '1707682123353'
   alias: Wekker GJ
@@ -1035,4 +851,147 @@
   - service: hassio.host_shutdown
     metadata: {}
     data: {}
+  mode: single
+- id: '1711703453691'
+  alias: CO2 melding
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.luchtkwaliteitmeter_co2
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - type: is_carbon_dioxide
+        condition: device
+        device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
+        entity_id: faeb75c2b30886c55a25c522ebfc434b
+        domain: sensor
+        below: 1000
+      sequence:
+      - type: turn_off
+        device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
+        entity_id: c900c919433fa839326acc43f104b8b2
+        domain: light
+    - conditions:
+      - type: is_carbon_dioxide
+        condition: device
+        device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
+        entity_id: faeb75c2b30886c55a25c522ebfc434b
+        domain: sensor
+        above: 1000
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          rgb_color:
+          - 255
+          - 255
+          - 0
+        target:
+          device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
+    - conditions:
+      - type: is_carbon_dioxide
+        condition: device
+        device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
+        entity_id: faeb75c2b30886c55a25c522ebfc434b
+        domain: sensor
+        above: 1200
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          rgb_color:
+          - 255
+          - 0
+          - 0
+        target:
+          entity_id: light.luchtkwaliteitmeter_rgb_light
+  mode: restart
+- id: '1712905763291'
+  alias: Slaapkamer knop
+  description: ''
+  trigger:
+  - device_id: ef6cce96c0aff37b73773be4f1a30e2f
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+    id: aan
+  - device_id: ef6cce96c0aff37b73773be4f1a30e2f
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_off
+    id: uit
+  - device_id: ef6cce96c0aff37b73773be4f1a30e2f
+    domain: zha
+    platform: device
+    type: remote_button_long_release
+    subtype: dim_up
+    id: lang-aan
+  - device_id: ef6cce96c0aff37b73773be4f1a30e2f
+    domain: zha
+    platform: device
+    type: remote_button_long_release
+    subtype: dim_down
+    id: lang-uit
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - aan
+      sequence:
+      - type: turn_on
+        device_id: 6783c5c5d415efc8d8ee992bcede1f16
+        entity_id: c0713d089c995a6583b6ea2ca85d3848
+        domain: light
+    - conditions:
+      - condition: trigger
+        id:
+        - uit
+      sequence:
+      - type: turn_off
+        device_id: 6783c5c5d415efc8d8ee992bcede1f16
+        entity_id: c0713d089c995a6583b6ea2ca85d3848
+        domain: light
+    - conditions:
+      - condition: trigger
+        id:
+        - lang-aan
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          area_id: bedroom
+    - conditions:
+      - condition: trigger
+        id:
+        - lang-aan
+      sequence:
+      - service: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          area_id: bedroom
+  mode: single
+- id: '1713713944976'
+  alias: Back-up
+  description: ''
+  trigger:
+  - platform: time
+    at: 02:00:00
+  condition:
+  - condition: time
+    weekday:
+    - mon
+  action:
+  - service: hassio.backup_full
+    metadata: {}
+    data:
+      compressed: true
   mode: single

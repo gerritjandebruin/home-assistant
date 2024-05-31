@@ -1,0 +1,41 @@
+esphome:
+  name: pm02
+  friendly_name: PM02
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "qiALyGmaOr6lR47iXj5KEiKqSHwNrbNZAbeKH+VARbU="
+
+ota:
+  password: "c383c6814d9cb3d9fbeebceb02502508"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Pm02 Fallback Hotspot"
+    password: "QeHuuIhxbmKn"
+
+captive_portal:
+
+uart:
+  rx_pin: GPIO16
+  tx_pin: GPIO17
+  baud_rate: 9600
+
+sensor:
+  - platform: senseair
+    co2:
+      name: "SenseAir CO2 Value"
+    update_interval: 60s

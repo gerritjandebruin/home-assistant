@@ -1,0 +1,57 @@
+esphome:
+  name: pm01
+  friendly_name: PM01
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "lG/EOje9+OwYhUbuYgsq35yjzYH2oGwL+J2HpFJ9gvY="
+
+ota:
+  password: "7acc4000091bbfb7b26f0c3a8413cc76"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Pm01 Fallback Hotspot"
+    password: "5cy1wjlIZosQ"
+
+captive_portal:
+
+# Example configuration entry
+uart:
+  rx_pin: GPIO23
+  tx_pin: GPIO22
+  baud_rate: 9600
+
+sensor:
+  - platform: pmsx003
+    type: PMSX003
+    pm_1_0:
+      name: "Particulate Matter <1.0µm Concentration"
+    pm_2_5:
+      id: pm25
+      name: "Particulate Matter <2.5µm Concentration"
+    pm_10_0:
+      name: "Particulate Matter <10.0µm Concentration"
+
+display:
+    platform: tm1637
+    id: tm1637_display
+    clk_pin: GPIO16
+    dio_pin: GPIO17
+    inverted: true
+    length: 4
+    lambda: !lambda |-
+      it.printf(0, "%4.0f", id(pm25).state);

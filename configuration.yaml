@@ -28,26 +28,26 @@ continuously_casting_dashboards:
     "Lounge display": #Required: Display name of your device. Find this on the actual device's settings or inside the Google Home app.
       - dashboard_url: "http://192.168.1.240:8123/lovelace/hub" #Required: Dashboard URL to be casted (This must be the local IP address of your HA instance, not homeassistant.local)
 
-influxdb:
-  host: a0d7b954-influxdb
-  port: 8086
-  database: homeassistant
-  username: homeassistant
-  password: !secret influxdb_password
-  max_retries: 3
-  measurement_attr: entity_id
-  exclude:
-    domains:
-      - alert
-      - automation
-      - button
-    entity_globs:
-      - binary_sensor.*_firmware_update
-      - binary_sensor.*_occupancy
-  ignore_attributes:
-    - friendly_name
-    - device_class
-    - state_class
+# influxdb:
+#   host: a0d7b954-influxdb
+#   port: 8086
+#   database: homeassistant
+#   username: homeassistant
+#   password: !secret influxdb_password
+#   max_retries: 3
+#   measurement_attr: entity_id
+#   exclude:
+#     domains:
+#       - alert
+#       - automation
+#       - button
+#     entity_globs:
+#       - binary_sensor.*_firmware_update
+#       - binary_sensor.*_occupancy
+#   ignore_attributes:
+#     - friendly_name
+#     - device_class
+#     - state_class
 
 http:
   ip_ban_enabled: true

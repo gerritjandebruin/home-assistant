@@ -5,6 +5,6 @@ template:
         unit_of_measurement: "%"
         state_class: measurement
         device_class: battery
-        availability: "{{ not is_state('vacuum.vacuum', 'unknown') }}"
-        icon: "{{ state_attr('vacuum.vacuum', 'battery_icon') | default('mdi:battery-alert') }}"
-        state: "{{ state_attr('vacuum.vacuum', 'battery_level') }}"
+        availability: "{{ not is_state('vacuum.bluebot_xboost', 'unknown') }}"
+        icon: "{{ state_attr('vacuum.bluebot_xboost', 'battery_icon') | default('mdi:battery-alert') }}"
+        state: "{{ state_attr('vacuum.bluebot_xboost', 'battery_level') }}"

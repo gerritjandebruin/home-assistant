@@ -18,12 +18,16 @@ class ContinuouslyCastingDashboards:
         self.cast_delay = self.config["cast_delay"]
         self.max_retries = 5
         self.retry_delay = 30
+        self.switch_entity_id = config.get("switch_entity_id", None)
+        self.was_casting_enabled = True  # Initialize the flag to True
+        self.device_was_casting_enabled = {}  # Initialize the dictionary to track each device
+        self.switch_configured = self.switch_entity_id is not None  # Check if the switch is configured
         global_start_time = config.get("start_time", "07:00")
         global_end_time = config.get("end_time", "01:00")
 
         # Parse devices from the configuration
         for device_name, d_info in self.config["devices"].items():
-            device_instaces = []
+            device_instances = []
             for dashid, device_info in enumerate(d_info):
                 # Use device-specific start and end times if provided, otherwise use global values
                 start_time = datetime.strptime(
@@ -33,7 +37,10 @@ class ContinuouslyCastingDashboards:
                     device_info.get("end_time", global_end_time), "%H:%M"
                 ).time()
                 # uses -1 as a default volume if not configured by user.
-                device_instaces.append(
+                speaker_groups = device_info.get("speaker_groups")
+                if speaker_groups is not None and not isinstance(speaker_groups, list):
+                    speaker_groups = [speaker_groups]
+                device_instances.append(
                     {
                         "dashboard_url": device_info["dashboard_url"],
                         "dashboard_state_name": device_info.get(
@@ -47,10 +54,11 @@ class ContinuouslyCastingDashboards:
                         "start_time": start_time,
                         "end_time": end_time,
                         "instance_change": False,
+                        "speaker_groups": speaker_groups,
                     }
                 )
             self.all_device_map[device_name] = {
-                "instances": device_instaces,
+                "instances": device_instances,
                 "current_instance": 0,
             }
 
@@ -254,9 +262,80 @@ class ContinuouslyCastingDashboards:
         is_media_state = "PLAYING" in status_output or "Netflix" in status_output
 
         return is_dashboard_state or is_media_state
+    
+    # Function to check if speaker group is active
+    async def check_speaker_group_state(self, device_name):
+        speaker_groups = self.device_map[device_name]["speaker_groups"]
+        for speaker_group in speaker_groups:
+            _LOGGER.debug(f"Checking Speaker Group: {speaker_group} (type: {type(speaker_group)})")
+            try:
+                process = await asyncio.create_subprocess_exec(
+                    "catt",
+                    "-d",
+                    speaker_group,
+                    "status",
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                )
+                stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=30)
+                status_output = stdout.decode()
+                _LOGGER.debug(f"Status output for Speaker Group: {speaker_group}: {status_output}")
+                if "PLAYING" in status_output:
+                    _LOGGER.debug(f"Speaker Group playback is active on {device_name} for Speaker Group: {speaker_group}")
+                    return True
+                else:
+                    _LOGGER.debug(f"Speaker Group playback is NOT active on {device_name} for Speaker Group: {speaker_group}")
+            except subprocess.CalledProcessError as e:
+                _LOGGER.error(
+                    f"Error checking PLAYING state for {speaker_group}: {e}\nOutput: {e.output.decode()}"
+                )
+                return None
+            except subprocess.TimeoutExpired as e:
+                _LOGGER.error(f"Timeout checking PLAYING state for {device_name} for Speaker Group: {speaker_group}: {e}")
+                return None
+            except ValueError as e:
+                _LOGGER.error(f"Invalid file descriptor for {device_name} for Speaker Group: {speaker_group}: {e}")
+                return None
+            except (
+                asyncio.exceptions.TimeoutError
+            ) as e:  # Add proper exception handling for TimeoutError
+                _LOGGER.error(
+                    f"Asyncio TimeoutError checking PLAYING state for {device_name} for Speaker Group: {speaker_group}: {e}"
+                )
+                return None
+        return False
+
+    async def is_media_playing(self, device_name):
+        try:
+            _LOGGER.debug(f"Checking media status for {device_name}")
+            media_state_name = self.device_map[device_name]["media_state_name"]
+            status_output = await self.check_status(device_name, media_state_name)
+
+            if status_output:
+                if "PLAYING" in status_output or "PAUSED" in status_output:
+                    _LOGGER.debug(f"Media is currently playing or paused on {device_name}")
+                    return True
+
+                _LOGGER.debug(f"Media is not playing, waiting 5 seconds before re-checking...")
+                await asyncio.sleep(5)
+
+                # Re-check the media status
+                status_output = await self.check_status(device_name, media_state_name)
+                if status_output and ("PLAYING" in status_output or "PAUSED" in status_output):
+                    _LOGGER.debug(f"Media is now playing or paused on {device_name} after delay")
+                    return True
+
+            _LOGGER.debug(f"Media is not playing on {device_name}")
+            return False
+        except Exception as e:
+            _LOGGER.error(f"Error checking media status for {device_name}: {e}")
+            return False
 
     # Function to cast the dashboard to the device
     async def cast_dashboard(self, device_name, dashboard_url):
+        if await self.is_media_playing(device_name):
+            _LOGGER.info(f"Skipping cast to {device_name} because media is playing or paused.")
+            return
         try:
             _LOGGER.info(f"Casting dashboard to {device_name}")
 
@@ -331,6 +410,45 @@ class ContinuouslyCastingDashboards:
 
         return is_time_in_range, d_info[0]
 
+    # Function to check the state of the switch entity
+    async def is_casting_enabled(self):
+        if not self.switch_configured:
+            return True  # If the switch is not configured, always return True
+        state = self.hass.states.get(self.switch_entity_id)
+        return state and state.state == "on"
+
+    # Function to stop casting on all devices
+    async def stop_casting_on_all_devices(self):
+        _LOGGER.info("Stopping casting on all devices.")
+        for device_name in self.device_map.keys():
+            try:
+                process = await asyncio.create_subprocess_exec(
+                    "catt", "-d", device_name, "stop"
+                )
+                await process.wait()
+                _LOGGER.info(f"Stopped casting on {device_name}.")
+            except subprocess.CalledProcessError as e:
+                _LOGGER.error(f"Error stopping casting on {device_name}: {e}")
+            except ValueError as e:
+                _LOGGER.error(f"Invalid file descriptor for {device_name}: {e}")
+            except asyncio.TimeoutError as e:
+                _LOGGER.error(f"Timeout stopping casting on {device_name}: {e}")
+
+    # Function to stop casting on a specific device
+    async def stop_casting_on_device(self, device_name):
+        try:
+            process = await asyncio.create_subprocess_exec(
+                "catt", "-d", device_name, "stop"
+            )
+            await process.wait()
+            _LOGGER.info(f"Stopped casting on {device_name}.")
+        except subprocess.CalledProcessError as e:
+            _LOGGER.error(f"Error stopping casting on {device_name}: {e}")
+        except ValueError as e:
+            _LOGGER.error(f"Invalid file descriptor for {device_name}: {e}")
+        except asyncio.TimeoutError as e:
+            _LOGGER.error(f"Timeout stopping casting on {device_name}: {e}")
+
     def updatecurrentdevicemap(self):
         d_map = {}
         now = datetime.now().time()
@@ -378,9 +496,41 @@ class ContinuouslyCastingDashboards:
     async def start(self):
         self.hass.bus.async_listen("state_changed", self.handle_state_change_event)
         while True:
+            # Check if casting is enabled
+            is_enabled = await self.is_casting_enabled()
+            if not is_enabled and self.was_casting_enabled:
+                _LOGGER.info(f"Casting is disabled by the switch {self.switch_entity_id}. Stopping all casts.")
+                await self.stop_casting_on_all_devices()  # Stop casting on all devices
+                self.was_casting_enabled = False  # Update the flag to indicate casting is now disabled
+
+            elif is_enabled:
+                self.was_casting_enabled = True  # Update the flag to indicate casting is enabled
+
+            if not is_enabled:
+                try:
+                    await asyncio.sleep(self.cast_delay)
+                    continue
+                except asyncio.CancelledError:
+                    _LOGGER.error("Casting delayed, task cancelled.")
+                    return
+
             now = datetime.now().time()
             self.updatecurrentdevicemap()
             for device_name, device_info in self.device_map.items():
+                # Initialize the device-specific flag if not already done
+                if device_name not in self.device_was_casting_enabled:
+                    self.device_was_casting_enabled[device_name] = True
+
+                # Check if casting is enabled before each device
+                if not await self.is_casting_enabled():
+                    if self.device_was_casting_enabled[device_name]:
+                        _LOGGER.info(f"Casting is disabled by the switch {self.switch_entity_id} during operation. Stopping cast for {device_name}.")
+                        await self.stop_casting_on_device(device_name)  # Stop casting on this device
+                        self.device_was_casting_enabled[device_name] = False  # Update the flag to indicate casting is now disabled for this device
+                    continue
+
+                self.device_was_casting_enabled[device_name] = True  # Update the flag to indicate casting is enabled for this device
+
                 # Get device-specific start and end times
                 start_time = device_info["start_time"]
                 end_time = device_info["end_time"]
@@ -408,6 +558,18 @@ class ContinuouslyCastingDashboards:
                         except asyncio.CancelledError:
                             _LOGGER.error("Casting delayed, task cancelled.")
                         continue
+                
+                    # Skip casting if speaker group is active
+                    if self.device_map[device_name]["speaker_groups"] is not None:
+                        if await self.check_speaker_group_state(device_name):
+                            _LOGGER.info(
+                                f"Speaker Group playback is active on {device_name}. Skipping..."
+                            )
+                            try:
+                                await asyncio.sleep(self.cast_delay)
+                            except asyncio.CancelledError:
+                                _LOGGER.error("Casting delayed, task cancelled.")
+                            continue
 
                     # Retry casting in case of errors
                     retry_count = 0
@@ -432,7 +594,7 @@ class ContinuouslyCastingDashboards:
                                 )
                             else:
                                 _LOGGER.info(
-                                    f"HA Dashboard (or media) is NOT playing on {device_name}!"
+                                    f"HA Dashboard is NOT active on {device_name}..."
                                 )
 
                                 await self.cast_dashboard(
