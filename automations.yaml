@@ -971,7 +971,7 @@
     - conditions:
       - condition: trigger
         id:
-        - lang-aan
+        - lang-uit
       sequence:
       - service: light.turn_off
         metadata: {}
