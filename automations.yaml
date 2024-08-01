@@ -967,7 +967,7 @@
         metadata: {}
         data: {}
         target:
-          area_id: bedroom
+          entity_id: light.bedroom
     - conditions:
       - condition: trigger
         id:
@@ -977,7 +977,7 @@
         metadata: {}
         data: {}
         target:
-          area_id: bedroom
+          entity_id: light.bedroom
   mode: single
 - id: '1713713944976'
   alias: Back-up
