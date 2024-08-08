@@ -931,12 +931,6 @@
     type: remote_button_long_release
     subtype: dim_up
     id: lang-aan
-  - device_id: ef6cce96c0aff37b73773be4f1a30e2f
-    domain: zha
-    platform: device
-    type: remote_button_long_release
-    subtype: dim_down
-    id: lang-uit
   condition: []
   action:
   - choose:
@@ -954,16 +948,7 @@
         id:
         - uit
       sequence:
-      - type: turn_off
-        device_id: 6783c5c5d415efc8d8ee992bcede1f16
-        entity_id: c0713d089c995a6583b6ea2ca85d3848
-        domain: light
-    - conditions:
-      - condition: trigger
-        id:
-        - lang-aan
-      sequence:
-      - service: light.turn_on
+      - service: light.turn_off
         metadata: {}
         data: {}
         target:
@@ -971,11 +956,11 @@
     - conditions:
       - condition: trigger
         id:
-        - lang-uit
+        - lang-aan
       sequence:
-      - service: light.turn_off
-        metadata: {}
-        data: {}
+      - service: light.turn_on
+        data:
+          brightness_pct: 100
         target:
           entity_id: light.bedroom
   mode: single
@@ -994,4 +979,66 @@
     metadata: {}
     data:
       compressed: true
+  mode: single
+- id: '1722715718463'
+  alias: 'Dakterras '
+  description: ''
+  trigger:
+  - device_id: 88565956afb4bf97d9676e215e0a2711
+    domain: zha
+    platform: device
+    type: remote_button_short_press
+    subtype: turn_on
+    id: 'Enkel '
+  - device_id: 88565956afb4bf97d9676e215e0a2711
+    domain: zha
+    platform: device
+    type: remote_button_double_press
+    subtype: turn_on
+    id: Dubbel
+  - device_id: 88565956afb4bf97d9676e215e0a2711
+    domain: zha
+    platform: device
+    type: remote_button_long_press
+    subtype: dim_up
+    id: Lang
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - 'Enkel '
+      sequence:
+      - type: toggle
+        device_id: a9f1fc5ca682b5534d1e91820b492b08
+        entity_id: 3af0fb3f0b98e437fa6d458101b1e14a
+        domain: light
+    - conditions:
+      - condition: trigger
+        id:
+        - Dubbel
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          rgb_color:
+          - 0
+          - 0
+          - 255
+          kelvin: 2000
+          brightness_pct: 50
+        target:
+          device_id: a9f1fc5ca682b5534d1e91820b492b08
+    - conditions:
+      - condition: trigger
+        id:
+        - Lang
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          brightness_pct: 100
+        target:
+          entity_id: light.dakterras
   mode: single
