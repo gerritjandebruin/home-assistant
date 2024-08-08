@@ -21,13 +21,13 @@ from homeassistant.const import (
     ATTR_ICON,
     ATTR_NAME,
     ATTR_UNIT_OF_MEASUREMENT,
-    CONDUCTIVITY,
     LIGHT_LUX,
     PERCENTAGE,
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
-    UnitOfTime,
+    UnitOfConductivity,
     UnitOfTemperature,
+    UnitOfTime,
 )
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
@@ -221,7 +221,8 @@ class PlantCurrentStatus(RestoreSensor):
         await super().async_added_to_hass()
         state = await self.async_get_last_state()
 
-        # We do not restore the state for these they are read from the external sensor anyway
+        # We do not restore the state for these.
+        # They are read from the external sensor anyway
         self._attr_native_value = None
         if state:
             if "external_sensor" in state.attributes:
@@ -302,8 +303,8 @@ class PlantCurrentStatus(RestoreSensor):
         if (
             self.external_sensor
             and new_state
-            and new_state is not STATE_UNKNOWN
-            and new_state is not STATE_UNAVAILABLE
+            and new_state.state != STATE_UNKNOWN
+            and new_state.state != STATE_UNAVAILABLE
         ):
             self._attr_native_value = new_state.state
             if ATTR_UNIT_OF_MEASUREMENT in new_state.attributes:
@@ -329,9 +330,6 @@ class PlantCurrentIlluminance(PlantCurrentStatus):
         self._external_sensor = config.data[FLOW_PLANT_INFO].get(
             FLOW_SENSOR_ILLUMINANCE
         )
-        _LOGGER.info(
-            "Added external sensor for %s %s", self.entity_id, self._external_sensor
-        )
         self._attr_native_unit_of_measurement = LIGHT_LUX
         super().__init__(hass, config, plantdevice)
 
@@ -356,7 +354,7 @@ class PlantCurrentConductivity(PlantCurrentStatus):
         self._external_sensor = config.data[FLOW_PLANT_INFO].get(
             FLOW_SENSOR_CONDUCTIVITY
         )
-        self._attr_native_unit_of_measurement = CONDUCTIVITY
+        self._attr_native_unit_of_measurement = UnitOfConductivity.MICROSIEMENS
 
         super().__init__(hass, config, plantdevice)
 
@@ -538,6 +536,7 @@ class PlantTotalLightIntegral(IntegrationSensor):
             unique_id=f"{config.entry_id}-ppfd-integral",
             unit_prefix=None,
             unit_time=UnitOfTime.SECONDS,
+            max_sub_interval=None,
         )
         self._unit_of_measurement = UNIT_DLI
         self._attr_icon = ICON_DLI

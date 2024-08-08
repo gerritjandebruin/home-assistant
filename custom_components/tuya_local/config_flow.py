@@ -54,10 +54,26 @@ from .helpers.log import log_json
 
 _LOGGER = logging.getLogger(__name__)
 
+HUB_CATEGORIES = [
+    "wgsxj",  # Gateway camera
+    "lyqwg",  # Router
+    "bywg",  # IoT edge gateway
+    "zigbee",  # Gateway
+    "wg2",  # Gateway
+    "dgnzk",  # Multi-function controller
+    "videohub",  # Videohub
+    "xnwg",  # Virtual gateway
+    "qtyycp",  # Voice gateway composite solution
+    "alexa_yywg",  # Gateway with Alexa
+    "gywg",  # Industrial gateway
+    "cnwg",  # Energy gateway
+    "wnykq",  # Smart IR
+]
+
 
 class ConfigFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = 13
-    MINOR_VERSION = 3
+    MINOR_VERSION = 4
     CONNECTION_CLASS = config_entries.CONN_CLASS_LOCAL_PUSH
     device = None
     data = {}
@@ -336,7 +352,10 @@ class ConfigFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         hub_list.append(SelectOptionDict(value="None", label="None"))
         for key in self.__cloud_devices.keys():
             hub_entry = self.__cloud_devices[key]
-            if hub_entry[CONF_LOCAL_KEY] == "":
+            if (
+                hub_entry[CONF_LOCAL_KEY] == ""
+                or hub_entry["category"] in HUB_CATEGORIES
+            ):
                 hub_list.append(
                     SelectOptionDict(
                         value=key,
@@ -372,15 +391,19 @@ class ConfigFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 f"Scanning network to get IP address for {self.__cloud_device['id']}."
             )
             self.__cloud_device["ip"] = ""
-            local_device = await self.hass.async_add_executor_job(
-                scan_for_device, self.__cloud_device["id"]
-            )
+            try:
+                local_device = await self.hass.async_add_executor_job(
+                    scan_for_device, self.__cloud_device["id"]
+                )
+            except OSError:
+                local_device = {"ip": None, "version": ""}
+
             if local_device["ip"] is not None:
                 _LOGGER.debug(f"Found: {local_device}")
                 self.__cloud_device["ip"] = local_device["ip"]
                 self.__cloud_device["version"] = local_device["version"]
             else:
-                _LOGGER.warn(f"Could not find device: {self.__cloud_device['id']}")
+                _LOGGER.warning(f"Could not find device: {self.__cloud_device['id']}")
             return await self.async_step_local(None)
 
         return self.async_show_form(
@@ -464,7 +487,7 @@ class ConfigFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             log_json(dps),
         )
         _LOGGER.warning(
-            "Report this to https://github.com/make-all/tuya-local/issues/",
+            "Include the previous log message with any new device request to https://github.com/make-all/tuya-local/issues/",
         )
         if types:
             return self.async_show_form(
@@ -489,7 +512,10 @@ class ConfigFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             return self.async_create_entry(
                 title=title, data={**self.data, **user_input}
             )
-        config = get_config(self.data[CONF_TYPE])
+        config = await self.hass.async_add_executor_job(
+            get_config,
+            self.data[CONF_TYPE],
+        )
         schema = {vol.Required(CONF_NAME, default=config.name): str}
 
         return self.async_show_form(
@@ -555,7 +581,10 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 default=config.get(CONF_DEVICE_CID, ""),
             ): str,
         }
-        cfg = get_config(config[CONF_TYPE])
+        cfg = await self.hass.async_add_executor_job(
+            get_config,
+            config[CONF_TYPE],
+        )
         if cfg is None:
             return self.async_abort(reason="not_supported")
 
