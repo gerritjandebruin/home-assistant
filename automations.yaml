@@ -426,87 +426,87 @@
   trigger:
   - platform: numeric_state
     entity_id:
-    - sensor.voltage
+    - sensor.energymeter_voltage
     above: 0
     below: 207
   - platform: numeric_state
     entity_id:
-    - sensor.voltage
-    above: 252
+    - sensor.energymeter_voltage
+    above: 253
   - platform: state
     entity_id:
     - sensor.shed_frostrisk
     from: no_risk
   - platform: numeric_state
     entity_id:
+    - sensor.air_quality_esp_temperature
+    - sensor.air_quality_sen55_temperature
     - sensor.attic_temperature
     - sensor.bathroom_temperature
     - sensor.bedroom_temperature
+    - sensor.dehumidifier_temperature
     - sensor.guestroom_temperature
+    - sensor.growatt_ipm_temperature
+    - sensor.growatt_temperature
+    - sensor.hall_motion_temperature
+    - sensor.koelkast_boven_device_temperature
     - sensor.lounge_temperature
+    - sensor.nieuw_engeland_drive_1_temperature
+    - sensor.nieuw_engeland_drive_2_temperature
+    - sensor.nieuw_engeland_temperature
     - sensor.shed_temperature
-    below: 0
-  - platform: numeric_state
+    - sensor.system_monitor_processor_temperature
+    - sensor.vriezer_schuur_device_temperature
+    below: 5
+    alias: Wanneer temperatuur lager dan 5
+  - alias: Wanneer temperatuur te hoog
+    platform: numeric_state
     entity_id:
     - sensor.attic_temperature
     - sensor.bathroom_temperature
     - sensor.bedroom_temperature
+    - sensor.dehumidifier_temperature
     - sensor.guestroom_temperature
+    - sensor.hall_motion_temperature
+    - sensor.koelkast_boven_device_temperature
     - sensor.lounge_temperature
     - sensor.shed_temperature
+    - sensor.vriezer_schuur_device_temperature
     above: 45
+  - alias: Wanneer temperatuur te hoog
+    platform: numeric_state
+    entity_id:
+    - sensor.air_quality_esp_temperature
+    - sensor.air_quality_sen55_temperature
+    - sensor.growatt_ipm_temperature
+    - sensor.growatt_temperature
+    - sensor.nieuw_engeland_drive_1_temperature
+    - sensor.nieuw_engeland_drive_2_temperature
+    - sensor.nieuw_engeland_temperature
+    - sensor.system_monitor_processor_temperature
+    - sensor.zielhorst_temperatuur
+    - sensor.zielhorst_drive_2_temperatuur
+    above: 70
   - alias: Overpowering
     platform: state
     entity_id:
-    - binary_sensor.bathroom_light_overpowering
     - binary_sensor.bike_light_overpowering
     - binary_sensor.bike_socket_overpowering
+    - binary_sensor.dakterras_overpowering
     - binary_sensor.desk_north_overpowering
     - binary_sensor.dishwasher_overpowering
     - binary_sensor.dryer_overpowering
-    - binary_sensor.energy_meter_overpowering
-    - binary_sensor.fan_overpowering
-    - binary_sensor.fridge_kitchen_overpowering
+    - binary_sensor.energymeter_overpowering
+    - binary_sensor.koelkast_boven_overpowering
     - binary_sensor.server_plug_overpowering
     - binary_sensor.toilet_light_overpowering
+    - binary_sensor.vriezer_schuur_overpowering
     - binary_sensor.washing_machine_overpowering
-    - binary_sensor.heater_overpowering
     to: 'on'
-  - platform: state
+  - alias: Changed Archer IP address
+    platform: state
     entity_id:
-    - binary_sensor.washing_machine_flood
-    to:
-    id: flood
-  - platform: state
-    entity_id:
-    - sensor.experiabox_v10_external_ip
-    alias: Changed Archer IP address
-  - platform: state
-    entity_id:
-    - binary_sensor.nieuw_engeland_nas_drive_1_below_min_remaining_life
-    - binary_sensor.nieuw_engeland_nas_drive_1_exceeded_max_bad_sectors
-    - binary_sensor.nieuw_engeland_nas_drive_2_below_min_remaining_life
-    - binary_sensor.nieuw_engeland_nas_drive_2_exceeded_max_bad_sectors
-    to: 'on'
-    alias: Drive problems
-  - platform: state
-    entity_id:
-    - sensor.growatt_1_charge
-    to:
-    - unavailable
-    - unknown
-    for: '24:00:00'
-  - platform: state
-    entity_id:
-    - binary_sensor.zielhorst_security_status
-    - binary_sensor.nieuw_engeland_security_status
-    - binary_sensor.zielhorst_drive_2_below_min_remaining_life
-    - binary_sensor.nieuw_engeland_drive_1_below_min_remaining_life
-    - binary_sensor.nieuw_engeland_drive_2_below_min_remaining_life
-    - binary_sensor.zielhorst_drive_2_exceeded_max_bad_sectors
-    - binary_sensor.nieuw_engeland_drive_2_exceeded_max_bad_sectors
-    - binary_sensor.nieuw_engeland_drive_1_exceeded_max_bad_sectors
-    to: 'on'
+    - sensor.archer_ax55_external_ip
   - platform: state
     entity_id:
     - sensor.washing_machine_flood_battery
@@ -528,7 +528,7 @@
     device_id: 3e1b266f2968a4f10a61e51feba13106
     entity_id: 9d9db7e2780c464459551e7125c520b2
     domain: sensor
-    above: 50
+    above: 70
     for:
       hours: 0
       minutes: 5
@@ -554,6 +554,60 @@
     entity_id: 9875247b23ecd598887fc0c09ca6856a
     domain: sensor
     below: 20
+  - type: not_running
+    platform: device
+    device_id: 12f40b894e7cb1a6d106fc67b1b21774
+    entity_id: 15d617713a58fc46c507c6a621c879c6
+    domain: binary_sensor
+    for:
+      hours: 24
+      minutes: 0
+      seconds: 0
+  - type: problem
+    platform: device
+    device_id: 12f40b894e7cb1a6d106fc67b1b21774
+    entity_id: 171f37087b7b0173b8263dc80e365b94
+    domain: binary_sensor
+  - type: unsafe
+    platform: device
+    device_id: 953c91864067f38764af450c5f41be7c
+    entity_id: d22b961e536ec094696c518cc29bc458
+    domain: binary_sensor
+  - type: unsafe
+    platform: device
+    device_id: 85927e6fc408b6dac1ffebfe6bd78fe8
+    entity_id: 74e7e69f06c6fd70c7190dc40800f75c
+    domain: binary_sensor
+  - type: unsafe
+    platform: device
+    device_id: a51b48c16bf9dbf5819ad4487b5ae986
+    entity_id: d7e5fdcc800b4dc2bfb5f6134c5d6f30
+    domain: binary_sensor
+  - type: unsafe
+    platform: device
+    device_id: 85927e6fc408b6dac1ffebfe6bd78fe8
+    entity_id: fc838f1928c59f02c5da4684972ba3b3
+    domain: binary_sensor
+  - type: unsafe
+    platform: device
+    device_id: a51b48c16bf9dbf5819ad4487b5ae986
+    entity_id: 5343610b6d8a7948ff425e24df8da4e3
+    domain: binary_sensor
+  - type: unsafe
+    platform: device
+    device_id: 09af19128cda6923b1db82c1840ac8a9
+    entity_id: 1747994f5420031cbc08b6b06ae572ef
+    domain: binary_sensor
+  - type: unsafe
+    platform: device
+    device_id: 6657701df27875b921cad967b40d2123
+    entity_id: 3bca8e808c262220e14de2f73896760b
+    domain: binary_sensor
+  - type: unsafe
+    platform: device
+    device_id: 6657701df27875b921cad967b40d2123
+    entity_id: f54aa3afdc5e524391f555f041d0870b
+    domain: binary_sensor
   condition: []
   action:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
