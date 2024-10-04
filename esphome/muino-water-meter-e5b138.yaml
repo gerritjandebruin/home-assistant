@@ -1,0 +1,15 @@
+substitutions:
+  name: muino-water-meter-e5b138
+packages:
+  esphome.muino-water-meter: github://martijnvwezel/watermeter-esphome/muino-water-meter-esp32.yaml@main
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+api:
+  encryption:
+    key: m41egdOPUARcOL/mlgcdexEuYZwBy/K0CjAfcHYohvk=
+
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
