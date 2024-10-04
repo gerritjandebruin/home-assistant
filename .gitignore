@@ -33,3 +33,5 @@ notebooks
 secrets.yaml
 
 .cloud/
+.Trash-0
+home_assistant.db 
