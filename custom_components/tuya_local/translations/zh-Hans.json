@@ -215,7 +215,10 @@
                             "smart_cool": "智能冷却",
                             "quick_cool": "快速冷却",
                             "quiet_cool": "安静冷却",
-                            "auto": "自动"
+                            "auto": "自动",
+                            "smart": "智能",
+                            "quiet": "安静",
+                            "quick": "快速"
                         }
                     }
                 }
@@ -277,6 +280,20 @@
             }
         },
         "fan": {
+            "aroma_diffuser": {
+                "name": "香薰机",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "low": "低",
+                            "medium": "中",
+                            "high": "高",
+                            "continuous": "连续",
+                            "intermittent": "间歇"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
                 "state_attributes": {
                     "preset_mode": {
@@ -288,6 +305,9 @@
                             "sleep": "睡眠",
                             "smart": "智能",
                             "strong": "强劲",
+                            "high": "高",
+                            "medium": "中",
+                            "low": "低",
                             "displayoff": "关闭显示",
                             "off": "关闭"
                         }
@@ -295,6 +315,7 @@
                 }
             },
             "ventilation": {
+                "name": "通风",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -346,8 +367,110 @@
             }
         },
         "select": {
+            "initial_state": {
+                "name": "初始状态",
+                "state": {
+                    "off": "关闭",
+                    "on": "打开",
+                    "memory": "记忆"
+                }
+            },
+            "language": {
+                "name": "语言",
+                "state": {
+                    "chinese": "中文",
+                    "chinese_traditional": "中文(繁體)",
+                    "english": "English",
+                    "french": "Français",
+                    "german": "Deutsch",
+                    "italian": "Italiano",
+                    "japanese": "日本語",
+                    "korean": "한국어",
+                    "latin": "Lingua Latina",
+                    "portuguese": "Português",
+                    "russian": "Русский",
+                    "spanish": "Español",
+                    "turkish": "Türkçe"
+                }
+            },
+            "mopping": {
+                "name": "拖地",
+                "state": {
+                    "off": "关闭",
+                    "auto": "自动",
+                    "low": "低",
+                    "medium": "中",
+                    "high": "高"
+                }
+            },
+            "recipe": {
+                "name": "菜谱",
+                "state": {
+                    "pizza": "披萨",
+                    "fries": "薯条",
+                    "chicken": "鸡肉",
+                    "shrimp": "虾",
+                    "fish": "鱼",
+                    "chicken_drumsticks": "鸡腿",
+                    "vegetables": "蔬菜",
+                    "desserts": "甜点",
+                    "none": "无",
+                    "chicken_wings": "鸡翅",
+                    "steak": "牛排",
+                    "onion_rings": "洋葱圈",
+                    "bacon": "培根",
+                    "cake": "蛋糕",
+                    "bread": "面包",
+                    "toast": "吐司",
+                    "custom": "自定义",
+                    "cloud_recipe": "云菜谱",
+                    "default": "默认",
+                    "keep_warm": "保温",
+                    "preheat": "预热"
+                }
+            },
             "timer": {
-                "name": "计时器"
+                "name": "计时器",
+                "state": {
+                    "cancel": "取消",
+                    "30m": "30分钟",
+                    "1h": "1小时",
+                    "1h30m": "1小时30分钟",
+                    "2h": "2小时",
+                    "2h30m": "2小时30分钟",
+                    "3h": "3小时",
+                    "3h30m": "3小时30分钟",
+                    "4h": "4小时",
+                    "4h30m": "4小时30分钟",
+                    "5h": "5小时",
+                    "5h30m": "5小时30分钟",
+                    "6h": "6小时",
+                    "6h30m": "6小时30分钟",
+                    "7h": "7小时",
+                    "7h30m": "7小时30分钟",
+                    "8h": "8小时",
+                    "8h30m": "8小时30分钟",
+                    "9h": "9小时",
+                    "9h30m": "9小时30分钟",
+                    "10h": "10小时",
+                    "11h": "11小时",
+                    "12h": "12小时",
+                    "13h": "13小时",
+                    "14h": "14小时",
+                    "15h": "15小时",
+                    "16h": "16小时",
+                    "17h": "17小时",
+                    "18h": "18小时",
+                    "19h": "19小时",
+                    "20h": "20小时",
+                    "21h": "21小时",
+                    "22h": "22小时",
+                    "23h": "23小时",
+                    "24h": "24小时",
+                    "36h": "36小时",
+                    "48h": "48小时",
+                    "72h": "72小时"
+                }
             },
             "temperature_unit": {
                 "name": "温度单位",
@@ -421,6 +544,9 @@
             },
             "keytone": {
                 "name": "按键音"
+            },
+            "sleep": {
+                "name": "睡眠"
             },
             "uv_sterilization": {
                 "name": "紫外线消毒"

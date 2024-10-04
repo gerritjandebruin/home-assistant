@@ -41,7 +41,7 @@
                     "local_key": "Local key",
                     "protocol_version": "Versione protocollo (prova 'auto' in caso di dubbi)",
                     "poll_only": "Poll only (prova questa opzione se il dispositivo non funziona correttamente)",
-                    "device_cid": "[it] Sub device ID (for devices connected via gateway)"
+                    "device_cid": "Sub device ID (per dispositivi connessi tramite gateway)"
                 }
             },
             "select_type": {
@@ -88,7 +88,7 @@
                     "local_key": "Local key",
                     "protocol_version": "Versione protocollo (prova 'auto' in caso di dubbi)",
                     "poll_only": "Poll only (prova questa opzione se il dispositivo non funziona correttamente)",
-                    "device_cid": "[it] Sub device ID (for devices connected via gateway)"
+                    "device_cid": "[it] Sub device ID (per dispositivi connessi tramite gateway)"
                 }
             }
         },
@@ -120,6 +120,22 @@
                 "state": {
                     "off": "OK",
                     "on": "Piena"
+                }
+            },
+            "casdon_oven_fault": {
+                "state_attributes": {
+                    "fault_message": {
+                        "state": {
+                            "e1": "E1: Protezione surriscaldamento camera (superiore a 290°C)",
+                            "e2": "E2: Protezione surriscaldamento vassoio di evaporazione (superiore a 200°C)",
+                            "e3": "E3: Protezione bassa temperatura camera (inferiore a 35°C)",
+                            "e4": "E4: Protezione bassa temperatura vassoio di evaporazione (inferiore a 35°C)",
+                            "e5": "E5: Errore di connessione del sensore (circuito aperto)",
+                            "e6": "E6: Malfunzionamento del sensore (circuito chiuso)",
+                            "e7": "E7: Errore di comunicazione della scheda display",
+                            "e8": "E8: Serbatoio dell'acqua aperto (CN7) o Vassoio di evaporazione asciutto (CN3)"
+                        }
+                    }
                 }
             }
         },
@@ -199,7 +215,10 @@
                             "smart_cool": "Raffreddamento intelligente",
                             "quick_cool": "Raffreddamento rapido",
                             "quiet_cool": "Raffreddamento tranquillo",
-                            "auto": "Auto"
+                            "auto": "Auto",
+                            "smart": "Intelligente",
+                            "quiet": "Tranquillo",
+                            "quick": "Veloce"
                         }
                     }
                 }
@@ -212,6 +231,37 @@
                     "hvac_mode": {
                         "state": {
                             "fan_only": "Pausa"
+                        }
+                    }
+                }
+            },
+            "oven": {
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "healthy_steam": "Vapore sano",
+                            "fresh_steam": "Vapore fresco",
+                            "high_temp_steam": "Vapore ad alta temperatura",
+                            "stew": "Stufato",
+                            "bake_up_and_down": "Cuocere su e giù",
+                            "bbq": "BBQ",
+                            "bottom_hot_air": "Aria calda inferiore",
+                            "on_strong_roast": "Arrosto forte",
+                            "3d_hot_air": "Aria calda 3D",
+                            "air_fry": "Friggitrice ad aria",
+                            "steam_frying": "Frittura a vapore",
+                            "one_click_bread": "Un clic per il pane",
+                            "quick_heat": "Riscaldamento rapido",
+                            "keep_warm": "Mantenere caldo",
+                            "unfreeze": "Scongelare",
+                            "fermentation": "Fermentazione",
+                            "descale": "Decalcificazione",
+                            "local_recipes": "Ricette locali",
+                            "drying": "Asciugatura",
+                            "custom": "Personalizzato",
+                            "low_steaming": "Basso Steaming",
+                            "medium_steaming": "Steaming medio",
+                            "high_steaming": "Alto Steaming"
                         }
                     }
                 }
@@ -230,6 +280,20 @@
             }
         },
         "fan": {
+            "aroma_diffuser": {
+                "name": "Diffusore di aroma",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "low": "Basso",
+                            "medium": "Medio",
+                            "high": "Alto",
+                            "continuous": "Continuo",
+                            "intermittent": "Intermittente"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
                 "state_attributes": {
                     "preset_mode": {
@@ -241,6 +305,9 @@
                             "fresh": "Fresco",
                             "smart": "Inteligente",
                             "strong": "Forte",
+                            "high": "Alto",
+                            "medium": "Medio",
+                            "low": "Basso",
                             "displayoff": "Display spento",
                             "off": "Spento"
                         }
@@ -248,6 +315,7 @@
                 }
             },
             "ventilation": {
+                "name": "Ventilazione",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -299,8 +367,110 @@
             }
         },
         "select": {
+            "initial_state": {
+                "name": "Stato iniziale",
+                "state": {
+                    "off": "Spento",
+                    "on": "Acceso",
+                    "memory": "Memoria"
+                }
+            },
+            "language": {
+                "name": "Lingua",
+                "state": {
+                    "chinese": "中文",
+                    "chinese_traditional": "中文(繁體)",
+                    "english": "English",
+                    "french": "Français",
+                    "german": "Deutsch",
+                    "italian": "Italiano",
+                    "japanese": "日本語",
+                    "korean": "한국어",
+                    "latin": "Lingua Latina",
+                    "portuguese": "Português",
+                    "russian": "Русский",
+                    "spanish": "Español",
+                    "turkish": "Türkçe"
+                }
+            },
+            "mopping": {
+                "name": "Pulizia",
+                "state": {
+                    "off": "Spento",
+                    "auto": "Auto",
+                    "low": "Basso",
+                    "medium": "Medio",
+                    "high": "Alto"
+                }
+            },
+            "recipe": {
+                "name": "Ricetta",
+                "state": {
+                    "pizza": "Pizza",
+                    "fries": "Patatine fritte",
+                    "chicken": "Pollo",
+                    "shrimp": "Gamberetti",
+                    "fish": "Pesce",
+                    "chicken_drumsticks": "Cosce di pollo",
+                    "vegetables": "Verdure",
+                    "desserts": "Dolci",
+                    "none": "Nessuno",
+                    "chicken_wings": "Ali di pollo",
+                    "steak": "Bistecca",
+                    "onion_rings": "Anelli di cipolla",
+                    "bacon": "Pancetta",
+                    "cake": "Torta",
+                    "bread": "Pane",
+                    "toast": "Tostare",
+                    "custom": "Personalizzato",
+                    "cloud_recipe": "Ricetta cloud",
+                    "default": "Predefinito",
+                    "keep_warm": "Mantenere caldo",
+                    "preheat": "Preriscaldare"
+                }
+            },
             "timer": {
-                "name": "Timer"
+                "name": "Timer",
+                "state": {
+                    "cancel": "Annulla",
+                    "30m": "30 minuti",
+                    "1h": "1 ora",
+                    "1h30m": "1 ora 30 minuti",
+                    "2h": "2 ore",
+                    "2h30m": "2 ore 30 minuti",
+                    "3h": "3 ore",
+                    "3h30m": "3 ore 30 minuti",
+                    "4h": "4 ore",
+                    "4h30m": "4 ore 30 minuti",
+                    "5h": "5 ore",
+                    "5h30m": "5 ore 30 minuti",
+                    "6h": "6 ore",
+                    "6h30m": "6 ore 30 minuti",
+                    "7h": "7 ore",
+                    "7h30m": "7 ore 30 minuti",
+                    "8h": "8 ore",
+                    "8h30m": "8 ore 30 minuti",
+                    "9h": "9 ore",
+                    "9h30m": "9 ore 30 minuti",
+                    "10h": "10 ore",
+                    "11h": "11 ore",
+                    "12h": "12 ore",
+                    "13h": "13 ore",
+                    "14h": "14 ore",
+                    "15h": "15 ore",
+                    "16h": "16 ore",
+                    "17h": "17 ore",
+                    "18h": "18 ore",
+                    "19h": "19 ore",
+                    "20h": "20 ore",
+                    "21h": "21 ore",
+                    "22h": "22 ore",
+                    "23h": "23 ore",
+                    "24h": "24 ore",
+                    "36h": "36 ore",
+                    "48h": "48 ore",
+                    "72h": "72 ore"
+                }
             },
             "temperature_unit": {
                 "name": "Unità di temperatura",
@@ -308,11 +478,58 @@
                     "celsius": "Centigrado",
                     "fahrenheit": "Fahrenheit"
                 }
+            },
+            "oven_built_in_recipe": {
+                "name": "Ricetta incorporata",
+                "state": {
+                    "none": "Nessuno",
+                    "steamed_egg_with_okra": "Uovo al vapore con okra",
+                    "steamed_sea_bass": "Branzino al vapore",
+                    "steamed_prawns": "Gamberi al vapore",
+                    "handmade_steamed_bread": "Pane al vapore fatto a mano",
+                    "fan_steamed_baby_vegetables": "Verdure per bambini al vapore con ventilatore",
+                    "braised_pork": "Maiale brasato",
+                    "snow_fungus_and_bird_s_nest": "Funghi della neve e nido d'uccello",
+                    "crab_pot": "Vaso di granchio",
+                    "potato_ribs": "Costine di patate",
+                    "coconut_chicken_soup": "Zuppa di pollo al cocco",
+                    "snack_platter": "Piatto di snack",
+                    "chicken_skewers": "Spiedini di pollo",
+                    "roasted_pork_knuckle": "Zampa di maiale arrosto",
+                    "dried_lemon": "Limone secco",
+                    "pork_jerky": "Carne di maiale essiccata",
+                    "crispy_hairtail": "Coda di capelli croccante",
+                    "spicy_grilled_fish": "Pesce alla griglia piccante",
+                    "roasted_sweet_potatoes": "Patate dolci arrosto",
+                    "roasted_chicken_wings": "Ali di pollo arrosto",
+                    "cumin_lamb_chops": "Costine di agnello al cumino",
+                    "honey_grilled_chicken": "Pollo alla griglia al miele",
+                    "garlic_eggplant": "Melanzane all'aglio",
+                    "portuguese_egg_tart": "Tartaruga portoghese",
+                    "creme_brulee": "Creme brulee",
+                    "cocoa_chips": "Coccoa chips",
+                    "butter_cookies": "Biscotti al burro",
+                    "chiffon_cake": "Torta chiffon",
+                    "puff_pastry": "Pasta sfoglia",
+                    "red_bean_bread": "Pane ai fagioli rossi",
+                    "milk_toast": "Pane al latte"
+                }
             }
         },
         "sensor": {
             "time_remaining": {
                 "name": "Tempo rimanente"
+            },
+            "cooking_status": {
+                "name": "Stato di cottura",
+                "state": {
+                    "wait": "In attesa di cucinare",
+                    "reservation": "In prenotazione",
+                    "cooking": "Cottura in corso",
+                    "cancel": "Cottura annullata",
+                    "done": "Cottura completata",
+                    "pause": "Cottura in pausa"
+                }
             }
         },
         "switch": {
@@ -327,6 +544,9 @@
             },
             "keytone": {
                 "name": "tono dei tasti"
+            },
+            "sleep": {
+                "name": "Sonno"
             },
             "uv_sterilization": {
                 "name": "Sterilizzazione UV"

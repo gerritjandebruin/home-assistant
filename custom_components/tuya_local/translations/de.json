@@ -121,6 +121,22 @@
                     "off": "OK",
                     "on": "Voll"
                 }
+            },
+            "casdon_oven_fault": {
+                "state_attributes": {
+                    "fault_message": {
+                        "state": {
+                            "e1": "E1: Kammer Überhitzungsschutz (über 290°C)",
+                            "e2": "E2: Verdunstungsschale Überhitzungsschutz (über 200°C)",
+                            "e3": "E3: Kammer Niedertemperaturschutz (unter 35°C)",
+                            "e4": "E4: Verdunstungsschale Niedertemperaturschutz (unter 35°C)",
+                            "e5": "E5: Sensorverbindungsfehler (offener Stromkreis)",
+                            "e6": "E6: E6: Sensorfehlfunktion (Kurzschluss)",
+                            "e7": "E7: Anzeigetafel Kommunikationsfehler",
+                            "e8": "E8: Wassertank offen (CN7) oder Verdunstungsschale trocken (CN3)"
+                        }
+                    }
+                }
             }
         },
         "climate": {
@@ -152,7 +168,7 @@
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
-                            "cycle": "Cycle"
+                            "cycle": "Zyklus"
                         }
                     },
                     "preset_mode": {
@@ -199,7 +215,10 @@
                             "smart_cool": "Intelligent kühlen",
                             "quick_cool": "Schnell kühlen",
                             "quiet_cool": "Leise kühlen",
-                            "auto": "Auto"
+                            "auto": "Auto",
+                            "smart": "Intelligent",
+                            "quick": "Schnell",
+                            "quiet": "Leise"
                         }
                     }
                 }
@@ -214,6 +233,36 @@
                             "fan_only": "Pause"
                         }
                     }
+                }
+            },
+            "oven": {
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "healthy_steam": "Gesunder Dampf",
+                            "fresh_steam": "Frischer Dampf",
+                            "high_temp_steam": "Hohe Temperatur Dampf",
+                            "stew": "Schmoren",
+                            "bake_up_and_down": "Backen oben und unten",
+                            "bbq": "BBQ",
+                            "bottom_hot_air": "Unten Heißluft",
+                            "on_strong_roast": "Auf Stark Rösten",
+                            "3d_hot_air": "3D Heißluft",
+                            "air_fry": "Air Fry",
+                            "steam_frying": "Dampffr",
+                            "one_click_bread": "Ein-Klick-Brot",
+                            "quick_heat": "Schnell heizen",
+                            "keep_warm": "Warmhalten",
+                            "unfreeze": "Auftauen",
+                            "fermentation": "Gärung",
+                            "descale": "Entkalken",
+                            "local_recipes": "Lokale Rezepte",
+                            "drying": "Trocknen",
+                            "custom": "Benutzerdefiniert",
+                            "low_steaming": "Niedriges Dämpfen",
+                            "medium_steaming": "Mittleres Dämpfen",
+                            "high_steaming": "Hohes Dämpfen"
+                        }                    }
                 }
             }
         },
@@ -230,6 +279,20 @@
             }
         },
         "fan": {
+            "aroma_diffuser": {
+                "name": "Aroma Diffuser",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "low": "Niedrig",
+                            "medium": "Mittel",
+                            "high": "Hoch",
+                            "continuous": "Dauerbetrieb",
+                            "intermittent": "Intervall"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
                 "state_attributes": {
                     "preset_mode": {
@@ -241,6 +304,9 @@
                             "fresh": "Frisch",
                             "smart": "Intelligent",
                             "strong": "Stark",
+                            "high": "Hoch",
+                            "medium": "Mittel",
+                            "low": "Niedrig",
                             "displayoff": "Anzeige aus",
                             "off": "Aus"
                         }
@@ -248,6 +314,7 @@
                 }
             },
             "ventilation": {
+                "name": "Lüftung",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -299,8 +366,110 @@
             }
         },
         "select": {
+            "initial_state": {
+                "name": "Startzustand",
+                "state": {
+                    "off": "Aus",
+                    "on": "An",
+                    "memory": "Speicher"
+                }
+            },
+            "language": {
+                "name": "Sprache",
+                "state": {
+                    "chinese": "中文",
+                    "chinese_traditional": "中文(繁體)",
+                    "english": "English",
+                    "french": "Français",
+                    "german": "Deutsch",
+                    "italian": "Italiano",
+                    "japanese": "日本語",
+                    "korean": "한국어",
+                    "latin": "Lingua Latina",
+                    "portuguese": "Português",
+                    "russian": "Русский",
+                    "spanish": "Español",
+                    "turkish": "Türkçe"
+                }
+            },
+            "mopping": {
+                "name": "Wischen",
+                "state": {
+                    "off": "Aus",
+                    "auto": "Automatisch",
+                    "low": "Niedrig",
+                    "medium": "Mittel",
+                    "high": "Hoch"
+                }
+            },
+            "recipe": {
+                "name": "Rezept",
+                "state": {
+                    "pizza": "Pizza",
+                    "fries": "Pommes",
+                    "chicken": "Hähnchen",
+                    "shrimp": "Garnelen",
+                    "fish": "Fisch",
+                    "chicken_drumsticks": "Hähnchenschenkel",
+                    "vegetables": "Gemüse",
+                    "desserts": "Desserts",
+                    "none": "Kein Rezept",
+                    "chicken_wings": "Hähnchenflügel",
+                    "steak": "Steak",
+                    "onion_rings": "Zwiebelringe",
+                    "bacon": "Speck",
+                    "cake": "Kuchen",
+                    "bread": "Brot",
+                    "toast": "Toast",
+                    "custom": "Benutzerdefiniert",
+                    "cloud_recipe": "Cloud-Rezept",
+                    "default": "Standard",
+                    "keep_warm": "Warmhalten",
+                    "preheat": "Vorheizen"
+                }
+            },
             "timer": {
-                "name": "Timer"
+                "name": "Timer",
+                "state": {
+                    "cancel": "Abbrechen",
+                    "30m": "30 Minuten",
+                    "1h": "1 Stunde",
+                    "1h30m": "1 Stunde 30 Minuten",
+                    "2h": "2 Stunden",
+                    "2h30m": "2 Stunden 30 Minuten",
+                    "3h": "3 Stunden",
+                    "3h30m": "3 Stunden 30 Minuten",
+                    "4h": "4 Stunden",
+                    "4h30m": "4 Stunden 30 Minuten",
+                    "5h": "5 Stunden",
+                    "5h30m": "5 Stunden 30 Minuten",
+                    "6h": "6 Stunden",
+                    "6h30m": "6 Stunden 30 Minuten",
+                    "7h": "7 Stunden",
+                    "7h30m": "7 Stunden 30 Minuten",
+                    "8h": "8 Stunden",
+                    "8h30m": "8 Stunden 30 Minuten",
+                    "9h": "9 Stunden",
+                    "9h30m": "9 Stunden 30 Minuten",
+                    "10h": "10 Stunden",
+                    "11h": "11 Stunden",
+                    "12h": "12 Stunden",
+                    "13h": "13 Stunden",
+                    "14h": "14 Stunden",
+                    "15h": "15 Stunden",
+                    "16h": "16 Stunden",
+                    "17h": "17 Stunden",
+                    "18h": "18 Stunden",
+                    "19h": "19 Stunden",
+                    "20h": "20 Stunden",
+                    "21h": "21 Stunden",
+                    "22h": "22 Stunden",
+                    "23h": "23 Stunden",
+                    "24h": "24 Stunden",
+                    "36h": "36 Stunden",
+                    "48h": "48 Stunden",
+                    "72h": "72 Stunden"
+                }
             },
             "temperature_unit": {
                 "name": "Temperatur-Einheit",
@@ -308,11 +477,58 @@
                     "celsius": "Celsius",
                     "fahrenheit": "Fahrenheit"
                 }
+            },
+            "oven_built_in_recipe": {
+                "name": "Eingebautes Rezept",
+                "state": {
+                    "none": "Kein Rezept",
+                    "steamed_egg_with_okra": "Gedämpftes Ei mit Okra",
+                    "steamed_sea_bass": "Gedämpfter Wolfsbarsch",
+                    "steamed_prawns": "Gedämpfte Garnelen",
+                    "handmade_steamed_bread": "Handgemachtes gedämpftes Brot",
+                    "fan_steamed_baby_vegetables": "Ventilator gedämpftes Babygemüse",
+                    "braised_pork": "Geschmortes Schweinefleisch",
+                    "snow_fungus_and_bird_s_nest": "Schneepilz und Vogelnest",
+                    "crab_pot": "Krabbenpfanne",
+                    "potato_ribs": "Kartoffelrippen",
+                    "coconut_chicken_soup": "Kokosnusshühnersuppe",
+                    "snack_platter": "Snackplatte",
+                    "chicken_skewers": "Hähnchenspieße",
+                    "roasted_pork_knuckle": "Gebratene Schweinshaxe",
+                    "dried_lemon": "Getrocknete Zitrone",
+                    "pork_jerky": "Schweinefleischjerky",
+                    "crispy_hairtail": "Knuspriger Haaransatz",
+                    "spicy_grilled_fish": "Scharf gegrillter Fisch",
+                    "roasted_sweet_potatoes": "Gebratene Süßkartoffeln",
+                    "roasted_chicken_wings": "Gebratene Hähnchenflügel",
+                    "cumin_lamb_chops": "Kreuzkümmel-Lammkoteletts",
+                    "honey_grilled_chicken": "Honig gegrilltes Hähnchen",
+                    "garlic_eggplant": "Knoblauch-Aubergine",
+                    "portuguese_egg_tart": "Portugiesische Eier-Ta",
+                    "creme_brulee": "Crème Brûlée",
+                    "cocoa_chips": "Kakaosplitter",
+                    "butter_cookies": "Butterkekse",
+                    "chiffon_cake": "Chiffonkuchen",
+                    "puff_pastry": "Blätterteig",
+                    "red_bean_bread": "Rote-Bohnen-Brot",
+                    "milk_toast": "Milchtoast"
+                }
             }
         },
         "sensor": {
             "time_remaining": {
                 "name": "Verbleibende Zeit"
+            },
+            "cooking_status": {
+                "name": "Kochstatus",
+                "state": {
+                    "wait": "Warten auf Kochen",
+                    "reservation": "In Reservation",
+                    "cooking": "Kochen",
+                    "cancel": "Kochen abgebrochen",
+                    "done": "Kochen abgeschlossen",
+                    "pause": "Kochen pausiert"
+                }
             }
         },
         "switch": {
@@ -323,10 +539,13 @@
                 "name": "Verdampferreinigung"
             },
             "ionizer": {
-                "name": "Ionizer"
+                "name": "Ionisator"
             },
             "keytone": {
                 "name": "Tastenton"
+            },
+            "sleep": {
+                "name": "Schlafen"
             },
             "uv_sterilization": {
                 "name": "UV Sterilization"

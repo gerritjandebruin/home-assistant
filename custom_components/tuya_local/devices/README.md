@@ -573,10 +573,11 @@ from the camera.
 - **hvac_mode** (optional, mapping of strings) a dp to control the mode of the device.
     Possible values are: `"off", cool, heat, heat_cool, auto, dry, fan_only`
 - **hvac_action** (optional, string) a dp that reports the current action of the device.
-    Possible values are: `"off", idle, cooling, heating, drying, fan`
+    Possible values are: `"off", idle, cooling, heating, drying, fan, defrosting`
 - **preset_mode** (optional, mapping of strings) a dp to control preset modes of the device.
    Any value is allowed, but HA has some standard presets:
     `none, eco, away, boost, comfort, home, sleep, activity`
+   There are also some presets defined by this integration for use with various `translation_key`s, see translations/en.json for details.
 - **swing_mode** (optional, mapping of strings) a dp to control swing modes of the device.
    Possible values are: `"off", vertical, horizontal`
 - **temperature** (optional, number) a dp to set the target temperature of the device.
@@ -602,6 +603,7 @@ Either **position** or **open** should be specified.
 - **action** (optional, string): a dp that reports the current state of the cover.
    Special values are `opening, closing`
 - **open** (optional, boolean): a dp that reports if the cover is open. Only used if **position** is not available.
+- **tilt_position** (optional, number): a dp to control the tilt opening of the cover (an example is venetian blinds that tilt as well as go up and down). The range will be auto-converted to the 0-100 expected by HA.
 
 ### `fan`
 - **switch** (optional, boolean): a dp to control the power state of the fan
@@ -623,7 +625,7 @@ Humidifer can also cover dehumidifiers (use class to specify which).
 - **current_humidity** (optional, number): a dp to report the current humidity measured by the device
 
 ### `lawn_mower`
-- **activity** (required, string): a dp to report the current activity of the mower. Valid activities are `mowing`, `paused`, `docked`, `error` (from LawnMowerActivities in https://github.com/home-assistant/core/blob/dev/homeassistant/components/lawn_mower/const.py). Any additional activities should be mapped to one of those, and exposed through an extra attribute or sensor entity that shows all the statuses that the mower is reporting.
+- **activity** (required, string): a dp to report the current activity of the mower. Valid activities are `mowing`, `paused`, `docked`, `error`, `returning` (from LawnMowerActivities in https://github.com/home-assistant/core/blob/dev/homeassistant/components/lawn_mower/const.py). Any additional activities should be mapped to one of those, and exposed through an extra attribute or sensor entity that shows all the statuses that the mower is reporting.
 
 - **command** (required, string): a dp to send commands to the mower. Recognised commands are `start_mowing`, `pause` and `dock`. Any additional commands should be implemented via a `button` or `select` entity.
 
@@ -646,7 +648,8 @@ Humidifer can also cover dehumidifiers (use class to specify which).
 The unlock... dps below are normally integers, but can also be boolean, in which case
 no information will be available about which specific credential was used to unlock the lock.
 
-- **lock** (optional, boolean): a dp to control the lock state: true = locked, false = unlocked
+- **lock** (optional, boolean): a dp to control the lock state: true = locked, false = unlocked.
+- **open** (optional, boolean): a dp to open or close the door or gate controlled by the lock, or if marked readonly to report the open status.
 - **unlock_fingerprint** (optional, integer): a dp to identify the fingerprint used to unlock the lock.
 - **unlock_password** (optional, integer): a dp to identify the password used to unlock the lock.
 - **unlock_temp_pwd** (optional, integer): a dp to identify the temporary password used to unlock the lock.

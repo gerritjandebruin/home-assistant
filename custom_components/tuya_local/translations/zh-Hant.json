@@ -121,6 +121,22 @@
                     "off": "正常",
                     "on": "滿水"
                 }
+            },
+            "casdon_oven_fault": {
+                "state_attributes": {
+                    "fault_message": {
+                        "state": {
+                            "e1": "E1: 高溫保護 (超過290°C)",
+                            "e2": "E2: 蒸發盤過熱保護 (超過200°C)",
+                            "e3": "E3: 空腔低溫保護 (低於35°C)",
+                            "e4": "E4: 蒸發盤低溫保護 (低於35°C)",
+                            "e5": "E5: 传感器连接错误（开路）",
+                            "e6": "E6: 传感器故障（短路）",
+                            "e7": "E7: 顯示板通信錯誤",
+                            "e8": "E8: 水箱打開 (CN7) 或蒸發盤乾燥 (CN3)"
+                        }
+                    }
+                }
             }
         },
         "climate": {
@@ -199,7 +215,10 @@
                             "smart_cool": "智能冷卻",
                             "quick_cool": "快速冷卻",
                             "quiet_cool": "安靜冷卻",
-                            "auto": "自動"
+                            "auto": "自動",
+                            "smart": "智能",
+                            "quick": "快速",
+                            "quiet": "安靜"
                         }
                     }
                 }
@@ -212,6 +231,38 @@
                     "hvac_mode": {
                         "state": {
                             "fan_only": "暫停"
+                        }
+                    }
+                }
+            },
+            "oven": {
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "off": "關",
+                            "healthy_steam": "健康蒸汽",
+                            "fresh_steam": "新鮮蒸汽",
+                            "high_temp_steam": "高溫蒸汽",
+                            "stew": "燉",
+                            "bake_up_and_down": "上下烘焙",
+                            "bbq": "燒烤",
+                            "bottom_hot_air": "底部熱風",
+                            "on_strong_roast": "強烤",
+                            "3d_hot_air": "3D熱風",
+                            "air_fry": "空氣炸",
+                            "steam_frying": "蒸炸",
+                            "one_click_bread": "一鍵麵包",
+                            "quick_heat": "快速加熱",
+                            "keep_warm": "保溫",
+                            "unfreeze": "解凍",
+                            "fermentation": "發酵",
+                            "descale": "除垢",
+                            "local_recipes": "本地食譜",
+                            "drying": "烘乾",
+                            "custom": "自訂",
+                            "low_steaming": "低蒸",
+                            "medium_steaming": "中蒸",
+                            "high_steaming": "高蒸"
                         }
                     }
                 }
@@ -230,6 +281,20 @@
             }
         },
         "fan": {
+            "aroma_diffuser": {
+                "name": "香薰機",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "low": "低",
+                            "medium": "中",
+                            "high": "高",
+                            "continuous": "連續",
+                            "intermittent": "間歇"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
                 "state_attributes": {
                     "preset_mode": {
@@ -241,6 +306,9 @@
                             "sleep": "睡眠",
                             "smart": "智能",
                             "strong": "強勁",
+                            "high": "高",
+                            "medium": "中",
+                            "low": "低",
                             "displayoff": "關閉顯示",
                             "off": "關閉"
                         }
@@ -248,6 +316,7 @@
                 }
             },
             "ventilation": {
+                "name": "通風系統",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -299,8 +368,110 @@
             }
         },
         "select": {
+            "initial_state": {
+                "name": "初始狀態",
+                "state": {
+                    "off": "關",
+                    "on": "開",
+                    "memory": "記憶"
+                }
+            },
+            "language": {
+                "name": "語言",
+                "state": {
+                    "chinese": "中文",
+                    "chinese_traditional": "中文(繁體)",
+                    "english": "English",
+                    "french": "Français",
+                    "german": "Deutsch",
+                    "italian": "Italiano",
+                    "japanese": "日本語",
+                    "korean": "한국어",
+                    "latin": "Lingua Latina",
+                    "portuguese": "Português",
+                    "russian": "Русский",
+                    "spanish": "Español",
+                    "turkish": "Türkçe"
+                }
+            },
+            "mopping": {
+                "name": "拖地",
+                "state": {
+                    "off": "關",
+                    "auto": "自動",
+                    "low": "低",
+                    "medium": "中",
+                    "high": "高"
+                }
+            },
+            "recipe": {
+                "name": "食譜",
+                "state": {
+                    "pizza": "比薩",
+                    "fries": "薯條",
+                    "chicken": "雞肉",
+                    "shrimp": "蝦",
+                    "fish": "魚",
+                    "chicken_drumsticks": "雞腿",
+                    "vegetables": "蔬菜",
+                    "desserts": "甜點",
+                    "none": "無",
+                    "chicken_wings": "雞翅",
+                    "steak": "牛排",
+                    "onion_rings": "洋蔥圈",
+                    "bacon": "培根",
+                    "cake": "蛋糕",
+                    "bread": "麵包",
+                    "toast": "吐司",
+                    "custom": "自訂",
+                    "cloud_recipe": "雲端食譜",
+                    "default": "預設",
+                    "keep_warm": "保溫",
+                    "preheat": "預熱"
+                }
+            },
             "timer": {
-                "name": "計時器"
+                "name": "計時器",
+                "state": {
+                    "cancel": "取消",
+                    "30m": "30分鐘",
+                    "1h": "1小時",
+                    "1h30m": "1小時30分鐘",
+                    "2h": "2小時",
+                    "2h30m": "2小時30分鐘",
+                    "3h": "3小時",
+                    "3h30m": "3小時30分鐘",
+                    "4h": "4小時",
+                    "4h30m": "4小時30分鐘",
+                    "5h": "5小時",
+                    "5h30m": "5小時30分鐘",
+                    "6h": "6小時",
+                    "6h30m": "6小時30分鐘",
+                    "7h": "7小時",
+                    "7h30m": "7小時30分鐘",
+                    "8h": "8小時",
+                    "8h30m": "8小時30分鐘",
+                    "9h": "9小時",
+                    "9h30m": "9小時30分鐘",
+                    "10h": "10小時",
+                    "11h": "11小時",
+                    "12h": "12小時",
+                    "13h": "13小時",
+                    "14h": "14小時",
+                    "15h": "15小時",
+                    "16h": "16小時",
+                    "17h": "17小時",
+                    "18h": "18小時",
+                    "19h": "19小時",
+                    "20h": "20小時",
+                    "21h": "21小時",
+                    "22h": "22小時",
+                    "23h": "23小時",
+                    "24h": "24小時",
+                    "36h": "36小時",
+                    "48h": "48小時",
+                    "72h": "72小時"
+                }
             },
             "temperature_unit": {
                 "name": "溫度單位",
@@ -308,11 +479,58 @@
                     "celsius": "攝氏度",
                     "fahrenheit": "華氏度"
                 }
+            },
+            "oven_built_in_recipe": {
+                "name": "內置食譜",
+                "state": {
+                    "none": "無",
+                    "steamed_egg_with_okra": "蛋羹秋葵",
+                    "steamed_sea_bass": "清蒸鱸魚",
+                    "steamed_prawns": "蒸蝦",
+                    "handmade_steamed_bread": "手工蒸麵包",
+                    "fan_steamed_baby_vegetables": "風焙嬰兒蔬菜",
+                    "braised_pork": "紅燒肉",
+                    "snow_fungus_and_bird_s_nest": "雪耳燕窩",
+                    "crab_pot": "蟹鍋",
+                    "potato_ribs": "土豆排骨",
+                    "coconut_chicken_soup": "椰子雞湯",
+                    "snack_platter": "點心拼盤",
+                    "chicken_skewers": "雞肉串",
+                    "roasted_pork_knuckle": "烤豬腳",
+                    "dried_lemon": "乾檸檬",
+                    "pork_jerky": "豬肉乾",
+                    "crispy_hairtail": "脆皮帶魚",
+                    "spicy_grilled_fish": "辣烤魚",
+                    "roasted_sweet_potatoes": "烤甜薯",
+                    "roasted_chicken_wings": "烤雞翅",
+                    "cumin_lamb_chops": "孜然羊排",
+                    "honey_grilled_chicken": "蜜糖烤雞",
+                    "garlic_eggplant": "蒜蓉茄子",
+                    "portuguese_egg_tart": "葡式蛋撻",
+                    "creme_brulee": "焦糖布丁",
+                    "cocoa_chips": "可可脆片",
+                    "butter_cookies": "奶油餅乾",
+                    "chiffon_cake": "戚風蛋糕",
+                    "puff_pastry": "酥皮",
+                    "red_bean_bread": "紅豆麵包",
+                    "milk_toast": "牛奶吐司"
+                }
             }
         },
         "sensor": {
             "time_remaining": {
                 "name": "剩餘時間"
+            },
+            "cooking_status": {
+                "name": "狀態",
+                "state": {
+                    "wait": "等待烹飪",
+                    "reservation": "預約中",
+                    "cooking": "烹飪中",
+                    "cancel": "取消烹飪",
+                    "done": "烹飪完成",
+                    "pause": "烹飪暫停"
+                }
             }
         },
         "switch": {
@@ -327,6 +545,9 @@
             },
             "keytone": {
                 "name": "按鍵音"
+            },
+            "sleep": {
+                "name": "睡眠模式"
             },
             "uv_sterilization": {
                 "name": "紫外線消毒"

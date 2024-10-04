@@ -215,7 +215,10 @@
                             "smart_cool": "Smart cool",
                             "quick_cool": "Quick cool",
                             "quiet_cool": "Quiet cool",
-                            "auto": "Auto"
+                            "auto": "Auto",
+                            "smart": "Smart",
+                            "quick": "Quick",
+                            "quiet": "Quiet"
                         }
                     }
                 }
@@ -277,6 +280,20 @@
             }
         },
         "fan": {
+            "aroma_diffuser": {
+                "name": "Aroma diffuser",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "low": "Low",
+                            "medium": "Medium",
+                            "high": "High",
+                            "continuous": "Continuous",
+                            "intermittent": "Intermittent"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
                 "state_attributes": {
                     "preset_mode": {
@@ -288,6 +305,9 @@
                             "sleep": "Sleep",
                             "smart": "Smart",
                             "strong": "Strong",
+                            "high": "High",
+                            "medium": "Medium",
+                            "low": "Low",
                             "displayoff": "Display off",
                             "off": "Off"
                         }
@@ -295,6 +315,7 @@
                 }
             },
             "ventilation": {
+                "name": "Ventilation",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -346,8 +367,110 @@
             }
         },
         "select": {
+            "initial_state": {
+                "name": "Initial state",
+                "state": {
+                    "off": "Off",
+                    "on": "On",
+                    "memory": "Memory"
+                }
+            },
+            "language": {
+                "name": "Language",
+                "state": {
+                    "chinese": "中文",
+                    "chinese_traditional": "中文(繁體)",
+                    "english": "English",
+                    "french": "Français",
+                    "german": "Deutsch",
+                    "italian": "Italiano",
+                    "japanese": "日本語",
+                    "korean": "한국어",
+                    "latin": "Lingua Latina",
+                    "portuguese": "Português",
+                    "russian": "Русский",
+                    "spanish": "Español",
+                    "turkish": "Türkçe"
+                }
+            },
+            "mopping": {
+                "name": "Mopping",
+                "state": {
+                    "off": "Off",
+                    "auto": "Auto",
+                    "low": "Low",
+                    "medium": "Medium",
+                    "high": "High"
+                }
+            },
+            "recipe": {
+                "name": "Recipe",
+                "state": {
+                    "pizza": "Pizza",
+                    "fries": "Fries",
+                    "chicken": "Chicken",
+                    "shrimp": "Shrimp",
+                    "fish": "Fish",
+                    "chicken_drumsticks": "Chicken Drumsticks",
+                    "vegetables": "Vegetables",
+                    "desserts": "Desserts",
+                    "none": "None",
+                    "chicken_wings": "Chicken Wings",
+                    "steak": "Steak",
+                    "onion_rings": "Onion Rings",
+                    "bacon": "Bacon",
+                    "cake": "Cake",
+                    "bread": "Bread",
+                    "toast": "Toast",
+                    "custom": "Custom",
+                    "cloud_recipe": "Cloud Recipe",
+                    "default": "Default",
+                    "keep_warm": "Keep Warm",
+                    "preheat": "Preheat"
+                }
+            },
             "timer": {
-                "name": "Timer"
+                "name": "Timer",
+                "state": {
+                    "cancel": "Cancel",
+                    "30m": "30 minutes",
+                    "1h": "1 hour",
+                    "1h30m": "1 hour 30 minutes",
+                    "2h": "2 hours",
+                    "2h30m": "2 hours 30 minutes",
+                    "3h": "3 hours",
+                    "3h30m": "3 hours 30 minutes",
+                    "4h": "4 hours",
+                    "4h30m": "4 hours 30 minutes",
+                    "5h": "5 hours",
+                    "5h30m": "5 hours 30 minutes",
+                    "6h": "6 hours",
+                    "6h30m": "6 hours 30 minutes",
+                    "7h": "7 hours",
+                    "7h30m": "7 hours 30 minutes",
+                    "8h": "8 hours",
+                    "8h30m": "8 hours 30 minutes",
+                    "9h": "9 hours",
+                    "9h30m": "9 hours 30 minutes",
+                    "10h": "10 hours",
+                    "11h": "11 hours",
+                    "12h": "12 hours",
+                    "13h": "13 hours",
+                    "14h": "14 hours",
+                    "15h": "15 hours",
+                    "16h": "16 hours",
+                    "17h": "17 hours",
+                    "18h": "18 hours",
+                    "19h": "19 hours",
+                    "20h": "20 hours",
+                    "21h": "21 hours",
+                    "22h": "22 hours",
+                    "23h": "23 hours",
+                    "24h": "24 hours",
+                    "36h": "36 hours",
+                    "48h": "48 hours",
+                    "72h": "72 hours"
+                }
             },
             "temperature_unit": {
                 "name": "Temperature unit",
@@ -421,6 +544,9 @@
             },
             "keytone": {
                 "name": "Keytone"
+            },
+            "sleep": {
+                "name": "Sleep"
             },
             "uv_sterilization": {
                 "name": "UV sterilization"

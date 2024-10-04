@@ -13,7 +13,6 @@ primary_entity:
 secondary_entities:
   - entity: number
     category: config
-    name: Countdown
     translation_key: timer
     dps:
       - id: 9
@@ -28,7 +27,6 @@ secondary_entities:
             step: 60
   - entity: sensor
     class: current
-    name: Current
     dps:
       - id: 18
         name: sensor
@@ -39,7 +37,6 @@ secondary_entities:
           - scale: 1000
   - entity: sensor
     class: power
-    name: Power
     dps:
       - id: 19
         name: sensor
@@ -50,7 +47,6 @@ secondary_entities:
           - scale: 100
   - entity: sensor
     class: voltage
-    name: Voltage
     dps:
       - id: 20
         name: sensor
@@ -122,17 +118,16 @@ secondary_entities:
           max: 4500
   - entity: select
     category: config
-    icon: "mdi:web-box"
-    name: Language
+    translation_key: language
     dps:
       - id: 107
         type: string
         name: option
         mapping:
           - dps_val: chinese
-            value: Chinese
+            value: chinese
           - dps_val: english
-            value: English
+            value: english
   - entity: number
     category: config
     name: Screen brightness
@@ -302,7 +297,7 @@ secondary_entities:
       - id: 122
         type: integer
         name: value
-        unit: hours
+        unit: h
         range:
           min: 1
           max: 99
@@ -318,7 +313,7 @@ secondary_entities:
         mapping:
           - scale: 1000
   - entity: sensor
-    name: Countdown timer
+    translation_key: time_remaining
     category: diagnostic
     class: duration
     dps:
@@ -462,7 +457,6 @@ secondary_entities:
             value: Countdown
   - entity: sensor
     class: frequency
-    name: Frequency
     dps:
       - id: 133
         name: sensor
@@ -472,7 +466,6 @@ secondary_entities:
         mapping:
           - scale: 100
   - entity: sensor
-    name: Power factor
     class: power_factor
     dps:
       - id: 134
@@ -519,18 +512,18 @@ secondary_entities:
           max: 99
   - entity: select
     category: config
-    name: Poweron status
+    translation_key: initial_state
     dps:
       - id: 138
         type: string
         name: option
         mapping:
           - dps_val: open
-            value: "On"
+            value: "on"
           - dps_val: colse
-            value: "Off"
+            value: "off"
           - dps_val: memory
-            value: Memory
+            value: memory
   - entity: number
     category: config
     name: Update interval
