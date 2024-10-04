@@ -6,9 +6,6 @@ sensor:
         from: Ut
         to: Amr
         time: "07:09:00"
-      - name: Utrecht-Den Haag
-        from: Ut
-        to: Gvc
-      - name: Utrecht-Amstel
-        from: Ut
-        to: Asa
+      # - name: Utrecht-Den Haag
+      #   from: Ut
+      #   to: Gvc
