@@ -122,6 +122,13 @@
                     "on": "Pełny"
                 }
             },
+            "wake": {
+                "name": "Budzenie",
+                "state": {
+                    "off": "Naladowana",
+                    "on": "Budzenie"
+                }
+            },
             "casdon_oven_fault": {
                 "state_attributes": {
                     "fault_message": {
@@ -433,6 +440,7 @@
                 "name": "Regulator czasowy",
                 "state": {
                     "cancel": "Anuluj",
+                    "10m": "10 minut",
                     "30m": "30 minut",
                     "1h": "1 godzina",
                     "1h30m": "1 godzina 30 minut",

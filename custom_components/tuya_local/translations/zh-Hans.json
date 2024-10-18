@@ -122,6 +122,13 @@
                     "on": "满水"
                 }
             },
+            "wake": {
+                "name": "唤醒",
+                "state": {
+                    "off": "休眠",
+                    "on": "唤醒"
+                }
+            },
             "casdon_oven_fault": {
                 "state_attributes": {
                     "fault_message": {
@@ -433,6 +440,7 @@
                 "name": "计时器",
                 "state": {
                     "cancel": "取消",
+                    "10m": "10分钟",
                     "30m": "30分钟",
                     "1h": "1小时",
                     "1h30m": "1小时30分钟",

@@ -122,6 +122,13 @@
                     "on": "Piena"
                 }
             },
+            "wake": {
+                "name": "Sveglia",
+                "state": {
+                    "off": "Spento",
+                    "on": "Acceso"
+                }
+            },
             "casdon_oven_fault": {
                 "state_attributes": {
                     "fault_message": {
@@ -433,6 +440,7 @@
                 "name": "Timer",
                 "state": {
                     "cancel": "Annulla",
+                    "10m": "10 minuti",
                     "30m": "30 minuti",
                     "1h": "1 ora",
                     "1h30m": "1 ora 30 minuti",

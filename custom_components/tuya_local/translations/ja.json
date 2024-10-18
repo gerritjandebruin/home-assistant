@@ -122,6 +122,13 @@
                     "on": "満杯"
                 }
             },
+            "wake": {
+                "name": "起床",
+                "state": {
+                    "off": "スリープ",
+                    "on": "起床"
+                }
+            },
             "casdon_oven_fault": {
                 "state_attributes": {
                     "fault_message": {
@@ -433,6 +440,7 @@
                 "name": "タイマー",
                 "state": {
                     "cancel": "キャンセル",
+                    "10m": "10分",
                     "30m": "30分",
                     "1h": "1時間",
                     "1h30m": "1時間30分",

@@ -122,6 +122,13 @@
                     "on": "Lleno"
                 }
             },
+            "wake": {
+                "name": "Despertar",
+                "state": {
+                    "off": "Dormido",
+                    "on": "Despierto"
+                }
+            },
             "casdon_oven_fault": {
                 "state_attributes": {
                     "fault_message": {
@@ -366,6 +373,7 @@
                 "name": "Temporizador",
                 "state": {
                     "cancel": "Cancelar",
+                    "10m": "10 minutos",
                     "30m": "30 minutos",
                     "1h": "1 hora",
                     "1h30m": "1 hora 30 minutos",
