@@ -20,36 +20,6 @@ homeassistant:
     sensor.washing_machine_flood_battery:
       state_class: measurement
 
-# continuously_casting_dashboards:
-#   logging_level: warning #Required: Set the logging level - debug/info/warning (default is 'warning' - try 'debug' for debugging)
-#   cast_delay: 45 #Required: Time (in seconds) for casting checks between each device.
-#   start_time: "06:00" #Optional: Global start time of the casting window (format: "HH:MM") - Default is set to "07:00" and can be individually overwritten per device below.
-#   end_time: "01:00" #Optional: Global end time of the casting window (format: "HH:MM") and must be after "00:00". Default is set to "01:00" and can be individually overwritten per device below.
-#   devices:
-#     "Lounge display": #Required: Display name of your device. Find this on the actual device's settings or inside the Google Home app.
-#       - dashboard_url: "http://192.168.1.240:8123/lovelace/hub" #Required: Dashboard URL to be casted (This must be the local IP address of your HA instance, not homeassistant.local)
-
-# influxdb:
-#   host: a0d7b954-influxdb
-#   port: 8086
-#   database: homeassistant
-#   username: homeassistant
-#   password: !secret influxdb_password
-#   max_retries: 3
-#   measurement_attr: entity_id
-#   exclude:
-#     domains:
-#       - alert
-#       - automation
-#       - button
-#     entity_globs:
-#       - binary_sensor.*_firmware_update
-#       - binary_sensor.*_occupancy
-#   ignore_attributes:
-#     - friendly_name
-#     - device_class
-#     - state_class
-
 http:
   ip_ban_enabled: false
   login_attempts_threshold: 3
