@@ -146,6 +146,14 @@
                 }
             }
         },
+        "button": {
+            "factory_reset": {
+                "name": "Restablecimiento de fábrica"
+            },
+            "filter_reset": {
+                "name": "Restablecimiento del filtro"
+            }
+        },
         "climate": {
             "aircon_extra": {
                 "state_attributes": {
@@ -370,48 +378,7 @@
         },
         "number": {
             "timer": {
-                "name": "Temporizador",
-                "state": {
-                    "cancel": "Cancelar",
-                    "10m": "10 minutos",
-                    "30m": "30 minutos",
-                    "1h": "1 hora",
-                    "1h30m": "1 hora 30 minutos",
-                    "2h": "2 horas",
-                    "2h30m": "2 horas 30 minutos",
-                    "3h": "3 horas",
-                    "3h30m": "3 horas 30 minutos",
-                    "4h": "4 horas",
-                    "4h30m": "4 horas 30 minutos",
-                    "5h": "5 horas",
-                    "5h30m": "5 horas 30 minutos",
-                    "6h": "6 horas",
-                    "6h30m": "6 horas 30 minutos",
-                    "7h": "7 horas",
-                    "7h30m": "7 horas 30 minutos",
-                    "8h": "8 horas",
-                    "8h30m": "8 horas 30 minutos",
-                    "9h": "9 horas",
-                    "9h30m": "9 horas 30 minutos",
-                    "10h": "10 horas",
-                    "11h": "11 horas",
-                    "12h": "12 horas",
-                    "13h": "13 horas",
-                    "14h": "14 horas",
-                    "15h": "15 horas",
-                    "16h": "16 horas",
-                    "17h": "17 horas",
-                    "18h": "18 horas",
-                    "19h": "19 horas",
-                    "20h": "20 horas",
-                    "21h": "21 horas",
-                    "22h": "22 horas",
-                    "23h": "23 horas",
-                    "24h": "24 horas",
-                    "36h": "36 horas",
-                    "48h": "48 horas",
-                    "72h": "72 horas"
-                }
+                "name": "Temporizador"
             }
         },
         "select": {
@@ -481,6 +448,7 @@
                 "name": "Temporizador",
                 "state": {
                     "cancel": "Cancelar",
+                    "10m": "10 minutos",
                     "30m": "30 minutos",
                     "1h": "1 hora",
                     "1h30m": "1 hora 30 minutos",
@@ -565,6 +533,75 @@
             }
         },
         "sensor": {
+            "status": {
+                "name": "Estado",
+                "state": {
+                    "available": "Disponible",
+                    "plugged_in": "Conectado",
+                    "fault_unplugged": "Error (desconectado)",
+                    "charging": "Cargando",
+                    "waiting": "Esperando",
+                    "charged": "Cargado",
+                    "fault": "Error",
+                    "paused": "Pausado",
+                    "waiting_for_authorization": "Esperando autorización",
+                    "standby": "En espera",
+                    "heating": "Calentando",
+                    "cooling": "Enfriando",
+                    "keeping_warm": "Manteniendo caliente",
+                    "no_water": "Sin agua",
+                    "boiling": "Hirviendo",
+                    "reserve_only": "Reserva solament",
+                    "unknown": "Desconocido",
+                    "idle": "Inactivo",
+                    "auto": "Automático",
+                    "manual": "Manual",
+                    "rain_delay": "Retraso por lluvia",
+                    "off": "Apagado",
+                    "cooking": "Cocinando",
+                    "done": "Hecho",
+                    "door_open": "Puerta abierta",
+                    "setting": "Ajustando",
+                    "pre_heating": "Precalentando",
+                    "scheduled": "Programado",
+                    "at_temperature": "A la temperatura",
+                    "done_stage_1": "Hecho etapa 1",
+                    "done_stage_2": "Hecho etapa 2",
+                    "done_stage_3": "Hecho etapa 3",
+                    "done_stage_4": "Hecho etapa 4",
+                    "done_stage_5": "Hecho etapa 5",
+                    "done_stage_6": "Hecho etapa 6",
+                    "done_stage_7": "Hecho etapa 7",
+                    "done_stage_8": "Hecho etapa 8",
+                    "done_stage_9": "Hecho etapa 9",
+                    "done_stage_10": "Hecho etapa 10",
+                    "no_food": "Sin comida",
+                    "jammed": "Atascado",
+                    "blocked": "Bloqueado",
+                    "feeding": "Alimentando",
+                    "feeding_complete": "Alimentación completa",
+                    "caking": "Formando una capa",
+                    "cleaning": "Limpiando",
+                    "sleep": "Durmiendo",
+                    "sterilizing": "Esterilizando",
+                    "deodorizing": "Desodorizando",
+                    "occupied": "Ocupado",
+                    "normal": "Normal",
+                    "low": "Bajo",
+                    "high": "Alto",
+                    "unwashed": "Sin lavar",
+                    "pre_rinsing": "Pre-lavado",
+                    "washing": "Lavando",
+                    "rinsing": "Enjuagando",
+                    "drying": "Secando",
+                    "air_purging": "Purificación de aire",
+                    "anti_freeze": "Anticongelante",
+                    "close": "Cerrado",
+                    "monitor": "Monitor",
+                    "working": "Trabajando",
+                    "warning": "Advertencia"
+                }
+            },
             "time_remaining": {
                 "name": "Tiempo restante"
             },

@@ -2,10 +2,12 @@ name: EV charger
 products:
   - id: aaaealnecwgwerjl
     name: AFYEEV 32A 22kW
+  - id: 65zlpwd6lhgpbwtd
+    name: AFYEEV 32A wall mounted
 primary_entity:
   entity: sensor
   class: enum
-  name: Status
+  translation_key: status
   icon: "mdi:ev-station"
   dps:
     - id: 3
@@ -13,22 +15,42 @@ primary_entity:
       name: sensor
       mapping:
         - dps_val: charger_free
-          value: Disconnected
+          value: available
         - dps_val: charger_insert
-          value: Connected
+          value: plugged_in
         - dps_val: charger_free_fault
-          value: Fault (disconnected)
+          value: fault_unplugged
         - dps_val: charger_charging
-          value: Charging
+          value: charging
         - dps_val: charger_wait
-          value: Waiting
+          value: waiting
         - dps_val: charger_end
-          value: Charged
+          value: charged
         - dps_val: charger_fault
-          value: Fault
+          value: fault
         - dps_val: charger_pause
-          value: Pause
+          value: paused
+    - id: 23
+      type: string
+      optional: true
+      name: system_version
+    - id: 33
+      type: string
+      optional: true
+      name: mode_set
 secondary_entities:
+  - entity: sensor
+    class: energy
+    category: diagnostic
+    dps:
+      - id: 1
+        type: integer
+        optional: true
+        name: sensor
+        unit: kWh
+        class: total_increasing
+        mapping:
+          - scale: 100
   - entity: number
     name: Set current
     category: config
@@ -40,7 +62,7 @@ secondary_entities:
         unit: A
         range:
           min: 6
-          max: 16
+          max: 32
   - entity: sensor
     name: Single phase power
     class: power
@@ -154,13 +176,13 @@ secondary_entities:
         mapping:
           - scale: 10
   - entity: sensor
-    class: energy
+    name: Last charge
     dps:
       - id: 25
         type: integer
         name: sensor
         unit: kWh
-        class: total_increasing
+        class: measurement
         optional: true
         mapping:
           - scale: 100
@@ -188,3 +210,39 @@ secondary_entities:
         range:
           min: 0
           max: 15
+  - entity: sensor
+    name: Phase A voltage
+    class: voltage
+    dps:
+      - id: 6
+        type: base64
+        name: sensor
+        optional: true
+        unit: V
+        mapping:
+          - mask: "FFFF000000000000"
+            scale: 10
+  - entity: sensor
+    name: Phase A current
+    class: current
+    dps:
+      - id: 6
+        type: base64
+        name: sensor
+        optional: true
+        unit: A
+        mapping:
+          - mask: "000000FFFF000000"
+            scale: 1000
+  - entity: sensor
+    name: Phase A power
+    class: power
+    dps:
+      - id: 6
+        type: base64
+        name: sensor
+        optional: true
+        unit: kW
+        mapping:
+          - mask: "000000000000FFFF"
+            scale: 1000
