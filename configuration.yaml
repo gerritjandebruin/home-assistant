@@ -8,6 +8,9 @@ homeassistant:
     - type: trusted_networks
       trusted_networks:
         - 192.168.1.0/24
+        - 127.0.0.1
+        - 95.99.85.207
+        - 192.168.1.170
   customize:
     # Only those that connot be configure using the UI
     sensor.vacuum_cleaning_area:
