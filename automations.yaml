@@ -1096,3 +1096,35 @@
         target:
           entity_id: light.dakterras
   mode: single
+- id: '1731854909673'
+  alias: Kerstverlichting aan
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: 0
+  - trigger: time
+    at: 05:00:00
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 663b87c1fa016b28463175ae19183722
+    entity_id: 0c5e8d5833ca5521247830450c625575
+    domain: light
+  mode: single
+- id: '1731854960187'
+  alias: Kerstverlichting uit
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunrise
+    offset: 0
+  - trigger: time
+    at: 01:00:00
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 663b87c1fa016b28463175ae19183722
+    entity_id: 0c5e8d5833ca5521247830450c625575
+    domain: light
+  mode: single
