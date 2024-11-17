@@ -1,1 +1,11 @@
-{}
+cast:
+  alias: Cast
+  sequence:
+  - action: dash_cast.load_url
+    data:
+      force: true
+      reload_seconds: 0
+      entity_id: media_player.nest_hub
+      url: https://homeassistant.nieuw-engeland.nl/dashboard-cast/cast
+  description: ''
+  icon: mdi:cast
