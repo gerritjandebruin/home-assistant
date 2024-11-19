@@ -6,6 +6,6 @@ cast:
       force: true
       reload_seconds: 0
       entity_id: media_player.nest_hub
-      url: https://homeassistant.nieuw-engeland.nl/dashboard-cast/cast
+      url: https://homeassistant.nieuw-engeland.nl/lovelace/cast
   description: ''
   icon: mdi:cast
