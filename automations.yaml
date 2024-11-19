@@ -1128,3 +1128,29 @@
     entity_id: 0c5e8d5833ca5521247830450c625575
     domain: light
   mode: single
+- id: '1732032857565'
+  alias: 'Luchtontvochtiger '
+  description: ''
+  triggers:
+  - type: turned_off
+    device_id: 663b87c1fa016b28463175ae19183722
+    entity_id: 0c5e8d5833ca5521247830450c625575
+    domain: light
+    trigger: device
+  - type: problem
+    device_id: 663b87c1fa016b28463175ae19183722
+    entity_id: 639556ef7f01f0c1eba7db2bcabfe99f
+    domain: binary_sensor
+    trigger: device
+  - type: problem
+    device_id: 663b87c1fa016b28463175ae19183722
+    entity_id: fc7b7f272e471e1e2fcbec7feb2b1041
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - action: notify.mobile_app_sm_s901b
+    metadata: {}
+    data:
+      message: 'Probleem '
+  mode: single
