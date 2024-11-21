@@ -1,31 +1,31 @@
 sensor:
   - platform: rest
-    name: air_quality_NO2
+    name: NO2 Luchtmeetnet
     resource: https://api.luchtmeetnet.nl/open_api/stations/NL10639/measurements?page=&order=&order_direction=&formula=NO2
     unit_of_measurement: µg/m3
     value_template: "{{ value_json.data[0].value }}"
     scan_interval: 1800
   - platform: rest
-    name: air_quality_PM10
+    name: PM10 Luchtmeetnet
     resource: https://api.luchtmeetnet.nl/open_api/stations/NL10639/measurements?page=&order=&order_direction=&formula=PM10
     unit_of_measurement: µg/m3
     value_template: "{{ value_json.data[0].value }}"
     scan_interval: 1800
   - platform: rest
-    name: air_quality_PM2P5
+    name: PM2P5 Luchtmeetnet
     resource: https://api.luchtmeetnet.nl/open_api/stations/NL10636/measurements?page=&order=&order_direction=&formula=PM25
     unit_of_measurement: µg/m3
     value_template: "{{ value_json.data[0].value }}"
     scan_interval: 1800
   - platform: rest
-    name: air_quality_O3
+    name: O3 Luchtmeetnet
     resource: https://api.luchtmeetnet.nl/open_api/stations/NL10639/measurements?page=&order=&order_direction=&formula=O3
     unit_of_measurement: µg/m3
     value_template: "{{ value_json.data[0].value }}"
     scan_interval: 1800
 template:
   - sensor:
-      - name: "Air quality NO2 index"
+      - name: "NO2 LKI Luchtmeetnet"
         state: >
           {% set NO2 = states('sensor.air_quality_no2') | int(0) %}
           {%- if NO2 | int < 10 -%}
@@ -51,7 +51,7 @@ template:
           {%- else %}
           11
           {%- endif %}
-      - name: "Air quality PM10 index"
+      - name: "PM10 LKI Luchtmeetnet"
         state: >
           {% set PM10 = states('sensor.air_quality_pm10') | int(0) %}
           {%- if PM10 | int < 10 -%}
@@ -77,7 +77,7 @@ template:
           {%- else %}
           11
           {%- endif %}
-      - name: "Air quality PM25 index"
+      - name: "PM2P5 LKI Luchtmeetnet"
         state: >
           {% set PM2P5 = states('sensor.air_quality_pm2p5') | int(0) %}
           {%- if PM2P5 | int < 10 -%}
@@ -103,7 +103,7 @@ template:
           {%- else %}
           11
           {%- endif %}
-      - name: "Air quality O3 index"
+      - name: "O3 LKI Luchtmeetnet"
         state: >
           {% set O3 = states('sensor.air_quality_o3') | int(0) %}
           {%- if O3 | int < 15 -%}
@@ -129,7 +129,7 @@ template:
           {%- else %}
           11
           {%- endif %}
-      - name: "Air quality combined index"
+      - name: "LKI Luchtmeetnet"
         state: >
           {% set NO2 = states('sensor.airquality_no2_index') | int(0)  %}
           {% set O3 = states('sensor.airquality_o3_index') | int(0)  %}
