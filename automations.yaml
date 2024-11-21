@@ -423,22 +423,21 @@
 - id: '1672605032341'
   alias: Notificatie GJ
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
+  triggers:
+  - entity_id:
     - sensor.energymeter_voltage
     above: 0
     below: 207
-  - platform: numeric_state
-    entity_id:
+    trigger: numeric_state
+  - entity_id:
     - sensor.energymeter_voltage
     above: 253
-  - platform: state
-    entity_id:
+    trigger: numeric_state
+  - entity_id:
     - sensor.shed_frostrisk
     from: no_risk
-  - platform: numeric_state
-    entity_id:
+    trigger: state
+  - entity_id:
     - sensor.air_quality_esp_temperature
     - sensor.air_quality_sen55_temperature
     - sensor.attic_temperature
@@ -459,8 +458,8 @@
     - sensor.vriezer_schuur_device_temperature
     below: 5
     alias: Wanneer temperatuur lager dan 5
+    trigger: numeric_state
   - alias: Wanneer temperatuur te hoog
-    platform: numeric_state
     entity_id:
     - sensor.attic_temperature
     - sensor.bathroom_temperature
@@ -473,8 +472,8 @@
     - sensor.shed_temperature
     - sensor.vriezer_schuur_device_temperature
     above: 45
+    trigger: numeric_state
   - alias: Wanneer temperatuur te hoog
-    platform: numeric_state
     entity_id:
     - sensor.air_quality_esp_temperature
     - sensor.air_quality_sen55_temperature
@@ -487,8 +486,8 @@
     - sensor.zielhorst_temperatuur
     - sensor.zielhorst_drive_2_temperatuur
     above: 70
+    trigger: numeric_state
   - alias: Overpowering
-    platform: state
     entity_id:
     - binary_sensor.bike_light_overpowering
     - binary_sensor.bike_socket_overpowering
@@ -503,19 +502,19 @@
     - binary_sensor.vriezer_schuur_overpowering
     - binary_sensor.washing_machine_overpowering
     to: 'on'
+    trigger: state
   - alias: Changed Archer IP address
-    platform: state
     entity_id:
     - sensor.archer_ax55_external_ip
-  - platform: state
-    entity_id:
+    trigger: state
+  - entity_id:
     - sensor.washing_machine_flood_battery
     for:
       hours: 24
       minutes: 0
       seconds: 0
-  - platform: state
-    entity_id:
+    trigger: state
+  - entity_id:
     - sensor.growatt_energy
     to: unavailable
     for:
@@ -523,8 +522,8 @@
       minutes: 0
       seconds: 0
     id: Zonnepanelen
+    trigger: state
   - type: value
-    platform: device
     device_id: 3e1b266f2968a4f10a61e51feba13106
     entity_id: 9d9db7e2780c464459551e7125c520b2
     domain: sensor
@@ -533,8 +532,8 @@
       hours: 0
       minutes: 5
       seconds: 0
+    trigger: device
   - type: temperature
-    platform: device
     device_id: 3e1b266f2968a4f10a61e51feba13106
     entity_id: a2d0637f037c4cac5dbc03340cb3a17c
     domain: sensor
@@ -543,19 +542,19 @@
       hours: 0
       minutes: 5
       seconds: 0
+    trigger: device
   - type: moist
-    platform: device
     device_id: 4e458e050949dc393f7743185a458889
     entity_id: acd2f3e0b3085c146651edad738825c9
     domain: binary_sensor
+    trigger: device
   - type: battery_level
-    platform: device
     device_id: 4e458e050949dc393f7743185a458889
     entity_id: 9875247b23ecd598887fc0c09ca6856a
     domain: sensor
     below: 20
+    trigger: device
   - type: not_running
-    platform: device
     device_id: 12f40b894e7cb1a6d106fc67b1b21774
     entity_id: 15d617713a58fc46c507c6a621c879c6
     domain: binary_sensor
@@ -563,53 +562,54 @@
       hours: 24
       minutes: 0
       seconds: 0
+    trigger: device
   - type: problem
-    platform: device
     device_id: 12f40b894e7cb1a6d106fc67b1b21774
     entity_id: 171f37087b7b0173b8263dc80e365b94
     domain: binary_sensor
+    trigger: device
   - type: unsafe
-    platform: device
     device_id: 953c91864067f38764af450c5f41be7c
     entity_id: d22b961e536ec094696c518cc29bc458
     domain: binary_sensor
+    trigger: device
   - type: unsafe
-    platform: device
     device_id: 85927e6fc408b6dac1ffebfe6bd78fe8
     entity_id: 74e7e69f06c6fd70c7190dc40800f75c
     domain: binary_sensor
+    trigger: device
   - type: unsafe
-    platform: device
     device_id: a51b48c16bf9dbf5819ad4487b5ae986
     entity_id: d7e5fdcc800b4dc2bfb5f6134c5d6f30
     domain: binary_sensor
+    trigger: device
   - type: unsafe
-    platform: device
     device_id: 85927e6fc408b6dac1ffebfe6bd78fe8
     entity_id: fc838f1928c59f02c5da4684972ba3b3
     domain: binary_sensor
+    trigger: device
   - type: unsafe
-    platform: device
     device_id: a51b48c16bf9dbf5819ad4487b5ae986
     entity_id: 5343610b6d8a7948ff425e24df8da4e3
     domain: binary_sensor
+    trigger: device
   - type: unsafe
-    platform: device
     device_id: 09af19128cda6923b1db82c1840ac8a9
     entity_id: 1747994f5420031cbc08b6b06ae572ef
     domain: binary_sensor
+    trigger: device
   - type: unsafe
-    platform: device
     device_id: 6657701df27875b921cad967b40d2123
     entity_id: 3bca8e808c262220e14de2f73896760b
     domain: binary_sensor
+    trigger: device
   - type: unsafe
-    platform: device
     device_id: 6657701df27875b921cad967b40d2123
     entity_id: f54aa3afdc5e524391f555f041d0870b
     domain: binary_sensor
-  condition: []
-  action:
+    trigger: device
+  conditions: []
+  actions:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
@@ -1128,29 +1128,44 @@
     entity_id: 0c5e8d5833ca5521247830450c625575
     domain: light
   mode: single
-- id: '1732032857565'
-  alias: 'Luchtontvochtiger '
+- id: '1732222036394'
+  alias: Te hoog vermogen
   description: ''
   triggers:
-  - type: turned_off
-    device_id: 663b87c1fa016b28463175ae19183722
-    entity_id: 0c5e8d5833ca5521247830450c625575
-    domain: light
+  - type: power
+    device_id: 93a8f0b57682098cbf5f6afbfd586ff4
+    entity_id: 9b7ec8e830f32d22eb9815fef8bda054
+    domain: sensor
     trigger: device
-  - type: problem
-    device_id: 663b87c1fa016b28463175ae19183722
-    entity_id: 639556ef7f01f0c1eba7db2bcabfe99f
-    domain: binary_sensor
-    trigger: device
-  - type: problem
-    device_id: 663b87c1fa016b28463175ae19183722
-    entity_id: fc7b7f272e471e1e2fcbec7feb2b1041
-    domain: binary_sensor
-    trigger: device
+    above: 5500
+    alias: Te hoog vermogen
   conditions: []
   actions:
-  - action: notify.mobile_app_sm_s901b
+  - action: switch.turn_off
     metadata: {}
-    data:
-      message: 'Probleem '
+    data: {}
+    target:
+      device_id:
+      - 36543f490d13ca02e682f5623788a79b
+      - 88f3bd6155d65b4b9ac1c8964e27fa20
+      - ae99c98711a5eb4ca519f4cd2aed79a2
+      - 663b87c1fa016b28463175ae19183722
+      - 59cde7a170567574783f836d53e74acf
+      - 752177bf79c6d8dc1645724bada15a97
+      - c522f9c634231c1c375497d420f433fc
+      - b28019ef58e81922c56d1e9238d4a9df
+      - 0e3874bc705fc41aeb5834064ab8ad67
+      - 2cc7d3a80ca61a3674d0508ee599438f
+      - 7b748ddf488252dc1ed824f226b39955
+    alias: Schakel veel apparaten uit
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
+    domain: mobile_app
+    type: notify
+    message: Veel apparaten zijn daarom uitgeschakeld
+    title: Te hoog vermogen thuis
+  - device_id: f25c56e952ad0fee7c940b1eadb4d450
+    domain: mobile_app
+    type: notify
+    message: Veel apparaten zijn daarom uitgeschakeld
+    title: Te hoog vermogen thuis
   mode: single
