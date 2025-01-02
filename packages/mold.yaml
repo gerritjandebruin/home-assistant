@@ -4,15 +4,15 @@ sensor:
     indoor_humidity_sensor: sensor.attic_humidity
     outdoor_temp_sensor: sensor.temperature
     calibration_factor: 1.5
-    name: Attic mold
+    name: Zolder schimmelkans
   - platform: mold_indicator
     indoor_temp_sensor: sensor.bathroom_temperature
     indoor_humidity_sensor: sensor.bathroom_humidity
     outdoor_temp_sensor: sensor.temperature
     calibration_factor: 1.5
-    name: Bathroom mold
+    name: Badkamer schimmelkans
   - platform: mold_indicator
-    name: Bedroom mold
+    name: Slaapkamer schimmelkans
     indoor_temp_sensor: sensor.bedroom_temperature
     indoor_humidity_sensor: sensor.bedroom_humidity
     outdoor_temp_sensor: sensor.temperature
@@ -22,49 +22,43 @@ sensor:
     indoor_humidity_sensor: sensor.guestroom_humidity
     outdoor_temp_sensor: sensor.temperature
     calibration_factor: 1.6
-    name: Guestroom mold
+    name: Gastenkamer schimmelkans
   - platform: mold_indicator
     indoor_temp_sensor: sensor.lounge_temperature
     indoor_humidity_sensor: sensor.lounge_humidity
     outdoor_temp_sensor: sensor.temperature
     calibration_factor: 1.6
-    name: Lounge mold
+    name: Woonkamer schimmelkans
   - platform: mold_indicator
     indoor_temp_sensor: sensor.shed_temperature
     indoor_humidity_sensor: sensor.shed_humidity
     outdoor_temp_sensor: sensor.temperature
     calibration_factor: 1.0
-    name: Shed mold
+    name: Schuur schimmelkans
 
 homeassistant:
   customize:
-    sensor.attic_mold:
+    sensor.zolder_schimmelkans:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Zolder schimmelkans
       icon: mdi:water-percent-alert
-    sensor.bathroom_mold:
+    sensor.badkamer_schimmelkans:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Badkamer schimmelkans
       icon: mdi:water-percent-alert
-    sensor.bedroom_mold:
+    sensor.slaapkamer_schimmelkans:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Slaapkamer schimmelkans
       icon: mdi:water-percent-alert
-    sensor.guestroom_mold:
+    sensor.gastenkamer_schimmelkans:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Gastenkamer schimmelkans
       icon: mdi:water-percent-alert
-    sensor.lounge_mold:
+    sensor.woonkamer_schimmelkans:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Woonkamer schimmelkans
       icon: mdi:water-percent-alert
-    sensor.shed_mold:
+    sensor.schuur_schimmelkans:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Schuur schimmelkans
       icon: mdi:water-percent-alert
