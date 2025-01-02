@@ -691,7 +691,7 @@
       domain: switch
   mode: single
 - id: '1699803193333'
-  alias: Slaapkamer remote
+  alias: Slaapkamer afstandsbediening
   description: ''
   triggers:
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
