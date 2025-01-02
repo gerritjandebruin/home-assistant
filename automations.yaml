@@ -130,46 +130,46 @@
     action: light.turn_off
   mode: single
 - id: '1603831020194'
-  alias: Keukenverlichting
+  alias: Keuken verlichting
   description: Triggers when there is movement in the kitchen. Only activate light
     when there is less than 20 lux measured in the hall at ground level. Brightness
     is adapted to the desired level.
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - binary_sensor.kitchen_motion
     to: 'on'
-  condition:
+    trigger: state
+  conditions:
   - condition: state
     entity_id: binary_sensor.dark
     state: 'on'
-  action:
-  - service: light.turn_on
-    data:
+  actions:
+  - data:
       brightness_pct: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 1
         {% else %} 100 {% endif %}'
       color_temp: '{% if (now().hour|int >= 22) or (now().hour|int <= 7) %} 454 {%
         else %} 366 {% endif %}'
     target:
       entity_id: light.kitchen
+    action: light.turn_on
   - wait_for_trigger:
-    - platform: state
-      entity_id:
+    - entity_id:
       - binary_sensor.kitchen_motion
       to: 'off'
       for:
         hours: 0
         minutes: 2
         seconds: 0
+      trigger: state
     timeout:
       hours: 1
       minutes: 0
       seconds: 0
       milliseconds: 0
-  - service: light.turn_off
-    data: {}
+  - data: {}
     target:
       entity_id: light.kitchen
+    action: light.turn_off
   mode: single
 - id: '1608134139962'
   alias: Schuurdeur
