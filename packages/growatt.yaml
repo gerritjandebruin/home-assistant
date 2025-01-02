@@ -14,8 +14,8 @@ mqtt:
         manufacturer: Growatt
         model: ShineLan-X
         name: Zonnepanelen
-        suggested_area: Stroom
         sw_version: 3.6.0.0
+      name: actief
       device_class: running
       entity_category: diagnostic
       expire_after: 600
@@ -40,6 +40,7 @@ mqtt:
       expire_after: 600
       icon: mdi:solar-power
       unique_id: growatt_state_problem
+      name: probleem
       state_topic: energy/growatt/DCF3A3103X
       value_template: >
         {% set current_time = now() %}
@@ -55,7 +56,7 @@ mqtt:
         identifiers: GPG0A271P7
       entity_category: diagnostic
       expire_after: 600
-      name: Status
+      name: status
       icon: mdi:solar-power
       unique_id: growatt_state
       state_topic: energy/growatt/DCF3A3103X
@@ -183,7 +184,7 @@ mqtt:
       unique_id: growatt_input_watt_actual
       device_class: power
       unit_of_measurement: "W"
-      name: Vermogen in
+      name: vermogen in
       expire_after: 600
       value_template: >
         {% set current_time = now() %}
@@ -199,7 +200,7 @@ mqtt:
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_output_watt_actual
       device_class: power
-      name: Vermogen uit
+      name: vermogen uit
       unit_of_measurement: "W"
       expire_after: 600
       value_template: >
@@ -220,6 +221,7 @@ mqtt:
       unit_of_measurement: "Hz"
       icon: mdi:waveform
       expire_after: 600
+      name: frequentie
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
@@ -235,6 +237,7 @@ mqtt:
       unique_id: growatt_phase_voltage
       device_class: voltage
       unit_of_measurement: "V"
+      name: spanning
       expire_after: 600
       value_template: >
         {% set current_time = now() %}
@@ -251,6 +254,7 @@ mqtt:
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_phase_current
       device_class: current
+      name: stroom
       unit_of_measurement: "A"
       expire_after: 600
       value_template: >
@@ -268,6 +272,7 @@ mqtt:
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_phase_power
       device_class: power
+      name: vermogen
       unit_of_measurement: "W"
       expire_after: 600
       value_template: >
@@ -282,7 +287,7 @@ mqtt:
     - device:
         identifiers: GPG0A271P7
       enabled_by_default: false
-      name: Energie vandaag
+      name: energie vandaag
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_generated_energy_today
       device_class: energy
@@ -305,6 +310,7 @@ mqtt:
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_generated_energy_total
       device_class: energy
+      name: energie geleverd
       unit_of_measurement: "kWh"
       icon: mdi:solar-power
       state_class: total_increasing
@@ -324,6 +330,7 @@ mqtt:
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_totworktime
       device_class: duration
+      name: uptime
       unit_of_measurement: h
       icon: mdi:solar-power
       state_class: total_increasing
@@ -342,7 +349,7 @@ mqtt:
       enabled_by_default: false
       entity_category: diagnostic
       state_topic: energy/growatt/DCF3A3103X
-      name: Energie opgewekt
+      name: energie opgewekt
       unique_id: growatt_epvtotal
       device_class: energy
       unit_of_measurement: "kWh"
@@ -447,6 +454,7 @@ mqtt:
       device_class: temperature
       unit_of_measurement: "°C"
       entity_category: diagnostic
+      name: apparaattemperature
       expire_after: 600
       value_template: >
         {% set current_time = now() %}
