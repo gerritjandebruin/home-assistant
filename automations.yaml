@@ -381,45 +381,6 @@
     target:
       entity_id: light.walk_in_closet
   mode: single
-- id: '1663095761773'
-  alias: Terrasverlichting
-  description: ''
-  use_blueprint:
-    path: EPMatt/philips_324131092621.yaml
-    input:
-      integration: ZHA
-      controller_device: d2d1de274ba99aa61fa79c7b3f8e64c1
-      action_button_on_short:
-      - service: light.turn_on
-        data: {}
-        target:
-          entity_id: light.terrace
-      action_button_off_short:
-      - service: light.turn_off
-        data: {}
-        target:
-          entity_id: light.terrace
-      action_button_on_long:
-      - service: automation.turn_on
-        data: {}
-        target:
-          entity_id: automation.hall_corridor_light
-      action_button_off_long:
-      - service: automation.turn_off
-        data: {}
-        target:
-          entity_id: automation.hall_corridor_light
-      action_button_up_short:
-      - device_id: a9f1fc5ca682b5534d1e91820b492b08
-        domain: light
-        entity_id: light.terrace
-        type: brightness_increase
-      action_button_down_short:
-      - device_id: a9f1fc5ca682b5534d1e91820b492b08
-        domain: light
-        entity_id: light.terrace
-        type: brightness_decrease
-      action_button_up_long: []
 - id: '1672605032341'
   alias: Notificatie GJ
   description: ''
