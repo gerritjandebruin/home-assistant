@@ -1,14 +1,14 @@
 template:
   - sensor:
       - unique_id: temperature
-        name: Temperature
+        name: Buitentemperatuur
         unit_of_measurement: "°C"
         state: "{{ state_attr('weather.home', 'temperature') }}"
         device_class: temperature
         state_class: measurement
   - sensor:
       - unique_id: humidity
-        name: Humdity
+        name: Buitenluchtvochtigheid
         unit_of_measurement: "%"
         state: "{{ state_attr('weather.home', 'humidity') }}"
         device_class: humidity
