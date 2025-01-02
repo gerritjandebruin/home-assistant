@@ -915,63 +915,6 @@
     metadata: {}
     data: {}
   mode: single
-- id: '1711703453691'
-  alias: CO2 melding
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - sensor.luchtkwaliteitmeter_co2
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - type: is_carbon_dioxide
-        condition: device
-        device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
-        entity_id: faeb75c2b30886c55a25c522ebfc434b
-        domain: sensor
-        below: 1000
-      sequence:
-      - type: turn_off
-        device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
-        entity_id: c900c919433fa839326acc43f104b8b2
-        domain: light
-    - conditions:
-      - type: is_carbon_dioxide
-        condition: device
-        device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
-        entity_id: faeb75c2b30886c55a25c522ebfc434b
-        domain: sensor
-        above: 1000
-      sequence:
-      - service: light.turn_on
-        metadata: {}
-        data:
-          rgb_color:
-          - 255
-          - 255
-          - 0
-        target:
-          device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
-    - conditions:
-      - type: is_carbon_dioxide
-        condition: device
-        device_id: 854f5beed7bbbf9ec7ab31bba1d9bc2a
-        entity_id: faeb75c2b30886c55a25c522ebfc434b
-        domain: sensor
-        above: 1200
-      sequence:
-      - service: light.turn_on
-        metadata: {}
-        data:
-          rgb_color:
-          - 255
-          - 0
-          - 0
-        target:
-          entity_id: light.luchtkwaliteitmeter_rgb_light
-  mode: restart
 - id: '1712905763291'
   alias: Slaapkamer knop
   description: ''
@@ -1026,22 +969,6 @@
           brightness_pct: 100
         target:
           entity_id: light.bedroom
-  mode: single
-- id: '1713713944976'
-  alias: Back-up
-  description: ''
-  trigger:
-  - platform: time
-    at: 02:00:00
-  condition:
-  - condition: time
-    weekday:
-    - mon
-  action:
-  - service: hassio.backup_full
-    metadata: {}
-    data:
-      compressed: true
   mode: single
 - id: '1722715718463'
   alias: 'Dakterras '
