@@ -827,37 +827,6 @@
           area_id: bedroom
         action: light.turn_on
   mode: single
-- id: '1707682123353'
-  alias: Wekker GJ
-  description: ''
-  trigger:
-  - platform: template
-    value_template: '{% if has_value(''sensor.telefoon_gj_next_alarm'') %}
-
-      {{ (states(''sensor.telefoon_gj_next_alarm'') | as_datetime - now()).total_seconds()
-      < 30 }}
-
-      {% else %}
-
-      false
-
-      {% endif %}'
-  condition:
-  - condition: zone
-    entity_id: person.gerrit_jan
-    zone: zone.home
-  - condition: time
-    after: 04:00:00
-    before: '12:00:00'
-    enabled: true
-  action:
-  - service: light.turn_on
-    metadata: {}
-    data:
-      brightness_pct: 50
-    target:
-      entity_id: light.bedroom_1
-  mode: single
 - id: '1712905763291'
   alias: Slaapkamer knop
   description: ''
