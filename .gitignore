@@ -35,3 +35,9 @@ secrets.yaml
 .cloud/
 .Trash-0
 home_assistant.db 
+esphome/tno-esp32-001.yaml
+esphome/trash/pm02.yaml
+esphome/my_components/T9602/__init__.py
+esphome/my_components/T9602/sensor.py
+esphome/my_components/T9602/T9602.cpp
+esphome/my_components/T9602/T9602.h
