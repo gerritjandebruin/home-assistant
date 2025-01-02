@@ -897,24 +897,6 @@
     target:
       entity_id: light.bedroom_1
   mode: single
-- id: '1708682164461'
-  alias: CPU bewaking
-  description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - sensor.system_monitor_processor_temperature
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-    above: 55
-  condition: []
-  action:
-  - service: hassio.host_shutdown
-    metadata: {}
-    data: {}
-  mode: single
 - id: '1712905763291'
   alias: Slaapkamer knop
   description: ''
