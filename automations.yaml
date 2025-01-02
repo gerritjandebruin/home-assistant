@@ -4,51 +4,51 @@
     floor. When it freezes, warn with a blue light. Brightness is adapted to the desired
     level. Because the IKEA sensor at the corridor is slow in going to the cleared
     state, have a 10m wait before the Philips sensor at the hall is allowed to clear.
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.hall_motion
+  triggers:
+  - entity_id:
+    - binary_sensor.hall_occupancy
     - binary_sensor.corridor_motion
     - binary_sensor.front_door
     to: 'on'
-  condition:
+    trigger: state
+  conditions:
   - condition: state
     entity_id: binary_sensor.dark
     state: 'on'
-  action:
+  actions:
   - choose:
     - conditions:
       - condition: time
         after: '22:00:00'
         before: 06:00:00
       sequence:
-      - service: light.turn_on
-        data:
+      - data:
           brightness_pct: 1
           kelvin: 2000
         target:
           entity_id:
           - light.corridor
           - light.hall
+        action: light.turn_on
     - conditions:
       - condition: numeric_state
         entity_id: sensor.temperature
         below: 0.1
       sequence:
-      - service: light.turn_on
-        data:
+      - data:
           color_temp: 500
           brightness: 255
         target:
           entity_id:
           - light.hall
-      - service: light.turn_on
-        data:
+        action: light.turn_on
+      - data:
           brightness: 100
           color_temp: 331
         target:
           entity_id:
           - light.corridor
+        action: light.turn_on
     - conditions:
       - condition: time
         weekday:
@@ -87,8 +87,7 @@
           attribute: departure_delay
           state: 'true'
       sequence:
-      - service: light.turn_on
-        data:
+      - data:
           color_temp: 153
           brightness_pct: 100
           flash: long
@@ -96,8 +95,8 @@
           entity_id:
           - light.hall
           - light.corridor
-      - service: notify.mobile_app_sm_s901b
-        data:
+        action: light.turn_on
+      - data:
           title: Train is delayed or cancelled.
           message: 'Going                 {{ state_attr(''sensor.utrecht_alkmaar'',
             ''going'') }} Departure time actual {{ state_attr(''sensor.utrecht_alkmaar'',
@@ -109,25 +108,26 @@
             ''transfers'') }} {% endif %}
 
             '
+        action: notify.mobile_app_sm_s901b
     default:
-    - service: light.turn_on
-      data:
+    - data:
         brightness: 100
         color_temp: 326
       target:
         entity_id:
         - light.corridor
         - light.hall
-  - wait_template: '  {{ (states(''binary_sensor.hall_motion'') == ''off'') and (states(''binary_sensor.corridor_motion'')
-      == ''off'') }}'
+      action: light.turn_on
+  - wait_template: '  {{ (states(''binary_sensor.hall_occupancy'') == ''off'') and
+      (states(''binary_sensor.corridor_motion'') == ''off'') }}'
     continue_on_timeout: true
     timeout: 01:00:00
-  - service: light.turn_off
-    target:
+  - target:
       entity_id:
       - light.corridor
       - light.hall
     data: {}
+    action: light.turn_off
   mode: single
 - id: '1603831020194'
   alias: Keukenverlichting
@@ -608,6 +608,11 @@
     entity_id: f54aa3afdc5e524391f555f041d0870b
     domain: binary_sensor
     trigger: device
+  - device_id: e13fa775ae5c1aa7dc0dd04f3d6fe2e8
+    domain: zha
+    type: device_offline
+    subtype: device_offline
+    trigger: device
   conditions: []
   actions:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
@@ -727,81 +732,84 @@
 - id: '1699803193333'
   alias: Slaapkamer remote
   description: ''
-  trigger:
+  triggers:
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: turn_on
     id: '1'
+    trigger: device
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: dim_up
     id: '2'
+    trigger: device
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: dim_down
     id: '3'
+    trigger: device
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: left
     id: '4'
+    trigger: device
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: right
     id: '5'
+    trigger: device
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
     domain: zha
-    platform: device
     type: remote_button_long_press
     subtype: left
     id: '6'
+    trigger: device
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
     domain: zha
-    platform: device
     type: remote_button_long_press
     subtype: right
     id: '7'
+    trigger: device
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
     domain: zha
-    platform: device
     type: remote_button_long_press
     subtype: dim_up
     id: '8'
+    trigger: device
+    enabled: false
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
     domain: zha
-    platform: device
     type: remote_button_long_press
     subtype: dim_down
     id: '9'
-  condition: []
-  action:
+    trigger: device
+    enabled: false
+  conditions: []
+  actions:
   - choose:
     - conditions:
       - condition: trigger
         id:
         - '1'
       sequence:
-      - service: light.toggle
-        data: {}
+      - data: {}
         target:
           entity_id: light.bedroom
+        action: light.toggle
     - conditions:
       - condition: trigger
         id:
         - '2'
       sequence:
-      - service: light.turn_on
-        data:
-          brightness_step: 10
+      - data:
+          kelvin: 2000
+          brightness_pct: 100
+        action: light.turn_on
         target:
           entity_id: light.bedroom
     - conditions:
@@ -809,9 +817,10 @@
         id:
         - '3'
       sequence:
-      - service: light.turn_on
-        data:
-          brightness_step: -10
+      - data:
+          kelvin: 2000
+          brightness_pct: 1
+        action: light.turn_on
         target:
           entity_id: light.bedroom
     - conditions:
@@ -837,25 +846,25 @@
         id:
         - '8'
       sequence:
-      - service: light.turn_on
-        metadata: {}
+      - metadata: {}
         data:
           brightness: 255
           kelvin: 4267
         target:
           area_id: bedroom
+        action: light.turn_on
     - conditions:
       - condition: trigger
         id:
         - '9'
       sequence:
-      - service: light.turn_on
-        metadata: {}
+      - metadata: {}
         data:
           kelvin: 2000
           brightness: 1
         target:
           area_id: bedroom
+        action: light.turn_on
   mode: single
 - id: '1707682123353'
   alias: Wekker GJ
@@ -1132,13 +1141,13 @@
   alias: Te hoog vermogen
   description: ''
   triggers:
-  - type: power
+  - alias: Te hoog vermogen
+    type: power
     device_id: 93a8f0b57682098cbf5f6afbfd586ff4
     entity_id: 9b7ec8e830f32d22eb9815fef8bda054
     domain: sensor
     trigger: device
-    above: 5500
-    alias: Te hoog vermogen
+    above: 8050
   conditions: []
   actions:
   - action: switch.turn_off
