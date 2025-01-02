@@ -41,30 +41,30 @@ homeassistant:
     sensor.attic_mold:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Schimmelkans zolder
+      friendly_name: Zolder schimmelkans
       icon: mdi:water-percent-alert
     sensor.bathroom_mold:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Schimmelkans badkamer
+      friendly_name: Badkamer schimmelkans
       icon: mdi:water-percent-alert
     sensor.bedroom_mold:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Schimmelkans slaapkamer
+      friendly_name: Slaapkamer schimmelkans
       icon: mdi:water-percent-alert
     sensor.guestroom_mold:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Schimmelkans gastenkamer
+      friendly_name: Gastenkamer schimmelkans
       icon: mdi:water-percent-alert
     sensor.lounge_mold:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Schimmelkans woonkamer
+      friendly_name: Woonkamer schimmelkans
       icon: mdi:water-percent-alert
     sensor.shed_mold:
       state_class: measurement
       unit_of_measurement: "%"
-      friendly_name: Schimmelkans schuur
+      friendly_name: Schuur schimmelkans
       icon: mdi:water-percent-alert
