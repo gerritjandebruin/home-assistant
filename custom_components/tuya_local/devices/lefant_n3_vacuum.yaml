@@ -147,6 +147,7 @@ primary_entity:
     - id: 28
       type: bitfield
       name: error
+      hidden: true
     - id: 32
       type: string
       optional: true
@@ -263,8 +264,8 @@ secondary_entities:
         class: measurement
   - entity: sensor
     name: Cleaned area
+    class: area
     category: diagnostic
-    icon: "mdi:floor-plan"
     dps:
       - id: 7
         type: integer
@@ -336,3 +337,17 @@ secondary_entities:
       - id: 125
         type: boolean
         name: sensor
+  - entity: binary_sensor
+    class: problem
+    category: diagnostic
+    dps:
+      - id: 28
+        type: bitfield
+        name: sensor
+        mapping:
+          - dps_val: 0
+            value: false
+          - value: true
+      - id: 28
+        type: bitfield
+        name: fault_code

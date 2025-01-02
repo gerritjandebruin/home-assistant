@@ -21,10 +21,6 @@ primary_entity:
       type: integer
       name: test_bit
       optional: true
-    - id: 26
-      type: bitfield
-      name: fault_code
-      optional: true
     - id: 41
       type: string
       name: cycle_timer
@@ -36,6 +32,7 @@ primary_entity:
 secondary_entities:
   - entity: number
     category: config
+    class: duration
     translation_key: timer
     dps:
       - id: 9
@@ -119,6 +116,10 @@ secondary_entities:
           - dps_val: null
             value: false
           - value: true
+      - id: 26
+        type: bitfield
+        name: fault_code
+        optional: true
   - entity: select
     category: config
     translation_key: initial_state

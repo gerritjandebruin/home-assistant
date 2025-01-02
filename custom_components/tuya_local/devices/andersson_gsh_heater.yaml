@@ -1,5 +1,10 @@
-name: Andersson GSH heater
+name: Heater
 legacy_type: gsh_heater
+products:
+  # - id: UNKNOWN
+  #   name: Andersson GSH
+  - id: qAmsenZuNF74vRvj
+    name: Devola Intelligent
 primary_entity:
   entity: climate
   translation_only_key: heater
@@ -32,9 +37,18 @@ primary_entity:
           value: boost
         - dps_val: af
           value: away
-    - id: 12
-      name: error
-      type: bitfield
-      mapping:
-        - dps_val: 0
-          value: "OK"
+secondary_entities:
+  - entity: binary_sensor
+    class: problem
+    category: diagnostic
+    dps:
+      - id: 12
+        type: bitfield
+        name: sensor
+        mapping:
+          - dps_val: 0
+            value: false
+          - value: true
+      - id: 12
+        type: bitfield
+        name: fault_code

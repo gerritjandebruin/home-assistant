@@ -44,6 +44,7 @@ secondary_entities:
   - entity: number
     name: Boost timer
     translation_key: timer
+    class: duration
     category: config
     mode: box
     dps:
@@ -167,10 +168,13 @@ secondary_entities:
         mapping:
           - dps_val: 0
             value: false
-          - default: true
+          - value: true
       - id: 2
         type: bitfield
-        name: fault
+        name: fault_code
+      - id: 2
+        type: bitfield
+        name: description
         mapping:
           - dps_val: 0
             value: "None"

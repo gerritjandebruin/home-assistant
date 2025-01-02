@@ -37,11 +37,13 @@
                 "description": "[Дотримуйтеся цих інструкцій, щоб знайти ідентифікатор пристрою та локальний ключ.](https://github.com/make-all/tuya-local#finding-your-device-id-and-local-key)",
                 "data": {
                     "host": "IP-адреса або ім'я хоста",
-                    "device_id": "Ідентифікатор пристрою",
+                    "or device_id of gateway for devices connected via gateway":
+                        "",
+                    "device_id": "Ідентифікатор пристрою (device_id, або device_id шлюзу для пристроїв, підключених через шлюз)",
                     "local_key": "Локальний ключ (local_key)",
                     "protocol_version": "Версія протоколу (якщо не знаєте, спробуйте 'auto')",
                     "poll_only": "Виключно опитування (спробуйте це, якщо ваш пристрій не зовсім працює)",
-                    "device_cid": "Sub device ID (для пристроїв, підключених через шлюз)"
+                    "device_cid": "Sub device node_id або uuid (для пристроїв, підключених через шлюз)"
                 }
             },
             "select_type": {
@@ -87,8 +89,7 @@
                     "host": "IP-адреса або ім'я хоста",
                     "local_key": "Локальний ключ (local_key)",
                     "protocol_version": "Версія протоколу (якщо не знаєте, спробуйте 'auto')",
-                    "poll_only": "Виключно опитування (спробуйте це, якщо ваш пристрій не зовсім працює)",
-                    "device_cid": "Sub device ID (для пристроїв, підключених через шлюз)"
+                    "poll_only": "Виключно опитування (спробуйте це, якщо ваш пристрій не зовсім працює)"
                 }
             }
         },
@@ -131,7 +132,7 @@
             },
             "casdon_oven_fault": {
                 "state_attributes": {
-                    "fault_message": {
+                    "description": {
                         "state": {
                             "e1": "E1: Захист від перегріву камери (перевищує 290°C)",
                             "e2": "E2: Захист від перегріву випарника (перевищує 200°C)",
@@ -380,6 +381,9 @@
         "number": {
             "timer": {
                 "name": "Таймер"
+            },
+            "timer_x": {
+                "name": "Таймер {x}"
             }
         },
         "select": {
@@ -591,7 +595,7 @@
                     "low": "Низький",
                     "high": "Високий",
                     "unwashed": "Не вимито",
-                    "pre_rinsing": "Попереднє промивання",
+                    "pre_washing": "Попереднє миття",
                     "washing": "Миття",
                     "rinsing": "Промивання",
                     "drying": "Сушіння",
@@ -616,6 +620,27 @@
                     "done": "Готово",
                     "pause": "Приготування призупинено"
                 }
+            },
+            "energy_produced": {
+                "name": "Вироблена енергія"
+            },
+            "energy_consumed": {
+                "name": "Спожита енергія"
+            },
+            "energy_produced_x": {
+                "name": "Вироблена енергія {x}"
+            },
+            "energy_consumed_x": {
+                "name": "Спожита енергія {x}"
+            },
+            "current_x": {
+                "name": "Поточний {x}"
+            },
+            "voltage_x": {
+                "name": "Напруга {x}"
+            },
+            "power_x": {
+                "name": "Потужність {x}"
             }
         },
         "switch": {
@@ -631,8 +656,14 @@
             "keytone": {
                 "name": "Тон клавіш"
             },
+            "outlet_x": {
+                "name": "Розетка {x}"
+            },
             "sleep": {
                 "name": "Сон"
+            },
+            "switch_x": {
+                "name": "Вимикач {x}"
             },
             "uv_sterilization": {
                 "name": "УФ стерилізація"

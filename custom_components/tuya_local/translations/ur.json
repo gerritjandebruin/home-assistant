@@ -37,11 +37,13 @@
                 "description": "[اپنی ڈیوائس آئی ڈی اور لوکل کلید تلاش کرنے کے لیے ان ہدایات پر عمل کریں۔](https://github.com/make-all/tuya-local#finding-your-device-id-and-local-key)",
                 "data": {
                     "host": "IP ایڈریس یا میزبان نام",
-                    "device_id": "ڈیوائس کی شناخت",
+                    "or device_id of gateway for devices connected through gateway": "",
+                    
+                    "device_id": "ڈیوائس کی شناخت(یا گیٹ وے کے ذریعے منسلک آلات کے لیے ڈیوائس آئی ڈی)",
                     "local_key": "مقامی کلید",
                     "protocol_version": "پروٹوکول ورژن (اگر معلوم نہ ہو تو خود کار طریقے سے آزمائیں)",
                     "poll_only": "صرف پول کریں (اگر آپ کا آلہ مکمل طور پر کام نہیں کرتا ہے تو اسے آزمائیں)",
-                    "device_cid": "سب ڈیوائس آئی ڈی (گیٹ وے کے ذریعے منسلک آلات کے لیے)"
+                    "device_cid": "ذیلی آلہ کا node_id یا uuid (گیٹ وے کے ذریعے منسلک آلات کے لیے)"
                 }
             },
             "select_type": {
@@ -87,8 +89,8 @@
                     "host": "IP پتہ یا میزبان نام",
                     "local_key": "مقامی کلید",
                     "protocol_version": "پروٹوکول ورژن (اگر معلوم نہ ہو تو خود کار طریقے سے آزمائیں)",
-                    "poll_only": "صرف پول (اگر آپ کا آلہ پوری طرح کام نہیں کرتا ہے تو اسے آزمائیں)",
-                    "device_cid": "سب ڈیوائس آئی ڈی (گیٹ وے کے ذریعے منسلک آلات کے لیے)"
+                    "poll_only": "صرف پول (اگر آپ کا آلہ پوری طرح کام نہیں کرتا ہے تو اسے آزمائیں)"
+
                 }
             }
         },
@@ -131,7 +133,7 @@
             },
             "casdon_oven_fault": {
                 "state_attributes": {
-                    "fault_message": {
+                    "description": {
                         "state": {
                             "e1": "E1: Chamber overheat protection (exceeds 290°C)",
                             "e2": "E2: Evaporation tray overheat protection (exceeds 200°C)",
@@ -379,6 +381,9 @@
         "number": {
             "timer": {
                 "name": "ٹائمر"
+            },
+            "timer_x": {
+                "name": "ٹائمر {x}"
             }
         },
         "select": {
@@ -590,7 +595,7 @@
                     "low": "کم",
                     "high": "زیادہ",
                     "unwashed": "نہ دھویا",
-                    "pre_rinsing": "پری رنسنگ",
+                    "pre_washing": "پری واشنگ",
                     "washing": "دھونا",
                     "rinsing": "رنسنگ",
                     "drying": "خشک کرنا",
@@ -615,6 +620,27 @@
                     "done": "پکانا مکمل ہوگیا",
                     "pause": "پکانا معطل ہوگیا"
                 }
+            },
+            "energy_produced": {
+                "name": "پیدا کردہ بجلی"
+            },
+            "energy_consumed": {
+                "name": "استعمال کردہ بجلی"
+            },
+            "energy_produced_x": {
+                "name": "پیدا کردہ بجلی {x}"
+            },
+            "energy_consumed_x": {
+                "name": "استعمال کردہ بجلی {x}"
+            },
+            "current_x": {
+                "name": "موجودہ {x}"
+            },
+            "voltage_x": {
+                "name": "وولٹیج {x}"
+            },
+            "power_x": {
+                "name": "پاور {x}"
             }
         },
         "switch": {
@@ -630,8 +656,14 @@
             "keytone": {
                 "name": "کی پیڈ ٹون"
             },
+            "outlet_x": {
+                "name": "آؤٹ لیٹ {x}"
+            },
             "sleep": {
                 "name": "سونا"
+            },
+            "switch_x": {
+                "name": "سوئچ {x}"
             },
             "uv_sterilization": {
                 "name": "UV نس بندی"

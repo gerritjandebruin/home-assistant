@@ -93,9 +93,6 @@ primary_entity:
     - id: 46
       type: integer
       name: current_humidity
-    - id: 50
-      type: bitfield
-      name: fault_code
 secondary_entities:
   - entity: switch
     class: switch
@@ -106,6 +103,7 @@ secondary_entities:
         name: switch
   - entity: number
     translation_key: timer
+    class: duration
     category: config
     dps:
       - id: 4
@@ -257,6 +255,7 @@ secondary_entities:
           max: 9
   - entity: number
     name: Cold delay
+    class: duration
     category: config
     icon: "mdi:camera-timer"
     dps:
@@ -290,3 +289,7 @@ secondary_entities:
           - dps_val: null
             value: false
           - value: true
+      - id: 50
+        type: bitfield
+        optional: true
+        name: fault_code

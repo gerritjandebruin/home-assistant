@@ -55,6 +55,7 @@ secondary_entities:
         unit: L
   - entity: number
     translation_key: timer
+    class: duration
     category: config
     dps:
       - id: 107
@@ -90,3 +91,6 @@ secondary_entities:
           - dps_val: 0
             value: false
           - value: true
+      - id: 120
+        type: bitfield
+        name: fault_code

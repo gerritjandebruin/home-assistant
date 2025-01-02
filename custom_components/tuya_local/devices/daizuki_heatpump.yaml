@@ -56,9 +56,6 @@ primary_entity:
           value: high
         - dps_val: strong
           value: strong
-    - id: 20
-      type: bitfield
-      name: fault_code
     - id: 105
       type: string
       name: sleep_mode
@@ -70,30 +67,21 @@ primary_entity:
       name: swing_mode
       mapping:
         - dps_val: "0"
-          value: horizontal
-          constraint: horizontal_swing
-          conditions:
-            - dps_val: "0"
-              value: "off"
-            - dps_val: "1"
-              value: horizontal
+          value: "off"
         - dps_val: "1"
-          value: both
-          constraint: horizontal_swing
-          conditions:
-            - dps_val: "0"
-              value: vertical
-            - dps_val: "1"
-              value: both
-        - value: both
-          constraint: horizontal_swing
-          conditions:
-            - dps_val: "0"
-              value: vertical
+          value: "on"
+        - value: "on"
+          hidden: true
     - id: 114
       type: string
-      name: horizontal_swing
-      hidden: true
+      name: swing_horizontal_mode
+      mapping:
+        - dps_val: "0"
+          value: "off"
+        - dps_val: "1"
+          value: "on"
+        - value: "on"
+          hidden: true
     - id: 119
       type: string
       name: electricity_management
@@ -228,8 +216,7 @@ secondary_entities:
       - id: 123
         type: hex
         name: switch
-        mapping:
-          - mask: "0008"
+        mask: "0008"
   - entity: switch
     name: Beep
     category: config
@@ -237,8 +224,7 @@ secondary_entities:
       - id: 123
         type: hex
         name: switch
-        mapping:
-          - mask: "0010"
+        mask: "0010"
   - entity: binary_sensor
     class: problem
     category: diagnostic
@@ -250,6 +236,9 @@ secondary_entities:
           - dps_val: 0
             value: false
           - value: true
+      - id: 20
+        type: bitfield
+        name: fault_code
   - entity: sensor
     class: pm25
     category: diagnostic

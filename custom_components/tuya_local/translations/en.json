@@ -37,11 +37,11 @@
                 "description": "[Follow these instructions to find your device id and local key.](https://github.com/make-all/tuya-local#finding-your-device-id-and-local-key)",
                 "data": {
                     "host": "IP address or hostname",
-                    "device_id": "Device ID",
+                    "device_id": "Device ID (or the hub's Device ID for devices connected via gateway)",
                     "local_key": "Local key",
                     "protocol_version": "Protocol version (try auto if not known)",
                     "poll_only": "Poll only (try this if your device does not work fully)",
-                    "device_cid": "Sub device ID (for devices connected via gateway)"
+                    "device_cid": "Sub device node_id or uuid (for devices connected via gateway)"
                 }
             },
             "select_type": {
@@ -87,8 +87,7 @@
                     "host": "IP address or hostname",
                     "local_key": "Local key",
                     "protocol_version": "Protocol version (try auto if not known)",
-                    "poll_only": "Poll only (try this if your device does not work fully)",
-                    "device_cid": "Sub device ID (for devices connected via gateway)"
+                    "poll_only": "Poll only (try this if your device does not work fully)"
                 }
             }
         },
@@ -131,7 +130,7 @@
             },
             "casdon_oven_fault": {
                 "state_attributes": {
-                    "fault_message": {
+                    "description": {
                         "state": {
                             "e1": "E1: Chamber overheat protection (exceeds 290°C)",
                             "e2": "E2: Evaporation tray overheat protection (exceeds 200°C)",
@@ -379,6 +378,9 @@
         "number": {
             "timer": {
                 "name": "Timer"
+            },
+            "timer_x": {
+                "name": "Timer {x}"
             }
         },
         "select": {
@@ -590,7 +592,7 @@
                     "low": "Low",
                     "high": "High",
                     "unwashed": "Unwashed",
-                    "pre_rinsing": "Pre-rinsing",
+                    "pre_washing": "Pre-washing",
                     "washing": "Washing",
                     "rinsing": "Rinsing",
                     "drying": "Drying",
@@ -615,6 +617,27 @@
                     "done": "Cooking Completed",
                     "pause": "Cooking Paused"
                 }
+            },
+            "energy_produced": {
+                "name": "Energy produced"
+            },
+            "energy_consumed": {
+                "name": "Energy consumed"
+            },
+            "energy_produced_x": {
+                "name": "Energy produced {x}"
+            },
+            "energy_consumed_x": {
+                "name": "Energy consumed {x}"
+            },
+            "current_x": {
+                "name": "Current {x}"
+            },
+            "voltage_x": {
+                "name": "Voltage {x}"
+            },
+            "power_x": {
+                "name": "Power {x}"
             }
         },
         "switch": {
@@ -630,8 +653,14 @@
             "keytone": {
                 "name": "Keytone"
             },
+            "outlet_x": {
+                "name": "Outlet {x}"
+            },
             "sleep": {
                 "name": "Sleep"
+            },
+            "switch_x": {
+                "name": "Switch {x}"
             },
             "uv_sterilization": {
                 "name": "UV sterilization"
