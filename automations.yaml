@@ -5,12 +5,21 @@
     level. Because the IKEA sensor at the corridor is slow in going to the cleared
     state, have a 10m wait before the Philips sensor at the hall is allowed to clear.
   triggers:
-  - entity_id:
-    - binary_sensor.hall_occupancy
-    - binary_sensor.corridor_motion
-    - binary_sensor.front_door
-    to: 'on'
-    trigger: state
+  - type: occupied
+    device_id: e13fa775ae5c1aa7dc0dd04f3d6fe2e8
+    entity_id: 48f91ab28a35ff8c56779561f10c1d33
+    domain: binary_sensor
+    trigger: device
+  - type: motion
+    device_id: f0557193b49cd30a72b37ed875ced7b6
+    entity_id: ee892634746b2f5638cbfadb0a0aca3c
+    domain: binary_sensor
+    trigger: device
+  - type: opened
+    device_id: 051215d5b20dc09f912d269348bf1441
+    entity_id: 4a91250870afd2a57d0c1da622f884cf
+    domain: binary_sensor
+    trigger: device
   conditions:
   - condition: state
     entity_id: binary_sensor.dark
@@ -25,15 +34,18 @@
       - data:
           brightness_pct: 1
           kelvin: 2000
-        target:
-          entity_id:
-          - light.corridor
-          - light.hall
         action: light.turn_on
+        target:
+          area_id:
+          - corridor
+          - hall
     - conditions:
-      - condition: numeric_state
-        entity_id: sensor.temperature
-        below: 0.1
+      - type: is_temperature
+        condition: device
+        device_id: 7ad8ff08e5afbb2dcf95776a9b974c9b
+        entity_id: 46a11c647e970ebba10844fc272365f8
+        domain: sensor
+        below: 0
       sequence:
       - data:
           color_temp: 500
@@ -91,43 +103,33 @@
           color_temp: 153
           brightness_pct: 100
           flash: long
-        target:
-          entity_id:
-          - light.hall
-          - light.corridor
         action: light.turn_on
-      - data:
-          title: Train is delayed or cancelled.
-          message: 'Going                 {{ state_attr(''sensor.utrecht_alkmaar'',
-            ''going'') }} Departure time actual {{ state_attr(''sensor.utrecht_alkmaar'',
-            ''departure_time_actual'') }}  Departure delay       {{ state_attr(''sensor.utrecht_alkmaar'',
-            ''departure_delay'') }} Status                {{ state_attr(''sensor.utrecht_alkmaar'',
-            ''status'') }} Remarks               {{ state_attr(''sensor.utrecht_alkmaar'',
-            ''remarks'') }} {% if state_attr(''sensor.utrecht_alkmaar'', ''transfers'')
-            | int(0) != 0 %} Transfers             {{ state_attr(''sensor.utrecht_alkmaar'',
-            ''transfers'') }} {% endif %}
-
-            '
-        action: notify.mobile_app_sm_s901b
+        target:
+          area_id:
+          - hall
+          - corridor
+      alias: Rijdendetreinen?
     default:
     - data:
         brightness: 100
         color_temp: 326
-      target:
-        entity_id:
-        - light.corridor
-        - light.hall
       action: light.turn_on
-  - wait_template: '  {{ (states(''binary_sensor.hall_occupancy'') == ''off'') and
-      (states(''binary_sensor.corridor_motion'') == ''off'') }}'
+      target:
+        area_id:
+        - hall
+        - corridor
+  - wait_template: '  {{ (states(''binary_sensor.gang_bewegingsmelder_bezetting'')
+      == ''off'') and (states(''binary_sensor.overloop_bewegingsmelder'') == ''off'')
+      }}'
     continue_on_timeout: true
     timeout: 01:00:00
-  - target:
-      entity_id:
-      - light.corridor
-      - light.hall
-    data: {}
+    alias: Wachten tot er geen beweging meer gedetecteerd wordt
+  - data: {}
     action: light.turn_off
+    target:
+      area_id:
+      - hall
+      - corridor
   mode: single
 - id: '1603831020194'
   alias: Keuken verlichting
@@ -214,137 +216,142 @@
   alias: Deurbel
   description: Flash lights and notify when the doorbell is detected by the RTL_433
     extension.
-  trigger:
-  - platform: device
-    domain: mqtt
+  triggers:
+  - domain: mqtt
     device_id: 83b12a930eaf4c7cb659f87de06f7708
     type: button_short_release
     subtype: button_1
     discovery_id: Proove-Security-3-30755554 Proove-Security-3-30755554-CH
-  condition: []
-  action:
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Deurbel!
-  - service: light.toggle
-    data:
+    trigger: device
+  conditions: []
+  actions:
+  - data:
       flash: long
     target:
       area_id:
       - kitchen
       - hall
       - corridor
+    action: light.toggle
   - delay:
       hours: 0
       minutes: 0
       seconds: 1
       milliseconds: 0
-  - service: light.toggle
-    data:
+  - data:
       flash: long
     target:
       area_id:
       - kitchen
       - hall
       - corridor
+    action: light.toggle
   mode: single
 - id: '1612988672846'
   alias: Toiletverlichting
   description: Switch the toilet light when the door is opened.
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.toilet_door
-    to: 'on'
-  condition: []
-  action:
-  - service: light.turn_on
-    data: {}
+  triggers:
+  - type: opened
+    device_id: 51fb2dd677fc2b08b7cd63bf90894249
+    entity_id: 2aca2e2658c249b56823c6566e78311b
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - data: {}
+    action: light.turn_on
     target:
-      entity_id: light.toilet
+      area_id: toilet
   - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.toilet_door
-      to: 'on'
+    - type: not_opened
+      device_id: 51fb2dd677fc2b08b7cd63bf90894249
+      entity_id: 2aca2e2658c249b56823c6566e78311b
+      domain: binary_sensor
+      trigger: device
     timeout:
       hours: 0
       minutes: 15
       seconds: 0
       milliseconds: 0
-  - service: light.turn_off
-    data: {}
+  - data: {}
+    action: light.turn_off
     target:
-      entity_id: light.toilet
+      area_id: toilet
   mode: single
 - id: '1612988850571'
   alias: Voorraadkast verlichting
   description: Switch the light in the pantry when the door is opened or closed.
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.pantry_door
-    to: 'on'
-  condition: []
-  action:
-  - service: light.turn_on
-    entity_id: light.pantry
+  triggers:
+  - type: opened
+    device_id: b8bb92a8be279ee84529cbd0037afbc5
+    entity_id: ba8143fedc11dcd58928ffe1c89c7adb
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - entity_id: light.pantry
+    action: light.turn_on
   - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.pantry_door
-      to: 'off'
+    - type: not_opened
+      device_id: b8bb92a8be279ee84529cbd0037afbc5
+      entity_id: ba8143fedc11dcd58928ffe1c89c7adb
+      domain: binary_sensor
+      trigger: device
     timeout:
       hours: 0
       minutes: 5
       seconds: 0
       milliseconds: 0
-  - service: light.turn_off
-    entity_id: light.pantry
+  - action: light.turn_off
+    data: {}
+    target:
+      area_id: pantry
   mode: single
 - id: '1614112596198'
   alias: Fietsverlichting
   description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.bike_motion
-    to: 'on'
-  condition:
+  triggers:
+  - type: motion
+    device_id: 92f92740112aad1de8eac8a6c9ebb5bd
+    entity_id: 29def69b4b7ae4b0c7c435a54a4ad9da
+    domain: binary_sensor
+    trigger: device
+  conditions:
   - condition: state
     entity_id: binary_sensor.dark
     state: 'on'
-  action:
-  - service: light.turn_on
-    data: {}
+  actions:
+  - data: {}
+    action: light.turn_on
     target:
-      entity_id: light.bike
+      entity_id: light.fietsenstalling
   - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.bike_motion
-      to: 'off'
+    - type: no_motion
+      device_id: 92f92740112aad1de8eac8a6c9ebb5bd
+      entity_id: 29def69b4b7ae4b0c7c435a54a4ad9da
+      domain: binary_sensor
+      trigger: device
     timeout:
       hours: 0
       minutes: 10
       seconds: 0
       milliseconds: 0
-  - service: light.turn_off
-    data: {}
+  - data: {}
+    action: light.turn_off
     target:
-      entity_id: light.bike
+      device_id: 663b87c1fa016b28463175ae19183722
   mode: single
 - id: '1652901588502'
   alias: Robotstofzuiger opgeladen
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - vacuum.bluebot_xboost
+  triggers:
+  - entity_id:
+    - vacuum.robotstofzuiger
     attribute: battery_level
     above: '99'
-  condition: []
-  action:
+    trigger: numeric_state
+  conditions: []
+  actions:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
@@ -484,26 +491,6 @@
       seconds: 0
     id: Zonnepanelen
     trigger: state
-  - type: value
-    device_id: 3e1b266f2968a4f10a61e51feba13106
-    entity_id: 9d9db7e2780c464459551e7125c520b2
-    domain: sensor
-    above: 70
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-    trigger: device
-  - type: temperature
-    device_id: 3e1b266f2968a4f10a61e51feba13106
-    entity_id: a2d0637f037c4cac5dbc03340cb3a17c
-    domain: sensor
-    above: 60
-    for:
-      hours: 0
-      minutes: 5
-      seconds: 0
-    trigger: device
   - type: moist
     device_id: 4e458e050949dc393f7743185a458889
     entity_id: acd2f3e0b3085c146651edad738825c9
@@ -584,53 +571,54 @@
       }} op {{ now() }}.
   mode: single
 - id: '1672607309301'
-  alias: Bureau Mirjam
+  alias: Bureau M
   description: Handling events from the buttons on the desks.
-  trigger:
+  triggers:
   - id: south_on
     device_id: f2920d964a5c507e42ff8757a220ddb8
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: turn_on
+    trigger: device
   - id: south_off
     device_id: f2920d964a5c507e42ff8757a220ddb8
     domain: zha
-    platform: device
     type: remote_button_short_press
     subtype: turn_off
-  condition: []
-  action:
+    trigger: device
+  conditions: []
+  actions:
   - choose:
     - conditions:
       - condition: trigger
         id: south_on
       sequence:
-      - service: switch.turn_on
-        entity_id: switch.desk_south
+      - entity_id: switch.desk_south
+        action: switch.turn_on
     - conditions:
       - condition: trigger
         id: south_off
       sequence:
-      - service: switch.turn_off
-        target:
+      - target:
           entity_id: switch.desk_south
         data: {}
+        action: switch.turn_off
   mode: single
 - id: '1692770404361'
   alias: Vaatwasser
   description: ''
-  trigger:
-  - platform: numeric_state
-    entity_id:
-    - sensor.dishwasher_power
+  triggers:
+  - type: not_running
+    device_id: b28019ef58e81922c56d1e9238d4a9df
+    entity_id: a5b3b533f4c4f98239aac22268eb4e6e
+    domain: binary_sensor
+    trigger: device
     for:
       hours: 0
-      minutes: 30
+      minutes: 1
       seconds: 0
-    below: 5
-  condition: []
-  action:
+  conditions: []
+  actions:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
@@ -639,18 +627,18 @@
 - id: '1693470796463'
   alias: Wasmachine
   description: ''
-  trigger:
+  triggers:
   - type: not_running
-    platform: device
     device_id: 7b748ddf488252dc1ed824f226b39955
     entity_id: 917e85b275361e10b477a358351e103b
     domain: binary_sensor
-  condition: []
-  action:
+    trigger: device
+  conditions: []
+  actions:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
-    message: Washing machine is ready
+    message: Wasmachine is klaar
   - delay:
       hours: 0
       minutes: 30
@@ -759,9 +747,9 @@
         - '1'
       sequence:
       - data: {}
-        target:
-          entity_id: light.bedroom
         action: light.toggle
+        target:
+          area_id: bedroom
     - conditions:
       - condition: trigger
         id:
@@ -772,7 +760,7 @@
           brightness_pct: 100
         action: light.turn_on
         target:
-          entity_id: light.bedroom
+          area_id: bedroom
     - conditions:
       - condition: trigger
         id:
@@ -783,7 +771,7 @@
           brightness_pct: 1
         action: light.turn_on
         target:
-          entity_id: light.bedroom
+          area_id: bedroom
     - conditions:
       - condition: trigger
         id:
@@ -957,7 +945,7 @@
   actions:
   - type: turn_on
     device_id: 663b87c1fa016b28463175ae19183722
-    entity_id: 0c5e8d5833ca5521247830450c625575
+    entity_id: e66fd00d6540c7638875c855100258f2
     domain: light
   mode: single
 - id: '1731854960187'
@@ -973,6 +961,22 @@
   actions:
   - type: turn_off
     device_id: 663b87c1fa016b28463175ae19183722
-    entity_id: 0c5e8d5833ca5521247830450c625575
-    domain: light
+    entity_id: 753f1beb62f0242f3ee4802ff9b91d63
+    domain: switch
+  mode: single
+- id: '1735895231627'
+  alias: Oven
+  description: ''
+  triggers:
+  - type: not_running
+    device_id: 752177bf79c6d8dc1645724bada15a97
+    entity_id: 618206933f9672951a2dd5238d20bcf0
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
+    domain: mobile_app
+    type: notify
+    message: Oven is klaar
   mode: single
