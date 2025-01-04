@@ -1,0 +1,54 @@
+sensor:
+  - platform: mold_indicator
+    indoor_temp_sensor: sensor.zolder_thermometer_temperatuur
+    indoor_humidity_sensor: sensor.zolder_thermometer_luchtvochtigheid
+    outdoor_temp_sensor: sensor.knmi_temperatuur
+    calibration_factor: 1.5
+    name: Zolder schimmelkans
+    unique_id: zolder_schimmelkans
+  - platform: mold_indicator
+    indoor_temp_sensor: sensor.badkamer_thermometer_temperatuur
+    indoor_humidity_sensor: sensor.badkamer_thermometer_luchtvochtigheid
+    outdoor_temp_sensor: sensor.knmi_temperatuur
+    calibration_factor: 1.5
+    name: Badkamer schimmelkans
+    unique_id: badkamer_schimmelkans
+  - platform: mold_indicator
+    indoor_temp_sensor: sensor.slaapkamer_thermometer_temperatuur
+    indoor_humidity_sensor: sensor.slaapkamer_thermometer_luchtvochtigheid
+    outdoor_temp_sensor: sensor.knmi_temperatuur
+    calibration_factor: 1.6
+    name: Slaapkamer schimmelkans
+    unique_id: slaapkamer_schimmelkans
+  - platform: mold_indicator
+    indoor_temp_sensor: sensor.gastenkamer_thermometer_temperatuur
+    indoor_humidity_sensor: sensor.gastenkamer_thermometer_luchtvochtigheid
+    outdoor_temp_sensor: sensor.knmi_temperatuur
+    calibration_factor: 1.6
+    name: Gastenkamer schimmelkans
+    unique_id: gastenkamer_schimmelkans
+  - platform: mold_indicator
+    indoor_temp_sensor: sensor.woonkamer_thermometer_temperatuur
+    indoor_humidity_sensor: sensor.woonkamer_thermometer_luchtvochtigheid
+    outdoor_temp_sensor: sensor.knmi_temperatuur
+    calibration_factor: 1.6
+    name: Woonkamer schimmelkans
+    unique_id: woonkamer_schimmelkans
+
+homeassistant:
+  customize:
+    sensor.zolder_schimmelkans:
+      state_class: measurement
+      unit_of_measurement: "%"
+    sensor.badkamer_schimmelkans:
+      state_class: measurement
+      unit_of_measurement: "%"
+    sensor.slaapkamer_schimmelkans:
+      state_class: measurement
+      unit_of_measurement: "%"
+    sensor.gastenkamer_schimmelkans:
+      state_class: measurement
+      unit_of_measurement: "%"
+    sensor.woonkamer_schimmelkans:
+      state_class: measurement
+      unit_of_measurement: "%"
