@@ -1,0 +1,14 @@
+template:
+  - binary_sensor:
+      - name: "Inloopkast Koelkast"
+        delay_off:
+          hours: 1
+        state: '{{ states("sensor.inloopkast_koelkast_vermogen") | float > 1 }}'
+        icon: >
+          {% if is_state("binary_sensor.inloopkast_koelkast", "on") %}
+            mdi:fridge
+          {% else %}
+            mdi:fridge-off
+          {% endif %}
+        unique_id: inloopkast_koelkast_vermogen_helper
+        device_class: running
