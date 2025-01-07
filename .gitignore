@@ -41,3 +41,4 @@ esphome/my_components/T9602/__init__.py
 esphome/my_components/T9602/sensor.py
 esphome/my_components/T9602/T9602.cpp
 esphome/my_components/T9602/T9602.h
+esphome/tno-esp32-poe.yaml
