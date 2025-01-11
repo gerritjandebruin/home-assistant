@@ -1131,7 +1131,7 @@
     - sensor.wasdroger_apparaattemperatuur
     - sensor.wasmachine_apparaattemperatuur
     - sensor.zielhorst_apparaattemperatuur
-    above: 65
+    above: 70
   - trigger: numeric_state
     entity_id:
     - sensor.badkamerdeur_apparaattemperatuur
