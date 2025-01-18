@@ -536,6 +536,16 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "name": "Luftkvalitet",
+                "state": {
+                    "excellent": "Utmerket",
+                    "good": "God",
+                    "moderate": "Moderat",
+                    "poor": "Dårlig",
+                    "severe": "Alvorlig"
+                }
+            },
             "status": {
                 "name": "Status",
                 "state": {
@@ -619,6 +629,16 @@
                     "pause": "Matlaging pause"
                 }
             },
+            "water_level": {
+                "name": "Vannivå",
+                "state": {
+                    "full": "Full",
+                    "high": "Høy",
+                    "medium": "Medium",
+                    "low": "Lav",
+                    "empty": "Tom"
+                }
+            },
             "energy_produced": {
                 "name": "Energi produsert"
             },
@@ -662,6 +682,9 @@
             },
             "switch_x": {
                 "name": "Bryter {x}"
+            },
+            "electrolytic_sterilization": {
+                "name": "Elektrolytisk sterilisering"
             },
             "uv_sterilization": {
                 "name": "UV-sterilisering"

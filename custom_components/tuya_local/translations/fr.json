@@ -535,6 +535,16 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "name": "Qualité de l'air",
+                "state": {
+                    "excellent": "Excellent",
+                    "good": "Bon",
+                    "moderate": "Modéré",
+                    "poor": "Mauvais",
+                    "severe": "Grave"
+                }
+            },
             "status": {
                 "name": "État",
                 "state": {
@@ -618,6 +628,16 @@
                     "pause": "Cuisson en pause"
                 }
             },
+            "water_level": {
+                "name": "Niveau d'eau",
+                "state": {
+                    "full": "Plein",
+                    "high": "Haut",
+                    "medium": "Milieu",
+                    "low": "Bas",
+                    "empty": "Vide"
+                }
+            },
             "energy_produced": {
                 "name": "Énergie produite"
             },
@@ -661,6 +681,9 @@
             },
             "switch_x": {
                 "name": "Interrupteur {x}"
+            },
+            "electrolytic_sterilization": {
+                "name": "Stérilisation électrolytique"
             },
             "uv_sterilization": {
                 "name": "Stérilisation UV"

@@ -178,8 +178,19 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "default": "mdi:weather-dust"
+            },
             "cooking_status": {
                 "default": "mdi:information-variant-circle"
+            },
+            "water_level": {
+                "default": "mdi:gauge",
+                "state": {
+                    "empty": "mdi:gauge-empty",
+                    "low": "mdi:gauge-low",
+                    "full": "mdi:gauge-full"
+                }
             },
             "status": {
                 "default": "mdi:information-variant-circle",
@@ -270,6 +281,9 @@
             },
             "uv_sterilization": {
                 "default": "mdi:sun-wireless"
+            },
+            "electrolytic_sterilization": {
+                "default": "mdi:flash"
             }
         }
     }

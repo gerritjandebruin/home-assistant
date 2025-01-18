@@ -538,6 +538,16 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "name": "Якість повітря",
+                "state": {
+                    "excellent": "Відмінно",
+                    "good": "Добре",
+                    "moderate": "Помірно",
+                    "poor": "Погано",
+                    "severe": "Важко"
+                }
+            },
             "status": {
                 "name": "Статус",
                 "state": {
@@ -621,6 +631,16 @@
                     "pause": "Приготування призупинено"
                 }
             },
+            "water_level": {
+                "name": "Рівень води",
+                "state": {
+                    "full": "Повний",
+                    "high": "Високий",
+                    "medium": "Середній",
+                    "low": "Низький",
+                    "empty": "Порожній"
+                }
+            },
             "energy_produced": {
                 "name": "Вироблена енергія"
             },
@@ -664,6 +684,9 @@
             },
             "switch_x": {
                 "name": "Вимикач {x}"
+            },
+            "electrolytic_sterilization": {
+                "name": "Електролітична стерилізація"
             },
             "uv_sterilization": {
                 "name": "УФ стерилізація"

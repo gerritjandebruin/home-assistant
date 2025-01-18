@@ -536,6 +536,16 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "name": "空氣質量",
+                "state": {
+                    "excellent": "優",
+                    "good": "良",
+                    "moderate": "中",
+                    "poor": "差",
+                    "severe": "極差"
+                }
+            },
             "status": {
                 "name": "狀態",
                 "state": {
@@ -619,6 +629,16 @@
                     "pause": "烹飪暫停"
                 }
             },
+            "water_level": {
+                "name": "水量",
+                "state": {
+                    "empty": "空",
+                    "low": "低",
+                    "medium": "中",
+                    "high": "高",
+                    "full": "滿"
+                }
+            },
             "energy_produced": {
                 "name": "能量產生"
             },
@@ -665,6 +685,9 @@
             },
             "uv_sterilization": {
                 "name": "紫外線消毒"
+            },
+            "electrolytic_sterilization": {
+                "name": "電解消毒"
             }
         }
     }

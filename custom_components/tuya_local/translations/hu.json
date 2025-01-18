@@ -536,6 +536,16 @@
             }
         },
         "sensor": {
+            "air_quality": {
+                "name": "Levegő minőség",
+                "state": {
+                    "excellent": "Kiváló",
+                    "good": "Jó",
+                    "moderate": "Közepes",
+                    "poor": "Rossz",
+                    "severe": "Súlyos"
+                }
+            },
             "status": {
                 "name": "Állapot",
                 "state": {
@@ -619,6 +629,16 @@
                     "pause": "Főzés szüneteltetve"
                 }
             },
+            "water_level": {
+                "name": "Vízszint",
+                "state": {
+                    "full": "Teljes",
+                    "empty": "Üres",
+                    "medium": "Közepes",
+                    "low": "Alacsony",
+                    "high": "Magas"
+                }
+            },
             "energy_produced": {
                 "name": "Termelt energia"
             },
@@ -662,6 +682,9 @@
             },
             "switch_x": {
                 "name": "Kapcsoló {x}"
+            },
+            "electrolytic_sterilization": {
+                "name": "Elektrolitikus szterilizálás"
             },
             "uv_sterilization": {
                 "name": "UV sterilizálás"
