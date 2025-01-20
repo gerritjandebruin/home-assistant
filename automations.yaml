@@ -401,16 +401,16 @@
   description: ''
   triggers:
   - entity_id:
-    - binary_sensor.walk_in_closet_door
+    - binary_sensor.inloopkastdeur
     from: 'off'
     to: 'on'
     trigger: state
   conditions: []
   actions:
   - data: {}
-    target:
-      entity_id: light.walk_in_closet
     action: light.turn_on
+    target:
+      area_id: walk_in_closet
   - wait_for_trigger:
     - entity_id:
       - binary_sensor.walk_in_closet_door
@@ -423,9 +423,9 @@
       seconds: 0
       milliseconds: 0
   - data: {}
-    target:
-      entity_id: light.walk_in_closet
     action: light.turn_off
+    target:
+      area_id: walk_in_closet
   mode: single
 - id: '1672607309301'
   alias: Bureau M
