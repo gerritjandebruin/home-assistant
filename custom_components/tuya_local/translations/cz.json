@@ -100,6 +100,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "Směr",
+                "state": {
+                    "off": "Příchozí",
+                    "on": "Odchozí"
+                }
+            },
             "defrost": {
                 "name": "Rozmrazovat",
                 "state": {
@@ -179,6 +186,7 @@
                 }
             },
             "thermostat": {
+                "name": "Termostat",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -303,7 +311,8 @@
                             "medium": "Střední",
                             "high": "Vysoký",
                             "continuous": "Nepřetržitý",
-                            "intermittent": "Přerušovaný"
+                            "intermittent": "Přerušovaný",
+                            "timer": "Časovač"
                         }
                     }
                 }
@@ -439,11 +448,31 @@
                     "cake": "Koláč",
                     "bread": "Chléb",
                     "toast": "Topinka",
+                    "sausage": "Klobása",
+                    "dry_fruit": "Sušené ovoce",
                     "custom": "Vlastní",
                     "cloud_recipe": "Recept z cloudu",
                     "default": "Výchozí",
                     "keep_warm": "Udržování tepla",
                     "preheat": "Předehřátí"
+                }
+            },
+            "scene": {
+                "name": "Scéna",
+                "state": {
+                    "relax": "Relax",
+                    "movie": "Film",
+                    "party": "Večírek",
+                    "romantic": "Romantický",
+                    "night": "Noc",
+                    "morning": "Ráno",
+                    "working": "Práce",
+                    "leisure": "Volný čas",
+                    "vacation": "Dovolená",
+                    "reading": "Čtení",
+                    "twinkle": "Blikání",
+                    "gaming": "Hraní her",
+                     "none": "Žádný"
                 }
             },
             "timer": {
@@ -687,6 +716,11 @@
             },
             "uv_sterilization": {
                 "name": "UV sterilizace"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "Scéna"
             }
         }
     }

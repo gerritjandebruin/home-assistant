@@ -100,6 +100,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "Κατεύθυνση",
+                "state": {
+                    "off": "Εισερχόμενο",
+                    "on": "Εξερχόμενο"
+                }
+            },
             "defrost": {
                 "name": "Απόψυξη",
                 "state": {
@@ -179,6 +186,7 @@
                 }
             },
             "thermostat": {
+                "name": "Θερμοστάτης",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -303,7 +311,8 @@
                             "medium": "Μεσαία",
                             "high": "Υψηλή",
                             "continuous": "Συνεχής",
-                            "intermittent": "Διακεκομμένη"
+                            "intermittent": "Διακεκομμένη",
+                            "timer": "Χρονοδιακόπτης"
                         }
                     }
                 }
@@ -439,11 +448,31 @@
                     "cake": "Κέικ",
                     "bread": "Ψωμί",
                     "toast": "Ψωμί",
+                    "sausage": "Λουκάνικο",
+                    "dry_fruit": "Ξηροί καρποί",
                     "custom": "Προσαρμοσμένο",
                     "cloud_recipe": "Συνταγή από το cloud",
                     "default": "Προεπιλογή",
                     "keep_warm": "Διατήρηση θερμοκρασίας",
                     "preheat": "Προθέρμανση"
+                }
+            },
+            "scene": {
+                "name": "Σκηνή",
+                "state": {
+                    "relax": "Χαλάρωση",
+                    "movie": "Ταινία",
+                    "party": "Πάρτι",
+                    "romantic": "Ρομαντικό",
+                    "night": "Νύχτα",
+                    "morning": "Πρωί",
+                    "working": "Εργασία",
+                    "leisure": "Αναψυχή",
+                    "vacation": "Διακοπές",
+                    "reading": "Ανάγνωση",
+                    "twinkle": "Λάμψη",
+                    "gaming": "Παιχνίδι",
+                    "none": "Καμία"
                 }
             },
             "timer": {
@@ -687,6 +716,11 @@
             },
             "uv_sterilization": {
                 "name": "Αποστείρωση UV"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "Σκηνή"
             }
         }
     }

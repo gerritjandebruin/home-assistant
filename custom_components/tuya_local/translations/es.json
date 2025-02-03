@@ -100,6 +100,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "Dirección",
+                "state": {
+                    "off": "Entrante",
+                    "on": "Saliente"
+                }
+            },
             "defrost": {
                 "name": "Descongelar",
                 "state": {
@@ -179,6 +186,7 @@
                 }
             },
             "thermostat": {
+                "name": "Termostato",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -303,7 +311,8 @@
                             "medium": "Medio",
                             "high": "Alto",
                             "continuous": "Continuo",
-                            "intermittent": "Intermitente"
+                            "intermittent": "Intermitente",
+                            "timer": "Temporizador"
                         }
                     }
                 }
@@ -439,11 +448,31 @@
                     "cake": "Pastel",
                     "bread": "Pan",
                     "toast": "Tostada",
+                    "sausage": "Salchicha",
+                    "dry_fruit": "Fruta seca",
                     "custom": "Personalizado",
                     "cloud_recipe": "Receta de la nube",
                     "default": "Predeterminado",
                     "keep_warm": "Mantener caliente",
                     "preheat": "Precalentar"
+                }
+            },
+            "scene": {
+                "name": "Escena",
+                "state": {
+                    "relax": "Relajarse",
+                    "movie": "Película",
+                    "party": "Fiesta",
+                    "romantic": "Romántico",
+                    "night": "Noche",
+                    "morning": "Mañana",
+                    "working": "Trabajando",
+                    "leisure": "Ocio",
+                    "vacation": "Vacaciones",
+                    "reading": "Leyendo",
+                    "twinkle": "Destello",
+                    "gaming": "Juegos",
+                    "none": "Ninguno"
                 }
             },
             "timer": {
@@ -687,6 +716,11 @@
             },
             "uv_sterilization": {
                 "name": "Esterilización UV"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "Escena"
             }
         }
     }

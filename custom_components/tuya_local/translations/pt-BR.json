@@ -100,6 +100,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "Direção",
+                "state": {
+                    "off": "Entrada",
+                    "on": "Saída"
+                }
+            },
             "defrost": {
                 "name": "Descongelar",
                 "state": {
@@ -179,6 +186,7 @@
                 }
             },
             "thermostat": {
+                "name": "Termostato",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -303,7 +311,8 @@
                             "medium": "Médio",
                             "high": "Alto",
                             "continuous": "Contínuo",
-                            "intermittent": "Intermitente"
+                            "intermittent": "Intermitente",
+                            "timer": "Temporizador"
                         }
                     }
                 }
@@ -439,11 +448,31 @@
                     "cake": "Bolo",
                     "bread": "Pão",
                     "toast": "Torrada",
+                    "sausage": "Salsicha",
+                    "dry_fruit": "Fruta seca",
                     "custom": "Personalizado",
                     "cloud_recipe": "Receita da nuvem",
                     "default": "Padrão",
                     "keep_warm": "Manter quente",
                     "preheat": "Pré-aquecer"
+                }
+            },
+            "scene": {
+                "name": "Cena",
+                "state": {
+                    "relax": "Relaxar",
+                    "movie": "Filme",
+                    "party": "Festa",
+                    "romantic": "Romântico",
+                    "night": "Noite",
+                    "morning": "Manhã",
+                    "working": "Trabalhando",
+                    "leisure": "Lazer",
+                    "vacation": "Férias",
+                    "reading": "Lendo",
+                    "twinkle": "Cintilar",
+                    "gaming": "Jogando",
+                    "none": "Nenhum"
                 }
             },
             "timer": {
@@ -687,6 +716,11 @@
             },
             "uv_sterilization": {
                 "name": "Esterilização UV"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "Cena"
             }
         }
     }

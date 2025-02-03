@@ -101,6 +101,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "Irány",
+                "state": {
+                    "off": "Bejövő",
+                    "on": "Kimenő"
+                }
+            },
             "defrost": {
                 "name": "Leolvasztani",
                 "state": {
@@ -180,6 +187,7 @@
                 }
             },
             "thermostat": {
+                "name": "Hőmérséklet szabályozó",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -304,7 +312,8 @@
                             "medium": "Közepes",
                             "high": "Magas",
                             "continuous": "Folyamatos",
-                            "intermittent": "Időszakos"
+                            "intermittent": "Időszakos",
+                            "timer": "Időzítő"
                         }
                     }
                 }
@@ -440,11 +449,31 @@
                     "cake": "Sütemény",
                     "bread": "Kenyér",
                     "toast": "Pirítós",
+                    "sausage": "Kolbász",
+                    "dry_fruit": "Szárított gyümölcs",
                     "custom": "Egyéni",
                     "cloud_recipe": "Felhő recept",
                     "default": "Alapértelmezett",
                     "keep_warm": "Melegen tartás",
                     "preheat": "Előmelegítés"
+                }
+            },
+            "scene": {
+                "name": "Jelenet",
+                "state": {
+                    "relax": "Pihenés",
+                    "movie": "Film",
+                    "party": "Buli",
+                    "romantic": "Romantikus",
+                    "night": "Éjszaka",
+                    "morning": "Reggel",
+                    "working": "Munka",
+                    "leisure": "Szabadidő",
+                    "vacation": "Szabadság",
+                    "reading": "Olvasás",
+                    "twinkle": "Csillogás",
+                    "gaming": "Játék",
+                    "none": "Nincs"
                 }
             },
             "timer": {
@@ -688,6 +717,11 @@
             },
             "uv_sterilization": {
                 "name": "UV sterilizálás"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "Jelenet"
             }
         }
     }

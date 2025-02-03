@@ -102,6 +102,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "Напрямок",
+                "state": {
+                    "off": "Вхідний",
+                    "on": "Вихідний"
+                }
+            },
             "defrost": {
                 "name": "Розморожування",
                 "state": {
@@ -181,6 +188,7 @@
                 }
             },
             "thermostat": {
+                "name": "Термостат",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -306,7 +314,8 @@
                             "medium": "Середній",
                             "high": "Високий",
                             "continuous": "Постійний",
-                            "intermittent": "Інтермітентний"
+                            "intermittent": "Інтермітентний",
+                            "timer": "Таймер"
                         }
                     }
                 }
@@ -442,11 +451,31 @@
                     "cake": "Торт",
                     "bread": "Хліб",
                     "toast": "Тост",
+                    "sausage": "Ковбаса",
+                    "dry_fruit": "Сухофрукти",
                     "custom": "Користувацький",
                     "cloud_recipe": "Хмарний рецепт",
                     "default": "За замовчуванням",
                     "keep_warm": "Підтримувати тепло",
                     "preheat": "Попередній нагрів"
+                }
+            },
+            "scene": {
+                "name": "Сцена",
+                "state": {
+                    "relax": "Релакс",
+                    "movie": "Фільм",
+                    "party": "Вечірка",
+                    "romantic": "Романтика",
+                    "night": "Ніч",
+                    "morning": "Ранок",
+                    "working": "Робота",
+                    "leisure": "Дозвілля",
+                    "vacation": "Відпустка",
+                    "reading": "Читання",
+                    "twinkle": "Мерехтіння",
+                    "gaming": "Ігри",
+                    "none": "Нічого"
                 }
             },
             "timer": {
@@ -690,6 +719,11 @@
             },
             "uv_sterilization": {
                 "name": "УФ стерилізація"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "Сцена"
             }
         }
     }

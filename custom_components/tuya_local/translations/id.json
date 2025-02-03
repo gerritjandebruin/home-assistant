@@ -100,6 +100,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "Arah",
+                "state": {
+                    "off": "Masuk",
+                    "on": "Keluar"
+                }
+            },
             "defrost": {
                 "name": "Mencairkan beku",
                 "state": {
@@ -179,6 +186,7 @@
                 }
             },
             "thermostat": {
+                "name": "Termostat",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -303,7 +311,8 @@
                             "medium": "Sedang",
                             "high": "Tinggi",
                             "continuous": "Terus menerus",
-                            "intermittent": "Intermiten"
+                            "intermittent": "Intermiten",
+                            "timer": "Pengatur waktu"
                         }
                     }
                 }
@@ -439,11 +448,31 @@
                     "cake": "Kue",
                     "bread": "Roti",
                     "toast": "Roti panggang",
+                    "sausage": "Sosis",
+                    "dry_fruit": "Buah kering",
                     "custom": "Kustom",
                     "cloud_recipe": "Resep awan",
                     "default": "Default",
                     "keep_warm": "Tetap hangat",
                     "preheat": "Pemanasan awal"
+                }
+            },
+            "scene": {
+                "name": "Adegan",
+                "state": {
+                    "relax": "Rileks",
+                    "movie": "Film",
+                    "party": "Pesta",
+                    "romantic": "Romantis",
+                    "night": "Malam",
+                    "morning": "Pagi",
+                    "working": "Bekerja",
+                    "leisure": "Santai",
+                    "vacation": "Liburan",
+                    "reading": "Membaca",
+                    "twinkle": "Berkedip",
+                    "gaming": "Bermain game",
+                    "none": "Tidak ada"
                 }
             },
             "timer": {
@@ -687,6 +716,11 @@
             },
             "uv_sterilization": {
                 "name": "Sterilisasi UV"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "Adegan"
             }
         }
     }

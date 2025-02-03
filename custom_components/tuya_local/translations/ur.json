@@ -103,6 +103,13 @@
     },
     "entity": {
         "binary_sensor": {
+            "direction": {
+                "name": "سمت",
+                "state": {
+                    "off": "آنے والی",
+                    "on": "جانب"
+                }
+            },
             "defrost": {
                 "name": "ڈیفروسٹ",
                 "state": {
@@ -182,6 +189,7 @@
                 }
             },
             "thermostat": {
+                "name": "تھرموسٹیٹ",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -306,7 +314,8 @@
                             "medium": "درمیانہ",
                             "high": "زیادہ",
                             "continuous": "مسلسل",
-                            "intermittent": "منقطع"
+                            "intermittent": "منقطع",
+                            "timer": "ٹائمر"
                         }
                     }
                 }
@@ -442,11 +451,31 @@
                     "cake": "کیک",
                     "bread": "روٹی",
                     "toast": "ٹوسٹ",
+                    "sausage": "سوسیج",
+                    "dry_fruit": "خشک پھل",
                     "custom": "اپنی مرضی",
                     "cloud_recipe": "کلاؤڈ ریسیپی",
                     "default": "پہلے سے طے شدہ",
                     "keep_warm": "گرم رکھیں",
                     "preheat": "پری ہیٹ"
+                }
+            },
+            "scene": {
+                "name": "منظر",
+                "state": {
+                    "relax": "آرام",
+                    "movie": "فلم",
+                    "party": "پارٹی",
+                    "romantic": "رومانٹک",
+                    "night": "رات",
+                    "morning": "صبح",
+                    "working": "کام",
+                    "leisure": "فراغت",
+                    "vacation": "چھٹی",
+                    "reading": "پڑھائی",
+                    "twinkle": "چمک",
+                    "gaming": "گیمنگ",
+                    "none": "کوئی نہیں"
                 }
             },
             "timer": {
@@ -690,6 +719,11 @@
             },
             "uv_sterilization": {
                 "name": "UV نس بندی"
+            }
+        },
+        "text": {
+            "scene": {
+                "name": "منظر"
             }
         }
     }
