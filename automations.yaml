@@ -49,19 +49,13 @@
         below: 0
       sequence:
       - data:
-          color_temp: 500
           brightness: 255
-        target:
-          entity_id:
-          - light.hall
+          kelvin: 6500
         action: light.turn_on
-      - data:
-          brightness: 100
-          color_temp: 331
         target:
-          entity_id:
-          - light.corridor
-        action: light.turn_on
+          area_id:
+          - hall
+          - corridor
     - conditions:
       - condition: time
         weekday:
@@ -104,6 +98,7 @@
           color_temp: 153
           brightness_pct: 100
           flash: long
+          kelvin: 2000
         action: light.turn_on
         target:
           area_id:
@@ -112,8 +107,8 @@
       alias: Rijdendetreinen?
     default:
     - data:
-        brightness: 100
-        color_temp: 326
+        kelvin: 3390
+        brightness_pct: 51
       action: light.turn_on
       target:
         area_id:
@@ -402,9 +397,9 @@
   triggers:
   - entity_id:
     - binary_sensor.inloopkastdeur
-    from: 'off'
-    to: 'on'
     trigger: state
+    to: 'on'
+    from: 'off'
   conditions: []
   actions:
   - data: {}
@@ -413,7 +408,7 @@
       area_id: walk_in_closet
   - wait_for_trigger:
     - entity_id:
-      - binary_sensor.walk_in_closet_door
+      - binary_sensor.inloopkastdeur
       to: 'off'
       trigger: state
     continue_on_timeout: true
@@ -888,7 +883,7 @@
       message: '{{ trigger.from_state.attributes.friendly_name }}'
   mode: single
 - id: '1736006622068'
-  alias: Zet verwarming na drie uur uit en waarschuw
+  alias: Zet verwarming na twee uur uit en waarschuw
   description: ''
   triggers:
   - trigger: state
@@ -898,7 +893,7 @@
     - climate.zolderverwarming
     to: heat
     for:
-      hours: 3
+      hours: 2
       minutes: 0
       seconds: 0
   conditions: []
@@ -913,11 +908,6 @@
     domain: mobile_app
     type: notify
     message: '{{ message }}'
-  - action: notify.persistent_notification
-    metadata: {}
-    data:
-      message: '{{ message }}'
-    enabled: false
   variables:
     message: '{{ trigger.from_state.attributes.friendly_name }} uitgezet omdat deze
       drie uur aanstaat.'
@@ -1188,11 +1178,6 @@
     target:
       area_id:
       - kitchen
-      - shed
-  - action: notify.persistent_notification
-    metadata: {}
-    data:
-      message: Hoge CO2 waarde
   - action: notify.mobile_app_telefoon_gj
     metadata: {}
     data:
@@ -1223,7 +1208,6 @@
     target:
       area_id:
       - kitchen
-      - shed
   mode: single
 - id: '1736247546553'
   alias: Waarschuw bij schimmelprobleem
