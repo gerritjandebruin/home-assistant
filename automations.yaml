@@ -356,9 +356,9 @@
     alias: Als het donker is
   actions:
   - type: turn_on
-    device_id: 663b87c1fa016b28463175ae19183722
-    entity_id: 79243d07315d99d310ba3b2cf36e9cc9
-    domain: light
+    device_id: 9e0093838911b4f789ac49d8b3bb7985
+    entity_id: 45d00649fc28236b3e492dc866617182
+    domain: switch
   - wait_for_trigger:
     - type: no_motion
       device_id: 92f92740112aad1de8eac8a6c9ebb5bd
@@ -371,9 +371,9 @@
       seconds: 0
       milliseconds: 0
   - type: turn_off
-    device_id: 663b87c1fa016b28463175ae19183722
-    entity_id: 79243d07315d99d310ba3b2cf36e9cc9
-    domain: light
+    device_id: 9e0093838911b4f789ac49d8b3bb7985
+    entity_id: 45d00649fc28236b3e492dc866617182
+    domain: switch
   mode: single
 - id: '1652901588502'
   alias: Waarschuw wanneer robotstofzuiger opgeladen is
