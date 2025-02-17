@@ -882,36 +882,6 @@
     data:
       message: '{{ trigger.from_state.attributes.friendly_name }}'
   mode: single
-- id: '1736006622068'
-  alias: Zet verwarming na twee uur uit en waarschuw
-  description: ''
-  triggers:
-  - trigger: state
-    entity_id:
-    - climate.badkamerverwarming
-    - climate.slaapkamerverwarming
-    - climate.zolderverwarming
-    to: heat
-    for:
-      hours: 2
-      minutes: 0
-      seconds: 0
-  conditions: []
-  actions:
-  - action: climate.turn_off
-    metadata: {}
-    data: {}
-    target:
-      entity_id: '{{ trigger.entity_id }}'
-    alias: Verwarming uitzetten
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: '{{ message }}'
-  variables:
-    message: '{{ trigger.from_state.attributes.friendly_name }} uitgezet omdat deze
-      drie uur aanstaat.'
-  mode: single
 - id: '1736080909541'
   alias: Schakel apparatuur af en waarschuw bij hoog stroomverbruik
   description: ''
@@ -1227,4 +1197,77 @@
     metadata: {}
     data:
       message: '{{ trigger.from_state.attributes.friendly_name }}'
+  mode: single
+- id: '1739642896572'
+  alias: Badkamer verwarming uit wanneer meer dan 1 uur aan
+  description: ''
+  triggers:
+  - type: power
+    device_id: b2f73e9e6017b1b2f108badaa6973eb6
+    entity_id: 3cf1fa9da1d6523c82e4e0541d2895e6
+    domain: sensor
+    trigger: device
+    above: 700
+    for:
+      hours: 1
+      minutes: 0
+      seconds: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: b2f73e9e6017b1b2f108badaa6973eb6
+    entity_id: bf98c839b3f2a5efc4f525265dbfe120
+    domain: switch
+  mode: single
+- id: '1739642944337'
+  alias: Slaapkamer verwarming uitzetten
+  description: ''
+  triggers:
+  - type: power
+    device_id: 1aaca9ecff74dd2e4d510ebcbb2c2d3f
+    entity_id: c6d2ef29f6e8b3640c7d33c9fb86fa8d
+    domain: sensor
+    trigger: device
+    above: 700
+    for:
+      hours: 2
+      minutes: 0
+      seconds: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 1aaca9ecff74dd2e4d510ebcbb2c2d3f
+    entity_id: d703b06263a3cee7368534663e723728
+    domain: switch
+  mode: single
+- id: '1739643014953'
+  alias: Zolder verwarming uitzetten wanneer nodig
+  description: ''
+  triggers:
+  - type: power
+    device_id: ae99c98711a5eb4ca519f4cd2aed79a2
+    entity_id: 85cb4154c21faf6f3956382da76b3942
+    domain: sensor
+    trigger: device
+    above: 700
+    for:
+      hours: 3
+      minutes: 0
+      seconds: 0
+  - type: temperature
+    device_id: 632039c9f3c3e637d65461552bcb74f4
+    entity_id: 996a7495e866b36e36e375019e6d7d85
+    domain: sensor
+    trigger: device
+    above: 23
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: ae99c98711a5eb4ca519f4cd2aed79a2
+    entity_id: c649c7b496055fb52edf665035441a1a
+    domain: switch
   mode: single
