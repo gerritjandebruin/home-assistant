@@ -49,3 +49,4 @@ esphome/tno-esp32-l2.yaml
 esphome/tno-esp32-l3.yaml
 esphome/tno-esp32-l4.yaml
 esphome/tno-esp32-l5.yaml
+tts
