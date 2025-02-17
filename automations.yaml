@@ -1265,3 +1265,35 @@
     entity_id: c649c7b496055fb52edf665035441a1a
     domain: switch
   mode: single
+- id: '1739819738633'
+  alias: Kerstverlichting aan bij zonsondergang en na 5:00
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunset
+    offset: 0
+  - trigger: time
+    at: 05:00:00
+  conditions: []
+  actions:
+  - type: turn_on
+    device_id: 4efa09d63b2d48f30821c01cf2eb38d8
+    entity_id: 4875a0027193f02261c4e0f03b0e0991
+    domain: light
+  mode: single
+- id: '1739819780785'
+  alias: Kerstverlichting uit bij zonsopkomst en 1:00
+  description: ''
+  triggers:
+  - trigger: sun
+    event: sunrise
+    offset: 0
+  - trigger: time
+    at: 01:00:00
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 4efa09d63b2d48f30821c01cf2eb38d8
+    entity_id: 4875a0027193f02261c4e0f03b0e0991
+    domain: light
+  mode: single
