@@ -34,7 +34,7 @@
       sequence:
       - data:
           brightness_pct: 1
-          kelvin: 2000
+          color_temp_kelvin: 2000
         action: light.turn_on
         target:
           area_id:
@@ -50,7 +50,7 @@
       sequence:
       - data:
           brightness: 255
-          kelvin: 6500
+          color_temp_kelvin: 6500
         action: light.turn_on
         target:
           area_id:
@@ -98,7 +98,7 @@
           color_temp: 153
           brightness_pct: 100
           flash: long
-          kelvin: 2000
+          color_temp_kelvin: 2000
         action: light.turn_on
         target:
           area_id:
@@ -107,7 +107,7 @@
       alias: Rijdendetreinen?
     default:
     - data:
-        kelvin: 3390
+        color_temp_kelvin: 3390
         brightness_pct: 51
       action: light.turn_on
       target:
@@ -557,7 +557,7 @@
         - Dim omhoog
       sequence:
       - data:
-          kelvin: 2000
+          color_temp_kelvin: 2000
           brightness_pct: 100
         action: light.turn_on
         target:
@@ -568,7 +568,7 @@
         - Dim omlaag
       sequence:
       - data:
-          kelvin: 2000
+          color_temp_kelvin: 2000
           brightness_pct: 1
         action: light.turn_on
         target:
@@ -693,7 +693,7 @@
           - 0
           - 0
           - 255
-          kelvin: 2000
+          color_temp_kelvin: 2000
           brightness_pct: 50
         target:
           device_id: a9f1fc5ca682b5534d1e91820b492b08
@@ -1138,7 +1138,7 @@
   - action: light.turn_on
     metadata: {}
     data:
-      kelvin: 6500
+      color_temp_kelvin: 6500
     target:
       area_id:
       - kitchen
