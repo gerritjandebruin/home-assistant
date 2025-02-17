@@ -831,8 +831,6 @@
     - binary_sensor.energiemeter_overpowering
     - binary_sensor.badkamerverwarming_overpowering
     - binary_sensor.inloopkast_koelkast_overpowering
-    - binary_sensor.fietsenstalling_stopcontact_overpowering
-    - binary_sensor.fietsenstalling_verlichting_overpowering
     - binary_sensor.bureau_gj_overheating
     - binary_sensor.wasdroger_overheating
     - binary_sensor.serverkast_overheating
@@ -996,7 +994,6 @@
     - sensor.accesspoint_spanning
     - sensor.energiemeter_spanning
     - sensor.tv_schakelaar_spanning
-    - sensor.fietsenstalling_spanning
     - sensor.keuken_koelkast_spanning
     - sensor.zolderverwarming_spanning
     - sensor.slaapkamerverwarming_spanning
@@ -1009,7 +1006,6 @@
     - sensor.accesspoint_spanning
     - sensor.energiemeter_spanning
     - sensor.tv_schakelaar_spanning
-    - sensor.fietsenstalling_spanning
     - sensor.keuken_koelkast_spanning
     - sensor.zolderverwarming_spanning
     - sensor.slaapkamerverwarming_spanning
@@ -1075,7 +1071,6 @@
     - sensor.badkamerdeur_apparaattemperatuur
     - sensor.badkamerverwarming_apparaattemperatuur
     - sensor.bureau_gj_apparaattemperatuur
-    - sensor.fietsenstalling_apparaattemperatuur
     - sensor.gang_bewegingsmelder_apparaattemperatuur
     - sensor.growatt_apparaattemperatuur
     - sensor.growatt_ipm_temperatuur
@@ -1097,7 +1092,6 @@
     - sensor.badkamerdeur_apparaattemperatuur
     - sensor.badkamerverwarming_apparaattemperatuur
     - sensor.bureau_gj_apparaattemperatuur
-    - sensor.fietsenstalling_apparaattemperatuur
     - sensor.gang_bewegingsmelder_apparaattemperatuur
     - sensor.growatt_apparaattemperatuur
     - sensor.growatt_ipm_temperatuur
