@@ -43,3 +43,9 @@ esphome/my_components/T9602/T9602.cpp
 esphome/my_components/T9602/T9602.h
 esphome/tno-esp32-poe.yaml
 esphome/trash
+tesla_fleet.key
+esphome/tno-esp32-l1.yaml
+esphome/tno-esp32-l2.yaml
+esphome/tno-esp32-l3.yaml
+esphome/tno-esp32-l4.yaml
+esphome/tno-esp32-l5.yaml
