@@ -2,7 +2,7 @@ substitutions:
   name: apollo-air-1-bd7c74
   friendly_name: Apollo AIR-1 bd7c74
 packages:
-  ApolloAutomation.AIR-1: github://ApolloAutomation/AIR-1/Integrations/ESPHome/AIR-1.yaml
+  ApolloAutomation.AIR-1: github://ApolloAutomation/AIR-1/Integrations/ESPHome/AIR-1_BLE.yaml
 esphome:
   name: ${name}
   name_add_mac_suffix: false
