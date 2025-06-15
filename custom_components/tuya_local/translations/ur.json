@@ -165,6 +165,7 @@
         },
         "climate": {
             "aircon_extra": {
+                "name": "ایئر کنڈیشنر",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -320,7 +321,19 @@
                     }
                 }
             },
+            "dehumidifier": {
+                "name": "ڈی ہیومیڈیفائر",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "پاک کریں۔",
+                            "dehumidify": "ڈی ہیومیڈیفائی کریں۔"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
+                "name": "پنکھا",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -331,6 +344,7 @@
                             "fresh": "تازه",
                             "smart": "سمارٹ",
                             "strong": "مضبوط",
+                            "custom": "اپنی مرضی کے مطابق",
                             "high": "زیادہ",
                             "medium": "درمیانہ",
                             "low": "کم",
@@ -398,6 +412,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "کرنسی",
+                "state": {
+                    "usd": "یو ایس ڈی",
+                    "eur": "یورو",
+                    "cny": "چینی یوان",
+                    "cad": "کینیڈین ڈالر",
+                    "gbp": "برطانوی پاؤنڈ"
+                }
+            },
             "initial_state": {
                 "name": "ابتدائی حالت",
                 "state": {
@@ -485,6 +509,9 @@
                 "state": {
                     "cancel": "منسوخ کریں",
                     "continuous": "مسلسل",
+                    "30s": "30 سیکنڈ",
+                    "1m": "1 منٹ",
+                    "2m": "2 منٹ",
                     "5m": "5 منٹ",
                     "10m": "10 منٹ",
                     "20m": "20 منٹ",
@@ -649,7 +676,16 @@
                     "close": "بند",
                     "monitor": "مانیٹر",
                     "working": "کام کر رہا ہے",
-                    "warning": "انتباہ"
+                    "warning": "انتباہ",
+                    "starting": "شروع ہو رہا ہے",
+                    "emptying": "خالی کرنا",
+                    "resetting": "ری سیٹ کرنا",
+                    "reverse": "الٹا",
+                    "full": "مکمل",
+                    "empty": "خالی",
+                    "missing": "غائب",
+                    "formatting": "فارمیٹنگ",
+                    "unformatted": "غیر شکل بند"
                 }
             },
             "time_remaining": {
@@ -730,6 +766,40 @@
         "text": {
             "scene": {
                 "name": "منظر"
+            }
+        },
+        "water_heater": {
+            "water_air": {
+                "name": "پانی کا ہیٹر",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "heat": "گرم",
+                            "cool": "ٹھنڈا",
+                            "auto": "خود کار",
+                            "off": "آف",
+                            "hotwater": "گرم پانی",
+                            "hotwater_cool": "گرم پانی اور ٹھنڈا",
+                            "hotwater_heat": "گرم پانی اور گرم",
+                            "hotwater_auto": "گرم پانی اور خود کار"
+                        }
+                    }
+                }
+            },
+            "kettle": {
+                "name": "کیٹل",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "off": "آف",
+                            "heat": "گرم",
+                            "boil": "ابالنا",
+                            "quick_heat": "فوری گرم",
+                            "quick_boil": "فوری ابالنا",
+                            "keep_warm": "گرم رکھنا"
+                        }
+                    }
+                }
             }
         }
     }

@@ -163,6 +163,7 @@
         },
         "climate": {
             "aircon_extra": {
+                "name": "Climatizzatore",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -318,7 +319,19 @@
                     }
                 }
             },
+            "dehumidifier": {
+                "name": "Deumidificatore",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "Purifica",
+                            "dehumidify": "Deumidifica"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
+                "name": "Ventilatore",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -329,6 +342,7 @@
                             "fresh": "Fresco",
                             "smart": "Intelligente",
                             "strong": "Forte",
+                            "custom": "Personalizzato",
                             "high": "Alto",
                             "medium": "Medio",
                             "low": "Basso",
@@ -396,6 +410,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "Valuta",
+                "state": {
+                    "usd": "USD",
+                    "eur": "EUR",
+                    "cny": "CNY",
+                    "cad": "CAD",
+                    "gbp": "GBP"
+                }
+            },
             "initial_state": {
                 "name": "Stato iniziale",
                 "state": {
@@ -483,6 +507,9 @@
                 "state": {
                     "cancel": "Annulla",
                     "continuous": "Continuo",
+                    "30s": "30 secondi",
+                    "1m": "1 minuto",
+                    "2m": "2 minuti",
                     "5m": "5 minuti",
                     "10m": "10 minuti",
                     "20m": "20 minuti",
@@ -647,7 +674,16 @@
                     "close": "Chiudi",
                     "monitor": "Monitor",
                     "working": "Lavorando",
-                    "warning": "Attenzione"
+                    "warning": "Attenzione",
+                    "starting": "Inizio",
+                    "emptying": "Svuotamento",
+                    "resetting": "Ripristino",
+                    "reverse": "Inversione",
+                    "full": "Pieno",
+                    "empty": "Vuoto",
+                    "missing": "Mancante",
+                    "formatting": "Formattazione",
+                    "unformatted": "Non formattato"
                 }
             },
             "time_remaining": {
@@ -728,6 +764,40 @@
         "text": {
             "scene": {
                 "name": "Scena"
+            }
+        },
+        "water_heater": {
+            "water_air": {
+                "name": "Scaldabagno",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "heat": "Riscaldamento",
+                            "cool": "Raffreddamento",
+                            "auto": "Auto",
+                            "off": "Spento",
+                            "hotwater": "Acqua calda",
+                            "hotwater_cool": "Acqua calda e raffreddamento",
+                            "hotwater_heat": "Acqua calda e riscaldamento",
+                            "hotwater_auto": "Acqua calda e auto"
+                        }
+                    }
+                }
+            },
+            "kettle": {
+                "name": "Bollitore",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "off": "Spento",
+                            "heat": "Riscaldamento",
+                            "boil": "Bollire",
+                            "quick_heat": "Riscaldamento rapido",
+                            "quick_boil": "Bollitura rapida",
+                            "keep_warm": "Mantenere caldo"
+                        }
+                    }
+                }
             }
         }
     }

@@ -125,6 +125,12 @@ class TuyaDeviceConfig:
     @property
     def primary_entity(self):
         """Return the primary type of entity for this device."""
+        if "primary_entity" not in self._config:
+            # primary entity is a deprecated fallback, so if it is
+            # missing, we need to log a warning about the missing entities
+            # list.
+            _LOGGER.error(f"{self.config_type}.yaml does not define an entities list.")
+            return TuyaEntityConfig(self, self._config["entities"][0])
         if not self._reported_deprecated_primary:
             _LOGGER.warning(
                 f"{self.config_type}.yaml distinguishes between primary"
@@ -353,7 +359,7 @@ class TuyaEntityConfig:
         avail_dp = self.find_dps("available")
         if avail_dp and device.has_returned_state:
             return avail_dp.get_value(device)
-        return True
+        return device.has_returned_state
 
     def enabled_by_default(self, device):
         """Return whether this entity should be disabled by default."""
@@ -366,7 +372,7 @@ class TuyaEntityConfig:
                     self._device.config_type,
                     self.name,
                 )
-            hidden = not self.available(device)
+            hidden = device.has_returned_state and not self.available(device)
         return not hidden and not self.deprecated
 
 

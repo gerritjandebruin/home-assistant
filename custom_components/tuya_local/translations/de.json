@@ -162,6 +162,7 @@
         },
         "climate": {
             "aircon_extra": {
+                "name": "Klimaanlage",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -316,7 +317,19 @@
                     }
                 }
             },
+            "dehumidifier": {
+                "name": "Entfeuchter",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "Reinigen",
+                            "dehumidify": "Entfeuchten"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
+                "name": "Ventilator",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -327,6 +340,7 @@
                             "fresh": "Frisch",
                             "smart": "Intelligent",
                             "strong": "Stark",
+                            "custom": "Benutzerdefiniert",
                             "high": "Hoch",
                             "medium": "Mittel",
                             "low": "Niedrig",
@@ -394,6 +408,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "Währung",
+                "state": {
+                    "usd": "USD",
+                    "eur": "EUR",
+                    "cny": "CNY",
+                    "cad": "CAD",
+                    "gbp": "GBP"
+                }
+            },
             "initial_state": {
                 "name": "Startzustand",
                 "state": {
@@ -481,6 +505,9 @@
                 "state": {
                     "cancel": "Abbrechen",
                     "continuous": "Dauerbetrieb",
+                    "30s": "30 Sekunden",
+                    "1m": "1 Minute",
+                    "2m": "2 Minuten",
                     "5m": "5 Minuten",
                     "10m": "10 Minuten",
                     "20m": "20 Minuten",
@@ -646,7 +673,16 @@
                     "close": "Schließen",
                     "monitor": "Überwachen",
                     "working": "Arbeiten",
-                    "warning": "Warnung"
+                    "warning": "Warnung",
+                    "starting": "Starten",
+                    "emptying": "Leeren",
+                    "resetting": "Zurücksetzen",
+                    "reverse": "Rückwärts",
+                    "full": "Voll",
+                    "empty": "Leer",
+                    "missing": "Fehlend",
+                    "formatting": "Formatieren",
+                    "unformatted": "Unformatiert"
                 }
             },
             "time_remaining": {
@@ -727,6 +763,40 @@
         "text": {
             "scene": {
                 "name": "Szene"
+            }
+        },
+        "water_heater": {
+            "water_air": {
+                "name": "Wasserkocher",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "heat": "Heizen",
+                            "cool": "Kühlen",
+                            "auto": "Auto",
+                            "off": "Aus",
+                            "hotwater": "Warmwasser",
+                            "hotwater_cool": "Warmwasser Kühlen",
+                            "hotwater_heat": "Warmwasser Heizen",
+                            "hotwater_auto": "Warmwasser Auto"
+                        }
+                    }
+                }
+            },
+            "kettle": {
+                "name": "Wasserkocher",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "off": "Aus",
+                            "heat": "Heizen",
+                            "boil": "Kochen",
+                            "quick_heat": "Schnellheizen",
+                            "quick_boil": "Schnellkochen",
+                            "keep_warm": "Warmhalten"
+                        }
+                    }
+                }
             }
         }
     }

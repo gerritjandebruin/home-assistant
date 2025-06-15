@@ -163,6 +163,7 @@
         },
         "climate": {
             "aircon_extra": {
+                "name": "Légkondicionáló",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -318,7 +319,19 @@
                     }
                 }
             },
+            "dehumidifier": {
+                "name": "Párátlanító",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "Tisztítás",
+                            "dehumidify": "Párátlanítás"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
+                "name": "Ventilátor",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -329,6 +342,7 @@
                             "fresh": "Friss",
                             "smart": "Okos",
                             "strong": "Erős",
+                            "custom": "Egyéni",
                             "high": "Magas",
                             "medium": "Közepes",
                             "low": "Alacsony",
@@ -396,6 +410,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "Pénznem",
+                "state": {
+                    "usd": "USD",
+                    "eur": "EUR",
+                    "cny": "CNY",
+                    "cad": "CAD",
+                    "gbp": "GBP"
+                }
+            },
             "initial_state": {
                 "name": "Kezdeti állapot",
                 "state": {
@@ -483,6 +507,9 @@
                 "state": {
                     "cancel": "Mégse",
                     "continuous": "Folyamatos",
+                    "30s": "30 másodperc",
+                    "1m": "1 perc",
+                    "2m": "2 perc",
                     "5m": "5 perc",
                     "10m": "10 perc",
                     "20m": "20 perc",
@@ -647,7 +674,16 @@
                     "close": "Bezárás",
                     "monitor": "Figyelés",
                     "working": "Működés",
-                    "warning": "Figyelmeztetés"
+                    "warning": "Figyelmeztetés",
+                    "starting": "Indítás",
+                    "emptying": "Ürítés",
+                    "resetting": "Visszaállítás",
+                    "reverse": "Visszafelé",
+                    "full": "Teljes",
+                    "empty": "Üres",
+                    "missing": "Hiányzik",
+                    "formatting": "Formázás",
+                    "unformatted": "Nem formázott"
                 }
             },
             "time_remaining": {
@@ -728,6 +764,40 @@
         "text": {
             "scene": {
                 "name": "Jelenet"
+            }
+        },
+        "water_heater": {
+            "water_air": {
+                "name": "Vízmelegítő",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "heat": "Fűtés",
+                            "cool": "Hűtés",
+                            "auto": "Auto",
+                            "off": "Ki",
+                            "hotwater": "Meleg víz",
+                            "hotwater_cool": "Meleg víz és hűtés",
+                            "hotwater_heat": "Meleg víz és fűtés",
+                            "hotwater_auto": "Meleg víz és automatikus"
+                        }
+                    }
+                }
+            },
+            "kettle": {
+                "name": "Vízforraló",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "off": "Ki",
+                            "heat": "Fűtés",
+                            "boil": "Forralás",
+                            "quick_heat": "Gyors fűtés",
+                            "quick_boil": "Gyors forralás",
+                            "keep_warm": "Melegen tartás"
+                        }
+                    }
+                }
             }
         }
     }

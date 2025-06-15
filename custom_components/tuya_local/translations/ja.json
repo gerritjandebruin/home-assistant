@@ -162,6 +162,7 @@
         },
         "climate": {
             "aircon_extra": {
+                "name": "エアコン",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -317,7 +318,19 @@
                     }
                 }
             },
+            "dehumidifier": {
+                "name": "除湿器",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "浄化",
+                            "dehumidify": "除湿"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
+                "name": "ファン",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -328,6 +341,7 @@
                             "fresh": "新鮮",
                             "smart": "スマート",
                             "strong": "強い",
+                            "custom": "カスタム",
                             "high": "高い",
                             "medium": "中",
                             "low": "低い",
@@ -395,6 +409,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "通貨",
+                "state": {
+                    "usd": "米ドル",
+                    "eur": "ユーロ",
+                    "cny": "人民元",
+                    "cad": "カナダドル",
+                    "gbp": "英国ポンド"
+                }
+            },
             "initial_state": {
                 "name": "初期状態",
                 "state": {
@@ -482,6 +506,9 @@
                 "state": {
                     "cancel": "キャンセル",
                     "continuous": "連続",
+                    "30s": "30秒",
+                    "1m": "1分",
+                    "2m": "2分",
                     "5m": "5分",
                     "10m": "10分",
                     "20m": "20分",
@@ -646,7 +673,16 @@
                     "close": "閉じる",
                     "monitor": "モニター",
                     "working": "作業中",
-                    "warning": "警告"
+                    "warning": "警告",
+                    "starting": "開始中",
+                    "emptying": "排出中",
+                    "resetting": "リセット中",
+                    "reverse": "逆",
+                    "full": "満杯",
+                    "empty": "空",
+                    "missing": "欠落",
+                    "formatting": "フォーマット中",
+                    "unformatted": "未フォーマット"
                 }
             },
             "time_remaining": {
@@ -727,6 +763,40 @@
         "text": {
             "scene": {
                 "name": "シーン"
+            }
+        },
+        "water_heater": {
+            "water_air": {
+                "name": "給湯器",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "heat": "加熱",
+                            "cool": "冷却",
+                            "auto": "自動",
+                            "off": "オフ",
+                            "hotwater": "給湯",
+                            "hotwater_cool": "給湯冷却",
+                            "hotwater_heat": "給湯加熱",
+                            "hotwater_auto": "給湯自動"
+                        }
+                    }
+                }
+            },
+            "kettle": {
+                "name": "ケトル",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "off": "オフ",
+                            "heat": "加熱",
+                            "boil": "沸騰",
+                            "quick_heat": "急速加熱",
+                            "quick_boil": "急速沸騰",
+                            "keep_warm": "保温"
+                        }
+                    }
+                }
             }
         }
     }

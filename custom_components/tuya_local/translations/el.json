@@ -162,6 +162,7 @@
         },
         "climate": {
             "aircon_extra": {
+                "name": "Κλιματιστικό",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -317,7 +318,19 @@
                     }
                 }
             },
+            "dehumidifier": {
+                "name": "Αφυγραντήρας",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "Καθαρισμός",
+                            "dehumidify": "Αφυγραντήρας"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
+                "name": "Ανεμιστήρας",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -328,6 +341,7 @@
                             "sleep": "Αναμονή",
                             "smart": "Έξυπνο",
                             "strong": "Δυνατό",
+                            "custom": "Προσαρμοσμένο",
                             "high": "Υψηλό",
                             "medium": "Μεσαίο",
                             "low": "Χαμηλό",
@@ -395,6 +409,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "Νόμισμα",
+                "state": {
+                    "usd": "Δολάριο ΗΠΑ",
+                    "eur": "Ευρώ",
+                    "cny": "Γουάν",
+                    "cad": "Δολάριο Καναδά",
+                    "gbp": "Λίρα Στερλίνα"
+                }
+            },
             "initial_state": {
                 "name": "Αρχική κατάσταση",
                 "state": {
@@ -482,6 +506,9 @@
                 "state": {
                     "cancel": "Ακύρωση",
                     "continuous": "Συνεχής",
+                    "30s": "30 δευτερόλεπτα",
+                    "1m": "1 λεπτό",
+                    "2m": "2 λεπτά",
                     "5m": "5 λεπτά",
                     "10m": "10 λεπτά",
                     "20m": "20 λεπτά",
@@ -646,7 +673,16 @@
                     "close": "Κλείσιμο",
                     "monitor": "Παρακολούθηση",
                     "working": "Λειτουργία",
-                    "warning": "Προειδοποίηση"
+                    "warning": "Προειδοποίηση",
+                    "starting": "Εκκίνηση",
+                    "emptying": "Αδειάζει",
+                    "resetting": "Επαναφορά",
+                    "reverse": "Αντίστροφο",
+                    "full": "Πλήρες",
+                    "empty": "Άδειο",
+                    "missing": "Ελλιπές",
+                    "formatting": "Μορφοποίηση",
+                    "unformatted": "Μη μορφοποιημένο"
                 }
             },
             "time_remaining": {
@@ -727,6 +763,40 @@
         "text": {
             "scene": {
                 "name": "Σκηνή"
+            }
+        },
+        "water_heater": {
+            "water_air": {
+                "name": "Θερμοσίφωνας",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "heat": "Θέρμανση",
+                            "cool": "Ψύξη",
+                            "auto": "Αυτόματο",
+                            "off": "Απενεργοποίηση",
+                            "hotwater": "Ζεστό νερό",
+                            "hotwater_cool": "Ζεστό νερό και ψύξη",
+                            "hotwater_heat": "Ζεστό νερό και θέρμανση",
+                            "hotwater_auto": "Αυτόματο ζεστό νερό"
+                        }
+                    }
+                }
+            },
+            "kettle": {
+                "name": "Βραστήρας",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "off": "Απενεργοποίηση",
+                            "heat": "Θέρμανση",
+                            "boil": "Βράσιμο",
+                            "quick_heat": "Γρήγορη θέρμανση",
+                            "quick_boil": "Γρήγορο βράσιμο",
+                            "keep_warm": "Διατήρηση θερμοκρασίας"
+                        }
+                    }
+                }
             }
         }
     }

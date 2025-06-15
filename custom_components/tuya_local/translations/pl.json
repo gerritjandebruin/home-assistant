@@ -162,6 +162,7 @@
         },
         "climate": {
             "aircon_extra": {
+                "name": "Klimatyzacja",
                 "state_attributes": {
                     "fan_mode": {
                         "state": {
@@ -317,7 +318,19 @@
                     }
                 }
             },
+            "dehumidifier": {
+                "name": "Osuszacz",
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "purify": "Oczyszczanie",
+                            "dehumidify": "Osuszanie"
+                        }
+                    }
+                }
+            },
             "fan_with_presets": {
+                "name": "Wentylator",
                 "state_attributes": {
                     "preset_mode": {
                         "state": {
@@ -328,6 +341,7 @@
                             "fresh": "Świeży",
                             "smart": "Inteligentny",
                             "strong": "Silny",
+                            "custom": "Niestandardowy",
                             "high": "Wysoki",
                             "medium": "Średni",
                             "low": "Niski",
@@ -395,6 +409,16 @@
             }
         },
         "select": {
+            "currency": {
+                "name": "Waluta",
+                "state": {
+                    "usd": "USD",
+                    "eur": "EUR",
+                    "cny": "CNY",
+                    "cad": "CAD",
+                    "gbp": "GBP"
+                }
+            },
             "initial_state": {
                 "name": "Stan początkowy",
                 "state": {
@@ -482,6 +506,9 @@
                 "state": {
                     "cancel": "Anuluj",
                     "continuous": "Ciągły",
+                    "30s": "30 sekund",
+                    "1m": "1 minuta",
+                    "2m": "2 minuty",
                     "5m": "5 minut",
                     "10m": "10 minut",
                     "20m": "20 minut",
@@ -647,7 +674,16 @@
                     "close": "Zamknięty",
                     "monitor": "Monitorowanie",
                     "working": "Pracuje",
-                    "warning": "Ostrzeżenie"
+                    "warning": "Ostrzeżenie",
+                    "starting": "Uruchamianie",
+                    "emptying": "Opróżnianie",
+                    "resetting": "Resetowanie",
+                    "reverse": "Odwrócone",
+                    "full": "Pełne",
+                    "empty": "Puste",
+                    "missing": "Brakujące",
+                    "formatting": "Formatowanie",
+                    "unformatted": "Niezformatowane"
                 }
             },
             "time_remaining": {
@@ -728,6 +764,40 @@
         "text": {
             "scene": {
                 "name": "Scena"
+            }
+        },
+        "water_heater": {
+            "water_air": {
+                "name": "Podgrzewacz wody",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "heat": "Ogrzewanie",
+                            "cool": "Chłodzenie",
+                            "auto": "Auto",
+                            "off": "Wyłączony",
+                            "hotwater": "Podgrzewanie wody",
+                            "hotwater_cool": "Podgrzewanie wody i chłodzenie",
+                            "hotwater_heat": "Podgrzewanie wody i ogrzewanie",
+                            "hotwater_auto": "Podgrzewanie wody i auto"
+                        }
+                    }
+                }
+            },
+            "kettle": {
+                "name": "Czajnik",
+                "state_attributes": {
+                    "operation_mode": {
+                        "state": {
+                            "off": "Wyłączony",
+                            "heat": "Ogrzewanie",
+                            "boil": "Gotowanie",
+                            "quick_heat": "Szybkie ogrzewanie",
+                            "quick_boil": "Szybkie gotowanie",
+                            "keep_warm": "Podgrzewanie"
+                        }
+                    }
+                }
             }
         }
     }
