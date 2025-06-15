@@ -1,5 +1,5 @@
 - id: '1603830622083'
-  alias: Gangverlichting aan bij beweging of openen voordeur als het donker is
+  alias: Gang automatische verlichting
   description: Triggers when there is movement in the hall at ground level or first
     floor. When it freezes, warn with a blue light. Brightness is adapted to the desired
     level. Because the IKEA sensor at the corridor is slow in going to the cleared
