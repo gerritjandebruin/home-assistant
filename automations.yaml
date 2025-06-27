@@ -171,48 +171,6 @@
     target:
       area_id: kitchen
   mode: single
-- id: '1608134139962'
-  alias: Schuurverlichting aan bij openen deur als het donker is
-  description: Put the light in the shed on when the door is opened and it is dark.
-    Put it off when the door is closed for longer than two minutes. If the door is
-    closed, the user is reminded of this automation by a brief flash.
-  triggers:
-  - type: opened
-    device_id: b3c874782468351d90c0ebe2fac89018
-    entity_id: 4e9c30ff5c5964462e30115fc96d94ab
-    domain: binary_sensor
-    trigger: device
-  conditions:
-  - condition: state
-    entity_id: binary_sensor.donker
-    state: 'off'
-    alias: Als het donker is
-  actions:
-  - data: {}
-    target:
-      area_id: shed
-    action: light.turn_on
-  - wait_for_trigger:
-    - type: not_opened
-      device_id: b3c874782468351d90c0ebe2fac89018
-      entity_id: 4e9c30ff5c5964462e30115fc96d94ab
-      domain: binary_sensor
-      trigger: device
-    timeout:
-      hours: 0
-      minutes: 5
-      seconds: 0
-      milliseconds: 0
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
-  - data: {}
-    target:
-      area_id: shed
-    action: light.turn_off
-  mode: restart
 - id: '1609974870568'
   alias: Knipper lampen en waarschuw wanneer deurbel ingedrukt wordt
   description: Flash lights and notify when the doorbell is detected by the RTL_433
