@@ -1175,3 +1175,45 @@
     target:
       area_id: corridor
   mode: single
+- id: '1750506763508'
+  alias: Feed EVdata
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    seconds: /1
+  conditions: []
+  actions:
+  - alias: MQTT publiceer EVMeter
+    action: mqtt.publish
+    metadata: {}
+    data:
+      topic: SmartEVSE/Set/EVMeter
+      payload: '{{ states(''sensor.ev_meter_stroom'') | multiply(10) | round(0) }}:0:0:{{
+        states(''sensor.ev_meter_kanaal_1_laadvermogen'') | round(0) }}:{{ states(''sensor.ev_meter_kanaal_1_afname_energie'')
+        | multiply(1000) | round(0) }}'
+  - alias: MQTT publiceer Mainsmeter
+    action: mqtt.publish
+    metadata: {}
+    data:
+      topic: SmartEVSE/Set/MainsMeter
+      payload: '{{ states(''sensor.sensorbox_netstroom_l1'') | multiply(10) | round(0)
+        }}:0:0'
+  mode: single
+- id: '1750950041121'
+  alias: Nieuw blogpost
+  description: ''
+  triggers:
+  - trigger: event
+    event_type: feedreader
+  conditions: []
+  actions:
+  - action: notify.gerritjan_debruin_gmail_com
+    metadata: {}
+    data:
+      title: Nieuw blog post
+      message: '"New blog post available - {{ as_timestamp(now()) | timestamp_custom(''%I:%M:%S
+        %p %d%b%Y'', true) }}"'
+      notification_id: '{{ trigger.event.data.title }}'
+      target:
+      - gerritjan.debruin@gmail.com
+  mode: single
