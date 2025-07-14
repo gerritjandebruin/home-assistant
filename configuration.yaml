@@ -1,4 +1,3 @@
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
 homeassistant:
@@ -10,15 +9,11 @@ homeassistant:
         - 192.168.1.0/24
         - 127.0.0.1
         - 95.99.85.207
-        - 192.168.1.170
   customize:
-    # Only those that connot be configure using the UI
     sensor.vacuum_cleaning_area:
       unit_of_measurement: "m³"
     sensor.vacuum_cleaning_time:
       unit_of_measurement: "min"
-    sensor.washing_machine_flood_battery:
-      state_class: measurement
 
 http:
   ip_ban_enabled: false
