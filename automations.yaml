@@ -561,14 +561,14 @@
   - condition: template
     value_template: "{% set entity = trigger.event.data.entity_id %} {% set new_state
       = trigger.event.data.new_state %}\n{# 1. Controleer of de entity_id een sensor
-      is, eindigt op '_spanning' en NIET begint met 'sensor.zonnepanelen' #} {% if
-      entity.startswith('sensor.') and not entity.startswith('sensor.growatt') and
-      entity.endswith('_spanning') %}\n\n  {# 2. Controleer of de nieuwe status een
-      geldig nummer is #}\n  {% if new_state is not none and new_state.state | is_number
-      %}\n\n    {# 3. Converteer naar een nummer en controleer of het buiten het normale
-      bereik valt #}\n    {% set voltage = new_state.state | float %}\n    {{ voltage
-      > 253 or (voltage >= 1 and voltage <= 207) }}\n\n  {% else %}\n    {{ false
-      }}\n  {% endif %}\n\n{% else %}\n  {{ false }}\n{% endif %}"
+      is, eindigt op '_spanning' en NIET begint met 'sensor.zonnepanelen' #} \n{%
+      if entity.startswith('sensor.') and not entity.startswith('sensor.zonnepanelen')
+      and entity.endswith('_spanning') %}\n\n  {# 2. Controleer of de nieuwe status
+      een geldig nummer is #}\n  {% if new_state is not none and new_state.state |
+      is_number %}\n\n    {# 3. Converteer naar een nummer en controleer of het buiten
+      het normale bereik valt #}\n    {% set voltage = new_state.state | float %}\n
+      \   {{ voltage > 253 or (voltage >= 1 and voltage <= 207) }}\n\n  {% else %}\n
+      \   {{ false }}\n  {% endif %}\n\n{% else %}\n  {{ false }}\n{% endif %}"
   actions:
   - data:
       title: Spanningswaarschuwing! ⚡
@@ -915,4 +915,42 @@
     type: notify
     message: "'{{ trigger.to_state.name }}' \U0001F9A0"
     title: Overbelasting! ⚠️
+  mode: single
+- id: '1752612340249'
+  alias: Bureau M
+  description: ''
+  triggers:
+  - device_id: f2920d964a5c507e42ff8757a220ddb8
+    domain: zha
+    type: remote_button_short_press
+    subtype: turn_on
+    trigger: device
+    id: aan
+  - device_id: f2920d964a5c507e42ff8757a220ddb8
+    domain: zha
+    type: remote_button_short_press
+    subtype: turn_off
+    trigger: device
+    id: uit
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - aan
+      sequence:
+      - type: turn_on
+        device_id: 88f3bd6155d65b4b9ac1c8964e27fa20
+        entity_id: a4b1e2e1270d476cd119e59125d373af
+        domain: switch
+    - conditions:
+      - condition: trigger
+        id:
+        - uit
+      sequence:
+      - type: turn_off
+        device_id: 88f3bd6155d65b4b9ac1c8964e27fa20
+        entity_id: a4b1e2e1270d476cd119e59125d373af
+        domain: switch
   mode: single
