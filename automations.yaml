@@ -51,57 +51,6 @@
       area_id:
       - hall
   mode: single
-- id: '1603831020194'
-  alias: Keukenverlichting
-  description: Schakelt de keukenverlichting in bij beweging als het donker is. Overdag
-    gaat de verlichting volledig aan, 's nachts gedimd. De verlichting gaat automatisch
-    uit na 1 uur geen beweging.
-  triggers:
-  - type: motion
-    device_id: 811fd532a4a1bdde606177e29af0ec97
-    entity_id: 8b1ce9932b09c8693d6712cf440baf21
-    domain: binary_sensor
-    trigger: device
-  conditions:
-  - condition: state
-    entity_id: binary_sensor.donker
-    state: 'off'
-  actions:
-  - if:
-    - condition: time
-      after: '22:00:00'
-      before: 07:00:00
-    then:
-    - action: light.turn_on
-      metadata: {}
-      data:
-        brightness_pct: 1
-      target:
-        area_id: kitchen
-    else:
-    - action: light.turn_on
-      metadata: {}
-      data:
-        brightness_pct: 100
-      target:
-        area_id: kitchen
-  - wait_for_trigger:
-    - type: no_motion
-      device_id: 811fd532a4a1bdde606177e29af0ec97
-      entity_id: 8b1ce9932b09c8693d6712cf440baf21
-      domain: binary_sensor
-      trigger: device
-    timeout:
-      hours: 1
-      minutes: 0
-      seconds: 0
-      milliseconds: 0
-    alias: Wachten op geen beweging in de keuken
-  - data: {}
-    action: light.turn_off
-    target:
-      area_id: kitchen
-  mode: single
 - id: '1612988672846'
   alias: Toiletverlichting
   description: Schakelt de toiletverlichting in wanneer de deur wordt geopend en schakelt
@@ -818,6 +767,19 @@
     data:
       topic: evcc/set/netmeter/energy
       payload: '{{ states(''sensor.netstroom_energiemeter_energie'') }}'
+  - alias: MQTT netvermogen spanning
+    action: mqtt.publish
+    metadata: {}
+    data:
+      topic: evcc/set/netmeter/voltage
+      payload: '{{ states(''sensor.netstroom_energiemeter_spanning'') }}'
+  - alias: MQTT evse mode
+    action: mqtt.publish
+    metadata: {}
+    data:
+      topic: evcc/set/evse/mode
+      payload: "{% if states(\"select.autolader_modus\") == \"Off\" %}\n  0\n{% else
+        %}\n  1\n{% endif %}\n"
   mode: single
   max_exceeded: silent
 - id: '1752318946240'
