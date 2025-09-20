@@ -916,3 +916,48 @@
         entity_id: a4b1e2e1270d476cd119e59125d373af
         domain: switch
   mode: single
+- id: '1758393716105'
+  alias: Woonkamerverlichting
+  description: ''
+  triggers:
+  - trigger: event
+    event_type: zha_event
+    event_data:
+      device_ieee: bc:33:ac:ff:fe:9b:34:a0
+      endpoint_id: 1
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.command == ''on'' }}'
+      sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.woonkamer
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.command == ''off'' }}'
+      sequence:
+      - action: light.turn_off
+        target:
+          entity_id: light.woonkamer
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.command == ''move'' }}'
+      sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.woonkamer
+        data:
+          brightness: 1
+    - conditions:
+      - condition: template
+        value_template: '{{ trigger.event.data.command == ''move_with_on_off'' }}'
+      sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.woonkamer
+        data:
+          brightness: 254
+  mode: single
