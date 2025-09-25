@@ -599,58 +599,6 @@
       trigger.event.data.new_state.state }}°C.
     title: "Temperatuurwaarschuwing! \U0001F321️"
   mode: single
-- id: '1739642944337'
-  alias: Slaapkamer verwarming uitzetten
-  description: ''
-  triggers:
-  - type: power
-    device_id: 1aaca9ecff74dd2e4d510ebcbb2c2d3f
-    entity_id: c6d2ef29f6e8b3640c7d33c9fb86fa8d
-    domain: sensor
-    trigger: device
-    above: 700
-    for:
-      hours: 2
-      minutes: 0
-      seconds: 0
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: 1aaca9ecff74dd2e4d510ebcbb2c2d3f
-    entity_id: d703b06263a3cee7368534663e723728
-    domain: switch
-  mode: single
-- id: '1739643014953'
-  alias: Zolder verwarming uitzetten wanneer nodig
-  description: ''
-  triggers:
-  - type: power
-    device_id: ae99c98711a5eb4ca519f4cd2aed79a2
-    entity_id: 85cb4154c21faf6f3956382da76b3942
-    domain: sensor
-    trigger: device
-    above: 700
-    for:
-      hours: 3
-      minutes: 0
-      seconds: 0
-  - type: temperature
-    device_id: 632039c9f3c3e637d65461552bcb74f4
-    entity_id: 996a7495e866b36e36e375019e6d7d85
-    domain: sensor
-    trigger: device
-    above: 23
-    for:
-      hours: 0
-      minutes: 1
-      seconds: 0
-  conditions: []
-  actions:
-  - type: turn_off
-    device_id: ae99c98711a5eb4ca519f4cd2aed79a2
-    entity_id: c649c7b496055fb52edf665035441a1a
-    domain: switch
-  mode: single
 - id: '1750005386050'
   alias: Overloopverlichting
   description: Deze automatisering zorgt ervoor dat de verlichting op de overloop
@@ -717,24 +665,6 @@
         | round(0) }}:0:0'
   mode: single
   max_exceeded: silent
-- id: '1750950041121'
-  alias: Nieuw blogpost
-  description: ''
-  triggers:
-  - trigger: event
-    event_type: feedreader
-  conditions: []
-  actions:
-  - action: notify.gerritjan_debruin_gmail_com
-    metadata: {}
-    data:
-      title: Nieuw blog post
-      message: '"New blog post available - {{ as_timestamp(now()) | timestamp_custom(''%I:%M:%S
-        %p %d%b%Y'', true) }}"'
-      notification_id: '{{ trigger.event.data.title }}'
-      target:
-      - gerritjan.debruin@gmail.com
-  mode: single
 - id: '1751180796139'
   alias: Feed EVCC
   description: ''
@@ -835,24 +765,24 @@
   description: Geeft een melding wanneer de CO2-concentratie van een sensor boven
     de 1000 ppm komt.
   triggers:
-  - event_type: state_changed
-    trigger: event
-  conditions:
-  - condition: template
-    value_template: '{% set data = trigger.event.data %}
-
-      {{ data.entity_id.startswith(''sensor.'') and data.entity_id.endswith(''_co2'')
-      and data.new_state | float(0) > 1000 }}'
+  - trigger: numeric_state
+    entity_id:
+    - sensor.slaapkamer_luchtkwaliteit_co2
+    - sensor.woonkamer_luchtkwaliteit_co2
+    - sensor.zolder_luchtkwaliteit_luchtkwaliteit_co2
+    above: 1000
+  conditions: []
   actions:
-  - data:
-      title: "CO2 is te hoog! \U0001F4A8"
-      message: '''{{ trigger.to_state.name }}'' is te hoog.'
-    action: persistent_notification.create
+  - device_id: f25c56e952ad0fee7c940b1eadb4d450
+    domain: mobile_app
+    type: notify
+    message: '{{ state_attr(trigger.entity_id, ''friendly_name'') }} is boven 1000
+      ppm: {{ trigger.to_state.state }} ppm'
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
-    message: '''{{ trigger.to_state.name }}'' is te hoog.'
-    title: "CO2 is te hoog! \U0001F4A8"
+    message: '{{ state_attr(trigger.entity_id, ''friendly_name'') }} is boven 1000
+      ppm: {{ trigger.to_state.state }} ppm'
   mode: single
 - id: '1752321728864'
   alias: Schimmelwaarschuwing
