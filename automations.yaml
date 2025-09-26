@@ -97,38 +97,6 @@
     target:
       area_id: toilet
   mode: single
-- id: '1612988850571'
-  alias: Voorraadkastverlichting
-  description: Schakelt de verlichting in de voorraadkast in wanneer de deur wordt
-    geopend.
-  triggers:
-  - type: opened
-    device_id: b8bb92a8be279ee84529cbd0037afbc5
-    entity_id: ba8143fedc11dcd58928ffe1c89c7adb
-    domain: binary_sensor
-    trigger: device
-  conditions: []
-  actions:
-  - action: light.turn_on
-    data: {}
-    target:
-      area_id: pantry
-  - wait_for_trigger:
-    - type: not_opened
-      device_id: b8bb92a8be279ee84529cbd0037afbc5
-      entity_id: ba8143fedc11dcd58928ffe1c89c7adb
-      domain: binary_sensor
-      trigger: device
-    timeout:
-      hours: 0
-      minutes: 5
-      seconds: 0
-      milliseconds: 0
-  - action: light.turn_off
-    data: {}
-    target:
-      area_id: pantry
-  mode: single
 - id: '1614112596198'
   alias: Fietsverlichting
   description: Schakelt de fietsverlichting in wanneer beweging wordt gedetecteerd
