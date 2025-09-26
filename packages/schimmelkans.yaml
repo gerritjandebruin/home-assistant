@@ -7,13 +7,6 @@ sensor:
     name: Zolder schimmelkans
     unique_id: zolder_schimmelkans
   - platform: mold_indicator
-    indoor_temp_sensor: sensor.badkamer_thermometer_temperatuur
-    indoor_humidity_sensor: sensor.badkamer_thermometer_luchtvochtigheid
-    outdoor_temp_sensor: sensor.knmi_temperatuur
-    calibration_factor: 1.5
-    name: Badkamer schimmelkans
-    unique_id: badkamer_schimmelkans
-  - platform: mold_indicator
     indoor_temp_sensor: sensor.slaapkamer_luchtkwaliteit_temperatuur
     indoor_humidity_sensor: sensor.slaapkamer_luchtkwaliteit_luchtvochtigheid
     outdoor_temp_sensor: sensor.knmi_temperatuur
@@ -38,9 +31,6 @@ sensor:
 homeassistant:
   customize:
     sensor.zolder_schimmelkans:
-      state_class: measurement
-      unit_of_measurement: "%"
-    sensor.badkamer_schimmelkans:
       state_class: measurement
       unit_of_measurement: "%"
     sensor.slaapkamer_schimmelkans:
