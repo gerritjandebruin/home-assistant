@@ -499,43 +499,6 @@
       }}V.
     title: Spanningswaarschuwing! ⚡
   mode: single
-- id: '1736082815238'
-  alias: Luchtontvochtigerprobleem
-  description: Deze automatisering waarschuwt wanneer de luchtontvochtiger een storing
-    detecteert. De melding bevat de specifieke foutcode voor meer informatie over
-    het probleem.
-  triggers:
-  - type: problem
-    device_id: 59cde7a170567574783f836d53e74acf
-    entity_id: fe2a047ee8980cea8be6abda672d5e12
-    domain: binary_sensor
-    trigger: device
-  conditions:
-  - condition: or
-    conditions:
-    - condition: numeric_state
-      entity_id: binary_sensor.luchtontvochtiger_fault
-      attribute: fault_code
-      above: 8
-    - condition: numeric_state
-      entity_id: binary_sensor.luchtontvochtiger_fault
-      attribute: fault_code
-      below: 8
-    alias: Als fault code geen 8 is
-  actions:
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: 'Probleem met luchtontvochtiger ''{{ trigger.from_state.attributes.friendly_name
-      }}''! Foutcode: {{ trigger.from_state.attributes.fault_code }}. Controleer het
-      apparaat. ⚠️'
-  - action: persistent_notification.create
-    metadata: {}
-    data:
-      message: 'Probleem met luchtontvochtiger ''{{ trigger.from_state.attributes.friendly_name
-        }}''! Foutcode: {{ trigger.from_state.attributes.fault_code }}. Controleer
-        het apparaat. ⚠️'
-  mode: single
 - id: '1736084539525'
   alias: Temperatuurwaarschuwing
   description: Geeft een melding wanneer de temperatuur van een apparaat buiten het
@@ -738,19 +701,25 @@
     - sensor.slaapkamer_luchtkwaliteit_co2
     - sensor.woonkamer_luchtkwaliteit_co2
     - sensor.zolder_luchtkwaliteit_luchtkwaliteit_co2
+    above: 1200
+  - trigger: numeric_state
+    entity_id:
+    - sensor.slaapkamer_luchtkwaliteit_co2
+    - sensor.woonkamer_luchtkwaliteit_co2
+    - sensor.zolder_luchtkwaliteit_luchtkwaliteit_co2
     above: 1000
   conditions: []
   actions:
   - device_id: f25c56e952ad0fee7c940b1eadb4d450
     domain: mobile_app
     type: notify
-    message: '{{ state_attr(trigger.entity_id, ''friendly_name'') }} is boven 1000
-      ppm: {{ trigger.to_state.state }} ppm'
+    message: '{{ state_attr(trigger.entity_id, ''friendly_name'') }} is { trigger.to_state.state
+      }} ppm'
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
     domain: mobile_app
     type: notify
-    message: '{{ state_attr(trigger.entity_id, ''friendly_name'') }} is boven 1000
-      ppm: {{ trigger.to_state.state }} ppm'
+    message: '{{ state_attr(trigger.entity_id, ''friendly_name'') }} is {{ trigger.to_state.state
+      }} ppm'
   mode: single
 - id: '1752321728864'
   alias: Schimmelwaarschuwing
