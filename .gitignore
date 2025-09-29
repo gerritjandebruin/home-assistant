@@ -36,11 +36,8 @@ secrets.yaml
 .Trash-0
 home_assistant.db 
 tesla_fleet.key
-esphome/tno-esp32-l1.yaml
-esphome/tno-esp32-l2.yaml
-esphome/tno-esp32-l3.yaml
-esphome/tno-esp32-l4.yaml
-esphome/tno-esp32-l5.yaml
+esphome/
 tts
 esphome
 custom_components
+evcc.yaml
