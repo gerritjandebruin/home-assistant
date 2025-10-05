@@ -828,3 +828,23 @@
         data:
           brightness: 254
   mode: single
+- id: '1759686494315'
+  alias: Zolderverwarming uitzetten na 6 uur
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - climate.zolder
+    to: heat
+    for:
+      hours: 6
+      minutes: 0
+      seconds: 0
+  conditions: []
+  actions:
+  - action: climate.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: climate.zolder
+  mode: single
