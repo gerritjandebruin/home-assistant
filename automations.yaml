@@ -848,3 +848,15 @@
     target:
       entity_id: climate.zolder
   mode: single
+- id: '1760072828171'
+  alias: RPi5 power button
+  description: ''
+  triggers:
+  - trigger: event
+    event_type: power_button
+  conditions: []
+  actions:
+  - action: hassio.host_shutdown
+    metadata: {}
+    data: {}
+  mode: single
