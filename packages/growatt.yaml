@@ -202,7 +202,7 @@ mqtt:
       device_class: power
       name: Vermogen uit
       unit_of_measurement: "W"
-      expire_after: 600
+      # expire_after: 600
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
@@ -314,7 +314,7 @@ mqtt:
       unit_of_measurement: "kWh"
       icon: mdi:solar-power
       state_class: total_increasing
-      expire_after: 600
+      # expire_after: 600
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
