@@ -596,53 +596,6 @@
         | round(0) }}:0:0'
   mode: single
   max_exceeded: silent
-- id: '1751180796139'
-  alias: Feed EVCC
-  description: ''
-  triggers:
-  - trigger: time_pattern
-    seconds: /1
-  conditions: []
-  actions:
-  - alias: MQTT evse status
-    action: mqtt.publish
-    metadata: {}
-    data:
-      topic: evcc/set/evse/status
-      payload: '{{ states(''sensor.autolader_status_iec'') }}'
-  - alias: MQTT netvermogen power
-    action: mqtt.publish
-    metadata: {}
-    data:
-      topic: evcc/set/netmeter/power
-      payload: '{{ states(''sensor.netstroom_energiemeter_vermogen'') }}'
-  - alias: MQTT netvermogen current
-    action: mqtt.publish
-    metadata: {}
-    data:
-      topic: evcc/set/netmeter/current
-      payload: '{{ states(''sensor.netstroom_energiemeter_stroom'') }}'
-  - alias: MQTT netvermogen energy
-    action: mqtt.publish
-    metadata: {}
-    data:
-      topic: evcc/set/netmeter/energy
-      payload: '{{ states(''sensor.netstroom_energiemeter_energie'') }}'
-  - alias: MQTT netvermogen spanning
-    action: mqtt.publish
-    metadata: {}
-    data:
-      topic: evcc/set/netmeter/voltage
-      payload: '{{ states(''sensor.netstroom_energiemeter_spanning'') }}'
-  - alias: MQTT evse mode
-    action: mqtt.publish
-    metadata: {}
-    data:
-      topic: evcc/set/evse/mode
-      payload: "{% if states(\"select.autolader_modus\") == \"Off\" %}\n  0\n{% else
-        %}\n  1\n{% endif %}\n"
-  mode: single
-  max_exceeded: silent
 - id: '1752318946240'
   alias: Overbelastingswaarschuwing
   description: Geeft een melding wanneer een apparaat overbelast is (binary_sensor
