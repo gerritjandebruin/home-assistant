@@ -9,3 +9,27 @@ cast:
       url: https://homeassistant.nieuw-engeland.nl/lovelace/cast
   description: ''
   icon: mdi:cast
+tesla_ble_charger_on:
+  sequence:
+  - type: turn_on
+    device_id: 81b0d161e228ea058043e4e0d401d991
+    entity_id: 76a4f912277bb7c74914610219e64b06
+    domain: switch
+  alias: Tesla BLE Charger on
+  description: ''
+tesla_ble_charger_off:
+  sequence:
+  - type: turn_off
+    device_id: 81b0d161e228ea058043e4e0d401d991
+    entity_id: 76a4f912277bb7c74914610219e64b06
+    domain: switch
+  alias: Tesla BLE Charger off
+  description: ''
+tesla_ble_wakeup:
+  sequence:
+  - device_id: 81b0d161e228ea058043e4e0d401d991
+    domain: button
+    entity_id: 34768be3c442ca5e39734d541e1b4ab0
+    type: press
+  alias: Tesla BLE Wakeup
+  description: ''
