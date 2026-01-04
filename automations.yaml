@@ -813,3 +813,57 @@
     metadata: {}
     data: {}
   mode: single
+- id: '1766590643098'
+  alias: Slaapkamerverwarming aan
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    hours: '22'
+  conditions: []
+  actions:
+  - action: climate.turn_on
+    metadata: {}
+    data: {}
+    target:
+      area_id: bedroom
+  mode: single
+- id: '1766590707323'
+  alias: Verwarming uit
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    hours: '1'
+  conditions: []
+  actions:
+  - action: climate.turn_off
+    metadata: {}
+    target:
+      area_id: bedroom
+      floor_id: zolder
+    data: {}
+  mode: single
+- id: '1766590798574'
+  alias: Zolderverwarming aan
+  description: ''
+  triggers:
+  - trigger: time_pattern
+    hours: '7'
+  conditions: []
+  actions:
+  - action: climate.turn_on
+    metadata: {}
+    data: {}
+    target:
+      area_id: attic
+  mode: single
+- id: '1767521444819'
+  alias: 'Klimaat: Slaapkamer Verwarming Schema Volgen'
+  description: Zet de verwarming aan of uit op basis van de schedule entiteit
+  triggers:
+  - entity_id: schedule.slaapkamer_verwarming
+    trigger: state
+  actions:
+  - target:
+      entity_id: bf98c839b3f2a5efc4f525265dbfe120
+    action: switch.turn_{{ trigger.to_state.state }}
+  mode: restart
