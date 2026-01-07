@@ -12,6 +12,11 @@
     entity_id: ee892634746b2f5638cbfadb0a0aca3c
     domain: binary_sensor
     trigger: device
+  - type: opened
+    device_id: 051215d5b20dc09f912d269348bf1441
+    entity_id: 4a91250870afd2a57d0c1da622f884cf
+    domain: binary_sensor
+    trigger: device
   conditions:
   - condition: state
     entity_id: binary_sensor.donker
@@ -52,51 +57,25 @@
       - hall
   mode: single
 - id: '1612988672846'
-  alias: Toiletverlichting
-  description: Schakelt de toiletverlichting in wanneer de deur wordt geopend en schakelt
-    deze uit nadat de deur is gesloten of na een time-out, met een extra controle
-    voor opnieuw openen.
+  alias: Toiletverlichting (Slimme cyclus)
   triggers:
-  - type: opened
-    device_id: 51fb2dd677fc2b08b7cd63bf90894249
-    entity_id: 2aca2e2658c249b56823c6566e78311b
-    domain: binary_sensor
-    trigger: device
-  conditions: []
+  - entity_id: binary_sensor.toilet_deur
+    to: 'on'
+    trigger: state
   actions:
-  - data: {}
-    action: light.turn_on
-    target:
-      area_id: toilet
-  - wait_for_trigger:
-    - type: not_opened
-      device_id: 51fb2dd677fc2b08b7cd63bf90894249
-      entity_id: 2aca2e2658c249b56823c6566e78311b
-      domain: binary_sensor
-      trigger: device
-    timeout:
-      hours: 0
-      minutes: 15
-      seconds: 0
-      milliseconds: 0
-    alias: Wachten op sluiten toiletdeur
-  - wait_for_trigger:
-    - type: opened
-      device_id: 51fb2dd677fc2b08b7cd63bf90894249
-      entity_id: 2aca2e2658c249b56823c6566e78311b
-      domain: binary_sensor
-      trigger: device
-    timeout:
-      hours: 0
-      minutes: 15
-      seconds: 0
-      milliseconds: 0
-    alias: Wachten op openen toiletdeur
-  - data: {}
-    action: light.turn_off
-    target:
-      area_id: toilet
-  mode: single
+  - if:
+    - condition: state
+      entity_id: light.toilet
+      state: 'off'
+    then:
+    - action: light.turn_on
+      target:
+        area_id: toilet
+    else:
+    - action: light.turn_off
+      target:
+        area_id: toilet
+  mode: restart
 - id: '1614112596198'
   alias: Fietsverlichting
   description: Schakelt de fietsverlichting in wanneer beweging wordt gedetecteerd
@@ -132,22 +111,6 @@
     device_id: 9e0093838911b4f789ac49d8b3bb7985
     entity_id: 45d00649fc28236b3e492dc866617182
     domain: switch
-  mode: single
-- id: '1652901588502'
-  alias: Robotstofzuiger opgeladen
-  description: ''
-  triggers:
-  - entity_id:
-    - sensor.robotstofzuiger_batterij
-    attribute: battery_level
-    above: '99'
-    trigger: numeric_state
-  conditions: []
-  actions:
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Robotstofzuiger is opgeladen
   mode: single
 - id: '1662921513914'
   alias: Inloopkastverlichting
@@ -269,7 +232,7 @@
         domain: light
   mode: single
 - id: '1712905763291'
-  alias: Slaapkamer knop
+  alias: Slaapkamer knop GJ
   description: ''
   triggers:
   - device_id: ef6cce96c0aff37b73773be4f1a30e2f
@@ -322,42 +285,6 @@
         action: light.turn_on
         target:
           area_id: bedroom
-  mode: single
-- id: '1735895231627'
-  alias: Meld wanneer oven klaar is
-  description: ''
-  triggers:
-  - trigger: state
-    entity_id:
-    - binary_sensor.oven
-    to: 'off'
-    from: 'on'
-  conditions: []
-  actions:
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Oven is klaar
-  mode: single
-- id: '1735992924117'
-  alias: Wasdroger klaar
-  description: ''
-  triggers:
-  - type: not_running
-    device_id: 2cc7d3a80ca61a3674d0508ee599438f
-    entity_id: 910dc20be40ff62f7483236f79461bd7
-    domain: binary_sensor
-    trigger: device
-  conditions: []
-  actions:
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Wasdroger is klaar
-  - delay:
-      hours: 1
-      minutes: 30
-      seconds: 0
   mode: single
 - id: '1736080909541'
   alias: Stroomwaarschuwing
@@ -674,30 +601,6 @@
     message: '{{ state_attr(trigger.entity_id, ''friendly_name'') }} is {{ trigger.to_state.state
       }} ppm'
   mode: single
-- id: '1752321728864'
-  alias: Schimmelwaarschuwing
-  description: Deze automatisering detecteert een schimmelprobleem via een binaire
-    sensor en stuurt een waarschuwing wanneer het probleem wordt gesignaleerd.
-  triggers:
-  - event_type: state_changed
-    trigger: event
-    event_data:
-      new_state: 'on'
-  conditions:
-  - condition: template
-    value_template: "{% set entity = trigger.event.data.entity_id %}  \n{{ entity.startswith('binary_sensor.')
-      and entity.endswith('_schimmelprobleem') }}"
-  actions:
-  - data:
-      title: Schimmelprobleem! ⚠️
-      message: "'{{ trigger.to_state.name }}' \U0001F9A0"
-    action: persistent_notification.create
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: "'{{ trigger.to_state.name }}' \U0001F9A0"
-    title: Overbelasting! ⚠️
-  mode: single
 - id: '1752612340249'
   alias: Bureau M
   description: ''
@@ -782,15 +685,16 @@
           brightness: 254
   mode: single
 - id: '1759686494315'
-  alias: Zolderverwarming uitzetten na 6 uur
+  alias: Zolderverwarming uitzetten na 15 uur
   description: ''
   triggers:
   - trigger: state
     entity_id:
     - climate.zolder
-    to: heat
+    to:
+    - heat
     for:
-      hours: 6
+      hours: 15
       minutes: 0
       seconds: 0
   conditions: []
@@ -813,57 +717,105 @@
     metadata: {}
     data: {}
   mode: single
-- id: '1766590643098'
-  alias: Slaapkamerverwarming aan
-  description: ''
-  triggers:
-  - trigger: time_pattern
-    hours: '22'
-  conditions: []
-  actions:
-  - action: climate.turn_on
-    metadata: {}
-    data: {}
-    target:
-      area_id: bedroom
-  mode: single
-- id: '1766590707323'
-  alias: Verwarming uit
-  description: ''
-  triggers:
-  - trigger: time_pattern
-    hours: '1'
-  conditions: []
-  actions:
-  - action: climate.turn_off
-    metadata: {}
-    target:
-      area_id: bedroom
-      floor_id: zolder
-    data: {}
-  mode: single
-- id: '1766590798574'
-  alias: Zolderverwarming aan
-  description: ''
-  triggers:
-  - trigger: time_pattern
-    hours: '7'
-  conditions: []
-  actions:
-  - action: climate.turn_on
-    metadata: {}
-    data: {}
-    target:
-      area_id: attic
-  mode: single
 - id: '1767521444819'
   alias: 'Klimaat: Slaapkamer Verwarming Schema Volgen'
   description: Zet de verwarming aan of uit op basis van de schedule entiteit
   triggers:
-  - entity_id: schedule.slaapkamer_verwarming
+  - entity_id: schedule.slaapkamer
     trigger: state
   actions:
   - target:
-      entity_id: bf98c839b3f2a5efc4f525265dbfe120
-    action: switch.turn_{{ trigger.to_state.state }}
+      entity_id: climate.slaapkamer
+    action: climate.turn_{{ trigger.to_state.state }}
+  - target:
+      entity_id: climate.slaapkamer
+    action: climate.set_preset_mode({{ state_attr('schedule.slaapkamer', 'preset_mode')
+      }})
+  mode: restart
+- id: '1767542919930'
+  alias: Schuur temperatuur onder de vijf graden
+  description: ''
+  triggers:
+  - type: temperature
+    device_id: 08779d5418a838c9e8d8eb3f24718953
+    entity_id: 890f02647c9f3a6a384c4286bdcc31b9
+    domain: sensor
+    trigger: device
+    below: 5
+  conditions: []
+  actions:
+  - action: notify.mobile_app_sm_s901b
+    metadata: {}
+    data:
+      message: Schuur is onder de 5 graden.
+  mode: single
+- id: '1767596340753'
+  alias: Badkamerlicht via Deursensor
+  description: Zet licht aan bij openen deur en uit na 30 minuten inactiviteit
+  triggers:
+  - entity_id: binary_sensor.badkamer_deur
+    to: 'on'
+    trigger: state
+  actions:
+  - target:
+      entity_id: light.bad
+    action: light.turn_on
+  - wait_for_trigger:
+    - entity_id: binary_sensor.badkamer_deur
+      for:
+        minutes: 30
+      trigger: state
+    timeout: 01:00:00
+  - target:
+      entity_id: light.bad
+    action: light.turn_off
+  mode: restart
+- id: '1767597887897'
+  alias: Schuurlicht volgt deur
+  description: Licht aan als deur open is, licht uit als deur dicht is
+  triggers:
+  - entity_id: binary_sensor.schuur_deur
+    trigger: state
+  actions:
+  - target:
+      entity_id: light.schuur
+    action: light.turn_{{ 'on' if is_state('binary_sensor.schuur_deur', 'on') else
+      'off' }}
+- id: '1767645444983'
+  alias: Slaapkamer knop M
+  description: Kort = nachtstand (1%), Dubbel = groep fel (4000K), Lang = alles uit
+    (fading)
+  triggers:
+  - device_id: 3f69258ab8f971e91098360463918649
+    domain: zha
+    type: remote_button_short_press
+    subtype: turn_on
+    trigger: device
+    id: kort
+  - device_id: 3f69258ab8f971e91098360463918649
+    domain: zha
+    type: remote_button_long_press
+    subtype: dim_up
+    trigger: device
+    id: lang
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: kort
+      sequence:
+      - action: light.toggle
+        target:
+          entity_id: light.slaapkamer_5
+        data:
+          brightness_pct: 1
+          color_temp_kelvin: 2700
+    - conditions:
+      - condition: trigger
+        id: lang
+      sequence:
+      - action: light.turn_off
+        target:
+          entity_id: light.slaapkamer
   mode: restart
