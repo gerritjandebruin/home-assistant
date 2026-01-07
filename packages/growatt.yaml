@@ -81,7 +81,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv1_vermogen') | is_number %}
         {{ states('sensor.growatt_pv1_vermogen') }}
         {% else %}
         {{ value_json['values']['pv1watt'] | int / 10 }}
@@ -99,7 +99,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv1_spanning') | is_number %}
         {{ states('sensor.growatt_pv1_spanning') }}
         {% else %}
         {{ value_json['values']['pv1voltage'] | int / 10 }}
@@ -117,7 +117,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv1_stroom') | is_number %}
         {{ states('sensor.growatt_pv1_stroom') }}
         {% else %}
         {{ value_json['values']['pv1current'] | int / 10 }}
@@ -135,7 +135,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv2_vermogen') | is_number %}
         {{ states('sensor.growatt_pv2_vermogen') }}
         {% else %}
         {{ value_json['values']['pv2watt'] | int / 10 }}
@@ -153,7 +153,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv2_spanning') | is_number %}
         {{ states('sensor.growatt_pv2_spanning') }}
         {% else %}
         {{ value_json['values']['pv2voltage'] | int / 10 }}
@@ -171,7 +171,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv2_strom') | is_number %}
         {{ states('sensor.growatt_pv2_strom') }}
         {% else %}
         {{ value_json['values']['pv2current'] | int / 10 }}
@@ -189,7 +189,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_vermogen_in') | is_number %}
         {{ states('sensor.growatt_vermogen_in') }}
         {% else %}
         {{ value_json['values']['pvpowerin'] | int / 10 }}
@@ -206,7 +206,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_vermogen_uit') | is_number %}
         {{ states('sensor.growatt_vermogen_uit') }}
         {% else %}
         {{ value_json['values']['pvpowerout'] | int / 10 }}
@@ -225,7 +225,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_frequentie') | is_number %}
         {{ states('sensor.growatt_frequentie') }}
         {% else %}
         {{ value_json['values']['pvfrequentie'] | int / 100 }}
@@ -242,7 +242,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_spanning') | is_number %}
         {{ states('sensor.growatt_spanning') }}
         {% else %}
         {{ value_json['values']['pvgridvoltage'] | int / 10 }}
@@ -260,7 +260,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_stroom') | is_number %}
         {{ states('sensor.growatt_stroom') }}
         {% else %}
         {{ value_json['values']['pvgridcurrent'] | int / 10 }}
@@ -278,7 +278,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_vermogen') | is_number %}
         {{ states('sensor.growatt_vermogen') }}
         {% else %}
         {{ value_json['values']['pvgridpower'] | int / 10 }}
@@ -299,7 +299,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_energie_vandaag') | is_number %}
         {{ states('sensor.growatt_energie_vandaag') }}
         {% else %}
         {{ value_json['values']['pvenergytoday'] | int / 10 }}
@@ -320,7 +320,7 @@ mqtt:
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
         {% set previous_state = states('sensor.growatt_energie_geleverd') %}
         {% set state = value_json['values']['pvenergytotal'] | int / 10 %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and previous_state | is_number %}
           {{ previous_state }}
         {% elif is_number(state) %}
           {{ state }}
@@ -342,7 +342,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_totale_werktijd') | is_number %}
         {{ states('sensor.growatt_totale_werktijd') }}
         {% else %}
         {{ value_json['values']['totworktime'] | float / 7200 }}
@@ -363,7 +363,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_energie_opgewekt') | is_number %}
         {{ states('sensor.growatt_energie_opgewekt') }}
         {% else %}
         {{ value_json['values']['epvtotal'] | int / 10 }}
@@ -383,7 +383,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv1_energie') | is_number %}
         {{ states('sensor.growatt_pv1_energie') }}
         {% else %}
         {{ value_json['values']['epv1total'] | int / 10 }}
@@ -403,7 +403,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv2_energie') | is_number %}
         {{ states('sensor.growatt_pv2_energie') }}
         {% else %}
         {{ value_json['values']['epv2total'] | int / 10 }}
@@ -424,7 +424,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv1_energie_vandaag') | is_number %}
         {{ states('sensor.growatt_pv1_energie_vandaag') }}
         {% else %}
         {{ value_json['values']['epv1today'] | int / 10 }}
@@ -445,7 +445,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_pv2_energie_vandaag') | is_number %}
         {{ states('sensor.growatt_pv2_energie_vandaag') }}
         {% else %}
         {{ value_json['values']['epv2today'] | int / 10 }}
@@ -463,7 +463,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_apparaattemperatuur') | is_number %}
         {{ states('sensor.growatt_apparaattemperatuur') }}
         {% else %}
         {{ value_json['values']['pvtemperature'] | int / 10 }}
@@ -481,7 +481,7 @@ mqtt:
       value_template: >
         {% set current_time = now() %}
         {% set message_time = strptime(value_json['time'], '%Y-%m-%dT%H:%M:%S').replace(tzinfo=current_time.tzinfo) %}
-        {% if (current_time - message_time).total_seconds() > 300 %}
+        {% if (current_time - message_time).total_seconds() > 300 and states('sensor.growatt_ipm_temperatuur') | is_number %}
         {{ states('sensor.growatt_ipm_temperatuur') }}
         {% else %}
         {{ value_json['values']['pvipmtemperature'] | int / 10 }}
