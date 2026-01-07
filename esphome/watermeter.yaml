@@ -2,7 +2,7 @@ substitutions:
   name: watermeter
   friendly_name: watermeter
 packages:
-  esphome.muino-water-meter: github://martijnvwezel/watermeter-esphome/muino-water-meter-esp32.yaml@v4.0.10
+  esphome.muino-water-meter: github://gerritjandebruin/watermeter-esphome/muino-water-meter-esp32.yaml@fix-ha-warnings
 esphome:
   name: ${name}
   name_add_mac_suffix: false
@@ -22,6 +22,6 @@ text_sensor:
     icon: "mdi:git"
     entity_category: "diagnostic"
     lambda: |-
-      return {"4.0.10"}; // Manually update this to match what you set above
+      return {"4.0.11-beta"}; // Manually update this to match what you set above
 web_server:
   port: 80
