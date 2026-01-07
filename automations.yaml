@@ -295,12 +295,12 @@
   triggers:
   - trigger: numeric_state
     entity_id:
-    - sensor.netstroom_energiemeter_stroom
+    - sensor.energiemeter_net_stroom
     for:
       hours: 0
       minutes: 1
       seconds: 0
-    above: sensor.netstroom_energiemeter_zekering
+    above: sensor.energiemeter_net_zekering
   conditions: []
   actions:
   - device_id: c0f2abd8a92c0bfad616ec4aa371901d
@@ -510,17 +510,17 @@
     metadata: {}
     data:
       topic: SmartEVSE/Set/EVMeter
-      payload: '{{ states(''sensor.autolader_energiemeter_stroom'') | multiply(10)
-        | round(0) }}:0:0:{{ states(''sensor.autolader_energiemeter_vermogen'') |
-        multiply(1000) | round(0) }}:{{ states(''sensor.autolader_energiemeter_energie'')
-        | multiply(1000) | round(0) }}'
+      payload: '{{ states(''sensor.energiemeter_auto_stroom'') | multiply(10) | round(0)
+        }}:0:0:{{ states(''sensor.energiemeter_auto_vermogen'') | multiply(1000) |
+        round(0) }}:{{ states(''sensor.energiemeter_auto_energie'') | multiply(1000)
+        | round(0) }}'
   - alias: MQTT publiceer Mainsmeter
     action: mqtt.publish
     metadata: {}
     data:
       topic: SmartEVSE/Set/MainsMeter
-      payload: '{{ states(''sensor.netstroom_energiemeter_stroom'') | multiply(10)
-        | round(0) }}:0:0'
+      payload: '{{ states(''sensor.energiemeter_net_stroom'') | multiply(10) | round(0)
+        }}:0:0'
   mode: single
   max_exceeded: silent
 - id: '1752318946240'
