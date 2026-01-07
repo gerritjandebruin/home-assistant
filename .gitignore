@@ -35,9 +35,6 @@ secrets.yaml
 .cloud/
 .Trash-0
 home_assistant.db 
-tesla_fleet.key
-esphome/
 tts
-esphome
 custom_components
 evcc.yaml

@@ -1,0 +1,30 @@
+substitutions:
+  name: woonkamer-luchtkwaliteit
+  friendly_name: Woonkamer luchtkwaliteit
+packages:
+  ApolloAutomation.AIR-1: github://ApolloAutomation/AIR-1/Integrations/ESPHome/AIR-1_BLE.yaml@25.8.6.1
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+  friendly_name: ${friendly_name}
+api:
+  encryption:
+    key: VUH7zZEasnyr0jMUn+GwPyCXrqAiO+EWCCHUlF3bznM=
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  manual_ip: 
+    static_ip: 192.168.1.6
+    subnet: 255.255.255.0
+    gateway: 192.168.1.1
+logger:
+  baud_rate: 0
+text_sensor:
+  - platform: template
+    name: "Firmware version"
+    id: "firmware_version"
+    icon: "mdi:git"
+    entity_category: "diagnostic"
+    update_interval: never
+    lambda: |-
+      return {"25.8.6.1"}; // Manually update this to match what you set above
