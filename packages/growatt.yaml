@@ -74,6 +74,7 @@ mqtt:
       entity_category: diagnostic
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_string_1_watt
+      state_class: measurement
       device_class: power
       unit_of_measurement: "W"
       name: PV1 vermogen
@@ -93,6 +94,7 @@ mqtt:
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_string_1_voltage
       device_class: voltage
+      state_class: measurement
       unit_of_measurement: "V"
       name: PV1 spanning
       expire_after: 600
@@ -113,6 +115,7 @@ mqtt:
       device_class: current
       unit_of_measurement: "A"
       name: PV1 stroom
+      state_class: measurement
       expire_after: 600
       value_template: >
         {% set current_time = now() %}
@@ -131,6 +134,7 @@ mqtt:
       device_class: power
       unit_of_measurement: "W"
       name: PV2 vermogen
+      state_class: measurement
       expire_after: 600
       value_template: >
         {% set current_time = now() %}
@@ -149,6 +153,7 @@ mqtt:
       device_class: voltage
       unit_of_measurement: "V"
       name: PV2 spanning
+      state_class: measurement
       expire_after: 600
       value_template: >
         {% set current_time = now() %}
@@ -166,6 +171,7 @@ mqtt:
       unique_id: growatt_string_2_current
       device_class: current
       unit_of_measurement: "A"
+      state_class: measurement
       name: PV2 stroom
       expire_after: 600
       value_template: >
@@ -185,6 +191,7 @@ mqtt:
       device_class: power
       unit_of_measurement: "W"
       name: Vermogen in
+      state_class: measurement
       expire_after: 600
       value_template: >
         {% set current_time = now() %}
@@ -202,6 +209,7 @@ mqtt:
       device_class: power
       name: Vermogen uit
       unit_of_measurement: "W"
+      state_class: measurement
       # expire_after: 600
       value_template: >
         {% set current_time = now() %}
@@ -219,6 +227,7 @@ mqtt:
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_grid_frequency
       unit_of_measurement: "Hz"
+      state_class: measurement
       icon: mdi:waveform
       expire_after: 600
       name: Frequentie
@@ -237,6 +246,7 @@ mqtt:
       unique_id: growatt_phase_voltage
       device_class: voltage
       unit_of_measurement: "V"
+      state_class: measurement
       name: Spanning
       expire_after: 600
       value_template: >
@@ -254,6 +264,7 @@ mqtt:
       state_topic: energy/growatt/DCF3A3103X
       unique_id: growatt_phase_current
       device_class: current
+      state_class: measurement
       name: Stroom
       unit_of_measurement: "A"
       expire_after: 600
@@ -273,6 +284,7 @@ mqtt:
       unique_id: growatt_phase_power
       device_class: power
       name: Vermogen
+      state_class: measurement
       unit_of_measurement: "W"
       expire_after: 600
       value_template: >
@@ -458,6 +470,7 @@ mqtt:
       device_class: temperature
       unit_of_measurement: "°C"
       entity_category: diagnostic
+      state_class: measurement
       name: Apparaattemperatuur
       expire_after: 600
       value_template: >
@@ -476,6 +489,7 @@ mqtt:
       unique_id: growatt_ipm_temperature
       device_class: temperature
       unit_of_measurement: "°C"
+      state_class: measurement
       entity_category: diagnostic
       expire_after: 600
       value_template: >
