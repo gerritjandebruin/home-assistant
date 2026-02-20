@@ -1,5 +1,5 @@
 - id: '1603830622083'
-  alias: Gangverlichting
+  alias: Gang verlichting
   description: ''
   triggers:
   - type: occupied
@@ -19,9 +19,9 @@
     trigger: device
   conditions:
   - condition: state
-    entity_id: binary_sensor.donker
-    state: 'off'
-    alias: ' Als het donker is'
+    entity_id: binary_sensor.gang_bewegingsmelder_licht
+    state:
+    - 'off'
   actions:
   - choose:
     - conditions:
@@ -34,16 +34,14 @@
           color_temp_kelvin: 2000
         action: light.turn_on
         target:
-          area_id:
-          - hall
+          area_id: gang
     default:
     - data:
         color_temp_kelvin: 3390
         brightness_pct: 51
       action: light.turn_on
       target:
-        area_id:
-        - hall
+        area_id: gang
   - wait_template: '  {{ (states(''binary_sensor.gang_bewegingsmelder_bezetting'')
       == ''off'') and (states(''binary_sensor.overloop_bewegingsmelder'') == ''off'')
       }}'
@@ -53,11 +51,11 @@
   - data: {}
     action: light.turn_off
     target:
-      area_id:
-      - hall
+      area_id: gang
   mode: single
 - id: '1612988672846'
-  alias: Toiletverlichting (Slimme cyclus)
+  alias: Toilet verlichting
+  description: ''
   triggers:
   - entity_id: binary_sensor.toilet_deur
     to: 'on'
@@ -77,7 +75,7 @@
         area_id: toilet
   mode: restart
 - id: '1614112596198'
-  alias: Fietsverlichting
+  alias: Fiets verlichting
   description: Schakelt de fietsverlichting in wanneer beweging wordt gedetecteerd
     en het donker is, en schakelt deze na 10 minuten zonder beweging weer uit.
   triggers:
@@ -88,9 +86,9 @@
     trigger: device
   conditions:
   - condition: state
-    entity_id: binary_sensor.donker
-    state: 'off'
-    alias: Als het donker is
+    entity_id: binary_sensor.gang_bewegingsmelder_licht
+    state:
+    - 'off'
   actions:
   - type: turn_on
     device_id: 9e0093838911b4f789ac49d8b3bb7985
@@ -113,7 +111,7 @@
     domain: switch
   mode: single
 - id: '1662921513914'
-  alias: Inloopkastverlichting
+  alias: Inloopkast verlichting
   description: Schakelt de verlichting in de inloopkast in wanneer de deur wordt geopend
     en schakelt deze uit nadat de deur is gesloten, met een time-out van 10 minuten.
   triggers:
@@ -127,12 +125,13 @@
   - data: {}
     action: light.turn_on
     target:
-      area_id: walk_in_closet
+      area_id: inloopkast
   - wait_for_trigger:
-    - entity_id:
-      - binary_sensor.inloopkastdeur
-      to: 'off'
-      trigger: state
+    - type: not_opened
+      device_id: 2d6dfb759f39e16dea755338b1f3188e
+      entity_id: 52fda6e05fd2e51d51f540cc7be5c323
+      domain: binary_sensor
+      trigger: device
     continue_on_timeout: true
     timeout:
       hours: 0
@@ -142,10 +141,10 @@
   - data: {}
     action: light.turn_off
     target:
-      area_id: walk_in_closet
+      area_id: inloopkast
   mode: single
 - id: '1699803193333'
-  alias: Slaapkamer afstandsbediening
+  alias: Slaapkamer verlichting afstandsbediening
   description: ''
   triggers:
   - device_id: 5a9933c449a2a8068f6012de36a6e91d
@@ -189,7 +188,7 @@
       - data: {}
         action: light.toggle
         target:
-          area_id: bedroom
+          area_id: slaapkamer
     - conditions:
       - condition: trigger
         id:
@@ -200,7 +199,7 @@
           brightness_pct: 100
         action: light.turn_on
         target:
-          area_id: bedroom
+          area_id: slaapkamer
     - conditions:
       - condition: trigger
         id:
@@ -211,28 +210,26 @@
           brightness_pct: 1
         action: light.turn_on
         target:
-          area_id: bedroom
+          area_id: slaapkamer
     - conditions:
       - condition: trigger
         id:
         - Links
       sequence:
-      - type: toggle
-        device_id: 6783c5c5d415efc8d8ee992bcede1f16
-        entity_id: c0713d089c995a6583b6ea2ca85d3848
-        domain: light
+      - action: light.toggle
+        target:
+          entity_id: light.slaapkamer_1
     - conditions:
       - condition: trigger
         id:
         - Rechts
       sequence:
-      - type: toggle
-        device_id: a86d85dac77c6830cc859999c74e41da
-        entity_id: 7b92662312ab2bfa93a704d11b8f5b1b
-        domain: light
+      - action: light.toggle
+        target:
+          entity_id: light.slaapkamer_5
   mode: single
 - id: '1712905763291'
-  alias: Slaapkamer knop GJ
+  alias: Slaapkamer verlichting knop GJ
   description: ''
   triggers:
   - device_id: ef6cce96c0aff37b73773be4f1a30e2f
@@ -274,7 +271,7 @@
         data: {}
         action: light.turn_off
         target:
-          area_id: bedroom
+          area_id: slaapkamer
     - conditions:
       - condition: trigger
         id:
@@ -284,88 +281,91 @@
           brightness_pct: 100
         action: light.turn_on
         target:
-          area_id: bedroom
+          area_id: slaapkamer
   mode: single
 - id: '1736080909541'
-  alias: Stroomwaarschuwing
-  description: Monitort het stroomverbruik en waarschuwt bij te hoge waarden. Bij
-    aanhoudend hoog verbruik worden eerst verwarmingen gedimd en vervolgens specifieke
-    apparaten (oven, vaatwasser, wasmachine, wasdroger) uitgeschakeld om overbelasting
-    te voorkomen.
+  alias: Stroom waarschuwing
+  description: Escalateert acties op basis van hoe lang de overbelasting duurt.
   triggers:
-  - trigger: numeric_state
-    entity_id:
+  - entity_id:
     - sensor.energiemeter_net_stroom
+    above: sensor.energiemeter_net_zekering
     for:
       hours: 0
-      minutes: 1
-      seconds: 0
+      minutes: 0
+      seconds: 5
+    id: fase_1
+    trigger: numeric_state
+  - entity_id:
+    - sensor.energiemeter_net_stroom
     above: sensor.energiemeter_net_zekering
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
+    id: fase_2
+    trigger: numeric_state
+  - entity_id: sensor.energiemeter_net_stroom
+    above: sensor.energiemeter_net_zekering
+    for: 00:01:20
+    id: fase_3
+    trigger: numeric_state
+  - entity_id: sensor.energiemeter_net_stroom
+    above: sensor.energiemeter_net_zekering
+    for: 00:01:30
+    id: fase_4
+    trigger: numeric_state
   conditions: []
   actions:
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Teveel stroomverbruik. Zet verwarmingen zacht uit.
-  - action: persistent_notification.create
-    metadata: {}
-    data:
-      message: Teveel stroomverbruik. Zet verwarmingen zacht uit.
-  - action: climate.turn_off
-    metadata: {}
-    data: {}
-    target:
-      floor_id:
-      - begane_grond
-      - eerste_verdieping
-      - zolder
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 5
-  - action: switch.turn_off
-    metadata: {}
-    data: {}
-    target:
-      device_id:
-      - ae99c98711a5eb4ca519f4cd2aed79a2
-      - 1aaca9ecff74dd2e4d510ebcbb2c2d3f
-      - b2f73e9e6017b1b2f108badaa6973eb6
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Nog steeds teveel stroomverbruik. Verwarming hard uitzetten.
-  - action: persistent_notification.create
-    metadata: {}
-    data:
-      message: Nog steeds teveel stroomverbruik. Verwarming hard uitzetten.
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 5
-  - action: switch.turn_off
-    metadata: {}
-    data: {}
-    target:
-      device_id:
-      - 752177bf79c6d8dc1645724bada15a97
-      - b28019ef58e81922c56d1e9238d4a9df
-      - c522f9c634231c1c375497d420f433fc
-      - 2cc7d3a80ca61a3674d0508ee599438f
-      - 7b748ddf488252dc1ed824f226b39955
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: Nog steeds teveel stroomverbruik. Oven, vaatwasser, wasmachine, en wasdroger
-      uitgezet.
-  - action: persistent_notification.create
-    metadata: {}
-    data:
-      message: Nog steeds teveel stroomverbruik. Oven, vaatwasser, wasmachine, en
-        wasdroger uitgezet.
-  mode: single
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: fase_1
+      sequence:
+      - action: climate.turn_off
+        target:
+          entity_id: all
+      - action: notify.mobile_app_sm_s901b
+        data:
+          message: Teveel stroom (5s). Verwarmingen uit.
+    - conditions:
+      - condition: trigger
+        id: fase_2
+      sequence:
+      - action: switch.turn_off
+        target:
+          entity_id:
+          - switch.noodlader_auto
+          - switch.quooker
+      - action: notify.mobile_app_sm_s901b
+        data:
+          message: Nog steeds te hoog (1:10). Noodlader en Quooker uit.
+    - conditions:
+      - condition: trigger
+        id: fase_3
+      sequence:
+      - action: switch.turn_off
+        target:
+          entity_id:
+          - switch.wasdroger
+          - switch.wasmachine
+      - action: notify.mobile_app_sm_s901b
+        data:
+          message: KRITIEK (1:20). Wasmachine en droger uitgeschakeld.
+    - conditions:
+      - condition: trigger
+        id: fase_4
+      sequence:
+      - action: switch.turn_off
+        target:
+          entity_id: all
+      - action: notify.mobile_app_sm_s901b
+        data:
+          message: KRITIEK (1:30). Alles uit.
+  mode: parallel
+  max: 10
 - id: '1736080956414'
-  alias: Wasmachine vochtwaarschuwing
+  alias: Vocht waarschuwing
   description: Waarschuwt en schakelt de wasmachine uit wanneer vocht wordt gedetecteerd
     in de wasmachinebak.
   triggers:
@@ -394,71 +394,37 @@
       message: "Wasmachine bak werd vochtig. De wasmachine werd uitgeschakeld. \U0001F4A7\U0001F6AB"
   mode: single
 - id: '1736081312239'
-  alias: Spanningswaarschuwing
+  alias: Spanning waarschuwing
   description: Geeft een melding wanneer de spanning van een apparaat buiten het normale
     bereik valt (hoger dan 253V of tussen 1V en 207V), met uitzondering van Growatt
     sensoren.
   triggers:
-  - event_type: state_changed
-    trigger: event
-  conditions:
-  - condition: template
-    value_template: "{% set entity = trigger.event.data.entity_id %} {% set new_state
-      = trigger.event.data.new_state %}\n{# 1. Controleer of de entity_id een sensor
-      is, eindigt op '_spanning' en NIET begint met 'sensor.zonnepanelen' #} \n{%
-      if entity.startswith('sensor.') and not entity.startswith('sensor.zonnepanelen')
-      and entity.endswith('_spanning') %}\n\n  {# 2. Controleer of de nieuwe status
-      een geldig nummer is #}\n  {% if new_state is not none and new_state.state |
-      is_number %}\n\n    {# 3. Converteer naar een nummer en controleer of het buiten
-      het normale bereik valt #}\n    {% set voltage = new_state.state | float %}\n
-      \   {{ voltage > 253 or (voltage >= 1 and voltage <= 207) }}\n\n  {% else %}\n
-      \   {{ false }}\n  {% endif %}\n\n{% else %}\n  {{ false }}\n{% endif %}"
+  - trigger: template
+    value_template: '{{ label_entities(''Spanning'') | map(''states'') | map(''float'',
+      230) | select(''gt'', 253) | list | count > 0 }}'
+  - trigger: template
+    value_template: '{{ label_entities(''Spanning'') | map(''states'') | map(''float'',
+      230) | select(''lt'', 207) | list | count > 0 }}'
+  conditions: []
   actions:
-  - data:
-      title: Spanningswaarschuwing! ⚡
-      message: De spanning van '{{ trigger.event.data.new_state.name }}' is nu {{
-        trigger.event.data.new_state.state }}V.
-    action: persistent_notification.create
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: De spanning van '{{ trigger.event.data.new_state.name }}' is nu {{ trigger.event.data.new_state.state
-      }}V.
-    title: Spanningswaarschuwing! ⚡
-  mode: single
-- id: '1736084539525'
-  alias: Temperatuurwaarschuwing
-  description: Geeft een melding wanneer de temperatuur van een apparaat buiten het
-    bereik van 0-90 graden valt.
-  triggers:
-  - event_type: state_changed
-    trigger: event
-  conditions:
-  - condition: template
-    value_template: "{% set entity = trigger.event.data.entity_id %} {% set new_state
-      = trigger.event.data.new_state %}\n{# 1. Check if the entity_id matches the
-      pattern 'sensor.*_apparaattemperatuur' #} {% if entity.startswith('sensor.')
-      and entity.endswith('_apparaattemperatuur') %}\n\n  {# 2. Check if the new state
-      is a valid number #}\n  {% if new_state is not none and new_state.state | is_number
-      %}\n\n    {# 3. Convert to a number and check if it's outside the 0-90 range
-      #}\n    {% set temp = new_state.state | float %}\n    {{ temp < 0 or temp >
-      90 }}\n\n  {% else %}\n    {{ false }}\n  {% endif %}\n\n{% else %}\n  {{ false
-      }}\n{% endif %}"
-  actions:
-  - data:
-      title: "Temperatuurwaarschuwing! \U0001F321️"
-      message: De temperatuur van '{{ trigger.event.data.new_state.name }}' is nu
-        {{ trigger.event.data.new_state.state }}°C.
-    action: persistent_notification.create
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: De temperatuur van '{{ trigger.event.data.new_state.name }}' is nu {{
-      trigger.event.data.new_state.state }}°C.
-    title: "Temperatuurwaarschuwing! \U0001F321️"
+  - repeat:
+      for_each: '{{ label_entities(''Spanning'') }}'
+      sequence:
+      - if:
+        - condition: template
+          value_template: '{% set val = states(repeat.item) | float(230) %} {{ (val
+            > 253 or val < 207) and val != 0 }}
+
+            '
+        then:
+        - action: notify.mobile_app_sm_s901b
+          data:
+            title: ⚠️ Spanning
+            message: '{{ state_attr(repeat.item, ''friendly_name'') }} is nu {{ states(repeat.item)
+              }} V!'
   mode: single
 - id: '1750005386050'
-  alias: Overloopverlichting
+  alias: Overloop verlichting
   description: Deze automatisering zorgt ervoor dat de verlichting op de overloop
     automatisch aangaat wanneer er beweging wordt gedetecteerd in de gang of op de
     overloop zelf, maar alleen als het donker is. De lichten blijven aan zolang er
@@ -477,15 +443,15 @@
     trigger: device
   conditions:
   - condition: state
-    entity_id: binary_sensor.donker
-    state: 'off'
-    alias: ' Als het donker is'
+    entity_id: binary_sensor.gang_bewegingsmelder_licht
+    state:
+    - 'off'
   actions:
   - action: light.turn_on
     metadata: {}
     data: {}
     target:
-      area_id: corridor
+      area_id: overloop
   - wait_template: '  {{ (states(''binary_sensor.gang_bewegingsmelder_bezetting'')
       == ''off'') and (states(''binary_sensor.overloop_bewegingsmelder'') == ''off'')
       }}'
@@ -495,7 +461,7 @@
   - data: {}
     action: light.turn_off
     target:
-      area_id: corridor
+      area_id: overloop
   mode: single
 - id: '1750506763508'
   alias: Feed EVdata
@@ -523,84 +489,6 @@
         }}:0:0'
   mode: single
   max_exceeded: silent
-- id: '1752318946240'
-  alias: Overbelastingswaarschuwing
-  description: Geeft een melding wanneer een apparaat overbelast is (binary_sensor
-    eindigt op _overbelasting gaat aan).
-  triggers:
-  - event_type: state_changed
-    trigger: event
-    event_data:
-      new_state: 'on'
-  conditions:
-  - condition: template
-    value_template: "{% set entity = trigger.event.data.entity_id %}  \n{{ entity.startswith('binary_sensor.')
-      and entity.endswith('_overbelasting') }}"
-  actions:
-  - data:
-      title: Overbelasting! ⚠️
-      message: '''{{ trigger.to_state.name }}'' is overbelast.'
-    action: persistent_notification.create
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: '''{{ trigger.to_state.name }}'' is overbelast.'
-    title: Overbelasting! ⚠️
-  mode: single
-- id: '1752319855925'
-  alias: Oververhittingswaarschuwing
-  description: Geeft een melding wanneer een apparaat oververhit is (binary_sensor
-    eindigt op _oververhitting gaat aan).
-  triggers:
-  - event_type: state_changed
-    trigger: event
-    event_data:
-      new_state: 'on'
-  conditions:
-  - condition: template
-    value_template: "{% set entity = trigger.event.data.entity_id %}  \n{{ entity.startswith('binary_sensor.')
-      and entity.endswith('_oververhitting') }}"
-  actions:
-  - data:
-      title: "Oververhitting! \U0001F525"
-      message: '''{{ trigger.to_state.name }}'' is oververhit.'
-    action: persistent_notification.create
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: '''{{ trigger.to_state.name }}'' is oververhit.'
-    title: "Oververhitting! \U0001F525"
-  mode: single
-- id: '1752320271153'
-  alias: CO2-waarschuwing
-  description: Geeft een melding wanneer de CO2-concentratie van een sensor boven
-    de 1000 ppm komt.
-  triggers:
-  - trigger: numeric_state
-    entity_id:
-    - sensor.slaapkamer_luchtkwaliteit_co2
-    - sensor.woonkamer_luchtkwaliteit_co2
-    - sensor.zolder_luchtkwaliteit_luchtkwaliteit_co2
-    above: 1200
-  - trigger: numeric_state
-    entity_id:
-    - sensor.slaapkamer_luchtkwaliteit_co2
-    - sensor.woonkamer_luchtkwaliteit_co2
-    - sensor.zolder_luchtkwaliteit_luchtkwaliteit_co2
-    above: 1000
-  conditions: []
-  actions:
-  - device_id: f25c56e952ad0fee7c940b1eadb4d450
-    domain: mobile_app
-    type: notify
-    message: '{{ state_attr(trigger.entity_id, ''friendly_name'') }} is { trigger.to_state.state
-      }} ppm'
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: '{{ state_attr(trigger.entity_id, ''friendly_name'') }} is {{ trigger.to_state.state
-      }} ppm'
-  mode: single
 - id: '1752612340249'
   alias: Bureau M
   description: ''
@@ -639,62 +527,17 @@
         entity_id: a4b1e2e1270d476cd119e59125d373af
         domain: switch
   mode: single
-- id: '1758393716105'
-  alias: Woonkamerverlichting
-  description: ''
-  triggers:
-  - trigger: event
-    event_type: zha_event
-    event_data:
-      device_ieee: bc:33:ac:ff:fe:9b:34:a0
-      endpoint_id: 1
-  conditions: []
-  actions:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.command == ''on'' }}'
-      sequence:
-      - action: light.turn_on
-        target:
-          entity_id: light.woonkamer
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.command == ''off'' }}'
-      sequence:
-      - action: light.turn_off
-        target:
-          entity_id: light.woonkamer
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.command == ''move'' }}'
-      sequence:
-      - action: light.turn_on
-        target:
-          entity_id: light.woonkamer
-        data:
-          brightness: 1
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.command == ''move_with_on_off'' }}'
-      sequence:
-      - action: light.turn_on
-        target:
-          entity_id: light.woonkamer
-        data:
-          brightness: 254
-  mode: single
 - id: '1759686494315'
-  alias: Zolderverwarming uitzetten na 15 uur
+  alias: Zolder verwarming
   description: ''
   triggers:
   - trigger: state
     entity_id:
-    - climate.zolder
+    - climate.zolder_verwarming
     to:
     - heat
     for:
-      hours: 15
+      hours: 4
       minutes: 0
       seconds: 0
   conditions: []
@@ -703,7 +546,7 @@
     metadata: {}
     data: {}
     target:
-      entity_id: climate.zolder
+      entity_id: climate.zolder_verwarming
   mode: single
 - id: '1760072828171'
   alias: RPi5 power button
@@ -718,22 +561,23 @@
     data: {}
   mode: single
 - id: '1767521444819'
-  alias: 'Klimaat: Slaapkamer Verwarming Schema Volgen'
+  alias: Slaapkamer verwarming
   description: Zet de verwarming aan of uit op basis van de schedule entiteit
   triggers:
-  - entity_id: schedule.slaapkamer
+  - entity_id:
+    - schedule.slaapkamer_verwarming
     trigger: state
   actions:
   - target:
-      entity_id: climate.slaapkamer
+      area_id: slaapkamer
     action: climate.turn_{{ trigger.to_state.state }}
   - target:
-      entity_id: climate.slaapkamer
+      area_id: slaapkamer
     action: climate.set_preset_mode({{ state_attr('schedule.slaapkamer', 'preset_mode')
       }})
   mode: restart
 - id: '1767542919930'
-  alias: Schuur temperatuur onder de vijf graden
+  alias: Temperatuur waarschuwing
   description: ''
   triggers:
   - type: temperature
@@ -750,39 +594,41 @@
       message: Schuur is onder de 5 graden.
   mode: single
 - id: '1767596340753'
-  alias: Badkamerlicht via Deursensor
+  alias: Badkamer verlichting deur
   description: Zet licht aan bij openen deur en uit na 30 minuten inactiviteit
   triggers:
   - entity_id: binary_sensor.badkamer_deur
     to: 'on'
     trigger: state
   actions:
-  - target:
-      entity_id: light.bad
-    action: light.turn_on
+  - action: light.turn_on
+    data: {}
+    target:
+      area_id: badkamer
   - wait_for_trigger:
     - entity_id: binary_sensor.badkamer_deur
       for:
         minutes: 30
       trigger: state
     timeout: 01:00:00
-  - target:
-      entity_id: light.bad
-    action: light.turn_off
+  - action: light.turn_off
+    data: {}
+    target:
+      area_id: badkamer
   mode: restart
 - id: '1767597887897'
-  alias: Schuurlicht volgt deur
+  alias: Schuur verlichting
   description: Licht aan als deur open is, licht uit als deur dicht is
   triggers:
   - entity_id: binary_sensor.schuur_deur
     trigger: state
   actions:
   - target:
-      entity_id: light.schuur
+      area_id: schuur
     action: light.turn_{{ 'on' if is_state('binary_sensor.schuur_deur', 'on') else
       'off' }}
 - id: '1767645444983'
-  alias: Slaapkamer knop M
+  alias: Slaapkamer verlichting knop M
   description: Kort = nachtstand (1%), Dubbel = groep fel (4000K), Lang = alles uit
     (fading)
   triggers:
@@ -807,7 +653,7 @@
       sequence:
       - action: light.toggle
         target:
-          entity_id: light.slaapkamer_5
+          entity_id: light.slaapkamer_lamp_5
         data:
           brightness_pct: 1
           color_temp_kelvin: 2700
@@ -816,6 +662,415 @@
         id: lang
       sequence:
       - action: light.turn_off
+        data: {}
         target:
-          entity_id: light.slaapkamer
+          area_id: slaapkamer
   mode: restart
+- id: '1767820576397'
+  alias: Woonkamer verlichting
+  description: Licht bedienen met dimmen bij lang indrukken
+  triggers:
+  - device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    type: remote_button_short_press
+    subtype: turn_on
+    trigger: device
+    id: aan
+  - device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    type: remote_button_long_press
+    subtype: dim_up
+    trigger: device
+    id: omhoog_vast
+  - device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    type: remote_button_long_press
+    subtype: dim_down
+    trigger: device
+    id: omlaag_vast
+  - device_id: edc737eaf70410f77edc47501e93b308
+    domain: zha
+    type: remote_button_short_press
+    subtype: turn_off
+    trigger: device
+    id: uit
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: aan
+      sequence:
+      - action: light.turn_on
+        data: {}
+        target:
+          area_id: woonkamer
+    - conditions:
+      - condition: trigger
+        id: uit
+      sequence:
+      - target:
+          area_id: woonkamer
+        action: light.turn_off
+    - conditions:
+      - condition: trigger
+        id: omhoog_vast
+      sequence:
+      - repeat:
+          while:
+          - condition: trigger
+            id: omhoog_vast
+          sequence:
+          - target:
+              area_id: woonkamer
+            data:
+              brightness_step_pct: 10
+            action: light.turn_on
+          - delay:
+              milliseconds: 500
+    - conditions:
+      - condition: trigger
+        id: omlaag_vast
+      sequence:
+      - repeat:
+          while:
+          - condition: trigger
+            id: omlaag_vast
+          sequence:
+          - data:
+              brightness_step_pct: -10
+            action: light.turn_on
+            target:
+              area_id: woonkamer
+          - delay:
+              milliseconds: 500
+  mode: restart
+- id: '1767821216251'
+  alias: Voorraadkast verlichting
+  description: Schakelt verlichting in de pantry aan bij openen en uit bij sluiten
+  triggers:
+  - entity_id: binary_sensor.voorraadkast_deur
+    from: 'off'
+    to: 'on'
+    id: open
+    trigger: state
+  - entity_id: binary_sensor.voorraadkast_deur
+    from: 'on'
+    to: 'off'
+    id: dicht
+    trigger: state
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: open
+      sequence:
+      - action: light.turn_on
+        data: {}
+        target:
+          area_id: voorraadkast
+    - conditions:
+      - condition: trigger
+        id: dicht
+      sequence:
+      - action: light.turn_off
+        data: {}
+        target:
+          area_id: voorraadkast
+  mode: single
+- id: '1768140752108'
+  alias: Keuken verlichting
+  description: Turns Keuken lights on or off based on motion sensor state.
+  triggers:
+  - entity_id: binary_sensor.keuken_bewegingsmelder
+    trigger: state
+  conditions: []
+  actions:
+  - target:
+      area_id: keuken
+    action: "{% if is_state('binary_sensor.keuken_bewegingsmelder', 'on') %}\n  light.turn_on\n{%
+      else %}\n  light.turn_off\n{% endif %}\n"
+  mode: restart
+- id: '1768161870850'
+  alias: CO2 waarschuwing
+  description: Triggert wanneer een CO2 sensor met label 'CO2' boven de 1000 of 1200
+    komt
+  triggers:
+  - trigger: template
+    value_template: '{{ label_entities(''CO2'') | map(''states'') | map(''float'',
+      0) | select(''gt'', 1000) | list | count > 0 }}'
+  actions:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ states(trigger.entity_id) | float(0) > 1200 }}'
+      sequence:
+      - data:
+          title: '⚠️ CO2 Alarm: Zeer Hoog'
+          message: De CO2 in {{ area_name(trigger.entity_id) }} is {{ states(trigger.entity_id)
+            }} ppm!
+        action: notify.mobile_app_sm_s901b
+    - conditions:
+      - condition: template
+        value_template: '{{ states(trigger.entity_id) | float(0) > 1000 }}'
+      sequence:
+      - data:
+          title: CO2 Melding
+          message: De luchtkwaliteit in {{ area_name(trigger.entity_id) }} verslechtert
+            ({{ states(trigger.entity_id) }} ppm).
+        action: notify.mobile_app_sm_s901b
+  mode: parallel
+- id: '1768165004229'
+  alias: Apparaattemperatuur waarschuwing
+  description: Triggert wanneer een entiteit met label 'Apparaattemperatuur' onder
+    de 10 of boven de 90 komt.
+  triggers:
+  - trigger: template
+    value_template: '{{ label_entities(''Apparaattemperatuur'') | map(''states'')
+      | map(''float'', 10) | select(''gt'', 90) | list | count > 0 }}'
+  - trigger: template
+    value_template: '{{ label_entities(''Apparaattemperatuur'') | map(''states'')
+      | map(''float'', 10) | select(''lt'', 10) | list | count > 0 }}'
+  actions:
+  - repeat:
+      for_each: '{{ label_entities(''Apparaattemperatuur'') }}'
+      sequence:
+      - if:
+        - condition: template
+          value_template: '{% set val = states(repeat.item) | float(20) %}
+
+            {{ (val > 90 or val < 10) and val != 0 }}
+
+            '
+        then:
+        - action: notify.mobile_app_sm_s901b
+          data:
+            title: ⚠️ Apparaattemperatuur
+            message: '{{ state_attr(repeat.item, ''friendly_name'') }} is nu {{ states(repeat.item)
+              }}°C!'
+  mode: parallel
+- id: '1768166469947'
+  alias: Probleem waarschuwing
+  description: Waarschuwt wanneer een entiteit met label 'Probleem' aan gaat.
+  triggers:
+  - trigger: template
+    value_template: '{{ label_entities(''Probleem'') | select(''is_state'', ''on'')
+      | reject(''match'', ''^automation\.'') | list | count > 0}}'
+  conditions: []
+  actions:
+  - repeat:
+      for_each: '{{ label_entities(''Probleem'') | reject(''match'', ''^automation\.'')
+        | list }}'
+      sequence:
+      - if:
+        - condition: template
+          value_template: '{{ is_state(repeat.item, ''on'') }}'
+        then:
+        - action: notify.mobile_app_sm_s901b
+          data:
+            title: ⚠️ Probleem
+            message: '{{ repeat.item }} is aan.'
+  mode: parallel
+- id: '1768254535190'
+  alias: Badkamer strip schakelaar
+  description: Zet licht aan bij schaeklaar
+  triggers:
+  - entity_id: binary_sensor.badkamer_strip_knop_input
+    from: 'off'
+    to: 'on'
+    id: licht_aan
+    trigger: state
+  - entity_id: binary_sensor.badkamer_strip_knop_input
+    from: 'on'
+    to: 'off'
+    id: licht_uit
+    trigger: state
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: licht_aan
+      sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.badkamer_strip
+    - conditions:
+      - condition: trigger
+        id: licht_uit
+      sequence:
+      - action: light.turn_off
+        target:
+          entity_id: light.badkamer_strip
+  mode: restart
+- id: '1771190128778'
+  alias: Woonkamer verlichting achter
+  description: ''
+  triggers:
+  - type: turned_off
+    device_id: e5af16afc1af56b9e063d714de158f91
+    entity_id: 0ae986041edef34d8c5fc74573e7dc70
+    domain: switch
+    trigger: device
+    id: uit
+  - type: turned_on
+    device_id: e5af16afc1af56b9e063d714de158f91
+    entity_id: 0ae986041edef34d8c5fc74573e7dc70
+    domain: switch
+    trigger: device
+    id: aan
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - aan
+      sequence:
+      - action: light.turn_on
+        metadata: {}
+        target:
+          device_id: b0ddce550f02cbf0799d40d240ab435c
+        data: {}
+    - conditions:
+      - condition: trigger
+        id:
+        - uit
+      sequence:
+      - action: light.turn_off
+        metadata: {}
+        target:
+          device_id: b0ddce550f02cbf0799d40d240ab435c
+        data: {}
+  mode: single
+- id: '1771519146183'
+  alias: Bureau GJ
+  description: ''
+  triggers:
+  - device_id: dba399be5f18d6a874165e6f8f4cf9c5
+    domain: zha
+    type: remote_button_short_press
+    subtype: turn_on
+    trigger: device
+    id: aan
+  - device_id: dba399be5f18d6a874165e6f8f4cf9c5
+    domain: zha
+    type: remote_button_short_press
+    subtype: turn_off
+    trigger: device
+    id: uit
+  - device_id: dba399be5f18d6a874165e6f8f4cf9c5
+    domain: zha
+    type: remote_button_long_press
+    subtype: dim_down
+    trigger: device
+    id: lamp-uit
+  - device_id: dba399be5f18d6a874165e6f8f4cf9c5
+    domain: zha
+    type: remote_button_long_press
+    subtype: dim_up
+    trigger: device
+    id: lamp-aan
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - aan
+      sequence:
+      - action: switch.turn_on
+        metadata: {}
+        target:
+          entity_id: switch.zolder_bureau_gj
+        data: {}
+    - conditions:
+      - condition: trigger
+        id:
+        - uit
+      sequence:
+      - action: switch.turn_off
+        metadata: {}
+        target:
+          entity_id: switch.zolder_bureau_gj
+        data: {}
+    - conditions:
+      - condition: trigger
+        id:
+        - lamp-uit
+      sequence:
+      - action: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          area_id: zolder
+      - action: climate.turn_off
+        metadata: {}
+        target:
+          entity_id: climate.zolder_verwarming
+        data: {}
+    - conditions:
+      - condition: trigger
+        id:
+        - lamp-aan
+      sequence:
+      - action: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          area_id: zolder
+  mode: single
+- id: '1771609903515'
+  alias: Badkamer verlichting plafond (met dubbelklik)
+  description: Zet licht aan/uit, en bij dubbelklik naar 100%
+  triggers:
+  - type: powered
+    device_id: 6c966592f610499fc0ed195a0ad969d7
+    entity_id: 1d54b71002392ad83605176834259bc1
+    domain: binary_sensor
+    trigger: device
+    id: aan
+  - type: not_powered
+    device_id: 6c966592f610499fc0ed195a0ad969d7
+    entity_id: 1d54b71002392ad83605176834259bc1
+    domain: binary_sensor
+    trigger: device
+    id: uit
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: aan
+      sequence:
+      - action: light.turn_on
+        target:
+          entity_id: light.badkamer_spots
+      - wait_for_trigger:
+        - type: not_powered
+          device_id: 6c966592f610499fc0ed195a0ad969d7
+          entity_id: 1d54b71002392ad83605176834259bc1
+          domain: binary_sensor
+          trigger: device
+        timeout: 00:00:05
+        continue_on_timeout: false
+      - wait_for_trigger:
+        - type: powered
+          device_id: 6c966592f610499fc0ed195a0ad969d7
+          entity_id: 1d54b71002392ad83605176834259bc1
+          domain: binary_sensor
+          trigger: device
+        timeout: 00:00:05
+        continue_on_timeout: false
+      - action: light.turn_on
+        target:
+          entity_id: light.badkamer_spots
+        data:
+          brightness_pct: 100
+    - conditions:
+      - condition: trigger
+        id: uit
+      sequence:
+      - action: light.turn_off
+        target:
+          entity_id: light.badkamer_spots
+  mode: single
