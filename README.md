@@ -53,59 +53,59 @@ I prefer durability over low cost, so I tend to avoid cheap disposable hardware.
 
 | Device | Manufacturer & Model | Protocol | Room | Price | Pcs |
 |--------|----------------------|----------|------|-------|-----|
-| Air quality sensor | [Apollo Automation AIR-1](https://apolloautomation.com/products/air-1) | WiFi (ESPHome) | Living room | €49 | 1 |
+| Air quality sensor | [Apollo Automation AIR-1](https://apolloautomation.com/products/air-1) | WiFi (ESPHome) | Living room | €187 | 1 |
 | Air quality sensor | [MoreSense MS05](https://www.moresense.nl) (CO₂, temp, humidity) | MQTT | Bedroom, Attic | - | 2 |
-| Control outlet | [IKEA TRÅDFRI](https://www.ikea.com/nl/en/p/tradfri-wireless-control-outlet-90356166/) | Zigbee | | €10 | 1 |
-| Control outlet | [IKEA Askvader](https://www.ikea.com/nl/en/p/askvaeder-on-off-switch-50463880/) | Zigbee | Attic | €10 | 3 |
+| Control outlet | [IKEA TRÅDFRI](https://www.ikea.com/nl/en/p/tradfri-wireless-control-outlet-90356166/) | Zigbee | | discontinued | 1 |
+| Control outlet | [IKEA Askvader](https://www.ikea.com/nl/en/p/askvaeder-on-off-switch-50463880/) | Zigbee | Attic | discontinued | 3 |
 | Dehumidifier | Qlima D 820 A | WiFi (via Sonoff Basic relay; Tuya Local disabled) | | - | 1 |
 | Dimmer | [Philips Hue RWL022](https://www.philips-hue.com/nl-nl/p/hue-dimmer-schakelaar/8719514274617) | Zigbee | | €20 | 1 |
-| Door sensor | [Aqara lumi.sensor_magnet.aq2](https://aliexpress.com/item/4001241581941.html) | Zigbee | Bathroom, Hallway, Walk-in closet, Shed, Toilet, Storage room | €53 | 6 |
-| Energy meter | [Shelly EM](https://shop.shelly.cloud/shelly-em-wifi-smart-home-automation) | WiFi | Meter cupboard | €35 | 1 |
-| ESP32 | [Espressif ESP32-WROOM-32D](https://nl.aliexpress.com/item/32864722159.html) | Bluetooth & WiFi | | €5 | 1 |
+| Door sensor | [Aqara lumi.sensor_magnet.aq2](https://aliexpress.com/item/4001241581941.html) | Zigbee | Bathroom, Hallway, Walk-in closet, Shed, Toilet, Storage room | €16 | 6 |
+| Energy meter | [Shelly EM](https://shop.shelly.cloud/shelly-em-wifi-smart-home-automation) | WiFi | Meter cupboard | €60 | 1 |
+| ESP32 | [Espressif ESP32-WROOM-32D](https://nl.aliexpress.com/item/32864722159.html) | Bluetooth & WiFi | | €15 | 1 |
 | EV charger | [Peblar WLAC1-S22RPWELMDR00](https://www.peblar.com) | WiFi | Meter cupboard | - | 1 |
-| Flood sensor | [Shelly Flood Gen4](https://www.shelly.com/products/shelly-flood-generation-4) | WiFi | | €20 | 1 |
-| Flower sensor | [Vegtrug](https://nl.aliexpress.com/item/1005001671394326.html) | Bluetooth (via ESP32) | | €19 | 1 |
-| Google Nest Hub | [Google Nest Hub 2nd gen](https://store.google.com/nl/product/nest_hub_2nd_gen) | Thread border router | Living room | (€100) | 1 |
-| Heater | [EUROM CK2003 Turbo 2000W](https://www.hornbach.nl/shop/EUROM-Convectorkachel-CK2003-Turbo-2000-Watt/8438008/artikel.html) | via smart plug (HA Climate) | | (€29) | 1 |
+| Flood sensor | [Shelly Flood Gen4](https://www.shelly.com/products/shelly-flood-generation-4) | WiFi | | €35 | 1 |
+| Flower sensor | [Vegtrug](https://nl.aliexpress.com/item/1005001671394326.html) | Bluetooth (via ESP32) | | €30 | 1 |
+| Google Nest Hub | [Google Nest Hub 2nd gen](https://store.google.com/nl/product/nest_hub_2nd_gen) | Thread border router | Living room | (€105) | 1 |
+| Heater | [EUROM CK2003 Turbo 2000W](https://www.hornbach.nl/shop/EUROM-Convectorkachel-CK2003-Turbo-2000-Watt/8438008/artikel.html) | via smart plug (HA Climate) | | (€37) | 1 |
 | LED + 200W power | [24V RGBWW 19W/m IP67](https://www.led-gigant.nl/product/24volt-rgbww-led-strip-ip66/) | via Shelly RGBW2 | Roof terrace | €188 | 10m |
 | LED + 50W power | [24V LED 12W IP65 2700K](https://www.led-gigant.nl/product/waterdichte-led-strip-extra-warm-wit-12w-1260lm-meter-24vdc-ip68-nano-3000k-25m-rol-kopie/) | via relay | Bike shed | €41 | 2.5m |
-| LED driver | [Shelly RGBW2](https://shop.shelly.cloud/shelly-rgbw2-wifi-smart-home-automation) | WiFi | Roof terrace | €25 | 1 |
+| LED driver | [Shelly RGBW2](https://shop.shelly.cloud/shelly-rgbw2-wifi-smart-home-automation) | WiFi | Roof terrace | discontinued | 1 |
 | Light bulb | [IKEA KAJPLATS GU10 CWS 470lm](https://www.ikea.com/nl/nl/p/kajplats-led-lamp-gu10-470-lumen-draadloos-dimbaar-kleurspectrum-en-wit-spectrum-60556619/) | Matter (Thread) | Bathroom | - | 4 |
 | Light bulb | [IKEA KAJPLATS GU10 WS 575lm](https://www.ikea.com/nl/nl/p/kajplats-led-lamp-gu10-575-lumen-draadloos-dimbaar-wit-spectrum-70556621/) | Matter (Thread) | Kitchen | - | 3 |
-| Light bulb | [IKEA TRÅDFRI GU10 WW 400lm](https://www.ikea.com/nl/nl/p/tradfri-led-lamp-gu10-400-lumen-draadloos-dimbaar-warm-wit-60420041/) | Zigbee | Walk-in closet | €14 | 2 |
-| Light bulb | [IKEA TRÅDFRI GU10 WS 400lm](https://www.ikea.com/nl/en/p/tradfri-led-bulb-gu10-400-lumen-wireless-dimmable-white-spectrum-90408603/) | Zigbee | Bedroom | €80 | 5 |
+| Light bulb | [IKEA TRÅDFRI GU10 WW 400lm](https://www.ikea.com/nl/nl/p/tradfri-led-lamp-gu10-400-lumen-draadloos-dimbaar-warm-wit-60420041/) | Zigbee | Walk-in closet | €13 | 2 |
+| Light bulb | [IKEA TRÅDFRI GU10 WS 400lm](https://www.ikea.com/nl/en/p/tradfri-led-bulb-gu10-400-lumen-wireless-dimmable-white-spectrum-90408603/) | Zigbee | Bedroom | €13 | 5 |
 | Light bulb | [Philips Hue LTA001 E27 Filament](https://www.gamma.nl/assortiment/philips-hue-filament-led-lamp-e27-7w/p/B128025) | Zigbee | Shed | €20 | 1 |
 | Light bulb | [Philips Hue LTW010 E27 White Ambiance](https://www.philips-hue.com) | Zigbee | Attic | - | 1 |
-| Light bulb | [Philips Hue LTW012 E14 White Ambiance](https://www.mediamarkt.nl/nl/product/_philips-hue-ambiance-2-pack-wit-1502337.html) | Zigbee | Hallway, Landing | €45 | 2 |
+| Light bulb | [Philips Hue LTW012 E14 White Ambiance](https://www.mediamarkt.nl/nl/product/_philips-hue-ambiance-2-pack-wit-1502337.html) | Zigbee | Hallway, Landing | €48 | 2 |
 | Light bulb | [Philips Hue LWA004 E27 White](https://www.philips-hue.com) | Zigbee | Attic | - | 1 |
 | Light strip | [Philips Hue Flux gradient lightstrip](https://www.philips-hue.com) | Zigbee | Kitchen | - | 1 |
 | Light strip | [Philips Hue OmniGlow lightstrip](https://www.philips-hue.com) | Zigbee | Kitchen | - | 1 |
-| Motion sensor | [IKEA TRÅDFRI](https://www.ikea.com/nl/nl/p/tradfri-draadloze-bewegingssensor-wit-70429913/) | Zigbee | Bike shed, Kitchen, Landing | €39 | 4 |
-| Motion sensor | [Philips Hue SML001 w/ thermometer](https://www.mediamarkt.nl/nl/product/_philips-hue-bewegingssensor-1522068.html) | Zigbee | Hallway | €40 | 1 |
+| Motion sensor | [IKEA TRÅDFRI](https://www.ikea.com/nl/nl/p/tradfri-draadloze-bewegingssensor-wit-70429913/) | Zigbee | Bike shed, Kitchen, Landing | €13 | 4 |
+| Motion sensor | [Philips Hue SML001 w/ thermometer](https://www.mediamarkt.nl/nl/product/_philips-hue-bewegingssensor-1522068.html) | Zigbee | Hallway | €36 | 1 |
 | NAS | [Synology DS216play](https://tweakers.net/pricewatch/461480/synology-diskstation-ds216play.html) | [API](https://github.com/home-assistant/core/tree/dev/homeassistant/components/synology_dsm) | Attic | (€250) | 1 |
-| Printer | [Canon MG3650S](https://www.canon.nl/printers/pixma-mg3650s/) | IPP (WLAN) | Attic | (€74) | 1 |
-| Relay | [Shelly 1](https://shop.shelly.cloud/shelly-1-wifi-smart-home-automation) | WiFi | Bike shed | - | 1 |
-| Relay | [Shelly 1 Mini Gen4](https://www.shelly.com/products/shelly-1-mini-generation-4) | Matter (Thread) / WiFi | Hallway | €10 | 2 |
-| Relay | [Shelly 1PM](https://shop.shelly.cloud/shelly-1pm-wifi-smart-home-automation-1) | WiFi | Toilet, Living room | €25 | 2 |
-| Relay | [Shelly 1PM Mini Gen4](https://www.shelly.com/products/shelly-1pm-mini-generation-4) | WiFi | Bathroom (×2), Kitchen, Living room | - | 4 |
-| Relay | [Shelly 2.5](https://shop.shelly.cloud/shelly-2.5-ce-ul-wifi-smart-home-automation) | WiFi | Bathroom (×3) | €17 | 3 |
-| Relay | [Shelly Plug S](https://shop.shelly.cloud/shelly-plug-s-wifi-smart-home-automation) | WiFi | Walk-in closet, Kitchen, Bedroom, Attic (×4) | - | 7 |
-| Remote control | [IKEA TRÅDFRI](https://www.ikea.com/nl/en/p/tradfri-remote-control-30443124/) | Zigbee | Bedroom | €15 | 1 |
+| Printer | [Canon MG3650S](https://www.canon.nl/printers/pixma-mg3650s/) | IPP (WLAN) | Attic | (€62) | 1 |
+| Relay | [Shelly 1](https://shop.shelly.cloud/shelly-1-wifi-smart-home-automation) | WiFi | Bike shed | discontinued | 1 |
+| Relay | [Shelly 1 Mini Gen4](https://www.shelly.com/products/shelly-1-mini-generation-4) | Matter (Thread) / WiFi | Hallway | €16 | 2 |
+| Relay | [Shelly 1PM](https://shop.shelly.cloud/shelly-1pm-wifi-smart-home-automation-1) | WiFi | Toilet, Living room | discontinued | 2 |
+| Relay | [Shelly 1PM Mini Gen4](https://www.shelly.com/products/shelly-1pm-mini-generation-4) | WiFi | Bathroom (×2), Kitchen, Living room | €18 | 4 |
+| Relay | [Shelly 2.5](https://shop.shelly.cloud/shelly-2.5-ce-ul-wifi-smart-home-automation) | WiFi | Bathroom (×3) | discontinued | 3 |
+| Relay | [Shelly Plug S](https://shop.shelly.cloud/shelly-plug-s-wifi-smart-home-automation) | WiFi | Walk-in closet, Kitchen, Bedroom, Attic (×4) | €20 | 7 |
+| Remote control | [IKEA TRÅDFRI](https://www.ikea.com/nl/en/p/tradfri-remote-control-30443124/) | Zigbee | Bedroom | discontinued | 1 |
 | Robot vacuum | Bluebot XBoost | WiFi | | - | 1 |
 | Router | [ZTE H369A / Experia Box v10](https://nl.hardware.info/routers.9/zte-kpn-experia-box-v10.280129) | SNMP, UPnP | | - | 1 |
-| Router | [TP-Link Archer AX55](https://www.mediamarkt.nl/nl/product/_tp-link-archer-ax55-1716886.html) | UPnP | Living room | (€100) | 1 |
-| Smart plug | [NOUS A1T (Tasmota)](https://nous.technology/product/nous-a1t.html) | WiFi | Bike shed, Kitchen (×3), Shed, Living room, Attic | - | 7 |
+| Router | [TP-Link Archer AX55](https://www.mediamarkt.nl/nl/product/_tp-link-archer-ax55-1716886.html) | UPnP | Living room | (€51) | 1 |
+| Smart plug | [NOUS A1T (Tasmota)](https://nous.technology/product/nous-a1t.html) | WiFi | Bike shed, Kitchen (×3), Shed, Living room, Attic | €25 | 7 |
 | Smart switch | Sonoff Basic (Tasmota) | WiFi | | - | 1 |
 | Solar | Growatt ShineLan-X | LAN, MQTT (via [Grott](https://github.com/johanmeijer/grott)), [PVOutput](https://pvoutput.org/list.jsp?userid=112973) | | - | 1 |
-| Switch | [TP-Link TL-SG108S](https://www.mediamarkt.nl/nl/product/_tp-link-tl-sg108s-1593913.html) | - | | (€37) | 1 |
+| Switch | [TP-Link TL-SG108S](https://www.mediamarkt.nl/nl/product/_tp-link-tl-sg108s-1593913.html) | - | | (€29) | 1 |
 | Tesla | [Tesla (49 kWh)](https://www.tesla.com) | via evcc | | - | 1 |
 | Thermostat (CV) | [Vaillant VR940f + VRT51f](https://www.vaillant.nl) | WiFi (HomeKit) | Living room | - | 1 |
 | Thermometer | [Aqara lumi.weather](https://aliexpress.com/item/32888389905.html) (w/ humidity, pressure) | Zigbee | Bathroom, Guest room, Shed | €43 | 3 |
 | Thermometer | [TuYa TS0201](https://aliexpress.com/item/4001179535195.html) (w/ humidity and display) | Zigbee | Living room, Attic | €16 | 2 |
 | TV | [Samsung The Frame QE50LS03](https://www.samsung.com/nl/tvs/qled-tv/the-frame-50-inch-qe50ls03aauxxn/) | WiFi | Living room | - | 1 |
 | Water leak sensor | [IKEA BADRING](https://www.ikea.com/nl/nl/p/badring-watersensor-50504361/) | Zigbee | Attic | - | 1 |
-| Water meter | [Muino water meter sensor](https://github.com/gerritjandebruin/watermeter-esphome) | WiFi (ESPHome) | Meter cupboard | €35 | 1 |
-| Wireless dimmer | [IKEA TRÅDFRI](https://www.ikea.com/nl/en/p/tradfri-wireless-dimmer-white-70408595/) | Zigbee | Bedroom | €14 | 2 |
+| Water meter | [Muino water meter sensor](https://github.com/gerritjandebruin/watermeter-esphome) | WiFi (ESPHome) | Meter cupboard | €30 | 1 |
+| Wireless dimmer | [IKEA TRÅDFRI](https://www.ikea.com/nl/en/p/tradfri-wireless-dimmer-white-70408595/) | Zigbee | Bedroom | €5 | 2 |
 | Zigbee controller | [dresden elektronik ConBee II](https://phoscon.de/en/conbee2) | [ZHA](https://www.home-assistant.io/integrations/zha/) | Shed | €35 | 1 |
 
 - Total costs (ignoring prices in brackets): ~€1,179
