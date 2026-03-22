@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" -H \"Authorization: Bearer 26i9TAPoYK63nDiyeKcBh8Gv66BOs76JOmeCJUXQDbbAur2f\" http://homeassistant.local:8123/api/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" -H \"Authorization: Bearer vnELWxXpiFdCQu-SKscQ6cei64YjIeGo1_RELz_onc0\" http://homeassistant.local:8123/api/)",
+      "Bash(curl -s -w \"\\\\n%{http_code}\" -H \"Authorization: Bearer 26i9TAPoYK63nDiyeKcBh8Gv66BOs76JOmeCJUXQDbbAur2fvnELWxXpiFdCQu-SKscQ6cei64YjIeGo1_RELz_onc0\" http://homeassistant.local:8123/api/)",
+      "Bash(curl -s -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkM2M2MDI4NTcxYWU0MWQ4ODU0ZGNkMjQ2YmQwYzdmMiIsImlhdCI6MTc3NDE5MjMwOCwiZXhwIjoyMDg5NTUyMzA4fQ.vba6WDlHrakDRxPFH2L7dN_nVq3K9767wdgAI44Tn5Q\" http://homeassistant.local:8123/api/)",
+      "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkM2M2MDI4NTcxYWU0MWQ4ODU0ZGNkMjQ2YmQwYzdmMiIsImlhdCI6MTc3NDE5MjMwOCwiZXhwIjoyMDg5NTUyMzA4fQ.vba6WDlHrakDRxPFH2L7dN_nVq3K9767wdgAI44Tn5Q\")",
+      "Bash(curl -s -H \"Authorization: Bearer $TOKEN\" http://homeassistant.local:8123/api/template -H \"Content-Type: application/json\" -d '{\"\"template\"\": \"\"{{ states | map\\(attribute=\\\\\"\"domain\\\\\"\"\\) | list | unique | sort | join\\(\\\\\"\", \\\\\"\"\\) }}\"\"}')",
+      "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkM2M2MDI4NTcxYWU0MWQ4ODU0ZGNkMjQ2YmQwYzdmMiIsImlhdCI6MTc3NDE5MjMwOCwiZXhwIjoyMDg5NTUyMzA4fQ.vba6WDlHrakDRxPFH2L7dN_nVq3K9767wdgAI44Tn5Q\" curl -s -H \"Authorization: Bearer $TOKEN\" \"http://homeassistant.local:8123/api/states\")"
+    ]
+  }
+}

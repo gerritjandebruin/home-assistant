@@ -23,4 +23,3 @@ http:
     - 192.168.1.244
 
 automation: !include automations.yaml
-script: !include scripts.yaml

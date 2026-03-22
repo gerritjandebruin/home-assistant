@@ -2,10 +2,9 @@
 
 This repository contains the set-up of my smart home, featured by the open-source project [Home Assistant](https://www.home-assistant.io).
 
-The full configuration till what it is today, took around one year of hobby time.
+The full configuration till what it is today, took several years of hobby time.
 This is mainly because we increased the number of devices over time.
-I feel it is a steady situation and I expect that not much devices will be added in foreseeable future.
-Hence, it is a good time to put the code on Github and do some version control.
+I use Github for version control and to share my configuration with others.
 
 If you have any questions about my set-up or smarthomes in general, feel free to [contact](mailto:gerritjandebruin@gmail.com) or use the [issue](https://github.com/gerritjandebruin/home-assistant/issues/new) functionality!
 
@@ -23,19 +22,24 @@ The following table provides the devices used by the home automation.
 When buying new devices, I try to keep the following matters into consideration:
 * Limit the number of different manufacturers. This helps when later replacing devices and to get more reproducible readings.
 * Money. I am not willing to spend too much extra money for just little value.
-* Protocol, I try to stick to Zigbee as much as possible. Zigbee provides good coverage while not interfering with the WiFi and hence internet via laptops/ mobile phones.
+* Protocol, I am transitioning from Zigbee to [Matter](https://csa-iot.org/all-solutions/matter/), preferring Matter over Thread above Matter over WiFi. Thread devices form a low-power mesh network and do not congest the WiFi. The Google Nest Hub (2nd gen) acts as a Thread border router, bridging Thread devices to the IP network.
 
 Hence, most devices come from the IKEA :)
 Also, since I try to limit spending, there is no smart climate, smart keys, or fancy displays.
 
 | Device            | Manufacturer      | Model                                       | Protocol                                                                                     | Price  | Pcs  | Link                                                                                                                                          |
 |-------------------|-------------------|---------------------------------------------|----------------------------------------------------------------------------------------------|--------|------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Air quality sensor | Apollo Automation | AIR-1                                      | WiFi (ESPHome)                                                                               | €49    | 1    | [apolloautomation.com](https://apolloautomation.com/products/air-1)                                                                           |
 | Control outlet    | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €10    | 1    | [ikea.com](https://www.ikea.com/nl/en/p/tradfri-wireless-control-outlet-90356166/)                                                            |
 | Control outlet    | IKEA              | Askvader                                    | Zigbee                                                                                       | €10    | 3    | [ikea.com](https://www.ikea.com/nl/en/p/askvaeder-on-off-switch-50463880/)                                                                    |
 | Dimmer            | Philips           | Hue                                         | Zigbee                                                                                       | €20    | 1    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_philips-hue-white-ambiance-starterkit-inclusief-dimmer-switch-e27-1522070.html)         |
 | Door sensor       | Aqara             |                                             | Zigbee                                                                                       | €53    | 6    | [aliexpress.com](https://aliexpress.com/item/4001241581941.html)                                                                              |
 | Doorbell + Antenna | KIKA              | ACDB-6600AC                                 | RTL-SDR, MQTT (via https://github.com/pbkhrv/rtl_433-hass-addons)                            | €25    | 1    | [gamma.nl](https://www.gamma.nl/assortiment/klikaanklikuit-deurbel-set-acdb-6600ac/p/B413295)                                                 |
 | ESP32             | Espressif         | ESP32-WROOM-32D                             | Bluetooth & WiFi                                                                             | €5     | 1    | [aliexpress.com](https://nl.aliexpress.com/item/32864722159.html)                                                                             |
+| Dehumidifier      | Qlima             | D 820 A                                     | WiFi                                                                                         | -      | 1    | [qlima.com](https://www.qlima.com)                                                                                                            |
+| EV charger        | Peblar            |                                             | WiFi                                                                                         | -      | 1    | [peblar.com](https://www.peblar.com)                                                                                                          |
+| Flood sensor      | Shelly            | Flood Gen4                                  | WiFi                                                                                         | €20    | 1    | [shelly.cloud](https://www.shelly.com/products/shelly-flood-generation-4)                                                                     |
+| Google Nest Hub   | Google            | Nest Hub 2nd gen                            | Thread border router                                                                         | (€100) | 1    | [store.google.com](https://store.google.com/nl/product/nest_hub_2nd_gen)                                                                      |
 | Flower sensor     | Vegtrug           |                                             | Bluetooth (via ESP32)                                                                        | €19    | 1    | [aliexpress.com](https://nl.aliexpress.com/item/1005001671394326.html)                                                                        |
 | Heater            | EUROM             | CK2003 Turbo 2000W                          | via outlet                                                                                   | (€29)  | 1    | [hornbach.nl](https://www.hornbach.nl/shop/EUROM-Convectorkachel-CK2003-Turbo-2000-Watt/8438008/artikel.html)                                 |
 | LED + 200W power  |                   | 24V RGB/ White spectrum 19W/m IP67 960lmn/m | via driver                                                                                   | €188   | 10m  | [led-gigant.nl](https://www.led-gigant.nl/product/24volt-rgbww-led-strip-ip66/)                                                               |
@@ -51,19 +55,25 @@ Also, since I try to limit spending, there is no smart climate, smart keys, or f
 | NAS               | Synology          | DS216play                                   | [API](https://github.com/home-assistant/core/tree/dev/homeassistant/components/synology_dsm) | (€250) | 1    | [tweakers.net](https://tweakers.net/pricewatch/461480/synology-diskstation-ds216play.html)                                                    |
 | Printer           | Canon             | MG3650S                                     | IPP (WLAN)                                                                                   | (€74)  | 1    | [Canon.nl](https://www.canon.nl/printers/pixma-mg3650s/)                                                                                      |
 | RTL-SDR           | RTL Cube          | 820T2                                       | Zigbee                                                                                       | €12    | 1    | [aliexpress.com](https://aliexpress.com/item/32476877972.html)                                                                                |
-| Relay             | Shelly            | 1PM                                         | Zigbee                                                                                       | €25    | 2    | [shelly.cloud](https://shop.shelly.cloud/shelly-1pm-wifi-smart-home-automation-1)                                                             |
-| Relay             | Shelly            | 2.5                                         | Zigbee                                                                                       | €17    | 1    | [shelly.cloud](https://shop.shelly.cloud/shelly-2.5-ce-ul-wifi-smart-home-automation)                                                         |
+| Energy meter      | Shelly            | EM                                          | WiFi                                                                                         | €35    | 1    | [shelly.cloud](https://shop.shelly.cloud/shelly-em-wifi-smart-home-automation)                                                                |
+| Relay             | Shelly            | 1 Mini Gen4                                 | WiFi                                                                                         | €10    | 1    | [shelly.com](https://www.shelly.com/products/shelly-1-mini-generation-4)                                                                      |
+| Relay             | Shelly            | 1PM                                         | WiFi                                                                                         | €25    | 2    | [shelly.cloud](https://shop.shelly.cloud/shelly-1pm-wifi-smart-home-automation-1)                                                             |
+| Relay             | Shelly            | 2.5                                         | WiFi                                                                                         | €17    | 1    | [shelly.cloud](https://shop.shelly.cloud/shelly-2.5-ce-ul-wifi-smart-home-automation)                                                         |
 | Remote control    | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €15    | 1    | [ikea.com](https://www.ikea.com/nl/en/p/tradfri-remote-control-30443124/)                                                                     |
 | Router            | ZTE               | H369A / Experia Box v10                     | SNMP, UPnP                                                                                   | -      | 1    | [hardware.info](https://nl.hardware.info/routers.9/zte-kpn-experia-box-v10.280129)                                                            |
 | Router            | TP-Link           | Archer AX55                                 | -                                                                                            | (€100) | 1    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_tp-link-archer-ax55-1716886.html)                                                       |
 | Solar             | Growatt           | ShineLan-X                                  | LAN, MQTT (via [Grott](https://github.com/johanmeijer/grott)), [PVOutput](https://pvoutput.org/list.jsp?userid=112973) | -      | 1    |                                                                                                                                               |
 | Switch            | TP-Link           | TL-SG108S                                   | -                                                                                            | (€37)  | 1    | [mediamarkt.nl](https://www.mediamarkt.nl/nl/product/_tp-link-tl-sg108s-1593913.html)                                                         |
+| Robot vacuum      | Bluebot           | XBoost                                      | WiFi                                                                                         | -      | 1    |                                                                                                                                               |
+| Tesla             | Tesla             | (49 kWh)                                    | via evcc                                                                                     | -      | 1    | [tesla.com](https://www.tesla.com)                                                                                                            |
+| Thermostat (CV)   | Vaillant          |                                             | WiFi (MyVaillant app)                                                                        | -      | 1    | [vaillant.nl](https://www.vaillant.nl)                                                                                                        |
 | Thermometer       | Aqara             | w/ humidity, pressure                       | Zigbee                                                                                       | €43    | 5    | [aliexpress.com](https://aliexpress.com/item/32888389905.html)                                                                                |
 | Thermometer       | TuYa              | TS0201, w/ humidity and display             | Zigbee                                                                                       | €16    | 1    | [aliexpress.com](https://aliexpress.com/item/4001179535195.html)                                                                              |
+| Water meter       | Muino             | Water meter sensor                          | WiFi (ESPHome)                                                                               | €35    | 1    | [github.com](https://github.com/gerritjandebruin/watermeter-esphome)                                                                          |
 | Wireless dimmer   | IKEA              | TRÅDFRI                                     | Zigbee                                                                                       | €14    | 2    | [ikea.com](https://www.ikea.com/nl/en/p/tradfri-wireless-dimmer-white-70408595/)                                                              |
 | Zigbee controller | Texas Instruments | CC2531                                      | [ZHA](https://www.home-assistant.io/integrations/zha/)                                       | €10    | 1    | [tweakers.net](https://tweakers.net/aanbod/2522130/cc2531-zigbee-usb-stick-zigbee2mqtt-met-antenne.html)                                      |
 
-- Total costs (ignoring prices in brackets): €925
+- Total costs (ignoring prices in brackets): ~€1,074
 
 ## Hardware experiences
 ### LED
@@ -101,8 +111,30 @@ Major drawback: very limited battery-life of 1-2 weeks.
 Both the temperature sensors and door sensors work very well on Zigbee with either Zigbee2MQTT or ZHA.
 Battery life is around 6-12 months.
 
+### Apollo AIR-1
+The Apollo AIR-1 is an all-in-one air quality sensor for the living room.
+It measures CO₂, temperature, humidity, and particulate matter (PM), and runs on ESPHome over WiFi.
+Integration with Home Assistant is seamless via the native API.
+
+### Water meter
+The water meter is based on the [Muino water meter sensor](https://github.com/gerritjandebruin/watermeter-esphome) combined with an ESP32.
+It reads the optical pulse from the water meter and reports water consumption to Home Assistant via ESPHome.
+Works very reliably.
+
+### EV charging with evcc
+We bought a Tesla and installed a [Peblar](https://www.peblar.com) EV charger.
+To charge the car using surplus solar energy, we use [evcc](https://evcc.io/), an open-source EV charging manager.
+evcc integrates with the Growatt solar inverter (via Home Assistant API) and monitors grid import/export via a Shelly EM energy meter.
+This allows smart charging: the car is charged preferentially with solar power, reducing grid import.
+
 ### Others
 Feel free to ask more experiences by opening an [issue](https://github.com/gerritjandebruin/home-assistant/issues/new)!
+
+## Entities
+Auto-generated overviews (refresh by running the script in [CLAUDE.md](CLAUDE.md)):
+- [entities.md](entities.md) — 1311 entities across 27 domains
+- [devices.md](devices.md) — 153 devices grouped by integration
+- [integrations.md](integrations.md) — 105 config entries
 
 ## Screenshots
 See the [img/](https://github.com/gerritjandebruin/home-assistant/tree/main/img) directory!

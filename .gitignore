@@ -39,3 +39,4 @@ tts
 custom_components
 evcc.yaml
 .cache
+.ha_token
