@@ -2,7 +2,7 @@ substitutions:
   name: watermeter
   friendly_name: watermeter
 packages:
-  esphome.muino-water-meter: github://gerritjandebruin/watermeter-esphome/muino-water-meter-esp32.yaml@fix-ha-warnings
+  esphome.muino-water-meter: github://martijnvwezel/watermeter-esphome/muino-water-meter-esp32.yaml
 esphome:
   name: ${name}
   name_add_mac_suffix: false
