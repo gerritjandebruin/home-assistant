@@ -49,7 +49,7 @@ When buying new devices, I try to keep the following matters into consideration:
 * Protocol, I am transitioning from Zigbee to [Matter](https://csa-iot.org/all-solutions/matter/), preferring Matter over Thread above Matter over WiFi. Thread devices form a low-power mesh network and do not congest the WiFi. The Google Nest Hub (2nd gen) acts as a Thread border router, bridging Thread devices to the IP network.
 
 Hence, most devices come from the IKEA :)
-Also, since I try to limit spending, there is no smart climate, smart keys, or fancy displays.
+I prefer durability over low cost, so I tend to avoid cheap disposable hardware.
 
 | Device            | Manufacturer      | Model                                       | Protocol                                                                                     | Room                                              | Price  | Pcs  | Link                                                                                                                                          |
 |-------------------|-------------------|---------------------------------------------|----------------------------------------------------------------------------------------------|---------------------------------------------------|--------|------|-----------------------------------------------------------------------------------------------------------------------------------------------|
