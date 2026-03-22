@@ -5,16 +5,12 @@
 *.xls
 *.xlsx
 
-# Notebooks
-notebooks/
-
 # IDE config
 .vscode
 
 # Ignore files
 .storage
 blueprints
-notebooks
 
 # Database
 *.db
