@@ -57,7 +57,7 @@ I prefer durability over low cost, so I tend to avoid cheap disposable hardware.
 | Air quality sensor | [MoreSense MS05](https://www.moresense.nl) (CO₂, temp, humidity) | MQTT | Bedroom, Attic | - | 2 |
 | Control outlet | [IKEA TRÅDFRI](https://www.ikea.com/nl/en/p/tradfri-wireless-control-outlet-90356166/) | Zigbee | | €10 | 1 |
 | Control outlet | [IKEA Askvader](https://www.ikea.com/nl/en/p/askvaeder-on-off-switch-50463880/) | Zigbee | Attic | €10 | 3 |
-| Dehumidifier | Qlima D 820 A | WiFi (via Sonoff Basic) | | - | 1 |
+| Dehumidifier | Qlima D 820 A | WiFi (via Sonoff Basic relay; Tuya Local disabled) | | - | 1 |
 | Dimmer | [Philips Hue RWL022](https://www.philips-hue.com/nl-nl/p/hue-dimmer-schakelaar/8719514274617) | Zigbee | | €20 | 1 |
 | Door sensor | [Aqara lumi.sensor_magnet.aq2](https://aliexpress.com/item/4001241581941.html) | Zigbee | Bathroom, Hallway, Walk-in closet, Shed, Toilet, Storage room | €53 | 6 |
 | Energy meter | [Shelly EM](https://shop.shelly.cloud/shelly-em-wifi-smart-home-automation) | WiFi | Meter cupboard | €35 | 1 |
@@ -66,7 +66,7 @@ I prefer durability over low cost, so I tend to avoid cheap disposable hardware.
 | Flood sensor | [Shelly Flood Gen4](https://www.shelly.com/products/shelly-flood-generation-4) | WiFi | | €20 | 1 |
 | Flower sensor | [Vegtrug](https://nl.aliexpress.com/item/1005001671394326.html) | Bluetooth (via ESP32) | | €19 | 1 |
 | Google Nest Hub | [Google Nest Hub 2nd gen](https://store.google.com/nl/product/nest_hub_2nd_gen) | Thread border router | Living room | (€100) | 1 |
-| Heater | [EUROM CK2003 Turbo 2000W](https://www.hornbach.nl/shop/EUROM-Convectorkachel-CK2003-Turbo-2000-Watt/8438008/artikel.html) | via outlet | | (€29) | 1 |
+| Heater | [EUROM CK2003 Turbo 2000W](https://www.hornbach.nl/shop/EUROM-Convectorkachel-CK2003-Turbo-2000-Watt/8438008/artikel.html) | via smart plug (HA Climate) | | (€29) | 1 |
 | LED + 200W power | [24V RGBWW 19W/m IP67](https://www.led-gigant.nl/product/24volt-rgbww-led-strip-ip66/) | via Shelly RGBW2 | Roof terrace | €188 | 10m |
 | LED + 50W power | [24V LED 12W IP65 2700K](https://www.led-gigant.nl/product/waterdichte-led-strip-extra-warm-wit-12w-1260lm-meter-24vdc-ip68-nano-3000k-25m-rol-kopie/) | via relay | Bike shed | €41 | 2.5m |
 | LED driver | [Shelly RGBW2](https://shop.shelly.cloud/shelly-rgbw2-wifi-smart-home-automation) | WiFi | Roof terrace | €25 | 1 |
