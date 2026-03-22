@@ -2,6 +2,7 @@
 
 This repository contains the set-up of my smart home, featured by the open-source project [Home Assistant](https://www.home-assistant.io).
 
+I started around the beginning of the COVID pandemic with a few Philips Hue light bulbs, and the setup has grown from there.
 The full configuration till what it is today, took several years of hobby time.
 This is mainly because we increased the number of devices over time.
 I use Github for version control and to share my configuration with others.
@@ -11,7 +12,7 @@ If you have any questions about my set-up or smarthomes in general, feel free to
 ## The house
 The house is situated in Utrecht in a district called [New-England, Utrecht](https://nl.wikipedia.org/wiki/Nieuw_Engeland,_Thomas_%C3%A0_Kempisplantsoen_en_omgeving).
 More specifically, we live at the Cremerstraat, a beautiful street with sights over the most busy railroad track in the Netherlands and only a ten-minute walk from the city center.
-The house was built around 1910 and had originally a ground level and one floor.
+The house was built around 1920 and had originally a ground level and one floor.
 Over the years, toilets, bathroom, second floor (2017), a roof terrace (2020) and a bike shed (2020) were added to the house.
 
 ![](www/aerial-1930.jpg)
@@ -43,7 +44,7 @@ Outbuildings ─ Bike shed
 ## Devices
 The following table provides the devices used by the home automation.
 When buying new devices, I try to keep the following matters into consideration:
-* Limit the number of different manufacturers. This helps when later replacing devices and to get more reproducible readings.
+* Limit the number of different manufacturers. This helps when later replacing devices and to get more reproducible readings. I prefer manufacturers that are fairly large and have a good track record in long-term availability.
 * Money. I am not willing to spend too much extra money for just little value.
 * Protocol, I am transitioning from Zigbee to [Matter](https://csa-iot.org/all-solutions/matter/), preferring Matter over Thread above Matter over WiFi. Thread devices form a low-power mesh network and do not congest the WiFi. The Google Nest Hub (2nd gen) acts as a Thread border router, bridging Thread devices to the IP network.
 
