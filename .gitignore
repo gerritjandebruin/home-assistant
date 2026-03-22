@@ -38,3 +38,4 @@ home_assistant.db
 tts
 custom_components
 evcc.yaml
+.cache
