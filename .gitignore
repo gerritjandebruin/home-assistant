@@ -36,3 +36,4 @@ custom_components
 evcc.yaml
 .cache
 .ha_token
+tesla_fleet.key
