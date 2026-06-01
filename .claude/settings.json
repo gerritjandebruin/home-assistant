@@ -3,7 +3,20 @@
     "allow": [
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "WebSearch",
+      "WebFetch(domain:www.gereedschapcentrum.nl)",
+      "WebFetch(domain:www.amazon.nl)",
+      "WebFetch(domain:www.bitsandparts.nl)",
+      "WebFetch(domain:www.bol.com)",
+      "WebFetch(domain:www.philips-hue.com)",
+      "WebFetch(domain:www.ledstripxl.nl)",
+      "WebFetch(domain:www.lampenonline.com)",
+      "WebFetch(domain:robothuis.nl)",
+      "WebFetch(domain:www.shelly.com)",
+      "WebFetch(domain:www.wallboxdiscounter.com)",
+      "WebFetch(domain:en.ikea-club.org)",
+      "WebFetch(domain:store.google.com)"
     ]
   }
 }
