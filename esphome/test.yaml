@@ -27,3 +27,15 @@ wifi:
     password: !secret test_password
 
 captive_portal:
+
+sensor:
+  - platform: dht
+    pin: GPIO25
+    humidity:
+      id: sensor_dht_1_humidity
+      name: Humidity
+    temperature:
+      id: sensor_dht_1_temperature
+      name: Temperature
+    id: sensor_dht_1
+    update_interval: 1s
