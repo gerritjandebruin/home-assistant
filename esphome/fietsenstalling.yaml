@@ -28,37 +28,10 @@ wifi:
 
 captive_portal:
 
-switch:
-  - platform: gpio
-    name: verlichting
-    pin: GPIO19
-    id: switch_gpio_1
-    icon: "mdi:led-strip-variant"
-    device_class: switch
-    inverted: false
-
 sensor:
-  - platform: dht
-    pin: GPIO18
-    humidity:
-      id: sensor_dht_1_humidity
-      name: Humidity
-    temperature:
-      id: sensor_dht_1_temperature
-      name: Temperature
-    id: sensor_dht_1
-
-binary_sensor:
-  - platform: gpio
-    name: Lichtknop
-    pin:
-      number: GPIO4
-      mode:
-        input: true
-        pullup: true
-    id: binary_sensor_gpio_1
-    on_state:
-      - then:
-          - switch.control:
-              id: switch_gpio_1
-              state: !lambda 'return x;'
+  - platform: adc
+    name: LPG / Propaan concentratie
+    pin: GPIO32
+    id: sensor_adc_1
+    attenuation: 11db
+    update_interval: 10s
