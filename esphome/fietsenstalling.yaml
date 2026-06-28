@@ -50,5 +50,9 @@ sensor:
 binary_sensor:
   - platform: gpio
     name: Lichtknop
-    pin: GPIO4
+    pin:
+      number: GPIO4
+      mode:
+        input: true
+        pullup: true
     id: binary_sensor_gpio_1
