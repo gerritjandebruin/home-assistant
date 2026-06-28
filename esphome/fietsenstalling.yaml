@@ -27,3 +27,11 @@ wifi:
     password: !secret fietsenstalling_password
 
 captive_portal:
+
+switch:
+  - platform: gpio
+    name: verlichting
+    pin: GPIO4
+    id: switch_gpio_1
+    icon: "mdi:led-strip-variant"
+    device_class: switch
