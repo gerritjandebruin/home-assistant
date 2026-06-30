@@ -8,7 +8,7 @@ esphome:
 esp32:
   variant: esp32
   framework:
-    type: esp-idf
+    type: arduino
 
 logger:
 
@@ -31,13 +31,13 @@ captive_portal:
 # ==========================================
 # 1. VERLICHTING (RELAIS) - GPIO19
 # ==========================================
-switch:
-  - platform: gpio
-    name: "Verlichting"
-    pin: GPIO19
-    id: switch_gpio_1
-    icon: "mdi:led-strip-variant"
-    device_class: switch
+# switch:
+#   - platform: gpio
+#     name: "Verlichting"
+#     pin: GPIO19
+#     id: switch_gpio_1
+#     icon: "mdi:led-strip-variant"
+#     device_class: switch
 
 # ==========================================
 # 2. SENSOREN (DHT22 & MQ-6) - GPIO18 & GPIO32
