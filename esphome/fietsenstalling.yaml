@@ -42,7 +42,7 @@ captive_portal:
 sensor:
   # DHT22 Temperatuur & Luchtvochtigheid
   - platform: dht
-    pin: GPIO18
+    pin: GPIO22
     model: DHT22
     temperature:
       name: "Temperatuur"
