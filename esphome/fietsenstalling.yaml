@@ -3,10 +3,9 @@ esphome:
   friendly_name: fietsenstalling
 
 esp32:
-  variant: esp32
+  variant: ESP32
   framework:
-    type: arduino
-
+    type: esp-idf
 logger:
 
 api:
