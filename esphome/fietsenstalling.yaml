@@ -29,9 +29,15 @@ wifi:
 captive_portal:
 
 sensor:
-  - platform: adc
-    name: LPG / Propaan concentratie
-    pin: GPIO32
-    id: sensor_adc_1
-    attenuation: 11db
-    update_interval: 10s
+- platform: adc
+  pin: GPIO32
+  name: "LPG Propaan Concentratie"
+  id: mq6_gas_sensor
+  update_interval: 10s
+  attenuation: 12db
+  filters:
+    - calibrate_linear:
+        - 0.0 -> 0.0
+        - 3.0 -> 100.0 # Aangepast naar 3.0V voor jouw specifieke weerstanden
+  unit_of_measurement: "%"
+  icon: "mdi:gas-cylinder"
