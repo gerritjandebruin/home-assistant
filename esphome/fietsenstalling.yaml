@@ -54,35 +54,35 @@ sensor:
       name: "Luchtvochtigheid"
       id: sensor_dht_1_humidity
     id: sensor_dht_1
-    update_interval: 60s
+    update_interval: 10s
 
   # MQ-6 Gassensor (LPG/Propaan via jouw exacte configuratie)
-  - platform: adc
-    pin: GPIO32
-    name: "LPG Propaan Concentratie"
-    id: mq6_gas_sensor
-    update_interval: 10s
-    attenuation: 12db
-    filters:
-      - calibrate_linear:
-          - 0.0 -> 0.0
-          - 3.0 -> 100.0
-    unit_of_measurement: "%"
-    icon: "mdi:gas-cylinder"
+  # - platform: adc
+  #   pin: GPIO32
+  #   name: "LPG Propaan Concentratie"
+  #   id: mq6_gas_sensor
+  #   update_interval: 10s
+  #   attenuation: 12db
+  #   filters:
+  #     - calibrate_linear:
+  #         - 0.0 -> 0.0
+  #         - 3.0 -> 100.0
+  #   unit_of_measurement: "%"
+  #   icon: "mdi:gas-cylinder"
 
 # ==========================================
 # 3. LICHTKNOP (DRUKKNOP) - GPIO4
 # ==========================================
-binary_sensor:
-  - platform: gpio
-    name: "Lichtknop"
-    id: binary_sensor_gpio_1
-    pin:
-      number: GPIO4
-      mode: INPUT_PULLUP
-      inverted: true
+# binary_sensor:
+#   - platform: gpio
+#     name: "Lichtknop"
+#     id: binary_sensor_gpio_1
+#     pin:
+#       number: GPIO4
+#       mode: INPUT_PULLUP
+#       inverted: true
     
-    # Automatisering: Schakel de lamp om (Toggle) bij indrukken
-    on_press:
-      - then:
-          - switch.toggle: switch_gpio_1
+#     # Automatisering: Schakel de lamp om (Toggle) bij indrukken
+#     on_press:
+#       - then:
+#           - switch.toggle: switch_gpio_1
