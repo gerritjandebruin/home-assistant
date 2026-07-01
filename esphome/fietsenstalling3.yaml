@@ -46,6 +46,7 @@ sensor:
     model: DHT11
     temperature:
       name: "Temperatuur"
+      id: temperature
     humidity:
       name: "Luchtvochtigheid"
     update_interval: 10s
@@ -54,6 +55,7 @@ sensor:
   - platform: adc
     pin: GPIO32
     name: "LPG Propaan Concentratie"
+    id: gas
     update_interval: 10s
     attenuation: 12db
     filters:
@@ -95,10 +97,30 @@ binary_sensor:
 # ==========================================
 display:
     platform: tm1637
-    id: tm1637_display
+    id: my_display_logic
     clk_pin: GPIO14
     dio_pin: GPIO27
     inverted: true
+    update_interval: 2s
     length: 4
     lambda: |-
-      it.print("0123");
+      float temp = id(temperature).state;
+      float gas = id(gas).state;
+      
+      // Gebruik de interne tijd (in seconden) om te wisselen
+      int mode = (id(my_display_logic).get_update_interval() / 1000) % 2;
+      
+      // Snelheid/wissel-logica op basis van millis
+      uint32_t t = millis() / 4000; 
+
+      if (t % 2 == 0) {
+        // Mode 1: Toon Temperatuur (bijv: 19.5)
+        if (!isnan(temp)) {
+          it.printf("%.1f", temp);
+        }
+      } else {
+        // Mode 2: Toon Gaspercentage (bijv:   5%)
+        if (!isnan(gas)) {
+          it.printf("%3.0f%%", gas); // Het %-teken zet een 'C' of speciaal teken afhankelijk van het display, vaak laat %3.0f netjes het getal rechts uitgelijnd zien
+        }
+      }
