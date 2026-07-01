@@ -39,7 +39,7 @@ switch:
 # 2. SENSOREN (DHT22 & MQ-6) - GPIO18 & GPIO32
 # ==========================================
 sensor:
-  # DHT22 Temperatuur & Luchtvochtigheid
+  # DHT11 Temperatuur & Luchtvochtigheid
   - platform: dht
     pin: GPIO22
     model: DHT11
