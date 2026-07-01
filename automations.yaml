@@ -1,6 +1,7 @@
 - id: '1603830622083'
   alias: Gang lamp
-  description: ''
+  description: Zet ganglamp aan op basis van beweging/aanwezigheid/voordeur, alleen
+    als het donker is. Helderheid en kleur op basis van tijdstip.
   triggers:
   - type: occupied
     device_id: e13fa775ae5c1aa7dc0dd04f3d6fe2e8
@@ -26,22 +27,44 @@
   - choose:
     - conditions:
       - condition: time
-        after: '22:00:00'
-        before: 06:00:00
+        after: 05:00:00
+        before: 09:00:00
       sequence:
-      - data:
-          brightness_pct: 1
-          color_temp_kelvin: 2000
-        action: light.turn_on
+      - action: light.turn_on
         target:
           area_id: gang
+        data:
+          brightness_pct: 30
+          color_temp_kelvin: 2200
+    - conditions:
+      - condition: time
+        after: 09:00:00
+        before: '17:00:00'
+      sequence:
+      - action: light.turn_on
+        target:
+          area_id: gang
+        data:
+          brightness_pct: 51
+          color_temp_kelvin: 3390
+    - conditions:
+      - condition: time
+        after: '17:00:00'
+        before: '22:00:00'
+      sequence:
+      - action: light.turn_on
+        target:
+          area_id: gang
+        data:
+          brightness_pct: 80
+          color_temp_kelvin: 2200
     default:
-    - data:
-        color_temp_kelvin: 3390
-        brightness_pct: 51
-      action: light.turn_on
+    - action: light.turn_on
       target:
         area_id: gang
+      data:
+        brightness_pct: 1
+        color_temp_kelvin: 2000
   - wait_for_trigger:
     - trigger: template
       value_template: '{{ (states(''binary_sensor.gang_bewegingsmelder_beweging'')
@@ -50,8 +73,7 @@
       for: 00:01:00
     timeout: 00:05:00
     continue_on_timeout: true
-  - data: {}
-    action: light.turn_off
+  - action: light.turn_off
     target:
       area_id: gang
   mode: restart
@@ -432,11 +454,8 @@
   mode: single
 - id: '1750005386050'
   alias: Overloop verlichting
-  description: Deze automatisering zorgt ervoor dat de verlichting op de overloop
-    automatisch aangaat wanneer er beweging wordt gedetecteerd in de gang of op de
-    overloop zelf, maar alleen als het donker is. De lichten blijven aan zolang er
-    beweging wordt waargenomen. Zodra er één uur lang geen beweging meer is gedetecteerd
-    in zowel de gang als op de overloop, wordt de verlichting automatisch uitgeschakeld.
+  description: Overlooplamp aan bij beweging in gang of overloop, alleen als het donker
+    is. Helderheid en kleur op basis van tijdstip. Uit na 5 minuten geen beweging.
   triggers:
   - type: occupied
     device_id: e13fa775ae5c1aa7dc0dd04f3d6fe2e8
@@ -457,28 +476,50 @@
   - choose:
     - conditions:
       - condition: time
-        after: '22:00:00'
-        before: 06:00:00
+        after: 05:00:00
+        before: 09:00:00
       sequence:
       - action: light.turn_on
-        data:
-          brightness_pct: 1
-          color_temp_kelvin: 2000
         target:
           area_id: overloop
+        data:
+          brightness_pct: 30
+          color_temp_kelvin: 2200
+    - conditions:
+      - condition: time
+        after: 09:00:00
+        before: '17:00:00'
+      sequence:
+      - action: light.turn_on
+        target:
+          area_id: overloop
+        data:
+          brightness_pct: 51
+          color_temp_kelvin: 3390
+    - conditions:
+      - condition: time
+        after: '17:00:00'
+        before: '22:00:00'
+      sequence:
+      - action: light.turn_on
+        target:
+          area_id: overloop
+        data:
+          brightness_pct: 80
+          color_temp_kelvin: 2200
     default:
     - action: light.turn_on
-      data: {}
       target:
         area_id: overloop
+      data:
+        brightness_pct: 1
+        color_temp_kelvin: 2000
   - wait_template: '{{ (states(''binary_sensor.gang_bewegingsmelder_beweging'') ==
       ''off'') and (states(''binary_sensor.overloop_bewegingsmelder'') == ''off'')
       }}'
     continue_on_timeout: true
     timeout: 00:05:00
-    alias: Wachten tot er geen beweging meer gedetecteerd wordt
-  - data: {}
-    action: light.turn_off
+  - action: light.turn_off
     target:
       area_id: overloop
   mode: single
@@ -597,11 +638,9 @@
     trigger: state
   conditions:
   - condition: template
-    value_template: >
-      {{ expand(area_entities('badkamer'))
-         | selectattr('domain', 'eq', 'light')
-         | selectattr('state', 'eq', 'on')
-         | list | count == 0 }}
+    value_template: "{{ expand(area_entities('badkamer'))\n   | selectattr('domain',
+      'eq', 'light')\n   | selectattr('state', 'eq', 'on')\n   | list | count == 0
+      }}\n"
   actions:
   - action: light.turn_on
     data: {}
@@ -704,7 +743,8 @@
   mode: single
 - id: '1768140752108'
   alias: Keuken bewegingsmelder verlichting
-  description: Turns Keuken lights on or off based on motion sensor state.
+  description: Licht aan bij beweging als het donker is (gang lux < 15). Helderheid
+    en kleur op basis van tijdstip.
   triggers:
   - entity_id: binary_sensor.keuken_bewegingsmelder
     trigger: state
@@ -714,10 +754,76 @@
     - condition: state
       entity_id: binary_sensor.keuken_bewegingsmelder
       state: 'on'
+    - condition: numeric_state
+      entity_id: sensor.gang_bewegingsmelder_licht
+      below: 15
     then:
-    - action: light.turn_on
-      target:
-        area_id: keuken
+    - choose:
+      - conditions:
+        - condition: time
+          after: 05:00:00
+          before: 09:00:00
+        sequence:
+        - action: light.turn_on
+          target:
+            entity_id:
+            - light.keuken_strip_boven
+            - light.keuken_strip_onder
+          data:
+            brightness_pct: 30
+            effect: sunbeam
+        - action: light.turn_on
+          target:
+            entity_id:
+            - light.keuken_spots
+            - light.keuken_lamp_voor
+            - light.keuken_lamp_midden
+            - light.keuken_lamp_achter
+          data:
+            brightness_pct: 30
+            color_temp_kelvin: 2200
+      - conditions:
+        - condition: time
+          after: '17:00:00'
+          before: '22:00:00'
+        sequence:
+        - action: light.turn_on
+          target:
+            entity_id:
+            - light.keuken_strip_boven
+            - light.keuken_strip_onder
+          data:
+            brightness_pct: 80
+            effect: sunset
+        - action: light.turn_on
+          target:
+            entity_id:
+            - light.keuken_spots
+            - light.keuken_lamp_voor
+            - light.keuken_lamp_midden
+            - light.keuken_lamp_achter
+          data:
+            brightness_pct: 80
+            color_temp_kelvin: 2200
+      default:
+      - action: light.turn_on
+        target:
+          entity_id:
+          - light.keuken_strip_boven
+          - light.keuken_strip_onder
+        data:
+          brightness_pct: 15
+          color_temp_kelvin: 1800
+      - action: light.turn_on
+        target:
+          entity_id:
+          - light.keuken_spots
+          - light.keuken_lamp_voor
+          - light.keuken_lamp_midden
+          - light.keuken_lamp_achter
+        data:
+          brightness_pct: 15
+          color_temp_kelvin: 2200
     else:
     - action: light.turn_off
       target:
@@ -1105,4 +1211,105 @@
           entity_id: light.woonkamer
         data:
           transition: 1
+  mode: single
+- id: '1780695028232'
+  alias: Aurora
+  description: ''
+  triggers:
+  - type: turned_on
+    device_id: ce904d7f3e71c866a0eb3b3a4bd79843
+    entity_id: 0cd520bd184ebd944f529c931fb645a0
+    domain: binary_sensor
+    trigger: device
+  - type: turned_off
+    device_id: ce904d7f3e71c866a0eb3b3a4bd79843
+    entity_id: 0cd520bd184ebd944f529c931fb645a0
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: binary_sensor.aurora_visibility_visibility_alert
+        state:
+        - 'on'
+      sequence:
+      - action: light.turn_on
+        metadata: {}
+        target:
+          device_id: cc70607a31b45beb2aef394b85147b8a
+        data: {}
+    default:
+    - action: light.turn_off
+      metadata: {}
+      target:
+        device_id: cc70607a31b45beb2aef394b85147b8a
+      data: {}
+  mode: single
+- id: '1780826091993'
+  alias: Badkamer verlichting herstart
+  description: Zet badkamerlichten uit bij HA-herstart als ze aan zijn
+  triggers:
+  - trigger: homeassistant
+    event: start
+  conditions:
+  - condition: template
+    value_template: '{{ expand(area_entities(''badkamer'')) | selectattr(''domain'',
+      ''eq'', ''light'') | selectattr(''state'', ''eq'', ''on'') | list | count >
+      0 }}'
+  actions:
+  - action: light.turn_off
+    target:
+      area_id: badkamer
+  mode: single
+- id: '178083133518423608'
+  alias: Gang verlichting herstart
+  description: Zet gangverlichting uit bij HA-herstart als ze aan zijn (herstel van
+    afgebroken wait_for_trigger)
+  triggers:
+  - trigger: homeassistant
+    event: start
+  conditions:
+  - condition: template
+    value_template: '{{ expand(area_entities(''gang'')) | selectattr(''domain'', ''eq'',
+      ''light'') | selectattr(''state'', ''eq'', ''on'') | list | count > 0 }}'
+  actions:
+  - action: light.turn_off
+    target:
+      area_id: gang
+  mode: single
+- id: '178083133610610316'
+  alias: Keuken verlichting herstart
+  description: Zet keukenverlichting uit bij HA-herstart als ze aan zijn (herstel
+    van afgebroken wait_for_trigger)
+  triggers:
+  - trigger: homeassistant
+    event: start
+  conditions:
+  - condition: template
+    value_template: '{{ expand(area_entities(''keuken'')) | selectattr(''domain'',
+      ''eq'', ''light'') | selectattr(''state'', ''eq'', ''on'') | list | count >
+      0 }}'
+  actions:
+  - action: light.turn_off
+    target:
+      area_id: keuken
+  mode: single
+- id: '17808313368684934'
+  alias: Overloop verlichting herstart
+  description: Zet overloopverlichting uit bij HA-herstart als ze aan zijn (herstel
+    van afgebroken wait_for_trigger)
+  triggers:
+  - trigger: homeassistant
+    event: start
+  conditions:
+  - condition: template
+    value_template: '{{ expand(area_entities(''overloop'')) | selectattr(''domain'',
+      ''eq'', ''light'') | selectattr(''state'', ''eq'', ''on'') | list | count >
+      0 }}'
+  actions:
+  - action: light.turn_off
+    target:
+      area_id: overloop
   mode: single
