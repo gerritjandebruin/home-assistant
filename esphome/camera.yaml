@@ -11,6 +11,11 @@ esp32:
   framework:
     type: esp-idf
 
+# ==========================================
+# PSRAM (Vereist voor de camera om beelden te bufferen)
+# ==========================================
+psram:
+
 logger:
 
 api:
