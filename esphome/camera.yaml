@@ -28,3 +28,35 @@ wifi:
     password: !secret camera_password
 
 captive_portal:
+
+# ==========================================
+# 5. CAMERA CONFIGURATIE (AI-THINKER PINOUT)
+# ==========================================
+esp32_camera:
+  name: "Fietsenstalling Camera Stream"
+  id: camera_stream
+  
+  # Pin configuratie specifiek voor de AI-Thinker module
+  external_clock:
+    pin: GPIO0
+    frequency: 20MHz
+  i2c_pins:
+    sda: GPIO26
+    scl: GPIO27
+  data_pins: [GPIO5, GPIO18, GPIO19, GPIO21, GPIO36, GPIO39, GPIO34, GPIO35]
+  vsync_pin: GPIO25
+  href_pin: GPIO23
+  pixel_clock_pin: GPIO22
+  power_down_pin: GPIO32
+
+  # Beeldinstellingen
+  resolution: 800x600   # Of SVGA. Kan omhoog naar 1600x1200 (UXGA), maar 800x600 of 1024x768 is stabieler voor streaming
+  jpeg_quality: 12      # Kwaliteit tussen 10 (hoog) en 63 (laag)
+  vertical_flip: true   # Zet op false als het beeld ondersteboven staat
+  horizontal_mirror: false
+
+# ==========================================
+# 6. WEBSERVER (Voor live weergave binnen ESPHome)
+# ==========================================
+web_server:
+  port: 8080
