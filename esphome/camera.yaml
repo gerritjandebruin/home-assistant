@@ -11,9 +11,6 @@ esp32:
   framework:
     type: esp-idf
 
-# ==========================================
-# PSRAM (Vereist voor de camera om beelden te bufferen)
-# ==========================================
 psram:
 
 logger:
@@ -34,9 +31,6 @@ wifi:
 
 captive_portal:
 
-# ==========================================
-# 5. CAMERA CONFIGURATIE (AI-THINKER PINOUT)
-# ==========================================
 esp32_camera:
   name: "Fietsenstalling Camera Stream"
   id: camera_stream
@@ -60,14 +54,10 @@ esp32_camera:
   vertical_flip: true   # Zet op false als het beeld ondersteboven staat
   horizontal_mirror: false
 
-# ==========================================
-# 6. WEBSERVER (Voor live weergave binnen ESPHome)
-# ==========================================
 web_server:
   port: 8080
 
 output:
-  # De grote witte flits-LED aan de voorkant (GPIO4) via LEDC voor dimmen
   - platform: ledc
     pin: GPIO4
     id: flash_led_out
@@ -78,15 +68,23 @@ output:
     id: red_led_out
 
 light:
-  # Maakt de flitser beschikbaar als dimbare lamp in Home Assistant
   - platform: monochromatic
     name: "Camera Schijnwerper"
     id: flash_light
     output: flash_led_out
     default_transition_length: 0s
-
-  # Het kleine rode LED'tje achterop het bordje (GPIO33, omgekeerd/inverted)
   - platform: binary
     name: "Camera Status LED achterop"
     id: red_led
     output: red_led_out
+
+sensor:
+  - platform: wifi_signal
+    name: "Camera WiFi Signaal"
+    update_interval: 60s
+  - platform: uptime
+    name: "Camera Uptime"
+    
+button:
+  - platform: restart
+    name: "Camera Herstarten"
