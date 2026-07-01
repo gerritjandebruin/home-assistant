@@ -65,3 +65,28 @@ esp32_camera:
 # ==========================================
 web_server:
   port: 8080
+
+output:
+  # De grote witte flits-LED aan de voorkant (GPIO4) via LEDC voor dimmen
+  - platform: ledc
+    pin: GPIO4
+    id: flash_led_out
+  - platform: gpio
+    pin:
+      number: GPIO33
+      inverted: true
+    id: red_led_out
+
+light:
+  # Maakt de flitser beschikbaar als dimbare lamp in Home Assistant
+  - platform: monochromatic
+    name: "Camera Schijnwerper"
+    id: flash_light
+    output: flash_led_out
+    default_transition_length: 0s
+
+  # Het kleine rode LED'tje achterop het bordje (GPIO33, omgekeerd/inverted)
+  - platform: binary
+    name: "Camera Status LED achterop"
+    id: red_led
+    output: red_led_out
