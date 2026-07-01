@@ -25,18 +25,18 @@ wifi:
 captive_portal:
 
 # ==========================================
-# 1. VERLICHTING (RELAIS) - GPIO19
+# 1. SWITCH
 # ==========================================
 switch:
   - platform: gpio
-    name: "Verlichting"
+    name: "Relais"
     pin: GPIO19
-    id: switch_gpio_1
+    id: relais
     icon: "mdi:led-strip-variant"
     device_class: switch
 
 # ==========================================
-# 2. SENSOREN (DHT22 & MQ-6) - GPIO18 & GPIO32
+# 2. SENSOREN
 # ==========================================
 sensor:
   # DHT11 Temperatuur & Luchtvochtigheid
@@ -45,40 +45,40 @@ sensor:
     model: DHT11
     temperature:
       name: "Temperatuur"
-      id: sensor_dht_1_temperature
     humidity:
       name: "Luchtvochtigheid"
-      id: sensor_dht_1_humidity
-    id: sensor_dht_1
     update_interval: 10s
 
-  # MQ-6 Gassensor (LPG/Propaan via jouw exacte configuratie)
+  # MQ-6 Gassensor
   - platform: adc
     pin: GPIO32
     name: "LPG Propaan Concentratie"
-    id: mq6_gas_sensor
     update_interval: 10s
     attenuation: 12db
     filters:
       - calibrate_linear:
-          - 0.0 -> 0.0
+          - 0.1419 -> 0.0
           - 3.0 -> 100.0
     unit_of_measurement: "%"
     icon: "mdi:gas-cylinder"
 
 # ==========================================
-# 3. LICHTKNOP (DRUKKNOP) - GPIO4
+# 3. BINARAIRE SENSOREN
 # ==========================================
 binary_sensor:
   - platform: gpio
     name: "Lichtknop"
-    id: binary_sensor_gpio_1
     pin:
       number: GPIO4
       mode: INPUT_PULLUP
       inverted: true
-    
-    # Automatisering: Schakel de lamp om (Toggle) bij indrukken
     on_press:
       - then:
-          - switch.toggle: switch_gpio_1
+          - switch.toggle: relais
+  - platform: gpio
+    name: "Beweging"
+    id: pir_sensor
+    pin:
+      number: GPIO13
+      mode: INPUT  # De PIR heeft zelf al een actieve output, PULLUP is niet nodig
+    device_class: motion
