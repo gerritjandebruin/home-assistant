@@ -55,8 +55,8 @@ esp32_camera:
   power_down_pin: GPIO32
 
   # Beeldinstellingen
-  resolution: 800x600   # Of SVGA. Kan omhoog naar 1600x1200 (UXGA), maar 800x600 of 1024x768 is stabieler voor streaming
-  jpeg_quality: 12      # Kwaliteit tussen 10 (hoog) en 63 (laag)
+  resolution: 1600x1200   # Of SVGA. Kan omhoog naar 1600x1200 (UXGA), maar 800x600 of 1024x768 is stabieler voor streaming
+  jpeg_quality: 10      # Kwaliteit tussen 10 (hoog) en 63 (laag)
   vertical_flip: true   # Zet op false als het beeld ondersteboven staat
   horizontal_mirror: false
 
