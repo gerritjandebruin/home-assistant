@@ -85,7 +85,20 @@ binary_sensor:
       number: GPIO13
       mode: INPUT  # De PIR heeft zelf al een actieve output, PULLUP is niet nodig
     device_class: motion
+  # Lichtsensor
   - platform: gpio
     name: "Lichtsensor"
     pin: GPIO25
     device_class: light
+# ==========================================
+# 4. DISPLAY
+# ==========================================
+display:
+    platform: tm1637
+    id: tm1637_display
+    clk_pin: GPIO14
+    dio_pin: GPIO27
+    inverted: true
+    length: 4
+    lambda: |-
+      it.print("0123");
