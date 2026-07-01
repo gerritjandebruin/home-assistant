@@ -28,6 +28,7 @@ captive_portal:
 # 1. SWITCH
 # ==========================================
 switch:
+  # Relais
   - platform: gpio
     name: "Relais"
     pin: GPIO19
@@ -66,6 +67,7 @@ sensor:
 # 3. BINARAIRE SENSOREN
 # ==========================================
 binary_sensor:
+  # Lichtknop
   - platform: gpio
     name: "Lichtknop"
     pin:
@@ -75,6 +77,7 @@ binary_sensor:
     on_press:
       - then:
           - switch.toggle: relais
+  # Beweging
   - platform: gpio
     name: "Beweging"
     id: pir_sensor
