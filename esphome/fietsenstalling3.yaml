@@ -64,10 +64,10 @@ sensor:
     icon: "mdi:gas-cylinder"
   # WiFi signal
   - platform: wifi_signal
-    name: "Camera WiFi Signaal"
-  # Camera uptime
+    name: "WiFi Signaal"
+  # Uptime
   - platform: uptime
-    name: "Camera Uptime"
+    name: "Uptime"
 # ==========================================
 # 3. BINARAIRE SENSOREN
 # ==========================================
@@ -132,4 +132,4 @@ display:
 # ==========================================
 button:
   - platform: restart
-    name: "Camera Herstarten"
+    name: "Herstarten"
