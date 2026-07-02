@@ -35,7 +35,6 @@ switch:
     id: relais
     icon: "mdi:led-strip-variant"
     device_class: switch
-
 # ==========================================
 # 2. SENSOREN
 # ==========================================
@@ -50,7 +49,6 @@ sensor:
     humidity:
       name: "Luchtvochtigheid"
     update_interval: 10s
-
   # MQ-6 Gassensor
   - platform: adc
     pin: GPIO32
@@ -64,7 +62,12 @@ sensor:
           - 3.0 -> 100.0
     unit_of_measurement: "%"
     icon: "mdi:gas-cylinder"
-
+  # WiFi signal
+  - platform: wifi_signal
+    name: "Camera WiFi Signaal"
+  # Camera uptime
+  - platform: uptime
+    name: "Camera Uptime"
 # ==========================================
 # 3. BINARAIRE SENSOREN
 # ==========================================
@@ -124,3 +127,9 @@ display:
           it.printf("%3.0f%%", gas_value); // Het %-teken zet een 'C' of speciaal teken afhankelijk van het display, vaak laat %3.0f netjes het getal rechts uitgelijnd zien
         }
       }
+# ==========================================
+# 5. Button
+# ==========================================
+button:
+  - platform: restart
+    name: "Camera Herstarten"
