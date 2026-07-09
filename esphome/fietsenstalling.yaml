@@ -10,7 +10,7 @@ logger:
 
 api:
   encryption:
-    key: !secret fietsenstalling_api_key
+    key: !secret api_encryption_key
 
 ota:
   - platform: esphome
