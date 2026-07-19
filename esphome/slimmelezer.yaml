@@ -9,5 +9,6 @@ api:
   encryption:
     key: !secret slimmelezer_api_key
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+    networks:
+      - ssid: !secret wifi_ssid
+        password: !secret wifi_password
