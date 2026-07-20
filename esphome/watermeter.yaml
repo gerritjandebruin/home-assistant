@@ -18,3 +18,26 @@ wifi:
     subnet: 255.255.255.0
 web_server:
   port: 80
+sensor:
+  - platform: uptime
+    name: Uptime
+    entity_category: diagnostic
+
+  - platform: wifi_signal
+    name: WiFi-signaal
+    update_interval: 60s
+    entity_category: diagnostic
+
+text_sensor:
+  - platform: version
+    name: ESPHome Versie
+    hide_timestamp: true
+    entity_category: diagnostic
+
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+      entity_category: diagnostic
+    ssid:
+      name: Wi-Fi SSID
+      entity_category: diagnostic
