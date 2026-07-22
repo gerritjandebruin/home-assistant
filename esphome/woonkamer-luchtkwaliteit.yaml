@@ -11,6 +11,9 @@ api:
   encryption:
     key: !secret api_encryption_key
 wifi:
+  ap:
+    ssid: "${friendly_name}"
+    password: !secret ota_password
   networks:
     - ssid: !secret wifi_ssid_iot2
       password: !secret wifi_password_iot2
@@ -25,9 +28,6 @@ wifi:
     static_ip: 192.168.1.6
     subnet: 255.255.255.0
     gateway: 192.168.1.1
-  ap:
-    ssid: "${friendly_name}"
-    password: !secret ota_password
 logger:
   baud_rate: 0
 text_sensor:
