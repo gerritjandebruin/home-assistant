@@ -3,7 +3,7 @@
 
 esphome:
   name: camera
-  friendly_name: camera
+  friendly_name: Camera
 
 esp32:
   variant: esp32
