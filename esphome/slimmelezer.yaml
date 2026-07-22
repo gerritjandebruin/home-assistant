@@ -1,10 +1,11 @@
 substitutions:
-  name: slimmelezer
+  name: energiemeter
 packages:
   zuidwijk.slimmelezer: github://zuidwijk/dsmr/slimmelezer.yaml@main
 esphome:
   name: ${name}
   name_add_mac_suffix: false
+  friendly_name: Energiemeter
 api:
   encryption:
     key: !secret slimmelezer_api_key
@@ -20,5 +21,5 @@ wifi:
       password: !secret wifi_password_main2
   reboot_timeout: 0s
   ap:
-    ssid: "SlimmeLezer Fallback"
+    ssid: "{name}"
     password: !secret ota_password
