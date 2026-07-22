@@ -25,6 +25,9 @@ wifi:
     static_ip: 192.168.1.6
     subnet: 255.255.255.0
     gateway: 192.168.1.1
+  ap:
+    ssid: "${friendly_name}"
+    password: !secret ota_password
 logger:
   baud_rate: 0
 text_sensor:
