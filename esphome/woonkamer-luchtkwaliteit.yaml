@@ -11,8 +11,16 @@ api:
   encryption:
     key: !secret api_encryption_key
 wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+  networks:
+    - ssid: !secret wifi_ssid_iot2
+      password: !secret wifi_password_iot2
+    - ssid: !secret wifi_ssid_iot
+      password: !secret wifi_password_iot
+    - ssid: !secret wifi_ssid_main
+      password: !secret wifi_password_main
+    - ssid: !secret wifi_ssid_main2
+      password: !secret wifi_password_main2
+  reboot_timeout: 0s
   manual_ip: 
     static_ip: 192.168.1.6
     subnet: 255.255.255.0
