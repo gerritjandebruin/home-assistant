@@ -6,6 +6,7 @@ packages:
 esphome:
   name: ${name}
   name_add_mac_suffix: false
+  friendly_name: Watermeter
 api:
   encryption:
     key: !secret api_encryption_key
