@@ -39,3 +39,6 @@ evcc.yaml
 tesla_fleet.key
 .claude/settings.local.json
 config/
+
+# Netwerkdump
+*.pcap

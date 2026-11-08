@@ -1,0 +1,16 @@
+# PM2.5 buiten via Luchtmeetnet (RIVM), station Utrecht-Griftpark (stedelijke achtergrond).
+# Uurwaarden, ca. een uur vertraagd en ongevalideerd.
+rest:
+  - resource: https://api.luchtmeetnet.nl/open_api/measurements?station_number=NL10643&formula=PM25&order_by=timestamp_measured&order_direction=desc
+    scan_interval: 900
+    sensor:
+      - name: "Buiten PM2.5"
+        unique_id: luchtmeetnet_griftpark_pm25
+        value_template: "{{ value_json.data[0].value }}"
+        unit_of_measurement: "µg/m³"
+        device_class: pm25
+        state_class: measurement
+        json_attributes_path: "$.data[0]"
+        json_attributes:
+          - timestamp_measured
+          - station_number
