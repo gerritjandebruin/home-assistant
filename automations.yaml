@@ -1,7 +1,7 @@
 - id: '1603830622083'
   alias: Gang lamp
-  description: Zet ganglamp aan op basis van beweging/aanwezigheid/voordeur, alleen
-    als het donker is. Helderheid en kleur op basis van tijdstip.
+  description: Zet ganglamp aan op basis van beweging/aanwezigheid, alleen als het
+    donker is. Helderheid en kleur op basis van tijdstip.
   triggers:
   - type: occupied
     device_id: e13fa775ae5c1aa7dc0dd04f3d6fe2e8
@@ -11,11 +11,6 @@
   - type: motion
     device_id: f0557193b49cd30a72b37ed875ced7b6
     entity_id: ee892634746b2f5638cbfadb0a0aca3c
-    domain: binary_sensor
-    trigger: device
-  - type: opened
-    device_id: 051215d5b20dc09f912d269348bf1441
-    entity_id: 4a91250870afd2a57d0c1da622f884cf
     domain: binary_sensor
     trigger: device
   conditions:
@@ -81,8 +76,10 @@
   alias: Toilet verlichting
   description: ''
   triggers:
-  - entity_id: binary_sensor.toilet_deur
-    to: 'on'
+  - entity_id:
+    - binary_sensor.toilet_deur_openen
+    to:
+    - 'on'
     trigger: state
   actions:
   - if:
@@ -169,93 +166,300 @@
   mode: single
 - id: '1699803193333'
   alias: Slaapkamer verlichting afstandsbediening
-  description: ''
+  description: 'Midden kort: strip aan op 30% en 2700 K en spots uit; als strip al
+    aan is, alles uit. Omlaag kort: wisselt spots+strip → alleen strip → alleen spots.
+    Omlaag lang: nachtstand (spots uit, strip op 20%). Omhoog kort +20%; vasthouden
+    dimt omhoog. Links/rechts: warmer/kouder; lang = uiterste.'
   triggers:
-  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+  - trigger: device
     domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
     type: remote_button_short_press
     subtype: turn_on
-    id: Aanzetten
-    trigger: device
-  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    id: midden
+  - trigger: device
     domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
     type: remote_button_short_press
     subtype: dim_up
-    id: Dim omhoog
-    trigger: device
-  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    id: omhoog
+  - trigger: device
     domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
+    type: remote_button_long_press
+    subtype: dim_up
+    id: omhoog_lang
+  - trigger: device
+    domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
+    type: remote_button_long_release
+    subtype: dim_up
+    id: los
+  - trigger: device
+    domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
     type: remote_button_short_press
     subtype: dim_down
-    id: Dim omlaag
-    trigger: device
-  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    id: omlaag
+  - trigger: device
     domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
+    type: remote_button_long_press
+    subtype: dim_down
+    id: omlaag_lang
+  - trigger: device
+    domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
+    type: remote_button_long_release
+    subtype: dim_down
+    id: los
+  - trigger: device
+    domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
     type: remote_button_short_press
     subtype: left
-    id: Links
-    trigger: device
-  - device_id: 5a9933c449a2a8068f6012de36a6e91d
+    id: links
+  - trigger: device
     domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
+    type: remote_button_long_press
+    subtype: left
+    id: links_lang
+  - trigger: device
+    domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
     type: remote_button_short_press
     subtype: right
-    id: Rechts
-    trigger: device
+    id: rechts
+  - trigger: device
+    domain: zha
+    device_id: 5a9933c449a2a8068f6012de36a6e91d
+    type: remote_button_long_press
+    subtype: right
+    id: rechts_lang
   conditions: []
   actions:
+  - variables:
+      alle:
+      - light.slaapkamer_lamp_1
+      - light.slaapkamer_lamp_2
+      - light.slaapkamer_lamp_3
+      - light.slaapkamer_lamp_4
+      - light.slaapkamer_lamp_5
+      - light.slaapkamer_strip
+      aan: '{{ alle | select(''is_state'',''on'') | list }}'
+      spots:
+      - light.slaapkamer_lamp_1
+      - light.slaapkamer_lamp_2
+      - light.slaapkamer_lamp_3
+      - light.slaapkamer_lamp_4
+      - light.slaapkamer_lamp_5
+      spots_aan: '{{ spots | select(''is_state'',''on'') | list | count > 0 }}'
+      strip_aan: '{{ is_state(''light.slaapkamer_strip'',''on'') }}'
   - choose:
     - conditions:
       - condition: trigger
         id:
-        - Aanzetten
+        - midden
       sequence:
-      - data: {}
-        action: light.toggle
-        target:
-          area_id: slaapkamer
+        choose:
+        - conditions:
+          - condition: template
+            value_template: '{{ is_state(''light.slaapkamer_strip'',''on'') }}'
+          sequence:
+          - action: light.turn_off
+            target:
+              entity_id:
+              - light.slaapkamer_lamp_1
+              - light.slaapkamer_lamp_2
+              - light.slaapkamer_lamp_3
+              - light.slaapkamer_lamp_4
+              - light.slaapkamer_lamp_5
+              - light.slaapkamer_strip
+        - conditions:
+          - condition: template
+            value_template: '{{ not is_state(''light.slaapkamer_strip'',''on'') }}'
+          sequence:
+          - action: light.turn_off
+            target:
+              entity_id:
+              - light.slaapkamer_lamp_1
+              - light.slaapkamer_lamp_2
+              - light.slaapkamer_lamp_3
+              - light.slaapkamer_lamp_4
+              - light.slaapkamer_lamp_5
+          - action: light.turn_on
+            target:
+              entity_id: light.slaapkamer_strip
+            data:
+              brightness_pct: 30
+              color_temp_kelvin: 2700
     - conditions:
       - condition: trigger
         id:
-        - Dim omhoog
+        - omhoog
       sequence:
-      - data:
-          brightness_pct: 100
-        action: light.turn_on
-        target:
-          area_id: slaapkamer
+      - if:
+        - condition: template
+          value_template: '{{ aan | count == 0 }}'
+        then:
+        - action: light.turn_on
+          target:
+            entity_id:
+            - light.slaapkamer_lamp_1
+            - light.slaapkamer_lamp_2
+            - light.slaapkamer_lamp_3
+            - light.slaapkamer_lamp_4
+            - light.slaapkamer_lamp_5
+          data:
+            brightness_pct: 20
+        else:
+        - action: light.turn_on
+          target:
+            entity_id: '{{ aan }}'
+          data:
+            brightness_step_pct: 20
     - conditions:
       - condition: trigger
         id:
-        - Dim omlaag
+        - omlaag
       sequence:
-      - data:
-          brightness_pct: 1
-        action: light.turn_on
-        target:
-          area_id: slaapkamer
+      - choose:
+        - conditions:
+          - condition: template
+            value_template: '{{ spots_aan and strip_aan }}'
+          sequence:
+          - action: light.turn_off
+            target:
+              entity_id:
+              - light.slaapkamer_lamp_1
+              - light.slaapkamer_lamp_2
+              - light.slaapkamer_lamp_3
+              - light.slaapkamer_lamp_4
+              - light.slaapkamer_lamp_5
+        - conditions:
+          - condition: template
+            value_template: '{{ strip_aan }}'
+          sequence:
+          - action: light.turn_off
+            target:
+              entity_id: light.slaapkamer_strip
+          - action: light.turn_on
+            target:
+              entity_id:
+              - light.slaapkamer_lamp_1
+              - light.slaapkamer_lamp_2
+              - light.slaapkamer_lamp_3
+              - light.slaapkamer_lamp_4
+              - light.slaapkamer_lamp_5
+            data:
+              brightness_pct: 100
+              color_temp_kelvin: 2700
+        - conditions:
+          - condition: template
+            value_template: '{{ spots_aan }}'
+          sequence:
+          - action: light.turn_on
+            target:
+              entity_id: light.slaapkamer_strip
+            data:
+              brightness_pct: 30
+              color_temp_kelvin: 2700
+        default:
+        - action: light.turn_on
+          target:
+            entity_id:
+            - light.slaapkamer_lamp_1
+            - light.slaapkamer_lamp_2
+            - light.slaapkamer_lamp_3
+            - light.slaapkamer_lamp_4
+            - light.slaapkamer_lamp_5
+          data:
+            brightness_pct: 100
+            color_temp_kelvin: 2700
+        - action: light.turn_on
+          target:
+            entity_id: light.slaapkamer_strip
+          data:
+            brightness_pct: 30
+            color_temp_kelvin: 2700
     - conditions:
       - condition: trigger
         id:
-        - Links
+        - omhoog_lang
       sequence:
-      - action: light.toggle
-        metadata: {}
+      - condition: template
+        value_template: '{{ aan | count > 0 }}'
+      - repeat:
+          count: 12
+          sequence:
+          - action: light.turn_on
+            target:
+              entity_id: '{{ aan }}'
+            data:
+              brightness_step_pct: 10
+              transition: 0.3
+          - delay:
+              milliseconds: 300
+    - conditions:
+      - condition: trigger
+        id:
+        - omlaag_lang
+      sequence:
+      - action: light.turn_off
         target:
-          device_id: 63c89b64754053190461e2b5d5621725
+          entity_id:
+          - light.slaapkamer_lamp_1
+          - light.slaapkamer_lamp_2
+          - light.slaapkamer_lamp_3
+          - light.slaapkamer_lamp_4
+          - light.slaapkamer_lamp_5
+      - action: light.turn_on
+        target:
+          entity_id: light.slaapkamer_strip
         data:
-          brightness_pct: 1
+          brightness_pct: 20
     - conditions:
       - condition: trigger
         id:
-        - Rechts
+        - links
+        - rechts
       sequence:
-      - action: light.toggle
-        metadata: {}
+      - condition: template
+        value_template: '{{ aan | count > 0 }}'
+      - action: light.turn_on
         target:
-          device_id: 63c89b64754053190461e2b5d5621725
+          entity_id: '{{ aan }}'
         data:
-          brightness_pct: 100
-  mode: single
+          color_temp_kelvin: '{% set k = aan | map(''state_attr'',''color_temp_kelvin'')
+            | select(''number'') | list %}{% set nu = (k | sum / k | count) if k else
+            3000 %}{{ ([[nu + (-400 if trigger.id == ''links'' else 400), 2200] |
+            max, 4000] | min) | int }}'
+    - conditions:
+      - condition: trigger
+        id:
+        - links_lang
+      sequence:
+      - condition: template
+        value_template: '{{ aan | count > 0 }}'
+      - action: light.turn_on
+        target:
+          entity_id: '{{ aan }}'
+        data:
+          color_temp_kelvin: 2200
+    - conditions:
+      - condition: trigger
+        id:
+        - rechts_lang
+      sequence:
+      - condition: template
+        value_template: '{{ aan | count > 0 }}'
+      - action: light.turn_on
+        target:
+          entity_id: '{{ aan }}'
+        data:
+          color_temp_kelvin: 4000
+  mode: restart
 - id: '1712905763291'
   alias: Slaapkamer verlichting knop GJ
   description: ''
@@ -276,7 +480,13 @@
     domain: zha
     type: remote_button_long_release
     subtype: dim_up
-    id: Dim omhoog
+    id: Alles vol aan
+    trigger: device
+  - device_id: ef6cce96c0aff37b73773be4f1a30e2f
+    domain: zha
+    type: remote_button_long_release
+    subtype: dim_down
+    id: Nachtstand
     trigger: device
   conditions: []
   actions:
@@ -289,7 +499,7 @@
       - action: light.turn_on
         metadata: {}
         target:
-          device_id: 63c89b64754053190461e2b5d5621725
+          entity_id: light.slaapkamer_strip
         data: {}
     - conditions:
       - condition: trigger
@@ -304,95 +514,33 @@
     - conditions:
       - condition: trigger
         id:
-        - Dim omhoog
+        - Alles vol aan
       sequence:
       - data:
           brightness_pct: 100
         action: light.turn_on
         target:
           area_id: slaapkamer
+    - conditions:
+      - condition: trigger
+        id:
+        - Nachtstand
+      sequence:
+      - action: light.turn_off
+        target:
+          entity_id:
+          - light.slaapkamer_lamp_1
+          - light.slaapkamer_lamp_2
+          - light.slaapkamer_lamp_3
+          - light.slaapkamer_lamp_4
+          - light.slaapkamer_lamp_5
+      - action: light.turn_on
+        target:
+          entity_id: light.slaapkamer_strip
+        data:
+          brightness_pct: 20
   mode: single
-- id: '1736080909541'
-  alias: Stroom waarschuwing
-  description: Escalateert acties op basis van hoe lang de overbelasting duurt.
-  triggers:
-  - entity_id:
-    - sensor.energiemeter_net_stroom
-    above: sensor.energiemeter_net_zekering
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 5
-    id: fase_1
-    trigger: numeric_state
-  - entity_id:
-    - sensor.energiemeter_net_stroom
-    above: sensor.energiemeter_net_zekering
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 30
-    id: fase_2
-    trigger: numeric_state
-  - entity_id: sensor.energiemeter_net_stroom
-    above: sensor.energiemeter_net_zekering
-    for: 00:01:20
-    id: fase_3
-    trigger: numeric_state
-  - entity_id: sensor.energiemeter_net_stroom
-    above: sensor.energiemeter_net_zekering
-    for: 00:01:30
-    id: fase_4
-    trigger: numeric_state
-  conditions: []
-  actions:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: fase_1
-      sequence:
-      - action: climate.turn_off
-        target:
-          entity_id: all
-      - action: notify.mobile_app_sm_s901b
-        data:
-          message: Teveel stroom (5s). Verwarmingen uit.
-    - conditions:
-      - condition: trigger
-        id: fase_2
-      sequence:
-      - action: switch.turn_off
-        target:
-          entity_id:
-          - switch.noodlader_auto
-          - switch.quooker
-      - action: notify.mobile_app_sm_s901b
-        data:
-          message: Nog steeds te hoog (1:10). Noodlader en Quooker uit.
-    - conditions:
-      - condition: trigger
-        id: fase_3
-      sequence:
-      - action: switch.turn_off
-        target:
-          entity_id:
-          - switch.wasdroger
-          - switch.wasmachine
-      - action: notify.mobile_app_sm_s901b
-        data:
-          message: KRITIEK (1:20). Wasmachine en droger uitgeschakeld.
-    - conditions:
-      - condition: trigger
-        id: fase_4
-      sequence:
-      - action: switch.turn_off
-        target:
-          entity_id: all
-      - action: notify.mobile_app_sm_s901b
-        data:
-          message: KRITIEK (1:30). Alles uit.
-  mode: parallel
-  max: 10
+  max_exceeded: silent
 - id: '1736080956414'
   alias: Vocht waarschuwing
   description: Waarschuwt en schakelt de wasmachine uit wanneer vocht wordt gedetecteerd
@@ -409,18 +557,12 @@
     device_id: 7b748ddf488252dc1ed824f226b39955
     entity_id: 7654b1f2dc14beee502fb391c4c57d2e
     domain: switch
-  - device_id: c0f2abd8a92c0bfad616ec4aa371901d
-    domain: mobile_app
-    type: notify
-    message: "Wasmachine bak werd vochtig. De wasmachine werd uitgeschakeld. \U0001F4A7\U0001F6AB"
-  - device_id: f25c56e952ad0fee7c940b1eadb4d450
-    domain: mobile_app
-    type: notify
-    message: "Wasmachine bak werd vochtig. De wasmachine werd uitgeschakeld. \U0001F4A7\U0001F6AB"
-  - action: notify.mobile_app_sm_s901b
-    metadata: {}
+  - action: notify.mobile_app_fairphone_6_gj
     data:
       message: "Wasmachine bak werd vochtig. De wasmachine werd uitgeschakeld. \U0001F4A7\U0001F6AB"
+      title: Vocht waarschuwing
+      data:
+        group: vocht
   mode: single
 - id: '1736081312239'
   alias: Spanning waarschuwing
@@ -446,16 +588,20 @@
 
             '
         then:
-        - action: notify.mobile_app_sm_s901b
+        - action: notify.mobile_app_fairphone_6_gj
           data:
             title: ⚠️ Spanning
             message: '{{ state_attr(repeat.item, ''friendly_name'') }} is nu {{ states(repeat.item)
               }} V!'
+            data:
+              group: spanning
+              tag: spanning_{{ repeat.item }}
   mode: single
 - id: '1750005386050'
   alias: Overloop verlichting
   description: Overlooplamp aan bij beweging in gang of overloop, alleen als het donker
     is. Helderheid en kleur op basis van tijdstip. Uit na 5 minuten geen beweging.
+    Gaat niet aan zolang de dakterrasdeur openstaat.
   triggers:
   - type: occupied
     device_id: e13fa775ae5c1aa7dc0dd04f3d6fe2e8
@@ -472,6 +618,9 @@
     entity_id: binary_sensor.gang_bewegingsmelder_licht
     state:
     - 'off'
+  - condition: state
+    entity_id: binary_sensor.dakterras_deur_deur
+    state: 'off'
   actions:
   - choose:
     - conditions:
@@ -523,6 +672,7 @@
     target:
       area_id: overloop
   mode: single
+  max_exceeded: silent
 - id: '1752612340249'
   alias: Bureau M
   description: ''
@@ -561,27 +711,7 @@
         entity_id: a4b1e2e1270d476cd119e59125d373af
         domain: switch
   mode: single
-- id: '1759686494315'
-  alias: Zolder verwarming
-  description: ''
-  triggers:
-  - trigger: state
-    entity_id:
-    - climate.zolder_verwarming
-    to:
-    - heat
-    for:
-      hours: 4
-      minutes: 0
-      seconds: 0
-  conditions: []
-  actions:
-  - action: climate.turn_off
-    metadata: {}
-    data: {}
-    target:
-      entity_id: climate.zolder_verwarming
-  mode: single
+  max_exceeded: silent
 - id: '1760072828171'
   alias: RPi5 power button
   description: ''
@@ -594,86 +724,84 @@
     metadata: {}
     data: {}
   mode: single
-- id: '1767521444819'
-  alias: Slaapkamer verwarming
-  description: Zet de verwarming aan of uit op basis van de schedule entiteit
-  triggers:
-  - entity_id:
-    - schedule.slaapkamer_verwarming
-    trigger: state
-  actions:
-  - action: climate.turn_{{ trigger.to_state.state }}
-    target:
-      area_id: slaapkamer
-  - action: climate.set_preset_mode
-    target:
-      area_id: slaapkamer
-    data:
-      preset_mode: '{{ state_attr(''schedule.slaapkamer'', ''preset_mode'') }}'
-  mode: restart
 - id: '1767542919930'
   alias: Temperatuur waarschuwing
   description: ''
   triggers:
-  - type: temperature
-    device_id: 08779d5418a838c9e8d8eb3f24718953
-    entity_id: 890f02647c9f3a6a384c4286bdcc31b9
-    domain: sensor
-    trigger: device
+  - trigger: numeric_state
+    entity_id:
+    - sensor.schuur_thermometer_temperatuur
     below: 5
   conditions: []
   actions:
-  - action: notify.mobile_app_sm_s901b
-    metadata: {}
+  - action: notify.mobile_app_fairphone_6_gj
     data:
       message: Schuur is onder de 5 graden.
+      data:
+        group: temperatuur
   mode: single
 - id: '1767596340753'
-  alias: Badkamer verlichting deur
-  description: Zet licht aan bij openen deur (alleen als alles uit is), uit na 30
-    min deur dicht of na 1 uur
+  alias: Badkamer verlichting
+  description: Zet de scene Badkamer sparkle aan (spots en strip, niet de spiegellamp,
+    die alleen via de lichtknop) bij openen deur of beweging, als alles uit is. Uit
+    na 20 min geen beweging; beweging houdt het licht aan (max 45 min als vangnet),
+    behalve als de BILRESA-knop een sfeerstand heeft gekozen.
   triggers:
-  - entity_id: binary_sensor.badkamer_deur
+  - entity_id:
+    - binary_sensor.badkamer_deur_openen
+    to:
+    - 'on'
+    trigger: state
+  - entity_id: binary_sensor.badkamer_bewegingsmelder_bezetting
     to: 'on'
     trigger: state
   conditions:
   - condition: template
-    value_template: "{{ expand(area_entities('badkamer'))\n   | selectattr('domain',
-      'eq', 'light')\n   | selectattr('state', 'eq', 'on')\n   | list | count == 0
-      }}\n"
+    value_template: '{{ expand(area_entities(''badkamer'')) | selectattr(''domain'',
+      ''eq'', ''light'') | rejectattr(''entity_id'', ''eq'', ''light.badkamer_spiegellamp'')
+      | selectattr(''state'', ''eq'', ''on'') | list | count == 0 }}
+
+      '
   actions:
-  - action: light.turn_on
-    data: {}
+  - action: scene.turn_on
     target:
-      area_id: badkamer
+      entity_id: scene.badkamer_sparkle
   - wait_for_trigger:
-    - entity_id: binary_sensor.badkamer_deur
+    - entity_id: binary_sensor.badkamer_bewegingsmelder_bezetting
       to: 'off'
       for:
-        minutes: 30
+        minutes: 20
       trigger: state
-    timeout: 01:00:00
+    timeout: 00:45:00
     continue_on_timeout: true
+  - condition: state
+    entity_id: input_select.badkamer_lichtstand
+    state: normaal
   - action: light.turn_off
     data: {}
     target:
       area_id: badkamer
-  mode: restart
+  mode: single
 - id: '1767597887897'
   alias: Schuur verlichting
   description: Licht aan als deur open is, licht uit als deur dicht is
   triggers:
-  - entity_id: binary_sensor.schuur_deur
-    trigger: state
+  - trigger: state
+    entity_id: binary_sensor.schuur_deur_openen
+    from: 'off'
+    to: 'on'
+  - trigger: state
+    entity_id: binary_sensor.schuur_deur_openen
+    from: 'on'
+    to: 'off'
   actions:
   - target:
       area_id: schuur
-    action: light.turn_{{ 'on' if is_state('binary_sensor.schuur_deur', 'on') else
-      'off' }}
+    action: light.turn_{{ 'on' if is_state('binary_sensor.schuur_deur_openen', 'on')
+      else 'off' }}
 - id: '1767645444983'
   alias: Slaapkamer verlichting knop M
-  description: Kort = nachtstand (1%), Dubbel = groep fel (4000K), Lang = alles uit
-    (fading)
+  description: Kort = nachtstand (alleen strip op 20%), lang = alles uit
   triggers:
   - device_id: 3f69258ab8f971e91098360463918649
     domain: zha
@@ -694,11 +822,19 @@
       - condition: trigger
         id: kort
       sequence:
-      - action: light.turn_on
-        metadata: {}
+      - action: light.turn_off
         target:
-          device_id: 63c89b64754053190461e2b5d5621725
-        data: {}
+          entity_id:
+          - light.slaapkamer_lamp_1
+          - light.slaapkamer_lamp_2
+          - light.slaapkamer_lamp_3
+          - light.slaapkamer_lamp_4
+          - light.slaapkamer_lamp_5
+      - action: light.turn_on
+        target:
+          entity_id: light.slaapkamer_strip
+        data:
+          brightness_pct: 20
     - conditions:
       - condition: trigger
         id: lang
@@ -712,14 +848,20 @@
   alias: Voorraadkast verlichting
   description: Schakelt verlichting in de pantry aan bij openen en uit bij sluiten
   triggers:
-  - entity_id: binary_sensor.voorraadkast_deur
-    from: 'off'
-    to: 'on'
+  - entity_id:
+    - binary_sensor.voorraadkast_deur_openen
+    from:
+    - 'off'
+    to:
+    - 'on'
     id: open
     trigger: state
-  - entity_id: binary_sensor.voorraadkast_deur
-    from: 'on'
-    to: 'off'
+  - entity_id:
+    - binary_sensor.voorraadkast_deur_openen
+    from:
+    - 'on'
+    to:
+    - 'off'
     id: dicht
     trigger: state
   actions:
@@ -832,7 +974,8 @@
 - id: '1768161870850'
   alias: CO2 waarschuwing
   description: Triggert wanneer een CO2 sensor met label 'CO2' boven de 1000 of 1200
-    komt
+    komt. Via de legacy dienst notify.mobile_app_fairphone_6_gj, omdat notify.send_message
+    geen data doorgeeft; group bundelt de meldingen op Android, tag vervangt per sensor.
   triggers:
   - trigger: template
     value_template: '{{ label_entities(''CO2'') | map(''states'') | map(''float'',
@@ -845,21 +988,29 @@
         - condition: template
           value_template: '{{ states(repeat.item) | float(0) > 1200 }}'
         then:
-        - action: notify.mobile_app_sm_s901b
+        - action: notify.mobile_app_fairphone_6_gj
           data:
             title: '⚠️ CO2 Alarm: Zeer Hoog'
             message: De CO2 in {{ area_name(repeat.item) }} is {{ states(repeat.item)
               }} ppm!
+            data:
+              group: co2
+              tag: co2_{{ repeat.item }}
+              channel: CO2
         else:
         - if:
           - condition: template
             value_template: '{{ states(repeat.item) | float(0) > 1000 }}'
           then:
-          - action: notify.mobile_app_sm_s901b
+          - action: notify.mobile_app_fairphone_6_gj
             data:
               title: CO2 Melding
               message: De luchtkwaliteit in {{ area_name(repeat.item) }} verslechtert
                 ({{ states(repeat.item) }} ppm).
+              data:
+                group: co2
+                tag: co2_{{ repeat.item }}
+                channel: CO2
   mode: parallel
 - id: '1768165004229'
   alias: Apparaattemperatuur waarschuwing
@@ -884,11 +1035,14 @@
 
             '
         then:
-        - action: notify.mobile_app_sm_s901b
+        - action: notify.mobile_app_fairphone_6_gj
           data:
             title: ⚠️ Apparaattemperatuur
             message: '{{ state_attr(repeat.item, ''friendly_name'') }} is nu {{ states(repeat.item)
               }}°C!'
+            data:
+              group: apparaattemperatuur
+              tag: apparaattemperatuur_{{ repeat.item }}
   mode: parallel
 - id: '1768166469947'
   alias: Probleem waarschuwing
@@ -907,57 +1061,81 @@
         - condition: template
           value_template: '{{ is_state(repeat.item, ''on'') }}'
         then:
-        - action: notify.mobile_app_sm_s901b
+        - action: notify.mobile_app_fairphone_6_gj
           data:
             title: ⚠️ Probleem
             message: '{{ repeat.item }} is aan.'
+            data:
+              group: probleem
+              tag: probleem_{{ repeat.item }}
   mode: parallel
 - id: '1768254535190'
   alias: Badkamer strip schakelaar
-  description: Zet licht aan bij schakelaar, gaat automatisch uit na 1 uur
+  description: 'Schakelaar links: aan = scene Badkamer sparkle, na 1 uur uit; uit
+    = spots en strip uit.'
   triggers:
   - trigger: state
-    entity_id: binary_sensor.badkamer_strip_schakelaar
+    entity_id: binary_sensor.badkamer_schakelaar_links_strip_schakelaar
+    from: 'off'
+    to: 'on'
+  - trigger: state
+    entity_id: binary_sensor.badkamer_schakelaar_links_strip_schakelaar
+    from: 'on'
+    to: 'off'
   conditions: []
   actions:
   - choose:
     - conditions:
       - condition: state
-        entity_id: binary_sensor.badkamer_strip_schakelaar
+        entity_id: binary_sensor.badkamer_schakelaar_links_strip_schakelaar
         state: 'on'
       sequence:
-      - action: light.turn_on
+      - action: scene.turn_on
         target:
-          device_id: 059a35c4232858c2b7182a458d42c7b6
+          entity_id: scene.badkamer_sparkle
+      - if:
+        - condition: not
+          conditions:
+          - condition: state
+            entity_id: input_select.badkamer_lichtstand
+            state: normaal
+        then:
+        - action: input_select.select_option
+          target:
+            entity_id: input_select.badkamer_lichtstand
+          data:
+            option: normaal
       - delay:
           hours: 1
       - action: light.turn_off
         target:
-          device_id: 059a35c4232858c2b7182a458d42c7b6
+          entity_id:
+          - light.badkamer_spots
+          - light.badkamer_strip
     - conditions:
       - condition: state
-        entity_id: binary_sensor.badkamer_strip_schakelaar
+        entity_id: binary_sensor.badkamer_schakelaar_links_strip_schakelaar
         state: 'off'
       sequence:
       - action: light.turn_off
         target:
-          device_id: 059a35c4232858c2b7182a458d42c7b6
+          entity_id:
+          - light.badkamer_spots
+          - light.badkamer_strip
   mode: restart
 - id: '1771190128778'
   alias: Woonkamer verlichting achter
   description: ''
   triggers:
-  - type: not_powered
-    device_id: e5af16afc1af56b9e063d714de158f91
-    entity_id: 2a346a053c5a4d7b8e3844f07a3205a0
-    domain: binary_sensor
-    trigger: device
+  - trigger: state
+    entity_id: binary_sensor.woonkamer_schakelaar_achter_input_0
+    from: 'on'
+    to: 'off'
     id: uit
-  - type: powered
-    device_id: e5af16afc1af56b9e063d714de158f91
-    entity_id: 2a346a053c5a4d7b8e3844f07a3205a0
-    domain: binary_sensor
-    trigger: device
+  - trigger: state
+    entity_id: binary_sensor.woonkamer_schakelaar_achter_input_0
+    from: 'off'
+    to: 'on'
     id: aan
   conditions: []
   actions:
@@ -1034,47 +1212,21 @@
         target:
           entity_id: switch.zolder_bureau_gj
         data: {}
-    - conditions:
-      - condition: trigger
-        id:
-        - lamp-uit
-      sequence:
-      - action: light.turn_off
-        metadata: {}
-        data: {}
-        target:
-          area_id: zolder
-      - action: climate.turn_off
-        metadata: {}
-        target:
-          entity_id: climate.zolder_verwarming
-        data: {}
-    - conditions:
-      - condition: trigger
-        id:
-        - lamp-aan
-      sequence:
-      - action: light.turn_on
-        metadata: {}
-        data: {}
-        target:
-          area_id: zolder
   mode: single
 - id: '1771609903515'
   alias: Badkamer verlichting plafond
-  description: ''
+  description: 'Plafondschakelaar: aan = scene Badkamer sparkle, uit = spots en strip
+    uit.'
   triggers:
-  - type: powered
-    device_id: 6c966592f610499fc0ed195a0ad969d7
-    entity_id: 1d54b71002392ad83605176834259bc1
-    domain: binary_sensor
-    trigger: device
+  - trigger: state
+    entity_id: binary_sensor.badkamer_plafond_input_0
+    from: 'off'
+    to: 'on'
     id: aan
-  - type: not_powered
-    device_id: 6c966592f610499fc0ed195a0ad969d7
-    entity_id: 1d54b71002392ad83605176834259bc1
-    domain: binary_sensor
-    trigger: device
+  - trigger: state
+    entity_id: binary_sensor.badkamer_plafond_input_0
+    from: 'on'
+    to: 'off'
     id: uit
   conditions: []
   actions:
@@ -1083,34 +1235,44 @@
       - condition: trigger
         id: aan
       sequence:
-      - action: light.turn_on
+      - action: scene.turn_on
         target:
-          entity_id: light.badkamer_spots
-        data: {}
+          entity_id: scene.badkamer_sparkle
+      - if:
+        - condition: not
+          conditions:
+          - condition: state
+            entity_id: input_select.badkamer_lichtstand
+            state: normaal
+        then:
+        - action: input_select.select_option
+          target:
+            entity_id: input_select.badkamer_lichtstand
+          data:
+            option: normaal
     - conditions:
       - condition: trigger
         id: uit
       sequence:
       - action: light.turn_off
         target:
-          entity_id: light.badkamer_spots
-        data: {}
+          entity_id:
+          - light.badkamer_spots
+          - light.badkamer_strip
   mode: single
 - id: '1771747023609'
   alias: Keuken schakelaar verlichting
   description: Zet licht aan/uit, en bij dubbelklik naar 100%
   triggers:
-  - type: powered
-    device_id: e3e2b617f9c3a25320a848ac5e9896c5
-    entity_id: 82a7eddf3b11612bcd1b95407408eda9
-    domain: binary_sensor
-    trigger: device
+  - trigger: state
+    entity_id: binary_sensor.keuken_plafond_input_0
+    from: 'off'
+    to: 'on'
     id: aan
-  - type: not_powered
-    device_id: e3e2b617f9c3a25320a848ac5e9896c5
-    entity_id: 82a7eddf3b11612bcd1b95407408eda9
-    domain: binary_sensor
-    trigger: device
+  - trigger: state
+    entity_id: binary_sensor.keuken_plafond_input_0
+    from: 'on'
+    to: 'off'
     id: uit
   conditions: []
   actions:
@@ -1136,19 +1298,15 @@
   alias: 'Gang schakelaar '
   description: ''
   triggers:
-  - type: powered
-    device_id: e59df1b0f519fef3d0e054a635ff57f7
-    entity_id: 15b203e3976b51e6f22f559d67aa597f
-    domain: binary_sensor
-    metadata:
-      secondary: false
-    trigger: device
+  - trigger: state
+    entity_id: binary_sensor.gang_schakelaar_input_0
+    from: 'off'
+    to: 'on'
     id: Aan
-  - type: not_powered
-    device_id: e59df1b0f519fef3d0e054a635ff57f7
-    entity_id: 15b203e3976b51e6f22f559d67aa597f
-    domain: binary_sensor
-    trigger: device
+  - trigger: state
+    entity_id: binary_sensor.gang_schakelaar_input_0
+    from: 'on'
+    to: 'off'
     id: Uit
   conditions: []
   actions:
@@ -1173,44 +1331,6 @@
         target:
           area_id: gang
         data: {}
-  mode: single
-- id: '1775743074350'
-  alias: Woonkamer ledstrip - TRADFRI switch
-  description: IKEA TRADFRI on/off switch bedient Hue ledstrip in de woonkamer
-  triggers:
-  - device_id: edc737eaf70410f77edc47501e93b308
-    domain: zha
-    type: remote_button_short_press
-    subtype: turn_on
-    trigger: device
-    id: press_on
-  - device_id: edc737eaf70410f77edc47501e93b308
-    domain: zha
-    type: remote_button_short_press
-    subtype: turn_off
-    trigger: device
-    id: press_off
-  conditions: []
-  actions:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: press_on
-      sequence:
-      - action: light.turn_on
-        target:
-          entity_id: light.woonkamer
-        data:
-          transition: 1
-    - conditions:
-      - condition: trigger
-        id: press_off
-      sequence:
-      - action: light.turn_off
-        target:
-          entity_id: light.woonkamer
-        data:
-          transition: 1
   mode: single
 - id: '1780695028232'
   alias: Aurora
@@ -1312,4 +1432,662 @@
   - action: light.turn_off
     target:
       area_id: overloop
+  mode: single
+- id: '1783572994976'
+  alias: ZHA-triggers herstellen na herstart
+  description: 'Vangnet: herlaadt alle automatiseringen 2 minuten na HA-start, omdat
+    ZHA device-triggers bij een opstart-race soms niet koppelen (gezien op 2026-07-08:
+    knoppen slaapkamer/bureau reageerden niet).'
+  triggers:
+  - trigger: homeassistant
+    event: start
+  conditions: []
+  actions:
+  - delay: 00:02:00
+  - action: automation.reload
+    data: {}
+  mode: single
+- id: '1783975501329'
+  alias: Overloop verlichting dakterrasdeur
+  description: Zet de overloopverlichting uit zodra de dakterrasdeur opengaat. Zolang
+    de deur open is, blokkeert een voorwaarde in 'Overloop verlichting' het opnieuw
+    inschakelen; na sluiten werkt de bewegingsdetectie weer normaal.
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.dakterras_deur_deur
+    from:
+    - 'off'
+    to:
+    - 'on'
+  conditions: []
+  actions:
+  - action: light.turn_off
+    target:
+      area_id: overloop
+  mode: single
+- id: '1784746513211'
+  alias: Batterij waarschuwing
+  description: 'Dagelijkse check om 10:00: melding als een batterijsensor onder de
+    5% zit of unavailable is (Aqara/Tuya vallen vaak van de klif zonder laag percentage
+    te melden). Telefoons uitgezonderd.'
+  triggers:
+  - trigger: time
+    at: '10:00:00'
+  conditions:
+  - condition: template
+    value_template: '{{ (laag | count) + (dood | count) > 0 }}'
+  actions:
+  - action: notify.mobile_app_fairphone_6_gj
+    data:
+      title: "\U0001FABB Batterij waarschuwing"
+      message: '{% if laag %}Bijna leeg: {{ laag | join('', '') }}.{% endif %}{% if
+        laag and dood %} {% endif %}{% if dood %}Offline (batterij leeg?): {{ dood
+        | join('', '') }}.{% endif %}'
+      data:
+        group: batterij
+  variables:
+    uitzonderingen:
+    - sensor.fairphone_6_battery_level
+    - sensor.telefoon_mirjam_battery_level
+    laag: '{% set ns = namespace(l=[]) %}{% for s in states.sensor if s.attributes.get(''device_class'')
+      == ''battery'' and s.attributes.get(''unit_of_measurement'') == ''%'' and s.entity_id
+      not in uitzonderingen and s.state | is_number and s.state | float < 5 %}{% set
+      naam = (area_name(s.entity_id) or ''?'') ~ '' '' ~ (s.name | replace('' Batterij'','''')
+      | replace('' batterij'','''')) %}{% set ns.l = ns.l + [naam ~ '' ('' ~ s.state
+      ~ ''%)''] %}{% endfor %}{{ ns.l }}'
+    dood: '{% set ns = namespace(l=[]) %}{% for s in states.sensor if s.attributes.get(''device_class'')
+      == ''battery'' and s.attributes.get(''unit_of_measurement'') == ''%'' and s.entity_id
+      not in uitzonderingen and s.state in [''unavailable'', ''unknown''] %}{% set
+      naam = (area_name(s.entity_id) or ''?'') ~ '' '' ~ (s.name | replace('' Batterij'','''')
+      | replace('' batterij'','''')) %}{% set ns.l = ns.l + [naam] %}{% endfor %}{{
+      ns.l }}'
+  mode: single
+- id: '1784753169683'
+  alias: Badkamer verlichting - uit zonder beweging
+  description: 'Vangnet: verlichting aan (bv. via deursensor) maar de bewegingsmelder
+    heeft niets gezien -> na 15 min uit. Toegevoegd 2026-07-22.'
+  triggers:
+  - trigger: state
+    entity_id: light.badkamer
+    to: 'on'
+    for: 00:15:00
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.badkamer_bewegingsmelder_bezetting
+    state: 'off'
+    for: 00:15:00
+  - condition: state
+    entity_id: input_select.badkamer_lichtstand
+    state: normaal
+  actions:
+  - action: light.turn_off
+    target:
+      entity_id: light.badkamer
+  mode: single
+- id: swv_lek_dicht
+  alias: Wasmachine - watertoevoer dicht bij lek
+  description: Sluit de Sonoff SWV-ZFE zodra de BADRING-lekbaksensor water ziet. De
+    klep is een sleepy Zigbee-device, dus het dichtstuurcommando wordt herhaald tot
+    de state daadwerkelijk omslaat.
+  triggers:
+  - trigger: state
+    entity_id: binary_sensor.wasmachine_bak
+    to: 'on'
+  conditions: []
+  actions:
+  - action: persistent_notification.create
+    data:
+      title: Lek bij de wasmachine
+      message: Water in de lekbak op zolder. Toevoer wordt dichtgestuurd.
+      notification_id: swv_lek_bij_de_wasmachin
+  - action: notify.mobile_app_fairphone_6
+    data:
+      title: Lek bij de wasmachine
+      message: Water in de lekbak op zolder. Toevoer wordt dichtgestuurd.
+      data:
+        ttl: 0
+        priority: high
+        channel: Waterlek
+    continue_on_error: true
+  - action: notify.mobile_app_fairphone_6_gj
+    data:
+      title: Lek bij de wasmachine
+      message: Water in de lekbak op zolder. Toevoer wordt dichtgestuurd.
+      data:
+        ttl: 0
+        priority: high
+        channel: Waterlek
+    continue_on_error: true
+  - action: switch.turn_off
+    target:
+      entity_id: switch.wasmachine
+    continue_on_error: true
+  - repeat:
+      sequence:
+      - action: switch.turn_off
+        target:
+          entity_id: switch.wasmachine_watertoevoer
+      - delay:
+          seconds: 20
+      until:
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: switch.wasmachine_watertoevoer
+          state: 'off'
+        - condition: template
+          value_template: '{{ repeat.index >= 30 }}'
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: switch.wasmachine_watertoevoer
+        state: 'on'
+      sequence:
+      - action: persistent_notification.create
+        data:
+          title: Klep gaat NIET dicht
+          message: De wasmachineklep reageert niet op het dichtstuurcommando. Handmatig
+            afsluiten.
+          notification_id: swv_klep_gaat_niet_dicht
+      - action: notify.mobile_app_fairphone_6
+        data:
+          title: Klep gaat NIET dicht
+          message: De wasmachineklep reageert niet op het dichtstuurcommando. Handmatig
+            afsluiten.
+          data:
+            ttl: 0
+            priority: high
+            channel: Waterlek
+        continue_on_error: true
+      - action: notify.mobile_app_fairphone_6_gj
+        data:
+          title: Klep gaat NIET dicht
+          message: De wasmachineklep reageert niet op het dichtstuurcommando. Handmatig
+            afsluiten.
+          data:
+            ttl: 0
+            priority: high
+            channel: Waterlek
+        continue_on_error: true
+  mode: single
+  max_exceeded: silent
+- id: swv_te_lang_open
+  alias: Wasmachine - klep te lang open
+  description: 'Vangnet: de klep hoort alleen open te staan tijdens een wasbeurt.
+    De langste programma''s duren ~5 uur, dus na 6 uur is open een vergissing.'
+  triggers:
+  - trigger: state
+    entity_id: switch.wasmachine_watertoevoer
+    to: 'on'
+    for:
+      hours: 6
+  conditions: []
+  actions:
+  - repeat:
+      sequence:
+      - action: switch.turn_off
+        target:
+          entity_id: switch.wasmachine_watertoevoer
+      - delay:
+          seconds: 20
+      until:
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: switch.wasmachine_watertoevoer
+          state: 'off'
+        - condition: template
+          value_template: '{{ repeat.index >= 30 }}'
+  - action: persistent_notification.create
+    data:
+      title: Wasmachineklep stond te lang open
+      message: Stond 6 uur open en is automatisch dichtgestuurd.
+      notification_id: swv_wasmachineklep_stond
+  - action: notify.mobile_app_fairphone_6_gj
+    continue_on_error: true
+    data:
+      title: Wasmachineklep stond te lang open
+      message: Stond 6 uur open en is automatisch dichtgestuurd.
+      data:
+        group: wasmachineklep
+  mode: single
+- id: swv_batterij_laag
+  alias: Wasmachine - klep batterij laag
+  description: Bij lege batterijen blijft de klep in zijn laatste stand staan. Op
+    tijd vervangen dus (4x AA).
+  triggers:
+  - trigger: numeric_state
+    entity_id: sensor.wasmachine_watertoevoer_batterij
+    below: 25
+    for:
+      hours: 1
+  conditions: []
+  actions:
+  - action: persistent_notification.create
+    data:
+      title: Batterij wasmachineklep laag
+      message: De Sonoff SWV-ZFE zit onder de 25%. Vervang de 4x AA.
+      notification_id: swv_batterij_wasmachinek
+  - action: notify.mobile_app_fairphone_6_gj
+    continue_on_error: true
+    data:
+      title: Batterij wasmachineklep laag
+      message: De Sonoff SWV-ZFE zit onder de 25%. Vervang de 4x AA.
+      data:
+        group: batterij
+  mode: single
+- id: frank_kwartierprijzen_1_november
+  alias: 'Frank Energie: naar kwartierprijzen per 1 november'
+  description: 'Eenmalig: het Frank-contract gaat op 1-11-2026 van uur- naar kwartierprijzen.
+    Zet de prijsresolutie van de integratie (zonder login) mee, zodat het Energie-dashboard
+    met dezelfde prijzen rekent als de factuur. Schakelt zichzelf daarna uit.'
+  triggers:
+  - trigger: time
+    at: 00:00:00
+  conditions:
+  - condition: template
+    value_template: '{{ now().date() | string == ''2026-11-01'' }}'
+  actions:
+  - data:
+      option: pt15m
+    target:
+      entity_id: select.frank_energie_instellingen_prijs_resolutie
+    action: select.select_option
+  - target:
+      entity_id: '{{ this.entity_id }}'
+    action: automation.turn_off
+  mode: single
+- id: bureau_gj_uit_bij_sluipverbruik
+  alias: Bureau GJ uit bij sluipverbruik
+  description: Zet de stekker van bureau GJ uit als het bureau 30 minuten alleen standby
+    verbruikt (onder 10 W; standby is ~6 W, in gebruik 15 W of meer). Tweede trigger
+    vangt het geval af dat de stekker wordt aangezet maar het bureau niet gebruikt
+    wordt. Weer aan met de bureauknop (automation Bureau GJ). Bespaart ~50 kWh per
+    jaar.
+  triggers:
+  - for:
+      minutes: 30
+    below: 10
+    entity_id: sensor.zolder_bureau_gj_vermogen
+    trigger: numeric_state
+  - for:
+      minutes: 30
+    to: 'on'
+    entity_id: switch.zolder_bureau_gj
+    trigger: state
+  conditions:
+  - condition: state
+    entity_id: switch.zolder_bureau_gj
+    state: 'on'
+  - below: 10
+    condition: numeric_state
+    entity_id: sensor.zolder_bureau_gj_vermogen
+  actions:
+  - target:
+      entity_id: switch.zolder_bureau_gj
+    action: switch.turn_off
+  mode: single
+- id: woonkamer_strip_gang_beweging
+  alias: Woonkamer strip - aan bij beweging in gang
+  description: Zet de woonkamerstrip aan bij beweging in de gang beneden als het donker
+    is, en weer uit als er 5 min geen beweging in de gang en niemand in de woonkamer
+    is. Drukt iemand tijdens die tijd op knop 1 van de Hue dimmer, dan blijft de strip
+    aan (uit gaat dan met de dimmer of na 12 uur). Staat de strip al aan, dan doet
+    deze automation niets.
+  triggers:
+  - trigger: state
+    entity_id: binary_sensor.gang_bewegingsmelder_beweging
+    to: 'on'
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.gang_bewegingsmelder_licht
+    state: 'off'
+  - condition: state
+    entity_id: light.woonkamer_strip
+    state: 'off'
+  actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.woonkamer_strip
+    data:
+      brightness_pct: 100
+  - wait_for_trigger:
+    - trigger: template
+      id: geen_beweging
+      value_template: '{{ is_state(''binary_sensor.gang_bewegingsmelder_beweging'',''off'')
+        and is_state(''binary_sensor.woonkamer_aanwezigheid'',''off'') }}'
+      for: 00:05:00
+    - trigger: state
+      id: knop
+      entity_id: event.hue_dimmer_switch_1_knop_1
+    continue_on_timeout: false
+  - condition: template
+    value_template: '{{ wait.trigger is not none and wait.trigger.id == ''geen_beweging''
+      }}'
+  - action: light.turn_off
+    target:
+      entity_id: light.woonkamer_strip
+  mode: restart
+- id: woonkamer_strip_uit_na_12_uur
+  alias: Woonkamer strip - uit na 12 uur
+  description: 'Vangnet: de woonkamerstrip gaat vanzelf uit als hij 12 uur aan staat,
+    hoe hij ook is aangezet.'
+  triggers:
+  - trigger: state
+    entity_id: light.woonkamer_strip
+    to: 'on'
+    for: '12:00:00'
+  conditions: []
+  actions:
+  - action: light.turn_off
+    target:
+      entity_id: light.woonkamer_strip
+  mode: single
+- id: woonkamer_strip_aanwezigheid
+  alias: Woonkamer strip - aan bij aanwezigheid in het donker
+  description: Zet de woonkamerstrip aan als er iemand in de woonkamer is en het er
+    donker is, en weer uit als niemand meer aanwezig is. Ook als het donker wordt
+    terwijl er iemand zit. Drukt iemand tussendoor op knop 1 van de Hue dimmer, dan
+    blijft de strip aan (uit gaat dan met de dimmer of na 12 uur). Staat de strip
+    al aan, dan doet deze automation niets.
+  triggers:
+  - trigger: state
+    entity_id: binary_sensor.woonkamer_aanwezigheid
+    from: 'off'
+    to: 'on'
+  - trigger: numeric_state
+    entity_id: sensor.woonkamer_aanwezigheid_licht
+    below: 30
+    for: 00:02:00
+  conditions:
+  - condition: state
+    entity_id: binary_sensor.woonkamer_aanwezigheid
+    state: 'on'
+  - condition: numeric_state
+    entity_id: sensor.woonkamer_aanwezigheid_licht
+    below: 30
+  - condition: state
+    entity_id: light.woonkamer_strip
+    state: 'off'
+  actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.woonkamer_strip
+    data:
+      brightness_pct: 100
+  - wait_for_trigger:
+    - trigger: state
+      id: weg
+      entity_id: binary_sensor.woonkamer_aanwezigheid
+      from: 'on'
+      to: 'off'
+    - trigger: state
+      id: knop
+      entity_id: event.hue_dimmer_switch_1_knop_1
+    continue_on_timeout: false
+  - condition: template
+    value_template: '{{ wait.trigger is not none and wait.trigger.id == ''weg'' }}'
+  - action: light.turn_off
+    target:
+      entity_id: light.woonkamer_strip
+  mode: restart
+- id: badkamer_knop_lichtstanden
+  alias: Badkamer knop - lichtstanden
+  description: 'BILRESA in de badkamer. Knop 1: spots uit, alleen de strip warm gedimd.
+    Knop 2: alles heel zacht in warm roodoranje. Nog eens op dezelfde knop: terug
+    naar de scene Badkamer sparkle. De spiegellamp kan niet dimmen en gaat in beide
+    standen uit.'
+  triggers:
+  - trigger: state
+    entity_id: event.badkamer_knop_knop_1
+    not_from:
+    - unavailable
+    - unknown
+    not_to:
+    - unavailable
+    - unknown
+    id: led
+  - trigger: state
+    entity_id: event.badkamer_knop_knop_2
+    not_from:
+    - unavailable
+    - unknown
+    not_to:
+    - unavailable
+    - unknown
+    id: romantisch
+  conditions:
+  - condition: template
+    value_template: '{{ trigger.to_state.attributes.event_type == ''multi_press_1''
+      }}'
+  actions:
+  - variables:
+      nieuw: '{{ ''normaal'' if states(''input_select.badkamer_lichtstand'') == trigger.id
+        else trigger.id }}'
+  - action: input_select.select_option
+    target:
+      entity_id: input_select.badkamer_lichtstand
+    data:
+      option: '{{ nieuw }}'
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ nieuw == ''led'' }}'
+      sequence:
+      - action: light.turn_off
+        target:
+          entity_id:
+          - light.badkamer_spots
+          - light.badkamer_spiegellamp
+      - action: light.turn_on
+        target:
+          entity_id: light.badkamer_strip
+        data:
+          effect: 'off'
+      - action: light.turn_on
+        target:
+          entity_id: light.badkamer_strip
+        data:
+          brightness_pct: 40
+          color_temp_kelvin: 2200
+    - conditions:
+      - condition: template
+        value_template: '{{ nieuw == ''romantisch'' }}'
+      sequence:
+      - action: light.turn_off
+        target:
+          entity_id: light.badkamer_spiegellamp
+      - action: light.turn_on
+        target:
+          entity_id: light.badkamer_spots
+        data:
+          brightness_pct: 1
+          hs_color:
+          - 10
+          - 90
+      - action: light.turn_on
+        target:
+          entity_id: light.badkamer_strip
+        data:
+          effect: 'off'
+      - action: light.turn_on
+        target:
+          entity_id: light.badkamer_strip
+        data:
+          brightness_pct: 8
+          hs_color:
+          - 10
+          - 90
+    default:
+    - action: scene.turn_on
+      target:
+        entity_id: scene.badkamer_sparkle
+  mode: restart
+- id: badkamer_lichtstand_einde
+  alias: Badkamer lichtstand - einde
+  description: 'Sfeerstand staat maximaal 2 uur aan, en vervalt als alle badkamerverlichting
+    uit is of HA herstart. Terug op normaal gelden weer de gewone uit-regels: uit
+    na 20 min geen beweging (max 45 min), omdat de automation Badkamer verlichting
+    dan niet meer loopt.'
+  triggers:
+  - trigger: state
+    entity_id: input_select.badkamer_lichtstand
+    to:
+    - led
+    - romantisch
+    for: 02:00:00
+    id: maximum
+  - trigger: state
+    entity_id: light.badkamer_alle_verlichting
+    to: 'off'
+    for: 00:00:10
+    id: uit
+  - trigger: homeassistant
+    event: start
+    id: uit
+  - trigger: state
+    entity_id: input_select.badkamer_lichtstand
+    from:
+    - led
+    - romantisch
+    to: normaal
+    id: terug
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: maximum
+      sequence:
+      - action: light.turn_off
+        target:
+          area_id: badkamer
+      - delay: 00:00:02
+      - action: input_select.select_option
+        target:
+          entity_id: input_select.badkamer_lichtstand
+        data:
+          option: normaal
+    - conditions:
+      - condition: trigger
+        id: uit
+      - condition: not
+        conditions:
+        - condition: state
+          entity_id: input_select.badkamer_lichtstand
+          state: normaal
+      sequence:
+      - action: input_select.select_option
+        target:
+          entity_id: input_select.badkamer_lichtstand
+        data:
+          option: normaal
+    - conditions:
+      - condition: trigger
+        id: terug
+      - condition: state
+        entity_id: light.badkamer_alle_verlichting
+        state: 'on'
+      sequence:
+      - wait_for_trigger:
+        - trigger: state
+          entity_id: binary_sensor.badkamer_bewegingsmelder_bezetting
+          to: 'off'
+          for:
+            minutes: 20
+        timeout: 00:45:00
+        continue_on_timeout: true
+      - action: light.turn_off
+        target:
+          area_id: badkamer
+  mode: restart
+- id: airco_onbereikbaar
+  alias: Airco - onbereikbaar
+  description: De airco heeft eerder de aardlekschakelaar laten afslaan, waardoor
+    ook de omvormer uitviel. Onbereikbaar kan ook gewoon wifi zijn; daarom noemt de
+    melding of de omvormer tegelijk weg is.
+  triggers:
+  - trigger: state
+    entity_id: climate.airconditioner
+    to: unavailable
+    for: 00:30:00
+  conditions: []
+  actions:
+  - action: notify.mobile_app_fairphone_6_gj
+    data:
+      title: ⚠️ Airco onbereikbaar
+      message: '{% if is_state(''sensor.zonnepanelen_output_power'', ''unavailable'')
+        %}De airco en de omvormer zijn allebei weg. Controleer de aardlekschakelaar.{%
+        else %}De airco is al 30 minuten onbereikbaar. De omvormer doet het nog, dus
+        waarschijnlijk is het de wifi of de groep van de airco.{% endif %}'
+      data:
+        group: airco
+  mode: single
+- id: airco_vergeten_uit
+  alias: Airco - vergeten uit
+  description: 'Melding als de airco aan staat terwijl we allebei minstens een uur
+    weg zijn, of als hij 12 uur aan staat. Die tweede regel is er omdat de aanwezigheid
+    op twee telefoons leunt en dus kan falen. Twee aanroepen van de legacy diensten
+    (notify.send_message geeft geen group door): mobile_app_fairphone_6_gj is Gerrit-Jan,
+    mobile_app_fairphone_6 is Mirjam (Telefoon Mirjam).'
+  triggers:
+  - trigger: state
+    entity_id: person.gerrit_jan
+    from: home
+    for: 01:00:00
+    id: weg
+  - trigger: state
+    entity_id: person.mirjam
+    from: home
+    for: 01:00:00
+    id: weg
+  - trigger: state
+    entity_id: climate.airconditioner
+    from: 'off'
+    for: 01:00:00
+    id: weg
+  - trigger: state
+    entity_id: climate.airconditioner
+    to:
+    - auto
+    - cool
+    - dry
+    - heat
+    - fan_only
+    for: '12:00:00'
+    id: lang
+  conditions:
+  - condition: state
+    entity_id: climate.airconditioner
+    state:
+    - auto
+    - cool
+    - dry
+    - heat
+    - fan_only
+  - condition: or
+    conditions:
+    - condition: trigger
+      id: lang
+    - condition: template
+      value_template: '{{ not is_state(''person.gerrit_jan'', ''home'') and not is_state(''person.mirjam'',
+        ''home'') and [states.person.gerrit_jan.last_changed, states.person.mirjam.last_changed]
+        | max < now() - timedelta(hours=1) }}'
+  actions:
+  - action: notify.mobile_app_fairphone_6_gj
+    continue_on_error: true
+    data:
+      title: Airco staat nog aan
+      message: '{% if trigger.id == ''lang'' %}De airco staat al 12 uur aan.{% else
+        %}De airco staat aan en er is al een uur niemand thuis.{% endif %}'
+      data:
+        group: airco
+  - action: notify.mobile_app_fairphone_6
+    continue_on_error: true
+    data:
+      title: Airco staat nog aan
+      message: '{% if trigger.id == ''lang'' %}De airco staat al 12 uur aan.{% else
+        %}De airco staat aan en er is al een uur niemand thuis.{% endif %}'
+      data:
+        group: airco
   mode: single
