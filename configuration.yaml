@@ -1,5 +1,18 @@
 default_config:
 
+recorder:
+  purge_keep_days: 60
+  exclude:
+    entities:
+      - sensor.zonnepanelen_output_power
+
+zha:
+  custom_quirks_path: /config/zha_quirks/
+  zigpy_config:
+    device_options:
+      consider_unavailable_time_battery: 86400 # seconden; 24 uur
+      consider_unavailable_time_mains: 21600 # seconden; 6 uur
+
 homeassistant:
   packages: !include_dir_named packages/
   auth_providers:
@@ -15,11 +28,5 @@ homeassistant:
     sensor.vacuum_cleaning_time:
       unit_of_measurement: "min"
 
-http:
-  ip_ban_enabled: false
-  login_attempts_threshold: 3
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 192.168.1.244
-
 automation: !include automations.yaml
+scene: !include scenes.yaml

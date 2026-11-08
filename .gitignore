@@ -42,3 +42,6 @@ config/
 
 # Netwerkdump
 *.pcap
+
+# Runtime
+.ha_run.lock

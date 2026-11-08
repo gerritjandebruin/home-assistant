@@ -1,0 +1,30 @@
+- id: badkamer_sparkle
+  name: Badkamer sparkle
+  entities:
+    light.badkamer_lamp_linksvoor:
+      state: 'on'
+      brightness: 143
+      color_mode: color_temp
+      color_temp_kelvin: 2267
+    light.badkamer_lamp_linksachter:
+      state: 'on'
+      brightness: 143
+      color_mode: color_temp
+      color_temp_kelvin: 2267
+    light.badkamer_lamp_rechtsvoor:
+      state: 'on'
+      brightness: 143
+      color_mode: color_temp
+      color_temp_kelvin: 2267
+    light.badkamer_lamp_rechtsachter:
+      state: 'on'
+      brightness: 143
+      color_mode: color_temp
+      color_temp_kelvin: 2267
+    light.badkamer_strip:
+      state: 'on'
+      brightness: 255
+      color_mode: color_temp
+      color_temp_kelvin: 2702
+      effect: sparkle
+  icon: mdi:shimmer
