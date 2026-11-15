@@ -45,3 +45,6 @@ config/
 
 # Runtime
 .ha_run.lock
+
+# Geuploade afbeeldingen (profielfoto\x27s)
+image/
