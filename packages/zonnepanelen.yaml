@@ -1,6 +1,7 @@
 # De Grott-integratie geeft alleen de status van de omvormer als getal
 # (0 = wacht, 1 = normaal, hoger = storing). De automation "Probleem waarschuwing"
-# werkt met aan/uit-sensoren met het label Probleem, vandaar deze sensor.
+# werkt met aan/uit-sensoren met het label Probleem, en de kaart "Apparaten aan" toont
+# binary sensors met device_class running. Vandaar deze twee sensoren.
 template:
   - binary_sensor:
       - name: Zonnepanelen probleem
@@ -8,3 +9,8 @@ template:
         device_class: problem
         icon: mdi:solar-power
         state: "{{ states('sensor.zonnepanelen_pv_status') | int(0) > 1 }}"
+      - name: Zonnepanelen actief
+        unique_id: zonnepanelen_actief
+        device_class: running
+        icon: mdi:solar-power
+        state: "{{ states('sensor.zonnepanelen_pv_status') | int(0) == 1 }}"
