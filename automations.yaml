@@ -598,7 +598,7 @@
     - sensor.meterkast_autolader_spanning_fase_2
     - sensor.meterkast_autolader_spanning_fase_3
     - sensor.vaatwasser_spanning
-    - sensor.zonnepanelen_spanning
+    - sensor.zonnepanelen_inverter_output_voltage_single_first_phase
     id: normaal
   conditions: []
   actions:
@@ -1145,8 +1145,8 @@
     - sensor.gang_bewegingsmelder_temperatuur
     - sensor.slaapkamer_verwarming_apparaattemperatuur
     - sensor.inloopkast_deur_inloopkastdeur_apparaattemperatuur
-    - sensor.zonnepanelen_ipm_temperatuur
-    - sensor.zonnepanelen_apparaattemperatuur
+    - sensor.zonnepanelen_ipm_temperature
+    - sensor.zonnepanelen_inverter_temperature
     id: normaal
   actions:
   - choose:
@@ -1235,7 +1235,6 @@
     - binary_sensor.woonkamer_schakelaar_achter_overheating
     - binary_sensor.woonkamer_schakelaar_achter_overvoltage
     - binary_sensor.badkamer_schakelaar_links_verwarming_overpowering
-    - binary_sensor.zonnepanelen_probleem
     - binary_sensor.airconditioner_full_dust
     id: normaal
   conditions: []
