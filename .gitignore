@@ -37,7 +37,7 @@ evcc.yaml
 .cache
 .ha_token
 tesla_fleet.key
-.claude/settings.local.json
+.claude/
 config/
 
 # Netwerkdump
