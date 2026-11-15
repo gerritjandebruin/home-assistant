@@ -1235,6 +1235,7 @@
     - binary_sensor.woonkamer_schakelaar_achter_overheating
     - binary_sensor.woonkamer_schakelaar_achter_overvoltage
     - binary_sensor.badkamer_schakelaar_links_verwarming_overpowering
+    - binary_sensor.zonnepanelen_probleem
     - binary_sensor.airconditioner_full_dust
     id: normaal
   conditions: []
