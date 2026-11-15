@@ -566,36 +566,78 @@
   mode: single
 - id: '1736081312239'
   alias: Spanning waarschuwing
-  description: Geeft een melding wanneer de spanning van een apparaat buiten het normale
-    bereik valt (hoger dan 253V of tussen 1V en 207V), met uitzondering van Growatt
-    sensoren.
+  description: 'Geeft een melding wanneer de spanning van een apparaat buiten het
+    normale bereik valt (hoger dan 253V of tussen 1V en 207V), met uitzondering van
+    Growatt sensoren. Een melding wordt per sensor ingetrokken (clear_notification
+    op dezelfde tag) zodra die weer normaal is. De trigger daarvoor heeft een vaste
+    lijst sensoren uit het label ''Spanning'' (stand 2026-11-08): voeg een nieuwe
+    sensor met dit label daar ook aan toe.'
   triggers:
   - trigger: template
     value_template: '{{ label_entities(''Spanning'') | map(''states'') | map(''float'',
       230) | select(''gt'', 253) | list | count > 0 }}'
+    id: melding
   - trigger: template
     value_template: '{{ label_entities(''Spanning'') | map(''states'') | map(''float'',
       230) | select(''lt'', 207) | list | count > 0 }}'
+    id: melding
+  - trigger: numeric_state
+    above: 210
+    below: 250
+    entity_id:
+    - sensor.oven_spanning
+    - sensor.noodlader_auto_spanning
+    - sensor.cv_spanning
+    - sensor.badkamer_ventilator_spanning
+    - sensor.badkamer_plafond_spanning
+    - sensor.badkamer_wastafel_spanning
+    - sensor.keuken_plafond_spanning
+    - sensor.magnetron_spanning
+    - sensor.woonkamer_schakelaar_achter_spanning
+    - sensor.meterkast_autolader_spanning_fase_1
+    - sensor.meterkast_autolader_spanning_fase_2
+    - sensor.meterkast_autolader_spanning_fase_3
+    - sensor.vaatwasser_spanning
+    - sensor.zonnepanelen_spanning
+    id: normaal
   conditions: []
   actions:
-  - repeat:
-      for_each: '{{ label_entities(''Spanning'') }}'
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: normaal
+      - condition: template
+        value_template: '{% set v = trigger.from_state.state | float(0) %}{{ v > 253
+          or (0 < v < 207) }}'
       sequence:
-      - if:
-        - condition: template
-          value_template: '{% set val = states(repeat.item) | float(230) %} {{ (val
-            > 253 or val < 207) and val != 0 }}
-
-            '
-        then:
-        - action: notify.mobile_app_fairphone_6_gj
+      - action: notify.mobile_app_fairphone_6_gj
+        continue_on_error: true
+        data:
+          message: clear_notification
           data:
-            title: ⚠️ Spanning
-            message: '{{ state_attr(repeat.item, ''friendly_name'') }} is nu {{ states(repeat.item)
-              }} V!'
-            data:
-              group: spanning
-              tag: spanning_{{ repeat.item }}
+            tag: spanning_{{ trigger.entity_id }}
+    - conditions:
+      - condition: trigger
+        id: melding
+      sequence:
+      - repeat:
+          for_each: '{{ label_entities(''Spanning'') }}'
+          sequence:
+          - if:
+            - condition: template
+              value_template: '{% set val = states(repeat.item) | float(230) %} {{
+                (val > 253 or val < 207) and val != 0 }}
+
+                '
+            then:
+            - action: notify.mobile_app_fairphone_6_gj
+              data:
+                title: ⚠️ Spanning
+                message: '{{ state_attr(repeat.item, ''friendly_name'') }} is nu {{
+                  states(repeat.item) }} V!'
+                data:
+                  group: spanning
+                  tag: spanning_{{ repeat.item }}
   mode: single
 - id: '1750005386050'
   alias: Overloop verlichting
@@ -726,19 +768,38 @@
   mode: single
 - id: '1767542919930'
   alias: Temperatuur waarschuwing
-  description: ''
+  description: Melding als de schuur onder de 5 graden komt; ingetrokken zodra het
+    er weer boven de 6 is.
   triggers:
   - trigger: numeric_state
     entity_id:
     - sensor.schuur_thermometer_temperatuur
     below: 5
+    id: melding
+  - trigger: numeric_state
+    entity_id:
+    - sensor.schuur_thermometer_temperatuur
+    above: 6
+    id: normaal
   conditions: []
   actions:
-  - action: notify.mobile_app_fairphone_6_gj
-    data:
-      message: Schuur is onder de 5 graden.
+  - if:
+    - condition: trigger
+      id: normaal
+    then:
+    - action: notify.mobile_app_fairphone_6_gj
+      continue_on_error: true
       data:
-        group: temperatuur
+        message: clear_notification
+        data:
+          tag: schuur_temperatuur
+    else:
+    - action: notify.mobile_app_fairphone_6_gj
+      data:
+        message: Schuur is onder de 5 graden.
+        data:
+          group: temperatuur
+          tag: schuur_temperatuur
   mode: single
 - id: '1767596340753'
   alias: Badkamer verlichting
@@ -973,101 +1034,242 @@
   mode: restart
 - id: '1768161870850'
   alias: CO2 waarschuwing
-  description: Triggert wanneer een CO2 sensor met label 'CO2' boven de 1000 of 1200
-    komt. Via de legacy dienst notify.mobile_app_fairphone_6_gj, omdat notify.send_message
+  description: 'Triggert wanneer een CO2 sensor met label ''CO2'' boven de 1000 of
+    1200 komt. Via de legacy dienst notify.mobile_app_fairphone_6_gj, omdat notify.send_message
     geen data doorgeeft; group bundelt de meldingen op Android, tag vervangt per sensor.
+    Een melding wordt per sensor ingetrokken (clear_notification op dezelfde tag)
+    zodra die weer normaal is. De trigger daarvoor heeft een vaste lijst sensoren
+    uit het label ''CO2'' (stand 2026-11-14): voeg een nieuwe sensor met dit label
+    daar ook aan toe.'
   triggers:
   - trigger: template
     value_template: '{{ label_entities(''CO2'') | map(''states'') | map(''float'',
       0) | select(''gt'', 1000) | list | count > 0 }}'
+    id: melding
+  - trigger: numeric_state
+    below: 900
+    entity_id:
+    - sensor.woonkamer_luchtkwaliteit_co2
+    - sensor.zolder_luchtkwaliteit_co2
+    - sensor.alpstuga_air_quality_monitor_kooldioxide
+    - sensor.gastenkamer_luchtkwaliteit_co2
+    id: normaal
   actions:
-  - repeat:
-      for_each: '{{ label_entities(''CO2'') }}'
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: normaal
       sequence:
-      - if:
-        - condition: template
-          value_template: '{{ states(repeat.item) | float(0) > 1200 }}'
-        then:
-        - action: notify.mobile_app_fairphone_6_gj
+      - action: notify.mobile_app_fairphone_6_gj
+        continue_on_error: true
+        data:
+          message: clear_notification
           data:
-            title: '⚠️ CO2 Alarm: Zeer Hoog'
-            message: De CO2 in {{ area_name(repeat.item) }} is {{ states(repeat.item)
-              }} ppm!
-            data:
-              group: co2
-              tag: co2_{{ repeat.item }}
-              channel: CO2
-        else:
-        - if:
-          - condition: template
-            value_template: '{{ states(repeat.item) | float(0) > 1000 }}'
-          then:
-          - action: notify.mobile_app_fairphone_6_gj
-            data:
-              title: CO2 Melding
-              message: De luchtkwaliteit in {{ area_name(repeat.item) }} verslechtert
-                ({{ states(repeat.item) }} ppm).
+            tag: co2_{{ trigger.entity_id }}
+    - conditions:
+      - condition: trigger
+        id: melding
+      sequence:
+      - repeat:
+          for_each: '{{ label_entities(''CO2'') }}'
+          sequence:
+          - if:
+            - condition: template
+              value_template: '{{ states(repeat.item) | float(0) > 1200 }}'
+            then:
+            - action: notify.mobile_app_fairphone_6_gj
               data:
-                group: co2
-                tag: co2_{{ repeat.item }}
-                channel: CO2
+                title: '⚠️ CO2 Alarm: Zeer Hoog'
+                message: De CO2 in {{ area_name(repeat.item) }} is {{ states(repeat.item)
+                  }} ppm!
+                data:
+                  group: co2
+                  tag: co2_{{ repeat.item }}
+                  channel: CO2
+            else:
+            - if:
+              - condition: template
+                value_template: '{{ states(repeat.item) | float(0) > 1000 }}'
+              then:
+              - action: notify.mobile_app_fairphone_6_gj
+                data:
+                  title: CO2 Melding
+                  message: De luchtkwaliteit in {{ area_name(repeat.item) }} verslechtert
+                    ({{ states(repeat.item) }} ppm).
+                  data:
+                    group: co2
+                    tag: co2_{{ repeat.item }}
+                    channel: CO2
   mode: parallel
 - id: '1768165004229'
   alias: Apparaattemperatuur waarschuwing
-  description: Triggert wanneer een entiteit met label 'Apparaattemperatuur' onder
-    de 10 of boven de 90 komt.
+  description: 'Triggert wanneer een entiteit met label ''Apparaattemperatuur'' onder
+    de 10 of boven de 90 komt. Een melding wordt per sensor ingetrokken (clear_notification
+    op dezelfde tag) zodra die weer normaal is. De trigger daarvoor heeft een vaste
+    lijst sensoren uit het label ''Apparaattemperatuur'' (stand 2026-11-08): voeg
+    een nieuwe sensor met dit label daar ook aan toe.'
   triggers:
   - trigger: template
     value_template: '{{ label_entities(''Apparaattemperatuur'') | map(''states'')
       | map(''float'', 10) | select(''gt'', 90) | list | count > 0 }}'
+    id: melding
   - trigger: template
     value_template: '{{ label_entities(''Apparaattemperatuur'') | map(''states'')
       | map(''float'', 10) | select(''lt'', 10) | list | count > 0 }}'
+    id: melding
+  - trigger: numeric_state
+    above: 12
+    below: 85
+    entity_id:
+    - sensor.nieuw_engeland_volume_1_average_disk_temp
+    - sensor.nieuw_engeland_volume_1_maximum_disk_temp
+    - sensor.nieuw_engeland_drive_1_temperatuur
+    - sensor.nieuw_engeland_drive_2_temperatuur
+    - sensor.nieuw_engeland_temperatuur
+    - sensor.inloopkast_koelkast_apparaattemperatuur
+    - sensor.wasdroger_apparaattemperatuur
+    - sensor.wasmachine_apparaattemperatuur
+    - sensor.system_monitor_processor_temperatuur
+    - sensor.serverkast_apparaattemperatuur
+    - sensor.woonkamer_luchtkwaliteit_esp_temperature
+    - sensor.woonkamer_luchtkwaliteit_sen55_temperature
+    - sensor.badkamer_deur_apparaattemperatuur
+    - sensor.schuur_deur_temperatuur_apparaat
+    - sensor.toilet_deur_apparaattemperatuur
+    - sensor.toilet_lamp_apparaattemperatuur
+    - sensor.voorraadkast_deur_apparaattemperatuur
+    - sensor.quooker_device_temperature
+    - sensor.nieuw_engeland_volume_2_gemiddelde_schijftemperatuur
+    - sensor.nieuw_engeland_volume_2_maximale_schijftemperatuur
+    - sensor.zolder_bureau_gj_apparaattemperatuur
+    - sensor.gang_bewegingsmelder_temperatuur
+    - sensor.slaapkamer_verwarming_apparaattemperatuur
+    - sensor.inloopkast_deur_inloopkastdeur_apparaattemperatuur
+    - sensor.zonnepanelen_ipm_temperatuur
+    - sensor.zonnepanelen_apparaattemperatuur
+    id: normaal
   actions:
-  - repeat:
-      for_each: '{{ label_entities(''Apparaattemperatuur'') }}'
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: normaal
+      - condition: template
+        value_template: '{% set v = trigger.from_state.state | float(0) %}{{ v > 90
+          or (0 < v < 10) }}'
       sequence:
-      - if:
-        - condition: template
-          value_template: '{% set val = states(repeat.item) | float(20) %}
-
-            {{ (val > 90 or val < 10) and val != 0 }}
-
-            '
-        then:
-        - action: notify.mobile_app_fairphone_6_gj
+      - action: notify.mobile_app_fairphone_6_gj
+        continue_on_error: true
+        data:
+          message: clear_notification
           data:
-            title: ⚠️ Apparaattemperatuur
-            message: '{{ state_attr(repeat.item, ''friendly_name'') }} is nu {{ states(repeat.item)
-              }}°C!'
-            data:
-              group: apparaattemperatuur
-              tag: apparaattemperatuur_{{ repeat.item }}
+            tag: apparaattemperatuur_{{ trigger.entity_id }}
+    - conditions:
+      - condition: trigger
+        id: melding
+      sequence:
+      - repeat:
+          for_each: '{{ label_entities(''Apparaattemperatuur'') }}'
+          sequence:
+          - if:
+            - condition: template
+              value_template: '{% set val = states(repeat.item) | float(20) %}
+
+                {{ (val > 90 or val < 10) and val != 0 }}
+
+                '
+            then:
+            - action: notify.mobile_app_fairphone_6_gj
+              data:
+                title: ⚠️ Apparaattemperatuur
+                message: '{{ state_attr(repeat.item, ''friendly_name'') }} is nu {{
+                  states(repeat.item) }}°C!'
+                data:
+                  group: apparaattemperatuur
+                  tag: apparaattemperatuur_{{ repeat.item }}
   mode: parallel
 - id: '1768166469947'
   alias: Probleem waarschuwing
-  description: Waarschuwt wanneer een entiteit met label 'Probleem' aan gaat.
+  description: 'Waarschuwt wanneer een entiteit met label ''Probleem'' aan gaat. Een
+    melding wordt per sensor ingetrokken (clear_notification op dezelfde tag) zodra
+    die weer normaal is. De trigger daarvoor heeft een vaste lijst sensoren uit het
+    label ''Probleem'' (stand 2026-11-08): voeg een nieuwe sensor met dit label daar
+    ook aan toe.'
   triggers:
   - trigger: template
     value_template: '{{ label_entities(''Probleem'') | select(''is_state'', ''on'')
       | reject(''match'', ''^automation\.'') | list | count > 0}}'
+    id: melding
+  - trigger: state
+    from: 'on'
+    to: 'off'
+    entity_id:
+    - binary_sensor.wasdroger_overbelasting
+    - binary_sensor.wasdroger_oververhitting
+    - binary_sensor.robotstofzuiger_probleem
+    - binary_sensor.toilet_lamp_overbelasting
+    - binary_sensor.toilet_lamp_overhitting
+    - binary_sensor.badkamer_spiegellamp_overpowering
+    - binary_sensor.nieuw_engeland_beveiligingsstatus
+    - binary_sensor.nieuw_engeland_drive_1_maximum_slechte_sectoren_overschreden
+    - binary_sensor.nieuw_engeland_drive_1_onder_de_minimale_resterende_levensduur
+    - binary_sensor.overbelasting
+    - binary_sensor.overbelasting_3
+    - binary_sensor.slaapkamer_verwarming_overheating
+    - binary_sensor.quooker_overheating
+    - binary_sensor.quooker_overpowering
+    - binary_sensor.oververhitting
+    - binary_sensor.oververhitting_2
+    - binary_sensor.oververhitting_4
+    - binary_sensor.zolder_bureau_gj_overbelasting
+    - binary_sensor.badkamer_ventilator_overheating
+    - binary_sensor.badkamer_ventilator_overvoltage
+    - binary_sensor.badkamer_plafond_overheating
+    - binary_sensor.badkamer_plafond_overvoltage
+    - binary_sensor.badkamer_wastafel_overheating
+    - binary_sensor.keuken_plafond_overheating
+    - binary_sensor.keuken_plafond_overvoltage
+    - binary_sensor.slaapkamer_verwarming_overbelasting
+    - binary_sensor.inloopkast_koelkast_overbelasting
+    - binary_sensor.inloopkast_koelkast_oververhitting
+    - binary_sensor.woonkamer_lamp_achter_overheating
+    - binary_sensor.woonkamer_schakelaar_achter_overheating
+    - binary_sensor.woonkamer_schakelaar_achter_overvoltage
+    - binary_sensor.badkamer_schakelaar_links_verwarming_overpowering
+    - binary_sensor.zonnepanelen_probleem
+    - binary_sensor.airconditioner_full_dust
+    id: normaal
   conditions: []
   actions:
-  - repeat:
-      for_each: '{{ label_entities(''Probleem'') | reject(''match'', ''^automation\.'')
-        | list }}'
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: normaal
       sequence:
-      - if:
-        - condition: template
-          value_template: '{{ is_state(repeat.item, ''on'') }}'
-        then:
-        - action: notify.mobile_app_fairphone_6_gj
+      - action: notify.mobile_app_fairphone_6_gj
+        continue_on_error: true
+        data:
+          message: clear_notification
           data:
-            title: ⚠️ Probleem
-            message: '{{ repeat.item }} is aan.'
-            data:
-              group: probleem
-              tag: probleem_{{ repeat.item }}
+            tag: probleem_{{ trigger.entity_id }}
+    - conditions:
+      - condition: trigger
+        id: melding
+      sequence:
+      - repeat:
+          for_each: '{{ label_entities(''Probleem'') | reject(''match'', ''^automation\.'')
+            | list }}'
+          sequence:
+          - if:
+            - condition: template
+              value_template: '{{ is_state(repeat.item, ''on'') }}'
+            then:
+            - action: notify.mobile_app_fairphone_6_gj
+              data:
+                title: ⚠️ Probleem
+                message: '{{ repeat.item }} is aan.'
+                data:
+                  group: probleem
+                  tag: probleem_{{ repeat.item }}
   mode: parallel
 - id: '1768254535190'
   alias: Badkamer strip schakelaar
@@ -1470,26 +1672,37 @@
   alias: Batterij waarschuwing
   description: 'Dagelijkse check om 10:00: melding als een batterijsensor onder de
     5% zit of unavailable is (Aqara/Tuya vallen vaak van de klif zonder laag percentage
-    te melden). Telefoons uitgezonderd.'
+    te melden). Telefoons uitgezonderd. Elke dag vervangt de nieuwe melding die van
+    gisteren (zelfde tag); is alles weer in orde, dan wordt hij ingetrokken.'
   triggers:
   - trigger: time
     at: '10:00:00'
-  conditions:
-  - condition: template
-    value_template: '{{ (laag | count) + (dood | count) > 0 }}'
+  conditions: []
   actions:
-  - action: notify.mobile_app_fairphone_6_gj
-    data:
-      title: "\U0001FABB Batterij waarschuwing"
-      message: '{% if laag %}Bijna leeg: {{ laag | join('', '') }}.{% endif %}{% if
-        laag and dood %} {% endif %}{% if dood %}Offline (batterij leeg?): {{ dood
-        | join('', '') }}.{% endif %}'
+  - if:
+    - condition: template
+      value_template: '{{ (laag | count) + (dood | count) > 0 }}'
+    then:
+    - action: notify.mobile_app_fairphone_6_gj
       data:
-        group: batterij
+        title: "\U0001FABB Batterij waarschuwing"
+        message: '{% if laag %}Bijna leeg: {{ laag | join('', '') }}.{% endif %}{%
+          if laag and dood %} {% endif %}{% if dood %}Offline (batterij leeg?): {{
+          dood | join('', '') }}.{% endif %}'
+        data:
+          group: batterij
+          tag: batterij_dagelijks
+    else:
+    - action: notify.mobile_app_fairphone_6_gj
+      continue_on_error: true
+      data:
+        message: clear_notification
+        data:
+          tag: batterij_dagelijks
   variables:
     uitzonderingen:
-    - sensor.fairphone_6_battery_level
-    - sensor.telefoon_mirjam_battery_level
+    - sensor.fairphone_6_gj_battery_level
+    - sensor.fairphone_6_mirjam_battery_level
     laag: '{% set ns = namespace(l=[]) %}{% for s in states.sensor if s.attributes.get(''device_class'')
       == ''battery'' and s.attributes.get(''unit_of_measurement'') == ''%'' and s.entity_id
       not in uitzonderingen and s.state | is_number and s.state | float < 5 %}{% set
@@ -1655,27 +1868,50 @@
 - id: swv_batterij_laag
   alias: Wasmachine - klep batterij laag
   description: Bij lege batterijen blijft de klep in zijn laatste stand staan. Op
-    tijd vervangen dus (4x AA).
+    tijd vervangen dus (4x AA). Beide meldingen verdwijnen zodra de batterij weer
+    boven de 25% zit.
   triggers:
   - trigger: numeric_state
     entity_id: sensor.wasmachine_watertoevoer_batterij
     below: 25
     for:
       hours: 1
+    id: melding
+  - trigger: numeric_state
+    entity_id: sensor.wasmachine_watertoevoer_batterij
+    above: 25
+    for:
+      hours: 1
+    id: normaal
   conditions: []
   actions:
-  - action: persistent_notification.create
-    data:
-      title: Batterij wasmachineklep laag
-      message: De Sonoff SWV-ZFE zit onder de 25%. Vervang de 4x AA.
-      notification_id: swv_batterij_wasmachinek
-  - action: notify.mobile_app_fairphone_6_gj
-    continue_on_error: true
-    data:
-      title: Batterij wasmachineklep laag
-      message: De Sonoff SWV-ZFE zit onder de 25%. Vervang de 4x AA.
+  - if:
+    - condition: trigger
+      id: normaal
+    then:
+    - action: persistent_notification.dismiss
       data:
-        group: batterij
+        notification_id: swv_batterij_wasmachinek
+    - action: notify.mobile_app_fairphone_6_gj
+      continue_on_error: true
+      data:
+        message: clear_notification
+        data:
+          tag: swv_batterij
+    else:
+    - action: persistent_notification.create
+      data:
+        title: Batterij wasmachineklep laag
+        message: De Sonoff SWV-ZFE zit onder de 25%. Vervang de 4x AA.
+        notification_id: swv_batterij_wasmachinek
+    - action: notify.mobile_app_fairphone_6_gj
+      continue_on_error: true
+      data:
+        title: Batterij wasmachineklep laag
+        message: De Sonoff SWV-ZFE zit onder de 25%. Vervang de 4x AA.
+        data:
+          group: batterij
+          tag: swv_batterij
   mode: single
 - id: frank_kwartierprijzen_1_november
   alias: 'Frank Energie: naar kwartierprijzen per 1 november'
@@ -2005,23 +2241,41 @@
   alias: Airco - onbereikbaar
   description: De airco heeft eerder de aardlekschakelaar laten afslaan, waardoor
     ook de omvormer uitviel. Onbereikbaar kan ook gewoon wifi zijn; daarom noemt de
-    melding of de omvormer tegelijk weg is.
+    melding of de omvormer tegelijk weg is. De melding wordt ingetrokken zodra de
+    airco weer bereikbaar is.
   triggers:
   - trigger: state
     entity_id: climate.airconditioner
     to: unavailable
     for: 00:30:00
+    id: melding
+  - trigger: state
+    entity_id: climate.airconditioner
+    from: unavailable
+    id: normaal
   conditions: []
   actions:
-  - action: notify.mobile_app_fairphone_6_gj
-    data:
-      title: ⚠️ Airco onbereikbaar
-      message: '{% if is_state(''sensor.zonnepanelen_output_power'', ''unavailable'')
-        %}De airco en de omvormer zijn allebei weg. Controleer de aardlekschakelaar.{%
-        else %}De airco is al 30 minuten onbereikbaar. De omvormer doet het nog, dus
-        waarschijnlijk is het de wifi of de groep van de airco.{% endif %}'
+  - if:
+    - condition: trigger
+      id: normaal
+    then:
+    - action: notify.mobile_app_fairphone_6_gj
+      continue_on_error: true
       data:
-        group: airco
+        message: clear_notification
+        data:
+          tag: airco_onbereikbaar
+    else:
+    - action: notify.mobile_app_fairphone_6_gj
+      data:
+        title: ⚠️ Airco onbereikbaar
+        message: '{% if is_state(''sensor.zonnepanelen_output_power'', ''unavailable'')
+          %}De airco en de omvormer zijn allebei weg. Controleer de aardlekschakelaar.{%
+          else %}De airco is al 30 minuten onbereikbaar. De omvormer doet het nog,
+          dus waarschijnlijk is het de wifi of de groep van de airco.{% endif %}'
+        data:
+          group: airco
+          tag: airco_onbereikbaar
   mode: single
 - id: airco_vergeten_uit
   alias: Airco - vergeten uit
@@ -2029,7 +2283,8 @@
     weg zijn, of als hij 12 uur aan staat. Die tweede regel is er omdat de aanwezigheid
     op twee telefoons leunt en dus kan falen. Twee aanroepen van de legacy diensten
     (notify.send_message geeft geen group door): mobile_app_fairphone_6_gj is Gerrit-Jan,
-    mobile_app_fairphone_6 is Mirjam (Telefoon Mirjam).'
+    mobile_app_fairphone_6 is Mirjam (Telefoon Mirjam). De melding wordt op beide
+    telefoons ingetrokken zodra de airco uit gaat of iemand thuiskomt.'
   triggers:
   - trigger: state
     entity_id: person.gerrit_jan
@@ -2056,38 +2311,109 @@
     - fan_only
     for: '12:00:00'
     id: lang
-  conditions:
-  - condition: state
+  - trigger: state
     entity_id: climate.airconditioner
-    state:
-    - auto
-    - cool
-    - dry
-    - heat
-    - fan_only
-  - condition: or
-    conditions:
-    - condition: trigger
-      id: lang
-    - condition: template
-      value_template: '{{ not is_state(''person.gerrit_jan'', ''home'') and not is_state(''person.mirjam'',
-        ''home'') and [states.person.gerrit_jan.last_changed, states.person.mirjam.last_changed]
-        | max < now() - timedelta(hours=1) }}'
+    to: 'off'
+    id: normaal
+  - trigger: state
+    entity_id:
+    - person.gerrit_jan
+    - person.mirjam
+    to: home
+    id: normaal
+  conditions: []
   actions:
-  - action: notify.mobile_app_fairphone_6_gj
-    continue_on_error: true
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: normaal
+      sequence:
+      - action: notify.mobile_app_fairphone_6_gj
+        continue_on_error: true
+        data:
+          message: clear_notification
+          data:
+            tag: airco_aan
+      - action: notify.mobile_app_fairphone_6
+        continue_on_error: true
+        data:
+          message: clear_notification
+          data:
+            tag: airco_aan
+    - conditions:
+      - condition: state
+        entity_id: climate.airconditioner
+        state:
+        - auto
+        - cool
+        - dry
+        - heat
+        - fan_only
+      - condition: or
+        conditions:
+        - condition: trigger
+          id: lang
+        - condition: template
+          value_template: '{{ not is_state(''person.gerrit_jan'', ''home'') and not
+            is_state(''person.mirjam'', ''home'') and [states.person.gerrit_jan.last_changed,
+            states.person.mirjam.last_changed] | max < now() - timedelta(hours=1)
+            }}'
+      sequence:
+      - action: notify.mobile_app_fairphone_6_gj
+        continue_on_error: true
+        data:
+          title: Airco staat nog aan
+          message: '{% if trigger.id == ''lang'' %}De airco staat al 12 uur aan.{%
+            else %}De airco staat aan en er is al een uur niemand thuis.{% endif %}'
+          data:
+            group: airco
+            tag: airco_aan
+      - action: notify.mobile_app_fairphone_6
+        continue_on_error: true
+        data:
+          title: Airco staat nog aan
+          message: '{% if trigger.id == ''lang'' %}De airco staat al 12 uur aan.{%
+            else %}De airco staat aan en er is al een uur niemand thuis.{% endif %}'
+          data:
+            group: airco
+            tag: airco_aan
+  mode: queued
+- id: sms_albert_heijn_doorsturen
+  alias: SMS - Albert Heijn-code doorsturen naar Mirjam
+  description: Verificatiecodes van AlbertHeijn komen per sms op de telefoon van Gerrit-Jan
+    binnen; deze automation stuurt ze als melding door naar Mirjam (mobile_app_fairphone_6).
+    Leunt op de sensor 'Laatste melding' van de companion-app op Gerrit-Jans telefoon,
+    beperkt tot de sms-app. Na 15 minuten wordt de melding bij Mirjam weer ingetrokken,
+    omdat de code dan verlopen is.
+  triggers:
+  - trigger: state
+    entity_id: sensor.fairphone_6_gj_last_notification
+    attribute: post_time
+  conditions:
+  - condition: template
+    value_template: '{{ state_attr(''sensor.fairphone_6_gj_last_notification'', ''package'')
+      in [''com.google.android.apps.messaging'', ''com.android.messaging'', ''org.fossify.messages'']
+      }}'
+  - condition: template
+    value_template: '{{ ''albertheijn'' in (state_attr(''sensor.fairphone_6_gj_last_notification'',
+      ''android.title'') | string | lower | replace('' '', '''')) }}'
+  actions:
+  - action: notify.mobile_app_fairphone_6
     data:
-      title: Airco staat nog aan
-      message: '{% if trigger.id == ''lang'' %}De airco staat al 12 uur aan.{% else
-        %}De airco staat aan en er is al een uur niemand thuis.{% endif %}'
+      title: Albert Heijn-code (telefoon Gerrit-Jan)
+      message: '{{ state_attr(''sensor.fairphone_6_gj_last_notification'', ''android.text'')
+        or states(''sensor.fairphone_6_gj_last_notification'') }}'
       data:
-        group: airco
+        tag: ah_code
+        group: albert_heijn
+        ttl: 0
+        priority: high
+  - delay:
+      minutes: 15
   - action: notify.mobile_app_fairphone_6
     continue_on_error: true
     data:
-      title: Airco staat nog aan
-      message: '{% if trigger.id == ''lang'' %}De airco staat al 12 uur aan.{% else
-        %}De airco staat aan en er is al een uur niemand thuis.{% endif %}'
+      message: clear_notification
       data:
-        group: airco
-  mode: single
+        tag: ah_code
+  mode: restart
