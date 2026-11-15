@@ -586,7 +586,6 @@
     below: 250
     entity_id:
     - sensor.oven_spanning
-    - sensor.noodlader_auto_spanning
     - sensor.cv_spanning
     - sensor.badkamer_ventilator_spanning
     - sensor.badkamer_plafond_spanning
@@ -1143,7 +1142,6 @@
     - sensor.nieuw_engeland_volume_2_maximale_schijftemperatuur
     - sensor.zolder_bureau_gj_apparaattemperatuur
     - sensor.gang_bewegingsmelder_temperatuur
-    - sensor.slaapkamer_verwarming_apparaattemperatuur
     - sensor.inloopkast_deur_inloopkastdeur_apparaattemperatuur
     - sensor.zonnepanelen_ipm_temperature
     - sensor.zonnepanelen_inverter_temperature
@@ -1205,7 +1203,6 @@
     entity_id:
     - binary_sensor.wasdroger_overbelasting
     - binary_sensor.wasdroger_oververhitting
-    - binary_sensor.robotstofzuiger_probleem
     - binary_sensor.toilet_lamp_overbelasting
     - binary_sensor.toilet_lamp_overhitting
     - binary_sensor.badkamer_spiegellamp_overpowering
@@ -1214,7 +1211,6 @@
     - binary_sensor.nieuw_engeland_drive_1_onder_de_minimale_resterende_levensduur
     - binary_sensor.overbelasting
     - binary_sensor.overbelasting_3
-    - binary_sensor.slaapkamer_verwarming_overheating
     - binary_sensor.quooker_overheating
     - binary_sensor.quooker_overpowering
     - binary_sensor.oververhitting
@@ -1228,7 +1224,6 @@
     - binary_sensor.badkamer_wastafel_overheating
     - binary_sensor.keuken_plafond_overheating
     - binary_sensor.keuken_plafond_overvoltage
-    - binary_sensor.slaapkamer_verwarming_overbelasting
     - binary_sensor.inloopkast_koelkast_overbelasting
     - binary_sensor.inloopkast_koelkast_oververhitting
     - binary_sensor.woonkamer_lamp_achter_overheating
