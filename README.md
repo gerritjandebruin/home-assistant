@@ -20,6 +20,7 @@ Aerial photo of Utrecht around 1930. The arrow marks my street. On the right is 
 ### Floor plan
 ![Floor plan dashboard in Home Assistant](img/floorplan.png)
 My main dashboard: a floor plan per storey (ground floor, first floor and attic) with the lights, doors, appliances and sensor readings on top.
+It is interactive: I can tap a lamp or appliance on the plan to switch it.
 
 ## Devices
 The following table lists the devices in my home automation.
@@ -84,7 +85,7 @@ I prefer durability over low cost, so I tend to avoid cheap disposable hardware.
 | Smart plug | [Shelly Plug S](https://shop.shelly.cloud/shelly-plug-s-wifi-smart-home-automation) | WiFi | Walk-in closet, Kitchen, Attic (×4) | €20 | 6 |
 | Solar | Growatt 3000TL-XE with ShineLan-X | LAN, MQTT (via [Grott](https://github.com/johanmeijer/grott)), [PVOutput](https://pvoutput.org/list.jsp?userid=112973) | Attic | - | 1 |
 | Switch | [TP-Link TL-SG108S](https://www.mediamarkt.nl/nl/product/_tp-link-tl-sg108s-1593913.html) | - | | (€29) | 1 |
-| Tesla | [Tesla Model 3 (49 kWh)](https://www.tesla.com) | via evcc | | - | 1 |
+| Tesla | [Tesla Model 3 (49 kWh)](https://www.tesla.com) | charged with the Peblar | | - | 1 |
 | Thermostat (CV) | [Vaillant VR940f + VRT51f](https://www.vaillant.nl) | WiFi (HomeKit, myVAILLANT) | Living room | - | 1 |
 | Thermometer | [Aqara lumi.weather](https://aliexpress.com/item/32888389905.html) (w/ humidity, pressure) | Zigbee | Bathroom | €43 | 1 |
 | Thermometer | IKEA TIMMERFLOTTE (w/ humidity) | Matter (Thread) | Shed | - | 1 |
@@ -96,25 +97,18 @@ I prefer durability over low cost, so I tend to avoid cheap disposable hardware.
 | Zigbee controller | [dresden elektronik ConBee II](https://phoscon.de/en/conbee2) | [ZHA](https://www.home-assistant.io/integrations/zha/) | Shed | €35 | 1 |
 
 ## Hardware experiences
-### LED
-I bought a LED strip + power supply + driver for both the bike shed and the roof terrace at led-gigant.nl.
-The LED strip in the bike shed was easy to install, since I only had to cut it and did not have to join any strips.
-It is controlled by a Shelly, which are great drivers: easy to install and they just work out of the box on WiFi.
-
-Installing the LED strip on the roof terrace was harder and took me several weeks!
-Since my roof terrace is 4 by 2 metres, I needed 10 m of LED strip (4+2+4 for three sides).
-The strips were delivered as two 5 m rolls, so I had to cut and reconnect them.
-I did not expect that to be so hard.
-Since these strips are RGBWW, 5 strands need to be connected at each joint.
-I bought some [solderless connectors](https://www.led-gigant.nl/led/led-accessoires/led-strip-connectors/) from led-gigant.nl, but I did not get them to work on all five strands at once.
-Hence, I had to solder the connections, which is hard given that the strands are only 1-2 mm apart.
+### LED strips
+I have a LED strip in the bike shed and one around the roof terrace.
+Soldering LED strips properly is quite hard for a beginner, because the contacts are only a few millimetres apart.
+I also tried [solderless connectors](https://www.led-gigant.nl/led/led-accessoires/led-strip-connectors/), but unfortunately I could not get them to work on all 5 strands at once.
+So the result looks a bit less professional than I would have liked.
 
 ### IKEA
 The IKEA devices are all of good quality, especially for the low price.
 The lights are good and the remotes all work very well.
-The motion sensor reports motion fast, maybe even a bit too fast; especially on warmer days (>20 degrees Celsius) it sometimes triggers at random.
-A major drawback is how difficult they are to pair; the only thing that works for the lights is power cycling them manually.
+The drawback is that rejoining a network is hard, because you have to switch the lamp on and off a precise number of times.
 As the IKEA manual is not very accurate on how to do this, I used the instructions from [IKEA Switzerland](https://www.youtube.com/watch?v=mJm9YpPrGzk) (especially see the comment of Jon B.).
+With the new Matter devices this has become a lot better.
 
 ### Vegtrug
 I like the idea of a flower sensor very much, which is why I paid for this relatively expensive gadget.
@@ -126,32 +120,29 @@ I no longer use it.
 ### TuYa temperature sensor
 A nice thermometer with a display that shows the temperature and humidity.
 It updates very fast (over Zigbee) when the temperature changes.
-Major drawback: a very limited battery life of 1-2 weeks.
+I replace the battery about twice a year: going by my Home Assistant history, every 4 to 7 months.
+The battery level it reports is not reliable: it drops to about 10% within weeks and then stays there for months.
 
 ### Aqara
 Both the temperature sensors and the door sensors work very well on Zigbee, with either Zigbee2MQTT or ZHA.
 Battery life is around 6-12 months.
 
-### Apollo AIR-1
-The Apollo AIR-1 is the all-in-one air quality sensor in my living room.
-It measures CO₂, temperature, humidity and particulate matter (PM), and runs on ESPHome over WiFi.
-Integration with Home Assistant is seamless via the native API.
+### Air quality sensors
+I use CO₂ as a measure of whether a room needs ventilation.
+I monitor it in the living room, the bedroom, the attic and the guest room, and Home Assistant notifies me when the level gets too high, so I know when to open a window.
+The living room has an Apollo AIR-1, an all-in-one sensor that measures CO₂, temperature, humidity and particulate matter (PM) and runs on ESPHome over WiFi.
+The bedroom has an IKEA ALPSTUGA (Matter over Thread), and the attic and guest room each have a MoreSense MS05.
 
 ### Water meter
 My water meter is read by the [Muino water meter sensor](https://github.com/gerritjandebruin/watermeter-esphome) combined with an ESP32.
 It reads the optical pulse from the water meter and reports my water consumption to Home Assistant via ESPHome.
 
-### EV charging with evcc
-I drive a Tesla and installed a [Peblar](https://www.peblar.com) EV charger.
-To charge the car with surplus solar energy, I use [evcc](https://evcc.io/), an open-source EV charging manager.
-evcc reads the Growatt solar inverter via the Home Assistant API and monitors grid import and export.
-This allows smart charging: the car is charged preferentially with solar power, reducing grid import.
+### EV charging
+I drive a Tesla and charge it at home with a [Peblar](https://www.peblar.com) charger.
+I no longer use evcc for this.
+Instead, I use the Peblar together with my energy supplier [Frank Energie](https://www.frankenergie.nl), which lets me choose between smart charging and boost charging.
+Smart charging also takes grid congestion into account.
+That sometimes moves my charging to a more expensive moment, but one that the grid in my street can handle better, and I get a small compensation for it.
 
 ### Others
 Feel free to ask about other experiences by opening an [issue](https://github.com/gerritjandebruin/home-assistant/issues/new)!
-
-## Entities
-Auto-generated overviews (refresh by running the script in [CLAUDE.md](https://github.com/gerritjandebruin/home-assistant/blob/main/CLAUDE.md)):
-- [entities.md](entities.md) — 1311 entities across 27 domains
-- [devices.md](devices.md) — 153 devices grouped by integration
-- [integrations.md](integrations.md) — 105 config entries

@@ -1,0 +1,21 @@
+<!-- Makes the devices table sortable and searchable (https://github.com/fiduswriter/simple-datatables) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/style.css" integrity="sha384-CinX6s1UC1GpaQwL9eKshF7JhtC8H2xchDD0dWqlCgZ8t+GCCcjluxCgmsbVpdEh" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/umd/simple-datatables.js" integrity="sha384-fur44GLCxKOo6V7red+3pW/ZVGEMGmBrG61oj/ho9ltgXUz7ceixRinUpQfX9GPy" crossorigin="anonymous" defer></script>
+<style>
+  .datatable-wrapper { margin-bottom: 1rem; }
+  .datatable-top { padding-left: 0; padding-right: 0; }
+  .datatable-input { font-size: 1rem; width: 16rem; max-width: 100%; }
+  .datatable-table > thead > tr > th { white-space: nowrap; }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var table = document.querySelector(".main-content table");
+    if (!table || !window.simpleDatatables) return;
+    new simpleDatatables.DataTable(table, {
+      paging: false,
+      searchable: true,
+      sortable: true,
+      labels: { placeholder: "Search devices…", noRows: "No devices found", noResults: "No devices match your search", info: "{rows} device types" }
+    });
+  });
+</script>
