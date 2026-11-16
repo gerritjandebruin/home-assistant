@@ -166,7 +166,7 @@ This allows smart charging: the car is charged preferentially with solar power, 
 Feel free to ask more experiences by opening an [issue](https://github.com/gerritjandebruin/home-assistant/issues/new)!
 
 ## Entities
-Auto-generated overviews (refresh by running the script in [CLAUDE.md](CLAUDE.md)):
+Auto-generated overviews (refresh by running the script in [CLAUDE.md](https://github.com/gerritjandebruin/home-assistant/blob/main/CLAUDE.md)):
 - [entities.md](entities.md) — 1311 entities across 27 domains
 - [devices.md](devices.md) — 153 devices grouped by integration
 - [integrations.md](integrations.md) — 105 config entries

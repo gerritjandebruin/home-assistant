@@ -7,3 +7,5 @@ include:
   - README.md
 title: Smarthome Cremerboulevard
 theme: jekyll-theme-cayman
+exclude:
+  - CLAUDE.md
