@@ -72,12 +72,11 @@ Almost everything is controlled locally and keeps working without internet. The 
 ## Devices
 The following table lists the devices in my home automation.
 When buying new devices, I keep the following in mind:
-* Limit the number of different manufacturers. This helps when I replace devices later and gives more reproducible readings. I prefer manufacturers that are fairly large and have a good track record in long-term availability.
-* Money. I am not willing to spend much extra for just a little value.
-* Protocol. I am moving from Zigbee to [Matter](https://csa-iot.org/all-solutions/matter/), preferring Matter over Thread above Matter over WiFi. Thread devices form a low-power mesh network and do not congest the WiFi. My Google Nest Hub (2nd gen) acts as a Thread border router, bridging Thread devices to the IP network.
+* Limit the number of different manufacturers. This helps when I replace devices later and gives more reproducible readings. I prefer manufacturers that are fairly large and have a good track record in long-term availability. I value their durability over a low price, so I tend to avoid cheap disposable hardware.
+* Money. A device should have a good price-quality ratio. I prefer a budget option when it is good enough.
+* Protocol. I am moving from Zigbee to [Matter](https://csa-iot.org/all-solutions/matter/), preferring Matter over Thread above Matter over WiFi. Thread devices form a low-power mesh network and seem to have a longer range because of that. Zigbee is a mesh too, but it has trouble reaching all the way to my shed. My Google Nest Hub (2nd gen) acts as a Thread border router, bridging Thread devices to the IP network.
 
 Hence, most of my devices come from IKEA :)
-I prefer durability over low cost, so I tend to avoid cheap disposable hardware.
 
 | Device | Manufacturer | Model | Manual | Protocol | Integration | Local / cloud | Power | Battery life | Room | Status | Bought | Shop | Price | Pcs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
