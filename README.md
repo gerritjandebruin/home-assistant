@@ -23,8 +23,6 @@ My main dashboard: a floor plan per storey (ground floor, first floor and attic)
 It is interactive: I can click a lamp or appliance on the plan to control it, and hover over an icon to get more information.
 
 ## What my home does
-These are my automations, in plain language.
-
 **Lighting**
 - The lights in the hallway, on the landing and in the kitchen switch on when someone moves and it is dark. Brightness and colour depend on the time of day.
 - The bathroom lights switch on when the door opens or someone moves, and off after 20 minutes without movement. A button gives two mood settings: only the strip dimmed, or everything in a soft red-orange.
