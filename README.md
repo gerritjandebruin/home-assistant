@@ -25,16 +25,15 @@ It is interactive: I can click a lamp or appliance on the plan to control it, an
 ## What my home does
 **Lighting**
 - The lights in the hallway, on the landing and in the kitchen switch on when someone moves and it is dark. Brightness and colour depend on the time of day.
-- The kitchen has two Philips Hue OmniGlow light strips. They look beautiful, even when you look straight at them: you cannot see the individual LEDs, and the light can be softly animated.
 - The bathroom lights switch on when the door opens or someone moves, and off after 20 minutes without movement. A button gives two mood settings: only the strip dimmed, or everything in a soft red-orange.
 - The walk-in closet, storage room and shed switch their light on when the door opens and off when it closes.
 - The bike shed lights up on movement in the dark and switches off after 10 minutes.
 - The light strip in the living room switches on when someone is present and it is dark, and off when the room is empty.
-- The bedroom is controlled with a remote and two buttons, including a night setting with only the strip at 20%. The strip gives a beautiful indirect light.
+- The bedroom is controlled with a remote and two buttons, including a night setting with only the strip at 20%.
 - The landing light stays off while the door to the roof terrace is open, so it does not attract insects.
 
 **Air and climate**
-- I get a notification when CO₂ in a room rises above 1000 ppm, and again above 1200 ppm, so I know when to open a window.
+- I get a notification when CO₂ in a room rises above 1000 ppm, and again above 1200 ppm, so I know when to open a window. I measure CO₂ in the living room, the bedroom, the attic and the guest room. The living room has an Apollo AIR-1, which also measures particulate matter and runs on ESPHome.
 - I get a notification when the air conditioner is still on while nobody has been home for an hour, or when it has been on for 12 hours.
 - I get a notification when the shed drops below 5 °C, because frost can damage the water pipes and the central heating installation there.
 
@@ -64,9 +63,9 @@ Almost everything is controlled locally and keeps working without internet. The 
 - **Solar:** 8 LONGi panels of 365 Wp, 2.9 kWp in total, in two strings on a roof with a 20° pitch: one facing south-south-west and one facing north-north-east. The north-facing string still produces about two thirds of what the south-facing one does. I read the Growatt inverter locally with [Grott](https://github.com/johanmeijer/grott), and [Forecast.Solar](https://forecast.solar) predicts the production.
 - **Grid connection:** 3 × 25 A since July 2026, mainly so I can make more use of cheap electricity on my dynamic contract and charge the Tesla much faster. I read the smart meter through a HomeWizard P1 meter.
 - **Contract:** a dynamic contract with [Frank Energie](https://www.frankenergie.nl), with a different price every quarter of an hour. The Energy dashboard in Home Assistant calculates with the same prices as my bill.
-- **Car:** a Tesla Model 3 on a Peblar charger, see [EV charging](#ev-charging).
+- **Car:** I charge a Tesla Model 3 at home with a [Peblar](https://www.peblar.com) charger. I no longer use evcc for this: Frank Energie lets me choose between smart charging and boost charging. Smart charging also takes grid congestion into account. That sometimes moves my charging to a more expensive moment, but one that the grid in my street can handle better, and I get a small compensation for it.
 - **Per device:** smart plugs measure the big consumers: washing machine, dryer, dishwasher, oven, microwave, fridges and the boiling-water tap.
-- **Gas and water:** a Vaillant boiler heats the house, and a sensor on the water meter reports my water use.
+- **Gas and water:** a Vaillant boiler heats the house. My water meter is read by the [Muino water meter sensor](https://github.com/gerritjandebruin/watermeter-esphome) with an ESP32, which picks up the optical pulse and reports my water use through ESPHome.
 - **Home battery:** I have already bought an SMA home battery, but it is not connected yet. The plan is to store my solar power in it, and to use it as backup power for the whole house.
 
 ## Devices
@@ -153,6 +152,11 @@ Soldering LED strips properly is quite hard for a beginner, because the contacts
 I also tried [solderless connectors](https://www.led-gigant.nl/led/led-accessoires/led-strip-connectors/), but unfortunately I could not get them to work on all 5 strands at once.
 So the result looks a bit less professional than I would have liked.
 
+### Philips Hue light strips
+The Hue light strips are a big step up from my own LED strips.
+The two OmniGlow strips in the kitchen look beautiful, even when you look straight at them: you cannot see the individual LEDs, and the light can be softly animated.
+In the bedroom, a strip gives a beautiful indirect light.
+
 ### IKEA
 The IKEA devices are all of good quality, especially for the low price.
 The lights are good and the remotes all work very well.
@@ -170,29 +174,10 @@ I no longer use it.
 ### TuYa temperature sensor
 A nice thermometer with a display that shows the temperature and humidity.
 It updates very fast (over Zigbee) when the temperature changes.
-I replace the battery about twice a year: going by my Home Assistant history, every 4 to 7 months.
 The battery level it reports is not reliable: it drops to about 10% within weeks and then stays there for months.
 
 ### Aqara
 Both the temperature sensors and the door sensors work very well on Zigbee, with either Zigbee2MQTT or ZHA.
-The door sensors run for years on one battery; the thermometer needs a new one about once a year.
-
-### Air quality sensors
-I use CO₂ as a measure of whether a room needs ventilation.
-I monitor it in the living room, the bedroom, the attic and the guest room, and Home Assistant notifies me when the level gets too high, so I know when to open a window.
-The living room has an Apollo AIR-1, an all-in-one sensor that measures CO₂, temperature, humidity and particulate matter (PM) and runs on ESPHome over WiFi.
-The bedroom has an IKEA ALPSTUGA (Matter over Thread), and the attic and guest room each have a MoreSense MS05.
-
-### Water meter
-My water meter is read by the [Muino water meter sensor](https://github.com/gerritjandebruin/watermeter-esphome) combined with an ESP32.
-It reads the optical pulse from the water meter and reports my water consumption to Home Assistant via ESPHome.
-
-### EV charging
-I drive a Tesla and charge it at home with a [Peblar](https://www.peblar.com) charger.
-I no longer use evcc for this.
-Instead, I use the Peblar together with my energy supplier [Frank Energie](https://www.frankenergie.nl), which lets me choose between smart charging and boost charging.
-Smart charging also takes grid congestion into account.
-That sometimes moves my charging to a more expensive moment, but one that the grid in my street can handle better, and I get a small compensation for it.
 
 ### Others
 Feel free to ask about other experiences by opening an [issue](https://github.com/gerritjandebruin/home-assistant/issues/new)!
