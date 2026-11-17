@@ -767,8 +767,9 @@
   mode: single
 - id: '1767542919930'
   alias: Temperatuur waarschuwing
-  description: Melding als de schuur onder de 5 graden komt; ingetrokken zodra het
-    er weer boven de 6 is.
+  description: Melding als de schuur onder de 5 graden komt, omdat vorst de waterleiding
+    en de cv-installatie daar kan beschadigen; ingetrokken zodra het er weer boven
+    de 6 is.
   triggers:
   - trigger: numeric_state
     entity_id:
@@ -1646,9 +1647,10 @@
   mode: single
 - id: '1783975501329'
   alias: Overloop verlichting dakterrasdeur
-  description: Zet de overloopverlichting uit zodra de dakterrasdeur opengaat. Zolang
-    de deur open is, blokkeert een voorwaarde in 'Overloop verlichting' het opnieuw
-    inschakelen; na sluiten werkt de bewegingsdetectie weer normaal.
+  description: Zet de overloopverlichting uit zodra de dakterrasdeur opengaat, zodat
+    het licht geen insecten aantrekt. Zolang de deur open is, blokkeert een voorwaarde
+    in 'Overloop verlichting' het opnieuw inschakelen; na sluiten werkt de bewegingsdetectie
+    weer normaal.
   triggers:
   - trigger: state
     entity_id:

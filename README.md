@@ -25,17 +25,18 @@ It is interactive: I can click a lamp or appliance on the plan to control it, an
 ## What my home does
 **Lighting**
 - The lights in the hallway, on the landing and in the kitchen switch on when someone moves and it is dark. Brightness and colour depend on the time of day.
+- The kitchen has two Philips Hue OmniGlow light strips. They look beautiful, even when you look straight at them: you cannot see the individual LEDs, and the light can be softly animated.
 - The bathroom lights switch on when the door opens or someone moves, and off after 20 minutes without movement. A button gives two mood settings: only the strip dimmed, or everything in a soft red-orange.
 - The walk-in closet, storage room and shed switch their light on when the door opens and off when it closes.
 - The bike shed lights up on movement in the dark and switches off after 10 minutes.
 - The light strip in the living room switches on when someone is present and it is dark, and off when the room is empty.
-- The bedroom is controlled with a remote and two buttons, including a night setting with only the strip at 20%.
-- The landing light stays off while the door to the roof terrace is open.
+- The bedroom is controlled with a remote and two buttons, including a night setting with only the strip at 20%. The strip gives a beautiful indirect light.
+- The landing light stays off while the door to the roof terrace is open, so it does not attract insects.
 
 **Air and climate**
 - I get a notification when CO₂ in a room rises above 1000 ppm, and again above 1200 ppm, so I know when to open a window.
 - I get a notification when the air conditioner is still on while nobody has been home for an hour, or when it has been on for 12 hours.
-- I get a notification when the shed drops below 5 °C.
+- I get a notification when the shed drops below 5 °C, because frost can damage the water pipes and the central heating installation there.
 
 **Water**
 - When the leak sensor under the washing machine detects water, the water supply valve closes and the washing machine is switched off.
@@ -61,12 +62,12 @@ Almost everything is controlled locally and keeps working without internet. The 
 
 ## Energy
 - **Solar:** 8 LONGi panels of 365 Wp, 2.9 kWp in total, in two strings on a roof with a 20° pitch: one facing south-south-west and one facing north-north-east. The north-facing string still produces about two thirds of what the south-facing one does. I read the Growatt inverter locally with [Grott](https://github.com/johanmeijer/grott), and [Forecast.Solar](https://forecast.solar) predicts the production.
-- **Grid connection:** 3 × 25 A since July 2026, with a smart meter that I read through a HomeWizard P1 meter.
+- **Grid connection:** 3 × 25 A since July 2026, mainly so I can make more use of cheap electricity on my dynamic contract and charge the Tesla much faster. I read the smart meter through a HomeWizard P1 meter.
 - **Contract:** a dynamic contract with [Frank Energie](https://www.frankenergie.nl), with a different price every quarter of an hour. The Energy dashboard in Home Assistant calculates with the same prices as my bill.
 - **Car:** a Tesla Model 3 on a Peblar charger, see [EV charging](#ev-charging).
 - **Per device:** smart plugs measure the big consumers: washing machine, dryer, dishwasher, oven, microwave, fridges and the boiling-water tap.
 - **Gas and water:** a Vaillant boiler heats the house, and a sensor on the water meter reports my water use.
-- **Planned:** an SMA home battery, mainly as backup power for the whole house.
+- **Home battery:** I have already bought an SMA home battery, but it is not connected yet. The plan is to store my solar power in it, and to use it as backup power for the whole house.
 
 ## Devices
 The following table lists the devices in my home automation.
