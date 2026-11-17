@@ -159,7 +159,7 @@ In the bedroom, a strip gives a beautiful indirect light.
 The IKEA devices are all of good quality, especially for the low price.
 The lights are good and the remotes all work very well.
 The drawback is that rejoining a network is hard, because you have to switch the lamp on and off a precise number of times.
-As the IKEA manual is not very accurate on how to do this, I used the instructions from [IKEA Switzerland](https://www.youtube.com/watch?v=mJm9YpPrGzk) (especially see the comment of Jon B.).
+As the IKEA manual is not very accurate on how to do this, I used the instructions from [IKEA Switzerland](https://www.youtube.com/watch?v=mJm9YpPrGzk).
 With the new Matter devices this has become a lot better.
 
 ### Vegtrug
