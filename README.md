@@ -102,7 +102,7 @@ When buying new devices, I keep the following in mind:
 | Light bulb | IKEA | [KAJPLATS GU10 WS 575lm](https://www.ikea.com/nl/nl/p/kajplats-led-lamp-gu10-575-lumen-draadloos-dimbaar-wit-spectrum-70556621/) | - | Matter (Thread) | Matter | Local | Mains | - | Kitchen (×3), Storage room | In use | - | IKEA | €8* | 4 |
 | Light bulb | IKEA | [TRÅDFRI GU10 WS 400lm](https://www.ikea.com/nl/en/p/tradfri-led-bulb-gu10-400-lumen-wireless-dimmable-white-spectrum-90408603/) | [manual](https://www.zigbee2mqtt.io/devices/LED1537R6_LED1739R5.html) | Zigbee | ZHA | Local | Mains | - | Bedroom | In use | - | IKEA | €13 | 5 |
 | Light bulb | IKEA | [TRÅDFRI GU10 WW 400lm](https://www.ikea.com/nl/nl/p/tradfri-led-lamp-gu10-400-lumen-draadloos-dimbaar-warm-wit-60420041/) | [manual](https://www.zigbee2mqtt.io/devices/LED1837R5.html) | Zigbee | ZHA | Local | Mains | - | Walk-in closet | In use | - | IKEA | €13 | 2 |
-| Light bulb | Philips Hue | [E14 White Ambiance candle](https://www.mediamarkt.nl/nl/product/_philips-hue-ambiance-2-pack-wit-1502337.html) | - | Zigbee | Philips Hue (Bridge) | Local | Mains | - | Hallway, Landing | In use | - | MediaMarkt | €48 (2-pack) | 2 |
+| Light bulb | Philips Hue | [E14 White Ambiance candle](https://www.mediamarkt.nl/nl/product/_philips-hue-ambiance-2-pack-wit-1502337.html) | - | Zigbee | Philips Hue (Bridge) | Local | Mains | - | Hallway, Landing | In use | - | MediaMarkt | €24 | 2 |
 | Light bulb | Philips Hue | [E27 Filament](https://www.gamma.nl/assortiment/philips-hue-filament-led-lamp-e27-7w/p/B128025) | - | Zigbee | Philips Hue (Bridge) | Local | Mains | - | Attic | In use | - | Gamma | €20 | 1 |
 | Light bulb | Philips Hue | E27 White Ambiance | - | Zigbee | Philips Hue (Bridge) | Local | Mains | - | Shed, Attic | In use | - | - | ~€40 | 2 |
 | Light strip | Philips Hue | Flux lightstrip | - | Zigbee | Philips Hue (Bridge) | Local | Mains | - | Bedroom, Living room | In use | 2026-01, 2026-04 | Philips Hue, Coolblue | €107 | 2 |
@@ -139,7 +139,7 @@ When buying new devices, I keep the following in mind:
 | Water valve | SONOFF | SWV-ZFE | [manual](https://www.zigbee2mqtt.io/devices/SWV.html) | Zigbee | ZHA | Local | 4× AA (rechargeable) | no replacement yet (since Aug 2026) | Attic (washing machine) | In use | 2026-08 | AliExpress | ~€33 | 1 |
 | Zigbee controller | dresden elektronik | [ConBee II](https://phoscon.de/en/conbee2) | [manual](https://phoscon.de/en/conbee2/install) | Zigbee (USB) | [ZHA](https://www.home-assistant.io/integrations/zha/) | Local | USB | - | Shed | In use | - | - | €35 | 1 |
 
-Prices are what I paid, rounded to whole euros. Prices marked with * are current IKEA prices; prices marked with ~ are estimates, such as a share of an order with several items.
+Prices are what I paid per piece, rounded to whole euros; for the LED strips it is the price of the whole length, including the power supply. Prices marked with * are current IKEA prices; prices marked with ~ are estimates, such as a share of an order with several items.
 The battery life comes from the battery history in Home Assistant.
 For devices that take AA or AAA batteries I use rechargeable ones.
 
