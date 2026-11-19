@@ -1751,7 +1751,7 @@
       title: Lek bij de wasmachine
       message: Water in de lekbak op zolder. Toevoer wordt dichtgestuurd.
       notification_id: swv_lek_bij_de_wasmachin
-  - action: notify.mobile_app_fairphone_6
+  - action: notify.mobile_app_fairphone_6_mirjam
     data:
       title: Lek bij de wasmachine
       message: Water in de lekbak op zolder. Toevoer wordt dichtgestuurd.
@@ -1800,7 +1800,7 @@
           message: De wasmachineklep reageert niet op het dichtstuurcommando. Handmatig
             afsluiten.
           notification_id: swv_klep_gaat_niet_dicht
-      - action: notify.mobile_app_fairphone_6
+      - action: notify.mobile_app_fairphone_6_mirjam
         data:
           title: Klep gaat NIET dicht
           message: De wasmachineklep reageert niet op het dichtstuurcommando. Handmatig
@@ -2280,8 +2280,8 @@
     weg zijn, of als hij 12 uur aan staat. Die tweede regel is er omdat de aanwezigheid
     op twee telefoons leunt en dus kan falen. Twee aanroepen van de legacy diensten
     (notify.send_message geeft geen group door): mobile_app_fairphone_6_gj is Gerrit-Jan,
-    mobile_app_fairphone_6 is Mirjam (Telefoon Mirjam). De melding wordt op beide
-    telefoons ingetrokken zodra de airco uit gaat of iemand thuiskomt.'
+    mobile_app_fairphone_6_mirjam is Mirjam (Fairphone 6 Mirjam). De melding wordt
+    op beide telefoons ingetrokken zodra de airco uit gaat of iemand thuiskomt.'
   triggers:
   - trigger: state
     entity_id: person.gerrit_jan
@@ -2331,7 +2331,7 @@
           message: clear_notification
           data:
             tag: airco_aan
-      - action: notify.mobile_app_fairphone_6
+      - action: notify.mobile_app_fairphone_6_mirjam
         continue_on_error: true
         data:
           message: clear_notification
@@ -2365,7 +2365,7 @@
           data:
             group: airco
             tag: airco_aan
-      - action: notify.mobile_app_fairphone_6
+      - action: notify.mobile_app_fairphone_6_mirjam
         continue_on_error: true
         data:
           title: Airco staat nog aan
@@ -2378,7 +2378,7 @@
 - id: sms_albert_heijn_doorsturen
   alias: SMS - Albert Heijn-code doorsturen naar Mirjam
   description: Verificatiecodes van AlbertHeijn komen per sms op de telefoon van Gerrit-Jan
-    binnen; deze automation stuurt ze als melding door naar Mirjam (mobile_app_fairphone_6).
+    binnen; deze automation stuurt ze als melding door naar Mirjam (mobile_app_fairphone_6_mirjam).
     Leunt op de sensor 'Laatste melding' van de companion-app op Gerrit-Jans telefoon,
     beperkt tot de sms-app. Na 15 minuten wordt de melding bij Mirjam weer ingetrokken,
     omdat de code dan verlopen is.
@@ -2395,7 +2395,7 @@
     value_template: '{{ ''albertheijn'' in (state_attr(''sensor.fairphone_6_gj_last_notification'',
       ''android.title'') | string | lower | replace('' '', '''')) }}'
   actions:
-  - action: notify.mobile_app_fairphone_6
+  - action: notify.mobile_app_fairphone_6_mirjam
     data:
       title: Albert Heijn-code (telefoon Gerrit-Jan)
       message: '{{ state_attr(''sensor.fairphone_6_gj_last_notification'', ''android.text'')
@@ -2407,10 +2407,53 @@
         priority: high
   - delay:
       minutes: 15
-  - action: notify.mobile_app_fairphone_6
+  - action: notify.mobile_app_fairphone_6_mirjam
     continue_on_error: true
     data:
       message: clear_notification
       data:
         tag: ah_code
+  mode: restart
+- id: sms_obvion_msverify_doorsturen
+  alias: SMS - Obvion-code (msverify) doorsturen naar Mirjam
+  description: Verificatiecodes voor Obvion komen per sms van afzender msverify op de
+    telefoon van Gerrit-Jan binnen; deze automation stuurt ze als melding door naar
+    Mirjam (mobile_app_fairphone_6_mirjam). Alleen sms'en van msverify waarin Obvion
+    staat, want msverify verstuurt ook codes voor andere partijen. Zelfde opzet als de
+    Albert Heijn-automation; na 15 minuten wordt de melding bij Mirjam ingetrokken.
+  triggers:
+  - trigger: state
+    entity_id: sensor.fairphone_6_gj_last_notification
+    attribute: post_time
+  conditions:
+  - condition: template
+    value_template: '{{ state_attr(''sensor.fairphone_6_gj_last_notification'', ''package'')
+      in [''com.google.android.apps.messaging'', ''com.android.messaging'', ''org.fossify.messages'']
+      }}'
+  - condition: template
+    value_template: '{{ ''msverify'' in (state_attr(''sensor.fairphone_6_gj_last_notification'',
+      ''android.title'') | string | lower | replace('' '', '''')) }}'
+  - condition: template
+    value_template: '{{ ''obvion'' in ((state_attr(''sensor.fairphone_6_gj_last_notification'',
+      ''android.text'') or states(''sensor.fairphone_6_gj_last_notification'')) | string
+      | lower) }}'
+  actions:
+  - action: notify.mobile_app_fairphone_6_mirjam
+    data:
+      title: Obvion-code (telefoon Gerrit-Jan)
+      message: '{{ state_attr(''sensor.fairphone_6_gj_last_notification'', ''android.text'')
+        or states(''sensor.fairphone_6_gj_last_notification'') }}'
+      data:
+        tag: obvion_code
+        group: obvion
+        ttl: 0
+        priority: high
+  - delay:
+      minutes: 15
+  - action: notify.mobile_app_fairphone_6_mirjam
+    continue_on_error: true
+    data:
+      message: clear_notification
+      data:
+        tag: obvion_code
   mode: restart
